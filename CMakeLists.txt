@@ -24,7 +24,11 @@ include_directories(glad/include)
 add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
 
 
+add_library(common common/Shader.cpp common/Shader.h)
+target_link_libraries(common glad glfw assimp glm)
+
+
 # Setting up executable
 
 add_executable(SunLight SunLight/src/main.cpp)
-target_link_libraries(SunLight glad glfw assimp)
+target_link_libraries(SunLight glad glfw assimp common)
