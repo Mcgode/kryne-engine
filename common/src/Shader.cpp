@@ -2,7 +2,7 @@
 // Created by Max Godefroy on 02/08/2017.
 //
 
-#include "Shader.h"
+#include "common/Shader.h"
 
 #ifndef _WIN32
 #define DIR "Shaders/"

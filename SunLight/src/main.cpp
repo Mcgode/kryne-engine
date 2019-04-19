@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../../common/Shader.h"
+#include "common/Shader.h"
 
 using namespace std;
 

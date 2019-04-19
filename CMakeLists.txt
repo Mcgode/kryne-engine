@@ -24,7 +24,8 @@ include_directories(glad/include)
 add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
 
 
-add_library(common common/Shader.cpp common/Shader.h)
+include_directories("common/include")
+add_library(common common/src/Shader.cpp common/include/common/Shader.h)
 target_link_libraries(common glad glfw assimp glm)
 
 
