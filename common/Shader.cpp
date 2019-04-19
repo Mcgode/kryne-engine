@@ -5,7 +5,7 @@
 #include "Shader.h"
 
 #ifndef _WIN32
-#define DIR "shaders/"
+#define DIR "Shaders/"
 #else
 #define DIR "shaders\\"
 #endif
@@ -39,6 +39,12 @@ Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilen
     // Deleting shaders
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+}
+
+
+Shader::Shader(const char *shaderName)
+{
+    *this = Shader(shaderName, shaderName);
 }
 
 
