@@ -11,8 +11,8 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(GLFW)
 
 
-add_subdirectory(glm-0.9.8.5)
-include_directories(glm-0.9.8.5)
+add_subdirectory(glm-0.9.9.5)
+include_directories(glm-0.9.9.5)
 
 
 add_subdirectory(assimp)
