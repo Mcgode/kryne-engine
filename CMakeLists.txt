@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.10)
+project(3D_demos)
+
+set(CMAKE_CXX_STANDARD 11)
+
+
+#Setting up GLFW
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_subdirectory(GLFW)
+
+
+add_subdirectory(glm-0.9.8.5)
+include_directories(glm-0.9.8.5)
+
+
+add_subdirectory(assimp)
+include_directories(assimp/include)
+
+
+#Adding GLAD library
+include_directories(glad/include)
+add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
+
+
+# Setting up executable
+
+add_executable(SunLight SunLight/src/main.cpp)
+target_link_libraries(SunLight glad glfw assimp)
