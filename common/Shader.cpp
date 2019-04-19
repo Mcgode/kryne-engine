@@ -149,3 +149,12 @@ void Shader::setMat4(const char *name, glm::mat4 mat) const
 void Shader::setVec3(const char *name, glm::vec3 vec) {
     setVec3(name, vec.x, vec.y, vec.z);
 }
+
+
+/**
+ * Resets the current shader program to the base program.
+ */
+void Shader::resetUse()
+{
+    glUseProgram(0);
+}
