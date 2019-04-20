@@ -81,7 +81,7 @@ void VertexArray::execute(GLenum primitive)
 }
 
 
-void VertexArray::setUpElements(std::vector<uint32_t[]> *indexes, size_t size)
+void VertexArray::setUpElements(std::vector<uint32_t[3]> *indexes, size_t size)
 {
     glGenBuffers(1, &ebo);
     ebo_length = indexes->size();
