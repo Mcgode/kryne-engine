@@ -24,12 +24,20 @@ include_directories(glad/include)
 add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
 
 
+# Set up common library
 include_directories("common/include")
-add_library(common common/src/Shader.cpp common/include/common/Shader.h common/src/VertexArray.cpp common/include/common/VertexArray.h)
+add_library(common
+        common/src/Shader.cpp common/include/common/Shader.h
+        common/src/VertexArray.cpp common/include/common/VertexArray.h
+        common/include/common/Camera.h
+        common/src/BasicCamera.cpp common/include/common/BasicCamera.h)
 target_link_libraries(common glad glfw assimp glm)
 
 
-# Setting up executable
+# Setting up executables
 
 add_executable(SunLight SunLight/src/main.cpp)
 target_link_libraries(SunLight glad glfw assimp common)
+
+add_executable(Sphere Sphere/main.cpp)
+target_link_libraries(Sphere glad glfw assimp common)
