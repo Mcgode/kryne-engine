@@ -29,6 +29,7 @@ include_directories("common/include")
 add_library(common
         common/src/Shader.cpp common/include/common/Shader.h
         common/src/VertexArray.cpp common/include/common/VertexArray.h
+        common/src/Window.cpp common/include/common/Window.h
         common/include/common/Camera.h
         common/src/BasicCamera.cpp common/include/common/BasicCamera.h)
 target_link_libraries(common glad glfw assimp glm)
