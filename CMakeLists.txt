@@ -35,7 +35,7 @@ add_library(common
         common/src/BasicCamera.cpp common/include/common/BasicCamera.h
         common/src/GeometricShapes.cpp common/include/common/GeometricShapes.h
         common/src/BaseObject.cpp common/include/common/BaseObject.h
-        common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h)
+        common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h common/include/common/Types.h)
 target_link_libraries(common glad glfw assimp glm)
 
 
