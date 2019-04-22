@@ -6,13 +6,17 @@
 #define INC_3D_DEMOS_WINDOW_H
 
 #include <vector>
+#include <unordered_set>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <iostream>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "Camera.h"
+#include "Types.h"
+
+
+class Scene;
 
 
 /**
@@ -33,6 +37,10 @@ public:
 
     int getHeight() const;
 
+    void runLoop(Scene *scene, AdditionalParams_t *params = nullptr);
+
+    static void keyCallback(GLFWwindow *_w, int key, int _scan_code, int action, int _mods);
+
     ~Window();
 
 private:
@@ -45,6 +53,9 @@ private:
 
     /// The GLFW desktop window
     GLFWwindow *window;
+
+    /// The list of currently pressed keys
+    std::unordered_set<int> keysPressed;
 
 };
 

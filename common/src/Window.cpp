@@ -4,6 +4,10 @@
 
 #include "common/Window.h"
 
+
+Window *current_window;
+
+
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
     glViewport(0, 0, width, height);
@@ -48,6 +52,22 @@ Window::Window(uint32_t width, uint32_t height)
 
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
     glfwSetErrorCallback(errorCallback);
+
+    current_window = this;
+
+    glfwSetKeyCallback(this->window, Window::keyCallback);
+}
+
+
+void Window::keyCallback(GLFWwindow *_window, int key, int _scan_code, int action, int _mods)
+{
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(current_window->window, 1);
+    else if (action == GLFW_PRESS){
+        current_window->keysPressed.insert(key);
+    } else if (action == GLFW_RELEASE) {
+        current_window->keysPressed.erase(key);
+    }
 }
 
 
