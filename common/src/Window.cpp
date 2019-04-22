@@ -2,6 +2,7 @@
 // Created by max on 20/04/19.
 //
 
+#include <common/Scene.h>
 #include "common/Window.h"
 
 
@@ -86,4 +87,14 @@ int Window::getWidth() const
 int Window::getHeight() const
 {
     return height;
+}
+
+
+void Window::runLoop(Scene *scene, AdditionalParams_t *params)
+{
+    while (!glfwWindowShouldClose(this->window)) {
+        scene->mainRenderLoop(params);
+        glfwSwapBuffers(this->window);
+        glfwPollEvents();
+    }
 }
