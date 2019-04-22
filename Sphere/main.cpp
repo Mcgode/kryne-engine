@@ -3,20 +3,19 @@
 //
 
 #include <iostream>
-#include <common/Window.h>
-#include "common/Shader.h"
+#include <common/Scene.h>
+#include <common/BasicCamera.h>
 
 using namespace std;
 
 
 int main(int argc, const char **argv)
 {
-    auto *w = new Window();
+    auto *pScene = new Scene(new BasicCamera(glm::vec3(0, 0, -2), glm::vec3(0, 0, 0)));
 
-    auto *s = new Shader("Quad/Color");
-    delete(s);
+    pScene->runLoop(nullptr);
 
-    delete(w);
+    delete(pScene);
 
     return 0;
 }
