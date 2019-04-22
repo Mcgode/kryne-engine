@@ -36,7 +36,7 @@ public:
      */
     virtual glm::vec3 getCurrentPosition() = 0;
 
-    ~Camera() = default;
+    virtual ~Camera() = default;
 
 };
 

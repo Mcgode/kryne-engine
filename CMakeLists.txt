@@ -28,6 +28,7 @@ add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
 include_directories("common/include")
 add_library(common
         common/src/Shader.cpp common/include/common/Shader.h
+        common/src/Scene.cpp common/include/common/Scene.h
         common/src/VertexArray.cpp common/include/common/VertexArray.h
         common/src/Window.cpp common/include/common/Window.h
         common/include/common/Camera.h
