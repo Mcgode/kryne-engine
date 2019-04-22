@@ -46,6 +46,10 @@ public:
      */
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, std::map<std::string, void*> *params = nullptr);
 
+    Shader *getShader() const;
+
+    bool isSupportingLighting() const;
+
 private:
 
     Shader *shader{};

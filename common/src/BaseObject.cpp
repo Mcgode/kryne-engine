@@ -28,3 +28,14 @@ void BaseObject::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, std
     shader->setMat4("normalMat", glm::inverse(glm::transpose(glm::mat3(model))));
     vertexArray->execute();
 }
+
+
+Shader *BaseObject::getShader() const
+{
+    return shader;
+}
+
+
+bool BaseObject::isSupportingLighting() const {
+    return supportsLighting;
+}
