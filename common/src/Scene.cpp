@@ -52,3 +52,9 @@ void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, Additi
 
     obj->getShader()->resetUse();
 }
+
+
+void Scene::runLoop(AdditionalParams_t *params)
+{
+    this->window->runLoop(this, params);
+}

@@ -57,6 +57,12 @@ public:
      */
     void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params);
 
+    /**
+     * Runs the main loop until the window is asked to be closed
+     * @param params The additional parameters to pass down to the loop
+     */
+    void runLoop(AdditionalParams_t *params = nullptr);
+
     ~Scene();
 
 private:
