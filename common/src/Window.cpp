@@ -55,3 +55,15 @@ Window::~Window()
 {
     glfwTerminate();
 }
+
+
+int Window::getWidth() const
+{
+    return width;
+}
+
+
+int Window::getHeight() const
+{
+    return height;
+}

@@ -29,6 +29,10 @@ public:
      */
     explicit Window(uint32_t width = 1280, uint32_t height = 720);
 
+    int getWidth() const;
+
+    int getHeight() const;
+
     ~Window();
 
 private:
