@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "Window.h"
 #include "HierarchicalNode.h"
+#include "Types.h"
 
 /**
  * A class for handling a basic 3D scene
@@ -40,7 +41,21 @@ public:
     void addDrawable(HierarchicalNode *node);
 
 
-    void mainRenderLoop(std::map<std::string, void *> *params);
+    /**
+     * The method for the main rendering loop
+     * @param params Additional parameters to pass down during the rendering
+     */
+    void mainRenderLoop(std::map<std::string, void *> *params = nullptr);
+
+    /**
+     * Draws an object in the scene.
+     * @param obj        The object to draw
+     * @param projection The projection transform matrix
+     * @param view       The view transform matrix
+     * @param model      The model transform matrix
+     * @param params     The additional parameters to pass down to the object
+     */
+    void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params);
 
     ~Scene();
 
@@ -54,6 +69,9 @@ private:
 
     /// All the drawable root nodes to render in the scene
     std::vector<HierarchicalNode *> rootNodes;
+
+    /// The projection matrix for the scene
+    glm::mat4 projection;
 
 };
 

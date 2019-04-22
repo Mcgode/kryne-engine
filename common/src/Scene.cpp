@@ -32,11 +32,23 @@ void Scene::addDrawable(HierarchicalNode *node)
 }
 
 
-void Scene::mainRenderLoop(std::map<std::string, void *> *params)
+void Scene::mainRenderLoop(AdditionalParams_t *params)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    for (HierarchicalNode *node: rootNodes) {
-        // TODO : Render nodes
+    for (HierarchicalNode *node: rootNodes)
+        node->draw(this, this->camera->getViewMatrix(), glm::mat4(), nullptr);
+}
+
+void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params)
+{
+    obj->getShader()->use();
+
+    if (obj->isSupportingLighting()) {
+        // TODO : Support scene lighting handling
     }
+
+    obj->draw(projection, view, model, params);
+
+    obj->getShader()->resetUse();
 }

@@ -3,6 +3,7 @@
 //
 
 #include <common/HierarchicalNode.h>
+#include <common/Scene.h>
 
 
 HierarchicalNode::HierarchicalNode(glm::mat4 transform)
@@ -38,6 +39,18 @@ HierarchicalNode::~HierarchicalNode()
         delete(obj);
     for (HierarchicalNode *child: children)
         delete(child);
+}
+
+
+void HierarchicalNode::draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params)
+{
+    glm::mat4 final_model = this->transform * model;
+
+    for (BaseObject *obj: objects)
+        scene->drawInScene(obj, view, final_model, params);
+
+    for (HierarchicalNode *node: children)
+        node->draw(scene, view, final_model, params);
 }
 
 

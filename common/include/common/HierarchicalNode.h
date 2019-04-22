@@ -8,6 +8,10 @@
 #include <stdarg.h>
 
 #include "BaseObject.h"
+#include "Types.h"
+
+
+class Scene;
 
 
 /**
@@ -43,6 +47,15 @@ public:
      * @return The pointer to the current HierarchicalNode. Used for call chains.
      */
     HierarchicalNode *addChild(HierarchicalNode *child);
+
+    /**
+     * Draws the node objects and its children to the current framebuffer
+     * @param scene      The scene for the rendering.
+     * @param view       The view transform matrix of the scene.
+     * @param model      The combined model transform matrix of the scene and the node successive parents.
+     * @param params     The additional params to pass down the rendering pipeline.
+     */
+    void draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params);
 
     ~HierarchicalNode();
 
