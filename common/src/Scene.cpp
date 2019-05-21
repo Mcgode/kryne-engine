@@ -41,6 +41,9 @@ void Scene::mainRenderLoop(AdditionalParameters *params)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    glm::vec3 camPos = camera->getCurrentPosition();
+    params->insertLoopLongParameter("cameraPosition", camPos);
+
     for (HierarchicalNode *node: rootNodes)
         node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
 }
@@ -50,7 +53,11 @@ void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, Additi
     obj->getShader()->use();
 
     if (obj->isSupportingLighting()) {
-        // TODO : Support scene lighting handling
+        if (this->directionalLight && params->contains("cameraPosition")) {
+            directionalLight->shaderSet(obj->getShader(), "directionalLight");
+            obj->getShader()->setVec3("cameraPosition", std::any_cast<glm::vec3>(params->get("cameraPosition")));
+        } else
+            obj->getShader()->setInt("directionalLight.enabled", 0);
     }
 
     obj->draw(projection, view, model, params);
