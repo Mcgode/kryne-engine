@@ -10,6 +10,10 @@ PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *am
     this->diffuseColor = diffuseColor;
     this->ambientColor = ambientColor ? *ambientColor : 0.1f * this->diffuseColor;
     this->specularColor = specularColor ? *specularColor : this->diffuseColor;
+
+    this->constantAttenuation = 1;
+    this->linearAttenuation = 1.0 / 20.0;
+    this->quadraticAttenuation = 0.0;
 }
 
 
@@ -56,4 +60,12 @@ std::vector<PointLight*> PointLight::getClosestPointLights(std::vector<PointLigh
     }
 
     return v;
+}
+
+
+void PointLight::setAttenuation(float constant, float linear, float quadratic)
+{
+    constantAttenuation = constant;
+    linearAttenuation = linear;
+    quadraticAttenuation = quadratic;
 }

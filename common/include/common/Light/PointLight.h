@@ -19,6 +19,8 @@ public:
                         glm::vec3 *ambientColor = nullptr,
                         glm::vec3 *specularColor = nullptr);
 
+    void setAttenuation(float constant, float linear, float quadratic);
+
     void shaderSet(Shader *shader, std::string uniformName);
 
     void shaderSetArray(Shader *shader, std::string uniformArrayName, size_t index);
