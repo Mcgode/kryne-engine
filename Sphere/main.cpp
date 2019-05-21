@@ -12,12 +12,12 @@ using namespace std;
 
 int main(int argc, const char **argv)
 {
-    auto *pScene = new Scene(new TrackballCamera(glm::vec3(-0.5, 0.5, 0)));
+    auto *pScene = new Scene(new TrackballCamera(glm::vec3(0, 0, 0)));
 
     vector<glm::vec3> vertices{};
     generateSphereShape(0.5, 10, 5, &vertices);
 
-    auto *sh = new Shader("Quad/Color");
+    auto *sh = new Shader("Quad/PositionColor");
     auto *va = new VertexArray(&vertices);
     auto *obj = new BaseObject(sh, va);
     pScene->addDrawable(new HierarchicalNode(obj));
