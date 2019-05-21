@@ -17,7 +17,7 @@ class Shader {
 
 public:
     Shader(const char* vertexShaderFilename, const char* fragmentShaderFilename);
-    Shader(const char *shaderName);
+    Shader(const char *shaderName) : Shader(shaderName, shaderName) {};
     ~Shader();
 
     void use();

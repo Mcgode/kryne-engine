@@ -42,12 +42,6 @@ Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilen
 }
 
 
-Shader::Shader(const char *shaderName)
-{
-    *this = Shader(shaderName, shaderName);
-}
-
-
 Shader::~Shader()
 {
     glDeleteProgram(ID);
