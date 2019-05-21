@@ -15,6 +15,22 @@ using namespace glm;
 
 
 /**
+ * Generate a single side quad shape
+ * @param size                  The length of each side of the quad
+ * @param positions             The vector for collecting the vertex positions
+ * @param normals               The vector for collecting the vertex normals
+ * @param textureCoordinates    The vector for collecting the UV map coordinates for the vertex
+ * @param tangents              The vector for collecting the vertex tangents
+ */
+void generateQuadShape(
+        float size = 1.0f,
+        std::vector<vec3> *positions = nullptr,
+        std::vector<vec3> *normals = nullptr,
+        std::vector<vec2> *textureCoordinates = nullptr,
+        std::vector<vec3> *tangents = nullptr);
+
+
+/**
  * Generates the 3D data of a sphere shape
  * @param ray                   The ray of the sphere
  * @param n_long                Number of discrete longitudes

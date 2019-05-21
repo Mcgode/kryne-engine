@@ -92,3 +92,49 @@ void generateSphereShape(
         }
     }
 }
+
+
+void generateQuadShape(float size,
+                       std::vector<vec3> *positions,
+                       std::vector<vec3> *normals,
+                       std::vector<vec2> *textureCoordinates,
+                       std::vector<vec3> *tangents)
+{
+    float s = size / 2.0;
+
+    if (positions != nullptr) {
+        positions->push_back(glm::vec3(-s, 0 , -s));
+        positions->push_back(glm::vec3( s, 0 , -s));
+        positions->push_back(glm::vec3(-s, 0 ,  s));
+        positions->push_back(glm::vec3( s, 0 ,  s));
+        positions->push_back(glm::vec3(-s, 0 ,  s));
+        positions->push_back(glm::vec3( s, 0 , -s));
+    }
+
+    if (normals != nullptr) {
+        normals->push_back(glm::vec3(0, 1, 0));
+        normals->push_back(glm::vec3(0, 1, 0));
+        normals->push_back(glm::vec3(0, 1, 0));
+        normals->push_back(glm::vec3(0, 1, 0));
+        normals->push_back(glm::vec3(0, 1, 0));
+        normals->push_back(glm::vec3(0, 1, 0));
+    }
+
+    if (textureCoordinates != nullptr) {
+        textureCoordinates->push_back(glm::vec3(0, 0 , 0));
+        textureCoordinates->push_back(glm::vec3(1, 0 , 0));
+        textureCoordinates->push_back(glm::vec3(0, 0 , 1));
+        textureCoordinates->push_back(glm::vec3(1, 0 , 1));
+        textureCoordinates->push_back(glm::vec3(0, 0 , 1));
+        textureCoordinates->push_back(glm::vec3(1, 0 , 0));
+    }
+
+    if (tangents != nullptr) {
+        tangents->push_back(glm::vec3(1, 0, 0));
+        tangents->push_back(glm::vec3(1, 0, 0));
+        tangents->push_back(glm::vec3(1, 0, 0));
+        tangents->push_back(glm::vec3(1, 0, 0));
+        tangents->push_back(glm::vec3(1, 0, 0));
+        tangents->push_back(glm::vec3(1, 0, 0));
+    }
+}
