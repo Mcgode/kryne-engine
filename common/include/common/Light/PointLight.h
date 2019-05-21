@@ -25,7 +25,7 @@ public:
 
     void shaderSetArray(Shader *shader, std::string uniformArrayName, size_t index);
 
-    static std::vector<PointLight*> getClosestPointLights(std::vector<PointLight*> pointLightList,
+    static std::vector<PointLight*> getClosestPointLights(const std::vector<PointLight*>& pointLightList,
                                                           glm::vec3 position,
                                                           size_t maximumAmount);
 

@@ -8,7 +8,7 @@ PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *am
 {
     this->position = position;
     this->diffuseColor = diffuseColor;
-    this->ambientColor = ambientColor ? *ambientColor : 0.1f * this->diffuseColor;
+    this->ambientColor = ambientColor ? *ambientColor : glm::vec3(0);
     this->specularColor = specularColor ? *specularColor : this->diffuseColor;
 
     this->constantAttenuation = 1;
@@ -37,7 +37,7 @@ void PointLight::shaderSetArray(Shader *shader, std::string uniformArrayName, si
 }
 
 
-std::vector<PointLight*> PointLight::getClosestPointLights(std::vector<PointLight*> pointLightList,
+std::vector<PointLight*> PointLight::getClosestPointLights(const std::vector<PointLight*>& pointLightList,
                                                           glm::vec3 position,
                                                           size_t maximumAmount)
 {
