@@ -5,8 +5,6 @@
 #ifndef INC_3D_DEMOS_BASEOBJECT_H
 #define INC_3D_DEMOS_BASEOBJECT_H
 
-#include <map>
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -15,6 +13,7 @@
 
 #include "Shader.h"
 #include "VertexArray.h"
+#include "AdditionalParameters.h"
 
 
 /**
@@ -44,7 +43,7 @@ public:
      * @param model         The model transform matrix
      * @param params        A map containing additional data to pass down to the object
      */
-    void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, std::map<std::string, void*> *params = nullptr);
+    void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     Shader *getShader() const;
 

@@ -9,7 +9,6 @@
 #include "common/Camera/Camera.h"
 #include "Window.h"
 #include "HierarchicalNode.h"
-#include "Types.h"
 
 /**
  * A class for handling a basic 3D scene
@@ -45,7 +44,7 @@ public:
      * The method for the main rendering loop
      * @param params Additional parameters to pass down during the rendering
      */
-    void mainRenderLoop(std::map<std::string, void *> *params = nullptr);
+    void mainRenderLoop(AdditionalParameters *params);
 
     /**
      * Draws an object in the scene.
@@ -55,13 +54,19 @@ public:
      * @param model      The model transform matrix
      * @param params     The additional parameters to pass down to the object
      */
-    void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params);
+    void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     /**
      * Runs the main loop until the window is asked to be closed
      * @param params The additional parameters to pass down to the loop
      */
-    void runLoop(AdditionalParams_t *params = nullptr);
+    void runLoop(AdditionalParameters *params = new AdditionalParameters());
+
+    /**
+     * Sets the directional light of the scene
+     * @param light The directional light for the scene
+     */
+    void setDirectionalLight(DirectionalLight *light);
 
     Camera *getCamera() const;
 

@@ -93,14 +93,17 @@ int Window::getHeight() const
 }
 
 
-void Window::runLoop(Scene *scene, AdditionalParams_t *params)
+void Window::runLoop(Scene *scene, AdditionalParameters *params)
 {
+    assert(params != nullptr);
+
     currentScene = scene;
 
     while (!glfwWindowShouldClose(this->window)) {
         scene->mainRenderLoop(params);
         glfwSwapBuffers(this->window);
         glfwPollEvents();
+        params->cleanupLoopParameters();
     }
 }
 

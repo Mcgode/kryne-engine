@@ -13,7 +13,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "Types.h"
+#include "AdditionalParameters.h"
 
 
 class Scene;
@@ -39,7 +39,7 @@ public:
 
     GLFWwindow *getGlfwWindow() const;
 
-    void runLoop(Scene *scene, AdditionalParams_t *params = nullptr);
+    void runLoop(Scene *scene, AdditionalParameters *params = new AdditionalParameters());
 
     static void keyCallback(GLFWwindow *_w, int key, int _scan_code, int action, int _mods);
 

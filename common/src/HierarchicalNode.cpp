@@ -42,7 +42,7 @@ HierarchicalNode::~HierarchicalNode()
 }
 
 
-void HierarchicalNode::draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params)
+void HierarchicalNode::draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
 {
     glm::mat4 final_model = this->transform * model;
 

@@ -8,7 +8,7 @@
 #include <stdarg.h>
 
 #include "BaseObject.h"
-#include "Types.h"
+#include "AdditionalParameters.h"
 
 
 class Scene;
@@ -55,7 +55,7 @@ public:
      * @param model      The combined model transform matrix of the scene and the node successive parents.
      * @param params     The additional params to pass down the rendering pipeline.
      */
-    void draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params);
+    void draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     ~HierarchicalNode();
 

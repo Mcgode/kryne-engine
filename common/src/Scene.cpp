@@ -37,7 +37,7 @@ void Scene::addDrawable(HierarchicalNode *node)
 }
 
 
-void Scene::mainRenderLoop(AdditionalParams_t *params)
+void Scene::mainRenderLoop(AdditionalParameters *params)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -45,7 +45,7 @@ void Scene::mainRenderLoop(AdditionalParams_t *params)
         node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
 }
 
-void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params)
+void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
 {
     obj->getShader()->use();
 
@@ -59,7 +59,7 @@ void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, Additi
 }
 
 
-void Scene::runLoop(AdditionalParams_t *params)
+void Scene::runLoop(AdditionalParameters *params)
 {
     this->window->runLoop(this, params);
 }
