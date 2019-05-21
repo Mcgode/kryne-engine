@@ -6,6 +6,7 @@
 #define INC_3D_DEMOS_TRACKBALLCAMERA_H
 
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtc/constants.hpp>
 #include "Camera.h"
 
 
@@ -28,6 +29,12 @@ public:
 
     glm::vec3 getCurrentPosition() override;
 
+    void onScrollInput(Window *window, float value) override;
+
+    void onKeyInput(Window *window, GLint key) override {};
+
+    void onMouseMovementInput(Window *window, double xInput, double yInput) override;
+
 private:
     /// The current center position of the camera
     glm::vec3 centerPosition{};
@@ -35,8 +42,21 @@ private:
     /// The current zooming distance of the camera
     float zoomDistance;
 
-    /// The quaternion representing the current rotation of the camera
-    glm::quat rotation{};
+    /// The inclination angle of the trackball
+    float phi;
+
+    /// The rotation angle of the trackball
+    float theta;
+
+    bool wasMoving = false; ///< Keeps track whether the trackball was already moved during last input
+    double lastMouseXPosition = 0; ///< The x position of the mouse cursor during the last update
+    double lastMouseYPosition = 0; ///< The y position of the mouse cursor during the last update
+
+    /**
+     * Retrieves the current rotation of the camera
+     * @return A 4x4 transform matrix with the rotation of the camera view
+     */
+    glm::mat4 getRotation();
 
 };
 
