@@ -36,7 +36,7 @@ public:
      */
     void setShader(Shader *shader);
 
-    /**
+    virtual /**
      * A function for drawing the object
      * @param projection    The projection transform matrix
      * @param view          The view transform matrix
@@ -49,7 +49,7 @@ public:
 
     bool isSupportingLighting() const;
 
-private:
+protected:
 
     Shader *shader{};
 
