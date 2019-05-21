@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <common/Scene.h>
-#include <common/Camera/BasicCamera.h>
+#include <common/Camera/TrackballCamera.h>
 #include <common/GeometricShapes.h>
 
 using namespace std;
@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, const char **argv)
 {
-    auto *pScene = new Scene(new BasicCamera(glm::vec3(0, 0, -2), glm::vec3(0, 0, 0)));
+    auto *pScene = new Scene(new TrackballCamera(glm::vec3(-0.5, 0.5, 0)));
 
     vector<glm::vec3> vertices{};
     generateSphereShape(0.5, 10, 5, &vertices);
