@@ -63,6 +63,8 @@ public:
      */
     void runLoop(AdditionalParams_t *params = nullptr);
 
+    Camera *getCamera() const;
+
     ~Scene();
 
 private:
