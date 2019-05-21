@@ -18,13 +18,13 @@ DirectionalLight::DirectionalLight(glm::vec3 direction,
 
 void DirectionalLight::shaderSet(Shader *shader, std::string uniformName)
 {
-    shader->setInt(uniformName.append(".enabled"), 1);
+    shader->setInt(uniformName + ".enabled", 1);
 
-    shader->setVec3(uniformName.append(".direction"), direction);
+    shader->setVec3(uniformName + ".direction", direction);
 
-    shader->setVec3(uniformName.append(".ambient"), ambientColor);
-    shader->setVec3(uniformName.append(".diffuse"), diffuseColor);
-    shader->setVec3(uniformName.append(".specular"), specularColor);
+    shader->setVec3(uniformName + ".ambient", ambientColor);
+    shader->setVec3(uniformName + ".diffuse", diffuseColor);
+    shader->setVec3(uniformName + ".specular", specularColor);
 }
 
 

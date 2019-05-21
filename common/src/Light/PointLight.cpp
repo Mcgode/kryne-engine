@@ -19,21 +19,21 @@ PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *am
 
 void PointLight::shaderSet(Shader *shader, std::string uniformName)
 {
-    shader->setVec3(uniformName.append(".position"), position);
+    shader->setVec3(uniformName + ".position", position);
 
-    shader->setVec3(uniformName.append(".ambient"), ambientColor);
-    shader->setVec3(uniformName.append(".diffuse"), diffuseColor);
-    shader->setVec3(uniformName.append(".specular"), specularColor);
+    shader->setVec3(uniformName + ".ambient", ambientColor);
+    shader->setVec3(uniformName + ".diffuse", diffuseColor);
+    shader->setVec3(uniformName + ".specular", specularColor);
 
-    shader->setFloat(uniformName.append(".constant"), constantAttenuation);
-    shader->setFloat(uniformName.append(".linear"), linearAttenuation);
-    shader->setFloat(uniformName.append(".quadratic"), quadraticAttenuation);
+    shader->setFloat(uniformName + ".constant", constantAttenuation);
+    shader->setFloat(uniformName + ".linear", linearAttenuation);
+    shader->setFloat(uniformName + ".quadratic", quadraticAttenuation);
 }
 
 
 void PointLight::shaderSetArray(Shader *shader, std::string uniformArrayName, size_t index)
 {
-    shaderSet(shader, uniformArrayName.append("[").append(std::to_string(index)).append("]"));
+    shaderSet(shader, uniformArrayName + "[" + std::to_string(index) + "]");
 }
 
 
