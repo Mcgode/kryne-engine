@@ -54,10 +54,10 @@ public:
     /**
      * Handles mouse movements from the user
      * @param window    The render window object
-     * @param x_input   The new x position of the mouse
-     * @param y_input   The new y position of the mouse
+     * @param xInput    The new x position of the mouse
+     * @param yInput    The new y position of the mouse
      */
-    virtual void onMouseMovementInpput(Window *window, int x_input, int y_input) = 0;
+    virtual void onMouseMovementInput(Window *window, double xInput, double yInput) = 0;
 
     virtual ~Camera() = default;
 

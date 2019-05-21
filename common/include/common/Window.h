@@ -41,6 +41,10 @@ public:
 
     static void keyCallback(GLFWwindow *_w, int key, int _scan_code, int action, int _mods);
 
+    static void scrollCallback(GLFWwindow *_w, double _, double scroll);
+
+    static void mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos);
+
     ~Window();
 
 private:
@@ -56,6 +60,8 @@ private:
 
     /// The list of currently pressed keys
     std::unordered_set<int> keysPressed;
+
+    Scene *currentScene;
 
 };
 

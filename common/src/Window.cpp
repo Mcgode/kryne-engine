@@ -57,6 +57,8 @@ Window::Window(uint32_t width, uint32_t height)
     current_window = this;
 
     glfwSetKeyCallback(this->window, Window::keyCallback);
+    glfwSetScrollCallback(this->window, Window::scrollCallback);
+    glfwSetCursorPosCallback(this->window, Window::mouseMovementCallback);
 }
 
 
@@ -66,6 +68,7 @@ void Window::keyCallback(GLFWwindow *_window, int key, int _scan_code, int actio
         glfwSetWindowShouldClose(current_window->window, 1);
     else if (action == GLFW_PRESS){
         current_window->keysPressed.insert(key);
+        current_window->currentScene->getCamera()->onKeyInput(current_window, key);
     } else if (action == GLFW_RELEASE) {
         current_window->keysPressed.erase(key);
     }
@@ -92,9 +95,22 @@ int Window::getHeight() const
 
 void Window::runLoop(Scene *scene, AdditionalParams_t *params)
 {
+    currentScene = scene;
+
     while (!glfwWindowShouldClose(this->window)) {
         scene->mainRenderLoop(params);
         glfwSwapBuffers(this->window);
         glfwPollEvents();
     }
+}
+
+
+void Window::scrollCallback(GLFWwindow *_w, double _, double scroll)
+{
+    current_window->currentScene->getCamera()->onScrollInput(current_window, scroll);
+}
+
+
+void Window::mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos) {
+    current_window->currentScene->getCamera()->onMouseMovementInput(current_window, xPos, yPos);
 }

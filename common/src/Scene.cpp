@@ -61,3 +61,8 @@ void Scene::runLoop(AdditionalParams_t *params)
 {
     this->window->runLoop(this, params);
 }
+
+
+Camera *Scene::getCamera() const {
+    return camera;
+}
