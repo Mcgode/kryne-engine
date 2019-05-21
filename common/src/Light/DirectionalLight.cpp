@@ -18,6 +18,8 @@ DirectionalLight::DirectionalLight(glm::vec3 direction,
 
 void DirectionalLight::shaderSet(Shader *shader, std::string uniformName)
 {
+    shader->setInt(uniformName.append(".enabled"), 1);
+
     shader->setVec3(uniformName.append(".direction"), direction);
 
     shader->setVec3(uniformName.append(".ambient"), ambientColor);
