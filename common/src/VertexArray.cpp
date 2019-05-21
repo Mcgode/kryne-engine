@@ -34,8 +34,8 @@ void VertexArray::add_array(std::vector<glm::vec2> *data)
 
     glEnableVertexAttribArray(amount_of_locations);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, length * 2 * sizeof(float), data->data(), usage);
-    glVertexAttribPointer(amount_of_locations, 2, GL_FLOAT, false, 0, nullptr);
+    glBufferData(GL_ARRAY_BUFFER, data->size() * sizeof(glm::vec2), data->data(), usage);
+    glVertexAttribPointer(amount_of_locations, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (void *) 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     glBindVertexArray(0);
@@ -53,8 +53,8 @@ void VertexArray::add_array(std::vector<glm::vec3> *data)
 
     glEnableVertexAttribArray(amount_of_locations);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, length * 3 * sizeof(float), data->data(), usage);
-    glVertexAttribPointer(amount_of_locations, 3, GL_FLOAT, false, 0, nullptr);
+    glBufferData(GL_ARRAY_BUFFER, data->size() * sizeof(glm::vec3), data->data(), usage);
+    glVertexAttribPointer(amount_of_locations, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), nullptr);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     glBindVertexArray(0);
