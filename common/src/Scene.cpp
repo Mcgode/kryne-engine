@@ -68,3 +68,10 @@ void Scene::runLoop(AdditionalParameters *params)
 Camera *Scene::getCamera() const {
     return camera;
 }
+
+
+void Scene::setDirectionalLight(DirectionalLight *light)
+{
+    assert(light != nullptr);
+    Scene::directionalLight = light;
+}

@@ -6,6 +6,7 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
+#include <common/Light/DirectionalLight.h>
 #include "common/Camera/Camera.h"
 #include "Window.h"
 #include "HierarchicalNode.h"
@@ -84,7 +85,10 @@ private:
     std::vector<HierarchicalNode *> rootNodes;
 
     /// The projection matrix for the scene
-    glm::mat4 projection;
+    glm::mat4 projection{};
+
+    /// The directional light for the scene
+    DirectionalLight *directionalLight{};
 
 };
 
