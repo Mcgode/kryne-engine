@@ -6,7 +6,11 @@ This project is meant for me to be a way to experiment with OpenGL.
 
 I am still working on implementing a basic common structure on many 
 recurring aspects of the code, like object handling. As such, I haven't 
-progressed much on the individual projects
+progressed much on the individual projects.
+
+More specifically, right now, I'm working on:
+- Setting up light objects and integrating them to the scene
+- Setting up shaders for basic light support
 
 
 ## Individual projects
