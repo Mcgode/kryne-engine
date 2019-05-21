@@ -40,7 +40,7 @@ void Scene::mainRenderLoop(AdditionalParams_t *params)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     for (HierarchicalNode *node: rootNodes)
-        node->draw(this, this->camera->getViewMatrix(), glm::mat4(), nullptr);
+        node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
 }
 
 void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParams_t *params)

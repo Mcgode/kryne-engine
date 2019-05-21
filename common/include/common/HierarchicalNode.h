@@ -23,16 +23,16 @@ public:
 
     /**
      * A hierarchical node
-     * @param transform The model transform matrix to apply to this node
+     * @param transform The model transform matrix to apply to this node. Defaults to identity matrix.
      */
-    explicit HierarchicalNode(glm::mat4 transform = glm::mat4());
+    explicit HierarchicalNode(glm::mat4 transform = glm::mat4(1.0f));
 
     /**
      * A hierarchical node
      * @param object An object to add to the node
-     * @param transform The model transform matrix to apply to this node
+     * @param transform The model transform matrix to apply to this node. Defaults to identity matrix.
      */
-    explicit HierarchicalNode(BaseObject *object, glm::mat4 transform = glm::mat4());
+    explicit HierarchicalNode(BaseObject *object, glm::mat4 transform = glm::mat4(1.0f));
 
     /**
      * Adds a new object to the node
