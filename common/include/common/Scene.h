@@ -32,7 +32,7 @@ public:
      * Changes the current camera
      * @param newCamera The new camera you want to use in the scene
      */
-    void updateCamera(Camera *newCamera);
+    Camera *updateCamera(Camera *newCamera);
 
     /**
      * Adds a new drawable root node to the scene
