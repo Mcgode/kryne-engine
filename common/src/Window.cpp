@@ -111,6 +111,13 @@ void Window::scrollCallback(GLFWwindow *_w, double _, double scroll)
 }
 
 
-void Window::mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos) {
+void Window::mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos)
+{
     current_window->currentScene->getCamera()->onMouseMovementInput(current_window, xPos, yPos);
+}
+
+
+GLFWwindow *Window::getGlfwWindow() const
+{
+    return window;
 }

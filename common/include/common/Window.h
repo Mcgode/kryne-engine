@@ -37,6 +37,8 @@ public:
 
     int getHeight() const;
 
+    GLFWwindow *getGlfwWindow() const;
+
     void runLoop(Scene *scene, AdditionalParams_t *params = nullptr);
 
     static void keyCallback(GLFWwindow *_w, int key, int _scan_code, int action, int _mods);
