@@ -31,8 +31,8 @@ add_library(common
         common/src/Scene.cpp common/include/common/Scene.h
         common/src/VertexArray.cpp common/include/common/VertexArray.h
         common/src/Window.cpp common/include/common/Window.h
-        common/include/common/Camera.h
-        common/src/BasicCamera.cpp common/include/common/BasicCamera.h
+        common/include/common/Camera/Camera.h
+        common/src/Camera/BasicCamera.cpp common/include/common/Camera/BasicCamera.h
         common/src/GeometricShapes.cpp common/include/common/GeometricShapes.h
         common/src/BaseObject.cpp common/include/common/BaseObject.h
         common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h common/include/common/Types.h)

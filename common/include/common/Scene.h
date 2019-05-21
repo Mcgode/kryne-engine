@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
-#include "Camera.h"
+#include "common/Camera/Camera.h"
 #include "Window.h"
 #include "HierarchicalNode.h"
 #include "Types.h"
