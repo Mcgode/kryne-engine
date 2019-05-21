@@ -9,6 +9,8 @@ Scene::Scene(Camera *camera, int window_width, int window_height)
     this->window = new Window(window_width, window_height);
     this->camera = camera;
     this->projection = glm::perspective(3.14 / 2.0, 16.0 / 9.0, 0.1, 150.0);
+
+    glEnable(GL_DEPTH_TEST);
 }
 
 
