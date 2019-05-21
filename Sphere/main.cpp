@@ -6,6 +6,7 @@
 #include <common/Scene.h>
 #include <common/Camera/TrackballCamera.h>
 #include <common/GeometricShapes.h>
+#include "Sphere.h"
 
 using namespace std;
 
@@ -14,22 +15,22 @@ int main(int argc, const char **argv)
 {
     auto *pScene = new Scene(new TrackballCamera(glm::vec3(0, 0, 0)));
 
-    vector<glm::vec3> vertices{};
-    generateSphereShape(0.5, 10, 5, &vertices);
+    auto *sh = new Shader("Sphere/Lighting");
 
-    auto *sh = new Shader("Quad/PositionColor");
-    auto *va = new VertexArray(&vertices);
-    auto *obj = new BaseObject(sh, va);
+    auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1));
+    pScene->setDirectionalLight(dirLight);
+
+    auto *obj = new Sphere(sh);
     pScene->addDrawable(new HierarchicalNode(obj));
 
     sh->use();
     sh->setVec3("color", 1.0, 0.0, 0.0);
     Shader::resetUse();
 
-    pScene->runLoop(nullptr);
+    pScene->runLoop();
 
     delete sh;
-    delete va;
+    delete dirLight;
     delete pScene;
 
     return 0;
