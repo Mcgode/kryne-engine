@@ -40,3 +40,9 @@ Shader *BaseObject::getShader() const
 bool BaseObject::isSupportingLighting() const {
     return supportsLighting;
 }
+
+
+int BaseObject::getMaximumSupportedPointLights() const
+{
+    return maximumSupportedPointLights;
+}
