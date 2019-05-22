@@ -15,8 +15,8 @@ TrackballCamera::TrackballCamera(glm::vec3 centerPoint, float zoomDistance)
 
 glm::vec3 TrackballCamera::getCurrentPosition()
 {
-    glm::vec3 rotationPosition = glm::mat3(getRotation()) * glm::vec3(0, 0, -zoomDistance);
-    return glm::vec3() + this->centerPosition;
+    glm::vec3 rotationPosition = glm::vec3(0, 0, -zoomDistance) * glm::mat3(getRotation());
+    return rotationPosition + this->centerPosition;
 }
 
 
