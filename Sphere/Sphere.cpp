@@ -8,7 +8,7 @@ Sphere::Sphere(Shader *shader) {
     std::vector<glm::vec3> vertices, normals, tangents;
     std::vector<glm::vec2> textureCoordinates;
 
-    generateSphereShape(0.5, 10, 5, &vertices, &normals, &textureCoordinates, &tangents);
+    generateSphereShape(0.5, 50, 25, &vertices, &normals, &textureCoordinates, &tangents);
     auto va = new VertexArray(&vertices);
     va->add_array(&normals);
     va->add_array(&textureCoordinates);
