@@ -35,7 +35,12 @@ add_library(common
         common/src/Camera/BasicCamera.cpp common/include/common/Camera/BasicCamera.h
         common/src/GeometricShapes.cpp common/include/common/GeometricShapes.h
         common/src/BaseObject.cpp common/include/common/BaseObject.h
-        common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h common/src/Camera/TrackballCamera.cpp common/include/common/Camera/TrackballCamera.h common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h common/src/AdditionalParameters.cpp common/include/common/AdditionalParameters.h)
+        common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h
+        common/src/Camera/TrackballCamera.cpp common/include/common/Camera/TrackballCamera.h
+        common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h
+        common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h
+        common/src/AdditionalParameters.cpp common/include/common/AdditionalParameters.h
+        common/src/stb_image.cpp common/include/common/stb_image.h)
 target_link_libraries(common glad glfw assimp glm)
 
 
