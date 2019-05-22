@@ -40,17 +40,19 @@ vec3 getPointLightColor(PointLight light)
 {
     vec3 norm = normalize(normal);
     vec3 l = normalize(light.position - worldPosition);
+    float dist = length(worldPosition - light.position);
+    float distFactor = 1 / (light.constant + light.linear * dist + light.quadratic * pow(dist, 2));
 
     vec3 ambientColor = color * light.ambient;
 
     float difFactor = max(0, dot(norm, l));
-    vec3 diffuseColor = difFactor * color * light.diffuse;
+    vec3 diffuseColor = distFactor * difFactor * color * light.diffuse;
 
     int shininess = 32;
     vec3 r = reflect(l, norm);
     vec3 v = normalize(cameraPosition - worldPosition);
     float specFactor = pow(max(0, dot(r, v)), shininess);
-    vec3 specularColor = specFactor * color * light.specular;
+    vec3 specularColor = distFactor * specFactor * color * light.specular;
 
     return ambientColor + diffuseColor + specularColor;
 }
