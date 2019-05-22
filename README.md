@@ -9,8 +9,10 @@ recurring aspects of the code, like object handling. As such, I haven't
 progressed much on the individual projects.
 
 More specifically, right now, I'm working on:
-- Setting up light objects and integrating them to the scene
-- Setting up shaders for basic light support
+- Support for texture import from file
+- Apply texture on draw
+- Setting up of objects supporting textures
+- Fragment shader support for textures
 
 
 ## Individual projects
@@ -22,8 +24,8 @@ on which projects are currently being worked on
 ### Sphere
 
 Goal : Experimenting texture mapping effects on a sphere 
-- basic light support : *WORK IN PROGRESS*
-- texture mapping : *TODO*
+- basic light support : *DONE*
+- texture mapping : *WORK IN PROGRESS*
 - normal mapping : *TODO*
 - parallax mapping : *TODO*
 - displacement mapping : *TODO*
