@@ -3,6 +3,7 @@
 struct PointLight {
     vec3 position;
 
+    vec3 ambient;
     vec3 diffuse;
     vec3 specular;
 
@@ -30,9 +31,33 @@ in vec3 normal;
 uniform vec3 color;
 uniform vec3 cameraPosition;
 uniform DirectionalLight directionalLight;
+uniform int amountOfPointLights = 0;
+#define MAXIMUM_AMOUNT_OF_POINT_LIGHTS 4
+uniform PointLight pointLights[MAXIMUM_AMOUNT_OF_POINT_LIGHTS];
 
-vec3 getDirectionalLightColor(DirectionalLight light) {
 
+vec3 getPointLightColor(PointLight light)
+{
+    vec3 norm = normalize(normal);
+    vec3 l = normalize(light.position - worldPosition);
+
+    vec3 ambientColor = color * light.ambient;
+
+    float difFactor = max(0, dot(norm, l));
+    vec3 diffuseColor = difFactor * color * light.diffuse;
+
+    int shininess = 32;
+    vec3 r = reflect(l, norm);
+    vec3 v = normalize(cameraPosition - worldPosition);
+    float specFactor = pow(max(0, dot(r, v)), shininess);
+    vec3 specularColor = specFactor * color * light.specular;
+
+    return ambientColor + diffuseColor + specularColor;
+}
+
+
+vec3 getDirectionalLightColor(DirectionalLight light)
+{
     vec3 ambientColor = color * light.ambient;
 
     vec3 l = normalize(-light.direction);
@@ -48,6 +73,7 @@ vec3 getDirectionalLightColor(DirectionalLight light) {
     return diffuseColor + ambientColor + specularColor;
 }
 
+
 void main() {
 	vec3 finalColor = vec3(0.1);
 
@@ -55,6 +81,9 @@ void main() {
 	    finalColor += getDirectionalLightColor(directionalLight);
 	else
 	    finalColor = color;
+
+	for (int i = 0; i < MAXIMUM_AMOUNT_OF_POINT_LIGHTS && i < amountOfPointLights; i++)
+	    finalColor += getPointLightColor(pointLights[i]);
 
 	FragColor = vec4(finalColor, 1);
 }
