@@ -33,15 +33,15 @@ uniform DirectionalLight directionalLight;
 
 vec3 getDirectionalLightColor(DirectionalLight light) {
 
-    vec3 ambientColor = 0.2 * color * light.ambient;
+    vec3 ambientColor = color * light.ambient;
 
     vec3 l = normalize(-light.direction);
     float difFactor = max(0, dot(l, normalize(normal)));
     vec3 diffuseColor = difFactor * color * light.diffuse;
 
-    float shininess = 4;
+    float shininess = 32;
     vec3 r = reflect(l, normalize(normal));
-    vec3 v = normalize(worldPosition - cameraPosition);
+    vec3 v = normalize(cameraPosition - worldPosition);
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color;
 
