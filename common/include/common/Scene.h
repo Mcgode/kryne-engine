@@ -7,6 +7,7 @@
 
 
 #include <common/Light/DirectionalLight.h>
+#include <common/Light/PointLight.h>
 #include "common/Camera/Camera.h"
 #include "Window.h"
 #include "HierarchicalNode.h"
@@ -69,6 +70,12 @@ public:
      */
     void setDirectionalLight(DirectionalLight *light);
 
+    /**
+     * Adds a point light to scene
+     * @param light The point light that you want to be added to the scene
+     */
+    void addPointLight(PointLight *light);
+
     Camera *getCamera() const;
 
     ~Scene();
@@ -89,6 +96,9 @@ private:
 
     /// The directional light for the scene
     DirectionalLight *directionalLight{};
+
+    /// The point lights of the scene
+    std::vector<PointLight *> pointLights;
 
 };
 

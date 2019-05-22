@@ -52,12 +52,19 @@ void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, Additi
 {
     obj->getShader()->use();
 
-    if (obj->isSupportingLighting()) {
-        if (this->directionalLight && params->contains("cameraPosition")) {
+    if (obj->isSupportingLighting() && params->contains("cameraPosition")) {
+        if (this->directionalLight) {
             directionalLight->shaderSet(obj->getShader(), "directionalLight");
             obj->getShader()->setVec3("cameraPosition", std::any_cast<glm::vec3>(params->get("cameraPosition")));
         } else
             obj->getShader()->setInt("directionalLight.enabled", 0);
+
+        auto v = PointLight::getClosestPointLights(pointLights,
+                                                   glm::vec3(glm::vec4(0, 0, 0, 1) * model),
+                                                   obj->getMaximumSupportedPointLights());
+        for (int i = 0; i < v.size(); i++)
+            v[i]->shaderSetArray(obj->getShader(), "pointLights", i);
+        obj->getShader()->setInt("amountOfPointLights", v.size());
     }
 
     obj->draw(projection, view, model, params);
@@ -81,4 +88,11 @@ void Scene::setDirectionalLight(DirectionalLight *light)
 {
     assert(light != nullptr);
     Scene::directionalLight = light;
+}
+
+
+void Scene::addPointLight(PointLight *light)
+{
+    assert(light != nullptr);
+    pointLights.push_back(light);
 }
