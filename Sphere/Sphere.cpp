@@ -17,6 +17,8 @@ Sphere::Sphere(Shader *shader) {
     this->shader = shader;
     this->vertexArray = va;
     this->supportsLighting = true;
+    this->maximumSupportedPointLights = 4;
+    this->castsHardShadows = true;
 }
 
 void Sphere::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) {
