@@ -21,6 +21,7 @@ public:
 private:
 
     Texture2D *diffuseTexture;
+    Texture2D *normalMapTexture;
 
 };
 

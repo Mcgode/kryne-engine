@@ -20,7 +20,7 @@ int main(int argc, const char **argv)
     auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1));
     pScene->setDirectionalLight(dirLight);
 
-    auto *pl = new PointLight(glm::vec3(-2, 0, 0), glm::vec3(0.3, 1, 0.3));
+    auto *pl = new PointLight(glm::vec3(-3, 0, 0), glm::vec3(0.3, 1, 0.3));
     pScene->addPointLight(pl);
 
     auto *obj = new Sphere();
