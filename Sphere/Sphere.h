@@ -9,13 +9,18 @@
 #include <common/BaseObject.h>
 #include <common/VertexArray.h>
 #include <common/GeometricShapes.h>
+#include <common/Texture2D.h>
 
 class Sphere : public BaseObject {
 
 public:
-    explicit Sphere(Shader *shader);
+    explicit Sphere();
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
+
+private:
+
+    Texture2D *diffuseTexture;
 
 };
 

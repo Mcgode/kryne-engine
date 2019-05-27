@@ -23,7 +23,7 @@ int main(int argc, const char **argv)
     auto *pl = new PointLight(glm::vec3(-2, 0, 0), glm::vec3(0.3, 1, 0.3));
     pScene->addPointLight(pl);
 
-    auto *obj = new Sphere(sh);
+    auto *obj = new Sphere();
     pScene->addDrawable(new HierarchicalNode(obj));
 
     sh->use();
