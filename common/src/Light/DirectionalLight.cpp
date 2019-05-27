@@ -11,7 +11,7 @@ DirectionalLight::DirectionalLight(glm::vec3 direction,
 {
     this->direction = glm::normalize(direction);
     this->diffuseColor = diffuseColor;
-    this->ambientColor = ambientColor ? *ambientColor : 0.1f * this->diffuseColor;
+    this->ambientColor = ambientColor ? *ambientColor : this->diffuseColor;
     this->specularColor = specularColor ? *specularColor : this->diffuseColor;
 }
 
