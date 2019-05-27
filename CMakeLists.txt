@@ -40,7 +40,7 @@ add_library(common
         common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h
         common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h
         common/src/AdditionalParameters.cpp common/include/common/AdditionalParameters.h
-        common/src/stb_image.cpp common/include/common/stb_image.h)
+        common/src/stb_image.cpp common/include/common/stb_image.h common/src/Texture2D.cpp common/include/common/Texture2D.h)
 target_link_libraries(common glad glfw assimp glm)
 
 
