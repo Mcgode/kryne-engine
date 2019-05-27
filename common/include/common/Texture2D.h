@@ -17,9 +17,9 @@ class Texture2D {
 public:
     explicit Texture2D(const std::string& filename, bool generateMipMap = false);
 
-    static void textureSet(int textureID, Shader *shader, GLuint textureIndex, const std::string *uniformName);
+    static void textureSet(int textureID, Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
 
-    void setTexture(Shader *shader, GLuint textureIndex, std::string *uniformName);
+    void setTexture(Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
 
 private:
 
