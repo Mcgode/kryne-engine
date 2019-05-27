@@ -4,9 +4,8 @@ This project is meant for me to be a way to experiment with OpenGL.
 
 ## Current Status
 
-I am still working on implementing a basic common structure on many 
-recurring aspects of the code, like object handling. As such, I haven't 
-progressed much on the individual projects.
+Most of the basic common structure of the code is done, and I'm 
+currently focusing on the Sphere project
 
 More specifically, right now, I'm working on:
 - Loading and applying a displacement map texture to an object
