@@ -9,10 +9,9 @@ recurring aspects of the code, like object handling. As such, I haven't
 progressed much on the individual projects.
 
 More specifically, right now, I'm working on:
-- Support for texture import from file
-- Apply texture on draw
-- Setting up of objects supporting textures
-- Fragment shader support for textures
+- Loading and applying normal map texture to an object
+- Vertex shader handling of tangent space
+- Fragment shader support of normal mapping
 
 
 ## Individual projects
@@ -25,8 +24,8 @@ on which projects are currently being worked on
 
 Goal : Experimenting texture mapping effects on a sphere 
 - basic light support : *DONE*
-- texture mapping : *WORK IN PROGRESS*
-- normal mapping : *TODO*
+- texture mapping : *DONE*
+- normal mapping : *WORK IN PROGRESS*
 - parallax mapping : *TODO*
 - displacement mapping : *TODO*
 
