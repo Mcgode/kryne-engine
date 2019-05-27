@@ -9,9 +9,8 @@ recurring aspects of the code, like object handling. As such, I haven't
 progressed much on the individual projects.
 
 More specifically, right now, I'm working on:
-- Loading and applying normal map texture to an object
-- Vertex shader handling of tangent space
-- Fragment shader support of normal mapping
+- Loading and applying a displacement map texture to an object
+- Fragment shader support of parallax mapping
 
 
 ## Individual projects
@@ -25,8 +24,8 @@ on which projects are currently being worked on
 Goal : Experimenting texture mapping effects on a sphere 
 - basic light support : *DONE*
 - texture mapping : *DONE*
-- normal mapping : *WORK IN PROGRESS*
-- parallax mapping : *TODO*
+- normal mapping : *DONE*
+- parallax mapping : *WORK IN PROGRESS*
 - displacement mapping : *TODO*
 
 
