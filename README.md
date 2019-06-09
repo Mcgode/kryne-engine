@@ -24,6 +24,10 @@ Goal : Experimenting texture mapping effects on a sphere
 - basic light support : *DONE*
 - texture mapping : *DONE*
 - normal mapping : *DONE*
+
+![Screenshot](/Screenshots/NormalMapping.png?raw=true "Normal mapping screenshot")
+
+
 - parallax mapping : *WORK IN PROGRESS*
 - displacement mapping : *TODO*
 
