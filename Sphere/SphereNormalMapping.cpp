@@ -5,10 +5,7 @@
 #include "SphereNormalMapping.h"
 
 SphereNormalMapping::SphereNormalMapping() {
-    auto shader = new Shader("Sphere/NormalMap");
-
-    initialize(shader);
-
+    this->shader = new Shader("Sphere/NormalMap");
     this->normalMapTexture = new Texture2D("Textures/brickwall_normal.jpg");
 }
 

@@ -7,8 +7,7 @@
 
 SphereTexture::SphereTexture()
 {
-    initialize(new Shader("Sphere/DiffuseMap"));
-
+    this->shader = new Shader("Sphere/DiffuseMap");
     this->diffuseTexture = new Texture2D("Textures/brickwall.jpg");
 }
 
