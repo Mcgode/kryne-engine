@@ -56,9 +56,9 @@ void generateSphereShape(
             }
 
             if (tangents != nullptr) {
-                tangents->push_back(glm::vec3(st2, 0, ct2));
-                tangents->push_back(glm::vec3(st1, 0, ct1));
-                tangents->push_back(glm::vec3(st1, 0, ct1));
+                tangents->push_back(glm::vec3(-st2, 0, -ct2));
+                tangents->push_back(glm::vec3(-st1, 0, -ct1));
+                tangents->push_back(glm::vec3(-st1, 0, -ct1));
             }
 
             if (j != 0) {
@@ -82,9 +82,9 @@ void generateSphereShape(
                 }
 
                 if (tangents != nullptr) {
-                    tangents->push_back(glm::vec3(st2, 0, ct2));
-                    tangents->push_back(glm::vec3(st1, 0, ct1));
-                    tangents->push_back(glm::vec3(st2, 0, ct2));
+                    tangents->push_back(glm::vec3(-st2, 0, -ct2));
+                    tangents->push_back(glm::vec3(-st1, 0, -ct1));
+                    tangents->push_back(glm::vec3(-st2, 0, -ct2));
                 }
 
             }
