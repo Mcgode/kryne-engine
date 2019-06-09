@@ -21,12 +21,20 @@ on which projects are currently being worked on
 ### Sphere
 
 Goal : Experimenting texture mapping effects on a sphere 
+
 - basic light support : *DONE*
+
+![Screenshot](/Screenshots/BasicLight.png?raw=true "Basic light implementation screenshot")
+
+
 - texture mapping : *DONE*
+
+![Screenshot](/Screenshots/TextureMapping.png?raw=true "Texture mapping screenshot")
+
+
 - normal mapping : *DONE*
 
 ![Screenshot](/Screenshots/NormalMapping.png?raw=true "Normal mapping screenshot")
-
 
 - parallax mapping : *WORK IN PROGRESS*
 - displacement mapping : *TODO*

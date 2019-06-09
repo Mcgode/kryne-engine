@@ -10,7 +10,7 @@ Sphere::Sphere() {
     std::vector<glm::vec3> vertices, normals, tangents;
     std::vector<glm::vec2> textureCoordinates;
 
-    generateSphereShape(1.5, 50, 25, &vertices, &normals, &textureCoordinates, &tangents);
+    generateSphereShape(1.5, 100, 50, &vertices, &normals, &textureCoordinates, &tangents);
     auto va = new VertexArray(&vertices);
     va->add_array(&normals);
     va->add_array(&textureCoordinates);
