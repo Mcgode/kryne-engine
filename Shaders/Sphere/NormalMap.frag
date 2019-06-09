@@ -1,5 +1,6 @@
 #version 330 core
 
+#define MAX_AMOUNT_OF_POINT_LIGHTS 4
 struct PointLight {
     vec3 position;
 
@@ -37,35 +38,41 @@ struct Material {
 
 out vec4 FragColor;
 
-in vec3 worldPosition;
-in mat3 normalSpace;
-in vec2 textureCoordinates;
+in VS_OUT {
+    vec3 worldPosition;
+    vec2 textureCoordinates;
+    vec3 tangeantWorldPosition;
+    vec3 directionalLightDirection;
+    vec3 cameraPosition;
+    vec3 pointLightsPositions[MAX_AMOUNT_OF_POINT_LIGHTS];
+} fs_in;
+
+
+in PointLight pointLightsPass[MAX_AMOUNT_OF_POINT_LIGHTS];
 
 uniform Material material;
-uniform vec3 cameraPosition;
 uniform DirectionalLight directionalLight;
 uniform int amountOfPointLights = 0;
-#define MAXIMUM_AMOUNT_OF_POINT_LIGHTS 4
-uniform PointLight pointLights[MAXIMUM_AMOUNT_OF_POINT_LIGHTS];
+uniform PointLight pointLights[MAX_AMOUNT_OF_POINT_LIGHTS];
 
 
-vec3 getPointLightColor(PointLight light, vec3 normal)
+vec3 getPointLightColor(PointLight light, vec3 position, vec3 normal)
 {
-    vec3 norm = normalize(normal);
-    vec3 l = normalize(light.position - worldPosition);
-    float dist = length(worldPosition - light.position);
+    vec3 norm = normal;
+    vec3 l = normalize(position - fs_in.tangeantWorldPosition);
+    float dist = length(fs_in.worldPosition - light.position);
     float distFactor = 1 / (light.constant + light.linear * dist + light.quadratic * pow(dist, 2));
 
-    vec3 color = texture(material.diffuseMap, textureCoordinates).xyz;
+    vec3 color = texture(material.diffuseMap, fs_in.textureCoordinates).xyz;
 
     vec3 ambientColor = color * material.ambient * light.ambient;
 
     float difFactor = max(0, dot(norm, l));
     vec3 diffuseColor = distFactor * difFactor * color * material.diffuse * light.diffuse;
 
-    int shininess = 32;
+    float shininess = material.shininess;
     vec3 r = reflect(l, norm);
-    vec3 v = normalize(cameraPosition - worldPosition);
+    vec3 v = normalize(fs_in.cameraPosition - fs_in.tangeantWorldPosition);
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color * material.specular;
 
@@ -73,19 +80,19 @@ vec3 getPointLightColor(PointLight light, vec3 normal)
 }
 
 
-vec3 getDirectionalLightColor(DirectionalLight light, vec3 normal)
+vec3 getDirectionalLightColor(DirectionalLight light, vec3 direction, vec3 normal)
 {
-    vec3 color = texture(material.diffuseMap, textureCoordinates).xyz;
+    vec3 color = texture(material.diffuseMap, fs_in.textureCoordinates).xyz;
 
     vec3 ambientColor = color * material.ambient * light.ambient;
 
-    vec3 l = normalize(-light.direction);
+    vec3 l = normalize(-direction);
     float difFactor = max(0, dot(l, normalize(normal)));
     vec3 diffuseColor = difFactor * color * material.diffuse * light.diffuse;
 
-    float shininess = 32;
+    float shininess = material.shininess;
     vec3 r = reflect(l, normalize(normal));
-    vec3 v = normalize(cameraPosition - worldPosition);
+    vec3 v = normalize(fs_in.cameraPosition - fs_in.tangeantWorldPosition);
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color * material.specular;
 
@@ -94,19 +101,18 @@ vec3 getDirectionalLightColor(DirectionalLight light, vec3 normal)
 
 
 void main() {
-    vec3 normal = texture(material.normalMap, textureCoordinates).rgb;
+    vec3 normal = texture(material.normalMap, fs_in.textureCoordinates).rgb;
     normal = normalize(normal * 2.0 - 1.0);
-    normal = normalize(normalSpace * normal);
 
 	vec3 finalColor = vec3(0.1);
 
 	if (directionalLight.enabled != 0)
-	    finalColor += getDirectionalLightColor(directionalLight, normal);
+	    finalColor += getDirectionalLightColor(directionalLight, fs_in.directionalLightDirection, normal);
 	else
-	    finalColor = texture(material.diffuseMap, textureCoordinates).xyz;
+	    finalColor = texture(material.diffuseMap, fs_in.textureCoordinates).xyz;
 
-	for (int i = 0; i < MAXIMUM_AMOUNT_OF_POINT_LIGHTS && i < amountOfPointLights; i++)
-	    finalColor += getPointLightColor(pointLights[i], normal);
+	for (int i = 0; i < amountOfPointLights; i++)
+	    finalColor += getPointLightColor(pointLights[i], fs_in.pointLightsPositions[i], normal);
 
 	FragColor = vec4(finalColor, 1);
 }
