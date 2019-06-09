@@ -43,7 +43,7 @@ vec3 getPointLightColor(PointLight light)
     float dist = length(worldPosition - light.position);
     float distFactor = 1 / (light.constant + light.linear * dist + light.quadratic * pow(dist, 2));
 
-    vec3 ambientColor = color * light.ambient;
+    vec3 ambientColor = color * light.ambient * 0.1;
 
     float difFactor = max(0, dot(norm, l));
     vec3 diffuseColor = distFactor * difFactor * color * light.diffuse;
@@ -60,7 +60,7 @@ vec3 getPointLightColor(PointLight light)
 
 vec3 getDirectionalLightColor(DirectionalLight light)
 {
-    vec3 ambientColor = color * light.ambient;
+    vec3 ambientColor = color * light.ambient * 0.1;
 
     vec3 l = normalize(-light.direction);
     float difFactor = max(0, dot(l, normalize(normal)));

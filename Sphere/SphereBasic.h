@@ -1,9 +1,9 @@
 //
-// Created by max on 21/05/19.
+// Created by max on 09/06/19.
 //
 
-#ifndef INC_3D_DEMOS_SPHERE_H
-#define INC_3D_DEMOS_SPHERE_H
+#ifndef INC_3D_DEMOS_SPHEREBASIC_H
+#define INC_3D_DEMOS_SPHEREBASIC_H
 
 
 #include <common/BaseObject.h>
@@ -11,19 +11,19 @@
 #include <common/GeometricShapes.h>
 #include <common/Texture2D.h>
 
-class Sphere : public BaseObject {
+class SphereBasic : public BaseObject {
 
 public:
-    explicit Sphere();
+
+    explicit SphereBasic();
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
-private:
+protected:
 
-    Texture2D *diffuseTexture;
-    Texture2D *normalMapTexture;
+    void initialize(Shader *shader);
 
 };
 
 
-#endif //INC_3D_DEMOS_SPHERE_H
+#endif //INC_3D_DEMOS_SPHEREBASIC_H

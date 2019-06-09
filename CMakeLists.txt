@@ -49,5 +49,5 @@ target_link_libraries(common glad glfw assimp glm)
 add_executable(SunLight SunLight/src/main.cpp)
 target_link_libraries(SunLight glad glfw assimp common)
 
-add_executable(Sphere Sphere/main.cpp Sphere/Sphere.cpp Sphere/Sphere.h)
+add_executable(Sphere Sphere/main.cpp Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h Sphere/SphereBasic.cpp Sphere/SphereBasic.h Sphere/SphereTexture.cpp Sphere/SphereTexture.h)
 target_link_libraries(Sphere glad glfw assimp common)

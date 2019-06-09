@@ -6,7 +6,7 @@
 #include <common/Scene.h>
 #include <common/Camera/TrackballCamera.h>
 #include <common/GeometricShapes.h>
-#include "Sphere.h"
+#include "SphereNormalMapping.h"
 
 using namespace std;
 
@@ -23,7 +23,7 @@ int main(int argc, const char **argv)
     auto *pl = new PointLight(glm::vec3(-3, 0, 0), glm::vec3(0.3, 1, 0.3));
     pScene->addPointLight(pl);
 
-    auto *obj = new Sphere();
+    auto *obj = new SphereNormalMapping();
     pScene->addDrawable(new HierarchicalNode(obj));
 
     sh->use();
