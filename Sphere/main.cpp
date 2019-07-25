@@ -6,7 +6,7 @@
 #include <common/Scene.h>
 #include <common/Camera/TrackballCamera.h>
 #include <common/GeometricShapes.h>
-#include "SphereNormalMapping.h"
+#include "SphereParallax.h"
 
 using namespace std;
 

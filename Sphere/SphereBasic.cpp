@@ -15,6 +15,7 @@ void SphereBasic::initialize(Shader *shader)
     std::vector<glm::vec2> textureCoordinates;
 
     generateSphereShape(1.5, 100, 50, &vertices, &normals, &textureCoordinates, &tangents);
+//    generateQuadShape(3.0, &vertices, &normals, &textureCoordinates, &tangents);
     auto va = new VertexArray(&vertices);
     va->add_array(&normals);
     va->add_array(&textureCoordinates);
