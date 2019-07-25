@@ -17,14 +17,15 @@ int main(int argc, const char **argv)
 
     auto *sh = new Shader("Sphere/Lighting");
 
-    auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1));
+    auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1), glm::vec3(0));
     pScene->setDirectionalLight(dirLight);
 
-    auto *pl = new PointLight(glm::vec3(-3, 0, 0), glm::vec3(0.3, 1, 0.3));
+    auto *pl = new PointLight(glm::vec3(1.5, 1.8, 1.3), glm::vec3(1.0));
     pScene->addPointLight(pl);
 
-    auto *obj = new SphereNormalMapping();
-    pScene->addDrawable(new HierarchicalNode(obj));
+    auto *obj = new SphereNormalMapping("bricks");
+    auto node = new HierarchicalNode(obj);
+    pScene->addDrawable(node);
 
     sh->use();
     sh->setVec3("color", 1.0, 0.0, 0.0);

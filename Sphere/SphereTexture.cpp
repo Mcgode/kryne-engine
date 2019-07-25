@@ -5,10 +5,10 @@
 #include "SphereTexture.h"
 
 
-SphereTexture::SphereTexture()
+SphereTexture::SphereTexture(const std::string &textureDirName)
 {
     this->shader = new Shader("Sphere/DiffuseMap");
-    this->diffuseTexture = new Texture2D("Textures/brickwall.jpg");
+    this->diffuseTexture = Texture2D::getTexture(textureDirName);
 }
 
 

@@ -4,9 +4,9 @@
 
 #include "SphereNormalMapping.h"
 
-SphereNormalMapping::SphereNormalMapping() {
+SphereNormalMapping::SphereNormalMapping(const std::string &textureDirName) : SphereTexture(textureDirName) {
     this->shader = new Shader("Sphere/NormalMap");
-    this->normalMapTexture = new Texture2D("Textures/brickwall_normal.jpg");
+    this->normalMapTexture = Texture2D::getTexture(textureDirName, "norm");
 }
 
 

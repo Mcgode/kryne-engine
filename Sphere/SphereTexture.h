@@ -12,7 +12,7 @@ class SphereTexture: public SphereBasic {
 
 public:
 
-    explicit SphereTexture();
+    explicit SphereTexture(const std::string &textureDirName);
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
