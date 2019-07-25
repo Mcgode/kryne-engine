@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 project(3D_demos)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -44,10 +44,15 @@ add_library(common
 target_link_libraries(common glad glfw assimp glm)
 
 
+find_package(Boost COMPONENTS system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
+
+
 # Setting up executables
 
 add_executable(SunLight SunLight/src/main.cpp)
 target_link_libraries(SunLight glad glfw assimp common)
 
-add_executable(Sphere Sphere/main.cpp Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h Sphere/SphereBasic.cpp Sphere/SphereBasic.h Sphere/SphereTexture.cpp Sphere/SphereTexture.h)
-target_link_libraries(Sphere glad glfw assimp common)
+add_executable(Sphere Sphere/main.cpp Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h Sphere/SphereBasic.cpp Sphere/SphereBasic.h Sphere/SphereTexture.cpp Sphere/SphereTexture.h Sphere/SphereParallax.cpp Sphere/SphereParallax.h)
+target_link_libraries(Sphere glad glfw assimp common ${Boost_LIBRARIES})

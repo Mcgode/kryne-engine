@@ -7,6 +7,8 @@
 
 #include <common/stb_image.h>
 #include <string>
+#include <iostream>
+#include <boost/filesystem.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -18,6 +20,8 @@ public:
     explicit Texture2D(const std::string& filename, bool generateMipMap = false);
 
     static void textureSet(int textureID, Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
+
+    static Texture2D *getTexture(const std::string &directoryName, const std::string &filenameSuffix = "diff");
 
     void setTexture(Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
 
