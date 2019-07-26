@@ -19,6 +19,8 @@ public:
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
+    ~SphereBasic() override;
+
 protected:
 
     void initialize(Shader *shader);

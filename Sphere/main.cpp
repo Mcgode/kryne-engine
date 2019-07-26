@@ -36,6 +36,8 @@ int main(int argc, const char **argv)
     delete sh;
     delete dirLight;
     delete pScene;
+    delete pl;
+//    delete obj;
 
     return 0;
 }

@@ -7,6 +7,7 @@
 
 SphereTexture::SphereTexture(const std::string &textureDirName)
 {
+    delete this->shader;
     this->shader = new Shader("Sphere/DiffuseMap");
     this->diffuseTexture = Texture2D::getTexture(textureDirName);
 }
@@ -20,5 +21,12 @@ void SphereTexture::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, 
     shader->setVec3("material.specular", glm::vec3(1.6));
     diffuseTexture->setTexture(shader, 0, "material.diffuseMap");
     SphereBasic::draw(projection, view, model, params);
+}
+
+
+SphereTexture::~SphereTexture()
+{
+//    SphereBasic::~SphereBasic();
+    delete this->diffuseTexture;
 }
 

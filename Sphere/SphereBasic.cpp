@@ -4,7 +4,7 @@
 
 #include "SphereBasic.h"
 
-SphereBasic::SphereBasic()
+SphereBasic::SphereBasic(): BaseObject()
 {
     initialize(new Shader("Sphere/Lighting"));
 }
@@ -31,4 +31,11 @@ void SphereBasic::initialize(Shader *shader)
 void SphereBasic::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) {
     shader->setVec3("color", glm::vec3(1, 0, 0));
     BaseObject::draw(projection, view, model, params);
+}
+
+
+SphereBasic::~SphereBasic()
+{
+    delete(this->vertexArray);
+    delete(this->shader);
 }

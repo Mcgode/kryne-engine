@@ -36,20 +36,22 @@ public:
      */
     void setShader(Shader *shader);
 
-    virtual /**
+    /**
      * A function for drawing the object
      * @param projection    The projection transform matrix
      * @param view          The view transform matrix
      * @param model         The model transform matrix
      * @param params        A map containing additional data to pass down to the object
      */
-    void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
+    virtual void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     Shader *getShader() const;
 
     bool isSupportingLighting() const;
 
     int getMaximumSupportedPointLights() const;
+
+    virtual ~BaseObject() = default;
 
 protected:
 

@@ -16,10 +16,10 @@ Scene::Scene(Camera *camera, int window_width, int window_height)
 
 Scene::~Scene()
 {
-    delete window;
     delete camera;
     for (HierarchicalNode *node: rootNodes)
         delete node;
+    delete window;
 }
 
 
@@ -75,7 +75,10 @@ void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, Additi
 
 void Scene::runLoop(AdditionalParameters *params)
 {
-    this->window->runLoop(this, params);
+    AdditionalParameters *p = params == nullptr ? new AdditionalParameters() : params;
+    this->window->runLoop(this, p);
+    if (params == nullptr)
+        delete(p);
 }
 
 

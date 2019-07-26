@@ -65,8 +65,12 @@ void VertexArray::add_array(std::vector<glm::vec3> *data)
 
 VertexArray::~VertexArray()
 {
-    glDeleteBuffers(vbos.size(), vbos.data());
     glDeleteVertexArrays(1, &vao);
+//    for (GLuint vbo: vbos)
+//        glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(vbos.size(), vbos.data());
+    if (ebo != 0)
+        glDeleteBuffers(1, &ebo);
 }
 
 

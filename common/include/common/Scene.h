@@ -62,7 +62,7 @@ public:
      * Runs the main loop until the window is asked to be closed
      * @param params The additional parameters to pass down to the loop
      */
-    void runLoop(AdditionalParameters *params = new AdditionalParameters());
+    void runLoop(AdditionalParameters *params = nullptr);
 
     /**
      * Sets the directional light of the scene
