@@ -59,6 +59,8 @@ public:
      */
     virtual void onMouseMovementInput(Window *window, double xInput, double yInput) = 0;
 
+    virtual void frameUpdate(Window *window) = 0;
+
     virtual ~Camera() = default;
 
 };

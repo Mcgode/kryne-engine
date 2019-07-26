@@ -35,6 +35,8 @@ public:
 
     void onMouseMovementInput(Window *window, double xInput, double yInput) override;
 
+    void frameUpdate(Window *window) override {};
+
 private:
     /// The current center position of the camera
     glm::vec3 centerPosition{};

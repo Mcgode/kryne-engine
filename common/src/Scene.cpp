@@ -39,6 +39,8 @@ void Scene::addDrawable(HierarchicalNode *node)
 
 void Scene::mainRenderLoop(AdditionalParameters *params)
 {
+    camera->frameUpdate(window);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glm::vec3 camPos = camera->getCurrentPosition();
