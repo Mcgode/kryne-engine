@@ -5,12 +5,8 @@
 #ifndef INC_3D_DEMOS_POST_PROCESS_H
 #define INC_3D_DEMOS_POST_PROCESS_H
 
-#include <map>
-#include <string>
-
-#include "common/Shader.h"
-#include "common/VertexArray.h"
 #include "common/Texture2D.h"
+#include "FinalPostProcess.h"
 
 
 using namespace std;
@@ -18,7 +14,7 @@ using namespace std;
 /**
  * A class for handling post-processing tools
  */
-class PostProcess{
+class PostProcess: public FinalPostProcess {
 
 public:
 
@@ -32,32 +28,17 @@ public:
      */
     PostProcess(Shader *shader, uint32_t width, uint32_t height, GLenum channels, GLenum type);
 
-    void setIntUniform(int value, const string& uniformName);
-
-    void setFloatUniform(float value, const string& uniformName);
-
-    void setVec2Uniform(glm::vec2 vector, const string& uniformName);
-
-    void setVec3Uniform(glm::vec3 vector, const string& uniformName);
-
-    void setVec4Uniform(glm::vec4 vector, const string& uniformName);
-
-    void setTextureUniform(Texture2D *textureUniform, const string& uniformName);
-
     GLuint getTexture() const;
 
-    void draw();
+    void draw() override;
+
+    ~PostProcess();
 
 
 private:
 
-    Shader *postProcessShader;
     GLuint fbo{};
     GLuint texture{};
-    VertexArray *va{};
-
-    uint8_t nextIndex{0};
-    map<string, uint8_t> textures{};
 
 };
 
