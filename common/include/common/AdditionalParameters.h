@@ -22,16 +22,16 @@ public:
 
     void cleanupLoopParameters();
 
-    void insertProgramLongParameter(const string& key, const any& value);
+    void insertProgramLongParameter(const string& key, const std::any& value);
 
-    void insertLoopLongParameter(const string& key, const any& value);
+    void insertLoopLongParameter(const string& key, const std::any& value);
 
-    any get(const string& key);
+    std::any get(const string& key);
 
 private:
 
-    map<string, any> programAgedParameters{};
-    map<string, any> loopAgedParameters{};
+    map<string, std::any> programAgedParameters{};
+    map<string, std::any> loopAgedParameters{};
 
 };
 
