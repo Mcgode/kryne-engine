@@ -124,3 +124,9 @@ GLFWwindow *Window::getGlfwWindow() const
 {
     return window;
 }
+
+
+void Window::setMouseCursor(int value)
+{
+    glfwSetInputMode(window, GLFW_CURSOR, value);
+}

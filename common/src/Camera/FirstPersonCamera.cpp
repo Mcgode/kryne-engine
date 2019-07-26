@@ -22,18 +22,28 @@ glm::vec3 FirstPersonCamera::getCurrentPosition()
 
 glm::mat4 FirstPersonCamera::getViewMatrix()
 {
-    return glm::translate(glm::yawPitchRoll(-(float) yaw, -(float) pitch, 0.f), -position);
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    auto cameraFront = glm::normalize(front);
+    return glm::lookAt(position, position + cameraFront, glm::vec3(0, 1, 0));
 }
 
 void FirstPersonCamera::onMouseMovementInput(Window *window, double xInput, double yInput)
 {
-    auto dv = glm::vec2(xInput - lastMouseXPosition, yInput - lastMouseYPosition);
+    window->setMouseCursor(GLFW_CURSOR_DISABLED);
 
-    yaw -= dv.x * drag * 2 * glm::pi<double>();
-    pitch = max(-glm::pi<double>() / 2., min(glm::pi<double>() / 2., pitch - dv.y * drag * 2 * glm::pi<double>()));
+    auto dv = glm::vec2();
 
-    lastMouseXPosition += dv.x;
-    lastMouseYPosition += dv.y;
+    if (!isnan(lastMouseXPosition))
+        dv = glm::vec2(xInput - lastMouseXPosition, yInput - lastMouseYPosition);
+
+    yaw += dv.x * drag;
+    pitch = max(-89.0, min(89.0, pitch - dv.y * drag));
+
+    lastMouseXPosition = xInput;
+    lastMouseYPosition = yInput;
 }
 
 
@@ -45,21 +55,27 @@ void FirstPersonCamera::frameUpdate(Window *window)
     std::chrono::duration<double> elapsed_seconds = now - this->lastFrameTime;
     this->lastFrameTime = now;
 
-    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS)
-        dv.x += 1.0f;
-    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)
-        dv.x -= 1.0f;
-    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_SPACE) == GLFW_PRESS)
-        dv.y += 1.0f;
-    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS)
-        dv.y -= 1.0f;
-    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_DOWN) == GLFW_PRESS)
-        dv.z += 1.0f;
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    auto cameraFront = glm::normalize(front);
+
     if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_UP) == GLFW_PRESS)
-        dv.z -= 1.0f;
+        dv += cameraFront;
+    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_DOWN) == GLFW_PRESS)
+        dv -= cameraFront;
+    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+        dv += glm::normalize(glm::cross(cameraFront, glm::vec3(0, 1, 0)));
+    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)
+        dv -= glm::normalize(glm::cross(cameraFront, glm::vec3(0, 1, 0)));
+    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_SPACE) == GLFW_PRESS)
+        dv += glm::vec3(0, 1, 0);
+    if (glfwGetKey(window->getGlfwWindow(), GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS)
+        dv -= glm::vec3(0, 1, 0);
 
     auto f = glm::vec3(speed * elapsed_seconds.count());
     dv = glm::length(dv) ? glm::normalize(dv) * f : dv;
 
-    position += glm::mat3(glm::yawPitchRoll((float) yaw, (float) pitch, 0.f)) * dv;
+    position += dv;
 }

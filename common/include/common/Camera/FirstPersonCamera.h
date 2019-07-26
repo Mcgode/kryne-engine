@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_FIRST_PERSON_CAMERA_H
 
 #include <chrono>
-#define GLM_SWIZZLE
+#define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
@@ -37,8 +37,8 @@ private:
     double speed;
     double drag;
 
-    double lastMouseXPosition = 0; ///< The x position of the mouse cursor during the last update
-    double lastMouseYPosition = 0; ///< The y position of the mouse cursor during the last update
+    double lastMouseXPosition = NAN; ///< The x position of the mouse cursor during the last update
+    double lastMouseYPosition = NAN; ///< The y position of the mouse cursor during the last update
 
     std::chrono::time_point<std::chrono::system_clock> lastFrameTime;
 };

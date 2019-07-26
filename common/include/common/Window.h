@@ -47,6 +47,8 @@ public:
 
     static void mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos);
 
+    void setMouseCursor(int value);
+
     ~Window();
 
 private:
