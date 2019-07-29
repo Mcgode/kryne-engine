@@ -3,7 +3,7 @@
 //
 
 #include <common/AdditionalParameters.h>
-#include "common/BaseObject.h"
+#include "common/3DObjects/BaseObject.h"
 
 BaseObject::BaseObject(Shader *shader, VertexArray *vertexArray)
 {

@@ -24,6 +24,11 @@ include_directories(glad/include)
 add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
 
 
+find_package(Boost COMPONENTS system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
+
+
 # Set up common library
 include_directories("common/include")
 add_library(common
@@ -34,8 +39,8 @@ add_library(common
         common/include/common/Camera/Camera.h
         common/src/Camera/BasicCamera.cpp common/include/common/Camera/BasicCamera.h
         common/src/GeometricShapes.cpp common/include/common/GeometricShapes.h
-        common/src/BaseObject.cpp common/include/common/BaseObject.h
-        common/src/HierarchicalNode.cpp common/include/common/HierarchicalNode.h
+        common/src/3DObjects/BaseObject.cpp common/include/common/3DObjects/BaseObject.h
+        common/src/3DObjects/HierarchicalNode.cpp common/include/common/3DObjects/HierarchicalNode.h
         common/src/Camera/TrackballCamera.cpp common/include/common/Camera/TrackballCamera.h
         common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h
         common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h

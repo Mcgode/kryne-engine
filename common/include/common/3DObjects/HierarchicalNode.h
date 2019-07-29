@@ -7,8 +7,8 @@
 
 #include <stdarg.h>
 
-#include "BaseObject.h"
-#include "AdditionalParameters.h"
+#include "common/3DObjects/BaseObject.h"
+#include "common/AdditionalParameters.h"
 
 
 class Scene;

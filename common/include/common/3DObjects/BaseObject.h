@@ -11,9 +11,9 @@
 #include <glm/mat4x4.hpp>
 #include <glm/mat3x3.hpp>
 
-#include "Shader.h"
-#include "VertexArray.h"
-#include "AdditionalParameters.h"
+#include "common/Shader.h"
+#include "common/VertexArray.h"
+#include "common/AdditionalParameters.h"
 
 
 /**

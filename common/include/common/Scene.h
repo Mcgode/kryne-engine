@@ -10,7 +10,7 @@
 #include <common/Light/PointLight.h>
 #include "common/Camera/Camera.h"
 #include "Window.h"
-#include "HierarchicalNode.h"
+#include "common/3DObjects/HierarchicalNode.h"
 
 /**
  * A class for handling a basic 3D scene

@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_SPHEREBASIC_H
 
 
-#include <common/BaseObject.h>
+#include <common/3DObjects/BaseObject.h>
 #include <common/VertexArray.h>
 #include <common/GeometricShapes.h>
 #include <common/Texture2D.h>

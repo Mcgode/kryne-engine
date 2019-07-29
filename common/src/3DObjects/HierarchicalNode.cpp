@@ -2,7 +2,7 @@
 // Created by max on 22/04/19.
 //
 
-#include <common/HierarchicalNode.h>
+#include <common/3DObjects/HierarchicalNode.h>
 #include <common/Scene.h>
 
 

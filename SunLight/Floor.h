@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_FLOOR_H
 
 
-#include <common/BaseObject.h>
+#include <common/3DObjects/BaseObject.h>
 #include <common/Texture2D.h>
 
 class Floor: public BaseObject {
