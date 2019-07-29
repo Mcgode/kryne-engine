@@ -92,3 +92,20 @@ Texture2D *Texture2D::getTexture(const std::string &directoryName, const std::st
     std::cerr << "No file found in directory with suffix: '" << filenameSuffix << "'" << std::endl;
     exit(EXIT_FAILURE);
 }
+
+Texture2D::Texture2D(Texture2D *texture)
+{
+    textureId = texture->textureId;
+    height = texture->height;
+    width = texture->width;
+    nbChannels = texture->nbChannels;
+
+    originalTexture = false;
+}
+
+
+Texture2D::~Texture2D()
+{
+    if (originalTexture)
+        glDeleteTextures(1, &textureId);
+}

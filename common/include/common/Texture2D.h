@@ -19,11 +19,15 @@ class Texture2D {
 public:
     explicit Texture2D(const std::string& filename, bool generateMipMap = false);
 
+    explicit Texture2D(Texture2D *texture);
+
     static void textureSet(int textureID, Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
 
     static Texture2D *getTexture(const std::string &directoryName, const std::string &filenameSuffix = "diff");
 
     void setTexture(Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
+
+    virtual ~Texture2D();
 
 private:
 
@@ -32,6 +36,7 @@ private:
     int nbChannels{};
 
     GLuint textureId{};
+    bool originalTexture = true;
 
 };
 
