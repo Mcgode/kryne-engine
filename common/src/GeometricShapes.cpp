@@ -188,3 +188,47 @@ void generateQuadShape(float size,
         tangents->push_back(glm::vec3(1, 0, 0));
     }
 }
+
+
+void generateDoubleSidedQuadShape(float size, std::vector<vec3> *positions, std::vector<vec3> *normals,
+                                  std::vector<vec2> *textureCoordinates, std::vector<vec3> *tangents)
+{
+    generateQuadShape(size, positions, normals, textureCoordinates, tangents);
+    float s = size / 2.0;
+
+    if (positions != nullptr) {
+        positions->push_back(glm::vec3(-s, -s, 0));
+        positions->push_back(glm::vec3(-s,  s, 0));
+        positions->push_back(glm::vec3( s, -s, 0));
+        positions->push_back(glm::vec3( s,  s, 0));
+        positions->push_back(glm::vec3( s, -s, 0));
+        positions->push_back(glm::vec3(-s,  s, 0));
+    }
+
+    if (normals != nullptr) {
+        normals->push_back(glm::vec3(0, 0, -1));
+        normals->push_back(glm::vec3(0, 0, -1));
+        normals->push_back(glm::vec3(0, 0, -1));
+        normals->push_back(glm::vec3(0, 0, -1));
+        normals->push_back(glm::vec3(0, 0, -1));
+        normals->push_back(glm::vec3(0, 0, -1));
+    }
+
+    if (textureCoordinates != nullptr) {
+        textureCoordinates->push_back(glm::vec2(0, 0));
+        textureCoordinates->push_back(glm::vec2(0, 1));
+        textureCoordinates->push_back(glm::vec2(1, 0));
+        textureCoordinates->push_back(glm::vec2(1, 1));
+        textureCoordinates->push_back(glm::vec2(1, 0));
+        textureCoordinates->push_back(glm::vec2(0, 1));
+    }
+
+    if (tangents != nullptr) {
+        tangents->push_back(glm::vec3(-1, 0, 0));
+        tangents->push_back(glm::vec3(-1, 0, 0));
+        tangents->push_back(glm::vec3(-1, 0, 0));
+        tangents->push_back(glm::vec3(-1, 0, 0));
+        tangents->push_back(glm::vec3(-1, 0, 0));
+        tangents->push_back(glm::vec3(-1, 0, 0));
+    }
+}
