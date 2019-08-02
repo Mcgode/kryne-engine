@@ -90,7 +90,7 @@ vec3 getDirectionalLightColor(DirectionalLight light, vec3 direction, vec3 norma
     vec3 diffuseColor = difFactor * color * material.diffuse * light.diffuse;
 
     float shininess = material.shininess;
-    vec3 r = reflect(l, normalize(normal));
+    vec3 r = reflect(-l, normalize(normal));
     vec3 v = normalize(fs_in.cameraPosition - fs_in.tangeantWorldPosition);
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color * material.specular;
@@ -103,12 +103,12 @@ void main() {
     vec3 normal = texture(material.normalMap, fs_in.textureCoordinates).rgb;
     normal = normalize(normal * 2.0 - 1.0);
 
-	vec3 finalColor = vec3(0.1);
+	vec3 finalColor = vec3(0.0);
 
 	if (directionalLight.enabled != 0)
 	    finalColor += getDirectionalLightColor(directionalLight, fs_in.directionalLightDirection, normal);
 	else
-	    finalColor = texture(material.diffuseMap, fs_in.textureCoordinates).xyz;
+	    finalColor = texture(material.diffuseMap, fs_in.textureCoordinates).rgb;
 
 	for (int i = 0; i < amountOfPointLights; i++)
 	    finalColor += getPointLightColor(pointLights[i], fs_in.pointLightsPositions[i], normal);
