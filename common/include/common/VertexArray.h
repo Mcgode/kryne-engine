@@ -67,7 +67,7 @@ public:
      * @param indexes   The indexes of the faces
      * @param size      The number of elements per face
      */
-    void setUpElements(std::vector<uint32_t[3]> *indexes, size_t size);
+    void setUpElements(std::vector<uint32_t> *indexes, size_t size);
 
 private:
 

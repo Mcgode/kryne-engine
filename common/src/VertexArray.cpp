@@ -77,15 +77,17 @@ VertexArray::~VertexArray()
 void VertexArray::execute(GLenum primitive)
 {
     glBindVertexArray(vao);
-    if (ebo != 0)
+    if (ebo != 0) {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
         glDrawElements(primitive, ebo_length, GL_UNSIGNED_INT, nullptr);
-    else
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    } else
         glDrawArrays(primitive, 0, length);
     glBindVertexArray(0);
 }
 
 
-void VertexArray::setUpElements(std::vector<uint32_t[3]> *indexes, size_t size)
+void VertexArray::setUpElements(std::vector<uint32_t> *indexes, size_t size)
 {
     glGenBuffers(1, &ebo);
     ebo_length = indexes->size();
