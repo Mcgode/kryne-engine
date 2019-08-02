@@ -15,7 +15,9 @@ More specifically, right now, I'm working on:
 
 More projects might be coming down the road, and some may currently be 
 on hold. Please refer to the current status section for more information
-on which projects are currently being worked on
+on which projects are currently being worked on.
+
+Click on the screenshots to view more details on a specific project.
 
 ### Sphere
 
@@ -39,15 +41,6 @@ Goal : Experimenting texture mapping effects on a sphere
 - [ ] displacement mapping
 
 
-### SunLight
+### [SunLight](/SunLight/README.md)
 
-Goal : Rendering an open scene with multiple light effects
-- [ ] (*WIP*) basic lighting and scene setup
-- [ ] shadow mapping
-- [ ] cascaded shadow mapping
-- [ ] transparency support for shadow mapping
-- [ ] soft shadow mapping
-- [ ] HDR (high dynamic range) and tone mapping
-- [ ] bloom
-- [ ] lens flare
-- [ ] SAO (scalable ambient obscurance) implementation
+[![SunLight project informations](/Screenshots/SunLight/CurrentStatus.png?raw=true "SunLight project's current visuals")](/SunLight/README.md#screenshots)
