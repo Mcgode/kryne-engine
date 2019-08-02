@@ -45,19 +45,25 @@ add_library(common
         common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h
         common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h
         common/src/AdditionalParameters.cpp common/include/common/AdditionalParameters.h
-        common/src/stb_image.cpp common/include/common/stb_image.h common/src/Texture2D.cpp common/include/common/Texture2D.h common/src/RenderTargets/PostProcess.cpp common/include/common/RenderTargets/PostProcess.h common/src/RenderTargets/FinalPostProcess.cpp common/include/common/RenderTargets/FinalPostProcess.h common/src/Camera/FirstPersonCamera.cpp common/include/common/Camera/FirstPersonCamera.h)
-target_link_libraries(common glad glfw assimp glm)
-
-
-find_package(Boost COMPONENTS system filesystem REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-link_directories(${Boost_LIBRARY_DIR})
+        common/src/stb_image.cpp common/include/common/stb_image.h
+        common/src/Texture2D.cpp common/include/common/Texture2D.h
+        common/src/RenderTargets/PostProcess.cpp common/include/common/RenderTargets/PostProcess.h
+        common/src/RenderTargets/FinalPostProcess.cpp common/include/common/RenderTargets/FinalPostProcess.h
+        common/src/Camera/FirstPersonCamera.cpp common/include/common/Camera/FirstPersonCamera.h
+        common/src/3DObjects/Model/ModelLoader.cpp common/include/common/3DObjects/Model/ModelLoader.h
+        common/src/3DObjects/Model/ModelMesh.cpp common/include/common/3DObjects/Model/ModelMesh.h)
+target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
 
 
 # Setting up executables
 
-add_executable(SunLight SunLight/main.cpp SunLight/Floor.cpp SunLight/Floor.h)
-target_link_libraries(SunLight glad glfw assimp common ${Boost_LIBRARIES})
+add_executable(SunLight SunLight/main.cpp
+                        SunLight/Floor.cpp SunLight/Floor.h)
+target_link_libraries(SunLight common)
 
-add_executable(Sphere Sphere/main.cpp Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h Sphere/SphereBasic.cpp Sphere/SphereBasic.h Sphere/SphereTexture.cpp Sphere/SphereTexture.h Sphere/SphereParallax.cpp Sphere/SphereParallax.h)
-target_link_libraries(Sphere glad glfw assimp common ${Boost_LIBRARIES})
+add_executable(Sphere Sphere/main.cpp
+                      Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h
+                      Sphere/SphereBasic.cpp Sphere/SphereBasic.h
+                      Sphere/SphereTexture.cpp Sphere/SphereTexture.h
+                      Sphere/SphereParallax.cpp Sphere/SphereParallax.h)
+target_link_libraries(Sphere common)
