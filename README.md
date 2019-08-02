@@ -19,28 +19,10 @@ on which projects are currently being worked on.
 
 Click on the screenshots to view more details on a specific project.
 
-### Sphere
+### [Sphere](Sphere/README.md)
 
-Goal : Experimenting texture mapping effects on a sphere 
+[![Sphere project screenshots](Screenshots/Sphere/CurentStatus.png?raw=true "Sphere project's current visuals")](/Sphere/README.md#screenshots)
 
-- [X] basic light support
+### [SunLight](SunLight/README.md)
 
-![Screenshot](/Screenshots/BasicLight.png?raw=true "Basic light implementation screenshot")
-
-
-- [X] texture mapping
-
-![Screenshot](/Screenshots/TextureMapping.png?raw=true "Texture mapping screenshot")
-
-
-- [X] normal mapping
-
-![Screenshot](/Screenshots/NormalMapping.png?raw=true "Normal mapping screenshot")
-
-- [ ] (*ON HOLD*) parallax mapping
-- [ ] displacement mapping
-
-
-### [SunLight](/SunLight/README.md)
-
-[![SunLight project informations](/Screenshots/SunLight/CurrentStatus.png?raw=true "SunLight project's current visuals")](/SunLight/README.md#screenshots)
+[![SunLight project screenshots](Screenshots/SunLight/CurrentStatus.png?raw=true "SunLight project's current visuals")](/SunLight/README.md#screenshots)
