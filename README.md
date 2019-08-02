@@ -4,13 +4,12 @@ This project is meant for me to be a way to experiment with OpenGL.
 
 ## Current Status
 
-Most of the basic common structure of the code is done, and I'm 
-currently focusing on the Sphere project
+Most of the basic common structure of the code is done.
+I've put the Sphere project on hold, and I'm working on the SunLight project
 
 More specifically, right now, I'm working on:
-- Loading and applying a displacement map texture to an object
-- Fragment shader support of parallax mapping
-
+- Loading a model from a file (with Assimp)
+- Setting up the SunLight scene
 
 ## Individual projects
 
@@ -22,32 +21,33 @@ on which projects are currently being worked on
 
 Goal : Experimenting texture mapping effects on a sphere 
 
-- basic light support : *DONE*
+- [X] basic light support
 
 ![Screenshot](/Screenshots/BasicLight.png?raw=true "Basic light implementation screenshot")
 
 
-- texture mapping : *DONE*
+- [X] texture mapping
 
 ![Screenshot](/Screenshots/TextureMapping.png?raw=true "Texture mapping screenshot")
 
 
-- normal mapping : *DONE*
+- [X] normal mapping
 
 ![Screenshot](/Screenshots/NormalMapping.png?raw=true "Normal mapping screenshot")
 
-- parallax mapping : *WORK IN PROGRESS*
-- displacement mapping : *TODO*
+- [ ] (*ON HOLD*) parallax mapping
+- [ ] displacement mapping
 
 
 ### SunLight
 
 Goal : Rendering an open scene with multiple light effects
-- basic lighting : *TODO*
-- shadow mapping : *TODO*
-- transparency support for shadow mapping : *TODO*
-- cascaded shadow mapping : *TODO*
-- soft shadow mapping : *TODO*
-- HDR : *TODO*
-- bloom : *TODO*
-- lens flare : *TODO*
+- [ ] (*WIP*) basic lighting and scene setup
+- [ ] shadow mapping
+- [ ] cascaded shadow mapping
+- [ ] transparency support for shadow mapping
+- [ ] soft shadow mapping
+- [ ] HDR (high dynamic range) and tone mapping
+- [ ] bloom
+- [ ] lens flare
+- [ ] SAO (scalable ambient obscurance) implementation
