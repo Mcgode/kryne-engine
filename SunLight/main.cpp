@@ -5,8 +5,10 @@
 #include <iostream>
 #include <common/Scene.h>
 #include <common/Camera/FirstPersonCamera.h>
+#include <common/3DObjects/Model/ModelLoader.h>
 #include "common/Shader.h"
 #include "Floor.h"
+#include "Model.h"
 
 using namespace std;
 
@@ -30,12 +32,15 @@ int main(int argc, const char **argv)
 
     auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1), glm::vec3(1));
     pScene->setDirectionalLight(dirLight);
+//    auto data = ModelLoader::loadModel("TorusKnot.obj");
 
     auto obj = new Floor("concrete");
     auto transform = glm::translate(glm::mat4(1.0), glm::vec3(0, -2, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(1, 0, 0));
     auto node = new HierarchicalNode(obj, transform);
     pScene->addDrawable(node);
+
+    pScene->addDrawable(new HierarchicalNode(new Model("TorusKnot.obj", "concrete")));
 
     sh->use();
     sh->setVec3("color", 1.0, 0.0, 0.0);
@@ -46,7 +51,6 @@ int main(int argc, const char **argv)
     delete sh;
     delete dirLight;
     delete pScene;
-    delete pl;
 
     return 0;
 }
