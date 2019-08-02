@@ -19,7 +19,7 @@ Model::Model(const string &model, const string &fallbackTexture)
 
 void Model::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) {
     shader->setFloat("material.shininess", 2.0f);
-    shader->setVec3("material.ambient", glm::vec3(0.07));
+    shader->setVec3("material.ambient", glm::vec3(0.15));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(0.4));
     this->diffuseMap->setTexture(shader, 0, "material.diffuseMap");

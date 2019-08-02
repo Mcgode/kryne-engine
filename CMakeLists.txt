@@ -59,7 +59,7 @@ target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
 
 add_executable(SunLight SunLight/main.cpp
                         SunLight/Floor.cpp SunLight/Floor.h
-                        SunLight/Model.cpp SunLight/Model.h)
+                        SunLight/Model.cpp SunLight/Model.h SunLight/StainedGlass.cpp SunLight/StainedGlass.h)
 target_link_libraries(SunLight common)
 
 add_executable(Sphere Sphere/main.cpp
