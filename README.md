@@ -21,7 +21,7 @@ Click on the screenshots to view more details on a specific project.
 
 ### [Sphere](Sphere/README.md)
 
-[![Sphere project screenshots](Screenshots/Sphere/CurentStatus.png?raw=true "Sphere project's current visuals")](/Sphere/README.md#screenshots)
+[![Sphere project screenshots](Screenshots/Sphere/CurrentStatus.png?raw=true "Sphere project's current visuals")](/Sphere/README.md#screenshots)
 
 ### [SunLight](SunLight/README.md)
 
