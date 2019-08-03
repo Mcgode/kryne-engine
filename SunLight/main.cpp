@@ -31,7 +31,10 @@ int main(int argc, const char **argv)
 
     auto *sh = new Shader("Sphere/Lighting");
 
-    auto *dirLight = new DirectionalLight(glm::vec3(-1, -1, -0), glm::vec3(1));
+    auto skybox = new Skybox("skybox", ".tga");
+    pScene->setSkybox(skybox, SKYBOX_DRAW_FIRST);
+
+    auto *dirLight = new DirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
     pScene->setDirectionalLight(dirLight);
 //    auto data = ModelLoader::loadModel("TorusKnot.obj");
 
@@ -46,10 +49,6 @@ int main(int argc, const char **argv)
     transform = glm::translate(glm::mat4(1), glm::vec3(3, 1, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(0, 1, 0));
     pScene->addDrawable(new HierarchicalNode(new StainedGlass(), transform));
-
-    sh->use();
-    sh->setVec3("color", 1.0, 0.0, 0.0);
-    Shader::resetUse();
 
     pScene->runLoop();
 
