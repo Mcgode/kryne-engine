@@ -21,15 +21,17 @@ public:
 
     explicit Texture2D(Texture2D *texture);
 
-    static void textureSet(int textureID, Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
+    static void textureSet(int textureID, Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "", GLenum textureType = GL_TEXTURE_2D);
 
     static Texture2D *getTexture(const std::string &directoryName, const std::string &filenameSuffix = "diff");
 
-    void setTexture(Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
+    virtual void setTexture(Shader *shader, GLuint textureIndex = 0, const std::string &uniformName = "");
 
     virtual ~Texture2D();
 
-private:
+protected:
+
+    Texture2D();
 
     int width{};
     int height{};
