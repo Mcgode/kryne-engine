@@ -34,6 +34,8 @@ public:
      */
     void shaderSet(Shader *shader, std::string uniformName);
 
+    const glm::vec3 &getDirection() const;
+
 private:
 
     /// The vector of the light direction

@@ -27,5 +27,9 @@ void DirectionalLight::shaderSet(Shader *shader, std::string uniformName)
     shader->setVec3(uniformName + ".specular", specularColor);
 }
 
+const glm::vec3 &DirectionalLight::getDirection() const {
+    return direction;
+}
+
 
 
