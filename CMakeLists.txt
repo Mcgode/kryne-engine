@@ -51,7 +51,7 @@ add_library(common
         common/src/RenderTargets/FinalPostProcess.cpp common/include/common/RenderTargets/FinalPostProcess.h
         common/src/Camera/FirstPersonCamera.cpp common/include/common/Camera/FirstPersonCamera.h
         common/src/3DObjects/Model/ModelLoader.cpp common/include/common/3DObjects/Model/ModelLoader.h
-        common/src/3DObjects/Model/ModelMesh.cpp common/include/common/3DObjects/Model/ModelMesh.h)
+        common/src/3DObjects/Model/ModelMesh.cpp common/include/common/3DObjects/Model/ModelMesh.h common/src/3DObjects/Skybox.cpp common/include/common/3DObjects/Skybox.h common/src/TextureCubeMap.cpp common/include/common/TextureCubeMap.h common/include/common/Constants/CubeVertexData.h common/include/common/enums/SkyboxDrawOrder.h)
 target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
 
 
