@@ -14,6 +14,7 @@ Scene::Scene(Camera *camera, int window_width, int window_height)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_CULL_FACE);
+    glDepthFunc(GL_LEQUAL);
 }
 
 
@@ -22,6 +23,7 @@ Scene::~Scene()
     delete camera;
     for (HierarchicalNode *node: rootNodes)
         delete node;
+    delete skybox;
     delete window;
 }
 
@@ -49,8 +51,14 @@ void Scene::mainRenderLoop(AdditionalParameters *params)
     glm::vec3 camPos = camera->getCurrentPosition();
     params->insertLoopLongParameter("cameraPosition", camPos);
 
+    if (skyboxDrawOrder == SKYBOX_DRAW_FIRST)
+        skybox->draw(projection, this->getCamera()->getViewMatrix());
+
     for (HierarchicalNode *node: rootNodes)
         node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
+
+    if (skyboxDrawOrder == SKYBOX_DRAW_LAST)
+        skybox->draw(projection, this->getCamera()->getViewMatrix());
 }
 
 void Scene::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
@@ -96,6 +104,9 @@ void Scene::setDirectionalLight(DirectionalLight *light)
 {
     assert(light != nullptr);
     Scene::directionalLight = light;
+
+    if (skybox)
+        skybox->setLightDirection(-directionalLight->getDirection());
 }
 
 
@@ -103,4 +114,19 @@ void Scene::addPointLight(PointLight *light)
 {
     assert(light != nullptr);
     pointLights.push_back(light);
+}
+
+
+void Scene::setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder)
+{
+    this->skybox = skybox;
+    this->skyboxDrawOrder = drawOrder;
+
+    if (skybox && directionalLight)
+        skybox->setLightDirection(-directionalLight->getDirection());
+
+    if (drawOrder != SKYBOX_NO_DRAW && !skybox) {
+        std::cerr << "No skybox provided" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }

@@ -8,9 +8,10 @@
 
 #include <common/Light/DirectionalLight.h>
 #include <common/Light/PointLight.h>
-#include "common/Camera/Camera.h"
-#include "Window.h"
-#include "common/3DObjects/HierarchicalNode.h"
+#include <common/Camera/Camera.h>
+#include <common/Window.h>
+#include <common/3DObjects/HierarchicalNode.h>
+#include <common/3DObjects/Skybox.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -78,6 +79,8 @@ public:
 
     Camera *getCamera() const;
 
+    void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder);
+
     ~Scene();
 
 private:
@@ -99,6 +102,9 @@ private:
 
     /// The point lights of the scene
     std::vector<PointLight *> pointLights;
+
+    Skybox *skybox = nullptr;
+    SkyboxDrawOrder skyboxDrawOrder = SKYBOX_NO_DRAW;
 
 };
 
