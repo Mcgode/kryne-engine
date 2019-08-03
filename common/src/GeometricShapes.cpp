@@ -9,6 +9,25 @@ const double PI  = 3.141592653589793238463;
 const float  PI_F= 3.14159265358979f;
 
 
+vec3 computeTangent(vec3 p0, vec3 p1, vec3 p2, vec2 uv0, vec2 uv1, vec2 uv2) {
+    vec3 q0 = p1 - p0;
+    vec3 q1 = p2 - p0;
+
+    vec2 deltaUV0 = uv1 - uv0;
+    vec2 deltaUV1 = uv2 - uv0;
+
+    float f = 1.f / (deltaUV0.x * deltaUV1.y - deltaUV0.y * deltaUV1.x);
+
+    vec3 T = vec3(
+            f * (deltaUV1.y * q0.x - deltaUV0.y * q1.x),
+            f * (deltaUV1.y * q0.y - deltaUV0.y * q1.y),
+            f * (deltaUV1.y * q0.z - deltaUV0.y * q1.z)
+    );
+
+    return normalize(T);
+}
+
+
 void generateSphereShape(
         float ray,
         int n_long,
@@ -117,20 +136,7 @@ void generateSphereShape(
                 }
 
                 if (tangents != nullptr) {
-                    glm::vec3 q0 = p1 - p0;
-                    glm::vec3 q1 = p2 - p0;
-
-                    glm::vec2 deltaUV0 = uv1 - uv0;
-                    glm::vec2 deltaUV1 = uv2 - uv0;
-
-                    float f = 1.f / (deltaUV0.x * deltaUV1.y - deltaUV0.y * deltaUV1.x);
-
-                    glm::vec3 T = glm::vec3(
-                            f * (deltaUV1.y * q0.x - deltaUV0.y * q1.x),
-                            f * (deltaUV1.y * q0.y - deltaUV0.y * q1.y),
-                            f * (deltaUV1.y * q0.z - deltaUV0.y * q1.z)
-                    );
-                    T = glm::normalize(T);
+                    vec3 T = computeTangent(p0, p1, p2, uv0, uv1, uv2);
 
                     tangents->push_back(T);
                     tangents->push_back(T);
@@ -150,7 +156,7 @@ void generateQuadShape(float size,
                        std::vector<vec2> *textureCoordinates,
                        std::vector<vec3> *tangents)
 {
-    float s = size / 2.0;
+    float s = size / 2.0f;
 
     if (positions != nullptr) {
         positions->push_back(glm::vec3(-s, -s, 0));
@@ -194,7 +200,7 @@ void generateDoubleSidedQuadShape(float size, std::vector<vec3> *positions, std:
                                   std::vector<vec2> *textureCoordinates, std::vector<vec3> *tangents)
 {
     generateQuadShape(size, positions, normals, textureCoordinates, tangents);
-    float s = size / 2.0;
+    float s = size / 2.0f;
 
     if (positions != nullptr) {
         positions->push_back(glm::vec3(-s, -s, 0));
@@ -230,5 +236,52 @@ void generateDoubleSidedQuadShape(float size, std::vector<vec3> *positions, std:
         tangents->push_back(glm::vec3(-1, 0, 0));
         tangents->push_back(glm::vec3(-1, 0, 0));
         tangents->push_back(glm::vec3(-1, 0, 0));
+    }
+}
+
+
+void generateCubeShape(float xSize, float ySize, float zSize, std::vector<vec3> *positions, std::vector<vec3> *normals,
+                       std::vector<vec2> *textureCoordinates, std::vector<vec3> *tangents)
+{
+    float x = xSize / 2.f, y = ySize / 2.f, z = zSize / 2.f;
+
+    for (int i = 0; i < CUBE_AMOUNT_OF_VERTICES; i += 3)
+    {
+        int j = i;
+        vec3 p0 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
+        vec2 uv0 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
+        if (normals != nullptr)
+            normals->push_back(vec3(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]));
+
+        j++;
+        vec3 p1 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
+        vec2 uv1 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
+        if (normals)
+            normals->push_back(vec3(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]));
+
+        j++;
+        vec3 p2 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
+        vec2 uv2 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
+        if (normals != nullptr)
+            normals->push_back(vec3(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]));
+
+        if (positions) {
+            positions->push_back(p0);
+            positions->push_back(p1);
+            positions->push_back(p2);
+        }
+
+        if (textureCoordinates) {
+            textureCoordinates->push_back(uv0);
+            textureCoordinates->push_back(uv1);
+            textureCoordinates->push_back(uv2);
+        }
+
+        if (tangents) {
+            vec3 T = computeTangent(p0, p1, p2, uv0, uv1, uv2);
+            tangents->push_back(T);
+            tangents->push_back(T);
+            tangents->push_back(T);
+        }
     }
 }
