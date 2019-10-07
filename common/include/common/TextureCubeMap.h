@@ -14,7 +14,7 @@ public:
 
     TextureCubeMap(const std::string &folderName, const std::string &fileExtension);
 
-    void setTexture(Shader *shader, GLuint textureIndex, const std::string &uniformName) override;
+    void setTexture(Shader *shader, const std::string &uniformName) override;
 
 };
 

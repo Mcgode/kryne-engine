@@ -50,24 +50,19 @@ Texture2D::Texture2D(const std::string& filename, bool generateMipmap)
 }
 
 
-void Texture2D::textureSet(int textureID, Shader *shader, GLuint textureIndex, const std::string &uniformName, GLenum textureType)
+void Texture2D::textureSet(int textureID, Shader *shader, const std::string &uniformName, GLenum textureType)
 {
-    assert(textureIndex < 32);
-    if (uniformName.length()) {
-        glActiveTexture(GL_TEXTURE0 + textureIndex);
-        shader->setInt(uniformName, textureIndex);
-    }
+    shader->setTexture(uniformName);
 
     glBindTexture(textureType, textureID);
 
-    if (uniformName.length())
-        glActiveTexture(GL_TEXTURE0);
+    glActiveTexture(GL_TEXTURE0);
 }
 
 
-void Texture2D::setTexture(Shader *shader, GLuint textureIndex, const std::string &uniformName)
+void Texture2D::setTexture(Shader *shader, const std::string &uniformName)
 {
-    Texture2D::textureSet(textureId, shader, textureIndex, uniformName);
+    Texture2D::textureSet(textureId, shader, uniformName, GL_TEXTURE_2D);
 }
 
 

@@ -43,7 +43,7 @@ TextureCubeMap::TextureCubeMap(const std::string &folderName, const std::string 
 }
 
 
-void TextureCubeMap::setTexture(Shader *shader, GLuint textureIndex, const std::string &uniformName)
+void TextureCubeMap::setTexture(Shader *shader, const std::string &uniformName)
 {
-    Texture2D::textureSet(textureId, shader, textureIndex, uniformName, GL_TEXTURE_CUBE_MAP);
+    Texture2D::textureSet(textureId, shader, uniformName, GL_TEXTURE_CUBE_MAP);
 }
