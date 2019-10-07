@@ -5,10 +5,13 @@
 #ifndef GLFW_TRAINING_SHADER_H
 #define GLFW_TRAINING_SHADER_H
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <iostream>
 #include <fstream>
+#include <map>
+#include <string>
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -32,12 +35,14 @@ public:
     void setVec4(const std::string &name, glm::vec4 vec);
     void setMat4(const std::string &name, glm::mat4 mat) const;
     void setMat3(const std::string &name, glm::mat3 mat) const;
+    void setTexture(const std::string &name);
 
     unsigned int ID;
 
 private:
     unsigned int createShaderFromFile(GLenum type, const char *filename);
-
+    std::map<std::string, uint8_t> textureMap{};
+    uint8_t maxIndex{};
 };
 
 

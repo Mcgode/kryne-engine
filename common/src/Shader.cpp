@@ -101,6 +101,8 @@ unsigned int Shader::createShaderFromFile(GLenum type, const char *filename)
         std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
 
+    maxIndex = 0;
+
     return shader;
 }
 
@@ -175,4 +177,20 @@ void Shader::setVec2(const std::string &name, glm::vec2 vec) const
 void Shader::setVec4(const std::string &name, glm::vec4 vec)
 {
     setVec4(name, vec.x, vec.y, vec.z, vec.w);
+}
+
+
+void Shader::setTexture(const std::string &name)
+{
+
+    auto pair = textureMap.find(name);
+    if (pair == textureMap.end()) {
+        textureMap.insert(std::pair<std::string, uint8_t>(name, maxIndex));
+        glActiveTexture(GL_TEXTURE0 + maxIndex);
+        setInt(name, maxIndex);
+        maxIndex++;
+    } else {
+        glActiveTexture(GL_TEXTURE0 + pair->second);
+        setInt(name, pair->second);
+    }
 }
