@@ -13,7 +13,7 @@ SphereNormalMapping::SphereNormalMapping(const std::string &textureDirName) : Sp
 
 void SphereNormalMapping::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
 {
-    normalMapTexture->setTexture(shader, 1, "material.normalMap");
+    normalMapTexture->setTexture(shader, "material.normalMap");
     SphereTexture::draw(projection, view, model, params);
 }
 

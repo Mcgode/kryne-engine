@@ -32,6 +32,6 @@ void StainedGlass::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, A
     shader->setVec3("material.ambient", glm::vec3(0.08));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(5.2));
-    texture->setTexture(shader, 0, "material.diffuseMap");
+    texture->setTexture(shader, "material.diffuseMap");
     BaseObject::draw(projection, view, model, params);
 }

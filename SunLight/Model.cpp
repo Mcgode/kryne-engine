@@ -22,7 +22,7 @@ void Model::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, Addition
     shader->setVec3("material.ambient", glm::vec3(0.15));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(0.4));
-    this->diffuseMap->setTexture(shader, 0, "material.diffuseMap");
-    this->normalMap->setTexture(shader, 1, "material.normalMap");
+    this->diffuseMap->setTexture(shader, "material.diffuseMap");
+    this->normalMap->setTexture(shader, "material.normalMap");
     BaseObject::draw(projection, view, model, params);
 }

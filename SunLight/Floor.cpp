@@ -32,8 +32,8 @@ void Floor::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, Addition
     shader->setVec3("material.ambient", glm::vec3(0.07));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(1.6));
-    this->diffuseTexture->setTexture(shader, 0, "material.diffuseMap");
-    this->normalMapTexture->setTexture(shader, 1, "material.normalMap");
+    this->diffuseTexture->setTexture(shader, "material.diffuseMap");
+    this->normalMapTexture->setTexture(shader, "material.normalMap");
     BaseObject::draw(projection, view, model, params);
 }
 

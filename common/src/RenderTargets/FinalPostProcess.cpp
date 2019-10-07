@@ -55,9 +55,9 @@ void FinalPostProcess::setTextureUniform(Texture2D *textureUniform, const string
             exit(EXIT_FAILURE);
         }
         this->textures.insert(pair<string, uint8_t>(uniformName, this->nextIndex));
-        textureUniform->setTexture(this->postProcessShader, this->nextIndex++, uniformName);
+        textureUniform->setTexture(this->postProcessShader, uniformName);
     } else {
-        textureUniform->setTexture(this->postProcessShader, position->second, uniformName);
+        textureUniform->setTexture(this->postProcessShader, uniformName);
     }
 
 }
