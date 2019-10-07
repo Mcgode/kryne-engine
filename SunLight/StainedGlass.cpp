@@ -9,7 +9,7 @@ StainedGlass::StainedGlass()
 {
     this->shader = new Shader("AlphaTexture/Basic");
     this->supportsLighting = true;
-    this->castsHardShadows = false;
+    this->shadowCasting = NO_SHADOW;
     this->maximumSupportedPointLights = 4;
 
     vector<glm::vec3> positions, normals, tangents;

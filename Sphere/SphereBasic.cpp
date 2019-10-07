@@ -25,7 +25,7 @@ void SphereBasic::initialize(Shader *shader)
     this->vertexArray = va;
     this->supportsLighting = true;
     this->maximumSupportedPointLights = 4;
-    this->castsHardShadows = true;
+    this->shadowCasting = HARD_SHADOW;
 }
 
 void SphereBasic::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) {

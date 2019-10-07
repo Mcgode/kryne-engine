@@ -11,7 +11,6 @@ BaseObject::BaseObject(Shader *shader, VertexArray *vertexArray)
     this->vertexArray = vertexArray;
     supportsLighting = false;
     maximumSupportedPointLights = 0;
-    castsHardShadows = true;
 }
 
 

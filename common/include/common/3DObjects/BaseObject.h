@@ -2,8 +2,8 @@
 // Created by max on 22/04/19.
 //
 
-#ifndef INC_3D_DEMOS_BASEOBJECT_H
-#define INC_3D_DEMOS_BASEOBJECT_H
+#ifndef INC_3D_DEMOS_BASE_OBJECT_H
+#define INC_3D_DEMOS_BASE_OBJECT_H
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -14,6 +14,7 @@
 #include "common/Shader.h"
 #include "common/VertexArray.h"
 #include "common/AdditionalParameters.h"
+#include <common/enums/BaseObject.h>
 
 
 /**
@@ -63,9 +64,9 @@ protected:
 
     int maximumSupportedPointLights{};
 
-    bool castsHardShadows{};
+    BaseObjectShadowType shadowCasting = NO_SHADOW;
 
 };
 
 
-#endif //INC_3D_DEMOS_BASEOBJECT_H
+#endif //INC_3D_DEMOS_BASE_OBJECT_H
