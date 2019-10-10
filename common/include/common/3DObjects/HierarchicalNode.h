@@ -5,7 +5,8 @@
 #ifndef INC_3D_DEMOS_HIERARCHICALNODE_H
 #define INC_3D_DEMOS_HIERARCHICALNODE_H
 
-#include <stdarg.h>
+#include <cstdarg>
+#include <common/Rendering/RenderPass.h>
 
 #include "common/3DObjects/BaseObject.h"
 #include "common/AdditionalParameters.h"
@@ -50,12 +51,12 @@ public:
 
     /**
      * Draws the node objects and its children to the current framebuffer
-     * @param scene      The scene for the rendering.
+     * @param renderer   The rendering handler.
      * @param view       The view transform matrix of the scene.
      * @param model      The combined model transform matrix of the scene and the node successive parents.
      * @param params     The additional params to pass down the rendering pipeline.
      */
-    void draw(Scene *scene, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
+    void draw(RenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     ~HierarchicalNode();
 
@@ -72,5 +73,8 @@ private:
 
 };
 
+#else
+
+class HierarchicalNode;
 
 #endif //INC_3D_DEMOS_HIERARCHICALNODE_H

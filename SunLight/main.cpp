@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <common/Scene.h>
+#include <common/Rendering/Scene.h>
 #include <common/Camera/FirstPersonCamera.h>
 #include <common/3DObjects/Model/ModelLoader.h>
 #include "common/Shader.h"

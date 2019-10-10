@@ -2,7 +2,7 @@
 // Created by max on 20/04/19.
 //
 
-#include <common/Scene.h>
+#include <common/Rendering/Scene.h>
 #include "common/Window.h"
 
 
@@ -100,7 +100,7 @@ void Window::runLoop(Scene *scene, AdditionalParameters *params)
     currentScene = scene;
 
     while (!glfwWindowShouldClose(this->window)) {
-        scene->mainRenderLoop(params);
+        scene->renderLoop(params);
         glfwSwapBuffers(this->window);
         glfwPollEvents();
         params->cleanupLoopParameters();

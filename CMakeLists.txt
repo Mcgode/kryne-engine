@@ -33,7 +33,7 @@ link_directories(${Boost_LIBRARY_DIR})
 include_directories("common/include")
 add_library(common
         common/src/Shader.cpp common/include/common/Shader.h
-        common/src/Scene.cpp common/include/common/Scene.h
+        common/src/Rendering/Scene.cpp common/include/common/Rendering/Scene.h
         common/src/VertexArray.cpp common/include/common/VertexArray.h
         common/src/Window.cpp common/include/common/Window.h
         common/include/common/Camera/Camera.h
@@ -56,7 +56,8 @@ add_library(common
         common/src/TextureCubeMap.cpp common/include/common/TextureCubeMap.h
         common/include/common/Constants/CubeVertexData.h
         common/include/common/enums/SkyboxDrawOrder.h
-        common/include/common/enums/BaseObject.h)
+        common/include/common/enums/BaseObject.h
+        common/src/Rendering/MainRenderer.cpp common/include/common/Rendering/MainRenderer.h common/include/common/Rendering/RenderPass.h)
 target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
 
 

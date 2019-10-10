@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <common/Scene.h>
+#include <common/Rendering/Scene.h>
 #include <common/Camera/TrackballCamera.h>
 #include <common/GeometricShapes.h>
 #include "SphereParallax.h"

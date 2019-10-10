@@ -6,12 +6,8 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
-#include <common/Light/DirectionalLight.h>
-#include <common/Light/PointLight.h>
-#include <common/Camera/Camera.h>
 #include <common/Window.h>
-#include <common/3DObjects/HierarchicalNode.h>
-#include <common/3DObjects/Skybox.h>
+#include <common/Rendering/MainRenderer.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -44,23 +40,13 @@ public:
 
 
     /**
-     * The method for the main rendering loop
+     * The method for launching the rendering loop
      * @param params Additional parameters to pass down during the rendering
      */
-    void mainRenderLoop(AdditionalParameters *params);
+    void renderLoop(AdditionalParameters *params);
 
     /**
-     * Draws an object in the scene.
-     * @param obj        The object to draw
-     * @param projection The projection transform matrix
-     * @param view       The view transform matrix
-     * @param model      The model transform matrix
-     * @param params     The additional parameters to pass down to the object
-     */
-    void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
-
-    /**
-     * Runs the main loop until the window is asked to be closed
+     * Runs the render loop until the window is asked to be closed
      * @param params The additional parameters to pass down to the loop
      */
     void runLoop(AdditionalParameters *params = nullptr);
@@ -88,14 +74,8 @@ private:
     /// The window where the rendering display will happen
     Window *window;
 
-    /// The current camera for the scene
-    Camera *camera;
-
     /// All the drawable root nodes to render in the scene
     std::vector<HierarchicalNode *> rootNodes;
-
-    /// The projection matrix for the scene
-    glm::mat4 projection{};
 
     /// The directional light for the scene
     DirectionalLight *directionalLight{};
@@ -103,8 +83,7 @@ private:
     /// The point lights of the scene
     std::vector<PointLight *> pointLights;
 
-    Skybox *skybox = nullptr;
-    SkyboxDrawOrder skyboxDrawOrder = SKYBOX_NO_DRAW;
+    MainRenderer *mainRenderer{};
 
 };
 
