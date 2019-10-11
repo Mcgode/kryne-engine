@@ -59,7 +59,8 @@ add_library(common
         common/include/common/enums/BaseObject.h
         common/src/Rendering/MainRenderer.cpp common/include/common/Rendering/MainRenderer.h
         common/include/common/Rendering/RenderPass.h
-        common/src/Rendering/ShadowMapping/ShadowMapHandler.cpp common/include/common/Rendering/ShadowMapping/ShadowMapHandler.h)
+        common/src/Rendering/ShadowMapping/ShadowMapHandler.cpp common/include/common/Rendering/ShadowMapping/ShadowMapHandler.h
+        common/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp common/include/common/Rendering/ShadowMapping/DirectionalShadowMapRendering.h)
 target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
 
 
