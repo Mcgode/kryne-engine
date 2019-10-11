@@ -8,6 +8,7 @@
 
 #include <common/Window.h>
 #include <common/Rendering/MainRenderer.h>
+#include <common/Rendering/ShadowMapping/ShadowMapHandler.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -84,6 +85,8 @@ private:
     std::vector<PointLight *> pointLights;
 
     MainRenderer *mainRenderer{};
+
+    ShadowMapHandler *shadowMapHandler;
 
 };
 

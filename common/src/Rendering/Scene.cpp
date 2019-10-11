@@ -8,6 +8,7 @@ Scene::Scene(Camera *camera, int window_width, int window_height)
 {
     this->window = new Window(window_width, window_height);
     this->mainRenderer = new MainRenderer(camera, window_width, window_height);
+    this->shadowMapHandler = new ShadowMapHandler();
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
@@ -40,9 +41,11 @@ void Scene::addDrawable(HierarchicalNode *node)
 
 void Scene::renderLoop(AdditionalParameters *params)
 {
+    this->shadowMapHandler->renderShadowMaps(window, &rootNodes, directionalLight, &pointLights, params);
+
     params->insertLoopLongParameter("directionalLight", directionalLight);
     params->insertLoopLongParameter("pointLights", &pointLights);
-    mainRenderer->render(window, &rootNodes, params);
+    this->mainRenderer->render(window, &rootNodes, params);
 }
 
 
