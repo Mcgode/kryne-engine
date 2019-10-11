@@ -27,6 +27,7 @@ public:
                               glm::vec3 *ambientColor = nullptr,
                               glm::vec3 *specularColor = nullptr);
 
+
     /**
      * Sets up all the light properties in the fragment shader
      * @param shader        The shader program where you want to apply the light properties
@@ -34,7 +35,11 @@ public:
      */
     void shaderSet(Shader *shader, std::string uniformName);
 
+
     [[nodiscard]] const glm::vec3 &getDirection() const;
+
+
+    [[nodiscard]] bool isCastingShadow() const;
 
 private:
 

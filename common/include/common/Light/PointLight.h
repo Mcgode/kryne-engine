@@ -65,6 +65,10 @@ public:
                                                           glm::vec3 position,
                                                           size_t maximumAmount);
 
+
+    [[nodiscard]] bool isCastingShadow() const;
+
+
 private:
 
     /// The position of the point light
@@ -77,6 +81,8 @@ private:
     float constantAttenuation{}; ///< The constant attenuation of the light
     float linearAttenuation{}; ///< The linear attenuation of the light
     float quadraticAttenuation{}; ///< The quadratic attenuation of the light
+
+    bool castsShadow = false; ///< Set to true to have this light cast shadows
 };
 
 

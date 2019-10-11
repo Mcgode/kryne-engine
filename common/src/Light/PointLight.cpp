@@ -69,3 +69,9 @@ void PointLight::setAttenuation(float constant, float linear, float quadratic)
     linearAttenuation = linear;
     quadraticAttenuation = quadratic;
 }
+
+
+bool PointLight::isCastingShadow() const
+{
+    return castsShadow;
+}
