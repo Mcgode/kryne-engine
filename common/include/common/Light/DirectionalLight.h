@@ -41,6 +41,15 @@ public:
 
     [[nodiscard]] bool isCastingShadow() const;
 
+
+    [[nodiscard]] uint16_t getShadowResolution() const;
+
+
+    [[nodiscard]] const glm::vec3 &getShadowCastCenter() const;
+
+
+    [[nodiscard]] double getShadowCastRadius() const;
+
 private:
 
     /// The vector of the light direction
