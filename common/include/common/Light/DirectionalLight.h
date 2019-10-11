@@ -34,7 +34,7 @@ public:
      */
     void shaderSet(Shader *shader, std::string uniformName);
 
-    const glm::vec3 &getDirection() const;
+    [[nodiscard]] const glm::vec3 &getDirection() const;
 
 private:
 
@@ -44,6 +44,11 @@ private:
     glm::vec3 ambientColor{}; ///< The ambient color of the light
     glm::vec3 diffuseColor{}; ///< The diffuse color of the light
     glm::vec3 specularColor{}; ///< The specular color of the light
+
+    bool castsShadow = false; ///< Set to true to have this light cast shadows
+    uint16_t shadowResolution{}; ///< The pixel resolution for the shadow map
+    glm::vec3 shadowCastCenter{}; ///< Radius of the sphere which content will be rendered on the shadow map
+    double shadowCastRadius{}; ///< Radius of the sphere which content will be rendered on the shadow map
 };
 
 
