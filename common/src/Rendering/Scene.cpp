@@ -40,7 +40,9 @@ void Scene::addDrawable(HierarchicalNode *node)
 
 void Scene::renderLoop(AdditionalParameters *params)
 {
-    mainRenderer->renderMain(window, &rootNodes, directionalLight, &pointLights, params);
+    params->insertLoopLongParameter("directionalLight", directionalLight);
+    params->insertLoopLongParameter("pointLights", &pointLights);
+    mainRenderer->render(window, &rootNodes, params);
 }
 
 

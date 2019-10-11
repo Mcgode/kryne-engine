@@ -20,10 +20,7 @@ public:
     MainRenderer(Camera *camera, unsigned int width, unsigned int height);
 
 
-    void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) override {
-        std::cerr << "You must use the " << std::endl;
-        exit(EXIT_FAILURE);
-    }
+    void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) override;
 
 
     /**

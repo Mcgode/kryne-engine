@@ -102,3 +102,28 @@ MainRenderer::~MainRenderer()
     delete camera;
     delete skybox;
 }
+
+
+void MainRenderer::render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params)
+{
+    DirectionalLight *directionalLight1 = nullptr;
+    if (params->contains("directionalLight")) {
+        try {
+            directionalLight1 = std::any_cast<DirectionalLight *>(params->get("directionalLight"));
+        } catch (std::bad_any_cast& e) {}
+    }
+
+    vector<PointLight *> *pointLights1 = nullptr;
+    if (params->contains("pointLights")) {
+        try {
+            pointLights1 = std::any_cast<vector<PointLight *> *>(params->get("pointLights"));
+        } catch (std::bad_any_cast& e) {}
+    }
+
+    if (directionalLight1 && pointLights1) {
+        renderMain(window, rootNodes, directionalLight1, pointLights1, params);
+    } else {
+        std::cerr << "Could not retrieve lights data" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
