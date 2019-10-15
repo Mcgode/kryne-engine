@@ -25,6 +25,9 @@ public:
     [[nodiscard]] GLuint getShadowMap() const;
 
 
+    [[nodiscard]] glm::mat4 getLightSpaceMatrix() const;
+
+
 private:
 
     GLuint fbo = 0;

@@ -89,3 +89,7 @@ GLuint DirectionalShadowMapRendering::getShadowMap() const
 {
     return this->shadowMap;
 }
+
+glm::mat4 DirectionalShadowMapRendering::getLightSpaceMatrix() const {
+    return glm::mat4(projection) * glm::mat4(view);
+}
