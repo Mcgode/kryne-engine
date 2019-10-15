@@ -40,4 +40,31 @@ bool DirectionalLight::isCastingShadow() const
 }
 
 
+uint16_t DirectionalLight::getShadowResolution() const
+{
+    return shadowResolution;
+}
+
+
+const glm::vec3 &DirectionalLight::getShadowCastCenter() const
+{
+    return shadowCastCenter;
+}
+
+
+double DirectionalLight::getShadowCastRadius() const
+{
+    return shadowCastRadius;
+}
+
+
+void DirectionalLight::setCastsShadow(uint16_t resolution, glm::vec3 center, double radius)
+{
+    this->castsShadow = true;
+    this->shadowResolution = resolution;
+    this->shadowCastCenter = glm::vec3(center);
+    this->shadowCastRadius = radius;
+}
+
+
 

@@ -17,6 +17,8 @@ MainRenderer::renderMain(Window *window, std::vector<HierarchicalNode *> *rootNo
                          DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
                          AdditionalParameters *params)
 {
+    glViewport(0, 0, window->getWidth(), window->getHeight());
+
     camera->frameUpdate(window);
 
     this->directionalLight = directionalLight;

@@ -8,6 +8,7 @@
 
 #include <common/Window.h>
 #include <common/Rendering/MainRenderer.h>
+#include <common/Rendering/ShadowMapping/ShadowMapHandler.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -67,6 +68,8 @@ public:
 
     void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder);
 
+    [[nodiscard]] ShadowMapHandler *getShadowMapHandler() const;
+
     ~Scene();
 
 private:
@@ -84,6 +87,8 @@ private:
     std::vector<PointLight *> pointLights;
 
     MainRenderer *mainRenderer{};
+
+    ShadowMapHandler *shadowMapHandler;
 
 };
 
