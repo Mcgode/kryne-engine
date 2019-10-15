@@ -50,6 +50,9 @@ public:
 
     [[nodiscard]] double getShadowCastRadius() const;
 
+
+    void setCastsShadow(uint16_t resolution, glm::vec3 center, double radius);
+
 private:
 
     /// The vector of the light direction
