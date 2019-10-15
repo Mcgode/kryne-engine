@@ -68,6 +68,8 @@ public:
 
     void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder);
 
+    [[nodiscard]] ShadowMapHandler *getShadowMapHandler() const;
+
     ~Scene();
 
 private:

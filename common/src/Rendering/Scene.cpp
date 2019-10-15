@@ -84,3 +84,7 @@ void Scene::setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder)
 {
     this->mainRenderer->setSkybox(skybox, drawOrder, directionalLight);
 }
+
+ShadowMapHandler *Scene::getShadowMapHandler() const {
+    return shadowMapHandler;
+}
