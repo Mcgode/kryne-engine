@@ -42,6 +42,7 @@ int main(int argc, const char **argv)
     auto obj = new Floor("concrete", pScene, dirLight);
     auto transform = glm::translate(glm::mat4(1.0), glm::vec3(0, -2, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(1, 0, 0));
+    transform = glm::scale(transform, glm::vec3(10));
     auto node = new HierarchicalNode(obj, transform);
     pScene->addDrawable(node);
 
