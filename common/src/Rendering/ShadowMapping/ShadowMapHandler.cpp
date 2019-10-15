@@ -33,3 +33,12 @@ GLuint ShadowMapHandler::getDirectionalShadowMap(DirectionalLight *directionalLi
     else
         return pair->second->getShadowMap();
 }
+
+glm::mat4 ShadowMapHandler::getLightSpaceMatrix(DirectionalLight *directionalLight)
+{
+    auto pair = directionalShadowMaps.find(directionalLight);
+    if (pair == directionalShadowMaps.end())
+        return glm::mat4(0.0);
+    else
+        return pair->second->getLightSpaceMatrix();
+}
