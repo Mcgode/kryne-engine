@@ -8,8 +8,8 @@ Most of the basic common structure of the code is done.
 I've put the Sphere project on hold, and I'm working on the SunLight project
 
 More specifically, right now, I'm working on:
-- Loading a model from a file (with Assimp)
-- Setting up the SunLight scene
+- Implementing a cascaded shadow maps process
+- Renaming the project assets to match th new name 
 
 ## Individual projects
 

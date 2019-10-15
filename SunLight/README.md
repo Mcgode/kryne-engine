@@ -4,15 +4,17 @@ The objective with this project is to experiment open scene rendering, with exte
 
 ## Status
 
-This project is still a work in progress, I have not progressed much on it yet.
+This project is still a work in progress.
+I am currently working on cascaded shadow maps
 
 ## Todo list
 
 - [X] Basic Phong lighting and scene setup
 - [X] Skybox
-- [ ] Shadow mapping
+- [X] Shadow mapping
 - [ ] Cascaded shadow mapping
 - [ ] Transparency support for shadow mapping
+- [ ] Shadow map soft edges
 - [ ] Soft shadow mapping
 - [ ] HDR (high dynamic range) and tone mapping
 - [ ] Bloom
@@ -27,3 +29,5 @@ This project is still a work in progress, I have not progressed much on it yet.
 ![Screenshot](../Screenshots/SunLight/BasicLighting.png?raw=true "Basic phong lighting and scene setup")
 
 ![Screenshot](../Screenshots/SunLight/Skybox.png?raw=true "Skybox added to the scene")
+
+![Screenshot](../Screenshots/SunLight/ShadowMap.png?raw=true "Shadow maps implemented and added to the scene")
