@@ -9,10 +9,11 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
     glGenFramebuffers(1, &this->fbo);
     glGenTextures(1, &this->shadowMap);
 
-    uint16_t size = directionalLight->getShadowResolution();
+    this->resolution = directionalLight->getShadowResolution();
 
     glBindTexture(GL_TEXTURE_2D, this->shadowMap);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, size, size, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
+                 this->resolution, this->resolution, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -57,6 +58,8 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
 void DirectionalShadowMapRendering::render(Window *window, std::vector<HierarchicalNode *> *rootNodes,
                                            AdditionalParameters *params)
 {
+    glViewport(0, 0, this->resolution, this->resolution);
+
     glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
     for (HierarchicalNode *node: *rootNodes) {
         node->draw(this, this->view, glm::mat4(1.0), params);
