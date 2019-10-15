@@ -13,6 +13,8 @@ Model::Model(const string &model, const string &fallbackTexture)
     this->shader = new Shader("Quad/NormalMapping");
     this->supportsLighting = true;
 
+    shadowCasting = HARD_SHADOW;
+
     this->diffuseMap = mesh->getDiffuseMap() ? mesh->getDiffuseMap() : Texture2D::getTexture(fallbackTexture);
     this->normalMap = mesh->getNormalMap() ? mesh->getNormalMap() : Texture2D::getTexture(fallbackTexture, "norm");
 }

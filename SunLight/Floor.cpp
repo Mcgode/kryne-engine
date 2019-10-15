@@ -3,16 +3,20 @@
 //
 
 #include <common/GeometricShapes.h>
+#include <common/Rendering/Scene.h>
 #include "Floor.h"
 
-Floor::Floor(const std::string &textureName)
+Floor::Floor(const std::string &textureName, Scene *scene, DirectionalLight *light)
 {
-    this->shader = new Shader("Quad/NormalMapping");
+    this->shader = new Shader("Quad/ShadowMap");
 
     std::vector<glm::vec3> vertices, normals, tangents;
     std::vector<glm::vec2> textureCoordinates;
 
-    generateQuadShape(10.0, &vertices, &normals, &textureCoordinates, &tangents);
+    this->handler = scene->getShadowMapHandler();
+    this->light = light;
+
+    generateQuadShape(1.0, &vertices, &normals, &textureCoordinates, &tangents);
     auto va = new VertexArray(&vertices);
     va->add_array(&normals);
     va->add_array(&textureCoordinates);
@@ -25,6 +29,8 @@ Floor::Floor(const std::string &textureName)
     supportsLighting = true;
     maximumSupportedPointLights = 4;
 
+    shadowCasting = HARD_SHADOW;
+
 }
 
 void Floor::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) {
@@ -32,6 +38,9 @@ void Floor::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, Addition
     shader->setVec3("material.ambient", glm::vec3(0.07));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(1.6));
+    Texture2D::textureSet(this->handler->getDirectionalShadowMap(this->light), shader, "directionalShadowMap.shadowMap");
+    shader->setMat4("directionalShadowMap.lightSpaceMatrix", handler->getLightSpaceMatrix(this->light));
+    shader->setFloat("directionalShadowMap.shadowBias", 0.0);
     this->diffuseTexture->setTexture(shader, "material.diffuseMap");
     this->normalMapTexture->setTexture(shader, "material.normalMap");
     BaseObject::draw(projection, view, model, params);
