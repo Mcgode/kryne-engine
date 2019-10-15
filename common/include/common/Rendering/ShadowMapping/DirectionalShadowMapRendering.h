@@ -25,6 +25,9 @@ public:
     [[nodiscard]] GLuint getShadowMap() const;
 
 
+    [[nodiscard]] glm::mat4 getLightSpaceMatrix() const;
+
+
 private:
 
     GLuint fbo = 0;
@@ -34,6 +37,8 @@ private:
 
     glm::mat4 projection{};
     glm::mat4 view{};
+
+    uint16_t resolution;
 
 };
 

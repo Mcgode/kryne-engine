@@ -58,4 +58,13 @@ double DirectionalLight::getShadowCastRadius() const
 }
 
 
+void DirectionalLight::setCastsShadow(uint16_t resolution, glm::vec3 center, double radius)
+{
+    this->castsShadow = true;
+    this->shadowResolution = resolution;
+    this->shadowCastCenter = glm::vec3(center);
+    this->shadowCastRadius = radius;
+}
+
+
 

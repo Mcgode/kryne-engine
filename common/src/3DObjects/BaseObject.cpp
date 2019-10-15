@@ -45,3 +45,9 @@ int BaseObject::getMaximumSupportedPointLights() const
 {
     return maximumSupportedPointLights;
 }
+
+
+BaseObjectShadowType BaseObject::getShadowCasting() const
+{
+    return shadowCasting;
+}

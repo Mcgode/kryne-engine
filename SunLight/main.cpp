@@ -35,16 +35,18 @@ int main(int argc, const char **argv)
     pScene->setSkybox(skybox, SKYBOX_DRAW_FIRST);
 
     auto *dirLight = new DirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
+    dirLight->setCastsShadow(1024, glm::vec3(0.), 8.);
     pScene->setDirectionalLight(dirLight);
 //    auto data = ModelLoader::loadModel("TorusKnot.obj");
 
-    auto obj = new Floor("concrete");
+    auto obj = new Floor("concrete", pScene, dirLight);
     auto transform = glm::translate(glm::mat4(1.0), glm::vec3(0, -2, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(1, 0, 0));
+    transform = glm::scale(transform, glm::vec3(10));
     auto node = new HierarchicalNode(obj, transform);
     pScene->addDrawable(node);
 
-    pScene->addDrawable(new HierarchicalNode(new Model("TorusKnot.obj", "concrete")));
+    pScene->addDrawable(new HierarchicalNode(new Model("TorusKnot.obj", "concrete", pScene, dirLight)));
 
     transform = glm::translate(glm::mat4(1), glm::vec3(3, 1, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(0, 1, 0));

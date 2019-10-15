@@ -13,7 +13,7 @@ class Floor: public BaseObject {
 
 public:
 
-    explicit Floor(const std::string &textureName);
+    explicit Floor(const std::string &textureName, Scene *scene, DirectionalLight *light);
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
@@ -23,6 +23,9 @@ protected:
 
     Texture2D *diffuseTexture;
     Texture2D *normalMapTexture;
+
+    ShadowMapHandler *handler;
+    DirectionalLight *light;
 
 };
 

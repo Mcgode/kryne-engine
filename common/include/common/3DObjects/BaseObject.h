@@ -52,6 +52,8 @@ public:
 
     int getMaximumSupportedPointLights() const;
 
+    BaseObjectShadowType getShadowCasting() const;
+
     virtual ~BaseObject() = default;
 
 protected:

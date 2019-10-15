@@ -22,6 +22,8 @@ public:
 
     GLuint getDirectionalShadowMap(DirectionalLight *directionalLight);
 
+    glm::mat4 getLightSpaceMatrix(DirectionalLight *directionalLight);
+
 private:
 
     std::map<DirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;

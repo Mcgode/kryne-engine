@@ -26,8 +26,8 @@ Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileE
 void Skybox::draw(glm::mat4 projection, glm::mat4 view)
 {
     glCullFace(GL_FRONT);
-    cubemap->setTexture(shader, "cubemap");
     shader->use();
+    cubemap->setTexture(shader, "cubemap");
     shader->setMat4("projection", projection);
     shader->setMat4("view", view);
     vertexArray->execute(GL_TRIANGLES);

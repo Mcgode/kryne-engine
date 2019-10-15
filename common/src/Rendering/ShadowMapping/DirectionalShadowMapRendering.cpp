@@ -9,9 +9,11 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
     glGenFramebuffers(1, &this->fbo);
     glGenTextures(1, &this->shadowMap);
 
+    this->resolution = directionalLight->getShadowResolution();
+
     glBindTexture(GL_TEXTURE_2D, this->shadowMap);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, directionalLight->getShadowResolution(),
-            directionalLight->getShadowResolution(), 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
+                 this->resolution, this->resolution, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -21,6 +23,17 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowMap, 0);
     glDrawBuffer(GL_NONE);
     glReadBuffer(GL_NONE);
+
+//    GLuint rbo;
+//    glGenRenderbuffers(1, &rbo);
+//    glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+//    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, directionalLight->getShadowResolution(), directionalLight->getShadowResolution());
+//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
+
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
+        cerr << "Shadow map framebuffer initialization failed" << endl;
+        exit(EXIT_FAILURE);
+    }
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -45,6 +58,8 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
 void DirectionalShadowMapRendering::render(Window *window, std::vector<HierarchicalNode *> *rootNodes,
                                            AdditionalParameters *params)
 {
+    glViewport(0, 0, this->resolution, this->resolution);
+
     glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
     for (HierarchicalNode *node: *rootNodes) {
         node->draw(this, this->view, glm::mat4(1.0), params);
@@ -56,13 +71,28 @@ void DirectionalShadowMapRendering::render(Window *window, std::vector<Hierarchi
 void DirectionalShadowMapRendering::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model,
                                                 AdditionalParameters *params)
 {
-    this->shadowMapShader->use();
-    obj->draw(this->projection, view, model, params);
-    Shader::resetUse();
+    if (obj->getShadowCasting() == HARD_SHADOW) {
+        auto normalShader = obj->getShader();
+        obj->setShader(this->shadowMapShader);
+
+        obj->getShader()->use();
+
+        this->shadowMapShader->setMat4("lightSpaceMatrix", this->getLightSpaceMatrix());
+
+        obj->draw(glm::mat4(this->projection), view, model, params);
+
+        Shader::resetUse();
+
+        obj->setShader(normalShader);
+    }
 }
 
 
 GLuint DirectionalShadowMapRendering::getShadowMap() const
 {
     return this->shadowMap;
+}
+
+glm::mat4 DirectionalShadowMapRendering::getLightSpaceMatrix() const {
+    return glm::mat4(projection) * glm::mat4(view);
 }
