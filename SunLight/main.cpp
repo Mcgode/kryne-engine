@@ -46,7 +46,7 @@ int main(int argc, const char **argv)
     auto node = new HierarchicalNode(obj, transform);
     pScene->addDrawable(node);
 
-    pScene->addDrawable(new HierarchicalNode(new Model("TorusKnot.obj", "concrete")));
+    pScene->addDrawable(new HierarchicalNode(new Model("TorusKnot.obj", "concrete", pScene, dirLight)));
 
     transform = glm::translate(glm::mat4(1), glm::vec3(3, 1, 0));
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(0, 1, 0));
