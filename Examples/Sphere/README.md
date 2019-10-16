@@ -19,8 +19,8 @@ Issues with the parallax mapping were encountered and need to be solved
 
 ## Screenshots
 
-![Screenshot](../Screenshots/Sphere/BasicLight.png?raw=true "Basic light implementation screenshot")
+![Screenshot](../../Screenshots/Sphere/BasicLight.png?raw=true "Basic light implementation screenshot")
 
-![Screenshot](../Screenshots/Sphere/TextureMapping.png?raw=true "Texture mapping screenshot")
+![Screenshot](../../Screenshots/Sphere/TextureMapping.png?raw=true "Texture mapping screenshot")
 
-![Screenshot](../Screenshots/Sphere/NormalMapping.png?raw=true "Normal mapping screenshot")
+![Screenshot](../../Screenshots/Sphere/NormalMapping.png?raw=true "Normal mapping screenshot")

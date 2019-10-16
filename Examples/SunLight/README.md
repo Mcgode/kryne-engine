@@ -26,8 +26,8 @@ I am currently working on cascaded shadow maps
 
 ## Screenshots
 
-![Screenshot](../Screenshots/SunLight/BasicLighting.png?raw=true "Basic phong lighting and scene setup")
+![Screenshot](../../Screenshots/SunLight/BasicLighting.png?raw=true "Basic phong lighting and scene setup")
 
-![Screenshot](../Screenshots/SunLight/Skybox.png?raw=true "Skybox added to the scene")
+![Screenshot](../../Screenshots/SunLight/Skybox.png?raw=true "Skybox added to the scene")
 
-![Screenshot](../Screenshots/SunLight/ShadowMap.png?raw=true "Shadow maps implemented and added to the scene")
+![Screenshot](../../Screenshots/SunLight/ShadowMap.png?raw=true "Shadow maps implemented and added to the scene")
