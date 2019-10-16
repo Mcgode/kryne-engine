@@ -1,15 +1,20 @@
-# 3D Demos by Max Godefroy
+# Kryne Engine by Max Godefroy
 
-This project is meant for me to be a way to experiment with OpenGL.
+Starting as just a way to experiment with OpenGL, this project has 
+finally ended up looking more and more like an engine (albeit a 
+rudimentary one).
+As such, I'll be continuing to work on it to make it more functional, 
+with the end goal of being able to have a basic game run on it.
 
 ## Current Status
 
 Most of the basic common structure of the code is done.
-I've put the Sphere project on hold, and I'm working on the SunLight project
+I've put the Sphere project on hold, and I'm working on the SunLight 
+project.
 
 More specifically, right now, I'm working on:
-- Loading a model from a file (with Assimp)
-- Setting up the SunLight scene
+- Implementing a cascaded shadow maps process
+- Renaming the project assets to match the new name 
 
 ## Individual projects
 
@@ -19,10 +24,10 @@ on which projects are currently being worked on.
 
 Click on the screenshots to view more details on a specific project.
 
-### [Sphere](Sphere/README.md)
+### [Sphere](Examples/Sphere/README.md)
 
-[![Sphere project screenshots](Screenshots/Sphere/CurrentStatus.png?raw=true "Sphere project's current visuals")](/Sphere/README.md#screenshots)
+[![Sphere project screenshots](Screenshots/Sphere/CurrentStatus.png?raw=true "Sphere project's current visuals")](/Examples/Sphere/README.md#screenshots)
 
-### [SunLight](SunLight/README.md)
+### [SunLight](Examples/SunLight/README.md)
 
-[![SunLight project screenshots](Screenshots/SunLight/CurrentStatus.png?raw=true "SunLight project's current visuals")](/SunLight/README.md#screenshots)
+[![SunLight project screenshots](Screenshots/SunLight/CurrentStatus.png?raw=true "SunLight project's current visuals")](/Examples/SunLight/README.md#screenshots)

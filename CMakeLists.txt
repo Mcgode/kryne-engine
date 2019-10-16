@@ -5,23 +5,25 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 #Setting up GLFW
+set(OpenGL_GL_PREFERENCE GLVND)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(GLFW)
+add_subdirectory(external-libs/GLFW)
 
 
-add_subdirectory(glm-0.9.9.5)
-include_directories(glm-0.9.9.5)
+add_subdirectory(external-libs/glm-0.9.9.5)
+include_directories(external-libs/glm-0.9.9.5)
 
 
-add_subdirectory(assimp)
-include_directories(assimp/include)
+set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+add_subdirectory(external-libs/assimp)
+include_directories(external-libs/assimp/include)
 
 
 #Adding GLAD library
-include_directories(glad/include)
-add_library(glad glad/src/glad.c assimp/include/assimp/config.h)
+include_directories(external-libs/glad/include)
+add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h)
 
 
 find_package(Boost COMPONENTS system filesystem REQUIRED)
@@ -30,50 +32,51 @@ link_directories(${Boost_LIBRARY_DIR})
 
 
 # Set up common library
-include_directories("common/include")
-add_library(common
-        common/src/Shader.cpp common/include/common/Shader.h
-        common/src/Rendering/Scene.cpp common/include/common/Rendering/Scene.h
-        common/src/VertexArray.cpp common/include/common/VertexArray.h
-        common/src/Window.cpp common/include/common/Window.h
-        common/include/common/Camera/Camera.h
-        common/src/Camera/BasicCamera.cpp common/include/common/Camera/BasicCamera.h
-        common/src/GeometricShapes.cpp common/include/common/GeometricShapes.h
-        common/src/3DObjects/BaseObject.cpp common/include/common/3DObjects/BaseObject.h
-        common/src/3DObjects/HierarchicalNode.cpp common/include/common/3DObjects/HierarchicalNode.h
-        common/src/Camera/TrackballCamera.cpp common/include/common/Camera/TrackballCamera.h
-        common/src/Light/PointLight.cpp common/include/common/Light/PointLight.h
-        common/src/Light/DirectionalLight.cpp common/include/common/Light/DirectionalLight.h
-        common/src/AdditionalParameters.cpp common/include/common/AdditionalParameters.h
-        common/src/stb_image.cpp common/include/common/stb_image.h
-        common/src/Texture2D.cpp common/include/common/Texture2D.h
-        common/src/RenderTargets/PostProcess.cpp common/include/common/RenderTargets/PostProcess.h
-        common/src/RenderTargets/FinalPostProcess.cpp common/include/common/RenderTargets/FinalPostProcess.h
-        common/src/Camera/FirstPersonCamera.cpp common/include/common/Camera/FirstPersonCamera.h
-        common/src/3DObjects/Model/ModelLoader.cpp common/include/common/3DObjects/Model/ModelLoader.h
-        common/src/3DObjects/Model/ModelMesh.cpp common/include/common/3DObjects/Model/ModelMesh.h
-        common/src/3DObjects/Skybox.cpp common/include/common/3DObjects/Skybox.h
-        common/src/TextureCubeMap.cpp common/include/common/TextureCubeMap.h
-        common/include/common/Constants/CubeVertexData.h
-        common/include/common/enums/SkyboxDrawOrder.h
-        common/include/common/enums/BaseObject.h
-        common/src/Rendering/MainRenderer.cpp common/include/common/Rendering/MainRenderer.h
-        common/include/common/Rendering/RenderPass.h
-        common/src/Rendering/ShadowMapping/ShadowMapHandler.cpp common/include/common/Rendering/ShadowMapping/ShadowMapHandler.h
-        common/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp common/include/common/Rendering/ShadowMapping/DirectionalShadowMapRendering.h)
-target_link_libraries(common glad glfw assimp glm ${Boost_LIBRARIES})
+include_directories("kryne-engine/include")
+add_library(kryne-engine
+        kryne-engine/src/Shader.cpp kryne-engine/include/kryne-engine/Shader.h
+        kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
+        kryne-engine/src/VertexArray.cpp kryne-engine/include/kryne-engine/VertexArray.h
+        kryne-engine/src/Window.cpp kryne-engine/include/kryne-engine/Window.h
+        kryne-engine/include/kryne-engine/Camera/Camera.h
+        kryne-engine/src/Camera/BasicCamera.cpp kryne-engine/include/kryne-engine/Camera/BasicCamera.h
+        kryne-engine/src/GeometricShapes.cpp kryne-engine/include/kryne-engine/GeometricShapes.h
+        kryne-engine/src/3DObjects/BaseObject.cpp kryne-engine/include/kryne-engine/3DObjects/BaseObject.h
+        kryne-engine/src/3DObjects/HierarchicalNode.cpp kryne-engine/include/kryne-engine/3DObjects/HierarchicalNode.h
+        kryne-engine/src/Camera/TrackballCamera.cpp kryne-engine/include/kryne-engine/Camera/TrackballCamera.h
+        kryne-engine/src/Light/PointLight.cpp kryne-engine/include/kryne-engine/Light/PointLight.h
+        kryne-engine/src/Light/DirectionalLight.cpp kryne-engine/include/kryne-engine/Light/DirectionalLight.h
+        kryne-engine/src/AdditionalParameters.cpp kryne-engine/include/kryne-engine/AdditionalParameters.h
+        kryne-engine/src/stb_image.cpp kryne-engine/include/kryne-engine/stb_image.h
+        kryne-engine/src/Texture2D.cpp kryne-engine/include/kryne-engine/Texture2D.h
+        kryne-engine/src/RenderTargets/PostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/PostProcess.h
+        kryne-engine/src/RenderTargets/FinalPostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/FinalPostProcess.h
+        kryne-engine/src/Camera/FirstPersonCamera.cpp kryne-engine/include/kryne-engine/Camera/FirstPersonCamera.h
+        kryne-engine/src/3DObjects/Model/ModelLoader.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelLoader.h
+        kryne-engine/src/3DObjects/Model/ModelMesh.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelMesh.h
+        kryne-engine/src/3DObjects/Skybox.cpp kryne-engine/include/kryne-engine/3DObjects/Skybox.h
+        kryne-engine/src/TextureCubeMap.cpp kryne-engine/include/kryne-engine/TextureCubeMap.h
+        kryne-engine/include/kryne-engine/Constants/CubeVertexData.h
+        kryne-engine/include/kryne-engine/enums/SkyboxDrawOrder.h
+        kryne-engine/include/kryne-engine/enums/BaseObject.h
+        kryne-engine/src/Rendering/MainRenderer.cpp kryne-engine/include/kryne-engine/Rendering/MainRenderer.h
+        kryne-engine/include/kryne-engine/Rendering/RenderPass.h
+        kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
+        kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h)
+target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
 # Setting up executables
 
-add_executable(SunLight SunLight/main.cpp
-                        SunLight/Floor.cpp SunLight/Floor.h
-                        SunLight/Model.cpp SunLight/Model.h SunLight/StainedGlass.cpp SunLight/StainedGlass.h)
-target_link_libraries(SunLight common)
+add_executable(SunLight Examples/SunLight/main.cpp
+        Examples/SunLight/Floor.cpp Examples/SunLight/Floor.h
+        Examples/SunLight/Model.cpp Examples/SunLight/Model.h
+        Examples/SunLight/StainedGlass.cpp Examples/SunLight/StainedGlass.h)
+target_link_libraries(SunLight kryne-engine)
 
-add_executable(Sphere Sphere/main.cpp
-                      Sphere/SphereNormalMapping.cpp Sphere/SphereNormalMapping.h
-                      Sphere/SphereBasic.cpp Sphere/SphereBasic.h
-                      Sphere/SphereTexture.cpp Sphere/SphereTexture.h
-                      Sphere/SphereParallax.cpp Sphere/SphereParallax.h)
-target_link_libraries(Sphere common)
+add_executable(Sphere Examples/Sphere/main.cpp
+        Examples/Sphere/SphereNormalMapping.cpp Examples/Sphere/SphereNormalMapping.h
+        Examples/Sphere/SphereBasic.cpp Examples/Sphere/SphereBasic.h
+        Examples/Sphere/SphereTexture.cpp Examples/Sphere/SphereTexture.h
+        Examples/Sphere/SphereParallax.cpp Examples/Sphere/SphereParallax.h)
+target_link_libraries(Sphere kryne-engine)
