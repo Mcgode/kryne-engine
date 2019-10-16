@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include <common/Rendering/Scene.h>
-#include <common/Camera/FirstPersonCamera.h>
-#include <common/3DObjects/Model/ModelLoader.h>
-#include "common/Shader.h"
+#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Camera/FirstPersonCamera.h>
+#include <kryne-engine/3DObjects/Model/ModelLoader.h>
+#include "kryne-engine/Shader.h"
 #include "Floor.h"
 #include "Model.h"
 #include "StainedGlass.h"

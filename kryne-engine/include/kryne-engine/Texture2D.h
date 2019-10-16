@@ -5,7 +5,7 @@
 #ifndef INC_3D_DEMOS_TEXTURE2D_H
 #define INC_3D_DEMOS_TEXTURE2D_H
 
-#include <common/stb_image.h>
+#include <kryne-engine/stb_image.h>
 #include <string>
 #include <iostream>
 #include <boost/filesystem.hpp>

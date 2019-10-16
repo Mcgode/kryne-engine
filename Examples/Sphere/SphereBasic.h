@@ -6,10 +6,10 @@
 #define INC_3D_DEMOS_SPHEREBASIC_H
 
 
-#include <common/3DObjects/BaseObject.h>
-#include <common/VertexArray.h>
-#include <common/GeometricShapes.h>
-#include <common/Texture2D.h>
+#include <kryne-engine/3DObjects/BaseObject.h>
+#include <kryne-engine/VertexArray.h>
+#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Texture2D.h>
 
 class SphereBasic : public BaseObject {
 

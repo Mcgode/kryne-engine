@@ -2,7 +2,7 @@
 // Created by max on 22/05/19.
 //
 
-#include <common/Texture2D.h>
+#include <kryne-engine/Texture2D.h>
 
 
 namespace fs = boost::filesystem;

@@ -3,9 +3,9 @@
 //
 
 #include <iostream>
-#include <common/Rendering/Scene.h>
-#include <common/Camera/TrackballCamera.h>
-#include <common/GeometricShapes.h>
+#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Camera/TrackballCamera.h>
+#include <kryne-engine/GeometricShapes.h>
 #include "SphereParallax.h"
 
 using namespace std;

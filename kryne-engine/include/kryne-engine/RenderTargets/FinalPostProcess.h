@@ -7,10 +7,10 @@
 
 #include <map>
 
-#include <common/Shader.h>
-#include <common/VertexArray.h>
-#include <common/GeometricShapes.h>
-#include <common/Texture2D.h>
+#include <kryne-engine/Shader.h>
+#include <kryne-engine/VertexArray.h>
+#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Texture2D.h>
 
 using namespace std;
 

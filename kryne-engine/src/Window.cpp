@@ -2,8 +2,8 @@
 // Created by max on 20/04/19.
 //
 
-#include <common/Rendering/Scene.h>
-#include "common/Window.h"
+#include <kryne-engine/Rendering/Scene.h>
+#include "kryne-engine/Window.h"
 
 
 Window *current_window;

@@ -2,7 +2,7 @@
 // Created by max on 22/04/19.
 //
 
-#include "common/Rendering/Scene.h"
+#include "kryne-engine/Rendering/Scene.h"
 
 Scene::Scene(Camera *camera, int window_width, int window_height)
 {

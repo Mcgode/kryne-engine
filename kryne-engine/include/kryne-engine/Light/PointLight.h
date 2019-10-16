@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_POINTLIGHT_H
 
 #include <glm/vec3.hpp>
-#include <common/Shader.h>
+#include <kryne-engine/Shader.h>
 #include <vector>
 #include <algorithm>
 

@@ -6,9 +6,9 @@
 #define INC_3D_DEMOS_RENDER_PASS_H
 
 
-#include <common/Window.h>
-#include <common/3DObjects/HierarchicalNode.h>
-#include <common/3DObjects/BaseObject.h>
+#include <kryne-engine/Window.h>
+#include <kryne-engine/3DObjects/HierarchicalNode.h>
+#include <kryne-engine/3DObjects/BaseObject.h>
 
 class RenderPass {
 

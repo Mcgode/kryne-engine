@@ -2,7 +2,7 @@
 // Created by max on 20/04/19.
 //
 
-#include "common/Camera/BasicCamera.h"
+#include "kryne-engine/Camera/BasicCamera.h"
 
 BasicCamera::BasicCamera(glm::vec3 initial_position, glm::mat4 initial_rotation)
 {

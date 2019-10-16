@@ -3,7 +3,7 @@
 //
 
 #include <glm/glm.hpp>
-#include "common/GeometricShapes.h"
+#include "kryne-engine/GeometricShapes.h"
 
 const double PI  = 3.141592653589793238463;
 const float  PI_F= 3.14159265358979f;

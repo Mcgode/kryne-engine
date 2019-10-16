@@ -2,7 +2,7 @@
 // Created by max on 21/05/19.
 //
 
-#include "common/Camera/TrackballCamera.h"
+#include "kryne-engine/Camera/TrackballCamera.h"
 
 TrackballCamera::TrackballCamera(glm::vec3 centerPoint, float zoomDistance)
 {

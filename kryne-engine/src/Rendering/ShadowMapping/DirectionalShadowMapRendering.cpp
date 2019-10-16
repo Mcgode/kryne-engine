@@ -2,7 +2,7 @@
 // Created by max on 11/10/2019.
 //
 
-#include "common/Rendering/ShadowMapping/DirectionalShadowMapRendering.h"
+#include "kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h"
 
 DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *directionalLight)
 {

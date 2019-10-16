@@ -2,7 +2,7 @@
 // Created by max on 19/04/19.
 //
 
-#include "common/VertexArray.h"
+#include "kryne-engine/VertexArray.h"
 
 
 VertexArray::VertexArray(std::vector<glm::vec2> *first_data, GLenum usage)

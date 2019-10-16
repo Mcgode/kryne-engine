@@ -6,9 +6,9 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
-#include <common/Window.h>
-#include <common/Rendering/MainRenderer.h>
-#include <common/Rendering/ShadowMapping/ShadowMapHandler.h>
+#include <kryne-engine/Window.h>
+#include <kryne-engine/Rendering/MainRenderer.h>
+#include <kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h>
 
 /**
  * A class for handling a basic 3D scene

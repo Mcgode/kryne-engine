@@ -5,8 +5,8 @@
 #ifndef INC_3D_DEMOS_MODEL_H
 #define INC_3D_DEMOS_MODEL_H
 
-#include <common/3DObjects/Model/ModelLoader.h>
-#include <common/Rendering/Scene.h>
+#include <kryne-engine/3DObjects/Model/ModelLoader.h>
+#include <kryne-engine/Rendering/Scene.h>
 
 class Model: public BaseObject{
 

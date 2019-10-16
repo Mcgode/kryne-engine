@@ -2,7 +2,7 @@
 // Created by max on 21/05/19.
 //
 
-#include "common/AdditionalParameters.h"
+#include "kryne-engine/AdditionalParameters.h"
 
 bool AdditionalParameters::contains(const string& key)
 {

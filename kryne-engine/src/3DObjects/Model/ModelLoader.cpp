@@ -2,7 +2,7 @@
 // Created by max on 26/07/2019.
 //
 
-#include "common/3DObjects/Model/ModelLoader.h"
+#include "kryne-engine/3DObjects/Model/ModelLoader.h"
 
 vector<ModelMesh *> ModelLoader::loadModel(const string &modelFilename)
 {

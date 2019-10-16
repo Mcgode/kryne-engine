@@ -11,10 +11,10 @@
 #include <glm/mat4x4.hpp>
 #include <glm/mat3x3.hpp>
 
-#include "common/Shader.h"
-#include "common/VertexArray.h"
-#include "common/AdditionalParameters.h"
-#include <common/enums/BaseObject.h>
+#include "kryne-engine/Shader.h"
+#include "kryne-engine/VertexArray.h"
+#include "kryne-engine/AdditionalParameters.h"
+#include <kryne-engine/enums/BaseObject.h>
 
 
 /**

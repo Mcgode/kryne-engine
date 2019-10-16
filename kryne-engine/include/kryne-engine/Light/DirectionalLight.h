@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_DIRECTIONALLIGHT_H
 
 #include <glm/vec3.hpp>
-#include <common/Shader.h>
+#include <kryne-engine/Shader.h>
 
 /**
  * A wrapper for a light that shines in a given direction, independently of the distance

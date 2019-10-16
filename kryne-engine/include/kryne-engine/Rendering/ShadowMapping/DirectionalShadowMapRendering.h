@@ -6,8 +6,8 @@
 #define INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H
 
 
-#include <common/Rendering/RenderPass.h>
-#include <common/Light/DirectionalLight.h>
+#include <kryne-engine/Rendering/RenderPass.h>
+#include <kryne-engine/Light/DirectionalLight.h>
 
 class DirectionalShadowMapRendering: public RenderPass {
 

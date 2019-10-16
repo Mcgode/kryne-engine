@@ -2,7 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
-#include "common/3DObjects/Skybox.h"
+#include "kryne-engine/3DObjects/Skybox.h"
 
 
 Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileExtension)

@@ -2,7 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
-#include <common/GeometricShapes.h>
+#include <kryne-engine/GeometricShapes.h>
 #include "StainedGlass.h"
 
 StainedGlass::StainedGlass()

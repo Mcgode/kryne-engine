@@ -2,7 +2,7 @@
 // Created by max on 21/05/19.
 //
 
-#include "common/Light/PointLight.h"
+#include "kryne-engine/Light/PointLight.h"
 
 PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *ambientColor, glm::vec3 *specularColor)
 {

@@ -2,8 +2,8 @@
 // Created by max on 26/07/2019.
 //
 
-#include <common/GeometricShapes.h>
-#include <common/Rendering/Scene.h>
+#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Rendering/Scene.h>
 #include "Floor.h"
 
 Floor::Floor(const std::string &textureName, Scene *scene, DirectionalLight *light)
