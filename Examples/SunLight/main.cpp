@@ -6,6 +6,7 @@
 #include <kryne-engine/Rendering/Scene.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
+#include <kryne-engine/Process.h>
 #include "kryne-engine/Shader.h"
 #include "Floor.h"
 #include "Model.h"
@@ -27,7 +28,8 @@ void error_callback(int error_code, const char error[])
 
 int main(int argc, const char **argv)
 {
-    auto pScene = new Scene(new FirstPersonCamera(2.5f, 0.25f));
+    auto process = new Process(new FirstPersonCamera(2.5f, 0.25f));
+    auto pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");
 
@@ -52,7 +54,7 @@ int main(int argc, const char **argv)
     transform = glm::rotate(transform, -glm::pi<float>() / 2.f, glm::vec3(0, 1, 0));
     pScene->addDrawable(new HierarchicalNode(new StainedGlass(), transform));
 
-    pScene->runLoop();
+    process->runProcess();
 
     delete sh;
     delete dirLight;

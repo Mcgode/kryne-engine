@@ -6,6 +6,7 @@
 #include <kryne-engine/Rendering/Scene.h>
 #include <kryne-engine/Camera/TrackballCamera.h>
 #include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Process.h>
 #include "SphereParallax.h"
 
 using namespace std;
@@ -13,7 +14,8 @@ using namespace std;
 
 int main(int argc, const char **argv)
 {
-    auto *pScene = new Scene(new TrackballCamera(glm::vec3(0, 0, 0)));
+    auto process = new Process(new TrackballCamera(glm::vec3(0, 0, 0)));
+    auto *pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");
 
@@ -31,11 +33,11 @@ int main(int argc, const char **argv)
     sh->setVec3("color", 1.0, 0.0, 0.0);
     Shader::resetUse();
 
-    pScene->runLoop();
+    process->runProcess();
 
     delete sh;
     delete dirLight;
-    delete pScene;
+    delete process;
     delete pl;
 //    delete obj;
 

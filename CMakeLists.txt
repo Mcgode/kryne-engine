@@ -62,7 +62,8 @@ add_library(kryne-engine
         kryne-engine/src/Rendering/MainRenderer.cpp kryne-engine/include/kryne-engine/Rendering/MainRenderer.h
         kryne-engine/include/kryne-engine/Rendering/RenderPass.h
         kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
-        kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h)
+        kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
+        kryne-engine/src/Process.cpp kryne-engine/include/kryne-engine/Process.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
