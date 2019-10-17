@@ -19,7 +19,7 @@ Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileE
 
     this->shader = new Shader("Skybox/Skybox");
 
-    this->cubemap = new TextureCubeMap("Textures/" + cubemapDirectoryName, fileExtension);
+    this->cubemap = new TextureCubeMap("Resources/Textures/" + cubemapDirectoryName, fileExtension);
 }
 
 

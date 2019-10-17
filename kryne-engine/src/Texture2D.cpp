@@ -68,7 +68,7 @@ void Texture2D::setTexture(Shader *shader, const std::string &uniformName)
 
 Texture2D *Texture2D::getTexture(const std::string &directoryName, const std::string &filenameSuffix)
 {
-    fs::path dirPath("Textures/" + directoryName);
+    fs::path dirPath("Resources/Textures/" + directoryName);
 
     if (!fs::exists(dirPath)) {
         std::cerr << "No such directory: '" << dirPath.string() << "'" << std::endl;

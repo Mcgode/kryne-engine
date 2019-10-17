@@ -5,9 +5,9 @@
 #include "kryne-engine/Shader.h"
 
 #ifndef _WIN32
-#define DIR "Shaders/"
+#define DIR "Resources/Shaders/"
 #else
-#define DIR "shaders\\"
+#define DIR "Resources\\Shaders\\"
 #endif
 
 

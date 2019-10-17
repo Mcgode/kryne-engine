@@ -23,7 +23,7 @@ StainedGlass::StainedGlass()
 
     this->vertexArray = va;
 
-    this->texture = new Texture2D("Textures/stainedGlass.png");
+    this->texture = new Texture2D("Resources/Textures/stainedGlass.png");
 }
 
 
