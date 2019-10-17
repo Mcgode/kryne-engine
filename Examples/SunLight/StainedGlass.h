@@ -7,7 +7,7 @@
 
 
 #include <kryne-engine/3DObjects/BaseObject.h>
-#include <kryne-engine/Texture2D.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 class StainedGlass: public BaseObject {
 

@@ -2,7 +2,7 @@
 // Created by max on 22/04/19.
 //
 
-#include <kryne-engine/AdditionalParameters.h>
+#include <kryne-engine/Core/AdditionalParameters.h>
 #include "kryne-engine/3DObjects/BaseObject.h"
 
 BaseObject::BaseObject(Shader *shader, VertexArray *vertexArray)

@@ -2,7 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
-#include "kryne-engine/TextureCubeMap.h"
+#include "kryne-engine/Textures/TextureCubeMap.h"
 
 TextureCubeMap::TextureCubeMap(const std::string &folderName, const std::string &fileExtension)
 {

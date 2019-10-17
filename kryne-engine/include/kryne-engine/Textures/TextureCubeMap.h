@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_TEXTURECUBEMAP_H
 
 
-#include <kryne-engine/Texture2D.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 class TextureCubeMap: public Texture2D {
 

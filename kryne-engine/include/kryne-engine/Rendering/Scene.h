@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
-#include <kryne-engine/Window.h>
+#include <kryne-engine/Core/Window.h>
 #include <kryne-engine/Rendering/MainRenderer.h>
 #include <kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h>
 

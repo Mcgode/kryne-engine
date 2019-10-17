@@ -34,28 +34,28 @@ link_directories(${Boost_LIBRARY_DIR})
 # Set up common library
 include_directories("kryne-engine/include")
 add_library(kryne-engine
-        kryne-engine/src/Shader.cpp kryne-engine/include/kryne-engine/Shader.h
+        kryne-engine/src/Core/Shader.cpp kryne-engine/include/kryne-engine/Core/Shader.h
         kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
-        kryne-engine/src/VertexArray.cpp kryne-engine/include/kryne-engine/VertexArray.h
-        kryne-engine/src/Window.cpp kryne-engine/include/kryne-engine/Window.h
+        kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
+        kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h
         kryne-engine/include/kryne-engine/Camera/Camera.h
         kryne-engine/src/Camera/BasicCamera.cpp kryne-engine/include/kryne-engine/Camera/BasicCamera.h
-        kryne-engine/src/GeometricShapes.cpp kryne-engine/include/kryne-engine/GeometricShapes.h
+        kryne-engine/src/Core/GeometricShapes.cpp kryne-engine/include/kryne-engine/Core/GeometricShapes.h
         kryne-engine/src/3DObjects/BaseObject.cpp kryne-engine/include/kryne-engine/3DObjects/BaseObject.h
         kryne-engine/src/3DObjects/HierarchicalNode.cpp kryne-engine/include/kryne-engine/3DObjects/HierarchicalNode.h
         kryne-engine/src/Camera/TrackballCamera.cpp kryne-engine/include/kryne-engine/Camera/TrackballCamera.h
         kryne-engine/src/Light/PointLight.cpp kryne-engine/include/kryne-engine/Light/PointLight.h
         kryne-engine/src/Light/DirectionalLight.cpp kryne-engine/include/kryne-engine/Light/DirectionalLight.h
-        kryne-engine/src/AdditionalParameters.cpp kryne-engine/include/kryne-engine/AdditionalParameters.h
-        kryne-engine/src/stb_image.cpp kryne-engine/include/kryne-engine/stb_image.h
-        kryne-engine/src/Texture2D.cpp kryne-engine/include/kryne-engine/Texture2D.h
+        kryne-engine/src/Core/AdditionalParameters.cpp kryne-engine/include/kryne-engine/Core/AdditionalParameters.h
+        kryne-engine/src/Textures/stb_image.cpp kryne-engine/include/kryne-engine/Textures/stb_image.h
+        kryne-engine/src/Textures/Texture2D.cpp kryne-engine/include/kryne-engine/Textures/Texture2D.h
         kryne-engine/src/RenderTargets/PostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/PostProcess.h
         kryne-engine/src/RenderTargets/FinalPostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/FinalPostProcess.h
         kryne-engine/src/Camera/FirstPersonCamera.cpp kryne-engine/include/kryne-engine/Camera/FirstPersonCamera.h
         kryne-engine/src/3DObjects/Model/ModelLoader.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelLoader.h
         kryne-engine/src/3DObjects/Model/ModelMesh.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelMesh.h
         kryne-engine/src/3DObjects/Skybox.cpp kryne-engine/include/kryne-engine/3DObjects/Skybox.h
-        kryne-engine/src/TextureCubeMap.cpp kryne-engine/include/kryne-engine/TextureCubeMap.h
+        kryne-engine/src/Textures/TextureCubeMap.cpp kryne-engine/include/kryne-engine/Textures/TextureCubeMap.h
         kryne-engine/include/kryne-engine/Constants/CubeVertexData.h
         kryne-engine/include/kryne-engine/enums/SkyboxDrawOrder.h
         kryne-engine/include/kryne-engine/enums/BaseObject.h
@@ -63,7 +63,7 @@ add_library(kryne-engine
         kryne-engine/include/kryne-engine/Rendering/RenderPass.h
         kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
-        kryne-engine/src/Process.cpp kryne-engine/include/kryne-engine/Process.h)
+        kryne-engine/src/Core/Process.cpp kryne-engine/include/kryne-engine/Core/Process.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 

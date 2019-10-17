@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_RENDER_PASS_H
 
 
-#include <kryne-engine/Window.h>
+#include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
 #include <kryne-engine/3DObjects/BaseObject.h>
 

@@ -5,14 +5,14 @@
 #ifndef INC_3D_DEMOS_TEXTURE2D_H
 #define INC_3D_DEMOS_TEXTURE2D_H
 
-#include <kryne-engine/stb_image.h>
+#include <kryne-engine/Textures/stb_image.h>
 #include <string>
 #include <iostream>
 #include <boost/filesystem.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "Shader.h"
+#include "kryne-engine/Core/Shader.h"
 
 class Texture2D {
 

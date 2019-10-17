@@ -5,7 +5,7 @@
 #ifndef INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
 #define INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
 
-#include <kryne-engine/Window.h>
+#include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
 #include <kryne-engine/Light/DirectionalLight.h>
 #include <kryne-engine/Light/PointLight.h>

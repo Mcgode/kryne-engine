@@ -12,8 +12,8 @@
 #include <assimp/scene.h>
 #include <glm/glm.hpp>
 
-#include <kryne-engine/VertexArray.h>
-#include <kryne-engine/Texture2D.h>
+#include <kryne-engine/Core/VertexArray.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 
 using namespace std;

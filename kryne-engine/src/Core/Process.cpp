@@ -2,7 +2,7 @@
 // Created by max on 16/10/2019.
 //
 
-#include "kryne-engine/Process.h"
+#include "kryne-engine/Core/Process.h"
 
 Process::Process(Camera *camera, uint16_t windowWidth, uint16_t windowHeight)
 {

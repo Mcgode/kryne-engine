@@ -11,9 +11,9 @@
 #include <glm/mat4x4.hpp>
 #include <glm/mat3x3.hpp>
 
-#include "kryne-engine/Shader.h"
-#include "kryne-engine/VertexArray.h"
-#include "kryne-engine/AdditionalParameters.h"
+#include "kryne-engine/Core/Shader.h"
+#include "kryne-engine/Core/VertexArray.h"
+#include "kryne-engine/Core/AdditionalParameters.h"
 #include <kryne-engine/enums/BaseObject.h>
 
 

@@ -2,7 +2,7 @@
 // Created by max on 25/07/2019.
 //
 
-#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Core/GeometricShapes.h>
 #include "kryne-engine/RenderTargets/PostProcess.h"
 
 GLenum getInternalColorFormat(GLenum channels, GLenum type)

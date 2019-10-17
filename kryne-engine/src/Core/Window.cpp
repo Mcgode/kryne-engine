@@ -2,7 +2,7 @@
 // Created by max on 20/04/19.
 //
 
-#include "kryne-engine/Window.h"
+#include "kryne-engine/Core/Window.h"
 
 
 Window *current_window;

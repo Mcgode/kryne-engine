@@ -7,10 +7,10 @@
 
 #include <string>
 
-#include <kryne-engine/Shader.h>
-#include <kryne-engine/TextureCubeMap.h>
-#include <kryne-engine/VertexArray.h>
-#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Core/Shader.h>
+#include <kryne-engine/Textures/TextureCubeMap.h>
+#include <kryne-engine/Core/VertexArray.h>
+#include <kryne-engine/Core/GeometricShapes.h>
 #include <kryne-engine/enums/SkyboxDrawOrder.h>
 
 class Skybox {

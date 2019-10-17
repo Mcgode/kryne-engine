@@ -6,8 +6,8 @@
 #include <kryne-engine/Rendering/Scene.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
-#include <kryne-engine/Process.h>
-#include "kryne-engine/Shader.h"
+#include <kryne-engine/Core/Process.h>
+#include "kryne-engine/Core/Shader.h"
 #include "Floor.h"
 #include "Model.h"
 #include "StainedGlass.h"

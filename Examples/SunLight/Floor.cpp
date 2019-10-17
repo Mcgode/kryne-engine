@@ -2,7 +2,7 @@
 // Created by max on 26/07/2019.
 //
 
-#include <kryne-engine/GeometricShapes.h>
+#include <kryne-engine/Core/GeometricShapes.h>
 #include <kryne-engine/Rendering/Scene.h>
 #include "Floor.h"
 

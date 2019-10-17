@@ -7,9 +7,9 @@
 
 
 #include <kryne-engine/3DObjects/BaseObject.h>
-#include <kryne-engine/VertexArray.h>
-#include <kryne-engine/GeometricShapes.h>
-#include <kryne-engine/Texture2D.h>
+#include <kryne-engine/Core/VertexArray.h>
+#include <kryne-engine/Core/GeometricShapes.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 class SphereBasic : public BaseObject {
 

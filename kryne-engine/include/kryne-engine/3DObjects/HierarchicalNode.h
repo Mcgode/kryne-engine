@@ -9,7 +9,7 @@
 #include <kryne-engine/Rendering/RenderPass.h>
 
 #include "kryne-engine/3DObjects/BaseObject.h"
-#include "kryne-engine/AdditionalParameters.h"
+#include "kryne-engine/Core/AdditionalParameters.h"
 
 
 /**

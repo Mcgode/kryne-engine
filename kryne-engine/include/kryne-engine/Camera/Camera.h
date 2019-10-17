@@ -17,7 +17,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 class Window;
-#include <kryne-engine/Window.h>
+#include <kryne-engine/Core/Window.h>
 
 
 /**
