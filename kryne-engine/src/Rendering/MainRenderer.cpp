@@ -2,7 +2,7 @@
 // Created by max on 07/10/2019.
 //
 
-#include "common/Rendering/MainRenderer.h"
+#include "kryne-engine/Rendering/MainRenderer.h"
 
 
 MainRenderer::MainRenderer(Camera *camera, unsigned int width, unsigned int height)

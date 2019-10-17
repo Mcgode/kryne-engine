@@ -2,7 +2,7 @@
 // Created by max on 11/10/2019.
 //
 
-#include "common/Rendering/ShadowMapping/ShadowMapHandler.h"
+#include "kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h"
 
 void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
                                         DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,

@@ -13,7 +13,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "common/3DObjects/BaseObject.h"
+#include "kryne-engine/3DObjects/BaseObject.h"
 #include "ModelMesh.h"
 
 class ModelLoader {

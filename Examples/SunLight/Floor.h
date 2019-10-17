@@ -6,8 +6,8 @@
 #define INC_3D_DEMOS_FLOOR_H
 
 
-#include <common/3DObjects/BaseObject.h>
-#include <common/Texture2D.h>
+#include <kryne-engine/3DObjects/BaseObject.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 class Floor: public BaseObject {
 

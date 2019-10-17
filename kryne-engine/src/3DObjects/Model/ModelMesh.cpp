@@ -2,7 +2,7 @@
 // Created by max on 29/07/2019.
 //
 
-#include "common/3DObjects/Model/ModelMesh.h"
+#include "kryne-engine/3DObjects/Model/ModelMesh.h"
 
 ModelMesh::ModelMesh(aiMesh *mesh, const aiScene *scene, const string& directory, map<string, Texture2D *> *loadedTextures)
 {

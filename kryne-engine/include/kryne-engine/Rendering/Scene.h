@@ -6,9 +6,9 @@
 #define INC_3D_DEMOS_SCENE_H
 
 
-#include <common/Window.h>
-#include <common/Rendering/MainRenderer.h>
-#include <common/Rendering/ShadowMapping/ShadowMapHandler.h>
+#include <kryne-engine/Core/Window.h>
+#include <kryne-engine/Rendering/MainRenderer.h>
+#include <kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -19,13 +19,10 @@ public:
 
     /**
      * A class for handling a basic 3D scene
+     * @param window        The window for the current process.
      * @param camera        The camera used for this scene
-     * @param window_width  The width for the desktop window
-     * @param window_height The height for the desktop window
      */
-    explicit Scene(Camera *camera,
-                   int window_width = 1280,
-                   int window_height = 720);
+    explicit Scene(Window *window, Camera *camera);
 
     /**
      * Changes the current camera
@@ -45,12 +42,6 @@ public:
      * @param params Additional parameters to pass down during the rendering
      */
     void renderLoop(AdditionalParameters *params);
-
-    /**
-     * Runs the render loop until the window is asked to be closed
-     * @param params The additional parameters to pass down to the loop
-     */
-    void runLoop(AdditionalParameters *params = nullptr);
 
     /**
      * Sets the directional light of the scene

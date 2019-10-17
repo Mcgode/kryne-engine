@@ -7,16 +7,16 @@
 
 #include <vector>
 #include <unordered_set>
-#include <stdarg.h>
-#include <stdlib.h>
+#include <cstdarg>
+#include <cstdlib>
 #include <iostream>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "AdditionalParameters.h"
 
-
-class Scene;
+class Camera;
+#include <kryne-engine/Camera/Camera.h>
 
 
 /**
@@ -39,8 +39,6 @@ public:
 
     GLFWwindow *getGlfwWindow() const;
 
-    void runLoop(Scene *scene, AdditionalParameters *params = new AdditionalParameters());
-
     static void keyCallback(GLFWwindow *_w, int key, int _scan_code, int action, int _mods);
 
     static void scrollCallback(GLFWwindow *_w, double _, double scroll);
@@ -48,6 +46,8 @@ public:
     static void mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos);
 
     void setMouseCursor(int value);
+
+    void setCurrentCamera(Camera *camera);
 
     ~Window();
 
@@ -64,8 +64,6 @@ private:
 
     /// The list of currently pressed keys
     std::unordered_set<int> keysPressed;
-
-    Scene *currentScene;
 
 };
 

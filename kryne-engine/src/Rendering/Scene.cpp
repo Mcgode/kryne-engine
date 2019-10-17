@@ -2,12 +2,12 @@
 // Created by max on 22/04/19.
 //
 
-#include "common/Rendering/Scene.h"
+#include "kryne-engine/Rendering/Scene.h"
 
-Scene::Scene(Camera *camera, int window_width, int window_height)
+Scene::Scene(Window *window, Camera *camera)
 {
-    this->window = new Window(window_width, window_height);
-    this->mainRenderer = new MainRenderer(camera, window_width, window_height);
+    this->window = window;
+    this->mainRenderer = new MainRenderer(camera, this->window->getWidth(), this->window->getHeight());
     this->shadowMapHandler = new ShadowMapHandler();
 
     glEnable(GL_DEPTH_TEST);
@@ -23,12 +23,12 @@ Scene::~Scene()
     delete mainRenderer;
     for (HierarchicalNode *node: rootNodes)
         delete node;
-    delete window;
 }
 
 
 Camera *Scene::updateCamera(Camera *newCamera)
 {
+
     return mainRenderer->updateCamera(newCamera);
 }
 
@@ -46,15 +46,6 @@ void Scene::renderLoop(AdditionalParameters *params)
     params->insertLoopLongParameter("directionalLight", directionalLight);
     params->insertLoopLongParameter("pointLights", &pointLights);
     this->mainRenderer->render(window, &rootNodes, params);
-}
-
-
-void Scene::runLoop(AdditionalParameters *params)
-{
-    AdditionalParameters *p = params == nullptr ? new AdditionalParameters() : params;
-    this->window->runLoop(this, p);
-    if (params == nullptr)
-        delete(p);
 }
 
 

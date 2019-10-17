@@ -5,7 +5,7 @@
 #ifndef INC_3D_DEMOS_POST_PROCESS_H
 #define INC_3D_DEMOS_POST_PROCESS_H
 
-#include "common/Texture2D.h"
+#include "kryne-engine/Textures/Texture2D.h"
 #include "FinalPostProcess.h"
 
 

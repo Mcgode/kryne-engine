@@ -2,7 +2,7 @@
 // Created by max on 26/07/2019.
 //
 
-#include "common/Camera/FirstPersonCamera.h"
+#include "kryne-engine/Camera/FirstPersonCamera.h"
 
 FirstPersonCamera::FirstPersonCamera(float speed, float drag)
 {

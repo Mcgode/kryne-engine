@@ -2,11 +2,11 @@
 // Created by max on 20/04/19.
 //
 
-#include <common/Rendering/Scene.h>
-#include "common/Window.h"
+#include "kryne-engine/Core/Window.h"
 
 
 Window *current_window;
+Camera *currentCamera = nullptr;
 
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
@@ -68,7 +68,8 @@ void Window::keyCallback(GLFWwindow *_window, int key, int _scan_code, int actio
         glfwSetWindowShouldClose(current_window->window, 1);
     else if (action == GLFW_PRESS){
         current_window->keysPressed.insert(key);
-        current_window->currentScene->getCamera()->onKeyInput(current_window, key);
+        if (currentCamera)
+            currentCamera->onKeyInput(current_window, key);
     } else if (action == GLFW_RELEASE) {
         current_window->keysPressed.erase(key);
     }
@@ -93,30 +94,17 @@ int Window::getHeight() const
 }
 
 
-void Window::runLoop(Scene *scene, AdditionalParameters *params)
-{
-    assert(params != nullptr);
-
-    currentScene = scene;
-
-    while (!glfwWindowShouldClose(this->window)) {
-        scene->renderLoop(params);
-        glfwSwapBuffers(this->window);
-        glfwPollEvents();
-        params->cleanupLoopParameters();
-    }
-}
-
-
 void Window::scrollCallback(GLFWwindow *_w, double _, double scroll)
 {
-    current_window->currentScene->getCamera()->onScrollInput(current_window, scroll);
+    if (currentCamera)
+        currentCamera->onScrollInput(current_window, scroll);
 }
 
 
 void Window::mouseMovementCallback(GLFWwindow *_w, double xPos, double yPos)
 {
-    current_window->currentScene->getCamera()->onMouseMovementInput(current_window, xPos, yPos);
+    if (currentCamera)
+        currentCamera->onMouseMovementInput(current_window, xPos, yPos);
 }
 
 
@@ -129,4 +117,10 @@ GLFWwindow *Window::getGlfwWindow() const
 void Window::setMouseCursor(int value)
 {
     glfwSetInputMode(window, GLFW_CURSOR, value);
+}
+
+
+void Window::setCurrentCamera(Camera *camera)
+{
+    currentCamera = camera;
 }

@@ -2,7 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
-#include <common/GeometricShapes.h>
+#include <kryne-engine/Core/GeometricShapes.h>
 #include "StainedGlass.h"
 
 StainedGlass::StainedGlass()
@@ -23,7 +23,7 @@ StainedGlass::StainedGlass()
 
     this->vertexArray = va;
 
-    this->texture = new Texture2D("Textures/stainedGlass.png");
+    this->texture = new Texture2D("Resources/Textures/stainedGlass.png");
 }
 
 

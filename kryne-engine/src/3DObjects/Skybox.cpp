@@ -2,7 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
-#include "common/3DObjects/Skybox.h"
+#include "kryne-engine/3DObjects/Skybox.h"
 
 
 Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileExtension)
@@ -19,7 +19,7 @@ Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileE
 
     this->shader = new Shader("Skybox/Skybox");
 
-    this->cubemap = new TextureCubeMap("Textures/" + cubemapDirectoryName, fileExtension);
+    this->cubemap = new TextureCubeMap("Resources/Textures/" + cubemapDirectoryName, fileExtension);
 }
 
 

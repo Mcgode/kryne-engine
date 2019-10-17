@@ -2,13 +2,13 @@
 // Created by max on 26/07/2019.
 //
 
-#include "common/3DObjects/Model/ModelLoader.h"
+#include "kryne-engine/3DObjects/Model/ModelLoader.h"
 
 vector<ModelMesh *> ModelLoader::loadModel(const string &modelFilename)
 {
     Assimp::Importer importer;
 
-    const auto mScene = importer.ReadFile("Model/" + modelFilename,
+    const auto mScene = importer.ReadFile("Resources/Model/" + modelFilename,
                                          aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
     if (!mScene || (mScene->mFlags && AI_SCENE_FLAGS_INCOMPLETE) || !mScene->mRootNode) {
@@ -16,7 +16,7 @@ vector<ModelMesh *> ModelLoader::loadModel(const string &modelFilename)
         exit(EXIT_FAILURE);
     }
 
-    string directory = ("Model/" + modelFilename).substr(0, ("Model/" + modelFilename).find_last_of('/'));
+    string directory = ("Resources/Model/" + modelFilename).substr(0, ("Model/" + modelFilename).find_last_of('/'));
     vector<ModelMesh *> result;
     map<string, Texture2D *> loadedTextures;
 

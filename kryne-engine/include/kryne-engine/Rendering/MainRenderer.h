@@ -5,11 +5,11 @@
 #ifndef INC_3D_DEMOS_MAIN_RENDERER_H
 #define INC_3D_DEMOS_MAIN_RENDERER_H
 
-#include <common/Light/DirectionalLight.h>
-#include <common/Light/PointLight.h>
-#include <common/Camera/Camera.h>
-#include <common/3DObjects/Skybox.h>
-#include <common/Rendering/RenderPass.h>
+#include <kryne-engine/Light/DirectionalLight.h>
+#include <kryne-engine/Light/PointLight.h>
+#include <kryne-engine/Camera/Camera.h>
+#include <kryne-engine/3DObjects/Skybox.h>
+#include <kryne-engine/Rendering/RenderPass.h>
 
 
 class MainRenderer : public RenderPass {

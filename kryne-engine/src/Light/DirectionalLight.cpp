@@ -2,7 +2,7 @@
 // Created by max on 21/05/19.
 //
 
-#include "common/Light/DirectionalLight.h"
+#include "kryne-engine/Light/DirectionalLight.h"
 
 DirectionalLight::DirectionalLight(glm::vec3 direction,
                                    glm::vec3 diffuseColor,

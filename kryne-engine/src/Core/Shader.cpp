@@ -2,12 +2,12 @@
 // Created by Max Godefroy on 02/08/2017.
 //
 
-#include "common/Shader.h"
+#include "kryne-engine/Core/Shader.h"
 
 #ifndef _WIN32
-#define DIR "Shaders/"
+#define DIR "Resources/Shaders/"
 #else
-#define DIR "shaders\\"
+#define DIR "Resources\\Shaders\\"
 #endif
 
 

@@ -6,13 +6,10 @@
 #define INC_3D_DEMOS_HIERARCHICALNODE_H
 
 #include <cstdarg>
-#include <common/Rendering/RenderPass.h>
+#include <kryne-engine/Rendering/RenderPass.h>
 
-#include "common/3DObjects/BaseObject.h"
-#include "common/AdditionalParameters.h"
-
-
-class Scene;
+#include "kryne-engine/3DObjects/BaseObject.h"
+#include "kryne-engine/Core/AdditionalParameters.h"
 
 
 /**

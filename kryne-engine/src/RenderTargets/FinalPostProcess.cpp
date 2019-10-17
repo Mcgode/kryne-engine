@@ -2,7 +2,7 @@
 // Created by max on 26/07/2019.
 //
 
-#include "common/RenderTargets/FinalPostProcess.h"
+#include "kryne-engine/RenderTargets/FinalPostProcess.h"
 
 FinalPostProcess::FinalPostProcess(Shader *shader)
 {
