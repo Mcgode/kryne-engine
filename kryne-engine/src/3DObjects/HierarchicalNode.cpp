@@ -2,8 +2,7 @@
 // Created by max on 22/04/19.
 //
 
-#include <kryne-engine/3DObjects/HierarchicalNode.h>
-#include <kryne-engine/Rendering/Scene.h>
+#include "kryne-engine/3DObjects/HierarchicalNode.h"
 
 
 HierarchicalNode::HierarchicalNode(glm::mat4 transform)

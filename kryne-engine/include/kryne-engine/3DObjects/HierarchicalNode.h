@@ -12,9 +12,6 @@
 #include "kryne-engine/AdditionalParameters.h"
 
 
-class Scene;
-
-
 /**
  * A hierarchical node
  */
