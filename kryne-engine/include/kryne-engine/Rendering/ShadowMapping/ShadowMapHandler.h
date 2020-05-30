@@ -16,15 +16,21 @@ class ShadowMapHandler {
 
 public:
 
+    ShadowMapHandler(Camera *mainCamera);
+
     void renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
                           DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
                           AdditionalParameters *params);
 
-    GLuint getDirectionalShadowMap(DirectionalLight *directionalLight);
+    std::vector<GLuint> getDirectionalShadowMaps(DirectionalLight *directionalLight);
 
-    glm::mat4 getLightSpaceMatrix(DirectionalLight *directionalLight);
+    std::vector<glm::mat4> getLightSpaceMatrices(DirectionalLight *directionalLight);
+
+    void updateCamera(Camera *newCamera);
 
 private:
+
+    Camera *mainCamera;
 
     std::map<DirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;
 

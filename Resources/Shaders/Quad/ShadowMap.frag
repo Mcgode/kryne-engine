@@ -64,8 +64,12 @@ uniform ShadowMap directionalShadowMap;
 
 float getShadow(ShadowMap shadowMap, vec4 position) {
     vec3 shadowCoords = position.xyz / position.w;
+    if (abs(shadowCoords.x) > 1.0 || abs(shadowCoords.y) > 1.0)
+        return 1.0;
     shadowCoords = shadowCoords * 0.5 + 0.5;
     float depth = texture2D(shadowMap.shadowMap, shadowCoords.xy).r;
+    if (depth == 0.0 || depth == 1.0)
+        return 1.0;
     return depth > shadowCoords.z - shadowMap.shadowBias ? 1.0 : 0.0;
 }
 

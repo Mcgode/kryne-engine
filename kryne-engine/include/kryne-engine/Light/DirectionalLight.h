@@ -6,6 +6,7 @@
 #define INC_3D_DEMOS_DIRECTIONALLIGHT_H
 
 #include <glm/vec3.hpp>
+#include <vector>
 #include <kryne-engine/Material/Shader.h>
 
 /**
@@ -45,13 +46,13 @@ public:
     [[nodiscard]] uint16_t getShadowResolution() const;
 
 
-    [[nodiscard]] const glm::vec3 &getShadowCastCenter() const;
+    [[nodiscard]] std::vector<double> getShadowCastRadii() const;
 
 
-    [[nodiscard]] double getShadowCastRadius() const;
+    void setCastsShadow(uint16_t resolution, double radius);
 
 
-    void setCastsShadow(uint16_t resolution, glm::vec3 center, double radius);
+    void setCastsShadowCascaded(uint16_t resolution, std::vector<double> radii);
 
 private:
 
@@ -64,8 +65,7 @@ private:
 
     bool castsShadow = false; ///< Set to true to have this light cast shadows
     uint16_t shadowResolution{}; ///< The pixel resolution for the shadow map
-    glm::vec3 shadowCastCenter{}; ///< Radius of the sphere which content will be rendered on the shadow map
-    double shadowCastRadius{}; ///< Radius of the sphere which content will be rendered on the shadow map
+    std::vector<double> shadowCastRadii{}; ///< Radius of the sphere which content will be rendered on the shadow map
 };
 
 

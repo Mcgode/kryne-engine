@@ -13,7 +13,8 @@ class DirectionalShadowMapRendering: public RenderPass {
 
 public:
 
-    explicit DirectionalShadowMapRendering(DirectionalLight *directionalLight);
+    explicit DirectionalShadowMapRendering(DirectionalLight *directionalLight,
+                                           Camera *mainCamera);
 
 
     void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) override;
@@ -22,23 +23,30 @@ public:
     void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
 
-    [[nodiscard]] GLuint getShadowMap() const;
+    [[nodiscard]] std::vector<GLuint> getShadowMaps() const;
 
 
-    [[nodiscard]] glm::mat4 getLightSpaceMatrix() const;
+    [[nodiscard]] std::vector<glm::mat4> getLightSpaceMatrices();
+
+
+    void updateCamera(Camera *newCamera);
 
 
 private:
 
-    GLuint fbo = 0;
-    GLuint shadowMap = 0;
+    DirectionalLight *light;
+    Camera *camera;
+
+    std::vector<GLuint> fbos;
+    std::vector<GLuint> shadowMaps;
 
     Shader *shadowMapShader;
-
     glm::mat4 projection{};
-    glm::mat4 view{};
-
+    uint8_t current_index = 0;
     uint16_t resolution;
+
+
+    glm::mat4 computeMatrices();
 
 };
 

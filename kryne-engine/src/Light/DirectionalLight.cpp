@@ -4,6 +4,8 @@
 
 #include "kryne-engine/Light/DirectionalLight.h"
 
+#include <utility>
+
 DirectionalLight::DirectionalLight(glm::vec3 direction,
                                    glm::vec3 diffuseColor,
                                    glm::vec3 *ambientColor,
@@ -46,24 +48,25 @@ uint16_t DirectionalLight::getShadowResolution() const
 }
 
 
-const glm::vec3 &DirectionalLight::getShadowCastCenter() const
+std::vector<double> DirectionalLight::getShadowCastRadii() const
 {
-    return shadowCastCenter;
+    return shadowCastRadii;
 }
 
 
-double DirectionalLight::getShadowCastRadius() const
-{
-    return shadowCastRadius;
-}
-
-
-void DirectionalLight::setCastsShadow(uint16_t resolution, glm::vec3 center, double radius)
+void DirectionalLight::setCastsShadow(uint16_t resolution, double radius)
 {
     this->castsShadow = true;
     this->shadowResolution = resolution;
-    this->shadowCastCenter = glm::vec3(center);
-    this->shadowCastRadius = radius;
+    this->shadowCastRadii.push_back(radius);
+}
+
+
+void DirectionalLight::setCastsShadowCascaded(uint16_t resolution, std::vector<double> radii)
+{
+    this->castsShadow = true;
+    this->shadowResolution = resolution;
+    this->shadowCastRadii = std::move(radii);
 }
 
 
