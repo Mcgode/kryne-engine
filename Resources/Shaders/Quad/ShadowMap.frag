@@ -36,6 +36,7 @@ struct Material {
 };
 
 
+#define MAX_AMOUNT_OF_SHADOW_MAPS 5
 struct ShadowMap {
     sampler2D shadowMap;
     mat4 lightSpaceMatrix;
@@ -52,14 +53,15 @@ in VS_OUT {
     vec3 directionalLightDirection;
     vec3 cameraPosition;
     vec3 pointLightsPositions[MAX_AMOUNT_OF_POINT_LIGHTS];
-    vec4 lightSpaceDirectionalPosition;
+    vec4 lightSpaceDirectionalPositions[MAX_AMOUNT_OF_SHADOW_MAPS];
 } fs_in;
 
 uniform Material material;
 uniform DirectionalLight directionalLight;
 uniform int amountOfPointLights = 0;
 uniform PointLight pointLights[MAX_AMOUNT_OF_POINT_LIGHTS];
-uniform ShadowMap directionalShadowMap;
+uniform int amountOfShadowMaps = 0;
+uniform ShadowMap directionalShadowMaps[MAX_AMOUNT_OF_SHADOW_MAPS];
 
 
 float getShadow(ShadowMap shadowMap, vec4 position) {
@@ -114,7 +116,12 @@ vec3 getDirectionalLightColor(DirectionalLight light, vec3 direction, vec3 norma
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color * material.specular;
 
-    float shadow = getShadow(directionalShadowMap, fs_in.lightSpaceDirectionalPosition);
+    float shadow = 1.0;
+    for (int i = 0; i < amountOfShadowMaps; i++) {
+        shadow *= getShadow(directionalShadowMaps[i], fs_in.lightSpaceDirectionalPositions[i]);
+        if (shadow == 0.0)
+            break;
+    }
 
     return ambientColor + shadow * (diffuseColor + specularColor);
 }

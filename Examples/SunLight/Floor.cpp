@@ -38,9 +38,18 @@ void Floor::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, Addition
     shader->setVec3("material.ambient", glm::vec3(0.07));
     shader->setVec3("material.diffuse", glm::vec3(1.0));
     shader->setVec3("material.specular", glm::vec3(1.6));
-    Texture2D::textureSet(this->handler->getDirectionalShadowMaps(this->light)[0], shader, "directionalShadowMap.shadowMap");
-    shader->setMat4("directionalShadowMap.lightSpaceMatrix", handler->getLightSpaceMatrices(this->light)[0]);
-    shader->setFloat("directionalShadowMap.shadowBias", 0.01);
+
+
+
+    auto lsms = handler->getLightSpaceMatrices(light);
+    auto sms = handler->getDirectionalShadowMaps(light);
+    for (int i = 0; i < sms.size(); i++) {
+        Texture2D::textureSet(sms[i], shader, "directionalShadowMaps[" + std::to_string(i) + "].shadowMap");
+        shader->setMat4("directionalShadowMaps[" + std::to_string(i) + "].lightSpaceMatrix", lsms[i]);
+        shader->setFloat("directionalShadowMaps[" + std::to_string(i) + "].shadowBias", 0.01);
+    }
+    this->shader->setInt("amountOfShadowMaps", sms.size());
+
     this->diffuseTexture->setTexture(shader, "material.diffuseMap");
     this->normalMapTexture->setTexture(shader, "material.normalMap");
     BaseObject::draw(projection, view, model, params);

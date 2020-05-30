@@ -15,8 +15,8 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
     this->fbos = vector<GLuint>(radii.size());
     this->shadowMaps = vector<GLuint>(radii.size());
 
-    glGenFramebuffers(1, this->fbos.data());
-    glGenTextures(1, this->shadowMaps.data());
+    glGenFramebuffers(radii.size(), this->fbos.data());
+    glGenTextures(radii.size(), this->shadowMaps.data());
 
     this->resolution = directionalLight->getShadowResolution();
 
