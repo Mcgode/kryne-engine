@@ -12,7 +12,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "kryne-engine/Core/Shader.h"
+#include "kryne-engine/Material/Shader.h"
 
 class Texture2D {
 

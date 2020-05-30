@@ -2,7 +2,7 @@
 // Created by Max Godefroy on 02/08/2017.
 //
 
-#include "kryne-engine/Core/Shader.h"
+#include "kryne-engine/Material/Shader.h"
 
 #ifndef _WIN32
 #define DIR "Resources/Shaders/"

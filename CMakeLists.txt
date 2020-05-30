@@ -37,7 +37,7 @@ message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 # Set up common library
 include_directories("kryne-engine/include")
 add_library(kryne-engine
-        kryne-engine/src/Core/Shader.cpp kryne-engine/include/kryne-engine/Core/Shader.h
+        kryne-engine/src/Material/Shader.cpp kryne-engine/include/kryne-engine/Material/Shader.h
         kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
         kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
         kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h
