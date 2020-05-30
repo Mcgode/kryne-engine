@@ -46,6 +46,15 @@ public:
      */
     virtual void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
+    /**
+     * A function for drawing the object's shape. Used in shadow maps for instance
+     * @param projection    The projection transform matrix
+     * @param view          The view transform matrix
+     * @param model         The model transform matrix
+     * @param params        A map containing additional data to pass down to the object
+     */
+    virtual void shapeDraw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
+
     Shader *getShader() const;
 
     bool isSupportingLighting() const;
