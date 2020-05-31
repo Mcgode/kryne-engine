@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include <kryne-engine/Core/Shader.h>
+#include <kryne-engine/Material/Shader.h>
 #include <kryne-engine/Textures/TextureCubeMap.h>
 #include <kryne-engine/Core/VertexArray.h>
 #include <kryne-engine/Core/GeometricShapes.h>

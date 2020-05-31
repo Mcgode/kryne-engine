@@ -4,7 +4,12 @@
 
 #include "kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h"
 
-void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
+
+ShadowMapHandler::ShadowMapHandler(Camera *mainCamera) : mainCamera(mainCamera) {}
+
+
+void ShadowMapHandler::renderShadowMaps(Window *window,
+                                        std::vector<HierarchicalNode *> *rootNodes,
                                         DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
                                         AdditionalParameters *params)
 {
@@ -12,7 +17,7 @@ void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<Hierarchical
     {
         if (directionalShadowMaps.find(directionalLight) == directionalShadowMaps.end())
             directionalShadowMaps.insert(std::pair<DirectionalLight *, DirectionalShadowMapRendering *>(
-                    directionalLight, new DirectionalShadowMapRendering(directionalLight)));
+                    directionalLight, new DirectionalShadowMapRendering(directionalLight, this->mainCamera)));
 
         directionalShadowMaps.find(directionalLight)->second->render(window, rootNodes, params);
     }
@@ -25,20 +30,30 @@ void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<Hierarchical
 }
 
 
-GLuint ShadowMapHandler::getDirectionalShadowMap(DirectionalLight *directionalLight)
+std::vector<GLuint> ShadowMapHandler::getDirectionalShadowMaps(DirectionalLight *directionalLight)
 {
     auto pair = directionalShadowMaps.find(directionalLight);
     if (pair == directionalShadowMaps.end())
-        return 0;
+        return vector<GLuint> {};
     else
-        return pair->second->getShadowMap();
+        return pair->second->getShadowMaps();
 }
 
-glm::mat4 ShadowMapHandler::getLightSpaceMatrix(DirectionalLight *directionalLight)
+std::vector<glm::mat4> ShadowMapHandler::getLightSpaceMatrices(DirectionalLight *directionalLight)
 {
     auto pair = directionalShadowMaps.find(directionalLight);
     if (pair == directionalShadowMaps.end())
-        return glm::mat4(0.0);
+        return std::vector<glm::mat4> {};
     else
-        return pair->second->getLightSpaceMatrix();
+        return pair->second->getLightSpaceMatrices();
+}
+
+
+void ShadowMapHandler::updateCamera(Camera *newCamera)
+{
+    this->mainCamera = newCamera;
+
+    for (auto const& [_, renderer] : this->directionalShadowMaps) {
+        renderer->updateCamera(newCamera);
+    }
 }

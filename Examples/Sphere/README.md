@@ -6,7 +6,8 @@ The objective with this project is to experiment with different mapping techniqu
 
 This project is still a work in progress. It was put on hold for now.
 
-Issues with the parallax mapping were encountered and need to be solved
+Issues with the parallax mapping were encountered and need to be solved. The main issue lies within the fact that we 
+are working with a sphere and not a plane.
 
 ## Todo list
 

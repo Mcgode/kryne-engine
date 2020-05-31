@@ -18,7 +18,9 @@ include_directories(external-libs/glm-0.9.9.5)
 
 set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
 add_subdirectory(external-libs/assimp)
-include_directories(external-libs/assimp/include)
+set(ASSIMP_INCLUDES external-libs/assimp/include ${PROJECT_BINARY_DIR}/assimp/include)
+include_directories(${ASSIMP_INCLUDES})
+message(STATUS ${PROJECT_BINARY_DIR}/assimp/include/assimp)
 
 
 #Adding GLAD library
@@ -26,15 +28,16 @@ include_directories(external-libs/glad/include)
 add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h)
 
 
-find_package(Boost COMPONENTS system filesystem REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
+message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 
 
 # Set up common library
 include_directories("kryne-engine/include")
 add_library(kryne-engine
-        kryne-engine/src/Core/Shader.cpp kryne-engine/include/kryne-engine/Core/Shader.h
+        kryne-engine/src/Material/Shader.cpp kryne-engine/include/kryne-engine/Material/Shader.h
         kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
         kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
         kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h

@@ -7,7 +7,7 @@
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
 #include <kryne-engine/Core/Process.h>
-#include "kryne-engine/Core/Shader.h"
+#include "kryne-engine/Material/Shader.h"
 #include "Floor.h"
 #include "Model.h"
 #include "StainedGlass.h"
@@ -37,7 +37,7 @@ int main(int argc, const char **argv)
     pScene->setSkybox(skybox, SKYBOX_DRAW_FIRST);
 
     auto *dirLight = new DirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
-    dirLight->setCastsShadow(1024, glm::vec3(0.), 8.);
+    dirLight->setCastsShadowCascaded(1024, vector<double> { 2., 8., 32. });
     pScene->setDirectionalLight(dirLight);
 //    auto data = ModelLoader::loadModel("TorusKnot.obj");
 

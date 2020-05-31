@@ -8,7 +8,7 @@ Scene::Scene(Window *window, Camera *camera)
 {
     this->window = window;
     this->mainRenderer = new MainRenderer(camera, this->window->getWidth(), this->window->getHeight());
-    this->shadowMapHandler = new ShadowMapHandler();
+    this->shadowMapHandler = new ShadowMapHandler(camera);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);

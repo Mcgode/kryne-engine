@@ -24,10 +24,12 @@ struct DirectionalLight {
 };
 
 
+#define MAX_AMOUNT_OF_SHADOW_MAPS 5
 struct ShadowMap {
     sampler2D shadowMap;
     mat4 lightSpaceMatrix;
     float shadowBias;
+    float radius;
 };
 
 layout (location = 0) in vec3 inputPosition;
@@ -43,7 +45,8 @@ uniform vec3 cameraPosition;
 uniform DirectionalLight directionalLight;
 uniform int amountOfPointLights = 0;
 uniform PointLight pointLights[MAX_AMOUNT_OF_POINT_LIGHTS];
-uniform ShadowMap directionalShadowMap;
+uniform int amountOfShadowMaps = 0;
+uniform ShadowMap directionalShadowMaps[MAX_AMOUNT_OF_SHADOW_MAPS];
 
 out VS_OUT {
     vec3 worldPosition;
@@ -52,7 +55,7 @@ out VS_OUT {
     vec3 directionalLightDirection;
     vec3 cameraPosition;
     vec3 pointLightsPositions[MAX_AMOUNT_OF_POINT_LIGHTS];
-    vec4 lightSpaceDirectionalPosition;
+    vec4 lightSpaceDirectionalPositions[MAX_AMOUNT_OF_SHADOW_MAPS];
 } vs_out;
 
 void main() {
@@ -76,7 +79,8 @@ void main() {
         vs_out.pointLightsPositions[i] = TBN * pointLights[i].position;
     }
 
-    vs_out.lightSpaceDirectionalPosition = directionalShadowMap.lightSpaceMatrix * vec4(vs_out.worldPosition, 1.0);
+    for (int i = 0; i < amountOfShadowMaps; i++)
+        vs_out.lightSpaceDirectionalPositions[i] = directionalShadowMaps[i].lightSpaceMatrix * vec4(vs_out.worldPosition, 1.0);
 
 	gl_Position = projection * view * model * vec4(inputPosition, 1.0);
 }

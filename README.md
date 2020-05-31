@@ -13,8 +13,8 @@ I've put the Sphere project on hold, and I'm working on the SunLight
 project.
 
 More specifically, right now, I'm working on:
-- Implementing a cascaded shadow maps process
-- Renaming the project assets to match the new name 
+- Switch to using smart pointers in the project (because modern C++)
+- Set up a shader chunk model which will allow for better dynamic shaders
 
 ## Individual projects
 

@@ -36,10 +36,12 @@ struct Material {
 };
 
 
+#define MAX_AMOUNT_OF_SHADOW_MAPS 5
 struct ShadowMap {
     sampler2D shadowMap;
     mat4 lightSpaceMatrix;
     float shadowBias;
+    float radius;
 };
 
 
@@ -52,21 +54,38 @@ in VS_OUT {
     vec3 directionalLightDirection;
     vec3 cameraPosition;
     vec3 pointLightsPositions[MAX_AMOUNT_OF_POINT_LIGHTS];
-    vec4 lightSpaceDirectionalPosition;
+    vec4 lightSpaceDirectionalPositions[MAX_AMOUNT_OF_SHADOW_MAPS];
 } fs_in;
 
 uniform Material material;
 uniform DirectionalLight directionalLight;
 uniform int amountOfPointLights = 0;
 uniform PointLight pointLights[MAX_AMOUNT_OF_POINT_LIGHTS];
-uniform ShadowMap directionalShadowMap;
+uniform int amountOfShadowMaps = 0;
+uniform ShadowMap directionalShadowMaps[MAX_AMOUNT_OF_SHADOW_MAPS];
 
 
-float getShadow(ShadowMap shadowMap, vec4 position) {
+float getShadow(ShadowMap shadowMap, vec4 position, int index)
+{
     vec3 shadowCoords = position.xyz / position.w;
-    shadowCoords = shadowCoords * 0.5 + 0.5;
-    float depth = texture2D(shadowMap.shadowMap, shadowCoords.xy).r;
-    return depth > shadowCoords.z - shadowMap.shadowBias ? 1.0 : 0.0;
+    if (abs(shadowCoords.x) > 1.0 || abs(shadowCoords.y) > 1.0)
+    return 1.0;
+
+    vec3 depthCoords = shadowCoords * 0.5 + 0.5;
+
+    float depth = texture2D(shadowMap.shadowMap, depthCoords.xy).r;
+    if (depth == 0.0 || depth == 1.0)
+        return 1.0;
+
+    for (int i = index - 1; i >= 0; i--) {
+        float scaledDepth = shadowMap.radius * (depth + shadowMap.shadowBias - 0.5) / directionalShadowMaps[i].radius * 2.;
+        vec2 scaledCoords = shadowCoords.xy * shadowMap.radius / directionalShadowMaps[i].radius;
+        if (abs(scaledDepth) < 1.0 - directionalShadowMaps[i].shadowBias && abs(scaledCoords.x) <= 1.0 && abs(scaledCoords.y) <= 1.0) {
+            return 1.0;
+        }
+    }
+
+    return depth > depthCoords.z - shadowMap.shadowBias ? 1.0 : 0.0;
 }
 
 
@@ -110,7 +129,12 @@ vec3 getDirectionalLightColor(DirectionalLight light, vec3 direction, vec3 norma
     float specFactor = pow(max(0, dot(r, v)), shininess);
     vec3 specularColor = specFactor * light.specular * color * material.specular;
 
-    float shadow = getShadow(directionalShadowMap, fs_in.lightSpaceDirectionalPosition);
+    float shadow = 1.0;
+    for (int i = 0; i < amountOfShadowMaps; i++) {
+        shadow *= getShadow(directionalShadowMaps[i], fs_in.lightSpaceDirectionalPositions[i], i);
+        if (shadow < 1.0)
+            break;
+    }
 
     return ambientColor + shadow * (diffuseColor + specularColor);
 }
