@@ -41,6 +41,7 @@ struct ShadowMap {
     sampler2D shadowMap;
     mat4 lightSpaceMatrix;
     float shadowBias;
+    float radius;
 };
 
 
@@ -64,15 +65,27 @@ uniform int amountOfShadowMaps = 0;
 uniform ShadowMap directionalShadowMaps[MAX_AMOUNT_OF_SHADOW_MAPS];
 
 
-float getShadow(ShadowMap shadowMap, vec4 position) {
+float getShadow(ShadowMap shadowMap, vec4 position, int index)
+{
     vec3 shadowCoords = position.xyz / position.w;
     if (abs(shadowCoords.x) > 1.0 || abs(shadowCoords.y) > 1.0)
-        return 1.0;
-    shadowCoords = shadowCoords * 0.5 + 0.5;
-    float depth = texture2D(shadowMap.shadowMap, shadowCoords.xy).r;
+    return 1.0;
+
+    vec3 depthCoords = shadowCoords * 0.5 + 0.5;
+
+    float depth = texture2D(shadowMap.shadowMap, depthCoords.xy).r;
     if (depth == 0.0 || depth == 1.0)
         return 1.0;
-    return depth > shadowCoords.z - shadowMap.shadowBias ? 1.0 : 0.0;
+
+    for (int i = index - 1; i >= 0; i--) {
+        float scaledDepth = shadowMap.radius * (depth + shadowMap.shadowBias - 0.5) / directionalShadowMaps[i].radius * 2.;
+        vec2 scaledCoords = shadowCoords.xy * shadowMap.radius / directionalShadowMaps[i].radius;
+        if (abs(scaledDepth) < 1.0 - directionalShadowMaps[i].shadowBias && abs(scaledCoords.x) <= 1.0 && abs(scaledCoords.y) <= 1.0) {
+            return 1.0;
+        }
+    }
+
+    return depth > depthCoords.z - shadowMap.shadowBias ? 1.0 : 0.0;
 }
 
 
@@ -118,8 +131,8 @@ vec3 getDirectionalLightColor(DirectionalLight light, vec3 direction, vec3 norma
 
     float shadow = 1.0;
     for (int i = 0; i < amountOfShadowMaps; i++) {
-        shadow *= getShadow(directionalShadowMaps[i], fs_in.lightSpaceDirectionalPositions[i]);
-        if (shadow == 0.0)
+        shadow *= getShadow(directionalShadowMaps[i], fs_in.lightSpaceDirectionalPositions[i], i);
+        if (shadow < 1.0)
             break;
     }
 

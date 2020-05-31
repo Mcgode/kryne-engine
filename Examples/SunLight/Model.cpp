@@ -30,10 +30,12 @@ void Model::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, Addition
 
     auto lsms = handler->getLightSpaceMatrices(light);
     auto sms = handler->getDirectionalShadowMaps(light);
+    auto radii = light->getShadowCastRadii();
     for (int i = 0; i < sms.size(); i++) {
         Texture2D::textureSet(sms[i], shader, "directionalShadowMaps[" + std::to_string(i) + "].shadowMap");
         shader->setMat4("directionalShadowMaps[" + std::to_string(i) + "].lightSpaceMatrix", lsms[i]);
         shader->setFloat("directionalShadowMaps[" + std::to_string(i) + "].shadowBias", 0.01);
+        shader->setFloat("directionalShadowMaps[" + std::to_string(i) + "].radius", radii[i]);
     }
     this->shader->setInt("amountOfShadowMaps", sms.size());
 

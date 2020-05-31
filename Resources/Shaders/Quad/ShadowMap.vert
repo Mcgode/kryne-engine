@@ -29,6 +29,7 @@ struct ShadowMap {
     sampler2D shadowMap;
     mat4 lightSpaceMatrix;
     float shadowBias;
+    float radius;
 };
 
 layout (location = 0) in vec3 inputPosition;
