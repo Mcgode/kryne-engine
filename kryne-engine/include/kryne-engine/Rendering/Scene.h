@@ -9,6 +9,7 @@
 #include <kryne-engine/Core/Window.h>
 #include <kryne-engine/Rendering/MainRenderer.h>
 #include <kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h>
+#include <kryne-engine/Light/LightingRegistry.h>
 
 /**
  * A class for handling a basic 3D scene
@@ -72,10 +73,7 @@ private:
     std::vector<HierarchicalNode *> rootNodes;
 
     /// The directional light for the scene
-    DirectionalLight *directionalLight{};
-
-    /// The point lights of the scene
-    std::vector<PointLight *> pointLights;
+    shared_ptr<LightingRegistry> lightingRegistry;
 
     MainRenderer *mainRenderer{};
 

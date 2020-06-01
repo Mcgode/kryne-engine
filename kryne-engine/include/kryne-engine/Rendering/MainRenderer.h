@@ -5,8 +5,7 @@
 #ifndef INC_3D_DEMOS_MAIN_RENDERER_H
 #define INC_3D_DEMOS_MAIN_RENDERER_H
 
-#include <kryne-engine/Light/DirectionalLight.h>
-#include <kryne-engine/Light/PointLight.h>
+#include <kryne-engine/Light/LightingRegistry.h>
 #include <kryne-engine/Camera/Camera.h>
 #include <kryne-engine/3DObjects/Skybox.h>
 #include <kryne-engine/Rendering/RenderPass.h>
