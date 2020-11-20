@@ -70,6 +70,19 @@ add_library(kryne-engine
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
+function(COPYASSETDIR TARGET ASSET)
+    add_custom_command(
+            TARGET ${TARGET} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_SOURCE_DIR}/${ASSET}/
+            $<TARGET_FILE_DIR:${TARGET}>/${ASSET})
+endfunction()
+
+function(COPYASSETS TARGET)
+    copyAssetDir(${TARGET} "Resources")
+endfunction()
+
+
 # Setting up executables
 
 add_executable(SunLight Examples/SunLight/main.cpp
@@ -77,6 +90,7 @@ add_executable(SunLight Examples/SunLight/main.cpp
         Examples/SunLight/Model.cpp Examples/SunLight/Model.h
         Examples/SunLight/StainedGlass.cpp Examples/SunLight/StainedGlass.h)
 target_link_libraries(SunLight kryne-engine)
+copyAssets(SunLight)
 
 add_executable(Sphere Examples/Sphere/main.cpp
         Examples/Sphere/SphereNormalMapping.cpp Examples/Sphere/SphereNormalMapping.h
@@ -84,3 +98,4 @@ add_executable(Sphere Examples/Sphere/main.cpp
         Examples/Sphere/SphereTexture.cpp Examples/Sphere/SphereTexture.h
         Examples/Sphere/SphereParallax.cpp Examples/Sphere/SphereParallax.h)
 target_link_libraries(Sphere kryne-engine)
+copyAssets(Sphere)
