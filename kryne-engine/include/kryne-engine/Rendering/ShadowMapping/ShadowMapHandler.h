@@ -7,8 +7,7 @@
 
 #include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
-#include <kryne-engine/Light/DirectionalLight.h>
-#include <kryne-engine/Light/PointLight.h>
+#include <kryne-engine/Light/LightingRegistry.h>
 #include <map>
 #include "DirectionalShadowMapRendering.h"
 
@@ -16,10 +15,10 @@ class ShadowMapHandler {
 
 public:
 
-    ShadowMapHandler(Camera *mainCamera);
+    explicit ShadowMapHandler(Camera *mainCamera);
 
     void renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
-                          DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
+                          const shared_ptr<LightingRegistry>& lightingRegistry,
                           AdditionalParameters *params);
 
     std::vector<GLuint> getDirectionalShadowMaps(DirectionalLight *directionalLight);

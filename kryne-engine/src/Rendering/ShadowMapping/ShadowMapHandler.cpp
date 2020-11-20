@@ -2,27 +2,29 @@
 // Created by max on 11/10/2019.
 //
 
+#include <boost/shared_ptr.hpp>
 #include "kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h"
 
 
 ShadowMapHandler::ShadowMapHandler(Camera *mainCamera) : mainCamera(mainCamera) {}
 
 
-void ShadowMapHandler::renderShadowMaps(Window *window,
-                                        std::vector<HierarchicalNode *> *rootNodes,
-                                        DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
+void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
+                                        const shared_ptr<LightingRegistry>& lightingRegistry,
                                         AdditionalParameters *params)
 {
-    if (directionalLight->isCastingShadow())
-    {
-        if (directionalShadowMaps.find(directionalLight) == directionalShadowMaps.end())
-            directionalShadowMaps.insert(std::pair<DirectionalLight *, DirectionalShadowMapRendering *>(
-                    directionalLight, new DirectionalShadowMapRendering(directionalLight, this->mainCamera)));
+    for (auto directionalLight: *lightingRegistry->getDirectionalLights()) {
+        if (directionalLight->isCastingShadow())
+        {
+            if (directionalShadowMaps.find(directionalLight) == directionalShadowMaps.end())
+                directionalShadowMaps.insert(std::pair<DirectionalLight *, DirectionalShadowMapRendering *>(
+                        directionalLight, new DirectionalShadowMapRendering(directionalLight, this->mainCamera)));
 
-        directionalShadowMaps.find(directionalLight)->second->render(window, rootNodes, params);
+            directionalShadowMaps.find(directionalLight)->second->render(window, rootNodes, params);
+        }
     }
 
-    for (PointLight *pointLight: *pointLights) {
+    for (auto pointLight: *lightingRegistry->getPointLights()) {
         if (pointLight->isCastingShadow()) {
             // TODO: Render shadow map
         }

@@ -6,6 +6,7 @@
 #define INC_3D_DEMOS_FIRST_PERSON_CAMERA_H
 
 #include <chrono>
+#include <algorithm>
 #define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 #include <glm/gtx/euler_angles.hpp>

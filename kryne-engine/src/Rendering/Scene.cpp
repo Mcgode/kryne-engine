@@ -9,6 +9,7 @@ Scene::Scene(Window *window, Camera *camera)
     this->window = window;
     this->mainRenderer = new MainRenderer(camera, this->window->getWidth(), this->window->getHeight());
     this->shadowMapHandler = new ShadowMapHandler(camera);
+    this->lightingRegistry = make_shared<LightingRegistry>();
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
@@ -41,10 +42,9 @@ void Scene::addDrawable(HierarchicalNode *node)
 
 void Scene::renderLoop(AdditionalParameters *params)
 {
-    this->shadowMapHandler->renderShadowMaps(window, &rootNodes, directionalLight, &pointLights, params);
+    this->shadowMapHandler->renderShadowMaps(window, &rootNodes, lightingRegistry, params);
 
-    params->insertLoopLongParameter("directionalLight", directionalLight);
-    params->insertLoopLongParameter("pointLights", &pointLights);
+    params->insertLoopLongParameter("lightingRegistry", lightingRegistry.get());
     this->mainRenderer->render(window, &rootNodes, params);
 }
 
@@ -57,23 +57,24 @@ Camera *Scene::getCamera() const {
 void Scene::setDirectionalLight(DirectionalLight *light)
 {
     assert(light != nullptr);
-    Scene::directionalLight = light;
+    this->lightingRegistry->registerDirectionalLight(light);
 
     if (mainRenderer->getSkybox())
-        mainRenderer->getSkybox()->setLightDirection(-directionalLight->getDirection());
+        mainRenderer->getSkybox()->setLightDirection(-light->getDirection());
 }
 
 
 void Scene::addPointLight(PointLight *light)
 {
     assert(light != nullptr);
-    pointLights.push_back(light);
+    lightingRegistry->registerPointLight(light);
 }
 
 
 void Scene::setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder)
 {
-    this->mainRenderer->setSkybox(skybox, drawOrder, directionalLight);
+    auto dirLights = *lightingRegistry->getDirectionalLights();
+    this->mainRenderer->setSkybox(skybox, drawOrder, !dirLights.empty() ? dirLights[0] : nullptr);
 }
 
 ShadowMapHandler *Scene::getShadowMapHandler() const {
