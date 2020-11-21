@@ -38,7 +38,7 @@ message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 include_directories("kryne-engine/include")
 add_library(kryne-engine
         kryne-engine/src/Material/Shader.cpp kryne-engine/include/kryne-engine/Material/Shader.h
-        kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
+        kryne-engine/src/Rendering/RenderScene.cpp kryne-engine/include/kryne-engine/Rendering/RenderScene.h
         kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
         kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h
         kryne-engine/include/kryne-engine/Camera/Camera.h
@@ -66,7 +66,11 @@ add_library(kryne-engine
         kryne-engine/include/kryne-engine/Rendering/RenderPass.h
         kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
-        kryne-engine/src/Core/Process.cpp kryne-engine/include/kryne-engine/Core/Process.h kryne-engine/src/Light/LightingRegistry.cpp kryne-engine/include/kryne-engine/Light/LightingRegistry.h)
+        kryne-engine/src/Core/Process.cpp kryne-engine/include/kryne-engine/Core/Process.h
+        kryne-engine/src/Light/LightingRegistry.cpp kryne-engine/include/kryne-engine/Light/LightingRegistry.h
+        kryne-engine/src/Rendering/Renderer.cpp kryne-engine/src/Rendering/Renderer.h
+        kryne-engine/src/3DObjects/Scene.cpp kryne-engine/include/kryne-engine/3DObjects/Scene.h
+        kryne-engine/src/3DObjects/Object3D.cpp kryne-engine/include/kryne-engine/3DObjects/Object3D.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 

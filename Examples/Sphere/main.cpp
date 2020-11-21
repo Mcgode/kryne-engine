@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/TrackballCamera.h>
 #include <kryne-engine/Core/GeometricShapes.h>
 #include <kryne-engine/Core/Process.h>

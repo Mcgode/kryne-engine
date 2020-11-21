@@ -2,8 +2,8 @@
 // Created by max on 22/04/19.
 //
 
-#ifndef INC_3D_DEMOS_SCENE_H
-#define INC_3D_DEMOS_SCENE_H
+#ifndef INC_3D_DEMOS_RENDERSCENE_H
+#define INC_3D_DEMOS_RENDERSCENE_H
 
 
 #include <kryne-engine/Core/Window.h>
@@ -14,7 +14,7 @@
 /**
  * A class for handling a basic 3D scene
  */
-class Scene {
+class RenderScene {
 
 public:
 
@@ -23,7 +23,7 @@ public:
      * @param window        The window for the current process.
      * @param camera        The camera used for this scene
      */
-    explicit Scene(Window *window, Camera *camera);
+    explicit RenderScene(Window *window, Camera *camera);
 
     /**
      * Changes the current camera
@@ -62,7 +62,7 @@ public:
 
     [[nodiscard]] ShadowMapHandler *getShadowMapHandler() const;
 
-    ~Scene();
+    ~RenderScene();
 
 private:
 
@@ -82,4 +82,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_SCENE_H
+#endif //INC_3D_DEMOS_RENDERSCENE_H

@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
 #include <kryne-engine/Core/Process.h>

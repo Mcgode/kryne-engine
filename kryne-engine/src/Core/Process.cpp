@@ -9,7 +9,7 @@ Process::Process(Camera *camera, uint16_t windowWidth, uint16_t windowHeight)
     this->processWindow = new Window(windowWidth, windowHeight);
     this->processWindow->setCurrentCamera(camera);
 
-    this->scene = new Scene(this->processWindow, camera);
+    this->scene = new RenderScene(this->processWindow, camera);
 }
 
 
@@ -35,7 +35,7 @@ Window *Process::getProcessWindow() const
 }
 
 
-Scene *Process::getScene() const
+RenderScene *Process::getScene() const
 {
     return scene;
 }

@@ -4,7 +4,7 @@
 
 #include "Model.h"
 
-Model::Model(const string &model, const string &fallbackTexture, const Scene *scene, DirectionalLight *light)
+Model::Model(const string &model, const string &fallbackTexture, const RenderScene *scene, DirectionalLight *light)
 {
     this->data = ModelLoader::loadModel(model);
     auto mesh = data[0];

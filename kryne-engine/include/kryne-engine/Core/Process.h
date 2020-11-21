@@ -7,7 +7,7 @@
 
 
 #include <kryne-engine/Camera/Camera.h>
-#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Rendering/RenderScene.h>
 #include "Window.h"
 
 
@@ -43,7 +43,7 @@ public:
     /**
      * Retrieves the scene for the current engine process.
      */
-    [[nodiscard]] Scene *getScene() const;
+    [[nodiscard]] RenderScene *getScene() const;
 
 
 private:
@@ -52,7 +52,7 @@ private:
     Window *processWindow;
 
     /// The scene for the current engine process.
-    Scene *scene;
+    RenderScene *scene;
 
 };
 
