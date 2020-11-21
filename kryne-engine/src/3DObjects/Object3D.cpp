@@ -35,6 +35,8 @@ void Object3D::update(bool force)
 
         for (const auto& child : this->children)
             child->update(true);
+
+        this->matrixWorldNeedsUpdate = false;
     }
 }
 
@@ -59,6 +61,22 @@ unique_ptr<Object3D> Object3D::remove(Object3D *childToRemove)
         }
     }
     return nullptr;
+}
+
+
+void Object3D::traverse(Object3D::TraverseCallback callback)
+{
+    callback(this);
+    for (const auto &child : this->children)
+        child->traverse(callback);
+}
+
+
+vector<Object3D *> Object3D::getChildren() {
+    vector<Object3D *> result;
+    for (const auto &child : this->children)
+        result.push_back(child.get());
+    return result;
 }
 
 

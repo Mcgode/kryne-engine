@@ -28,7 +28,24 @@ include_directories(external-libs/glad/include)
 add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h)
 
 
-find_package(Boost REQUIRED COMPONENTS system filesystem)
+set (Boost_DETAILED_FAILURE_MSG ON)
+set (Boost_THREADAPI win32)
+set (Boost_USE_STATIC_LIBS 1)
+
+set (BASE_BOOST_ROOT "C:/Program Files/boost/boost_1_73_0")
+
+set (BOOST_ROOT ${BASE_BOOST_ROOT}/boost)
+set (ENV{BOOST_ROOT} ${BASE_BOOST_ROOT}/boost)
+
+set (BOOST_LIBRARYDIR ${BASE_BOOST_ROOT}/stage/lib)
+set (ENV{BOOST_LIBRARYDIR} ${BASE_BOOST_ROOT}/stage/lib)
+
+set (BOOST_INCLUDEDIR ${BASE_BOOST_ROOT})
+set (Boost_INCLUDE_DIR ${BASE_BOOST_ROOT})
+set (ENV{BOOST_INCLUDEDIR} ${BASE_BOOST_ROOT})
+
+set (Boost_DEBUG ON)  #<---------- Real life saver
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
@@ -68,7 +85,7 @@ add_library(kryne-engine
         kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
         kryne-engine/src/Core/Process.cpp kryne-engine/include/kryne-engine/Core/Process.h
         kryne-engine/src/Light/LightingRegistry.cpp kryne-engine/include/kryne-engine/Light/LightingRegistry.h
-        kryne-engine/src/Rendering/Renderer.cpp kryne-engine/src/Rendering/Renderer.h
+        kryne-engine/src/Rendering/Renderer.cpp kryne-engine/include/kryne-engine/Rendering/Renderer.h
         kryne-engine/src/3DObjects/Scene.cpp kryne-engine/include/kryne-engine/3DObjects/Scene.h
         kryne-engine/src/3DObjects/Object3D.cpp kryne-engine/include/kryne-engine/3DObjects/Object3D.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})

@@ -8,7 +8,7 @@
 
 #include "Object3D.h"
 
-class Scene : Object3D {
+class Scene : public Object3D {
 
 public:
     Scene(): Object3D() {}

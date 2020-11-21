@@ -59,6 +59,8 @@ protected:
 
 // -- Hierarchy --
 
+typedef void (*TraverseCallback)(Object3D *object);
+
 public:
 
     void add(unique_ptr<Object3D> child);
@@ -71,6 +73,10 @@ public:
     Object3D *getParent() const {
         return parent;
     }
+
+    void traverse(TraverseCallback callback);
+
+    vector<Object3D *> getChildren();
 
 protected:
 
