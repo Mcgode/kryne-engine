@@ -8,6 +8,7 @@
 #include <memory>
 #include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/Scene.h>
+#include <kryne-engine/3DObjects/Mesh.h>
 
 using namespace std;
 

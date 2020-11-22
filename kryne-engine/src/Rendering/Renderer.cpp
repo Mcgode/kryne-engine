@@ -29,6 +29,14 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
     if (!object->isVisible())
         return;
 
+    auto mesh = dynamic_cast<Mesh *>(object);
+    if (mesh) {
+        const auto& material = mesh->getMaterial();
+        material->use();
+        mesh->getGeometry()->draw();
+        material->resetUse();
+    }
+
     for (auto child: object->getChildren())
         renderObject(child, camera);
 }
