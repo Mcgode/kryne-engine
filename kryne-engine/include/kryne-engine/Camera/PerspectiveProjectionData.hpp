@@ -23,7 +23,7 @@ public:
      * @param farPlane      Maximum z value, corresponding to the far plane.
      */
     explicit PerspectiveProjectionData(float aspectRatio,
-                                       float fieldOfView = 90,
+                                       float fieldOfView = glm::pi<float>() / 2.,
                                        float nearPlane = 0.01f,
                                        float farPlane = 100.0f) :
         aspectRatio(aspectRatio),
