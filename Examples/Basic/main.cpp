@@ -16,7 +16,7 @@ int main()
                                 "uniform mat4 modelMatrix;\n"
                                 "\n"
                                 "void main() {\n"
-                                "   gl_Position = vec4(0.5 * position, 1.);\n"
+                                "   gl_Position = modelMatrix * vec4(position, 1.);\n"
                                 "}";
 
     const string fragmentShader =   "#version 330 core\n"

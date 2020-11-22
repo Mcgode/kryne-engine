@@ -142,7 +142,7 @@ protected:
 
     glm::mat4 matrixWorld {};
 
-    bool matrixWorldNeedsUpdate = false;
+    bool matrixWorldNeedsUpdate = true;
 
     glm::vec3 position {};
 
