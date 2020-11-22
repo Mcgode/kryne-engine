@@ -97,24 +97,28 @@ Object3D::~Object3D()
 void Object3D::lookAt(const glm::vec3 &target, const glm::vec3 &up)
 {
     auto p = getWorldPosition();
-    auto d = target - p;
+    auto z = -(target - p);
 
-    if (glm::length2(d) == 0.f)
-        d.z = 1.f;
+    if (glm::length(z) == 0.f)
+        z.z = 1.f;
 
-    d = glm::normalize(d);
-    auto x = glm::cross(up, d);
+    z = glm::normalize(z);
+    auto x = glm::cross(up, z);
 
-    if (glm::length2(x) == 0.f) {
-        if (glm::abs(d.z) == 1.0f)
-            d.x += 0.0001f;
+    if (glm::length(x) == 0.f) {
+        if (glm::abs(z.z) == 1.0f)
+            z.x += 0.0001f;
         else
-            d.z += 0.0001f;
+            z.z += 0.0001f;
 
-        d = glm::normalize(d);
+        z = glm::normalize(z);
+        x = glm::normalize(glm::cross(up, z));
     }
 
-    this->setQuaternion(glm::quat_cast(glm::lookAt(d + p, p, up)));
+    auto y = glm::cross(z, x);
+
+    const auto lookAtMat = glm::mat3(x, y, z);
+    this->setQuaternion(glm::toQuat(lookAtMat));
 }
 
 
