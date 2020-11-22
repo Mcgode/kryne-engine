@@ -138,6 +138,8 @@ public:
 
 protected:
 
+    void calculateLocalTransform();
+
     glm::mat4 localTransform {};
 
     glm::mat4 matrixWorld {};

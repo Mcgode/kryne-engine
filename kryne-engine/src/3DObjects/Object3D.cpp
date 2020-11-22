@@ -20,14 +20,20 @@ uint32_t Object3D::nextId()
 }
 
 
+void Object3D::calculateLocalTransform()
+{
+    const auto scaleMatrix = glm::scale(glm::mat4(1), this->scale);
+    const auto rotationMatrix = glm::toMat4(this->quaternion);
+    const auto translationMatrix = glm::translate(glm::mat4(1), this->position);
+    this->localTransform = translationMatrix * rotationMatrix * scaleMatrix;
+}
+
+
 void Object3D::update(bool force)
 {
     if ((this->matrixWorldNeedsUpdate || force) && this->visible)
     {
-        this->localTransform = glm::identity<glm::mat4>();
-        this->localTransform = glm::scale(this->localTransform, this->scale);
-        this->localTransform = glm::mat4_cast(this->quaternion) * this->localTransform;
-        this->localTransform = glm::translate(this->localTransform, this->position);
+        calculateLocalTransform();
 
         this->matrixWorld = this->parent != nullptr ?
                 this->parent->matrixWorld * this->localTransform :
