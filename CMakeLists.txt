@@ -53,7 +53,7 @@ message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 
 # Set up common library
 include_directories("kryne-engine/include")
-add_library(kryne-engine
+add_library(kryne-engine STATIC
         kryne-engine/src/Material/Shader.cpp kryne-engine/include/kryne-engine/Material/Shader.h
         kryne-engine/src/Rendering/RenderScene.cpp kryne-engine/include/kryne-engine/Rendering/RenderScene.h
         kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
@@ -87,7 +87,12 @@ add_library(kryne-engine
         kryne-engine/src/Light/LightingRegistry.cpp kryne-engine/include/kryne-engine/Light/LightingRegistry.h
         kryne-engine/src/Rendering/Renderer.cpp kryne-engine/include/kryne-engine/Rendering/Renderer.h
         kryne-engine/src/3DObjects/Scene.cpp kryne-engine/include/kryne-engine/3DObjects/Scene.h
-        kryne-engine/src/3DObjects/Object3D.cpp kryne-engine/include/kryne-engine/3DObjects/Object3D.h)
+        kryne-engine/src/3DObjects/Object3D.cpp kryne-engine/include/kryne-engine/3DObjects/Object3D.h
+        kryne-engine/src/Material/Material.cpp kryne-engine/include/kryne-engine/Material/Material.h
+        kryne-engine/src/Geometry/BufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BufferGeometry.h
+        kryne-engine/src/3DObjects/Mesh.cpp kryne-engine/include/kryne-engine/3DObjects/Mesh.h
+        kryne-engine/src/Geometry/BufferAttribute.cpp kryne-engine/include/kryne-engine/Geometry/BufferAttribute.h
+        kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
