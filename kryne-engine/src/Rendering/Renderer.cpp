@@ -4,7 +4,7 @@
 
 #include "kryne-engine/Rendering/Renderer.h"
 
-Renderer::Renderer(uint32_t width, uint32_t height)
+Renderer::Renderer(uint16_t width, uint16_t height)
 {
     this->associatedWindow = make_unique<Window>(width, height);
 }
