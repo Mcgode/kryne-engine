@@ -96,7 +96,11 @@ protected:
 
 public:
 
-    void update(bool force = false);
+    virtual void update(bool force);
+
+    void update() {
+        update(false);
+    }
 
     [[nodiscard]]
     const glm::vec3 &getPosition() const {

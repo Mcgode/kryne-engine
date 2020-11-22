@@ -41,6 +41,8 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         if (differentSides)
             renderingStatus.setSide(side);
 
+        mesh->onBeforeRender(camera);
+
         mesh->getGeometry()->draw(material->getPrimitiveType());
 
         material->resetUse();
