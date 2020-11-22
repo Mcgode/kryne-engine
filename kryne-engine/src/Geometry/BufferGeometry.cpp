@@ -12,14 +12,14 @@ BufferGeometry::BufferGeometry()
 }
 
 
-void BufferGeometry::addAttribute(const string &name, unique_ptr<IBufferAttribute> attribute)
+void BufferGeometry::addAttribute(const string &name, unique_ptr<BufferAttribute> attribute)
 {
     GLuint location = this->nextLocation++;
     names.push_back(name);
 
     attribute->bindToVAO(this->vao, location);
     if (ebo == 0)
-        this->length = (location == 0) ? attribute->getLength() : min(length, attribute->getLength());
+        this->length = (location == 0) ? attribute->getLength() : std::min(this->length, attribute->getLength());
 
     bufferAttributes.push_back(std::move(attribute));
 }

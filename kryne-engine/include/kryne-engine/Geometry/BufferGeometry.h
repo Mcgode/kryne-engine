@@ -20,7 +20,7 @@ class BufferGeometry {
 public:
     BufferGeometry();
 
-    void addAttribute(const string &name, unique_ptr<IBufferAttribute> attribute);
+    void addAttribute(const string &name, unique_ptr<BufferAttribute> attribute);
 
     void draw(GLenum geometry = GL_TRIANGLES) const;
 
@@ -35,7 +35,7 @@ protected:
 
     vector<string> names;
 
-    vector<unique_ptr<IBufferAttribute>> bufferAttributes;
+    vector<unique_ptr<BufferAttribute>> bufferAttributes;
 
     uint32_t length = 0;
 
