@@ -100,9 +100,7 @@ public:
 
     virtual void update(bool force);
 
-    void update() {
-        update(false);
-    }
+    virtual const glm::mat4 &updateParents(const Object3D *caller);
 
     [[nodiscard]]
     const glm::vec3 &getPosition() const {

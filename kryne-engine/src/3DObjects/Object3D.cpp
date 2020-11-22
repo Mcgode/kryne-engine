@@ -110,3 +110,21 @@ void Object3D::lookAt(const glm::vec3 &target, const glm::vec3 &up)
 
     this->setQuaternion(glm::quat_cast(glm::lookAt(d + p, p, up)));
 }
+
+
+const glm::mat4 &Object3D::updateParents(const Object3D *caller)
+{
+    if (this->matrixWorldNeedsUpdate)
+        this->calculateLocalTransform();
+
+    this->matrixWorld = this->parent != nullptr ?
+                        this->parent->updateParents(this) * this->localTransform :
+                        this->localTransform;
+
+    for (const auto &child : this->children) {
+        if (child.get() != caller)
+            child->setWorldMatrixNeedsUpdate();
+    }
+
+    return this->matrixWorld;
+}
