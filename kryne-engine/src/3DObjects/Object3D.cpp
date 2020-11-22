@@ -86,3 +86,27 @@ Object3D::~Object3D()
         child->parent = nullptr;
     }
 }
+
+
+void Object3D::lookAt(const glm::vec3 &target, const glm::vec3 &up)
+{
+    auto p = getWorldPosition();
+    auto d = target - p;
+
+    if (glm::length2(d) == 0.f)
+        d.z = 1.f;
+
+    d = glm::normalize(d);
+    auto x = glm::cross(up, d);
+
+    if (glm::length2(x) == 0.f) {
+        if (glm::abs(d.z) == 1.0f)
+            d.x += 0.0001f;
+        else
+            d.z += 0.0001f;
+
+        d = glm::normalize(d);
+    }
+
+    this->setQuaternion(glm::quat_cast(glm::lookAt(d + p, p, up)));
+}

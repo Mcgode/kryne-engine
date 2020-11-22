@@ -11,6 +11,8 @@
 #include <memory>
 #include <atomic>
 #include <vector>
+
+#define GLM_FORCE_SWIZZLE
 #include <glm/common.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vec3.hpp>
@@ -149,6 +151,16 @@ protected:
     glm::quat quaternion {};
 
     glm::vec3 scale {};
+
+
+public:
+
+    glm::vec3 getWorldPosition() {
+        auto p = matrixWorld * glm::vec4(position, 1.);
+        return p.xyz * (1.f / p.w);
+    }
+
+    void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0));
 
 };
 
