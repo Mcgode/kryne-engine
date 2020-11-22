@@ -8,6 +8,7 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <kryne-engine/Constants/CubeVertexData.h>
+#include <kryne-engine/Utils/VectorFlattening.h>
 #include "BufferGeometry.h"
 
 
