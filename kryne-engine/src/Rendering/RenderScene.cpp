@@ -4,7 +4,7 @@
 
 #include "kryne-engine/Rendering/RenderScene.h"
 
-RenderScene::RenderScene(Window *window, Camera *camera)
+RenderScene::RenderScene(Window *window, OldCamera *camera)
 {
     this->window = window;
     this->mainRenderer = new MainRenderer(camera, this->window->getWidth(), this->window->getHeight());
@@ -27,7 +27,7 @@ RenderScene::~RenderScene()
 }
 
 
-Camera *RenderScene::updateCamera(Camera *newCamera)
+OldCamera *RenderScene::updateCamera(OldCamera *newCamera)
 {
 
     return mainRenderer->updateCamera(newCamera);
@@ -49,7 +49,7 @@ void RenderScene::renderLoop(AdditionalParameters *params)
 }
 
 
-Camera *RenderScene::getCamera() const {
+OldCamera *RenderScene::getCamera() const {
     return mainRenderer->getCamera();
 }
 

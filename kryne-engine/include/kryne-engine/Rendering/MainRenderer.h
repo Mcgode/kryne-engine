@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_MAIN_RENDERER_H
 
 #include <kryne-engine/Light/LightingRegistry.h>
-#include <kryne-engine/Camera/Camera.h>
+#include <kryne-engine/Camera/OldCamera.h>
 #include <kryne-engine/3DObjects/Skybox.h>
 #include <kryne-engine/Rendering/RenderPass.h>
 
@@ -16,7 +16,7 @@ class MainRenderer : public RenderPass {
 public:
 
 
-    MainRenderer(Camera *camera, unsigned int width, unsigned int height);
+    MainRenderer(OldCamera *camera, unsigned int width, unsigned int height);
 
 
     void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) override;
@@ -41,13 +41,13 @@ public:
      * Changes the current camera
      * @param newCamera     The new camera you want to use in the scene
      */
-    Camera *updateCamera(Camera *newCamera);
+    OldCamera *updateCamera(OldCamera *newCamera);
 
 
     void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder, DirectionalLight *directionalLight);
 
 
-    [[nodiscard]] Camera *getCamera() const;
+    [[nodiscard]] OldCamera *getCamera() const;
 
 
     [[nodiscard]] Skybox *getSkybox() const;
@@ -59,7 +59,7 @@ public:
 private:
 
     /// The current camera for the scene
-    Camera *camera;
+    OldCamera *camera;
 
     /// The projection matrix for the scene
     glm::mat4 projection{};

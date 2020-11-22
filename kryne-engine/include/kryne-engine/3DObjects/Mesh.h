@@ -7,7 +7,7 @@
 
 #include <kryne-engine/Geometry/BufferGeometry.h>
 #include <kryne-engine/Material/Material.h>
-#include <kryne-engine/Camera/Camera.h>
+#include <kryne-engine/Camera/OldCamera.h>
 
 #include "Object3D.h"
 
@@ -38,7 +38,7 @@ public:
      * Function called before the mesh is rendered
      * @param camera    The camera used for the rendering
      */
-    virtual void onBeforeRender(const Camera *camera) {
+    virtual void onBeforeRender(const OldCamera *camera) {
         this->material->getShader()->setMat4("modelMatrix", this->matrixWorld);
     };
 

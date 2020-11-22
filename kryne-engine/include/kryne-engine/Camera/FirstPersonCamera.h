@@ -11,9 +11,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include "Camera.h"
+#include "OldCamera.h"
 
-class FirstPersonCamera : public Camera {
+class FirstPersonCamera : public OldCamera {
 
 public:
 

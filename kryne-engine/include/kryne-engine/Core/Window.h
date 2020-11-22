@@ -15,8 +15,8 @@
 #include <GLFW/glfw3.h>
 #include "AdditionalParameters.h"
 
-class Camera;
-#include <kryne-engine/Camera/Camera.h>
+class OldCamera;
+#include <kryne-engine/Camera/OldCamera.h>
 
 
 /**
@@ -47,7 +47,7 @@ public:
 
     void setMouseCursor(int value);
 
-    void setCurrentCamera(Camera *camera);
+    void setCurrentCamera(OldCamera *camera);
 
     ~Window();
 

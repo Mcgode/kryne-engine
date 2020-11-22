@@ -6,7 +6,7 @@
 #include "kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h"
 
 
-ShadowMapHandler::ShadowMapHandler(Camera *mainCamera) : mainCamera(mainCamera) {}
+ShadowMapHandler::ShadowMapHandler(OldCamera *mainCamera) : mainCamera(mainCamera) {}
 
 
 void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
@@ -51,7 +51,7 @@ std::vector<glm::mat4> ShadowMapHandler::getLightSpaceMatrices(DirectionalLight 
 }
 
 
-void ShadowMapHandler::updateCamera(Camera *newCamera)
+void ShadowMapHandler::updateCamera(OldCamera *newCamera)
 {
     this->mainCamera = newCamera;
 

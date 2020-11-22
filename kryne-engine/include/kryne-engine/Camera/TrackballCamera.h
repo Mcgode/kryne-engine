@@ -7,14 +7,14 @@
 
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/constants.hpp>
-#include "Camera.h"
+#include "OldCamera.h"
 
 
 /**
  * A trackball camera, a camera allowing the user to rotate the camera around a given point, zoom in and out of this
  * point and move this point in the plane orthogonal to the current camera direction
  */
-class TrackballCamera: public Camera {
+class TrackballCamera: public OldCamera {
 
 public:
     /**

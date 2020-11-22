@@ -6,7 +6,7 @@
 #define INC_3D_DEMOS_PROCESS_H
 
 
-#include <kryne-engine/Camera/Camera.h>
+#include <kryne-engine/Camera/OldCamera.h>
 #include <kryne-engine/Rendering/RenderScene.h>
 #include "Window.h"
 
@@ -24,7 +24,7 @@ public:
      * @param windowWidth   The window width for the rendering
      * @param windowHeight  The window height for the rendering
      */
-    explicit Process(Camera *camera, uint16_t windowWidth = 1280, uint16_t windowHeight = 720);
+    explicit Process(OldCamera *camera, uint16_t windowWidth = 1280, uint16_t windowHeight = 720);
 
 
     /**

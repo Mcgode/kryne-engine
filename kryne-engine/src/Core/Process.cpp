@@ -4,7 +4,7 @@
 
 #include "kryne-engine/Core/Process.h"
 
-Process::Process(Camera *camera, uint16_t windowWidth, uint16_t windowHeight)
+Process::Process(OldCamera *camera, uint16_t windowWidth, uint16_t windowHeight)
 {
     this->processWindow = new Window(windowWidth, windowHeight);
     this->processWindow->setCurrentCamera(camera);

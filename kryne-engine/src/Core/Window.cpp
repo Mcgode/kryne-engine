@@ -6,7 +6,7 @@
 
 
 Window *current_window;
-Camera *currentCamera = nullptr;
+OldCamera *currentCamera = nullptr;
 
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
@@ -120,7 +120,7 @@ void Window::setMouseCursor(int value)
 }
 
 
-void Window::setCurrentCamera(Camera *camera)
+void Window::setCurrentCamera(OldCamera *camera)
 {
     currentCamera = camera;
 }

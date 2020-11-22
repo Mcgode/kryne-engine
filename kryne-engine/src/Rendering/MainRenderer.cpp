@@ -5,7 +5,7 @@
 #include "kryne-engine/Rendering/MainRenderer.h"
 
 
-MainRenderer::MainRenderer(Camera *camera, unsigned int width, unsigned int height)
+MainRenderer::MainRenderer(OldCamera *camera, unsigned int width, unsigned int height)
 {
     this->camera = camera;
     this->projection = glm::perspective(3.14 / 2.0, (double) width / (double) height, 0.1, 150.0);
@@ -65,7 +65,7 @@ void MainRenderer::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model,
 }
 
 
-Camera *MainRenderer::getCamera() const
+OldCamera *MainRenderer::getCamera() const
 {
     return camera;
 }
@@ -91,7 +91,7 @@ Skybox *MainRenderer::getSkybox() const
     return skybox;
 }
 
-Camera *MainRenderer::updateCamera(Camera *newCamera)
+OldCamera *MainRenderer::updateCamera(OldCamera *newCamera)
 {
     auto oldCamera = this->camera;
     this->camera = newCamera;

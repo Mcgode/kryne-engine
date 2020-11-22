@@ -5,7 +5,7 @@
 #include "kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h"
 
 DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *directionalLight,
-                                                             Camera *mainCamera)
+                                                             OldCamera *mainCamera)
 {
     this->light = directionalLight;
     auto radii = directionalLight->getShadowCastRadii();
@@ -129,7 +129,7 @@ glm::mat4 DirectionalShadowMapRendering::computeMatrices()
 }
 
 
-void DirectionalShadowMapRendering::updateCamera(Camera *newCamera)
+void DirectionalShadowMapRendering::updateCamera(OldCamera *newCamera)
 {
     this->camera = newCamera;
 }

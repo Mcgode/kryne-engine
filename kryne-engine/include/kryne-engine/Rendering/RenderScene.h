@@ -23,13 +23,13 @@ public:
      * @param window        The window for the current process.
      * @param camera        The camera used for this scene
      */
-    explicit RenderScene(Window *window, Camera *camera);
+    explicit RenderScene(Window *window, OldCamera *camera);
 
     /**
      * Changes the current camera
      * @param newCamera The new camera you want to use in the scene
      */
-    Camera *updateCamera(Camera *newCamera);
+    OldCamera *updateCamera(OldCamera *newCamera);
 
     /**
      * Adds a new drawable root node to the scene
@@ -56,7 +56,7 @@ public:
      */
     void addPointLight(PointLight *light);
 
-    Camera *getCamera() const;
+    OldCamera *getCamera() const;
 
     void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder);
 
