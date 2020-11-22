@@ -13,6 +13,7 @@
 #include <vector>
 
 #define GLM_FORCE_SWIZZLE
+#include <glm/glm.hpp>
 #include <glm/common.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vec3.hpp>
@@ -109,7 +110,7 @@ public:
 
     void setPosition(const glm::vec3 &pos) {
         matrixWorldNeedsUpdate = needsUpdate(pos, Object3D::position);
-        Object3D::position = pos;
+        Object3D::position = glm::vec3(pos);
     }
 
     [[nodiscard]]
@@ -119,7 +120,7 @@ public:
 
     void setQuaternion(const glm::quat &quat) {
         matrixWorldNeedsUpdate = needsUpdate(quat, Object3D::quaternion);
-        Object3D::quaternion = quat;
+        Object3D::quaternion = glm::quat(quat);
     }
 
     [[nodiscard]]
@@ -129,7 +130,7 @@ public:
 
     void setScale(const glm::vec3 &s) {
         matrixWorldNeedsUpdate = needsUpdate(s, Object3D::scale);
-        Object3D::scale = s;
+        Object3D::scale = glm::vec3(s);
     }
 
     void setWorldMatrixNeedsUpdate() {
@@ -156,8 +157,13 @@ protected:
 public:
 
     glm::vec3 getWorldPosition() {
-        auto p = matrixWorld * glm::vec4(position, 1.);
-        return p.xyz * (1.f / p.w);
+        if (this->parent == nullptr) {
+            return this->position;
+        } else {
+            this->updateParents(nullptr);
+            auto p = this->parent->matrixWorld * glm::vec4(position, 1.);
+            return glm::vec3(p) * (1.f / p.w);
+        }
     }
 
     void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0));
