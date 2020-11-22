@@ -58,7 +58,7 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Rendering/RenderScene.cpp kryne-engine/include/kryne-engine/Rendering/RenderScene.h
         kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
         kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h
-        kryne-engine/include/kryne-engine/Camera/Camera.h
+        kryne-engine/include/kryne-engine/Camera/OldCamera.h
         kryne-engine/src/Camera/BasicCamera.cpp kryne-engine/include/kryne-engine/Camera/BasicCamera.h
         kryne-engine/src/Core/GeometricShapes.cpp kryne-engine/include/kryne-engine/Core/GeometricShapes.h
         kryne-engine/src/3DObjects/BaseObject.cpp kryne-engine/include/kryne-engine/3DObjects/BaseObject.h
@@ -94,7 +94,9 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Geometry/BufferAttribute.cpp kryne-engine/include/kryne-engine/Geometry/BufferAttribute.h
         kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h
         kryne-engine/include/kryne-engine/Rendering/RenderingStatus.h
-        kryne-engine/include/kryne-engine/Utils/VectorFlattening.h kryne-engine/src/Utils/VectorFlattening.cpp)
+        kryne-engine/src/Utils/VectorFlattening.cpp kryne-engine/include/kryne-engine/Utils/VectorFlattening.h
+        kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
+        kryne-engine/include/kryne-engine/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
