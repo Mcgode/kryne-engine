@@ -96,7 +96,7 @@ add_library(kryne-engine STATIC
         kryne-engine/include/kryne-engine/Rendering/RenderingStatus.h
         kryne-engine/src/Utils/VectorFlattening.cpp kryne-engine/include/kryne-engine/Utils/VectorFlattening.h
         kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
-        kryne-engine/include/kryne-engine/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp)
+        kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
