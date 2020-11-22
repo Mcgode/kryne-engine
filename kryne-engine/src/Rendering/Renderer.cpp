@@ -41,6 +41,10 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         if (differentSides)
             renderingStatus.setSide(side);
 
+        const auto shader = material->getShader();
+        shader->setMat4("projectionMatrix", camera->getProjectionMatrix());
+        shader->setMat4("viewMatrix", camera->getViewMatrix());
+
         mesh->onBeforeRender(camera);
 
         mesh->getGeometry()->draw(material->getPrimitiveType());
