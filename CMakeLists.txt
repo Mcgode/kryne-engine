@@ -92,7 +92,9 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Geometry/BufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BufferGeometry.h
         kryne-engine/src/3DObjects/Mesh.cpp kryne-engine/include/kryne-engine/3DObjects/Mesh.h
         kryne-engine/src/Geometry/BufferAttribute.cpp kryne-engine/include/kryne-engine/Geometry/BufferAttribute.h
-        kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h kryne-engine/include/kryne-engine/Rendering/RenderingStatus.h)
+        kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h
+        kryne-engine/include/kryne-engine/Rendering/RenderingStatus.h
+        kryne-engine/include/kryne-engine/Utils/VectorFlattening.h kryne-engine/src/Utils/VectorFlattening.cpp)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
