@@ -127,3 +127,7 @@ add_executable(Sphere Examples/Sphere/main.cpp
         Examples/Sphere/SphereParallax.cpp Examples/Sphere/SphereParallax.h)
 target_link_libraries(Sphere kryne-engine)
 copyAssets(Sphere)
+
+add_executable(Basic Examples/Basic/main.cpp)
+target_link_libraries(Basic kryne-engine)
+copyAssets(Basic)
