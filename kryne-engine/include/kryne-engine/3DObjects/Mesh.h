@@ -38,7 +38,7 @@ public:
      * Function called before the mesh is rendered
      * @param camera    The camera used for the rendering
      */
-    virtual void onBeforeRender(const Camera *camera) = 0;
+    virtual void onBeforeRender(const Camera *camera) {};
 
     /**
      * Returns the current geometry in the form of a shared pointer.
