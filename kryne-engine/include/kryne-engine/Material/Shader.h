@@ -21,43 +21,92 @@ using namespace std;
 class Shader {
 
 public:
+
     Shader(const char* vertexShaderFilename, const char* fragmentShaderFilename);
 
+    /**
+     * Initializes the shader from the provided shader files
+     * @param shaderName
+     */
     explicit Shader(const char *shaderName) : Shader(shaderName, shaderName) {};
 
+    /**
+     * Initialize the shader by directly providing the shader code
+     * @param vertexShader      The vertex shader code
+     * @param fragmentShader    The fragment shader code
+     */
+    Shader(const string &vertexShader, const string &fragmentShader): Shader() {
+        Shader::setVertexShader(vertexShader, false);
+        Shader::setFragmentShader(fragmentShader, true);
+    }
+
+    /**
+     * Delete the shader and the associated shader program.
+     */
     ~Shader();
 
+    /**
+     * Notify renderer to use this shader for drawing
+     */
     void use() const;
 
+    /**
+     * Notify renderer to stop using this shader for drawing
+     */
     static void resetUse();
 
-    void setBool(const std::string &name, bool value) const;
+    /**
+     * Retrieve current vertex shader code
+     */
+    [[nodiscard]] const string &getVertexShader() const {
+        return vertexShader;
+    }
 
-    void setInt(const std::string &name, int value) const;
+    /**
+     * Updates the vertex shader, and optionally recompiles the entire program
+     * @param newVertexShader   The new vertex shader code.
+     * @param recompileProgram  Set to true to recompile the shader program. Defaults to true.
+     */
+    void setVertexShader(const string &newVertexShader, bool recompileProgram = true) {
+        Shader::vertexShader = newVertexShader;
+        Shader::compileShader(Shader::vertexShaderId, &newVertexShader);
+        if (recompileProgram)
+            Shader::compileProgram();
+    }
 
-    void setFloat(const std::string &name, float value) const;
 
-    void setVec2(const std::string &name, glm::vec2 vec) const;
+    /**
+     * Retrieve current fragment shader code
+     */
+    [[nodiscard]] const string &getFragmentShader() const {
+        return fragmentShader;
+    }
 
-    void setVec3(const std::string &name, float x, float y, float z) const;
+    /**
+     * Updates the fragment shader, and optionally recompiles the entire program
+     * @param newFragmentShader  The new fragment shader code.
+     * @param recompileProgram   Set to true to recompile the shader program. Defaults to true.
+     */
+    void setFragmentShader(const string &newFragmentShader, bool recompileProgram = true) {
+        Shader::fragmentShader = newFragmentShader;
+        Shader::compileShader(Shader::fragmentShaderId, &newFragmentShader);
+        if (recompileProgram)
+            Shader::compileProgram();
+    }
 
-    void setVec3(const std::string &name, glm::vec3 vec);
+private:
 
-    void setVec4(const std::string &name, float x, float y, float z, float w) const;
+    Shader();
 
-    void setVec4(const std::string &name, glm::vec4 vec);
+    void createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode);
 
-    void setMat4(const std::string &name, glm::mat4 mat) const;
+    static void compileShader(GLuint shader, const string *code);
 
-    void setMat3(const std::string &name, glm::mat3 mat) const;
-
-    void setTexture(const std::string &name);
+    void compileProgram() const;
 
 private:
 
     GLuint programID;
-
-    GLuint createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode);
 
     string vertexShader;
 
@@ -70,6 +119,32 @@ private:
     std::map<std::string, uint8_t> textureMap{};
 
     uint8_t maxIndex{};
+
+
+public:
+
+    void setBool(const std::string &name, bool value) const;
+
+    void setInt(const std::string &name, int value) const;
+
+    void setFloat(const std::string &name, float value) const;
+
+    void setVec2(const std::string &name, glm::vec2 vec) const;
+
+    void setVec3(const std::string &name, float x, float y, float z) const;
+
+    void setVec3(const std::string &name, glm::vec3 vec) const;
+
+    void setVec4(const std::string &name, float x, float y, float z, float w) const;
+
+    void setVec4(const std::string &name, glm::vec4 vec) const;
+
+    void setMat4(const std::string &name, glm::mat4 mat) const;
+
+    void setMat3(const std::string &name, glm::mat3 mat) const;
+
+    void setTexture(const std::string &name);
+
 };
 
 

@@ -11,30 +11,26 @@
 #endif
 
 
-Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename)
+Shader::Shader()
 {
-    // Recovering and compiling both shaders
-    this->vertexShaderId = createShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename, &this->vertexShader);
-    this->fragmentShaderId = createShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
+    // Initialise shaders
+    this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+    this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 
-    // Initialising program
+    // Initialise program
     this->programID = glCreateProgram();
 
-    // Attaching shaders to program
-    glAttachShader(this->programID, this->vertexShaderId);
-    glAttachShader(this->programID, this->fragmentShaderId);
+    maxIndex = 0;
+}
 
-    // Linking program
-    glLinkProgram(this->programID);
 
-    GLint success;
-    glGetProgramiv(this->programID, GL_LINK_STATUS, &success);
-    if(!success) {
-        char infoLog[512];
-        glGetProgramInfoLog(this->programID, 512, nullptr, infoLog);
-        std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-        exit(EXIT_FAILURE);
-    }
+Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename): Shader()
+{
+    // Recovering and compiling both shaders
+    createShaderFromFile(this->vertexShaderId,   GL_VERTEX_SHADER,   vertexShaderFilename,   &this->vertexShader);
+    createShaderFromFile(this->fragmentShaderId, GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
+
+    this->compileProgram();
 }
 
 
@@ -46,11 +42,8 @@ Shader::~Shader()
 }
 
 
-unsigned int Shader::createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode)
+void Shader::createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode)
 {
-    // Initialising shader from type
-    unsigned int shader = glCreateShader(type);
-
     // Loading extension from shader type
     std::string extension;
     switch (type) {
@@ -82,25 +75,8 @@ unsigned int Shader::createShaderFromFile(GLenum type, const char *filename, std
     file.seekg(0, std::ios::beg); // Resetting the cursor position to the beginning
     file.read(&(*shaderCode)[0], shaderCode->size()); // Copying whole file to string
     file.close();
-    const GLchar* sourceCodeString = shaderCode->c_str();
 
-    // Compiling shader
-    glShaderSource(shader, 1, &sourceCodeString, nullptr);
-    glCompileShader(shader);
-
-    // Check if compile succeeded
-    int  success;
-    char infoLog[512];
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if(success == 0)
-    {
-        glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-        std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-    }
-
-    maxIndex = 0;
-
-    return shader;
+    Shader::compileShader(shader, shaderCode);
 }
 
 
@@ -145,7 +121,7 @@ void Shader::setMat4(const std::string &name, glm::mat4 mat) const
     glUniformMatrix4fv(glGetUniformLocation(programID, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
-void Shader::setVec3(const std::string &name, glm::vec3 vec) {
+void Shader::setVec3(const std::string &name, glm::vec3 vec) const {
     setVec3(name, vec.x, vec.y, vec.z);
 }
 
@@ -171,7 +147,7 @@ void Shader::setVec2(const std::string &name, glm::vec2 vec) const
 }
 
 
-void Shader::setVec4(const std::string &name, glm::vec4 vec)
+void Shader::setVec4(const std::string &name, glm::vec4 vec) const
 {
     setVec4(name, vec.x, vec.y, vec.z, vec.w);
 }
@@ -189,5 +165,45 @@ void Shader::setTexture(const std::string &name)
     } else {
         glActiveTexture(GL_TEXTURE0 + pair->second);
         setInt(name, pair->second);
+    }
+}
+
+
+void Shader::compileShader(GLuint shader, const string *code)
+{
+    const GLchar* sourceCodeString = code->c_str();
+
+    // Compiling shader
+    glShaderSource(shader, 1, &sourceCodeString, nullptr);
+    glCompileShader(shader);
+
+    // Check if compile succeeded
+    int  success;
+    char infoLog[512];
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+    if(success == 0)
+    {
+        glGetShaderInfoLog(shader, 512, nullptr, infoLog);
+        std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
+}
+
+
+void Shader::compileProgram() const
+{
+    // Attaching shaders to program
+    glAttachShader(this->programID, this->vertexShaderId);
+    glAttachShader(this->programID, this->fragmentShaderId);
+
+    // Linking program
+    glLinkProgram(this->programID);
+
+    GLint success;
+    glGetProgramiv(this->programID, GL_LINK_STATUS, &success);
+    if(!success) {
+        char infoLog[512];
+        glGetProgramInfoLog(this->programID, 512, nullptr, infoLog);
+        std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+        exit(EXIT_FAILURE);
     }
 }
