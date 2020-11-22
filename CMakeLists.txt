@@ -25,7 +25,7 @@ message(STATUS ${PROJECT_BINARY_DIR}/assimp/include/assimp)
 
 #Adding GLAD library
 include_directories(external-libs/glad/include)
-add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h)
+add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h kryne-engine/include/kryne-engine/enums/MaterialSide.h)
 
 
 set (Boost_DETAILED_FAILURE_MSG ON)
@@ -92,7 +92,7 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Geometry/BufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BufferGeometry.h
         kryne-engine/src/3DObjects/Mesh.cpp kryne-engine/include/kryne-engine/3DObjects/Mesh.h
         kryne-engine/src/Geometry/BufferAttribute.cpp kryne-engine/include/kryne-engine/Geometry/BufferAttribute.h
-        kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h)
+        kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h kryne-engine/include/kryne-engine/Rendering/RenderingStatus.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 

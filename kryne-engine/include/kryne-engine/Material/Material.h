@@ -6,6 +6,7 @@
 #define INC_3D_DEMOS_MATERIAL_H
 
 #include <memory>
+#include <kryne-engine/enums/MaterialSide.h>
 #include "Shader.h"
 
 using namespace std;
@@ -32,6 +33,31 @@ public:
 private:
 
     unique_ptr<Shader> shader;
+
+
+public:
+
+    [[nodiscard]] GLenum getPrimitiveType() const {
+        return primitiveType;
+    }
+
+    void setPrimitiveType(GLenum newPrimitiveType) {
+        Material::primitiveType = newPrimitiveType;
+    }
+
+    [[nodiscard]] MaterialSide getSide() const {
+        return side;
+    }
+
+    void setSide(MaterialSide newSide) {
+        Material::side = newSide;
+    }
+
+private:
+
+    GLenum primitiveType = GL_TRIANGLES;
+
+    MaterialSide side = FrontSide;
 
 };
 

@@ -4,7 +4,8 @@
 
 #include "kryne-engine/Rendering/Renderer.h"
 
-Renderer::Renderer(uint16_t width, uint16_t height)
+Renderer::Renderer(uint16_t width, uint16_t height) :
+    renderingStatus(FrontSide)
 {
     this->associatedWindow = make_unique<Window>(width, height);
 }
@@ -32,8 +33,16 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
     auto mesh = dynamic_cast<Mesh *>(object);
     if (mesh) {
         const auto& material = mesh->getMaterial();
+
         material->use();
-        mesh->getGeometry()->draw();
+
+        auto side = material->getSide();
+        bool differentSides = side != this->renderingStatus.getSide();
+        if (differentSides)
+            renderingStatus.setSide(side);
+
+        mesh->getGeometry()->draw(material->getPrimitiveType());
+
         material->resetUse();
     }
 
