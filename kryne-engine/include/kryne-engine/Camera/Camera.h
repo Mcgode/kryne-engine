@@ -1,69 +1,50 @@
 //
-// Created by max on 20/04/19.
+// Created by Max Godefroy on 22/11/2020.
 //
 
 #ifndef INC_3D_DEMOS_CAMERA_H
 #define INC_3D_DEMOS_CAMERA_H
 
-#include <vector>
-#include <stdarg.h>
-#include <stdlib.h>
+#include <memory>
+#include <kryne-engine/3DObjects/Object3D.h>
+#include "ProjectionData.hpp"
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include <glm/vec3.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
-class Window;
-#include <kryne-engine/Core/Window.h>
-
-
-/**
- * An abstract class for representing a camera
- */
-class Camera {
+class Camera : public Object3D {
 
 public:
 
-    /**
-     * Retrieves the view matrix for this camera
-     * @return The view matrix for this camera.
-     */
-    virtual glm::mat4 getViewMatrix() = 0;
+    explicit Camera(unique_ptr<ProjectionData> projectionData) : projectionData(std::move(projectionData)) {}
 
-    /**
-     * Retrieves the current position of the camera
-     * @return The current position of the camera
-     */
-    virtual glm::vec3 getCurrentPosition() = 0;
+    const mat4 &getProjectionMatrix() {
+        return projectionData->getProjectionMatrix();
+    }
 
-    /**
-     * Handles a key press input from the user
-     * @param window    The render window object
-     * @param key       The key pressed by the user
-     */
-    virtual void onKeyInput(Window *window, GLint key) = 0;
+    const mat4 &getInverseProjectionMatrix() {
+        return projectionData->getInverseProjectionMatrix();
+    }
 
-    /**
-     * Handles a scroll input from the user
-     * @param window    The render window object
-     * @param value     The scroll intensity from the user
-     */
-    virtual void onScrollInput(Window *window, float value) = 0;
+    [[nodiscard]] const mat4 &getViewMatrix() const {
+        return viewMatrix;
+    }
 
-    /**
-     * Handles mouse movements from the user
-     * @param window    The render window object
-     * @param xInput    The new x position of the mouse
-     * @param yInput    The new y position of the mouse
-     */
-    virtual void onMouseMovementInput(Window *window, double xInput, double yInput) = 0;
+    void update(bool force) override {
+        bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->visible;
+        Object3D::update(force);
+        if (willUpdate) {
+            viewMatrix = inverse(matrixWorld);
+        }
+    }
 
-    virtual void frameUpdate(Window *window) = 0;
+    void setProjectionData(unique_ptr<ProjectionData> newProjectionData) {
+        Camera::projectionData = std::move(newProjectionData);
+    }
 
-    virtual ~Camera() = default;
+private:
+
+    /// The projection data for this camera
+    unique_ptr<ProjectionData> projectionData;
+
+    mat4 viewMatrix {};
 
 };
 
