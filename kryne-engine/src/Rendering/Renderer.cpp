@@ -14,6 +14,10 @@ Renderer::Renderer(uint16_t width, uint16_t height) :
 void Renderer::render(Scene *scene, Camera *camera)
 {
     scene->traverse(&updateObjects);
+    camera->update(false);
+
+    glViewport(0, 0, associatedWindow->getWidth(), associatedWindow->getHeight());
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     this->renderObject(scene, camera);
 }
@@ -21,7 +25,7 @@ void Renderer::render(Scene *scene, Camera *camera)
 
 void Renderer::updateObjects(Object3D *object)
 {
-    object->update();
+    object->update(false);
 }
 
 
