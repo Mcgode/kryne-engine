@@ -2,21 +2,21 @@
 // Created by Max Godefroy on 22/11/2020.
 //
 
-#ifndef INC_3D_DEMOS_RENDERINGSTATUS_HPP
-#define INC_3D_DEMOS_RENDERINGSTATUS_HPP
+#ifndef INC_3D_DEMOS_RENDERINGSTATE_HPP
+#define INC_3D_DEMOS_RENDERINGSTATE_HPP
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <kryne-engine/enums/MaterialSide.h>
 
-class RenderingStatus {
+class RenderingState {
 
 
 // --- Initialization
 
 public:
 
-    explicit RenderingStatus(MaterialSide baseSide, bool enableDepth = true) {
+    explicit RenderingState(MaterialSide baseSide, bool enableDepth = true) {
         setSide(baseSide);
         setDepthTest(enableDepth);
         setDepthWrite(true);
@@ -32,8 +32,8 @@ public:
     }
 
     void setSide(MaterialSide newBaseSide) {
-        RenderingStatus::side = newBaseSide;
-        RenderingStatus::updateToSide(newBaseSide);
+        RenderingState::side = newBaseSide;
+        RenderingState::updateToSide(newBaseSide);
     }
 
     static void updateToSide(MaterialSide side) {
@@ -58,7 +58,7 @@ public:
     }
 
     void setDepthTest(bool enableDepth) {
-        RenderingStatus::depthTest = enableDepth;
+        RenderingState::depthTest = enableDepth;
         if (enableDepth) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
     }
 
@@ -76,7 +76,7 @@ public:
     }
 
     void setDepthWrite(bool writeToDepth) {
-        RenderingStatus::depthWrite = writeToDepth;
+        RenderingState::depthWrite = writeToDepth;
         glDepthMask(writeToDepth ? GL_TRUE : GL_FALSE);
     }
 
@@ -87,4 +87,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_RENDERINGSTATUS_HPP
+#endif //INC_3D_DEMOS_RENDERINGSTATE_HPP

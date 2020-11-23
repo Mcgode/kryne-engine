@@ -93,7 +93,7 @@ add_library(kryne-engine STATIC
         kryne-engine/src/3DObjects/Mesh.cpp kryne-engine/include/kryne-engine/3DObjects/Mesh.h
         kryne-engine/src/Geometry/BufferAttribute.cpp kryne-engine/include/kryne-engine/Geometry/BufferAttribute.h
         kryne-engine/src/Geometry/BoxBufferGeometry.cpp kryne-engine/include/kryne-engine/Geometry/BoxBufferGeometry.h
-        kryne-engine/include/kryne-engine/Rendering/RenderingStatus.hpp
+        kryne-engine/include/kryne-engine/Rendering/RenderingState.hpp
         kryne-engine/src/Utils/VectorFlattening.cpp kryne-engine/include/kryne-engine/Utils/VectorFlattening.h
         kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
         kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp)

@@ -10,7 +10,7 @@
 #include <kryne-engine/3DObjects/Scene.h>
 #include <kryne-engine/3DObjects/Mesh.h>
 #include <kryne-engine/Camera/Camera.h>
-#include "RenderingStatus.hpp"
+#include "RenderingState.hpp"
 
 using namespace std;
 
@@ -31,7 +31,7 @@ private:
 
     unique_ptr<Window> associatedWindow;
 
-    RenderingStatus renderingStatus;
+    RenderingState renderingState;
 
     void renderObject(Object3D *object, Camera *camera);
 

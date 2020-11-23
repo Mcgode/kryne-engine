@@ -5,8 +5,8 @@
 #include "kryne-engine/Rendering/Renderer.h"
 
 Renderer::Renderer(uint16_t width, uint16_t height) :
-    associatedWindow(make_unique<Window>(width, height)),
-    renderingStatus(FrontSide, true)
+        associatedWindow(make_unique<Window>(width, height)),
+        renderingState(FrontSide, true)
 {}
 
 
@@ -43,14 +43,14 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         // Since each object can have a different required state in this regard, it needs to be checked every single time.
         // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-        if (this->renderingStatus.getSide() != material->getSide())
-            renderingStatus.setSide(material->getSide());
+        if (this->renderingState.getSide() != material->getSide())
+            renderingState.setSide(material->getSide());
 
-        if (renderingStatus.isDepthTestEnabled() != material->isDepthTest())
-            renderingStatus.setDepthTest(material->isDepthTest());
+        if (renderingState.isDepthTestEnabled() != material->isDepthTest())
+            renderingState.setDepthTest(material->isDepthTest());
 
-        if (renderingStatus.isDepthWriteEnabled() != material->isWriteDepth())
-            renderingStatus.setDepthWrite(material->isWriteDepth());
+        if (renderingState.isDepthWriteEnabled() != material->isWriteDepth())
+            renderingState.setDepthWrite(material->isWriteDepth());
 
 
         // Renderer-level uniforms
