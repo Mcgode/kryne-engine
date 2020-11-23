@@ -2,12 +2,12 @@
 // Created by Max Godefroy on 23/11/2020.
 //
 
-#include "ShaderChunk.h"
+#include "kryne-engine/Material/ShaderChunk.h"
 
 #ifndef _WIN32
-#define DIR "Resources/Shaders/"
+#define DIR "Resources/Shaders/Engine/"
 #else
-#define DIR "Resources\\Shaders\\"
+#define DIR "Resources\\Shaders\\Engine\\"
 #endif
 
 
