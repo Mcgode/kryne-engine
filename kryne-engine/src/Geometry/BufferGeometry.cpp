@@ -49,6 +49,10 @@ void BufferGeometry::setIndices(vector<uint32_t> newIndexes)
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indexes.size() * sizeof(uint32_t), this->indexes.data(), GL_STATIC_DRAW); //< TODO : handle non-static draw case
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+
+    auto data = this->indexes.data();
+
+    this->length = this->indexes.size();
 }
 
 
