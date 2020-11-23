@@ -47,6 +47,24 @@ void Object3D::update(bool force)
 }
 
 
+const glm::mat4 &Object3D::updateParents(const Object3D *caller)
+{
+    if (this->matrixWorldNeedsUpdate)
+        this->calculateLocalTransform();
+
+    this->matrixWorld = this->parent != nullptr ?
+                        this->parent->updateParents(this) * this->localTransform :
+                        this->localTransform;
+
+    for (const auto &child : this->children) {
+        if (child.get() != caller)
+            child->setWorldMatrixNeedsUpdate();
+    }
+
+    return this->matrixWorld;
+}
+
+
 void Object3D::add(unique_ptr<Object3D> child)
 {
     if (child->parent != nullptr)
@@ -94,10 +112,20 @@ Object3D::~Object3D()
 }
 
 
-void Object3D::lookAt(const glm::vec3 &target, const glm::vec3 &up)
+glm::vec3 Object3D::getWorldPosition() {
+    if (this->parent == nullptr) {
+        return this->position;
+    } else {
+        this->updateParents(nullptr);
+        auto p = this->parent->matrixWorld * glm::vec4(position, 1.);
+        return glm::vec3(p) * (1.f / p.w);
+    }
+}
+
+
+void Object3D::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up)
 {
-    auto p = getWorldPosition();
-    auto z = -(target - p);
+    auto z = target - eye;
 
     if (glm::length(z) == 0.f)
         z.z = 1.f;
@@ -119,22 +147,4 @@ void Object3D::lookAt(const glm::vec3 &target, const glm::vec3 &up)
 
     const auto lookAtMat = glm::mat3(x, y, z);
     this->setQuaternion(glm::toQuat(lookAtMat));
-}
-
-
-const glm::mat4 &Object3D::updateParents(const Object3D *caller)
-{
-    if (this->matrixWorldNeedsUpdate)
-        this->calculateLocalTransform();
-
-    this->matrixWorld = this->parent != nullptr ?
-                        this->parent->updateParents(this) * this->localTransform :
-                        this->localTransform;
-
-    for (const auto &child : this->children) {
-        if (child.get() != caller)
-            child->setWorldMatrixNeedsUpdate();
-    }
-
-    return this->matrixWorld;
 }

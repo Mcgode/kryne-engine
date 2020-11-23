@@ -35,6 +35,10 @@ public:
         }
     }
 
+    virtual void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0)) {
+        this->applyLookAt(target, this->getWorldPosition(), up);
+    }
+
     void setProjectionData(unique_ptr<ProjectionData> newProjectionData) {
         Camera::projectionData = std::move(newProjectionData);
     }

@@ -156,17 +156,15 @@ protected:
 
 public:
 
-    glm::vec3 getWorldPosition() {
-        if (this->parent == nullptr) {
-            return this->position;
-        } else {
-            this->updateParents(nullptr);
-            auto p = this->parent->matrixWorld * glm::vec4(position, 1.);
-            return glm::vec3(p) * (1.f / p.w);
-        }
+    glm::vec3 getWorldPosition();
+
+    virtual void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0)) {
+        this->applyLookAt(this->getWorldPosition(), target, up);
     }
 
-    void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0));
+protected:
+
+    void applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up);
 
 };
 
