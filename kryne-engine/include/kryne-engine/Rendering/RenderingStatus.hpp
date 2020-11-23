@@ -2,8 +2,8 @@
 // Created by Max Godefroy on 22/11/2020.
 //
 
-#ifndef INC_3D_DEMOS_RENDERINGSTATUS_H
-#define INC_3D_DEMOS_RENDERINGSTATUS_H
+#ifndef INC_3D_DEMOS_RENDERINGSTATUS_HPP
+#define INC_3D_DEMOS_RENDERINGSTATUS_HPP
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -13,7 +13,10 @@ class RenderingStatus {
 
 public:
 
-    explicit RenderingStatus(MaterialSide baseSide) : side(baseSide) {}
+    explicit RenderingStatus(MaterialSide baseSide, bool enableDepth = true) {
+        setSide(baseSide);
+        setDepthEnabled(enableDepth);
+    }
 
     [[nodiscard]] MaterialSide getSide() const {
         return side;
@@ -32,11 +35,22 @@ public:
             glDisable(GL_CULL_FACE);
     }
 
+    [[nodiscard]] bool isDepthEnabled() const {
+        return depth;
+    }
+
+    void setDepthEnabled(bool enableDepth) {
+        RenderingStatus::depth = enableDepth;
+        if (enableDepth) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
+    }
+
 private:
 
-    MaterialSide side;
+    MaterialSide side {};
+
+    bool depth {};
 
 };
 
 
-#endif //INC_3D_DEMOS_RENDERINGSTATUS_H
+#endif //INC_3D_DEMOS_RENDERINGSTATUS_HPP

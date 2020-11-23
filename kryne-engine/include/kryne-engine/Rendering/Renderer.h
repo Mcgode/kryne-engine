@@ -10,7 +10,7 @@
 #include <kryne-engine/3DObjects/Scene.h>
 #include <kryne-engine/3DObjects/Mesh.h>
 #include <kryne-engine/Camera/Camera.h>
-#include "RenderingStatus.h"
+#include "RenderingStatus.hpp"
 
 using namespace std;
 

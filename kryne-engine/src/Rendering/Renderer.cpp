@@ -5,10 +5,9 @@
 #include "kryne-engine/Rendering/Renderer.h"
 
 Renderer::Renderer(uint16_t width, uint16_t height) :
-    renderingStatus(FrontSide)
-{
-    this->associatedWindow = make_unique<Window>(width, height);
-}
+    associatedWindow(make_unique<Window>(width, height)),
+    renderingStatus(FrontSide, true)
+{}
 
 
 void Renderer::render(Scene *scene, Camera *camera)
@@ -44,6 +43,7 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         bool differentSides = side != this->renderingStatus.getSide();
         if (differentSides)
             renderingStatus.setSide(side);
+        renderingStatus.setDepthEnabled(true);
 
         const auto shader = material->getShader();
         shader->setMat4("projectionMatrix", camera->getProjectionMatrix());
