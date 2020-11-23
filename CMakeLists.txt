@@ -101,11 +101,17 @@ target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
 function(COPYASSETDIR TARGET ASSET)
+
+    if(${UNIX})
+        message(WARN todo)
+    elseif(${WIN32})
+        set(SYMLINK_COMMAND mklink /d ${CMAKE_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
+        message("Command is : '${SYMLINK_COMMAND}'")
+    endif()
+
     add_custom_command(
             TARGET ${TARGET} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/${ASSET}/
-            $<TARGET_FILE_DIR:${TARGET}>/${ASSET})
+            COMMAND ${SYMLINK_COMMAND})
 endfunction()
 
 function(COPYASSETS TARGET)
