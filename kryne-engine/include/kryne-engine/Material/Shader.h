@@ -9,11 +9,15 @@
 #include <fstream>
 #include <map>
 #include <string>
+#include <regex>
+#include <sstream>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "ShaderChunk.h"
 
 using namespace std;
 
@@ -114,6 +118,10 @@ public:
         if (recompileProgram)
             Shader::compileProgram();
     }
+
+private:
+
+    static string runIncludes(const string &baseCode, const string &indentation = "");
 
 private:
 

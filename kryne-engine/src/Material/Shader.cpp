@@ -171,7 +171,8 @@ void Shader::setTexture(const std::string &name)
 
 void Shader::compileShader(GLuint shader, const string *code)
 {
-    const GLchar* sourceCodeString = code->c_str();
+    auto finalCode = "#version 330 core\n" + Shader::runIncludes(*code);
+    const GLchar* sourceCodeString = finalCode.c_str();
 
     // Compiling shader
     glShaderSource(shader, 1, &sourceCodeString, nullptr);
@@ -185,6 +186,7 @@ void Shader::compileShader(GLuint shader, const string *code)
     {
         glGetShaderInfoLog(shader, 512, nullptr, infoLog);
         std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+        cout << finalCode << endl;
     }
 }
 
@@ -206,4 +208,26 @@ void Shader::compileProgram() const
         std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
         exit(EXIT_FAILURE);
     }
+}
+
+
+string Shader::runIncludes(const string &baseCode, const string &indentation)
+{
+    regex includeRegex(R"((\n|^)(\s*)(#include\s*<([a-zA-Z0-9_-]+)>))");
+    smatch results;
+
+    string newCode, line;
+    istringstream iss(baseCode);
+    while (getline(iss, line)) {
+        if (!newCode.empty())
+            newCode.push_back('\n');
+        if (regex_search(line, results, includeRegex)) {
+            auto codeChunk = ShaderChunk::getInstance().getCodeChunk(results[4].str());
+            newCode += Shader::runIncludes(codeChunk, indentation + results[2].str());
+        } else {
+            newCode += indentation + line;
+        }
+    }
+
+    return newCode;
 }
