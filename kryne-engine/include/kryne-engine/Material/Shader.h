@@ -22,11 +22,16 @@ class Shader {
 
 public:
 
+    /**
+     * Initializes the shader from the provided shader files.
+     * @param vertexShaderFilename      The filename of the vertex shader.
+     * @param fragmentShaderFilename    The filename of the fragment shader.
+     */
     Shader(const char* vertexShaderFilename, const char* fragmentShaderFilename);
 
     /**
      * Initializes the shader from the provided shader files
-     * @param shaderName
+     * @param shaderName    The filename of both the vertex and fragment shaders
      */
     explicit Shader(const char *shaderName) : Shader(shaderName, shaderName) {};
 
@@ -44,6 +49,22 @@ public:
      * Delete the shader and the associated shader program.
      */
     ~Shader();
+
+private:
+
+    /**
+     * Private initializer for initializing the shaders and the program.
+     */
+    Shader();
+
+    void createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode);
+
+    static void compileShader(GLuint shader, const string *code);
+
+    void compileProgram() const;
+
+
+public:
 
     /**
      * Notify renderer to use this shader for drawing
@@ -93,16 +114,6 @@ public:
         if (recompileProgram)
             Shader::compileProgram();
     }
-
-private:
-
-    Shader();
-
-    void createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode);
-
-    static void compileShader(GLuint shader, const string *code);
-
-    void compileProgram() const;
 
 private:
 
