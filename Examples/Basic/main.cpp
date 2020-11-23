@@ -12,8 +12,7 @@ int main()
 
     auto scene = make_unique<Scene>();
 
-    const string vertexShader = "#version 330 core\n"
-                                "layout (location = 0) in vec3 position;\n"
+    const string vertexShader = "layout (location = 0) in vec3 position;\n"
                                 "layout (location = 1) in vec3 normal;\n"
                                 "uniform mat4 projectionMatrix;\n"
                                 "uniform mat4 viewMatrix;\n"
@@ -22,18 +21,19 @@ int main()
                                 "\n"
                                 "void main() {\n"
                                 "   vNormal = normal;\n"
-                                "   gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.);\n"
+                                "   vec3 transformed = position;\n"
+                                "   #include <vertex_position>;\n"
                                 "}";
 
-    const string fragmentShader =   "#version 330 core\n"
-                                    "in vec3 vNormal;\n"
+    const string fragmentShader =   "in vec3 vNormal;\n"
                                     "out vec4 FragColor;\n"
                                     "\n"
                                     "void main() {\n"
-                                    "   FragColor = vec4(0.5 * vNormal + 0.5, 1.0);\n"
+                                    "   FragColor = vec4(0.5 * normalize(vNormal) + 0.5, 1.0);\n"
                                     "}";
 
     auto material = make_shared<Material>(make_unique<Shader>(vertexShader, fragmentShader));
+    material->setSide(BackSide);
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
     scene->add(unique_ptr<Object3D>(new Mesh(geometry, material)));
