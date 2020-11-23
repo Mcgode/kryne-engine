@@ -39,20 +39,32 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
 
         material->use();
 
-        auto side = material->getSide();
-        bool differentSides = side != this->renderingStatus.getSide();
-        if (differentSides)
-            renderingStatus.setSide(side);
-        renderingStatus.setDepthTest(true);
+        // Only update external rendering state once, before drawing any object.
+        // Since each object can have a different required state in this regard, it needs to be checked every single time.
+        // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
+        if (this->renderingStatus.getSide() != material->getSide())
+            renderingStatus.setSide(material->getSide());
+
+        if (renderingStatus.isDepthTestEnabled() != material->isDepthTest())
+            renderingStatus.setDepthTest(material->isDepthTest());
+
+        if (renderingStatus.isDepthWriteEnabled() != material->isWriteDepth())
+            renderingStatus.setDepthWrite(material->isWriteDepth());
+
+
+        // Renderer-level uniforms
         const auto shader = material->getShader();
         shader->setMat4("projectionMatrix", camera->getProjectionMatrix());
         shader->setMat4("viewMatrix", camera->getViewMatrix());
 
+        // Run mesh updates
         mesh->onBeforeRender(camera);
 
+        // Finally draw the object
         mesh->getGeometry()->draw(material->getPrimitiveType());
 
+        // Reset shader use, just in case
         material->resetUse();
     }
 
