@@ -43,7 +43,7 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         bool differentSides = side != this->renderingStatus.getSide();
         if (differentSides)
             renderingStatus.setSide(side);
-        renderingStatus.setDepthEnabled(true);
+        renderingStatus.setDepthTest(true);
 
         const auto shader = material->getShader();
         shader->setMat4("projectionMatrix", camera->getProjectionMatrix());
