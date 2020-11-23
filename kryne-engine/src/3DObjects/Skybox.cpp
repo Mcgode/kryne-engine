@@ -28,8 +28,8 @@ void Skybox::draw(glm::mat4 projection, glm::mat4 view)
     glCullFace(GL_FRONT);
     shader->use();
     cubemap->setTexture(shader, "cubemap");
-    shader->setMat4("projection", projection);
-    shader->setMat4("view", view);
+    shader->setMat4("projectionMatrix", projection);
+    shader->setMat4("viewMatrix", view);
     vertexArray->execute(GL_TRIANGLES);
     Shader::resetUse();
     glCullFace(GL_BACK);
