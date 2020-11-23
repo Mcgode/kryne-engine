@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(3D_demos)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 
 #Setting up GLFW
@@ -96,7 +96,9 @@ add_library(kryne-engine STATIC
         kryne-engine/include/kryne-engine/Rendering/RenderingState.hpp
         kryne-engine/src/Utils/VectorFlattening.cpp kryne-engine/include/kryne-engine/Utils/VectorFlattening.h
         kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
-        kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp)
+        kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h
+        kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp
+        kryne-engine/include/kryne-engine/Material/ShaderChunk.cpp kryne-engine/include/kryne-engine/Material/ShaderChunk.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
