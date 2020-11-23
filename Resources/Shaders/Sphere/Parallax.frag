@@ -1,4 +1,4 @@
-#version 330 core
+
 
 #define MAX_AMOUNT_OF_POINT_LIGHTS 4
 struct PointLight {
