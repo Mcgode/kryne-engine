@@ -11,12 +11,21 @@
 
 class RenderingStatus {
 
+
+// --- Initialization
+
 public:
 
     explicit RenderingStatus(MaterialSide baseSide, bool enableDepth = true) {
         setSide(baseSide);
-        setDepthEnabled(enableDepth);
+        setDepthTest(enableDepth);
+        setDepthWrite(true);
     }
+
+
+// --- Face culling ---
+
+public:
 
     [[nodiscard]] MaterialSide getSide() const {
         return side;
@@ -35,20 +44,45 @@ public:
             glDisable(GL_CULL_FACE);
     }
 
-    [[nodiscard]] bool isDepthEnabled() const {
-        return depth;
+private:
+
+    MaterialSide side {};
+
+
+// --- Depth testing ---
+
+public:
+
+    [[nodiscard]] bool isDepthTestEnabled() const {
+        return depthTest;
     }
 
-    void setDepthEnabled(bool enableDepth) {
-        RenderingStatus::depth = enableDepth;
+    void setDepthTest(bool enableDepth) {
+        RenderingStatus::depthTest = enableDepth;
         if (enableDepth) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
     }
 
 private:
 
-    MaterialSide side {};
+    bool depthTest {};
 
-    bool depth {};
+
+// --- Depth writing ---
+
+public:
+
+    [[nodiscard]] bool isDepthWriteEnabled() const {
+        return depthWrite;
+    }
+
+    void setDepthWrite(bool writeToDepth) {
+        RenderingStatus::depthWrite = writeToDepth;
+        glDepthMask(writeToDepth ? GL_TRUE : GL_FALSE);
+    }
+
+private:
+
+    bool depthWrite {};
 
 };
 
