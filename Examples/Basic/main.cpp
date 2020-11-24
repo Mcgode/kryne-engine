@@ -29,11 +29,15 @@ int main()
                                     "out vec4 FragColor;\n"
                                     "\n"
                                     "void main() {\n"
+                                    "   #ifndef TEST\n"
+                                    "       lmlmkmkmk;\n"
+                                    "   #endif\n"
                                     "   FragColor = vec4(0.5 * normalize(vNormal) + 0.5, 1.0);\n"
                                     "}";
 
     auto material = make_shared<Material>(make_unique<Shader>(vertexShader, fragmentShader));
     material->setSide(BackSide);
+    material->setDefine("TEST", "");
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
     scene->add(unique_ptr<Object3D>(new Mesh(geometry, material)));
