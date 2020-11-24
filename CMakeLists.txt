@@ -98,7 +98,7 @@ add_library(kryne-engine STATIC
         kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
         kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h
         kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp
-        kryne-engine/src/Material/ShaderChunk.cpp kryne-engine/include/kryne-engine/Material/ShaderChunk.h)
+        kryne-engine/src/Material/ShaderChunk.cpp kryne-engine/include/kryne-engine/Material/ShaderChunk.h kryne-engine/src/Material/UniformsHandler.cpp kryne-engine/include/kryne-engine/Material/UniformsHandler.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 
