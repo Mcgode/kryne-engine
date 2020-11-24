@@ -5,9 +5,9 @@
 #include "kryne-engine/Material/ShaderChunk.h"
 
 #ifndef _WIN32
-#define DIR "Resources/Shaders/Engine/"
+#define DIR "Resources/Shaders/Engine/ShaderChunk/"
 #else
-#define DIR "Resources\\Shaders\\Engine\\"
+#define DIR "Resources\\Shaders\\Engine\\ShaderChunk\\"
 #endif
 
 

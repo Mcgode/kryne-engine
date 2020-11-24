@@ -50,7 +50,7 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    this->shadowMapShader = new Shader("engine/shadowMap");
+    this->shadowMapShader = new Shader("Engine/shadowMap");
 }
 
 

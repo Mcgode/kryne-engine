@@ -17,7 +17,7 @@ using namespace std;
 /**
  * A 3D object that can be rendered. <br>
  * Its geometry and material are saved as shared pointers because sharing the same geometry and/or material between
- * multiple meshes is an expected behaviour and an engine feature.
+ * multiple meshes is an expected behaviour and an Engine feature.
  */
 class Mesh: public Object3D {
 
