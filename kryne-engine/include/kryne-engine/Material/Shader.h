@@ -12,11 +12,7 @@
 #include <regex>
 #include <sstream>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
+#include "UniformsHandler.h"
 #include "ShaderChunk.h"
 
 #define VERTEX_SHADER_NEEDS_UPDATE 0b01u
@@ -118,6 +114,10 @@ public:
         Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE;
     }
 
+    [[nodiscard]] const GLuint &getProgramID() const {
+        return this->programID;
+    }
+
 private:
 
     static string replaceIncludes(const string &baseCode, const string &indentation = "");
@@ -205,6 +205,22 @@ public:
     void setMat3(const std::string &name, glm::mat3 mat) const;
 
     void setTexture(const std::string &name);
+
+    //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &)
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value) { Shader::uniformsHandler->setUniform(name, value); }
+
+    //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &, uint32_t)
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value, uint32_t arrayIndex) { Shader::uniformsHandler->setUniform(name, value, arrayIndex); }
+
+    //! @copydoc UniformsHandler::removeUniform()
+    bool removeUniform(const string &name) { return Shader::uniformsHandler->removeUniform(name); }
+
+    //! @copydoc UniformsHandler::updateUniforms()
+    void updateUniforms() { Shader::uniformsHandler->updateUniforms(); }
+
+private:
+
+    unique_ptr<UniformsHandler> uniformsHandler {};
 
 };
 

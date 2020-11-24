@@ -20,6 +20,8 @@ Shader::Shader()
     // Initialise program
     this->programID = glCreateProgram();
 
+    this->uniformsHandler = make_unique<UniformsHandler>(this->programID);
+
     maxIndex = 0;
 }
 
@@ -89,6 +91,7 @@ void Shader::use()
             this->compileShader(this->fragmentShaderId, &this->fragmentShader);
         this->compileProgram();
         this->needsUpdate = 0;
+        this->uniformsHandler->notifyUniformLocationsNeedUpdate();
     }
     glUseProgram(this->programID);
 }
