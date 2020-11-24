@@ -19,6 +19,9 @@
 
 #include "ShaderChunk.h"
 
+#define VERTEX_SHADER_NEEDS_UPDATE 0b01u
+#define FRAGMENT_SHADER_NEEDS_UPDATE 0b10u
+
 using namespace std;
 
 
@@ -45,8 +48,8 @@ public:
      * @param fragmentShader    The fragment shader code
      */
     Shader(const string &vertexShader, const string &fragmentShader): Shader() {
-        Shader::setVertexShader(vertexShader, false);
-        Shader::setFragmentShader(fragmentShader, true);
+        Shader::setVertexShader(vertexShader);
+        Shader::setFragmentShader(fragmentShader);
     }
 
     /**
@@ -67,13 +70,15 @@ private:
 
     void compileProgram() const;
 
+    uint8_t needsUpdate = 0b00;
+
 
 public:
 
     /**
      * Notify renderer to use this shader for drawing
      */
-    void use() const;
+    void use();
 
     /**
      * Notify renderer to stop using this shader for drawing
@@ -88,15 +93,12 @@ public:
     }
 
     /**
-     * Updates the vertex shader, and optionally recompiles the entire program
+     * Updates the vertex shader, and marks the shader for recompiling
      * @param newVertexShader   The new vertex shader code.
-     * @param recompileProgram  Set to true to recompile the shader program. Defaults to true.
      */
-    void setVertexShader(const string &newVertexShader, bool recompileProgram = true) {
+    void setVertexShader(const string &newVertexShader) {
         Shader::vertexShader = newVertexShader;
-        Shader::compileShader(Shader::vertexShaderId, &newVertexShader);
-        if (recompileProgram)
-            Shader::compileProgram();
+        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE;
     }
 
 
@@ -108,15 +110,12 @@ public:
     }
 
     /**
-     * Updates the fragment shader, and optionally recompiles the entire program
+     * Updates the fragment shader, and marks the shader for recompiling
      * @param newFragmentShader  The new fragment shader code.
-     * @param recompileProgram   Set to true to recompile the shader program. Defaults to true.
      */
-    void setFragmentShader(const string &newFragmentShader, bool recompileProgram = true) {
+    void setFragmentShader(const string &newFragmentShader) {
         Shader::fragmentShader = newFragmentShader;
-        Shader::compileShader(Shader::fragmentShaderId, &newFragmentShader);
-        if (recompileProgram)
-            Shader::compileProgram();
+        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE;
     }
 
 private:
@@ -159,6 +158,7 @@ public:
         const auto emplaceResult = Shader::defines.emplace(defineName, defineValue);
         if (!emplaceResult.second)
             emplaceResult.first->second = defineValue;
+        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE | FRAGMENT_SHADER_NEEDS_UPDATE;
     }
 
     /**
@@ -167,6 +167,7 @@ public:
      * @returns true if an element was erased, false otherwise.
      */
     bool removeDefine(const string &defineName) {
+        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE | FRAGMENT_SHADER_NEEDS_UPDATE;
         return Shader::defines.erase(defineName) > 0;
     }
 

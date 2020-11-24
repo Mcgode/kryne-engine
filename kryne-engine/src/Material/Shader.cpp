@@ -80,9 +80,17 @@ void Shader::createShaderFromFile(GLuint shader, GLenum type, const char *filena
 }
 
 
-void Shader::use() const
+void Shader::use()
 {
-    glUseProgram(programID);
+    if (this->needsUpdate) {
+        if (this->needsUpdate & VERTEX_SHADER_NEEDS_UPDATE)
+            this->compileShader(this->vertexShaderId, &this->vertexShader);
+        if (this->needsUpdate & FRAGMENT_SHADER_NEEDS_UPDATE)
+            this->compileShader(this->fragmentShaderId, &this->fragmentShader);
+        this->compileProgram();
+        this->needsUpdate = 0;
+    }
+    glUseProgram(this->programID);
 }
 
 
