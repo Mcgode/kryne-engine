@@ -1,6 +1,8 @@
-//
-// Created by max on 10/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 10/10/2019
+ */
 
 #ifndef INC_3D_DEMOS_RENDER_PASS_H
 #define INC_3D_DEMOS_RENDER_PASS_H

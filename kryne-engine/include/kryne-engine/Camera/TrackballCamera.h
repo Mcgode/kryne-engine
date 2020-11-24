@@ -1,6 +1,8 @@
-//
-// Created by max on 21/05/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 21/05/19
+ */
 
 #ifndef INC_3D_DEMOS_TRACKBALLCAMERA_H
 #define INC_3D_DEMOS_TRACKBALLCAMERA_H

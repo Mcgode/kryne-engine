@@ -1,6 +1,8 @@
-//
-// Created by max on 22/05/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/05/19
+ */
 
 #ifndef INC_3D_DEMOS_TEXTURE2D_H
 #define INC_3D_DEMOS_TEXTURE2D_H

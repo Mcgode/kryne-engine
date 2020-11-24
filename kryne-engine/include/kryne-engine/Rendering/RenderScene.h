@@ -1,6 +1,8 @@
-//
-// Created by max on 22/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/04/19
+ */
 
 #ifndef INC_3D_DEMOS_RENDERSCENE_H
 #define INC_3D_DEMOS_RENDERSCENE_H

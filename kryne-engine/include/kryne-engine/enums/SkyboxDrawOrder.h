@@ -1,6 +1,8 @@
-//
-// Created by max on 03/08/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 03/08/2019
+ */
 
 #ifndef INC_3D_DEMOS_SKYBOX_DRAW_ORDER_H
 #define INC_3D_DEMOS_SKYBOX_DRAW_ORDER_H

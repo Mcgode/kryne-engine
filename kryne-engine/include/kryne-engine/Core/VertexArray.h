@@ -1,6 +1,8 @@
-//
-// Created by max on 19/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 19/04/19
+ */
 
 #ifndef INC_3D_DEMOS_VERTEXARRAY_H
 #define INC_3D_DEMOS_VERTEXARRAY_H

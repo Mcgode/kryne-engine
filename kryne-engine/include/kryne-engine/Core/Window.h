@@ -1,6 +1,8 @@
-//
-// Created by max on 20/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 20/04/19
+ */
 
 #ifndef INC_3D_DEMOS_WINDOW_H
 #define INC_3D_DEMOS_WINDOW_H

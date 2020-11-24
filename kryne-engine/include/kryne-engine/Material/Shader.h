@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 02/08/2017.
-//
+/**
+ * @file Shader.h
+ * @author Max Godefroy
+ * @date 02/08/2017
+ */
 
 #ifndef GLFW_TRAINING_SHADER_H
 #define GLFW_TRAINING_SHADER_H

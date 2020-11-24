@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 24/11/2020.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 24/11/2020
+ */
 
 #ifndef INC_3D_DEMOS_UNIFORMSHANDLER_H
 #define INC_3D_DEMOS_UNIFORMSHANDLER_H

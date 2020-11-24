@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 22/11/2020.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/11/2020
+ */
 
 #ifndef INC_3D_DEMOS_PERSPECTIVEPROJECTIONDATA_HPP
 #define INC_3D_DEMOS_PERSPECTIVEPROJECTIONDATA_HPP

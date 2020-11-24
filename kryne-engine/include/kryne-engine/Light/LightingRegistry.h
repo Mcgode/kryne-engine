@@ -1,6 +1,8 @@
-//
-// Created by max on 6/1/20.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 6/1/20
+ */
 
 #ifndef INC_3D_DEMOS_LIGHTINGREGISTRY_H
 #define INC_3D_DEMOS_LIGHTINGREGISTRY_H

@@ -1,6 +1,8 @@
-//
-// Created by max on 29/07/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 29/07/2019
+ */
 
 #ifndef INC_3D_DEMOS_MODELMESH_H
 #define INC_3D_DEMOS_MODELMESH_H

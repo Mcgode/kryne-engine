@@ -1,6 +1,8 @@
-//
-// Created by max on 02/08/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 02/08/2019
+ */
 
 #ifndef INC_3D_DEMOS_TEXTURECUBEMAP_H
 #define INC_3D_DEMOS_TEXTURECUBEMAP_H

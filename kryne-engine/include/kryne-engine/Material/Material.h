@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 21/11/2020.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 21/11/2020
+ */
 
 #ifndef INC_3D_DEMOS_MATERIAL_H
 #define INC_3D_DEMOS_MATERIAL_H

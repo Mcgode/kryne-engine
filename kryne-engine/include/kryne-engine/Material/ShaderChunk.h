@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 23/11/2020.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 23/11/2020
+ */
 
 #ifndef INC_3D_DEMOS_SHADERCHUNK_H
 #define INC_3D_DEMOS_SHADERCHUNK_H

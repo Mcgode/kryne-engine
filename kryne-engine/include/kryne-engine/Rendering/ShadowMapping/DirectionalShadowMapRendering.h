@@ -1,6 +1,8 @@
-//
-// Created by max on 11/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 11/10/2019
+ */
 
 #ifndef INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H
 #define INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H

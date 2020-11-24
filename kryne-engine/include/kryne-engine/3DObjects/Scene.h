@@ -1,6 +1,8 @@
-//
-// Created by Max Godefroy on 20/11/2020.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 20/11/2020
+ */
 
 #ifndef INC_3D_DEMOS_SCENE_H
 #define INC_3D_DEMOS_SCENE_H

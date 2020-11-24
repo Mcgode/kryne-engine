@@ -1,6 +1,8 @@
-//
-// Created by max on 16/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 16/10/2019
+ */
 
 #ifndef INC_3D_DEMOS_PROCESS_H
 #define INC_3D_DEMOS_PROCESS_H
