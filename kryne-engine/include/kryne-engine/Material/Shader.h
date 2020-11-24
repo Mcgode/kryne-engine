@@ -63,7 +63,7 @@ private:
 
     void createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode);
 
-    static void compileShader(GLuint shader, const string *code);
+    void compileShader(GLuint shader, const string *code);
 
     void compileProgram() const;
 
@@ -121,7 +121,7 @@ public:
 
 private:
 
-    static string runIncludes(const string &baseCode, const string &indentation = "");
+    static string replaceIncludes(const string &baseCode, const string &indentation = "");
 
 private:
 
@@ -138,6 +138,47 @@ private:
     std::map<std::string, uint8_t> textureMap{};
 
     uint8_t maxIndex{};
+
+
+public:
+
+    /**
+     * Retrieves the current list of defines for this shader
+     */
+    [[nodiscard]] const unordered_map<string, string> &getDefines() const {
+        return defines;
+    }
+
+    /**
+     * Sets a define constant value for the shader.
+     * @param defineName    The name of the constant.
+     * @param defineValue   The value of the constant as a string. Can be empty, in case you just want to define an
+     *                      empty constant to use #ifdef and the like.
+     */
+    void setDefine(const string &defineName, const string &defineValue) {
+        const auto emplaceResult = Shader::defines.emplace(defineName, defineValue);
+        if (!emplaceResult.second)
+            emplaceResult.first->second = defineValue;
+    }
+
+    /**
+     * Removes a define constant from the list
+     * @param defineName    The name of the constant to remove
+     * @returns true if an element was erased, false otherwise.
+     */
+    bool removeDefine(const string &defineName) {
+        return Shader::defines.erase(defineName) > 0;
+    }
+
+private:
+
+    /**
+     * Generates the code for the defines
+     */
+    string makeDefinesCode();
+
+    /// The storage for the defines
+    unordered_map<string, string> defines;
 
 
 public:

@@ -30,6 +30,10 @@ public:
 
     void resetUse();
 
+    void setDefine(const string &defineName, const string &defineValue) {
+        this->shader->setDefine(defineName, defineValue);
+    }
+
 private:
 
     unique_ptr<Shader> shader;

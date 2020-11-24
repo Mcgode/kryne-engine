@@ -171,7 +171,9 @@ void Shader::setTexture(const std::string &name)
 
 void Shader::compileShader(GLuint shader, const string *code)
 {
-    auto finalCode = "#version 330 core\n" + Shader::runIncludes(*code);
+    string finalCode = "#version 330 core\n";
+    finalCode += this->makeDefinesCode();
+    finalCode += Shader::replaceIncludes(*code);
     const GLchar* sourceCodeString = finalCode.c_str();
 
     // Compiling shader
@@ -211,7 +213,7 @@ void Shader::compileProgram() const
 }
 
 
-string Shader::runIncludes(const string &baseCode, const string &indentation)
+string Shader::replaceIncludes(const string &baseCode, const string &indentation)
 {
     regex includeRegex(R"((\n|^)(\s*)(#include\s*<([a-zA-Z0-9_-]+)>))");
     smatch results;
@@ -223,11 +225,21 @@ string Shader::runIncludes(const string &baseCode, const string &indentation)
             newCode.push_back('\n');
         if (regex_search(line, results, includeRegex)) {
             auto codeChunk = ShaderChunk::getInstance().getCodeChunk(results[4].str());
-            newCode += Shader::runIncludes(codeChunk, indentation + results[2].str());
+            newCode += Shader::replaceIncludes(codeChunk, indentation + results[2].str());
         } else {
             newCode += indentation + line;
         }
     }
 
     return newCode;
+}
+
+
+string Shader::makeDefinesCode()
+{
+    string code;
+    for (const auto &pair : this->defines) {
+        code += "#define " + pair.first + " " + pair.second + "\n";
+    }
+    return code;
 }
