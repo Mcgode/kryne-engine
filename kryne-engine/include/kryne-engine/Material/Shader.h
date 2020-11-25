@@ -209,16 +209,16 @@ public:
     void setTexture(const std::string &name);
 
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &)
-    void setUniform(const string &name, const UniformsHandler::UniformTypes &value) { Shader::uniformsHandler->setUniform(name, value); }
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value) const { Shader::uniformsHandler->setUniform(name, value); }
 
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &, uint32_t)
-    void setUniform(const string &name, const UniformsHandler::UniformTypes &value, uint32_t arrayIndex) { Shader::uniformsHandler->setUniform(name, value, arrayIndex); }
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value, uint32_t arrayIndex) const { Shader::uniformsHandler->setUniform(name, value, arrayIndex); }
 
     //! @copydoc UniformsHandler::removeUniform()
-    bool removeUniform(const string &name) { return Shader::uniformsHandler->removeUniform(name); }
+    [[nodiscard]] bool removeUniform(const string &name) const { return Shader::uniformsHandler->removeUniform(name); }
 
     //! @copydoc UniformsHandler::updateUniforms()
-    void updateUniforms() { Shader::uniformsHandler->updateUniforms(); }
+    void updateUniforms() const { Shader::uniformsHandler->updateUniforms(); }
 
 private:
 

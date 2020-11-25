@@ -40,9 +40,7 @@ public:
      * Function called before the mesh is rendered
      * @param camera    The camera used for the rendering
      */
-    virtual void onBeforeRender(const Camera *camera) {
-        this->material->getShader()->setMat4("modelMatrix", this->matrixWorld);
-    };
+    virtual void onBeforeRender(const Camera *camera) {};
 
     /**
      * Returns the current geometry in the form of a shared pointer.
@@ -81,6 +79,15 @@ protected:
 
     /// The mesh material
     shared_ptr<Material> material;
+
+
+public:
+
+    //! @copydoc Object3D::update()
+    void update(bool force) override;
+
+    //! @copydoc Object3D::updateParents()
+    const mat4 &updateParents(const Object3D *caller) override;
 
 
 };

@@ -54,12 +54,14 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
 
 
         // Renderer-level uniforms
-        const auto shader = material->getShader();
-        shader->setMat4("projectionMatrix", camera->getProjectionMatrix());
-        shader->setMat4("viewMatrix", camera->getViewMatrix());
+        material->setUniform("projectionMatrix", camera->getProjectionMatrix());
+        material->setUniform("viewMatrix", camera->getViewMatrix());
 
         // Run mesh updates
         mesh->onBeforeRender(camera);
+
+        // Upload uniforms
+        material->getShader()->updateUniforms();
 
         // Finally draw the object
         mesh->getGeometry()->draw(material->getPrimitiveType());

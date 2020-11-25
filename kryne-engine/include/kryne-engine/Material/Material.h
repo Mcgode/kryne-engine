@@ -35,18 +35,16 @@ public:
     void resetUse();
 
     //! @copydoc Shader::setDefine()
-    void setDefine(const string &defineName, const string &defineValue) {
-        this->shader->setDefine(defineName, defineValue);
-    }
+    void setDefine(const string &defineName, const string &defineValue) const { this->shader->setDefine(defineName, defineValue); }
 
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &)
-    void setUniform(const string &name, const UniformsHandler::UniformTypes &value) { Material::shader->setUniform(name, value); }
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value) const { Material::shader->setUniform(name, value); }
 
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &, uint32_t)
-    void setUniform(const string &name, const UniformsHandler::UniformTypes &value, uint32_t arrayIndex) { Material::shader->setUniform(name, value, arrayIndex); }
+    void setUniform(const string &name, const UniformsHandler::UniformTypes &value, uint32_t arrayIndex) const { Material::shader->setUniform(name, value, arrayIndex); }
 
     //! @copydoc UniformsHandler::removeUniform()
-    bool removeUniform(const string &name) { return Material::shader->removeUniform(name); }
+    [[nodiscard]] bool removeUniform(const string &name) const { return Material::shader->removeUniform(name); }
 
 private:
 
