@@ -43,6 +43,11 @@ public:
     uint32_t getLength();
 
     /**
+     * Returns the item size for this buffer
+     */
+    [[nodiscard]] uint32_t getItemSize() const { return itemSize; }
+
+    /**
      * Returns the data as a pointer array
      */
     [[nodiscard]] const float *getData() const { return data.data(); }

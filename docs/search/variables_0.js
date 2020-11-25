@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['geometry_343',['geometry',['../class_mesh.html#a84c17ac45dfa440d2dcf56102ea9e914',1,'Mesh']]]
+  ['attributes_374',['attributes',['../class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd',1,'BufferGeometry']]]
 ];

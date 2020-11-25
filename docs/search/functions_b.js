@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['removedefine_301',['removeDefine',['../class_shader.html#a14cbf6a53594238fd33c1b051f319270',1,'Shader']]],
-  ['removeuniform_302',['removeUniform',['../class_material.html#a7de9a9344f8b329de2c2be89e67c52b2',1,'Material::removeUniform()'],['../class_shader.html#a39cc44566da583a305e1251a06b7bd38',1,'Shader::removeUniform()'],['../class_uniforms_handler.html#a85e9b48ba3273c0e6179f3c9aa42b54d',1,'UniformsHandler::removeUniform()']]],
-  ['render_303',['render',['../class_main_renderer.html#a7bdd84247ecd2942b26896524d84a863',1,'MainRenderer::render()'],['../class_render_pass.html#a82c8808f4f1a9c97409ca45ad97c32b2',1,'RenderPass::render()'],['../class_directional_shadow_map_rendering.html#a36bda96d377dcc43b1e39147f2ab5599',1,'DirectionalShadowMapRendering::render()']]],
-  ['renderloop_304',['renderLoop',['../class_render_scene.html#a153e3fddce39acca50179504825bdc8f',1,'RenderScene']]],
-  ['rendermain_305',['renderMain',['../class_main_renderer.html#a508a80df1c58c0820c8f18ced3a0558d',1,'MainRenderer']]],
-  ['renderscene_306',['RenderScene',['../class_render_scene.html#ab9c1784eb6cbe4dd21fdf8715282af0b',1,'RenderScene']]],
-  ['resetuse_307',['resetUse',['../class_material.html#a36a235f5948f6f0e5719a4bb636cf0de',1,'Material::resetUse()'],['../class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf',1,'Shader::resetUse()']]],
-  ['runprocess_308',['runProcess',['../class_process.html#a2ef87d936c7fae4508557714f593506e',1,'Process']]]
+  ['perspectiveprojectiondata_323',['PerspectiveProjectionData',['../class_perspective_projection_data.html#aded21ef3140afbeb16acdfbe72091431',1,'PerspectiveProjectionData']]],
+  ['pointlight_324',['PointLight',['../class_point_light.html#ad7a5e1d7f526bf29786792f25673f640',1,'PointLight']]],
+  ['postprocess_325',['PostProcess',['../class_post_process.html#a5f41ca514083a1c7b9f116c6da8ae43a',1,'PostProcess']]],
+  ['process_326',['Process',['../class_process.html#a663a5f93dc4af581bc6a0c5950d6badb',1,'Process']]]
 ];

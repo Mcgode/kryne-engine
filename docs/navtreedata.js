@@ -49,8 +49,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_mesh.html#a35a377eb69c4baa0d495cb3ab1fde48d",
-"stb__image_8h.html#a5cbc6f5cbb3b2d0d87ee959fcee9d23e"
+"class_material.html#af4d74b55f8be6fead4bbd3ee29a529df",
+"stb__image_8h.html#a42fa266b80bfde22a0781ba2112d1c62"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

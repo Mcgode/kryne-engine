@@ -88,19 +88,193 @@ $(document).ready(function(){initNavTree('class_buffer_attribute.html',''); init
 <div class="title">BufferAttribute Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_buffer_attribute_8h_source.html">BufferAttribute.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a899fbd7fbcf0bccdc5bd609a4de4b3eb"><td class="memItemLeft" align="right" valign="top"><a id="a899fbd7fbcf0bccdc5bd609a4de4b3eb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BufferAttribute</b> (vector&lt; float &gt; data, uint32_t itemSize, GLint drawType=GL_STATIC_DRAW)</td></tr>
+<tr class="memitem:a899fbd7fbcf0bccdc5bd609a4de4b3eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#a899fbd7fbcf0bccdc5bd609a4de4b3eb">BufferAttribute</a> (vector&lt; float &gt; data, uint32_t itemSize, GLint drawType=GL_STATIC_DRAW)</td></tr>
 <tr class="separator:a899fbd7fbcf0bccdc5bd609a4de4b3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53a9287ad87576c00bd8387449aed77a"><td class="memItemLeft" align="right" valign="top"><a id="a53a9287ad87576c00bd8387449aed77a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bindToVAO</b> (GLuint vao, GLuint location) const</td></tr>
+<tr class="memitem:a53a9287ad87576c00bd8387449aed77a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#a53a9287ad87576c00bd8387449aed77a">bindToVAO</a> (GLuint vao, GLuint location) const</td></tr>
 <tr class="separator:a53a9287ad87576c00bd8387449aed77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a630d89d5baf0f87d179a91ed4524d250"><td class="memItemLeft" align="right" valign="top"><a id="a630d89d5baf0f87d179a91ed4524d250"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getLength</b> ()</td></tr>
+<tr class="memitem:a630d89d5baf0f87d179a91ed4524d250"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#a630d89d5baf0f87d179a91ed4524d250">getLength</a> ()</td></tr>
 <tr class="separator:a630d89d5baf0f87d179a91ed4524d250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb86ba7a3f57ad8e575258fcfbfe753c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c">getItemSize</a> () const</td></tr>
+<tr class="separator:aeb86ba7a3f57ad8e575258fcfbfe753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48182120a8d3c4c49008fab61ace89ed"><td class="memItemLeft" align="right" valign="top">const float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#a48182120a8d3c4c49008fab61ace89ed">getData</a> () const</td></tr>
+<tr class="separator:a48182120a8d3c4c49008fab61ace89ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e41df80b37dd9473ddfd3444c04120b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_attribute.html#a1e41df80b37dd9473ddfd3444c04120b">~BufferAttribute</a> ()</td></tr>
+<tr class="separator:a1e41df80b37dd9473ddfd3444c04120b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles a geometry buffer attribute. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a899fbd7fbcf0bccdc5bd609a4de4b3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899fbd7fbcf0bccdc5bd609a4de4b3eb">&#9670;&nbsp;</a></span>BufferAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BufferAttribute::BufferAttribute </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>itemSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLint&#160;</td>
+          <td class="paramname"><em>drawType</em> = <code>GL_STATIC_DRAW</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes a new buffer attribute. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data for this attribute, as a vector of floats. </td></tr>
+    <tr><td class="paramname">itemSize</td><td>The number of floats per item. </td></tr>
+    <tr><td class="paramname">drawType</td><td>The draw type for this buffer attribute. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e41df80b37dd9473ddfd3444c04120b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e41df80b37dd9473ddfd3444c04120b">&#9670;&nbsp;</a></span>~BufferAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BufferAttribute::~BufferAttribute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletes the buffer and clears its memory </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a53a9287ad87576c00bd8387449aed77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a9287ad87576c00bd8387449aed77a">&#9670;&nbsp;</a></span>bindToVAO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferAttribute::bindToVAO </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>vao</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>location</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Binds the buffer to a vertex array object. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vao</td><td>The VAO to bind the buffer to. </td></tr>
+    <tr><td class="paramname">location</td><td>The buffer location to bind to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a48182120a8d3c4c49008fab61ace89ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48182120a8d3c4c49008fab61ace89ed">&#9670;&nbsp;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float* BufferAttribute::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the data as a pointer array </p>
+
+</div>
+</div>
+<a id="aeb86ba7a3f57ad8e575258fcfbfe753c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb86ba7a3f57ad8e575258fcfbfe753c">&#9670;&nbsp;</a></span>getItemSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t BufferAttribute::getItemSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the item size for this buffer </p>
+
+</div>
+</div>
+<a id="a630d89d5baf0f87d179a91ed4524d250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630d89d5baf0f87d179a91ed4524d250">&#9670;&nbsp;</a></span>getLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t BufferAttribute::getLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retrieves the length of the data, in number of items </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Geometry/<a class="el" href="_buffer_attribute_8h_source.html">BufferAttribute.h</a></li>
 <li>kryne-engine/src/Geometry/BufferAttribute.cpp</li>

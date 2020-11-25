@@ -12,19 +12,43 @@ BufferGeometry::BufferGeometry()
 }
 
 
-void BufferGeometry::addAttribute(const string &name, unique_ptr<BufferAttribute> attribute)
+void BufferGeometry::setAttribute(const string &name, unique_ptr<BufferAttribute> attribute)
 {
-    GLuint location = this->nextLocation++;
-
-    attribute->bindToVAO(this->vao, location);
-    if (ebo == 0)
-        this->length = (location == 0) ? attribute->getLength() : std::min(this->length, attribute->getLength());
+    GLuint location = this->nextLocation;
+    BufferAttribute *attr = attribute.release();
 
     auto l = this->attributes.find(name);
-    if (l != this->attributes.end())
-        l->second = std::move(attribute);
-    else
-        this->attributes.emplace(name, std::move(attribute));
+    if (l != this->attributes.end()) {
+        if (l->second.first->getItemSize() != attr->getItemSize()) {
+            glDisableVertexAttribArray(l->second.second);
+            this->nextLocation += (attr->getItemSize() - 1) % 4 + 1;
+        } else
+            location = l->second.second;
+
+        attr->bindToVAO(this->vao, location);
+        l->second = make_pair(unique_ptr<BufferAttribute>(attr), location);
+    } else {
+        this->nextLocation += (attr->getItemSize() - 1) % 4 + 1;
+        attr->bindToVAO(this->vao, location);
+        this->attributes.emplace(name, make_pair(unique_ptr<BufferAttribute>(attr), location));
+    }
+
+    this->updateLength();
+}
+
+
+void BufferGeometry::updateLength()
+{
+    if (ebo == 0) {
+        auto it = this->attributes.begin();
+        this->length = it->second.first->getLength();
+
+        for (; it != this->attributes.end(); ++it) {
+            const auto l = it->second.first->getLength();
+            if (l < this->length)
+                this->length = l;
+        }
+    }
 }
 
 
@@ -86,17 +110,17 @@ vec3 BufferGeometry::computeTangent(vec3 p0, vec3 p1, vec3 p2, vec2 uv0, vec2 uv
 }
 
 
-void BufferGeometry::computeTangents()
+bool BufferGeometry::computeTangents()
 {
     BufferAttribute *positionsAttribute = nullptr,
                     *uvsAttribute = nullptr;
 
     for (const auto &attribute : this->attributes) {
         if (attribute.first == "position")
-            positionsAttribute = attribute.second.get();
+            positionsAttribute = attribute.second.first.get();
 
         if (attribute.first == "uv")
-            uvsAttribute = attribute.second.get();
+            uvsAttribute = attribute.second.first.get();
 
         if (positionsAttribute && uvsAttribute)
             break;
@@ -104,12 +128,12 @@ void BufferGeometry::computeTangents()
 
     if (positionsAttribute == nullptr) {
         cout << "BufferGeometry::computeTangents() - No position attribute found, aborting" << endl;
-        return;
+        return false;
     }
 
     if (uvsAttribute == nullptr) {
         cout << "BufferGeometry::computeTangents() - No uv attribute found, aborting" << endl;
-        return;
+        return false;
     }
 
     const auto *positions = (const glm::vec3 *) (positionsAttribute->getData());
@@ -150,7 +174,9 @@ void BufferGeometry::computeTangents()
     vector<float> tangentFloats;
     auto floats = (const float *)(tangents.data());
     tangentFloats.assign(floats, floats + tangents.size() * 3);
-    this->addAttribute(
+    this->setAttribute(
             "tangent",
             make_unique<BufferAttribute>(tangentFloats, 3));
+
+    return true;
 }

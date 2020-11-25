@@ -44,9 +44,9 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
     for (uint32_t i : CUBE_INDEXES)
         indexes.push_back(i);
 
-    this->addAttribute("position", std::make_unique<BufferAttribute>(flattenVector3(positions), 3));
-    this->addAttribute("normal",   std::make_unique<BufferAttribute>(flattenVector3(normals), 3));
-    this->addAttribute("uv",       std::make_unique<BufferAttribute>(flattenVector2(textureCoordinates), 2));
+    this->setAttribute("position", std::make_unique<BufferAttribute>(flattenVector3(positions), 3));
+    this->setAttribute("normal", std::make_unique<BufferAttribute>(flattenVector3(normals), 3));
+    this->setAttribute("uv", std::make_unique<BufferAttribute>(flattenVector2(textureCoordinates), 2));
 
     this->setIndices(indexes);
 

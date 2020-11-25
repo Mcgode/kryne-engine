@@ -20,38 +20,91 @@
 using namespace std;
 
 
+/**
+ * Handles a geometry that will be rendered to the screen.
+ */
 class BufferGeometry {
 
 public:
+    /**
+     * Initializes a buffer geometry.
+     */
     BufferGeometry();
 
-    void addAttribute(const string &name, unique_ptr<BufferAttribute> attribute);
+    /**
+     * Sets the value of a buffer attribute.
+     * Will update a previous attribute or override it if needs be.
+     * Will update BufferGeometry::length if needed.
+     * @param name      The name for this attribute.
+     * @param attribute The BufferAttribute object itself.
+     */
+    void setAttribute(const string &name, unique_ptr<BufferAttribute> attribute);
 
+    /**
+     * Draws the geometry.
+     * @param geometry  The OpenGL primitive to use for drawing the geometry.
+     */
     void draw(GLenum geometry = GL_TRIANGLES) const;
 
+    /**
+     * Set the vertex indexes for the EBO.
+     * @param newIndexes    The indexes for the faces of the geometry.
+     */
     void setIndices(vector<uint32_t> newIndexes);
 
+    /**
+     * Deletes the geometry, and frees the VAO.
+     */
     virtual ~BufferGeometry();
 
 protected:
+
+    /**
+     * Updates the total vertex length for this geometry.
+     */
+    void updateLength();
+
+protected:
+
+    /// The VAO id.
     GLuint vao {};
 
+    /// The location for the next buffer attribute.
     GLuint nextLocation = 0;
 
-    unordered_map<string, unique_ptr<BufferAttribute>> attributes;
+    /// The attributes of the geometry, stored by name, containing both the BufferAttribute and its location.
+    unordered_map<string, pair<unique_ptr<BufferAttribute>, GLint>> attributes;
 
+    /// The length of the vertices for this geometry. Used for drawing.
     uint32_t length = 0;
 
+    /// The indexes for the geometry faces.
     vector<uint32_t> indexes;
 
+    /// The id of the EBO if one is used.
     GLuint ebo = 0;
 
 public:
 
-    void computeTangents();
+    /**
+     * Computes the 'tangent' attribute for this geometry.
+     * Requires both the 'position' and 'uv' attributes to be set.
+     * @returns `true` if successful at computing the tangents, `false` otherwise.
+     */
+    bool computeTangents();
 
 protected:
 
+    /**
+     * Computes the tangent of a given face
+     * @param p0    The first vertex position
+     * @param p1    The second vertex position
+     * @param p2    The third vertex position
+     * @param uv0   The first vertex uv coordinates
+     * @param uv1   The second vertex uv coordinates
+     * @param uv2   The third vertex uv coordinates
+     * @return The tangent for this face
+     */
     static glm::vec3 computeTangent(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2);
 
 };

@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_buffer_geometry.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_buffer_geometry-members.html">List of all members</a>  </div>
@@ -90,6 +91,8 @@ $(document).ready(function(){initNavTree('class_buffer_geometry.html',''); initR
 <div class="title">BufferGeometry Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_buffer_geometry_8h_source.html">BufferGeometry.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BufferGeometry:</div>
 <div class="dyncontent">
@@ -102,46 +105,303 @@ Inheritance diagram for BufferGeometry:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abdb73064205b7fe7e9f988ce177c16db"><td class="memItemLeft" align="right" valign="top"><a id="abdb73064205b7fe7e9f988ce177c16db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addAttribute</b> (const string &amp;name, unique_ptr&lt; <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> &gt; attribute)</td></tr>
-<tr class="separator:abdb73064205b7fe7e9f988ce177c16db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60de1441e336eea4a82e36f74273988f"><td class="memItemLeft" align="right" valign="top"><a id="a60de1441e336eea4a82e36f74273988f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (GLenum geometry=GL_TRIANGLES) const</td></tr>
+<tr class="memitem:a4147124a76077d48735c37d8b65f5d79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a4147124a76077d48735c37d8b65f5d79">BufferGeometry</a> ()</td></tr>
+<tr class="separator:a4147124a76077d48735c37d8b65f5d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abacb186563bd725c4e1b6dc9569d1f62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#abacb186563bd725c4e1b6dc9569d1f62">setAttribute</a> (const string &amp;name, unique_ptr&lt; <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> &gt; attribute)</td></tr>
+<tr class="separator:abacb186563bd725c4e1b6dc9569d1f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60de1441e336eea4a82e36f74273988f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a60de1441e336eea4a82e36f74273988f">draw</a> (GLenum geometry=GL_TRIANGLES) const</td></tr>
 <tr class="separator:a60de1441e336eea4a82e36f74273988f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0a5eb4a3a41bf8a777de7781b108c46"><td class="memItemLeft" align="right" valign="top"><a id="ae0a5eb4a3a41bf8a777de7781b108c46"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIndices</b> (vector&lt; uint32_t &gt; newIndexes)</td></tr>
+<tr class="memitem:ae0a5eb4a3a41bf8a777de7781b108c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ae0a5eb4a3a41bf8a777de7781b108c46">setIndices</a> (vector&lt; uint32_t &gt; newIndexes)</td></tr>
 <tr class="separator:ae0a5eb4a3a41bf8a777de7781b108c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3febfe3850d87b18a4e8d42352f0b94"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ae3febfe3850d87b18a4e8d42352f0b94">~BufferGeometry</a> ()</td></tr>
+<tr class="separator:ae3febfe3850d87b18a4e8d42352f0b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ce9566df6a86b97ed86df3cfad0bbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ac8ce9566df6a86b97ed86df3cfad0bbe">computeTangents</a> ()</td></tr>
+<tr class="separator:ac8ce9566df6a86b97ed86df3cfad0bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa42b4bd617cf7939c8e5bd8893bc429a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a">updateLength</a> ()</td></tr>
+<tr class="separator:aa42b4bd617cf7939c8e5bd8893bc429a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a082b7e73a394537b11e32f78ca68df79"><td class="memItemLeft" align="right" valign="top"><a id="a082b7e73a394537b11e32f78ca68df79"></a>
-static glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>computeTangent</b> (glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2)</td></tr>
+<tr class="memitem:a082b7e73a394537b11e32f78ca68df79"><td class="memItemLeft" align="right" valign="top">static glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a082b7e73a394537b11e32f78ca68df79">computeTangent</a> (glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2)</td></tr>
 <tr class="separator:a082b7e73a394537b11e32f78ca68df79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a196c715dde467c5e79a0d7183b2d502b"><td class="memItemLeft" align="right" valign="top"><a id="a196c715dde467c5e79a0d7183b2d502b"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>vao</b> {}</td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a196c715dde467c5e79a0d7183b2d502b">vao</a> {}</td></tr>
+<tr class="memdesc:a196c715dde467c5e79a0d7183b2d502b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The VAO id. <br /></td></tr>
 <tr class="separator:a196c715dde467c5e79a0d7183b2d502b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27c1b257219a106b54855438c2f5c22"><td class="memItemLeft" align="right" valign="top"><a id="ac27c1b257219a106b54855438c2f5c22"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>nextLocation</b> = 0</td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22">nextLocation</a> = 0</td></tr>
+<tr class="memdesc:ac27c1b257219a106b54855438c2f5c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">The location for the next buffer attribute. <br /></td></tr>
 <tr class="separator:ac27c1b257219a106b54855438c2f5c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59d937d4134d23848cc4984ff0e62152"><td class="memItemLeft" align="right" valign="top"><a id="a59d937d4134d23848cc4984ff0e62152"></a>
-vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>names</b></td></tr>
-<tr class="separator:a59d937d4134d23848cc4984ff0e62152"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9432ae48d99dac6f0373fbc6f46be4d9"><td class="memItemLeft" align="right" valign="top"><a id="a9432ae48d99dac6f0373fbc6f46be4d9"></a>
-vector&lt; unique_ptr&lt; <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bufferAttributes</b></td></tr>
-<tr class="separator:a9432ae48d99dac6f0373fbc6f46be4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f15fb480ea53aa5f187a42bda8dbbd"><td class="memItemLeft" align="right" valign="top"><a id="a54f15fb480ea53aa5f187a42bda8dbbd"></a>
+unordered_map&lt; string, pair&lt; unique_ptr&lt; <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> &gt;, GLint &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">attributes</a></td></tr>
+<tr class="memdesc:a54f15fb480ea53aa5f187a42bda8dbbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The attributes of the geometry, stored by name, containing both the <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> and its location. <br /></td></tr>
+<tr class="separator:a54f15fb480ea53aa5f187a42bda8dbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e494765b987a0de790dffd992c9094f"><td class="memItemLeft" align="right" valign="top"><a id="a4e494765b987a0de790dffd992c9094f"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> = 0</td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f">length</a> = 0</td></tr>
+<tr class="memdesc:a4e494765b987a0de790dffd992c9094f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the vertices for this geometry. Used for drawing. <br /></td></tr>
 <tr class="separator:a4e494765b987a0de790dffd992c9094f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a7aa14a2ffd791ea99e21792a0ae50c"><td class="memItemLeft" align="right" valign="top"><a id="a5a7aa14a2ffd791ea99e21792a0ae50c"></a>
-vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>indexes</b></td></tr>
+vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">indexes</a></td></tr>
+<tr class="memdesc:a5a7aa14a2ffd791ea99e21792a0ae50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The indexes for the geometry faces. <br /></td></tr>
 <tr class="separator:a5a7aa14a2ffd791ea99e21792a0ae50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a689cc72be6cb39978e322bea65141051"><td class="memItemLeft" align="right" valign="top"><a id="a689cc72be6cb39978e322bea65141051"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>ebo</b> = 0</td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a689cc72be6cb39978e322bea65141051">ebo</a> = 0</td></tr>
+<tr class="memdesc:a689cc72be6cb39978e322bea65141051"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of the EBO if one is used. <br /></td></tr>
 <tr class="separator:a689cc72be6cb39978e322bea65141051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles a geometry that will be rendered to the screen. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4147124a76077d48735c37d8b65f5d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4147124a76077d48735c37d8b65f5d79">&#9670;&nbsp;</a></span>BufferGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BufferGeometry::BufferGeometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes a buffer geometry. </p>
+
+</div>
+</div>
+<a id="ae3febfe3850d87b18a4e8d42352f0b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3febfe3850d87b18a4e8d42352f0b94">&#9670;&nbsp;</a></span>~BufferGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BufferGeometry::~BufferGeometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Deletes the geometry, and frees the VAO. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a082b7e73a394537b11e32f78ca68df79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a082b7e73a394537b11e32f78ca68df79">&#9670;&nbsp;</a></span>computeTangent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vec3 BufferGeometry::computeTangent </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>uv0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>uv1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>uv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the tangent of a given face </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p0</td><td>The first vertex position </td></tr>
+    <tr><td class="paramname">p1</td><td>The second vertex position </td></tr>
+    <tr><td class="paramname">p2</td><td>The third vertex position </td></tr>
+    <tr><td class="paramname">uv0</td><td>The first vertex uv coordinates </td></tr>
+    <tr><td class="paramname">uv1</td><td>The second vertex uv coordinates </td></tr>
+    <tr><td class="paramname">uv2</td><td>The third vertex uv coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The tangent for this face </dd></dl>
+
+</div>
+</div>
+<a id="ac8ce9566df6a86b97ed86df3cfad0bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ce9566df6a86b97ed86df3cfad0bbe">&#9670;&nbsp;</a></span>computeTangents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::computeTangents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Computes the 'tangent' attribute for this geometry. Requires both the 'position' and 'uv' attributes to be set. </p><dl class="section return"><dt>Returns</dt><dd><code>true</code> if successful at computing the tangents, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a60de1441e336eea4a82e36f74273988f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60de1441e336eea4a82e36f74273988f">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::draw </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>geometry</em> = <code>GL_TRIANGLES</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Draws the geometry. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">geometry</td><td>The OpenGL primitive to use for drawing the geometry. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abacb186563bd725c4e1b6dc9569d1f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abacb186563bd725c4e1b6dc9569d1f62">&#9670;&nbsp;</a></span>setAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::setAttribute </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> &gt;&#160;</td>
+          <td class="paramname"><em>attribute</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the value of a buffer attribute. Will update a previous attribute or override it if needs be. Will update <a class="el" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f" title="The length of the vertices for this geometry. Used for drawing.">BufferGeometry::length</a> if needed. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name for this attribute. </td></tr>
+    <tr><td class="paramname">attribute</td><td>The <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> object itself. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae0a5eb4a3a41bf8a777de7781b108c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0a5eb4a3a41bf8a777de7781b108c46">&#9670;&nbsp;</a></span>setIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::setIndices </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; uint32_t &gt;&#160;</td>
+          <td class="paramname"><em>newIndexes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the vertex indexes for the EBO. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newIndexes</td><td>The indexes for the faces of the geometry. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa42b4bd617cf7939c8e5bd8893bc429a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42b4bd617cf7939c8e5bd8893bc429a">&#9670;&nbsp;</a></span>updateLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::updateLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Updates the total vertex length for this geometry. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Geometry/<a class="el" href="_buffer_geometry_8h_source.html">BufferGeometry.h</a></li>
 <li>kryne-engine/src/Geometry/BufferGeometry.cpp</li>
