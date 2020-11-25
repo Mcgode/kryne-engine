@@ -9,6 +9,9 @@
 
 #include <algorithm>
 #include <memory>
+#include <iostream>
+#include <unordered_map>
+
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/geometric.hpp>
@@ -35,15 +38,19 @@ protected:
 
     GLuint nextLocation = 0;
 
-    vector<string> names;
-
-    vector<unique_ptr<BufferAttribute>> bufferAttributes;
+    unordered_map<string, unique_ptr<BufferAttribute>> attributes;
 
     uint32_t length = 0;
 
     vector<uint32_t> indexes;
 
     GLuint ebo = 0;
+
+public:
+
+    void computeTangents();
+
+protected:
 
     static glm::vec3 computeTangent(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2);
 

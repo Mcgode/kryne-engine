@@ -15,13 +15,16 @@ BufferGeometry::BufferGeometry()
 void BufferGeometry::addAttribute(const string &name, unique_ptr<BufferAttribute> attribute)
 {
     GLuint location = this->nextLocation++;
-    names.push_back(name);
 
     attribute->bindToVAO(this->vao, location);
     if (ebo == 0)
         this->length = (location == 0) ? attribute->getLength() : std::min(this->length, attribute->getLength());
 
-    bufferAttributes.push_back(std::move(attribute));
+    auto l = this->attributes.find(name);
+    if (l != this->attributes.end())
+        l->second = std::move(attribute);
+    else
+        this->attributes.emplace(name, std::move(attribute));
 }
 
 
@@ -49,8 +52,6 @@ void BufferGeometry::setIndices(vector<uint32_t> newIndexes)
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indexes.size() * sizeof(uint32_t), this->indexes.data(), GL_STATIC_DRAW); //< TODO : handle non-static draw case
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
-    auto data = this->indexes.data();
 
     this->length = this->indexes.size();
 }
@@ -82,4 +83,74 @@ vec3 BufferGeometry::computeTangent(vec3 p0, vec3 p1, vec3 p2, vec2 uv0, vec2 uv
     );
 
     return normalize(T);
+}
+
+
+void BufferGeometry::computeTangents()
+{
+    BufferAttribute *positionsAttribute = nullptr,
+                    *uvsAttribute = nullptr;
+
+    for (const auto &attribute : this->attributes) {
+        if (attribute.first == "position")
+            positionsAttribute = attribute.second.get();
+
+        if (attribute.first == "uv")
+            uvsAttribute = attribute.second.get();
+
+        if (positionsAttribute && uvsAttribute)
+            break;
+    }
+
+    if (positionsAttribute == nullptr) {
+        cout << "BufferGeometry::computeTangents() - No position attribute found, aborting" << endl;
+        return;
+    }
+
+    if (uvsAttribute == nullptr) {
+        cout << "BufferGeometry::computeTangents() - No uv attribute found, aborting" << endl;
+        return;
+    }
+
+    const auto *positions = (const glm::vec3 *) (positionsAttribute->getData());
+    const auto *uvs = (const glm::vec2 *) (uvsAttribute->getData());
+
+    vector<glm::vec3> tangents;
+    tangents.assign(std::min(positionsAttribute->getLength(), uvsAttribute->getLength()), glm::vec3(0));
+
+    if (this->ebo) {
+        for (uint32_t i = 0; i < this->length; i += 3) {
+            uint32_t j1 = this->indexes[i],
+                     j2 = this->indexes[i+1],
+                     j3 = this->indexes[i+2];
+
+            glm::vec3 t = BufferGeometry::computeTangent(
+                    positions[j1], positions[j2], positions[j3],
+                    uvs[j1], uvs[j2], uvs[j3]);
+
+            tangents[j1] += t;
+            tangents[j2] += t;
+            tangents[j3] += t;
+        }
+
+        for (auto &tangent : tangents)
+            tangent = glm::normalize(tangent);
+    } else {
+        for (uint32_t i = 0; i < this->length; i += 3) {
+            glm::vec3 t = BufferGeometry::computeTangent(
+                    positions[i], positions[i+1], positions[i+2],
+                    uvs[i], uvs[i+2], uvs[i+3]);
+
+            tangents[i] = t;
+            tangents[i+1] = t;
+            tangents[i+2] = t;
+        }
+    }
+
+    vector<float> tangentFloats;
+    auto floats = (const float *)(tangents.data());
+    tangentFloats.assign(floats, floats + tangents.size() * 3);
+    this->addAttribute(
+            "tangent",
+            make_unique<BufferAttribute>(tangentFloats, 3));
 }

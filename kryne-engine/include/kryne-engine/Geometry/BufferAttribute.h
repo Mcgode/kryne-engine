@@ -24,6 +24,8 @@ public:
 
     uint32_t getLength();
 
+    [[nodiscard]] const float *getData() const { return data.data(); }
+
     ~BufferAttribute();
 
 private:

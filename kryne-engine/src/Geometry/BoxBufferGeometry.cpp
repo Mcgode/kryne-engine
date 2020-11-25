@@ -11,7 +11,6 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
     vector<vec3> positions;
     vector<vec3> normals;
     vector<vec2> textureCoordinates;
-    vector<vec3> tangents;
     float x = xSize / 2.f, y = ySize / 2.f, z = zSize / 2.f;
 
     for (int i = 0; i < CUBE_AMOUNT_OF_VERTICES; i += 3)
@@ -38,11 +37,6 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
         textureCoordinates.push_back(uv0);
         textureCoordinates.push_back(uv1);
         textureCoordinates.push_back(uv2);
-
-        vec3 T = BufferGeometry::computeTangent(p0, p1, p2, uv0, uv1, uv2);
-        tangents.push_back(T);
-        tangents.push_back(T);
-        tangents.push_back(T);
     }
 
     vector<uint32_t> indexes;
@@ -53,7 +47,8 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
     this->addAttribute("position", std::make_unique<BufferAttribute>(flattenVector3(positions), 3));
     this->addAttribute("normal",   std::make_unique<BufferAttribute>(flattenVector3(normals), 3));
     this->addAttribute("uv",       std::make_unique<BufferAttribute>(flattenVector2(textureCoordinates), 2));
-    this->addAttribute("tangent",  std::make_unique<BufferAttribute>(flattenVector3(tangents), 3));
 
     this->setIndices(indexes);
+
+    this->computeTangents();
 }
