@@ -14,9 +14,19 @@
 #include "BufferGeometry.h"
 
 
+/**
+ * A buffer geometry preloaded with geometry data for a box object.
+ */
 class BoxBufferGeometry : public BufferGeometry {
 
 public:
+
+    /**
+     * Initializes a box geometry
+     * @param xSize     The total x size of the box
+     * @param ySize     The total y size of the box
+     * @param zSize     The total z size of the box
+     */
     explicit BoxBufferGeometry(float xSize = 1.0f, float ySize = 1.0f, float zSize = 1.0f);
 
 };
