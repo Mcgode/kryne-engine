@@ -27,17 +27,20 @@ int main()
 
     const string fragmentShader =   "in vec3 vNormal;\n"
                                     "out vec4 FragColor;\n"
+                                    "uniform vec3 color;\n"
                                     "\n"
                                     "void main() {\n"
                                     "   #ifndef TEST\n"
                                     "       lmlmkmkmk;\n"
                                     "   #endif\n"
-                                    "   FragColor = vec4(0.5 * normalize(vNormal) + 0.5, 1.0);\n"
+                                    "   FragColor = vec4(0.25 * normalize(vNormal) + 0.25, 1.0);\n"
+                                    "   FragColor.xyz += 0.5 * color;\n"
                                     "}";
 
     auto material = make_shared<Material>(make_unique<Shader>(vertexShader, fragmentShader));
     material->setSide(BackSide);
     material->setDefine("TEST", "");
+    material->setUniform("color", glm::vec3(1, 0.4, 0));
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
     scene->add(unique_ptr<Object3D>(new Mesh(geometry, material)));
