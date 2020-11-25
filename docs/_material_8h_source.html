@@ -114,88 +114,86 @@ $(document).ready(function(){initNavTree('_material_8h_source.html',''); initRes
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> resetUse();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_material.html#a62107e6e47492d4461026ae70dbdfffd">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a62107e6e47492d4461026ae70dbdfffd">setDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineValue) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;shader-&gt;setDefine(defineName, defineValue);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_material.html#af34edd4aa5f924d39df13e64e3369d63">   43</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#af34edd4aa5f924d39df13e64e3369d63">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value) { Material::shader-&gt;setUniform(name, value); }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_material.html#a5607ca39b439e11240e7b5a8915831ed">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a5607ca39b439e11240e7b5a8915831ed">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex) { Material::shader-&gt;setUniform(name, value, arrayIndex); }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_material.html#afc3486273b1103080f170a7d45b8029d">   49</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_material.html#afc3486273b1103080f170a7d45b8029d">removeUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name) { <span class="keywordflow">return</span> Material::shader-&gt;removeUniform(name); }</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d">setDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineValue)<span class="keyword"> const </span>{ this-&gt;shader-&gt;setDefine(defineName, defineValue); }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00">   41</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value)<span class="keyword"> const </span>{ Material::shader-&gt;setUniform(name, value); }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_material.html#a6f85f0fc45d441a5da4179579015c351">   44</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a6f85f0fc45d441a5da4179579015c351">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex)<span class="keyword"> const </span>{ Material::shader-&gt;setUniform(name, value, arrayIndex); }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_material.html#a7de9a9344f8b329de2c2be89e67c52b2">   47</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_material.html#a7de9a9344f8b329de2c2be89e67c52b2">removeUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Material::shader-&gt;removeUniform(name); }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    unique_ptr&lt;Shader&gt; shader;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    unique_ptr&lt;Shader&gt; shader;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">   61</a></span>&#160;    [[nodiscard]] GLenum <a class="code" href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">getPrimitiveType</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> primitiveType;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">   69</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">setPrimitiveType</a>(GLenum newPrimitiveType) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        Material::primitiveType = newPrimitiveType;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_material.html#a6a0744388287b0d1831904d77f7d8764">   76</a></span>&#160;    [[nodiscard]] MaterialSide <a class="code" href="class_material.html#a6a0744388287b0d1831904d77f7d8764">getSide</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> side;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_material.html#a9aba22e005be6411c1315fda404a907f">   84</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a9aba22e005be6411c1315fda404a907f">setSide</a>(MaterialSide newSide) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        Material::side = newSide;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_material.html#a6a918f09c4360477f74356110126df8e">   91</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_material.html#a6a918f09c4360477f74356110126df8e">isDepthTest</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> depthTest;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">   99</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">setDepthTest</a>(<span class="keywordtype">bool</span> enableDepthTest) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        Material::depthTest = enableDepthTest;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_material.html#a895211010246aa1ee74a7808190b5b0b">  106</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_material.html#a895211010246aa1ee74a7808190b5b0b">isWriteDepth</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> writeDepth;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">  114</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">setWriteDepth</a>(<span class="keywordtype">bool</span> writeToDepth) {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        Material::writeDepth = writeToDepth;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">   59</a></span>&#160;    [[nodiscard]] GLenum <a class="code" href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">getPrimitiveType</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> primitiveType;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">   67</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">setPrimitiveType</a>(GLenum newPrimitiveType) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        Material::primitiveType = newPrimitiveType;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_material.html#a6a0744388287b0d1831904d77f7d8764">   74</a></span>&#160;    [[nodiscard]] MaterialSide <a class="code" href="class_material.html#a6a0744388287b0d1831904d77f7d8764">getSide</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> side;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_material.html#a9aba22e005be6411c1315fda404a907f">   82</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a9aba22e005be6411c1315fda404a907f">setSide</a>(MaterialSide newSide) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        Material::side = newSide;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_material.html#a6a918f09c4360477f74356110126df8e">   89</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_material.html#a6a918f09c4360477f74356110126df8e">isDepthTest</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> depthTest;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">   97</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">setDepthTest</a>(<span class="keywordtype">bool</span> enableDepthTest) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        Material::depthTest = enableDepthTest;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_material.html#a895211010246aa1ee74a7808190b5b0b">  104</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_material.html#a895211010246aa1ee74a7808190b5b0b">isWriteDepth</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> writeDepth;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">  112</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">setWriteDepth</a>(<span class="keywordtype">bool</span> writeToDepth) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        Material::writeDepth = writeToDepth;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    GLenum primitiveType = GL_TRIANGLES;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    MaterialSide side = FrontSide;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">bool</span> depthTest;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> writeDepth;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    GLenum primitiveType = GL_TRIANGLES;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    MaterialSide side = FrontSide;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">bool</span> depthTest;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">bool</span> writeDepth;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif //INC_3D_DEMOS_MATERIAL_H</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif //INC_3D_DEMOS_MATERIAL_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_material_html_a895211010246aa1ee74a7808190b5b0b"><div class="ttname"><a href="class_material.html#a895211010246aa1ee74a7808190b5b0b">Material::isWriteDepth</a></div><div class="ttdeci">bool isWriteDepth() const</div><div class="ttdef"><b>Definition:</b> Material.h:106</div></div>
-<div class="ttc" id="aclass_material_html_a5db1d2d3f143144d0e2f11037e2a5355"><div class="ttname"><a href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">Material::setWriteDepth</a></div><div class="ttdeci">void setWriteDepth(bool writeToDepth)</div><div class="ttdef"><b>Definition:</b> Material.h:114</div></div>
-<div class="ttc" id="aclass_material_html_a5607ca39b439e11240e7b5a8915831ed"><div class="ttname"><a href="class_material.html#a5607ca39b439e11240e7b5a8915831ed">Material::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value, uint32_t arrayIndex)</div><div class="ttdef"><b>Definition:</b> Material.h:46</div></div>
-<div class="ttc" id="aclass_material_html_af4d74b55f8be6fead4bbd3ee29a529df"><div class="ttname"><a href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">Material::getPrimitiveType</a></div><div class="ttdeci">GLenum getPrimitiveType() const</div><div class="ttdef"><b>Definition:</b> Material.h:61</div></div>
+<div class="ttc" id="aclass_material_html_a895211010246aa1ee74a7808190b5b0b"><div class="ttname"><a href="class_material.html#a895211010246aa1ee74a7808190b5b0b">Material::isWriteDepth</a></div><div class="ttdeci">bool isWriteDepth() const</div><div class="ttdef"><b>Definition:</b> Material.h:104</div></div>
+<div class="ttc" id="aclass_material_html_a7de9a9344f8b329de2c2be89e67c52b2"><div class="ttname"><a href="class_material.html#a7de9a9344f8b329de2c2be89e67c52b2">Material::removeUniform</a></div><div class="ttdeci">bool removeUniform(const string &amp;name) const</div><div class="ttdef"><b>Definition:</b> Material.h:47</div></div>
+<div class="ttc" id="aclass_material_html_a5db1d2d3f143144d0e2f11037e2a5355"><div class="ttname"><a href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">Material::setWriteDepth</a></div><div class="ttdeci">void setWriteDepth(bool writeToDepth)</div><div class="ttdef"><b>Definition:</b> Material.h:112</div></div>
+<div class="ttc" id="aclass_material_html_af4d74b55f8be6fead4bbd3ee29a529df"><div class="ttname"><a href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">Material::getPrimitiveType</a></div><div class="ttdeci">GLenum getPrimitiveType() const</div><div class="ttdef"><b>Definition:</b> Material.h:59</div></div>
 <div class="ttc" id="a_material_side_8h_html"><div class="ttname"><a href="_material_side_8h.html">MaterialSide.h</a></div></div>
-<div class="ttc" id="aclass_material_html_af2edef1ab4b4cfb8520be2b28af0f88f"><div class="ttname"><a href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">Material::setDepthTest</a></div><div class="ttdeci">void setDepthTest(bool enableDepthTest)</div><div class="ttdef"><b>Definition:</b> Material.h:99</div></div>
+<div class="ttc" id="aclass_material_html_af2edef1ab4b4cfb8520be2b28af0f88f"><div class="ttname"><a href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">Material::setDepthTest</a></div><div class="ttdeci">void setDepthTest(bool enableDepthTest)</div><div class="ttdef"><b>Definition:</b> Material.h:97</div></div>
 <div class="ttc" id="a_shader_8h_html"><div class="ttname"><a href="_shader_8h.html">Shader.h</a></div></div>
 <div class="ttc" id="aclass_uniforms_handler_html_ae16bbd01117414ec64dc631fa8a3ac28"><div class="ttname"><a href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a></div><div class="ttdeci">boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4 &gt; UniformTypes</div><div class="ttdef"><b>Definition:</b> UniformsHandler.h:55</div></div>
-<div class="ttc" id="aclass_material_html_a6a918f09c4360477f74356110126df8e"><div class="ttname"><a href="class_material.html#a6a918f09c4360477f74356110126df8e">Material::isDepthTest</a></div><div class="ttdeci">bool isDepthTest() const</div><div class="ttdef"><b>Definition:</b> Material.h:91</div></div>
+<div class="ttc" id="aclass_material_html_a6a918f09c4360477f74356110126df8e"><div class="ttname"><a href="class_material.html#a6a918f09c4360477f74356110126df8e">Material::isDepthTest</a></div><div class="ttdeci">bool isDepthTest() const</div><div class="ttdef"><b>Definition:</b> Material.h:89</div></div>
 <div class="ttc" id="aclass_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> Material.h:17</div></div>
-<div class="ttc" id="aclass_material_html_a7b63ca59a20e103f1f511655f6e5ca6a"><div class="ttname"><a href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">Material::setPrimitiveType</a></div><div class="ttdeci">void setPrimitiveType(GLenum newPrimitiveType)</div><div class="ttdef"><b>Definition:</b> Material.h:69</div></div>
-<div class="ttc" id="aclass_material_html_a6a0744388287b0d1831904d77f7d8764"><div class="ttname"><a href="class_material.html#a6a0744388287b0d1831904d77f7d8764">Material::getSide</a></div><div class="ttdeci">MaterialSide getSide() const</div><div class="ttdef"><b>Definition:</b> Material.h:76</div></div>
-<div class="ttc" id="aclass_material_html_afc3486273b1103080f170a7d45b8029d"><div class="ttname"><a href="class_material.html#afc3486273b1103080f170a7d45b8029d">Material::removeUniform</a></div><div class="ttdeci">bool removeUniform(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> Material.h:49</div></div>
+<div class="ttc" id="aclass_material_html_a7476a27aaaa3337d6f4dfa3c5e44d22d"><div class="ttname"><a href="class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d">Material::setDefine</a></div><div class="ttdeci">void setDefine(const string &amp;defineName, const string &amp;defineValue) const</div><div class="ttdef"><b>Definition:</b> Material.h:38</div></div>
+<div class="ttc" id="aclass_material_html_a7b63ca59a20e103f1f511655f6e5ca6a"><div class="ttname"><a href="class_material.html#a7b63ca59a20e103f1f511655f6e5ca6a">Material::setPrimitiveType</a></div><div class="ttdeci">void setPrimitiveType(GLenum newPrimitiveType)</div><div class="ttdef"><b>Definition:</b> Material.h:67</div></div>
+<div class="ttc" id="aclass_material_html_a6a0744388287b0d1831904d77f7d8764"><div class="ttname"><a href="class_material.html#a6a0744388287b0d1831904d77f7d8764">Material::getSide</a></div><div class="ttdeci">MaterialSide getSide() const</div><div class="ttdef"><b>Definition:</b> Material.h:74</div></div>
+<div class="ttc" id="aclass_material_html_ade3d70e1ef2ebc40918f7de6134ccc00"><div class="ttname"><a href="class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00">Material::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value) const</div><div class="ttdef"><b>Definition:</b> Material.h:41</div></div>
 <div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.h:26</div></div>
-<div class="ttc" id="aclass_material_html_a9aba22e005be6411c1315fda404a907f"><div class="ttname"><a href="class_material.html#a9aba22e005be6411c1315fda404a907f">Material::setSide</a></div><div class="ttdeci">void setSide(MaterialSide newSide)</div><div class="ttdef"><b>Definition:</b> Material.h:84</div></div>
-<div class="ttc" id="aclass_material_html_af34edd4aa5f924d39df13e64e3369d63"><div class="ttname"><a href="class_material.html#af34edd4aa5f924d39df13e64e3369d63">Material::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value)</div><div class="ttdef"><b>Definition:</b> Material.h:43</div></div>
-<div class="ttc" id="aclass_material_html_a62107e6e47492d4461026ae70dbdfffd"><div class="ttname"><a href="class_material.html#a62107e6e47492d4461026ae70dbdfffd">Material::setDefine</a></div><div class="ttdeci">void setDefine(const string &amp;defineName, const string &amp;defineValue)</div><div class="ttdef"><b>Definition:</b> Material.h:38</div></div>
+<div class="ttc" id="aclass_material_html_a6f85f0fc45d441a5da4179579015c351"><div class="ttname"><a href="class_material.html#a6f85f0fc45d441a5da4179579015c351">Material::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value, uint32_t arrayIndex) const</div><div class="ttdef"><b>Definition:</b> Material.h:44</div></div>
+<div class="ttc" id="aclass_material_html_a9aba22e005be6411c1315fda404a907f"><div class="ttname"><a href="class_material.html#a9aba22e005be6411c1315fda404a907f">Material::setSide</a></div><div class="ttdeci">void setSide(MaterialSide newSide)</div><div class="ttdef"><b>Definition:</b> Material.h:82</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

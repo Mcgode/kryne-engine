@@ -50,7 +50,7 @@ var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
 "class_mesh.html#a35a377eb69c4baa0d495cb3ab1fde48d",
-"stb__image_8h.html#a23525ef2b882f3de426b47ecf8d9151b"
+"stb__image_8h.html#a5cbc6f5cbb3b2d0d87ee959fcee9d23e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
