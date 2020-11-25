@@ -18,31 +18,31 @@ FinalPostProcess::FinalPostProcess(Shader *shader)
 
 void FinalPostProcess::setIntUniform(int value, const string &uniformName)
 {
-    this->postProcessShader->setInt(uniformName, value);
+    this->postProcessShader->setUniform(uniformName, value);
 }
 
 
 void FinalPostProcess::setFloatUniform(float value, const string &uniformName)
 {
-    this->postProcessShader->setFloat(uniformName, value);
+    this->postProcessShader->setUniform(uniformName, value);
 }
 
 
 void FinalPostProcess::setVec2Uniform(glm::vec2 vector, const string &uniformName)
 {
-    this->postProcessShader->setVec2(uniformName, vector);
+    this->postProcessShader->setUniform(uniformName, vector);
 }
 
 
 void FinalPostProcess::setVec3Uniform(glm::vec3 vector, const string &uniformName)
 {
-    this->postProcessShader->setVec3(uniformName, vector);
+    this->postProcessShader->setUniform(uniformName, vector);
 }
 
 
 void FinalPostProcess::setVec4Uniform(glm::vec4 vector, const string &uniformName)
 {
-    this->postProcessShader->setVec4(uniformName, vector);
+    this->postProcessShader->setUniform(uniformName, vector);
 }
 
 

@@ -28,8 +28,8 @@ void Skybox::draw(glm::mat4 projection, glm::mat4 view)
     glCullFace(GL_FRONT);
     shader->use();
     cubemap->setTexture(shader, "cubemap");
-    shader->setMat4("projectionMatrix", projection);
-    shader->setMat4("viewMatrix", view);
+    shader->setUniform("projectionMatrix", projection);
+    shader->setUniform("viewMatrix", view);
     vertexArray->execute(GL_TRIANGLES);
     Shader::resetUse();
     glCullFace(GL_BACK);
@@ -39,6 +39,6 @@ void Skybox::draw(glm::mat4 projection, glm::mat4 view)
 void Skybox::setLightDirection(glm::vec3 direction)
 {
     shader->use();
-    shader->setVec3("sunDirection", direction);
+    shader->setUniform("sunDirection", direction);
     Shader::resetUse();
 }

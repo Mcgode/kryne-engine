@@ -84,7 +84,7 @@ void DirectionalShadowMapRendering::drawInScene(BaseObject *obj, glm::mat4 view,
 
         obj->getShader()->use();
 
-        this->shadowMapShader->setMat4("lightSpaceMatrix", this->projection * view);
+        this->shadowMapShader->setUniform("lightSpaceMatrix", this->projection * view);
 
         obj->shapeDraw(glm::mat4(this->projection), view, model, params);
 
