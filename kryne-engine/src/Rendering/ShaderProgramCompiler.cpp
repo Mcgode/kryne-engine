@@ -71,7 +71,7 @@ void ShaderProgramCompiler::compileVertex(const string &shaderCode, const string
                   previousLayoutCode.first + "\n" +
                   definesCode + '\n' +
                   replaceIncludes(shaderCode);
-    compileShader(code, this->fragmentShaderId);
+    compileShader(code, this->vertexShaderId);
 }
 
 
