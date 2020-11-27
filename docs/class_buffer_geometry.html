@@ -115,13 +115,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae0a5eb4a3a41bf8a777de7781b108c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3febfe3850d87b18a4e8d42352f0b94"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ae3febfe3850d87b18a4e8d42352f0b94">~BufferGeometry</a> ()</td></tr>
 <tr class="separator:ae3febfe3850d87b18a4e8d42352f0b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8ce9566df6a86b97ed86df3cfad0bbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ac8ce9566df6a86b97ed86df3cfad0bbe">computeTangents</a> ()</td></tr>
-<tr class="separator:ac8ce9566df6a86b97ed86df3cfad0bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d92262d7fd788c5cc64bac05b56bb04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a1d92262d7fd788c5cc64bac05b56bb04">computeTangents</a> ()</td></tr>
+<tr class="separator:a1d92262d7fd788c5cc64bac05b56bb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60467b97a564b06120f28948b5cf4201"><td class="memItemLeft" align="right" valign="top">const pair&lt; string, uint64_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">getShaderLayoutCode</a> () const</td></tr>
+<tr class="separator:a60467b97a564b06120f28948b5cf4201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa42b4bd617cf7939c8e5bd8893bc429a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a">updateLength</a> ()</td></tr>
 <tr class="separator:aa42b4bd617cf7939c8e5bd8893bc429a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1025b03991ee389abc822e8209f3701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701">updateLayoutCode</a> ()</td></tr>
+<tr class="separator:af1025b03991ee389abc822e8209f3701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -154,6 +158,10 @@ vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#a689cc72be6cb39978e322bea65141051">ebo</a> = 0</td></tr>
 <tr class="memdesc:a689cc72be6cb39978e322bea65141051"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of the EBO if one is used. <br /></td></tr>
 <tr class="separator:a689cc72be6cb39978e322bea65141051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8beb2a2f2bc00e4fd82bb5c34d7ba03"><td class="memItemLeft" align="right" valign="top"><a id="ac8beb2a2f2bc00e4fd82bb5c34d7ba03"></a>
+pair&lt; string, uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">layoutCode</a> {}</td></tr>
+<tr class="memdesc:ac8beb2a2f2bc00e4fd82bb5c34d7ba03"><td class="mdescLeft">&#160;</td><td class="mdescRight">The shader layout code along its hash value. <br /></td></tr>
+<tr class="separator:ac8beb2a2f2bc00e4fd82bb5c34d7ba03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles a geometry that will be rendered to the screen. </p>
@@ -275,21 +283,21 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
-<a id="ac8ce9566df6a86b97ed86df3cfad0bbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8ce9566df6a86b97ed86df3cfad0bbe">&#9670;&nbsp;</a></span>computeTangents()</h2>
+<a id="a1d92262d7fd788c5cc64bac05b56bb04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d92262d7fd788c5cc64bac05b56bb04">&#9670;&nbsp;</a></span>computeTangents()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BufferGeometry::computeTangents </td>
+          <td class="memname">bool BufferGeometry::computeTangents </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computes the 'tangent' attribute for this geometry. Requires both the 'position' and 'uv' attributes to be set. </p><dl class="section return"><dt>Returns</dt><dd><code>true</code> if successful at computing the tangents, false otherwise. </dd></dl>
+<p>Computes the 'tangent' attribute for this geometry. Requires both the 'position' and 'uv' attributes to be set. </p><dl class="section return"><dt>Returns</dt><dd><code>true</code> if successful at computing the tangents, <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -314,6 +322,32 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a60467b97a564b06120f28948b5cf4201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60467b97a564b06120f28948b5cf4201">&#9670;&nbsp;</a></span>getShaderLayoutCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const pair&lt;string, uint64_t&gt;&amp; BufferGeometry::getShaderLayoutCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the vertex shader layout code, based off the layout data of this geometry. </p><dl class="section return"><dt>Returns</dt><dd>A pair containing the code as a string, and its hash (for accelerated string comparison) </dd></dl>
 
 </div>
 </div>
@@ -342,7 +376,8 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the value of a buffer attribute. Will update a previous attribute or override it if needs be. Will update <a class="el" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f" title="The length of the vertices for this geometry. Used for drawing.">BufferGeometry::length</a> if needed. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the value of a buffer attribute. Will update a previous attribute or override it if needs be. Will update <a class="el" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f" title="The length of the vertices for this geometry. Used for drawing.">BufferGeometry::length</a> if needed. Will update the shader attribute layout code for this geometry, by calling <a class="el" href="class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701">BufferGeometry::updateLayoutCode</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The name for this attribute. </td></tr>
     <tr><td class="paramname">attribute</td><td>The <a class="el" href="class_buffer_attribute.html">BufferAttribute</a> object itself. </td></tr>
@@ -373,6 +408,32 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af1025b03991ee389abc822e8209f3701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1025b03991ee389abc822e8209f3701">&#9670;&nbsp;</a></span>updateLayoutCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferGeometry::updateLayoutCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Updates the shader layout code. </p>
 
 </div>
 </div>

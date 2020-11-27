@@ -6,6 +6,7 @@ var class_material =
     [ "getSide", "class_material.html#a6a0744388287b0d1831904d77f7d8764", null ],
     [ "isDepthTest", "class_material.html#a6a918f09c4360477f74356110126df8e", null ],
     [ "isWriteDepth", "class_material.html#a895211010246aa1ee74a7808190b5b0b", null ],
+    [ "prepareShader", "class_material.html#a67459e974f4150ebd7c617c11a418e82", null ],
     [ "removeUniform", "class_material.html#a7de9a9344f8b329de2c2be89e67c52b2", null ],
     [ "resetUse", "class_material.html#a36a235f5948f6f0e5719a4bb636cf0de", null ],
     [ "setDefine", "class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d", null ],
@@ -16,5 +17,6 @@ var class_material =
     [ "setUniform", "class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00", null ],
     [ "setUniform", "class_material.html#a6f85f0fc45d441a5da4179579015c351", null ],
     [ "setWriteDepth", "class_material.html#a5db1d2d3f143144d0e2f11037e2a5355", null ],
-    [ "use", "class_material.html#afab751a26253290914dfc94d78ee23a8", null ]
+    [ "compiler", "class_material.html#abddfc4733f474ea74f8dac414dba0e5d", null ],
+    [ "shader", "class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11", null ]
 ];

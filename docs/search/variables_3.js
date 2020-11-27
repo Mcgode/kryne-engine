@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['indexes_377',['indexes',['../class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c',1,'BufferGeometry']]],
-  ['inverseprojectionmatrix_378',['inverseProjectionMatrix',['../class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6',1,'ProjectionData']]]
+  ['geometry_409',['geometry',['../class_mesh.html#a84c17ac45dfa440d2dcf56102ea9e914',1,'Mesh']]]
 ];

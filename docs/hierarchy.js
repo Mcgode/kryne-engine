@@ -39,6 +39,7 @@ var hierarchy =
     [ "RenderScene", "class_render_scene.html", null ],
     [ "Shader", "class_shader.html", null ],
     [ "ShaderChunk", "class_shader_chunk.html", null ],
+    [ "ShaderProgramCompiler", "class_shader_program_compiler.html", null ],
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],

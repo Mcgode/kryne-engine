@@ -15,5 +15,6 @@ var dir_242c69f8aa6c0b27ad66788f5b769271 =
     ] ],
     [ "RenderScene.h", "_render_scene_8h.html", [
       [ "RenderScene", "class_render_scene.html", "class_render_scene" ]
-    ] ]
+    ] ],
+    [ "ShaderProgramCompiler.h", "_shader_program_compiler_8h.html", "_shader_program_compiler_8h" ]
 ];

@@ -4,10 +4,14 @@ var class_shader =
     [ "Shader", "class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b", null ],
     [ "Shader", "class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38", null ],
     [ "~Shader", "class_shader.html#aff01df87e8a102f270b5b135a295e59d", null ],
+    [ "Shader", "class_shader.html#a0d654ebaca4e0555197c0724c6d30610", null ],
     [ "getDefines", "class_shader.html#acce1edbe7e892fd91a654c57b4cfab06", null ],
     [ "getFragmentShader", "class_shader.html#a06a13afc6b863a1eb9740a2627888e30", null ],
-    [ "getProgramID", "class_shader.html#a230562150198f894aae3474ae9396941", null ],
+    [ "getNeedsUpdate", "class_shader.html#a8dbd8d624b47ff9210792cf212b354cb", null ],
     [ "getVertexShader", "class_shader.html#a8beb925ecccca417ef349bdfb79635d5", null ],
+    [ "linkProgram", "class_shader.html#a7637efa75bb0ae98a750d644cb6d353e", null ],
+    [ "makeDefinesCode", "class_shader.html#a0c7f6034531e85b8581b71a24e183232", null ],
+    [ "notifyUniformLocationsNeedUpdate", "class_shader.html#aba3a4c3871308ae17fadb917b85e54a9", null ],
     [ "removeDefine", "class_shader.html#a14cbf6a53594238fd33c1b051f319270", null ],
     [ "removeUniform", "class_shader.html#a39cc44566da583a305e1251a06b7bd38", null ],
     [ "setDefine", "class_shader.html#a7e328f1cedac7d28169e8cee0643046e", null ],
@@ -17,5 +21,6 @@ var class_shader =
     [ "setUniform", "class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12", null ],
     [ "setVertexShader", "class_shader.html#ae61e5eede95aea935a9ed04722184af1", null ],
     [ "updateUniforms", "class_shader.html#a4b326f5b184c138cd724da54b75d9123", null ],
-    [ "use", "class_shader.html#a870fa9f13d69e558815d6fd351a469dc", null ]
+    [ "use", "class_shader.html#a870fa9f13d69e558815d6fd351a469dc", null ],
+    [ "needsUpdate", "class_shader.html#a0aef50f03368063c5912a25d053fc8f8", null ]
 ];

@@ -32,6 +32,7 @@ var annotated_dup =
     [ "Scene", "class_scene.html", "class_scene" ],
     [ "Shader", "class_shader.html", "class_shader" ],
     [ "ShaderChunk", "class_shader_chunk.html", "class_shader_chunk" ],
+    [ "ShaderProgramCompiler", "class_shader_program_compiler.html", "class_shader_program_compiler" ],
     [ "ShadowMapHandler", "class_shadow_map_handler.html", "class_shadow_map_handler" ],
     [ "Skybox", "class_skybox.html", "class_skybox" ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", "structstbi__io__callbacks" ],
