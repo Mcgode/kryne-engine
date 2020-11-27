@@ -1,0 +1,10 @@
+<map id="MainRenderer::drawInScene" name="MainRenderer::drawInScene">
+<area shape="rect" id="node1" title=" " alt="" coords="5,144,189,171"/>
+<area shape="rect" id="node2" href="$class_base_object.html#ac78b5f4ad8069c91337483eddcca539b" title=" " alt="" coords="265,5,390,32"/>
+<area shape="rect" id="node4" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="471,56,605,83"/>
+<area shape="rect" id="node5" href="$class_point_light.html#a10ab4fd8df4eb5fd3d91218bae23cd5c" title=" " alt="" coords="237,107,417,149"/>
+<area shape="rect" id="node6" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="266,173,389,200"/>
+<area shape="rect" id="node7" href="$class_directional_light.html#acc011ed29f9bd3397ab07f9c1c114e9f" title=" " alt="" coords="238,224,417,251"/>
+<area shape="rect" id="node8" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="281,275,373,301"/>
+<area shape="rect" id="node3" href="$class_vertex_array.html#acbd3f02e554fa827be46baf96d8bdabc" title=" " alt="" coords="465,5,611,32"/>
+</map>

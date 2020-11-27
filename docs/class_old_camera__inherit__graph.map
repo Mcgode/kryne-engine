@@ -1,0 +1,6 @@
+<map id="OldCamera" name="OldCamera">
+<area shape="rect" id="node1" title=" " alt="" coords="153,5,240,32"/>
+<area shape="rect" id="node2" href="$class_basic_camera.html" title=" " alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node3" href="$class_first_person_camera.html" title=" " alt="" coords="129,80,264,107"/>
+<area shape="rect" id="node4" href="$class_trackball_camera.html" title=" " alt="" coords="288,80,407,107"/>
+</map>
