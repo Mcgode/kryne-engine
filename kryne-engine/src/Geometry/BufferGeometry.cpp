@@ -189,7 +189,7 @@ void BufferGeometry::updateLayoutCode()
 
     for (const auto &attribute : this->attributes) {
 
-        string code = "layout (location =" + to_string(attribute.second.second) + ") ";
+        string code = "layout (location = " + to_string(attribute.second.second) + ") in ";
 
         string type = attribute.second.first->inferTypeString();
         if (type.empty()) {
