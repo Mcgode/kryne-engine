@@ -17,8 +17,8 @@
 #include "UniformsHandler.h"
 #include "ShaderChunk.h"
 
-#define VERTEX_SHADER_NEEDS_UPDATE 0b01u
-#define FRAGMENT_SHADER_NEEDS_UPDATE 0b10u
+#define SHADER_VERTEX_NEEDS_UPDATE      0b001u
+#define SHADER_FRAGMENT_NEEDS_UPDATE    0b010u
 
 using namespace std;
 
@@ -55,18 +55,16 @@ public:
      */
     ~Shader();
 
-private:
+    void linkProgram(const GLuint &vertex, const GLuint &fragment) const;
+
+protected:
 
     /**
      * Private initializer for initializing the shaders and the program.
      */
     Shader();
 
-    void createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode);
-
-    void compileShader(GLuint shader, const string *code);
-
-    void compileProgram() const;
+    static void createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode);
 
     uint8_t needsUpdate = 0b00;
 
@@ -74,7 +72,9 @@ private:
 public:
 
     /**
-     * Notify renderer to use this shader for drawing
+     * Notify renderer to use this shader for drawing.
+     *
+     * @note Call this when the shader has finished updating and/or compiling since Shader::needsUpdate will be reset.
      */
     void use();
 
@@ -96,7 +96,7 @@ public:
      */
     void setVertexShader(const string &newVertexShader) {
         Shader::vertexShader = newVertexShader;
-        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE;
+        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE;
     }
 
 
@@ -113,16 +113,13 @@ public:
      */
     void setFragmentShader(const string &newFragmentShader) {
         Shader::fragmentShader = newFragmentShader;
-        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE;
+        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE;
     }
 
-    [[nodiscard]] const GLuint &getProgramID() const {
-        return this->programID;
-    }
-
-private:
-
-    static string replaceIncludes(const string &baseCode, const string &indentation = "");
+    /**
+     * Retrieves need-update status.
+     */
+    [[nodiscard]] uint8_t getNeedsUpdate() const { return needsUpdate; }
 
 private:
 
@@ -130,11 +127,7 @@ private:
 
     string vertexShader;
 
-    GLuint vertexShaderId;
-
     string fragmentShader;
-
-    GLuint fragmentShaderId;
 
     std::map<std::string, uint8_t> textureMap{};
 
@@ -160,7 +153,7 @@ public:
         const auto emplaceResult = Shader::defines.emplace(defineName, defineValue);
         if (!emplaceResult.second)
             emplaceResult.first->second = defineValue;
-        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE | FRAGMENT_SHADER_NEEDS_UPDATE;
+        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
     }
 
     /**
@@ -169,16 +162,16 @@ public:
      * @returns true if an element was erased, false otherwise.
      */
     bool removeDefine(const string &defineName) {
-        Shader::needsUpdate |= VERTEX_SHADER_NEEDS_UPDATE | FRAGMENT_SHADER_NEEDS_UPDATE;
+        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
         return Shader::defines.erase(defineName) > 0;
     }
-
-private:
 
     /**
      * Generates the code for the defines
      */
-    string makeDefinesCode();
+    string makeDefinesCode() const;
+
+private:
 
     /// The storage for the defines
     unordered_map<string, string> defines;
@@ -196,6 +189,9 @@ public:
 
     //! @copydoc UniformsHandler::removeUniform()
     [[nodiscard]] bool removeUniform(const string &name) const { return Shader::uniformsHandler->removeUniform(name); }
+
+    //! @copydoc UniformsHandler::notifyUniformLocationsNeedUpdate
+    void notifyUniformLocationsNeedUpdate() { this->uniformsHandler->notifyUniformLocationsNeedUpdate(); }
 
     //! @copydoc UniformsHandler::updateUniforms()
     void updateUniforms() const { Shader::uniformsHandler->updateUniforms(); }

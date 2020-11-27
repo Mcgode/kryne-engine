@@ -11,6 +11,7 @@
 #include <memory>
 #include <iostream>
 #include <unordered_map>
+#include <functional>
 
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -35,6 +36,8 @@ public:
      * Sets the value of a buffer attribute.
      * Will update a previous attribute or override it if needs be.
      * Will update BufferGeometry::length if needed.
+     * Will update the shader attribute layout code for this geometry, by calling BufferGeometry::updateLayoutCode.
+     *
      * @param name      The name for this attribute.
      * @param attribute The BufferAttribute object itself.
      */
@@ -106,6 +109,27 @@ protected:
      * @return The tangent for this face
      */
     static glm::vec3 computeTangent(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2);
+
+
+public:
+
+    /**
+     * Returns the vertex shader layout code, based off the layout data of this geometry.
+     * @returns A pair containing the code as a string, and its hash (for accelerated string comparison)
+     */
+    [[nodiscard]] const pair<string, uint64_t> &getShaderLayoutCode() const { return BufferGeometry::layoutCode; };
+
+protected:
+
+    /**
+     * Updates the shader layout code.
+     */
+    void updateLayoutCode();
+
+protected:
+
+    /// The shader layout code along its hash value.
+    pair<string, uint64_t> layoutCode {};
 
 };
 

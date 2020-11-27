@@ -4,13 +4,11 @@
 
 #include "kryne-engine/Material/Material.h"
 
-void Material::use()
+
+void Material::prepareShader(const BufferGeometry *geometry)
 {
+    if (this->shader->getNeedsUpdate())
+        this->shader->notifyUniformLocationsNeedUpdate();
+    this->compiler->checkShaderCompile(this->shader.get(), geometry);
     this->shader->use();
-}
-
-
-void Material::resetUse()
-{
-    this->shader->resetUse();
 }

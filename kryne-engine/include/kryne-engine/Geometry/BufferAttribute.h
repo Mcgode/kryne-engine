@@ -68,6 +68,15 @@ private:
     /// The VBO id of the buffer
     GLuint vbo {};
 
+
+public:
+
+    /**
+     * Infers the type string for this attribute. Used for automatic shader attribute layout code generation.
+     * @return If the type couldn't be inferred, the string will be empty.
+     */
+    [[nodiscard]] string inferTypeString() const;
+
 };
 
 

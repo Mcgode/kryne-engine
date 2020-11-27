@@ -13,12 +13,10 @@
 
 Shader::Shader()
 {
-    // Initialise shaders
-    this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
-    this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-
     // Initialise program
     this->programID = glCreateProgram();
+
+    this->needsUpdate = SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
 
     this->uniformsHandler = make_unique<UniformsHandler>(this->programID);
 
@@ -29,22 +27,18 @@ Shader::Shader()
 Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename): Shader()
 {
     // Recovering and compiling both shaders
-    createShaderFromFile(this->vertexShaderId,   GL_VERTEX_SHADER,   vertexShaderFilename,   &this->vertexShader);
-    createShaderFromFile(this->fragmentShaderId, GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
-
-    this->compileProgram();
+    createShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename, &this->vertexShader);
+    createShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
 }
 
 
 Shader::~Shader()
 {
-    glDeleteShader(this->vertexShaderId);
-    glDeleteShader(this->fragmentShaderId);
     glDeleteProgram(this->programID);
 }
 
 
-void Shader::createShaderFromFile(GLuint shader, GLenum type, const char *filename, std::string *shaderCode)
+void Shader::createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode)
 {
     // Loading extension from shader type
     std::string extension;
@@ -77,22 +71,12 @@ void Shader::createShaderFromFile(GLuint shader, GLenum type, const char *filena
     file.seekg(0, std::ios::beg); // Resetting the cursor position to the beginning
     file.read(&(*shaderCode)[0], shaderCode->size()); // Copying whole file to string
     file.close();
-
-    Shader::compileShader(shader, shaderCode);
 }
 
 
 void Shader::use()
 {
-    if (this->needsUpdate) {
-        if (this->needsUpdate & VERTEX_SHADER_NEEDS_UPDATE)
-            this->compileShader(this->vertexShaderId, &this->vertexShader);
-        if (this->needsUpdate & FRAGMENT_SHADER_NEEDS_UPDATE)
-            this->compileShader(this->fragmentShaderId, &this->fragmentShader);
-        this->compileProgram();
-        this->needsUpdate = 0;
-        this->uniformsHandler->notifyUniformLocationsNeedUpdate();
-    }
+    this->needsUpdate = 0;
     glUseProgram(this->programID);
 }
 
@@ -128,35 +112,11 @@ void Shader::setTexture(const std::string &name)
 }
 
 
-void Shader::compileShader(GLuint shader, const string *code)
-{
-    string finalCode = "#version 330 core\n";
-    finalCode += this->makeDefinesCode();
-    finalCode += Shader::replaceIncludes(*code);
-    const GLchar* sourceCodeString = finalCode.c_str();
-
-    // Compiling shader
-    glShaderSource(shader, 1, &sourceCodeString, nullptr);
-    glCompileShader(shader);
-
-    // Check if compile succeeded
-    int  success;
-    char infoLog[512];
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if(success == 0)
-    {
-        glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-        std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-        cout << finalCode << endl;
-    }
-}
-
-
-void Shader::compileProgram() const
+void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment) const
 {
     // Attaching shaders to program
-    glAttachShader(this->programID, this->vertexShaderId);
-    glAttachShader(this->programID, this->fragmentShaderId);
+    glAttachShader(this->programID, vertex);
+    glAttachShader(this->programID, fragment);
 
     // Linking program
     glLinkProgram(this->programID);
@@ -172,29 +132,7 @@ void Shader::compileProgram() const
 }
 
 
-string Shader::replaceIncludes(const string &baseCode, const string &indentation)
-{
-    regex includeRegex(R"((\n|^)(\s*)(#include\s*<([a-zA-Z0-9_-]+)>))");
-    smatch results;
-
-    string newCode, line;
-    istringstream iss(baseCode);
-    while (getline(iss, line)) {
-        if (!newCode.empty())
-            newCode.push_back('\n');
-        if (regex_search(line, results, includeRegex)) {
-            auto codeChunk = ShaderChunk::getInstance().getCodeChunk(results[4].str());
-            newCode += Shader::replaceIncludes(codeChunk, indentation + results[2].str());
-        } else {
-            newCode += indentation + line;
-        }
-    }
-
-    return newCode;
-}
-
-
-string Shader::makeDefinesCode()
+string Shader::makeDefinesCode() const
 {
     string code;
     for (const auto &pair : this->defines) {

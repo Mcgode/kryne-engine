@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <kryne-engine/enums/MaterialSide.h>
+#include <kryne-engine/Rendering/ShaderProgramCompiler.h>
 #include "Shader.h"
 
 using namespace std;
@@ -28,11 +29,8 @@ public:
         Material::shader = move(newShader);
     }
 
-    //! @copydoc Shader::use()
-    void use();
-
     //! @copydoc Shader::resetUse()
-    void resetUse();
+    void resetUse() { Material::shader->resetUse(); }
 
     //! @copydoc Shader::setDefine()
     void setDefine(const string &defineName, const string &defineValue) const { this->shader->setDefine(defineName, defineValue); }
@@ -46,9 +44,18 @@ public:
     //! @copydoc UniformsHandler::removeUniform()
     [[nodiscard]] bool removeUniform(const string &name) const { return Material::shader->removeUniform(name); }
 
-private:
+protected:
 
     unique_ptr<Shader> shader;
+
+
+public:
+
+    void prepareShader(const BufferGeometry *geometry);
+
+protected:
+
+    unique_ptr<ShaderProgramCompiler> compiler = make_unique<ShaderProgramCompiler>();
 
 
 public:
@@ -122,10 +129,10 @@ private:
     MaterialSide side = FrontSide;
 
     /// Whether this material should do depth testing or not.
-    bool depthTest;
+    bool depthTest = true;
 
     /// Whether this material should write to depth or not.
-    bool writeDepth;
+    bool writeDepth = true;
 
 };
 

@@ -39,3 +39,24 @@ uint32_t BufferAttribute::getLength()
 {
     return this->data.size() / this->itemSize;
 }
+
+
+string BufferAttribute::inferTypeString() const
+{
+    switch (itemSize) {
+        case 1:
+            return "float";
+        case 2:
+            return "vec2";
+        case 3:
+            return "vec3";
+        case 4:
+            return "vec4";
+        case 9:
+            return "mat3";
+        case 16:
+            return "mat4";
+        default:
+            return string();
+    }
+}

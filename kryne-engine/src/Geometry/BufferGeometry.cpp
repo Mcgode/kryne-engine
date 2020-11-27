@@ -34,6 +34,7 @@ void BufferGeometry::setAttribute(const string &name, unique_ptr<BufferAttribute
     }
 
     this->updateLength();
+    this->updateLayoutCode();
 }
 
 
@@ -179,4 +180,29 @@ bool BufferGeometry::computeTangents()
             make_unique<BufferAttribute>(tangentFloats, 3));
 
     return true;
+}
+
+
+void BufferGeometry::updateLayoutCode()
+{
+    string fullCode;
+
+    for (const auto &attribute : this->attributes) {
+
+        string code = "layout (location =" + to_string(attribute.second.second) + ") ";
+
+        string type = attribute.second.first->inferTypeString();
+        if (type.empty()) {
+            cout << "Unable to infer type for attribute '"
+                 << attribute.first << "' with item size "
+                 << attribute.second.first->getItemSize() << endl;
+            continue;
+        }
+
+        code += type + " " + attribute.first + ";\n";
+
+        fullCode += code;
+    }
+
+    this->layoutCode = make_pair(fullCode, hash<string>{}(fullCode));
 }

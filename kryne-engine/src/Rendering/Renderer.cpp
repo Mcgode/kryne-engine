@@ -37,7 +37,7 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
     if (mesh) {
         const auto& material = mesh->getMaterial();
 
-        material->use();
+        material->prepareShader(mesh->getGeometry().get());
 
         // Only update external rendering state once, before drawing any object.
         // Since each object can have a different required state in this regard, it needs to be checked every single time.
