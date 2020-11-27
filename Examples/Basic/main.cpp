@@ -12,9 +12,7 @@ int main()
 
     auto scene = make_unique<Scene>();
 
-    const string vertexShader = "layout (location = 0) in vec3 position;\n"
-                                "layout (location = 1) in vec3 normal;\n"
-                                "uniform mat4 projectionMatrix;\n"
+    const string vertexShader = "uniform mat4 projectionMatrix;\n"
                                 "uniform mat4 viewMatrix;\n"
                                 "uniform mat4 modelMatrix;\n"
                                 "out vec3 vNormal;\n"
