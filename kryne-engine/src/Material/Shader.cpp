@@ -66,10 +66,12 @@ void Shader::loadShaderFromFile(GLenum type, const char *filename, std::string *
     }
 
     // Parsing source code into a string
-    file.seekg(0, std::ios::end); // Setting cursor position to file end
-    shaderCode->resize(file.tellg()); // Getting value of last position from the current cursor position and setting the string size accordingly
-    file.seekg(0, std::ios::beg); // Resetting the cursor position to the beginning
-    file.read(&(*shaderCode)[0], shaderCode->size()); // Copying whole file to string
+    string line;
+    while (StringUtils::safeGetLine(file, line)) {
+        if (!shaderCode->empty())
+            shaderCode->push_back('\n');
+        *shaderCode += line;
+    }
     file.close();
 }
 

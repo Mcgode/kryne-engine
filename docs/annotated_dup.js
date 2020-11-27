@@ -36,6 +36,7 @@ var annotated_dup =
     [ "ShadowMapHandler", "class_shadow_map_handler.html", "class_shadow_map_handler" ],
     [ "Skybox", "class_skybox.html", "class_skybox" ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", "structstbi__io__callbacks" ],
+    [ "StringUtils", "class_string_utils.html", null ],
     [ "Texture2D", "class_texture2_d.html", "class_texture2_d" ],
     [ "TextureCubeMap", "class_texture_cube_map.html", "class_texture_cube_map" ],
     [ "TrackballCamera", "class_trackball_camera.html", "class_trackball_camera" ],

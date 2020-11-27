@@ -38,5 +38,7 @@ var searchData=
   ['skybox_2eh_171',['Skybox.h',['../_skybox_8h.html',1,'']]],
   ['skyboxdraworder_2eh_172',['SkyboxDrawOrder.h',['../_skybox_draw_order_8h.html',1,'']]],
   ['stb_5fimage_2eh_173',['stb_image.h',['../stb__image_8h.html',1,'']]],
-  ['stbi_5fio_5fcallbacks_174',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]]
+  ['stbi_5fio_5fcallbacks_174',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]],
+  ['stringutils_175',['StringUtils',['../class_string_utils.html',1,'']]],
+  ['stringutils_2ehpp_176',['StringUtils.hpp',['../_string_utils_8hpp.html',1,'']]]
 ];
