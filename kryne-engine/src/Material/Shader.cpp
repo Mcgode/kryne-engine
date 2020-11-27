@@ -27,8 +27,8 @@ Shader::Shader()
 Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename): Shader()
 {
     // Recovering and compiling both shaders
-    createShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename, &this->vertexShader);
-    createShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
+    loadShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename, &this->vertexShader);
+    loadShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
 }
 
 
@@ -38,7 +38,7 @@ Shader::~Shader()
 }
 
 
-void Shader::createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode)
+void Shader::loadShaderFromFile(GLenum type, const char *filename, std::string *shaderCode)
 {
     // Loading extension from shader type
     std::string extension;

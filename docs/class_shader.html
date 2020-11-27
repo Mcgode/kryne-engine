@@ -86,12 +86,13 @@ $(document).ready(function(){initNavTree('class_shader.html',''); initResizable(
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_shader-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Shader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_shader_8h_source.html">Shader.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,8 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afa65ccfbc91a1ec842bd2a5ad3d7fe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff01df87e8a102f270b5b135a295e59d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#aff01df87e8a102f270b5b135a295e59d">~Shader</a> ()</td></tr>
 <tr class="separator:aff01df87e8a102f270b5b135a295e59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7637efa75bb0ae98a750d644cb6d353e"><td class="memItemLeft" align="right" valign="top"><a id="a7637efa75bb0ae98a750d644cb6d353e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>linkProgram</b> (const GLuint &amp;vertex, const GLuint &amp;fragment) const</td></tr>
+<tr class="memitem:a7637efa75bb0ae98a750d644cb6d353e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#a7637efa75bb0ae98a750d644cb6d353e">linkProgram</a> (const GLuint &amp;vertex, const GLuint &amp;fragment) const</td></tr>
 <tr class="separator:a7637efa75bb0ae98a750d644cb6d353e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a870fa9f13d69e558815d6fd351a469dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#a870fa9f13d69e558815d6fd351a469dc">use</a> ()</td></tr>
 <tr class="separator:a870fa9f13d69e558815d6fd351a469dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,17 +152,12 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:adc7bd6423086a86a3b494b6e0664993c"><td class="memItemLeft" align="right" valign="top"><a id="adc7bd6423086a86a3b494b6e0664993c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>createShaderFromFile</b> (GLenum type, const char *filename, std::string *shaderCode)</td></tr>
-<tr class="separator:adc7bd6423086a86a3b494b6e0664993c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a0aef50f03368063c5912a25d053fc8f8"><td class="memItemLeft" align="right" valign="top"><a id="a0aef50f03368063c5912a25d053fc8f8"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>needsUpdate</b> = 0b00</td></tr>
-<tr class="separator:a0aef50f03368063c5912a25d053fc8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b977ab2afc45fe10382616ac4f899c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#ad6b977ab2afc45fe10382616ac4f899c">loadShaderFromFile</a> (GLenum type, const char *filename, std::string *shaderCode)</td></tr>
+<tr class="separator:ad6b977ab2afc45fe10382616ac4f899c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles the storage of shader information </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a153d748b994fd4d7447e5ac4af8f30be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a153d748b994fd4d7447e5ac4af8f30be">&#9670;&nbsp;</a></span>Shader() <span class="overload">[1/4]</span></h2>
 
@@ -313,7 +308,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>needsUpdate</b> = 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Private initializer for initializing the shaders and the program. </p>
+<p>Protected initializer for the shader program. </p>
 
 </div>
 </div>
@@ -419,6 +414,91 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>needsUpdate</b> = 
 </table>
 </div><div class="memdoc">
 <p>Retrieve current vertex shader code </p>
+
+</div>
+</div>
+<a id="a7637efa75bb0ae98a750d644cb6d353e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7637efa75bb0ae98a750d644cb6d353e">&#9670;&nbsp;</a></span>linkProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Shader::linkProgram </td>
+          <td>(</td>
+          <td class="paramtype">const GLuint &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GLuint &amp;&#160;</td>
+          <td class="paramname"><em>fragment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Links the provided shaders to the program </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>The vertex shader to attach to the program. </td></tr>
+    <tr><td class="paramname">fragment</td><td>The fragment shader to attach to the program. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6b977ab2afc45fe10382616ac4f899c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b977ab2afc45fe10382616ac4f899c">&#9670;&nbsp;</a></span>loadShaderFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Shader::loadShaderFromFile </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>shaderCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Loads a shader for the local disk. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type of shader to load. </td></tr>
+    <tr><td class="paramname">filename</td><td>The filename of the shader to load. </td></tr>
+    <tr><td class="paramname">shaderCode</td><td>The string where the shader code will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

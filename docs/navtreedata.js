@@ -51,7 +51,7 @@ var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
 "class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d",
-"enums_2_base_object_8h_source.html"
+"files.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -23,6 +23,9 @@
 using namespace std;
 
 
+/**
+ * Handles the storage of shader information
+ */
 class Shader {
 
 public:
@@ -55,18 +58,27 @@ public:
      */
     ~Shader();
 
+    /**
+     * Links the provided shaders to the program
+     * @param vertex    The vertex shader to attach to the program.
+     * @param fragment  The fragment shader to attach to the program.
+     */
     void linkProgram(const GLuint &vertex, const GLuint &fragment) const;
 
 protected:
 
     /**
-     * Private initializer for initializing the shaders and the program.
+     * Protected initializer for the shader program.
      */
     Shader();
 
-    static void createShaderFromFile(GLenum type, const char *filename, std::string *shaderCode);
-
-    uint8_t needsUpdate = 0b00;
+    /**
+     * Loads a shader for the local disk.
+     * @param type          The type of shader to load.
+     * @param filename      The filename of the shader to load.
+     * @param shaderCode    The string where the shader code will be stored.
+     */
+    static void loadShaderFromFile(GLenum type, const char *filename, std::string *shaderCode);
 
 
 public:
@@ -124,6 +136,8 @@ public:
 private:
 
     GLuint programID;
+
+    uint8_t needsUpdate = 0b00;
 
     string vertexShader;
 

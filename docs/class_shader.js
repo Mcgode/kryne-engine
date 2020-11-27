@@ -21,6 +21,5 @@ var class_shader =
     [ "setUniform", "class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12", null ],
     [ "setVertexShader", "class_shader.html#ae61e5eede95aea935a9ed04722184af1", null ],
     [ "updateUniforms", "class_shader.html#a4b326f5b184c138cd724da54b75d9123", null ],
-    [ "use", "class_shader.html#a870fa9f13d69e558815d6fd351a469dc", null ],
-    [ "needsUpdate", "class_shader.html#a0aef50f03368063c5912a25d053fc8f8", null ]
+    [ "use", "class_shader.html#a870fa9f13d69e558815d6fd351a469dc", null ]
 ];
