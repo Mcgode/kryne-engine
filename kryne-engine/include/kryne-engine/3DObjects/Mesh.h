@@ -7,11 +7,8 @@
 #ifndef INC_3D_DEMOS_MESH_H
 #define INC_3D_DEMOS_MESH_H
 
-#include <kryne-engine/Geometry/BufferGeometry.h>
 #include <kryne-engine/Material/Material.h>
 #include <kryne-engine/Camera/Camera.h>
-
-#include "Object3D.h"
 
 
 using namespace std;

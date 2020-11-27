@@ -7,6 +7,7 @@
 #ifndef INC_3D_DEMOS_SHADERPROGRAMCOMPILER_H
 #define INC_3D_DEMOS_SHADERPROGRAMCOMPILER_H
 
+#include <regex>
 #include <kryne-engine/Material/Shader.h>
 #include <kryne-engine/Geometry/BufferGeometry.h>
 

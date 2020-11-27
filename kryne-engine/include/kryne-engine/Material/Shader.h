@@ -7,11 +7,7 @@
 #ifndef GLFW_TRAINING_SHADER_H
 #define GLFW_TRAINING_SHADER_H
 
-#include <iostream>
-#include <fstream>
 #include <map>
-#include <string>
-#include <regex>
 #include <sstream>
 
 #include "UniformsHandler.h"

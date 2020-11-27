@@ -7,10 +7,8 @@
 #ifndef INC_3D_DEMOS_MATERIAL_H
 #define INC_3D_DEMOS_MATERIAL_H
 
-#include <memory>
 #include <kryne-engine/enums/MaterialSide.h>
 #include <kryne-engine/Rendering/ShaderProgramCompiler.h>
-#include "Shader.h"
 
 using namespace std;
 
