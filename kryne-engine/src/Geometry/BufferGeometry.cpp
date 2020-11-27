@@ -28,7 +28,7 @@ void BufferGeometry::setAttribute(const string &name, unique_ptr<BufferAttribute
         attr->bindToVAO(this->vao, location);
         l->second = make_pair(unique_ptr<BufferAttribute>(attr), location);
     } else {
-        this->nextLocation += (attr->getItemSize() - 1) % 4 + 1;
+        this->nextLocation += (attr->getItemSize() - 1) / 4 + 1;
         attr->bindToVAO(this->vao, location);
         this->attributes.emplace(name, make_pair(unique_ptr<BufferAttribute>(attr), location));
     }
