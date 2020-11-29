@@ -5,6 +5,8 @@ var class_shader =
     [ "Shader", "class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38", null ],
     [ "~Shader", "class_shader.html#aff01df87e8a102f270b5b135a295e59d", null ],
     [ "Shader", "class_shader.html#a0d654ebaca4e0555197c0724c6d30610", null ],
+    [ "debugPrintActiveAttributes", "class_shader.html#a4d38ef83947bb30a7959eb77db061e60", null ],
+    [ "debugPrintActiveUniforms", "class_shader.html#a5e136b034e122ec7eb1989ccad3e5b63", null ],
     [ "getDefines", "class_shader.html#acce1edbe7e892fd91a654c57b4cfab06", null ],
     [ "getFragmentShader", "class_shader.html#a06a13afc6b863a1eb9740a2627888e30", null ],
     [ "getNeedsUpdate", "class_shader.html#a8dbd8d624b47ff9210792cf212b354cb", null ],
