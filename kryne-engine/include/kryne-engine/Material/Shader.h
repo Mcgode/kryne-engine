@@ -212,6 +212,19 @@ private:
 
     unique_ptr<UniformsHandler> uniformsHandler {};
 
+
+public:
+
+    /**
+     * Prints the active attributes of the shader, and their locations
+     */
+    void debugPrintActiveAttributes() const;
+
+    /**
+     * Prints the active uniforms of the shader, and their locations
+     */
+    void debugPrintActiveUniforms() const;
+
 };
 
 
