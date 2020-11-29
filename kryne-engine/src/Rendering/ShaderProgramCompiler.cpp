@@ -60,7 +60,7 @@ void ShaderProgramCompiler::compileShader(const string &code, const GLuint &id)
     {
         glGetShaderInfoLog(id, 512, nullptr, infoLog);
         std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-        cout << code << endl;
+        ShaderProgramCompiler::printCode(code);
     }
 }
 
@@ -103,4 +103,28 @@ string ShaderProgramCompiler::replaceIncludes(const string &baseCode, const stri
     }
 
     return newCode;
+}
+
+
+void ShaderProgramCompiler::printCode(const string &code)
+{
+    string line;
+    istringstream iss(code);
+
+    uint64_t count = 0;
+    while (getline(iss, line))
+        count ++;
+    uint64_t lineCountMaxLength = to_string(count).length();
+
+    uint64_t i = 1;
+    iss = istringstream(code);
+    while (getline(iss, line)) {
+        string codeLine = to_string(i) + ": ";
+
+        string space;
+        space.resize(lineCountMaxLength + 2 - codeLine.length(), ' ');
+        cout << space << codeLine << line << endl;
+
+        i++;
+    }
 }

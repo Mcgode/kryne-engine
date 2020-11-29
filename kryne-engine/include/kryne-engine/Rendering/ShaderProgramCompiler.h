@@ -55,6 +55,12 @@ protected:
     static void compileShader(const string &code, const GLuint &id);
 
     /**
+     * Prints prettily shader code to the console.
+     * @param code  The code to print.
+     */
+    static void printCode(const string &code);
+
+    /**
      * Compiles the vertex shader.
      * @param shaderCode    The vertex shader source code, retrieved from Shader::getVertexShader()
      * @param definesCode   The defines for this shader, retrieved from Shader::makeDefinesCode()
