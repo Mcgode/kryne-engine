@@ -13,31 +13,7 @@ int main()
 
     auto scene = make_unique<Scene>();
 
-    const string vertexShader = R"(
-#include <vertex_pars_begin>
-#include <light_pars_vertex>
-#include <lambert_pars_vertex>
-
-void main() {
-    #include <vertex_begin>
-
-    vec3 worldPosition = ( modelMatrix * vec4(transformed, 1.0) ).xyz;
-
-    #include <vertex_position>
-    #include <light_lambert_vertex>
-})";
-
-    const string fragmentShader =   R"(
-in vec3 vNormal;
-out vec4 FragColor;
-uniform vec3 color;
-#include <lambert_pars_fragment>
-
-void main() {
-    FragColor = vec4(color * (vLightDirectDiffuse + vLightIndirectDiffuse), 1);
-})";
-
-    auto material = make_shared<Material>(make_unique<Shader>(vertexShader, fragmentShader));
+    auto material = make_shared<Material>(make_unique<Shader>("Engine/Lambert"));
     material->setSide(FrontSide);
 
     material->setDefine("MAX_DIRECTIONAL_LIGHTS", "1");
