@@ -21,6 +21,7 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 
     glfwSetKeyCallback(window, PlayerInput::handleKeyInput);
     glfwSetCharCallback(window, PlayerInput::handleTextInput);
+    glfwSetCursorPosCallback(window, PlayerInput::handleCursorPosition);
 }
 
 
@@ -61,6 +62,20 @@ void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
         const auto playerInput = pair->second;
 
         playerInput->inputText += boost::lexical_cast<string>(unicodeChar);
+
+    }
+}
+
+
+void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
+{
+    const auto pair = PlayerInput::inputMap.find(window);
+
+    if (pair != PlayerInput::inputMap.end()) {
+
+        const auto playerInput = pair->second;
+
+        playerInput->cursorPosition = glm::dvec2(x, y);
 
     }
 }

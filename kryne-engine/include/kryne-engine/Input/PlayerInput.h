@@ -14,6 +14,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <boost/lexical_cast.hpp>
+#include <glm/vec2.hpp>
 
 
 using namespace std;
@@ -59,7 +60,10 @@ protected:
     unordered_set<int32_t> keysDown {};
 
     /// The string of text that was input during the frame.
-    string inputText;
+    string inputText {};
+
+    /// The current position of the cursor
+    glm::dvec2 cursorPosition {};
 
 
 // Static part
@@ -69,6 +73,8 @@ protected:
     static void handleKeyInput(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods);
 
     static void handleTextInput(GLFWwindow *window, uint32_t unicodeChar);
+
+    static void handleCursorPosition(GLFWwindow *window, double x, double y);
 
 protected:
 
