@@ -111,7 +111,7 @@ void PlayerInput::registerKey(const string &name, int32_t key, int32_t mods)
 
 void PlayerInput::addCallback(const string &keyName,
                               PlayerInput::CallbackObject *object,
-                              PlayerInput::KeyCallback callback,
+                              PlayerInput::InputCallback callback,
                               unordered_map<KeyMapItem, CallbackSet> &callbacksMap)
 {
     for (const auto &item : this->keyMap) {

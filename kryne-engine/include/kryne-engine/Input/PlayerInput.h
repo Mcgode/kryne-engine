@@ -79,46 +79,89 @@ protected:
 
 public:
 
+    /**
+     * Structure for storing a mapped key/button data
+     */
     struct KeyMapItem {
 
+        /// The name of the input
         string name;
+
+        /// The associated key data
         KeyData associatedKey;
 
     };
 
+    /// An interface for classes which will use input callbacks
     class CallbackObject {};
 
-    typedef void (CallbackObject::*KeyCallback) ();
+    /// The key callback function type
+    typedef void (CallbackObject::*InputCallback) ();
 
 public:
 
+    /**
+     * Registers an input key to the key map, in the form of a PlayerInput::KeyMapItem
+     * @param name  The name for this key
+     * @param key   The key/button value
+     * @param mods  The modifiers for this input.
+     */
     void registerKey(const string &name, int32_t key, int32_t mods = 0);
 
-    inline void onKeyPress(const string &keyName, CallbackObject *object, KeyCallback callback) {
+    /**
+     * Calls the provided callback every time this input key is pressed.
+     * @param keyName   The input key name.
+     * @param object    The object from which the method callback will be called.
+     * @param callback  The callback to call on event, a method of the provided object.
+     */
+    inline void onKeyPress(const string &keyName, CallbackObject *object, InputCallback callback) {
         this->addCallback(keyName, object, callback, this->keyPressCallbacks);
     }
 
-    inline void onKeyRelease(const string &keyName, CallbackObject *object, KeyCallback callback) {
+    /**
+     * Calls the provided callback every time this input key is released.
+     * @param keyName   The input key name.
+     * @param object    The object from which the method callback will be called.
+     * @param callback  The callback to call on event, a method of the provided object.
+     */
+    inline void onKeyRelease(const string &keyName, CallbackObject *object, InputCallback callback) {
         this->addCallback(keyName, object, callback, this->keyReleaseCallbacks);
     }
 
 protected:
 
-    typedef unordered_set<pair<CallbackObject *, KeyCallback>> CallbackSet;
+    /// The callbacks set type
+    typedef unordered_set<pair<CallbackObject *, InputCallback>> CallbackSet;
 
-    void addCallback(const string &keyName, CallbackObject *object, KeyCallback callback,
+    /**
+     * Adds a callback for an input key event
+     * @param keyName       The input key name
+     * @param object        The object from which the method callback will be called.
+     * @param callback      The callback to call on event, a method of the provided object.
+     * @param callbacksMap  The collection of callbacks to add to.
+     */
+    void addCallback(const string &keyName, CallbackObject *object, InputCallback callback,
                      unordered_map<KeyMapItem, CallbackSet> &callbacksMap);
 
+    /**
+     * Calls all the callbacks corresponding to the provided input.
+     * @param data       The input key data.
+     * @param callbacks  The collection of callbacks to call.
+     */
     void callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackSet> &callbacks) const;
 
 protected:
 
+    /// The keymap for this input handler.
     unordered_set<KeyMapItem> keyMap {};
 
+    /// A rapid access hashmap to get all the PlayerInput::keyMap elements corresponding to a key value.
     unordered_map<int32_t, vector<KeyMapItem>> keyToKeyMapItems {};
 
+    /// All the callbacks associated to the pressing of PlayerInput::keyMap items.
     unordered_map<KeyMapItem, CallbackSet> keyPressCallbacks;
 
+    /// All the callbacks associated to the releasing of PlayerInput::keyMap items.
     unordered_map<KeyMapItem, CallbackSet> keyReleaseCallbacks;
 
 

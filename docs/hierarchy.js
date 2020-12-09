@@ -6,12 +6,14 @@ var hierarchy =
     [ "BufferGeometry", "class_buffer_geometry.html", [
       [ "BoxBufferGeometry", "class_box_buffer_geometry.html", null ]
     ] ],
+    [ "PlayerInput::CallbackObject", "class_player_input_1_1_callback_object.html", null ],
     [ "DirectionalLight", "class_directional_light.html", null ],
     [ "FinalPostProcess", "class_final_post_process.html", [
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
     [ "HierarchicalNode", "class_hierarchical_node.html", null ],
     [ "PlayerInput::KeyData", "struct_player_input_1_1_key_data.html", null ],
+    [ "PlayerInput::KeyMapItem", "struct_player_input_1_1_key_map_item.html", null ],
     [ "LightingRegistry", "class_lighting_registry.html", null ],
     [ "Material", "class_material.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],
