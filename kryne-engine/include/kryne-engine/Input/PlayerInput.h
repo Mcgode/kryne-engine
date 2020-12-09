@@ -70,14 +70,24 @@ protected:
 
 protected:
 
+    /**
+     * GLFW callback function for handling keyboard input.
+     */
     static void handleKeyInput(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods);
 
+    /**
+     * GLFW callback function for handling text input.
+     */
     static void handleTextInput(GLFWwindow *window, uint32_t unicodeChar);
 
+    /**
+     * GLFW callback function for handling cursor position input.
+     */
     static void handleCursorPosition(GLFWwindow *window, double x, double y);
 
 protected:
 
+    /// The map of GLFW windows to their associated PlayerInput instances.
     static unordered_map<GLFWwindow *, PlayerInput *> inputMap;
 
 };

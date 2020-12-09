@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['keysdown_85',['keysDown',['../class_player_input.html#a57994faddd51cb9759faac286f262350',1,'PlayerInput']]],
-  ['keyspressedthisframe_86',['keysPressedThisFrame',['../class_player_input.html#a4c2614f8c38693d4eb4f69d258e5c63c',1,'PlayerInput']]],
-  ['keysreleasedthisframe_87',['keysReleasedThisFrame',['../class_player_input.html#a3ab8e515694e1d05fb1a01be1ef687b3',1,'PlayerInput']]]
+  ['keysdown_90',['keysDown',['../class_player_input.html#a57994faddd51cb9759faac286f262350',1,'PlayerInput']]],
+  ['keyspressedthisframe_91',['keysPressedThisFrame',['../class_player_input.html#a4c2614f8c38693d4eb4f69d258e5c63c',1,'PlayerInput']]],
+  ['keysreleasedthisframe_92',['keysReleasedThisFrame',['../class_player_input.html#a3ab8e515694e1d05fb1a01be1ef687b3',1,'PlayerInput']]]
 ];
