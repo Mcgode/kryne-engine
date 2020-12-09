@@ -22,6 +22,7 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
     glfwSetKeyCallback(window, PlayerInput::handleKeyInput);
     glfwSetCharCallback(window, PlayerInput::handleTextInput);
     glfwSetCursorPosCallback(window, PlayerInput::handleCursorPosition);
+    glfwSetMouseButtonCallback(window, PlayerInput::handleMouseButtonInput);
 }
 
 
@@ -77,6 +78,27 @@ void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
         const auto playerInput = pair->second;
 
         playerInput->cursorPosition = glm::dvec2(x, y);
+
+    }
+}
+
+
+void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods)
+{
+    const auto pair = PlayerInput::inputMap.find(window);
+
+    if (pair != PlayerInput::inputMap.end()) {
+
+        const auto playerInput = pair->second;
+        KeyData keyData { button, mods };
+
+        if (action == GLFW_PRESS) {
+            playerInput->keysPressedThisFrame.emplace(keyData);
+            playerInput->keysDown.emplace(keyData);
+        } else if (action == GLFW_RELEASE) {
+            playerInput->keysReleasedThisFrame.emplace(keyData);
+            playerInput->keysDown.erase(keyData);
+        }
 
     }
 }

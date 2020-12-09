@@ -11,6 +11,7 @@ var hierarchy =
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
     [ "HierarchicalNode", "class_hierarchical_node.html", null ],
+    [ "PlayerInput::KeyData", "struct_player_input_1_1_key_data.html", null ],
     [ "LightingRegistry", "class_lighting_registry.html", null ],
     [ "Material", "class_material.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],

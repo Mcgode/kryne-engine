@@ -107,6 +107,11 @@ protected:
      */
     static void handleCursorPosition(GLFWwindow *window, double x, double y);
 
+    /**
+     * GLFW callback function for handling mouse button input.
+     */
+    static void handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods);
+
 
 protected:
 
