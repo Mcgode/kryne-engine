@@ -50,13 +50,6 @@ public:
      */
     static PlayerInput *getInput(GLFWwindow *window);
 
-    /**
-     * Clears the set the input changes for the current frame
-     *
-     * @warning Should not be called outside of the Renderer class, use at your own risk.
-     */
-    void clearFrameData();
-
 
 protected:
 
@@ -72,12 +65,6 @@ protected:
     /// GLFW window this player input is linked to
     GLFWwindow *window;
 
-    /// Set of keys that were pressed during a time frame.
-    unordered_set<KeyData> keysPressedThisFrame {};
-
-    /// Set of keys that were released during a time frame.
-    unordered_set<KeyData> keysReleasedThisFrame {};
-
     /// Set of keys that are pressed
     unordered_set<KeyData> keysDown {};
 
@@ -88,7 +75,54 @@ protected:
     glm::dvec2 cursorPosition {};
 
 
-// Static part
+// === Key mapping ===
+
+public:
+
+    struct KeyMapItem {
+
+        string name;
+        KeyData associatedKey;
+
+    };
+
+    class CallbackObject {};
+
+    typedef void (CallbackObject::*KeyCallback) ();
+
+public:
+
+    void registerKey(const string &name, int32_t key, int32_t mods = 0);
+
+    inline void onKeyPress(const string &keyName, CallbackObject *object, KeyCallback callback) {
+        this->addCallback(keyName, object, callback, this->keyPressCallbacks);
+    }
+
+    inline void onKeyRelease(const string &keyName, CallbackObject *object, KeyCallback callback) {
+        this->addCallback(keyName, object, callback, this->keyReleaseCallbacks);
+    }
+
+protected:
+
+    typedef unordered_set<pair<CallbackObject *, KeyCallback>> CallbackSet;
+
+    void addCallback(const string &keyName, CallbackObject *object, KeyCallback callback,
+                     unordered_map<KeyMapItem, CallbackSet> &callbacksMap);
+
+    void callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackSet> &callbacks) const;
+
+protected:
+
+    unordered_set<KeyMapItem> keyMap {};
+
+    unordered_map<int32_t, vector<KeyMapItem>> keyToKeyMapItems {};
+
+    unordered_map<KeyMapItem, CallbackSet> keyPressCallbacks;
+
+    unordered_map<KeyMapItem, CallbackSet> keyReleaseCallbacks;
+
+
+// === GLFW input callbacks handling ===
 
 protected:
 

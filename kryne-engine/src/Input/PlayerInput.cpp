@@ -26,14 +26,6 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 }
 
 
-void PlayerInput::clearFrameData()
-{
-    this->keysPressedThisFrame.clear();
-    this->keysReleasedThisFrame.clear();
-    this->inputText = "";
-}
-
-
 void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods)
 {
     const auto pair = PlayerInput::inputMap.find(window);
@@ -44,10 +36,10 @@ void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scanco
         KeyData keyData { key, mods };
 
         if (action == GLFW_PRESS) {
-            playerInput->keysPressedThisFrame.emplace(keyData);
+            playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
             playerInput->keysDown.emplace(keyData);
         } else if (action == GLFW_RELEASE) {
-            playerInput->keysReleasedThisFrame.emplace(keyData);
+            playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
             playerInput->keysDown.erase(keyData);
         }
 
@@ -93,12 +85,82 @@ void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int
         KeyData keyData { button, mods };
 
         if (action == GLFW_PRESS) {
-            playerInput->keysPressedThisFrame.emplace(keyData);
+            playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
             playerInput->keysDown.emplace(keyData);
         } else if (action == GLFW_RELEASE) {
-            playerInput->keysReleasedThisFrame.emplace(keyData);
+            playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
             playerInput->keysDown.erase(keyData);
+        }
+    }
+}
+
+
+void PlayerInput::registerKey(const string &name, int32_t key, int32_t mods)
+{
+    KeyMapItem item { name, KeyData(key, mods) };
+    this->keyMap.emplace(item);
+
+    const auto pair = this->keyToKeyMapItems.find(key);
+    if (pair == this->keyToKeyMapItems.end()) {
+        vector<KeyMapItem> v = { item };
+        this->keyToKeyMapItems.emplace(key, v);
+    } else
+        pair->second.emplace_back(item);
+}
+
+
+void PlayerInput::addCallback(const string &keyName,
+                              PlayerInput::CallbackObject *object,
+                              PlayerInput::KeyCallback callback,
+                              unordered_map<KeyMapItem, CallbackSet> &callbacksMap)
+{
+    for (const auto &item : this->keyMap) {
+        if (item.name == keyName) {
+
+            const auto it = callbacksMap.find(item);
+
+            if (it == callbacksMap.end()) {
+                CallbackSet set;
+                set.emplace(make_pair(object, callback));
+
+                callbacksMap.emplace(item, set);
+            } else
+                it->second.emplace(make_pair(object, callback));
+
+            return;
+        }
+    }
+    cerr << "Unable to find key named " << keyName << endl;
+}
+
+
+void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackSet> &callbacks) const
+{
+    const auto ktkm = this->keyToKeyMapItems.find(data.key);
+
+    if (ktkm != this->keyToKeyMapItems.end()) {
+
+        const auto set = ktkm->second;
+
+        auto it = set.begin();
+        auto currentItem = *it;
+
+        for (it++; it != set.end(); it++) {
+            if ((it->associatedKey.mod & data.mod) == it->associatedKey.mod && it->associatedKey.mod > currentItem.associatedKey.mod)
+                currentItem = *it;
+        }
+
+        if ((currentItem.associatedKey.mod & data.mod) == currentItem.associatedKey.mod) {
+            const auto map_it = callbacks.find(currentItem);
+            if ( map_it != callbacks.end() ) {
+
+                for (const auto &pair : map_it->second)
+                    invoke(pair.second, pair.first);
+
+            }
         }
 
     }
 }
+
+
