@@ -40,13 +40,14 @@ void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scanco
     if (pair != PlayerInput::inputMap.end()) {
 
         const auto playerInput = pair->second;
+        KeyData keyData { key, mods };
 
         if (action == GLFW_PRESS) {
-            playerInput->keysPressedThisFrame.emplace(key);
-            playerInput->keysDown.emplace(key);
+            playerInput->keysPressedThisFrame.emplace(keyData);
+            playerInput->keysDown.emplace(keyData);
         } else if (action == GLFW_RELEASE) {
-            playerInput->keysReleasedThisFrame.emplace(key);
-            playerInput->keysDown.erase(key);
+            playerInput->keysReleasedThisFrame.emplace(keyData);
+            playerInput->keysDown.erase(keyData);
         }
 
     }

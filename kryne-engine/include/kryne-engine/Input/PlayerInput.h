@@ -25,6 +25,26 @@ class PlayerInput {
 public:
 
     /**
+     * A structure for holding keyboard key and mouse button data
+     */
+    struct KeyData {
+
+        /// The keyboard key / mouse button value
+        int32_t key;
+
+        /// The modifier keys for this input
+        int32_t mod;
+
+        explicit KeyData(int32_t key): key(key), mod(0) {};
+
+        explicit KeyData(int32_t key, int32_t mod): key(key), mod(mod) {};
+
+    };
+
+
+public:
+
+    /**
      * Retrieves the PlayerInput instance for the provided window. Will initialize one if none exist yet.
      * @param window    The window whose player input to retrieve.
      */
@@ -37,6 +57,7 @@ public:
      */
     void clearFrameData();
 
+
 protected:
 
     /**
@@ -45,19 +66,20 @@ protected:
      */
     explicit PlayerInput(GLFWwindow *window);
 
+
 protected:
 
     /// GLFW window this player input is linked to
     GLFWwindow *window;
 
     /// Set of keys that were pressed during a time frame.
-    unordered_set<int32_t> keysPressedThisFrame {};
+    unordered_set<KeyData> keysPressedThisFrame {};
 
     /// Set of keys that were released during a time frame.
-    unordered_set<int32_t> keysReleasedThisFrame {};
+    unordered_set<KeyData> keysReleasedThisFrame {};
 
     /// Set of keys that are pressed
-    unordered_set<int32_t> keysDown {};
+    unordered_set<KeyData> keysDown {};
 
     /// The string of text that was input during the frame.
     string inputText {};
@@ -84,6 +106,7 @@ protected:
      * GLFW callback function for handling cursor position input.
      */
     static void handleCursorPosition(GLFWwindow *window, double x, double y);
+
 
 protected:
 
