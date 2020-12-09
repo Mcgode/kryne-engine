@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nextlocation_429',['nextLocation',['../class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22',1,'BufferGeometry']]]
+  ['material_447',['material',['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh']]]
 ];

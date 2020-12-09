@@ -21,6 +21,7 @@ var annotated_dup =
     [ "Object3D", "class_object3_d.html", "class_object3_d" ],
     [ "OldCamera", "class_old_camera.html", "class_old_camera" ],
     [ "PerspectiveProjectionData", "class_perspective_projection_data.html", "class_perspective_projection_data" ],
+    [ "PlayerInput", "class_player_input.html", "class_player_input" ],
     [ "PointLight", "class_point_light.html", "class_point_light" ],
     [ "PostProcess", "class_post_process.html", "class_post_process" ],
     [ "Process", "class_process.html", "class_process" ],

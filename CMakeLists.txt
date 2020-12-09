@@ -101,7 +101,8 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Material/ShaderChunk.cpp kryne-engine/include/kryne-engine/Material/ShaderChunk.h
         kryne-engine/src/Material/UniformsHandler.cpp kryne-engine/include/kryne-engine/Material/UniformsHandler.h
         kryne-engine/src/Rendering/ShaderProgramCompiler.cpp kryne-engine/include/kryne-engine/Rendering/ShaderProgramCompiler.h
-        kryne-engine/include/kryne-engine/Utils/StringUtils.hpp)
+        kryne-engine/include/kryne-engine/Utils/StringUtils.hpp
+        kryne-engine/src/Input/PlayerInput.cpp kryne-engine/include/kryne-engine/Input/PlayerInput.h)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 

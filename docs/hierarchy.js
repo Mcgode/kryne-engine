@@ -25,6 +25,7 @@ var hierarchy =
       [ "FirstPersonCamera", "class_first_person_camera.html", null ],
       [ "TrackballCamera", "class_trackball_camera.html", null ]
     ] ],
+    [ "PlayerInput", "class_player_input.html", null ],
     [ "PointLight", "class_point_light.html", null ],
     [ "Process", "class_process.html", null ],
     [ "ProjectionData", "class_projection_data.html", [
