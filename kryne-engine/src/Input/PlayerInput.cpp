@@ -123,7 +123,7 @@ void PlayerInput::registerKey(const string &name, int32_t key, int32_t mods)
 
 
 void PlayerInput::addCallback(const string &keyName, CallbackPointer callback,
-                              unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacksMap)
+                              unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> &callbacksMap)
 {
     const auto location = this->keyMap.find(keyName);
     if (location != this->keyMap.end())
@@ -144,7 +144,7 @@ void PlayerInput::addCallback(const string &keyName, CallbackPointer callback,
 }
 
 
-void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacks) const
+void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> &callbacks) const
 {
     const auto ktkm = this->keyToKeyMapItems.find(data.key);
 

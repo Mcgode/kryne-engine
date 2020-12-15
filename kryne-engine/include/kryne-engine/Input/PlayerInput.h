@@ -42,6 +42,7 @@ public:
 
         inline bool operator ==(const KeyData &other) const { return key == other.key && mod == other.mod; }
 
+        /// Hash struct for the PlayerInput::KeyData struct
         struct Hasher {
 
             inline uint64_t operator() (const KeyData &keyData) const
@@ -90,7 +91,7 @@ protected:
     explicit PlayerInput(GLFWwindow *window);
 
     /// The map of GLFW windows to their associated PlayerInput instances.
-    inline static unordered_map<GLFWwindow *, PlayerInput *> &inputMap();
+    static unordered_map<GLFWwindow *, PlayerInput *> &inputMap();
 
 
 protected:
@@ -133,7 +134,8 @@ public:
                 return false;
         }
 
-        struct HashFunction {
+        /// Hash struct for the PlayerInput::KeyData struct
+        struct Hasher {
 
             inline std::uint64_t operator()(const PlayerInput::KeyMapItem &item) const
             {
@@ -181,7 +183,7 @@ public:
 
 protected:
 
-    /// The callbacks set type
+    /// The callbacks list type
     typedef vector<CallbackPointer> CallbackList;
 
     /**
@@ -191,7 +193,7 @@ protected:
      * @param callback      The callback to call on event, a method of the provided object.
      * @param callbacksMap  The collection of callbacks to add to.
      */
-    void addCallback(const string &keyName, CallbackPointer callback, unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacksMap);
+    void addCallback(const string &keyName, CallbackPointer callback, unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> &callbacksMap);
 
     /**
      * Calls all the callbacks corresponding to the provided input.
@@ -199,7 +201,7 @@ protected:
      * @param callbacks  The collection of callbacks to call.
      */
     void callCallbacks(const KeyData &data,
-                       const unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacks) const;
+                       const unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> &callbacks) const;
 
 protected:
 
@@ -210,10 +212,10 @@ protected:
     unordered_map<int32_t, vector<KeyMapItem>> keyToKeyMapItems {};
 
     /// All the callbacks associated to the pressing of PlayerInput::keyMap items.
-    unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> keyPressCallbacks;
+    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyPressCallbacks;
 
     /// All the callbacks associated to the releasing of PlayerInput::keyMap items.
-    unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> keyReleaseCallbacks;
+    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyReleaseCallbacks;
 
 
 // === GLFW input callbacks handling ===
