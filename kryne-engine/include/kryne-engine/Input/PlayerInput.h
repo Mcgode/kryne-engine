@@ -50,6 +50,24 @@ public:
      */
     static PlayerInput *getInput(GLFWwindow *window);
 
+    /**
+     * Prepares the instance for the incoming input events.
+     *
+     * @warning Should be called before the window events are polled.
+     *          Don't call this unless you know what you are doing.
+     */
+    void willPollEvents();
+
+    /**
+     * Returns the current cursor position.
+     */
+    [[nodiscard]] inline const glm::dvec2 &getCursorPosition() const { return this->cursorPosition; }
+
+    /**
+     * Returns the cursor movement relative to its previous position.
+     */
+    [[nodiscard]] inline glm::dvec2 getCursorMovement() const;
+
 
 protected:
 
@@ -73,6 +91,9 @@ protected:
 
     /// The current position of the cursor
     glm::dvec2 cursorPosition {};
+
+    /// The previous cursor position
+    glm::dvec2 previousCursorPosition {};
 
 
 // === Key mapping ===

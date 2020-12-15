@@ -164,3 +164,15 @@ void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapI
 }
 
 
+void PlayerInput::willPollEvents()
+{
+    this->previousCursorPosition = this->cursorPosition;
+}
+
+
+glm::dvec2 PlayerInput::getCursorMovement() const
+{
+    return this->cursorPosition - this->previousCursorPosition;
+}
+
+
