@@ -83,24 +83,284 @@ $(document).ready(function(){initNavTree('class_renderer.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Renderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_renderer_8h_source.html">Renderer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Renderer:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_renderer__coll__graph.svg" width="156" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad904efce3ea7579819bbe3371543efca"><td class="memItemLeft" align="right" valign="top"><a id="ad904efce3ea7579819bbe3371543efca"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (uint16_t width, uint16_t height)</td></tr>
+<tr class="memitem:ad904efce3ea7579819bbe3371543efca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ad904efce3ea7579819bbe3371543efca">Renderer</a> (uint16_t width, uint16_t height)</td></tr>
 <tr class="separator:ad904efce3ea7579819bbe3371543efca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab28d1a8538913a0a72130ba64af5a938"><td class="memItemLeft" align="right" valign="top"><a id="ab28d1a8538913a0a72130ba64af5a938"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (<a class="el" href="class_scene.html">Scene</a> *scene, <a class="el" href="class_camera.html">Camera</a> *camera)</td></tr>
+<tr class="memitem:ab28d1a8538913a0a72130ba64af5a938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab28d1a8538913a0a72130ba64af5a938">render</a> (<a class="el" href="class_scene.html">Scene</a> *scene, <a class="el" href="class_camera.html">Camera</a> *camera)</td></tr>
 <tr class="separator:ab28d1a8538913a0a72130ba64af5a938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92287c94eab91f620b0949d0a83c1eb9"><td class="memItemLeft" align="right" valign="top"><a id="a92287c94eab91f620b0949d0a83c1eb9"></a>
-const <a class="el" href="class_window.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getWindow</b> ()</td></tr>
+<tr class="memitem:a92287c94eab91f620b0949d0a83c1eb9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_window.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">getWindow</a> ()</td></tr>
 <tr class="separator:a92287c94eab91f620b0949d0a83c1eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27c7e26a139347facdd46f6caa8655f"><td class="memItemLeft" align="right" valign="top">const unique_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">getPlayerInput</a> () const</td></tr>
+<tr class="separator:af27c7e26a139347facdd46f6caa8655f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a2bdeeed1ec04732473b593ae7729e3a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a2bdeeed1ec04732473b593ae7729e3a0">renderObject</a> (<a class="el" href="class_object3_d.html">Object3D</a> *object, <a class="el" href="class_camera.html">Camera</a> *camera)</td></tr>
+<tr class="separator:a2bdeeed1ec04732473b593ae7729e3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5f8debf05f18645236b8dc487a6aa86d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a5f8debf05f18645236b8dc487a6aa86d">updateObjects</a> (<a class="el" href="class_object3_d.html">Object3D</a> *object)</td></tr>
+<tr class="separator:a5f8debf05f18645236b8dc487a6aa86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a233b686c684fbd377d374d728f61a46e"><td class="memItemLeft" align="right" valign="top"><a id="a233b686c684fbd377d374d728f61a46e"></a>
+unique_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">associatedWindow</a></td></tr>
+<tr class="memdesc:a233b686c684fbd377d374d728f61a46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The GLFW window associated with this renderer. <br /></td></tr>
+<tr class="separator:a233b686c684fbd377d374d728f61a46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee027f89162e3f5344e861a70c1b6422"><td class="memItemLeft" align="right" valign="top"><a id="aee027f89162e3f5344e861a70c1b6422"></a>
+unique_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">playerInput</a></td></tr>
+<tr class="memdesc:aee027f89162e3f5344e861a70c1b6422"><td class="mdescLeft">&#160;</td><td class="mdescRight">The player input for this rendering window. <br /></td></tr>
+<tr class="separator:aee027f89162e3f5344e861a70c1b6422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3101d638246464f13a4b95bca294d68"><td class="memItemLeft" align="right" valign="top"><a id="aa3101d638246464f13a4b95bca294d68"></a>
+<a class="el" href="class_rendering_state.html">RenderingState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">renderingState</a></td></tr>
+<tr class="memdesc:aa3101d638246464f13a4b95bca294d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current rendering state. <br /></td></tr>
+<tr class="separator:aa3101d638246464f13a4b95bca294d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles an OpenGL window renderer </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad904efce3ea7579819bbe3371543efca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad904efce3ea7579819bbe3371543efca">&#9670;&nbsp;</a></span>Renderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Renderer::Renderer </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes a renderer window with a specific size. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The render window width in pixels. </td></tr>
+    <tr><td class="paramname">height</td><td>The render window height in pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af27c7e26a139347facdd46f6caa8655f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27c7e26a139347facdd46f6caa8655f">&#9670;&nbsp;</a></span>getPlayerInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unique_ptr&lt;<a class="el" href="class_player_input.html">PlayerInput</a>&gt;&amp; Renderer::getPlayerInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the player input for this rendering window. </p>
+
+</div>
+</div>
+<a id="a92287c94eab91f620b0949d0a83c1eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92287c94eab91f620b0949d0a83c1eb9">&#9670;&nbsp;</a></span>getWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_window.html">Window</a>* Renderer::getWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the GLFW window for this renderer. </p>
+
+</div>
+</div>
+<a id="ab28d1a8538913a0a72130ba64af5a938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28d1a8538913a0a72130ba64af5a938">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::render </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_camera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renders the provided scene. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scene</td><td>The scene to render. </td></tr>
+    <tr><td class="paramname">camera</td><td>The camera used for rendering. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_renderer_ab28d1a8538913a0a72130ba64af5a938_cgraph.svg" width="519" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a2bdeeed1ec04732473b593ae7729e3a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bdeeed1ec04732473b593ae7729e3a0">&#9670;&nbsp;</a></span>renderObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::renderObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_object3_d.html">Object3D</a> *&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_camera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Renders the provided object </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>The object to render. </td></tr>
+    <tr><td class="paramname">camera</td><td>The camera used for rendering. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_renderer_a2bdeeed1ec04732473b593ae7729e3a0_cgraph.svg" width="342" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_renderer_a2bdeeed1ec04732473b593ae7729e3a0_icgraph.svg" width="334" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a5f8debf05f18645236b8dc487a6aa86d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8debf05f18645236b8dc487a6aa86d">&#9670;&nbsp;</a></span>updateObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::updateObjects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_object3_d.html">Object3D</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Updates a specific object </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>The object to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_renderer_a5f8debf05f18645236b8dc487a6aa86d_icgraph.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Rendering/<a class="el" href="_renderer_8h_source.html">Renderer.h</a></li>
 <li>kryne-engine/src/Rendering/Renderer.cpp</li>

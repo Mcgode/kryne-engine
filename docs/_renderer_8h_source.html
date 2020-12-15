@@ -94,41 +94,56 @@ $(document).ready(function(){initNavTree('_renderer_8h_source.html',''); initRes
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_scene_8h.html">kryne-engine/3DObjects/Scene.h</a>&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_mesh_8h.html">kryne-engine/3DObjects/Mesh.h</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_camera_8h.html">kryne-engine/Camera/Camera.h</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_rendering_state_8hpp.html">RenderingState.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_player_input_8h.html">kryne-engine/Input/PlayerInput.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_rendering_state_8hpp.html">RenderingState.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_renderer.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_renderer.html">Renderer</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_renderer.html">Renderer</a>(uint16_t width, uint16_t height);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_renderer.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_renderer.html">Renderer</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> render(<a class="code" href="class_scene.html">Scene</a> *scene, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    [[nodiscard]] <span class="keyword">const</span> <a class="code" href="class_window.html">Window</a> *getWindow() {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> Renderer::associatedWindow.get();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    unique_ptr&lt;Window&gt; associatedWindow;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_rendering_state.html">RenderingState</a> renderingState;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> renderObject(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updateObjects(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_renderer.html">Renderer</a>(uint16_t width, uint16_t height);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> render(<a class="code" href="class_scene.html">Scene</a> *scene, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif //INC_3D_DEMOS_RENDERER_H</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">   45</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_window.html">Window</a> *<a class="code" href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">getWindow</a>() {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">Renderer::associatedWindow</a>.get();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">   53</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">const</span> unique_ptr&lt;PlayerInput&gt; &amp;<a class="code" href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">getPlayerInput</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> playerInput;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> renderObject(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updateObjects(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">   77</a></span>&#160;    unique_ptr&lt;Window&gt; <a class="code" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">associatedWindow</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">   80</a></span>&#160;    unique_ptr&lt;PlayerInput&gt; <a class="code" href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">playerInput</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">   83</a></span>&#160;    <a class="code" href="class_rendering_state.html">RenderingState</a> <a class="code" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">renderingState</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif //INC_3D_DEMOS_RENDERER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.h:20</div></div>
+<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.h:24</div></div>
 <div class="ttc" id="a_scene_8h_html"><div class="ttname"><a href="_scene_8h.html">Scene.h</a></div></div>
+<div class="ttc" id="a_player_input_8h_html"><div class="ttname"><a href="_player_input_8h.html">PlayerInput.h</a></div></div>
+<div class="ttc" id="aclass_renderer_html_aa3101d638246464f13a4b95bca294d68"><div class="ttname"><a href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">Renderer::renderingState</a></div><div class="ttdeci">RenderingState renderingState</div><div class="ttdoc">The current rendering state.</div><div class="ttdef"><b>Definition:</b> Renderer.h:83</div></div>
+<div class="ttc" id="aclass_renderer_html_a92287c94eab91f620b0949d0a83c1eb9"><div class="ttname"><a href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">Renderer::getWindow</a></div><div class="ttdeci">const Window * getWindow()</div><div class="ttdef"><b>Definition:</b> Renderer.h:45</div></div>
 <div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:13</div></div>
 <div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:27</div></div>
 <div class="ttc" id="a_camera_8h_html"><div class="ttname"><a href="_camera_8h.html">Camera.h</a></div></div>
@@ -136,6 +151,9 @@ $(document).ready(function(){initNavTree('_renderer_8h_source.html',''); initRes
 <div class="ttc" id="a_window_8h_html"><div class="ttname"><a href="_window_8h.html">Window.h</a></div></div>
 <div class="ttc" id="a_mesh_8h_html"><div class="ttname"><a href="_mesh_8h.html">Mesh.h</a></div></div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:14</div></div>
+<div class="ttc" id="aclass_renderer_html_af27c7e26a139347facdd46f6caa8655f"><div class="ttname"><a href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">Renderer::getPlayerInput</a></div><div class="ttdeci">const unique_ptr&lt; PlayerInput &gt; &amp; getPlayerInput() const</div><div class="ttdef"><b>Definition:</b> Renderer.h:53</div></div>
+<div class="ttc" id="aclass_renderer_html_a233b686c684fbd377d374d728f61a46e"><div class="ttname"><a href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">Renderer::associatedWindow</a></div><div class="ttdeci">unique_ptr&lt; Window &gt; associatedWindow</div><div class="ttdoc">The GLFW window associated with this renderer.</div><div class="ttdef"><b>Definition:</b> Renderer.h:77</div></div>
+<div class="ttc" id="aclass_renderer_html_aee027f89162e3f5344e861a70c1b6422"><div class="ttname"><a href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">Renderer::playerInput</a></div><div class="ttdeci">unique_ptr&lt; PlayerInput &gt; playerInput</div><div class="ttdoc">The player input for this rendering window.</div><div class="ttdef"><b>Definition:</b> Renderer.h:80</div></div>
 <div class="ttc" id="aclass_object3_d_html"><div class="ttname"><a href="class_object3_d.html">Object3D</a></div><div class="ttdef"><b>Definition:</b> Object3D.h:28</div></div>
 <div class="ttc" id="aclass_rendering_state_html"><div class="ttname"><a href="class_rendering_state.html">RenderingState</a></div><div class="ttdef"><b>Definition:</b> RenderingState.hpp:14</div></div>
 <!-- start footer part -->
