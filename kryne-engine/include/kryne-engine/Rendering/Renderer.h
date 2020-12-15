@@ -46,13 +46,18 @@ public:
         return Renderer::associatedWindow.get();
     }
 
-
     /**
      * Returns the player input for this rendering window.
      */
-    [[nodiscard]] inline const unique_ptr<PlayerInput> &getPlayerInput() const {
-        return playerInput;
+#ifdef KRYNE_ENGINE_RENDERER_GET_PLAYER_INPUT_RAW
+    [[nodiscard]] inline PlayerInput *getPlayerInput() const {
+        return this->playerInput.get();
     }
+#else
+    [[nodiscard]] inline weak_ptr<PlayerInput> getPlayerInput() const {
+        return weak_ptr<PlayerInput>(this->playerInput);
+    }
+#endif
 
 
 protected:
@@ -77,7 +82,7 @@ protected:
     unique_ptr<Window> associatedWindow;
 
     /// The player input for this rendering window.
-    unique_ptr<PlayerInput> playerInput;
+    shared_ptr<PlayerInput> playerInput;
 
     /// The current rendering state
     RenderingState renderingState;

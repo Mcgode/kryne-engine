@@ -6,23 +6,48 @@
 
 #include "kryne-engine/Input/PlayerInput.h"
 
+
+#ifdef KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
+#define playerInputPointer(pair)    pair->second
+#else
+#define playerInputPointer(pair)    pair->second.lock()
+#endif
+
+#ifdef KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
+
 unordered_map<GLFWwindow *, PlayerInput *> &PlayerInput::inputMap()
 {
     static unordered_map<GLFWwindow *, PlayerInput *> inputMap {};
     return inputMap;
 }
 
+#else
 
-PlayerInput *PlayerInput::getInput(GLFWwindow *window)
+unordered_map<GLFWwindow *, weak_ptr<PlayerInput>> &PlayerInput::inputMap()
+{
+    static unordered_map<GLFWwindow *, weak_ptr<PlayerInput>> inputMap {};
+    return inputMap;
+}
+
+#endif
+
+
+shared_ptr<PlayerInput> PlayerInput::tryMakeInput(GLFWwindow *window)
 {
     auto &inputMap = PlayerInput::inputMap();
 
     const auto it = inputMap.find(window);
     if (it != inputMap.end()) {
-        return it->second;
+        return nullptr;
     } else {
-        auto newInput = new PlayerInput(window);
-        inputMap.emplace(make_pair(window, newInput));
+        shared_ptr<PlayerInput> newInput(new PlayerInput(window));
+
+#ifdef KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
+        inputMap.emplace(make_pair(window, newInput.get()));
+#else
+        inputMap.emplace(make_pair(window, weak_ptr<PlayerInput>(newInput)));
+#endif
+
         return newInput;
     }
 }
@@ -30,8 +55,6 @@ PlayerInput *PlayerInput::getInput(GLFWwindow *window)
 
 PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 {
-    PlayerInput::inputMap().emplace(window, this);
-
     glfwSetKeyCallback(window, PlayerInput::handleKeyInput);
     glfwSetCharCallback(window, PlayerInput::handleTextInput);
     glfwSetCursorPosCallback(window, PlayerInput::handleCursorPosition);
@@ -39,21 +62,45 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 }
 
 
+PlayerInput::~PlayerInput()
+{
+#ifdef KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
+    auto &inputMap = PlayerInput::inputMap();
+
+    for (auto it = inputMap.begin(); it != inputMap.end(); it++) {
+        if (it->second == this) {
+            inputMap.erase(it);
+            break;
+        }
+    }
+#endif
+}
+
+
 void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods)
 {
-    const auto pair = PlayerInput::inputMap().find(window);
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
 
-    if (pair != PlayerInput::inputMap().end()) {
+    if (pair != inputMap.end()) {
 
-        const auto playerInput = pair->second;
-        KeyData keyData { key, mods };
+        const auto playerInput = playerInputPointer(pair);
 
-        if (action == GLFW_PRESS) {
-            playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
-            playerInput->keysDown.emplace(keyData);
-        } else if (action == GLFW_RELEASE) {
-            playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
-            playerInput->keysDown.erase(keyData);
+        if (playerInput)
+        {
+            KeyData keyData { key, mods };
+
+            if (action == GLFW_PRESS) {
+                playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
+                playerInput->keysDown.emplace(keyData);
+            } else if (action == GLFW_RELEASE) {
+                playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
+                playerInput->keysDown.erase(keyData);
+            }
+        }
+        else
+        {
+            inputMap.erase(pair);
         }
 
     }
@@ -62,13 +109,21 @@ void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scanco
 
 void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
 {
-    const auto pair = PlayerInput::inputMap().find(window);
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
 
-    if (pair != PlayerInput::inputMap().end()) {
+    if (pair != inputMap.end()) {
 
-        const auto playerInput = pair->second;
+        const auto playerInput = playerInputPointer(pair);
 
-        playerInput->inputText += boost::lexical_cast<string>(unicodeChar);
+        if (playerInput)
+        {
+            playerInput->inputText += boost::lexical_cast<string>(unicodeChar);
+        }
+        else
+        {
+            inputMap.erase(pair);
+        }
 
     }
 }
@@ -76,13 +131,21 @@ void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
 
 void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
 {
-    const auto pair = PlayerInput::inputMap().find(window);
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
 
-    if (pair != PlayerInput::inputMap().end()) {
+    if (pair != inputMap.end()) {
 
-        const auto playerInput = pair->second;
+        const auto playerInput = playerInputPointer(pair);
 
-        playerInput->cursorPosition = glm::dvec2(x, y);
+        if (playerInput)
+        {
+            playerInput->cursorPosition = glm::dvec2(x, y);
+        }
+        else
+        {
+            inputMap.erase(pair);
+        }
 
     }
 }
@@ -90,19 +153,28 @@ void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
 
 void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods)
 {
-    const auto pair = PlayerInput::inputMap().find(window);
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
 
-    if (pair != PlayerInput::inputMap().end()) {
+    if (pair != inputMap.end())
+    {
+        const auto playerInput = playerInputPointer(pair);
 
-        const auto playerInput = pair->second;
-        KeyData keyData { button, mods };
+        if (playerInput)
+        {
+            KeyData keyData { button, mods };
 
-        if (action == GLFW_PRESS) {
-            playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
-            playerInput->keysDown.emplace(keyData);
-        } else if (action == GLFW_RELEASE) {
-            playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
-            playerInput->keysDown.erase(keyData);
+            if (action == GLFW_PRESS) {
+                playerInput->callCallbacks(keyData, playerInput->keyPressCallbacks);
+                playerInput->keysDown.emplace(keyData);
+            } else if (action == GLFW_RELEASE) {
+                playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
+                playerInput->keysDown.erase(keyData);
+            }
+        }
+        else
+        {
+            inputMap.erase(pair);
         }
     }
 }
@@ -193,5 +265,6 @@ glm::dvec2 PlayerInput::getCursorMovement() const
 {
     return this->cursorPosition - this->previousCursorPosition;
 }
+
 
 

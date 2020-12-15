@@ -17,6 +17,8 @@
 #include <boost/lexical_cast.hpp>
 #include <glm/vec2.hpp>
 
+#define KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
+
 
 using namespace std;
 
@@ -61,7 +63,7 @@ public:
      * Retrieves the PlayerInput instance for the provided window. Will initialize one if none exist yet.
      * @param window    The window whose player input to retrieve.
      */
-    static PlayerInput *getInput(GLFWwindow *window);
+    static shared_ptr<PlayerInput> tryMakeInput(GLFWwindow *window);
 
     /**
      * Prepares the instance for the incoming input events.
@@ -81,6 +83,8 @@ public:
      */
     [[nodiscard]] inline glm::dvec2 getCursorMovement() const;
 
+    ~PlayerInput();
+
 
 protected:
 
@@ -91,7 +95,11 @@ protected:
     explicit PlayerInput(GLFWwindow *window);
 
     /// The map of GLFW windows to their associated PlayerInput instances.
+#ifdef KRYNE_ENGINE_PLAYER_INPUT_INPUT_MAP_RAW
     static unordered_map<GLFWwindow *, PlayerInput *> &inputMap();
+#else
+    static unordered_map<GLFWwindow *, weak_ptr<PlayerInput>> &inputMap();
+#endif
 
 
 protected:
@@ -212,10 +220,10 @@ protected:
     unordered_map<int32_t, vector<KeyMapItem>> keyToKeyMapItems {};
 
     /// All the callbacks associated to the pressing of PlayerInput::keyMap items.
-    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyPressCallbacks;
+    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyPressCallbacks {};
 
     /// All the callbacks associated to the releasing of PlayerInput::keyMap items.
-    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyReleaseCallbacks;
+    unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyReleaseCallbacks {};
 
 
 // === GLFW input callbacks handling ===
