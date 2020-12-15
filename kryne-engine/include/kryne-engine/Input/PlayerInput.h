@@ -89,6 +89,9 @@ protected:
      */
     explicit PlayerInput(GLFWwindow *window);
 
+    /// The map of GLFW windows to their associated PlayerInput instances.
+    inline static unordered_map<GLFWwindow *, PlayerInput *> &inputMap();
+
 
 protected:
 
@@ -236,12 +239,6 @@ protected:
      * GLFW callback function for handling mouse button input.
      */
     static void handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods);
-
-
-protected:
-
-    /// The map of GLFW windows to their associated PlayerInput instances.
-    static unordered_map<GLFWwindow *, PlayerInput *> inputMap;
 
 };
 

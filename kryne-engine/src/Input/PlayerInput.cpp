@@ -6,18 +6,31 @@
 
 #include "kryne-engine/Input/PlayerInput.h"
 
+unordered_map<GLFWwindow *, PlayerInput *> &PlayerInput::inputMap()
+{
+    static unordered_map<GLFWwindow *, PlayerInput *> inputMap {};
+    return inputMap;
+}
+
+
 PlayerInput *PlayerInput::getInput(GLFWwindow *window)
 {
-    if (PlayerInput::inputMap.find(window) != PlayerInput::inputMap.end()) {
-        cerr << "Unable to initialize player input";
+    auto &inputMap = PlayerInput::inputMap();
+
+    const auto it = inputMap.find(window);
+    if (it != inputMap.end()) {
+        return it->second;
+    } else {
+        auto newInput = new PlayerInput(window);
+        inputMap.emplace(make_pair(window, newInput));
+        return newInput;
     }
-    return nullptr;
 }
 
 
 PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 {
-    PlayerInput::inputMap.emplace(window, this);
+    PlayerInput::inputMap().emplace(window, this);
 
     glfwSetKeyCallback(window, PlayerInput::handleKeyInput);
     glfwSetCharCallback(window, PlayerInput::handleTextInput);
@@ -28,9 +41,9 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
 
 void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods)
 {
-    const auto pair = PlayerInput::inputMap.find(window);
+    const auto pair = PlayerInput::inputMap().find(window);
 
-    if (pair != PlayerInput::inputMap.end()) {
+    if (pair != PlayerInput::inputMap().end()) {
 
         const auto playerInput = pair->second;
         KeyData keyData { key, mods };
@@ -49,9 +62,9 @@ void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scanco
 
 void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
 {
-    const auto pair = PlayerInput::inputMap.find(window);
+    const auto pair = PlayerInput::inputMap().find(window);
 
-    if (pair != PlayerInput::inputMap.end()) {
+    if (pair != PlayerInput::inputMap().end()) {
 
         const auto playerInput = pair->second;
 
@@ -63,9 +76,9 @@ void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
 
 void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
 {
-    const auto pair = PlayerInput::inputMap.find(window);
+    const auto pair = PlayerInput::inputMap().find(window);
 
-    if (pair != PlayerInput::inputMap.end()) {
+    if (pair != PlayerInput::inputMap().end()) {
 
         const auto playerInput = pair->second;
 
@@ -77,9 +90,9 @@ void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
 
 void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods)
 {
-    const auto pair = PlayerInput::inputMap.find(window);
+    const auto pair = PlayerInput::inputMap().find(window);
 
-    if (pair != PlayerInput::inputMap.end()) {
+    if (pair != PlayerInput::inputMap().end()) {
 
         const auto playerInput = pair->second;
         KeyData keyData { button, mods };
