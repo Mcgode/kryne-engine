@@ -109,10 +109,8 @@ void PlayerInput::registerKey(const string &name, int32_t key, int32_t mods)
 }
 
 
-void PlayerInput::addCallback(const string &keyName,
-                              PlayerInput::CallbackObject *object,
-                              PlayerInput::InputCallback callback,
-                              unordered_map<KeyMapItem, CallbackSet, KeyMapItem::HashFunction> &callbacksMap)
+void PlayerInput::addCallback(const string &keyName, CallbackPointer callback,
+                              unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacksMap)
 {
     const auto location = this->keyMap.find(keyName);
     if (location != this->keyMap.end())
@@ -120,12 +118,12 @@ void PlayerInput::addCallback(const string &keyName,
         const auto it = callbacksMap.find(location->second);
 
         if (it == callbacksMap.end()) {
-            CallbackSet set;
-            set.emplace(make_pair(object, callback));
+            CallbackList list;
+            list.push_back(std::move(callback));
 
-            callbacksMap.emplace(location->second, set);
+            callbacksMap.emplace(location->second, list);
         } else
-            it->second.emplace(make_pair(object, callback));
+            it->second.push_back(std::move(callback));
 
         return;
     }
@@ -133,7 +131,7 @@ void PlayerInput::addCallback(const string &keyName,
 }
 
 
-void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackSet, KeyMapItem::HashFunction> &callbacks) const
+void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapItem, CallbackList, KeyMapItem::HashFunction> &callbacks) const
 {
     const auto ktkm = this->keyToKeyMapItems.find(data.key);
 
@@ -150,11 +148,20 @@ void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapI
         }
 
         if ((currentItem.associatedKey.mod & data.mod) == currentItem.associatedKey.mod) {
-            const auto map_it = callbacks.find(currentItem);
+            auto map_it = callbacks.find(currentItem);
             if ( map_it != callbacks.end() ) {
 
-                for (const auto &pair : map_it->second)
-                    invoke(pair.second, pair.first);
+                auto callbacksSet = map_it->second;
+                auto setIterator = callbacksSet.begin();
+                while (setIterator != callbacksSet.end())
+                {
+                    const auto p = setIterator->lock();
+                    if (p) {
+                        (*p) (); // Invoke callback
+                        setIterator++;
+                    } else
+                        setIterator = callbacksSet.erase(setIterator);
+                }
 
             }
         }
