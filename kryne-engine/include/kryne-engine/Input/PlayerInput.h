@@ -174,7 +174,7 @@ protected:
 protected:
 
     /// The keymap for this input handler.
-    unordered_set<KeyMapItem> keyMap {};
+    unordered_map<string, KeyMapItem> keyMap {};
 
     /// A rapid access hashmap to get all the PlayerInput::keyMap elements corresponding to a key value.
     unordered_map<int32_t, vector<KeyMapItem>> keyToKeyMapItems {};

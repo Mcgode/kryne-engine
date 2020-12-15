@@ -98,7 +98,7 @@ void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int
 void PlayerInput::registerKey(const string &name, int32_t key, int32_t mods)
 {
     KeyMapItem item { name, KeyData(key, mods) };
-    this->keyMap.emplace(item);
+    this->keyMap.insert(make_pair(name, item));
 
     const auto pair = this->keyToKeyMapItems.find(key);
     if (pair == this->keyToKeyMapItems.end()) {
@@ -114,21 +114,20 @@ void PlayerInput::addCallback(const string &keyName,
                               PlayerInput::InputCallback callback,
                               unordered_map<KeyMapItem, CallbackSet> &callbacksMap)
 {
-    for (const auto &item : this->keyMap) {
-        if (item.name == keyName) {
+    const auto location = this->keyMap.find(keyName);
+    if (location != this->keyMap.end())
+    {
+        const auto it = callbacksMap.find(location->second);
 
-            const auto it = callbacksMap.find(item);
+        if (it == callbacksMap.end()) {
+            CallbackSet set;
+            set.emplace(make_pair(object, callback));
 
-            if (it == callbacksMap.end()) {
-                CallbackSet set;
-                set.emplace(make_pair(object, callback));
+            callbacksMap.emplace(location->second, set);
+        } else
+            it->second.emplace(make_pair(object, callback));
 
-                callbacksMap.emplace(item, set);
-            } else
-                it->second.emplace(make_pair(object, callback));
-
-            return;
-        }
+        return;
     }
     cerr << "Unable to find key named " << keyName << endl;
 }
