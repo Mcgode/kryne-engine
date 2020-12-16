@@ -86,8 +86,8 @@ $(document).ready(function(){initNavTree('_renderer_8h_source.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <a href="_renderer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef INC_3D_DEMOS_RENDERER_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_3D_DEMOS_RENDERER_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef INC_KRYNE_ENGINE_RENDERER_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_KRYNE_ENGINE_RENDERER_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_window_8h.html">kryne-engine/Core/Window.h</a>&gt;</span></div>
@@ -112,37 +112,44 @@ $(document).ready(function(){initNavTree('_renderer_8h_source.html',''); initRes
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">Renderer::associatedWindow</a>.get();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">   53</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">const</span> unique_ptr&lt;PlayerInput&gt; &amp;<a class="code" href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">getPlayerInput</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> playerInput;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#ifdef KRYNE_ENGINE_RENDERER_GET_PLAYER_INPUT_RAW</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <a class="code" href="class_player_input.html">PlayerInput</a> *getPlayerInput()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> this-&gt;playerInput.get();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> renderObject(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updateObjects(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">   77</a></span>&#160;    unique_ptr&lt;Window&gt; <a class="code" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">associatedWindow</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_renderer.html#a7678a78685ea3056678b931c64d3e325">   57</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> weak_ptr&lt;PlayerInput&gt; <a class="code" href="class_renderer.html#a7678a78685ea3056678b931c64d3e325">getPlayerInput</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> weak_ptr&lt;PlayerInput&gt;(this-&gt;playerInput);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> renderObject(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>, <a class="code" href="class_camera.html">Camera</a> *camera);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updateObjects(<a class="code" href="class_object3_d.html">Object3D</a> *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">   80</a></span>&#160;    unique_ptr&lt;PlayerInput&gt; <a class="code" href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">playerInput</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">   83</a></span>&#160;    <a class="code" href="class_rendering_state.html">RenderingState</a> <a class="code" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">renderingState</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">   82</a></span>&#160;    unique_ptr&lt;Window&gt; <a class="code" href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">associatedWindow</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_renderer.html#a94e0132d8f5e75835b4b6ed0305276ce">   85</a></span>&#160;    shared_ptr&lt;PlayerInput&gt; <a class="code" href="class_renderer.html#a94e0132d8f5e75835b4b6ed0305276ce">playerInput</a>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif //INC_3D_DEMOS_RENDERER_H</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">   88</a></span>&#160;    <a class="code" href="class_rendering_state.html">RenderingState</a> <a class="code" href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">renderingState</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_RENDERER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.h:24</div></div>
+<div class="ttc" id="aclass_renderer_html_a94e0132d8f5e75835b4b6ed0305276ce"><div class="ttname"><a href="class_renderer.html#a94e0132d8f5e75835b4b6ed0305276ce">Renderer::playerInput</a></div><div class="ttdeci">shared_ptr&lt; PlayerInput &gt; playerInput</div><div class="ttdoc">The player input for this rendering window.</div><div class="ttdef"><b>Definition:</b> Renderer.h:85</div></div>
+<div class="ttc" id="aclass_player_input_html"><div class="ttname"><a href="class_player_input.html">PlayerInput</a></div><div class="ttdef"><b>Definition:</b> PlayerInput.h:26</div></div>
 <div class="ttc" id="a_scene_8h_html"><div class="ttname"><a href="_scene_8h.html">Scene.h</a></div></div>
 <div class="ttc" id="a_player_input_8h_html"><div class="ttname"><a href="_player_input_8h.html">PlayerInput.h</a></div></div>
-<div class="ttc" id="aclass_renderer_html_aa3101d638246464f13a4b95bca294d68"><div class="ttname"><a href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">Renderer::renderingState</a></div><div class="ttdeci">RenderingState renderingState</div><div class="ttdoc">The current rendering state.</div><div class="ttdef"><b>Definition:</b> Renderer.h:83</div></div>
+<div class="ttc" id="aclass_renderer_html_aa3101d638246464f13a4b95bca294d68"><div class="ttname"><a href="class_renderer.html#aa3101d638246464f13a4b95bca294d68">Renderer::renderingState</a></div><div class="ttdeci">RenderingState renderingState</div><div class="ttdoc">The current rendering state.</div><div class="ttdef"><b>Definition:</b> Renderer.h:88</div></div>
 <div class="ttc" id="aclass_renderer_html_a92287c94eab91f620b0949d0a83c1eb9"><div class="ttname"><a href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">Renderer::getWindow</a></div><div class="ttdeci">const Window * getWindow()</div><div class="ttdef"><b>Definition:</b> Renderer.h:45</div></div>
 <div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:13</div></div>
 <div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:27</div></div>
@@ -151,11 +158,10 @@ $(document).ready(function(){initNavTree('_renderer_8h_source.html',''); initRes
 <div class="ttc" id="a_window_8h_html"><div class="ttname"><a href="_window_8h.html">Window.h</a></div></div>
 <div class="ttc" id="a_mesh_8h_html"><div class="ttname"><a href="_mesh_8h.html">Mesh.h</a></div></div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:14</div></div>
-<div class="ttc" id="aclass_renderer_html_af27c7e26a139347facdd46f6caa8655f"><div class="ttname"><a href="class_renderer.html#af27c7e26a139347facdd46f6caa8655f">Renderer::getPlayerInput</a></div><div class="ttdeci">const unique_ptr&lt; PlayerInput &gt; &amp; getPlayerInput() const</div><div class="ttdef"><b>Definition:</b> Renderer.h:53</div></div>
-<div class="ttc" id="aclass_renderer_html_a233b686c684fbd377d374d728f61a46e"><div class="ttname"><a href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">Renderer::associatedWindow</a></div><div class="ttdeci">unique_ptr&lt; Window &gt; associatedWindow</div><div class="ttdoc">The GLFW window associated with this renderer.</div><div class="ttdef"><b>Definition:</b> Renderer.h:77</div></div>
-<div class="ttc" id="aclass_renderer_html_aee027f89162e3f5344e861a70c1b6422"><div class="ttname"><a href="class_renderer.html#aee027f89162e3f5344e861a70c1b6422">Renderer::playerInput</a></div><div class="ttdeci">unique_ptr&lt; PlayerInput &gt; playerInput</div><div class="ttdoc">The player input for this rendering window.</div><div class="ttdef"><b>Definition:</b> Renderer.h:80</div></div>
+<div class="ttc" id="aclass_renderer_html_a233b686c684fbd377d374d728f61a46e"><div class="ttname"><a href="class_renderer.html#a233b686c684fbd377d374d728f61a46e">Renderer::associatedWindow</a></div><div class="ttdeci">unique_ptr&lt; Window &gt; associatedWindow</div><div class="ttdoc">The GLFW window associated with this renderer.</div><div class="ttdef"><b>Definition:</b> Renderer.h:82</div></div>
 <div class="ttc" id="aclass_object3_d_html"><div class="ttname"><a href="class_object3_d.html">Object3D</a></div><div class="ttdef"><b>Definition:</b> Object3D.h:28</div></div>
 <div class="ttc" id="aclass_rendering_state_html"><div class="ttname"><a href="class_rendering_state.html">RenderingState</a></div><div class="ttdef"><b>Definition:</b> RenderingState.hpp:14</div></div>
+<div class="ttc" id="aclass_renderer_html_a7678a78685ea3056678b931c64d3e325"><div class="ttname"><a href="class_renderer.html#a7678a78685ea3056678b931c64d3e325">Renderer::getPlayerInput</a></div><div class="ttdeci">weak_ptr&lt; PlayerInput &gt; getPlayerInput() const</div><div class="ttdef"><b>Definition:</b> Renderer.h:57</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

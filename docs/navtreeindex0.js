@@ -65,7 +65,9 @@ var NAVTREEINDEX0 =
 "_perspective_projection_data_8hpp.html":[1,0,0,0,0,1,4],
 "_perspective_projection_data_8hpp_source.html":[1,0,0,0,0,1,4],
 "_player_input_8cpp.html":[1,0,0,1,0,0],
+"_player_input_8cpp.html#af032bd80fd45203f468899b049578ef9":[1,0,0,1,0,0,0],
 "_player_input_8h.html":[1,0,0,0,0,6,0],
+"_player_input_8h.html#a36c5ae3e2268dbb639ffdd9c7a4de4e6":[1,0,0,0,0,6,0,5],
 "_player_input_8h_source.html":[1,0,0,0,0,6,0],
 "_point_light_8h.html":[1,0,0,0,0,7,2],
 "_point_light_8h_source.html":[1,0,0,0,0,7,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "class_main_renderer.html#aa9f1a22299240e8783683dbd759b1182":[0,0,13,2],
 "class_main_renderer.html#ae75e50a50aeefe0a08068a57f67e36e5":[0,0,13,1],
 "class_main_renderer.html#af9f29fe27421266481a2a89c7447e1d0":[0,0,13,7],
-"class_material.html":[0,0,14],
-"class_material.html#a36a235f5948f6f0e5719a4bb636cf0de":[0,0,14,8],
-"class_material.html#a38391efabd8dabb8f3e18e84eda8105b":[0,0,14,0]
+"class_material.html":[0,0,14]
 };
