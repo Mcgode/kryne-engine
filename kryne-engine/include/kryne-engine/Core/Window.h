@@ -4,8 +4,8 @@
  * @date 20/04/19
  */
 
-#ifndef INC_3D_DEMOS_WINDOW_H
-#define INC_3D_DEMOS_WINDOW_H
+#ifndef INC_KRYNE_ENGINE_WINDOW_H
+#define INC_KRYNE_ENGINE_WINDOW_H
 
 #include <vector>
 #include <unordered_set>
@@ -70,4 +70,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_WINDOW_H
+#endif //INC_KRYNE_ENGINE_WINDOW_H

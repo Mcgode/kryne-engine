@@ -4,8 +4,8 @@
  * @date 21/11/2020
  */
 
-#ifndef INC_3D_DEMOS_BUFFERGEOMETRY_H
-#define INC_3D_DEMOS_BUFFERGEOMETRY_H
+#ifndef INC_KRYNE_ENGINE_BUFFERGEOMETRY_H
+#define INC_KRYNE_ENGINE_BUFFERGEOMETRY_H
 
 #include <algorithm>
 #include <memory>
@@ -134,4 +134,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_BUFFERGEOMETRY_H
+#endif //INC_KRYNE_ENGINE_BUFFERGEOMETRY_H

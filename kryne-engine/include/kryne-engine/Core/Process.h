@@ -4,8 +4,8 @@
  * @date 16/10/2019
  */
 
-#ifndef INC_3D_DEMOS_PROCESS_H
-#define INC_3D_DEMOS_PROCESS_H
+#ifndef INC_KRYNE_ENGINE_PROCESS_H
+#define INC_KRYNE_ENGINE_PROCESS_H
 
 
 #include <kryne-engine/Camera/OldCamera.h>
@@ -59,4 +59,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_PROCESS_H
+#endif //INC_KRYNE_ENGINE_PROCESS_H

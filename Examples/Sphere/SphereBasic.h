@@ -2,8 +2,8 @@
 // Created by max on 09/06/19.
 //
 
-#ifndef INC_3D_DEMOS_SPHEREBASIC_H
-#define INC_3D_DEMOS_SPHEREBASIC_H
+#ifndef INC_KRYNE_ENGINE_SPHEREBASIC_H
+#define INC_KRYNE_ENGINE_SPHEREBASIC_H
 
 
 #include <kryne-engine/3DObjects/BaseObject.h>
@@ -28,4 +28,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_SPHEREBASIC_H
+#endif //INC_KRYNE_ENGINE_SPHEREBASIC_H

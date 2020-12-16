@@ -4,8 +4,8 @@
  * @date 02/08/2019
  */
 
-#ifndef INC_3D_DEMOS_SKYBOX_H
-#define INC_3D_DEMOS_SKYBOX_H
+#ifndef INC_KRYNE_ENGINE_SKYBOX_H
+#define INC_KRYNE_ENGINE_SKYBOX_H
 
 #include <string>
 
@@ -34,4 +34,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_SKYBOX_H
+#endif //INC_KRYNE_ENGINE_SKYBOX_H

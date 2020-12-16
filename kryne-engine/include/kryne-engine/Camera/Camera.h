@@ -4,8 +4,8 @@
  * @date 22/11/2020
  */
 
-#ifndef INC_3D_DEMOS_CAMERA_H
-#define INC_3D_DEMOS_CAMERA_H
+#ifndef INC_KRYNE_ENGINE_CAMERA_H
+#define INC_KRYNE_ENGINE_CAMERA_H
 
 #include <memory>
 #include <kryne-engine/3DObjects/Object3D.h>
@@ -55,4 +55,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_CAMERA_H
+#endif //INC_KRYNE_ENGINE_CAMERA_H

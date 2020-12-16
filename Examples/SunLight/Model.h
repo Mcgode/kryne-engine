@@ -2,8 +2,8 @@
 // Created by max on 29/07/2019.
 //
 
-#ifndef INC_3D_DEMOS_MODEL_H
-#define INC_3D_DEMOS_MODEL_H
+#ifndef INC_KRYNE_ENGINE_MODEL_H
+#define INC_KRYNE_ENGINE_MODEL_H
 
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
 #include <kryne-engine/Rendering/RenderScene.h>
@@ -27,4 +27,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_MODEL_H
+#endif //INC_KRYNE_ENGINE_MODEL_H

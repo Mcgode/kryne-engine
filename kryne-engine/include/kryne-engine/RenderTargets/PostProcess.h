@@ -4,8 +4,8 @@
  * @date 25/07/2019
  */
 
-#ifndef INC_3D_DEMOS_POST_PROCESS_H
-#define INC_3D_DEMOS_POST_PROCESS_H
+#ifndef INC_KRYNE_ENGINE_POST_PROCESS_H
+#define INC_KRYNE_ENGINE_POST_PROCESS_H
 
 #include "kryne-engine/Textures/Texture2D.h"
 #include "FinalPostProcess.h"
@@ -45,4 +45,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_POST_PROCESS_H
+#endif //INC_KRYNE_ENGINE_POST_PROCESS_H

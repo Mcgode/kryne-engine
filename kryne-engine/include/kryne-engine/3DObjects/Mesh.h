@@ -4,8 +4,8 @@
  * @date 21/11/2020
  */
 
-#ifndef INC_3D_DEMOS_MESH_H
-#define INC_3D_DEMOS_MESH_H
+#ifndef INC_KRYNE_ENGINE_MESH_H
+#define INC_KRYNE_ENGINE_MESH_H
 
 #include <kryne-engine/Material/Material.h>
 #include <kryne-engine/Camera/Camera.h>
@@ -90,4 +90,4 @@ public:
 };
 
 
-#endif //INC_3D_DEMOS_MESH_H
+#endif //INC_KRYNE_ENGINE_MESH_H

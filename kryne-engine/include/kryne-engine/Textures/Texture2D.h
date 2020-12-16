@@ -4,8 +4,8 @@
  * @date 22/05/19
  */
 
-#ifndef INC_3D_DEMOS_TEXTURE2D_H
-#define INC_3D_DEMOS_TEXTURE2D_H
+#ifndef INC_KRYNE_ENGINE_TEXTURE2D_H
+#define INC_KRYNE_ENGINE_TEXTURE2D_H
 
 #include <kryne-engine/Textures/stb_image.h>
 #include <string>
@@ -46,4 +46,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_TEXTURE2D_H
+#endif //INC_KRYNE_ENGINE_TEXTURE2D_H

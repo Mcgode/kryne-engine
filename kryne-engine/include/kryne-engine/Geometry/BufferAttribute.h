@@ -4,8 +4,8 @@
  * @date 21/11/2020
  */
 
-#ifndef INC_3D_DEMOS_BUFFERATTRIBUTE_H
-#define INC_3D_DEMOS_BUFFERATTRIBUTE_H
+#ifndef INC_KRYNE_ENGINE_BUFFERATTRIBUTE_H
+#define INC_KRYNE_ENGINE_BUFFERATTRIBUTE_H
 
 #include <vector>
 #include <string>
@@ -80,4 +80,4 @@ public:
 };
 
 
-#endif //INC_3D_DEMOS_BUFFERATTRIBUTE_H
+#endif //INC_KRYNE_ENGINE_BUFFERATTRIBUTE_H

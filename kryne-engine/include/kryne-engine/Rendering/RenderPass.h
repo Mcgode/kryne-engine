@@ -4,8 +4,8 @@
  * @date 10/10/2019
  */
 
-#ifndef INC_3D_DEMOS_RENDER_PASS_H
-#define INC_3D_DEMOS_RENDER_PASS_H
+#ifndef INC_KRYNE_ENGINE_RENDER_PASS_H
+#define INC_KRYNE_ENGINE_RENDER_PASS_H
 
 
 #include <kryne-engine/Core/Window.h>
@@ -42,4 +42,4 @@ public:
 
 class RenderPass;
 
-#endif //INC_3D_DEMOS_RENDER_PASS_H
+#endif //INC_KRYNE_ENGINE_RENDER_PASS_H

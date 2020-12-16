@@ -4,8 +4,8 @@
  * @date 22/04/19
  */
 
-#ifndef INC_3D_DEMOS_RENDERSCENE_H
-#define INC_3D_DEMOS_RENDERSCENE_H
+#ifndef INC_KRYNE_ENGINE_RENDERSCENE_H
+#define INC_KRYNE_ENGINE_RENDERSCENE_H
 
 
 #include <kryne-engine/Core/Window.h>
@@ -84,4 +84,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_RENDERSCENE_H
+#endif //INC_KRYNE_ENGINE_RENDERSCENE_H

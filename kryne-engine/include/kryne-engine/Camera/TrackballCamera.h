@@ -4,8 +4,8 @@
  * @date 21/05/19
  */
 
-#ifndef INC_3D_DEMOS_TRACKBALLCAMERA_H
-#define INC_3D_DEMOS_TRACKBALLCAMERA_H
+#ifndef INC_KRYNE_ENGINE_TRACKBALLCAMERA_H
+#define INC_KRYNE_ENGINE_TRACKBALLCAMERA_H
 
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/constants.hpp>
@@ -65,4 +65,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_TRACKBALLCAMERA_H
+#endif //INC_KRYNE_ENGINE_TRACKBALLCAMERA_H

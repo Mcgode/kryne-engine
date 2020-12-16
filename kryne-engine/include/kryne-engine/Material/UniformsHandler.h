@@ -4,8 +4,8 @@
  * @date 24/11/2020
  */
 
-#ifndef INC_3D_DEMOS_UNIFORMSHANDLER_H
-#define INC_3D_DEMOS_UNIFORMSHANDLER_H
+#ifndef INC_KRYNE_ENGINE_UNIFORMSHANDLER_H
+#define INC_KRYNE_ENGINE_UNIFORMSHANDLER_H
 
 #include <string>
 #include <unordered_map>
@@ -135,4 +135,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_UNIFORMSHANDLER_H
+#endif //INC_KRYNE_ENGINE_UNIFORMSHANDLER_H

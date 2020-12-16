@@ -4,8 +4,8 @@
  * @date 19/04/19
  */
 
-#ifndef INC_3D_DEMOS_VERTEXARRAY_H
-#define INC_3D_DEMOS_VERTEXARRAY_H
+#ifndef INC_KRYNE_ENGINE_VERTEXARRAY_H
+#define INC_KRYNE_ENGINE_VERTEXARRAY_H
 
 #include <vector>
 #include <stdarg.h>
@@ -97,4 +97,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_VERTEXARRAY_H
+#endif //INC_KRYNE_ENGINE_VERTEXARRAY_H

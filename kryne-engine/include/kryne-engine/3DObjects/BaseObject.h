@@ -4,8 +4,8 @@
  * @date 22/04/19
  */
 
-#ifndef INC_3D_DEMOS_BASE_OBJECT_H
-#define INC_3D_DEMOS_BASE_OBJECT_H
+#ifndef INC_KRYNE_ENGINE_BASE_OBJECT_H
+#define INC_KRYNE_ENGINE_BASE_OBJECT_H
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -82,4 +82,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_BASE_OBJECT_H
+#endif //INC_KRYNE_ENGINE_BASE_OBJECT_H

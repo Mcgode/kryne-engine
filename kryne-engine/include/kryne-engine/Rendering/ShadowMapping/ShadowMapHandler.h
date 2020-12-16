@@ -4,8 +4,8 @@
  * @date 11/10/2019
  */
 
-#ifndef INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
-#define INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
+#ifndef INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H
+#define INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H
 
 #include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
@@ -38,4 +38,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
+#endif //INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H

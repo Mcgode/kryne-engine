@@ -4,8 +4,8 @@
  * @date 01/12/2020.
  */
 
-#ifndef INC_3D_DEMOS_PLAYERINPUT_H
-#define INC_3D_DEMOS_PLAYERINPUT_H
+#ifndef INC_KRYNE_ENGINE_PLAYERINPUT_H
+#define INC_KRYNE_ENGINE_PLAYERINPUT_H
 
 #include <set>
 #include <unordered_set>
@@ -253,4 +253,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_PLAYERINPUT_H
+#endif //INC_KRYNE_ENGINE_PLAYERINPUT_H

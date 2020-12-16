@@ -4,8 +4,8 @@
  * @date 22/11/2020
  */
 
-#ifndef INC_3D_DEMOS_PROJECTIONDATA_HPP
-#define INC_3D_DEMOS_PROJECTIONDATA_HPP
+#ifndef INC_KRYNE_ENGINE_PROJECTIONDATA_HPP
+#define INC_KRYNE_ENGINE_PROJECTIONDATA_HPP
 
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -50,4 +50,4 @@ protected:
 
 };
 
-#endif //INC_3D_DEMOS_PROJECTIONDATA_HPP
+#endif //INC_KRYNE_ENGINE_PROJECTIONDATA_HPP

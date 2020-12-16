@@ -4,8 +4,8 @@
  * @date 20/04/19
  */
 
-#ifndef INC_3D_DEMOS_OLDCAMERA_H
-#define INC_3D_DEMOS_OLDCAMERA_H
+#ifndef INC_KRYNE_ENGINE_OLDCAMERA_H
+#define INC_KRYNE_ENGINE_OLDCAMERA_H
 
 #include <vector>
 #include <stdarg.h>
@@ -70,4 +70,4 @@ public:
 };
 
 
-#endif //INC_3D_DEMOS_OLDCAMERA_H
+#endif //INC_KRYNE_ENGINE_OLDCAMERA_H

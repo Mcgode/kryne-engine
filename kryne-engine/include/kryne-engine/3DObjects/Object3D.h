@@ -4,8 +4,8 @@
  * @date 21/11/2020
  */
 
-#ifndef INC_3D_DEMOS_OBJECT3D_H
-#define INC_3D_DEMOS_OBJECT3D_H
+#ifndef INC_KRYNE_ENGINE_OBJECT3D_H
+#define INC_KRYNE_ENGINE_OBJECT3D_H
 
 
 
@@ -171,4 +171,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_OBJECT3D_H
+#endif //INC_KRYNE_ENGINE_OBJECT3D_H

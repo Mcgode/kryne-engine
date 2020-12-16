@@ -4,8 +4,8 @@
  * @date 20/11/2020
  */
 
-#ifndef INC_3D_DEMOS_RENDERER_H
-#define INC_3D_DEMOS_RENDERER_H
+#ifndef INC_KRYNE_ENGINE_RENDERER_H
+#define INC_KRYNE_ENGINE_RENDERER_H
 
 #include <memory>
 #include <kryne-engine/Core/Window.h>
@@ -90,4 +90,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_RENDERER_H
+#endif //INC_KRYNE_ENGINE_RENDERER_H

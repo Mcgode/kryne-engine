@@ -4,8 +4,8 @@
  * @date 21/11/2020
  */
 
-#ifndef INC_3D_DEMOS_MATERIAL_H
-#define INC_3D_DEMOS_MATERIAL_H
+#ifndef INC_KRYNE_ENGINE_MATERIAL_H
+#define INC_KRYNE_ENGINE_MATERIAL_H
 
 #include <kryne-engine/enums/MaterialSide.h>
 #include <kryne-engine/Rendering/ShaderProgramCompiler.h>
@@ -135,4 +135,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_MATERIAL_H
+#endif //INC_KRYNE_ENGINE_MATERIAL_H

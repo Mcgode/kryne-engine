@@ -4,8 +4,8 @@
  * @date 07/10/2019
  */
 
-#ifndef INC_3D_DEMOS_MAIN_RENDERER_H
-#define INC_3D_DEMOS_MAIN_RENDERER_H
+#ifndef INC_KRYNE_ENGINE_MAIN_RENDERER_H
+#define INC_KRYNE_ENGINE_MAIN_RENDERER_H
 
 #include <kryne-engine/Light/LightingRegistry.h>
 #include <kryne-engine/Camera/OldCamera.h>
@@ -80,4 +80,4 @@ private:
 
 class MainRenderer;
 
-#endif //INC_3D_DEMOS_MAIN_RENDERER_H
+#endif //INC_KRYNE_ENGINE_MAIN_RENDERER_H

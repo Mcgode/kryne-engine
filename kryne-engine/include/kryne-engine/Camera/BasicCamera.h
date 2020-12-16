@@ -4,8 +4,8 @@
  * @date 20/04/19
  */
 
-#ifndef INC_3D_DEMOS_BASICCAMERA_H
-#define INC_3D_DEMOS_BASICCAMERA_H
+#ifndef INC_KRYNE_ENGINE_BASICCAMERA_H
+#define INC_KRYNE_ENGINE_BASICCAMERA_H
 
 #include <vector>
 #include <stdarg.h>
@@ -57,4 +57,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_BASICCAMERA_H
+#endif //INC_KRYNE_ENGINE_BASICCAMERA_H

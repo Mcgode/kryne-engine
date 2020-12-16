@@ -4,8 +4,8 @@
  * @date 23/11/2020
  */
 
-#ifndef INC_3D_DEMOS_SHADERCHUNK_H
-#define INC_3D_DEMOS_SHADERCHUNK_H
+#ifndef INC_KRYNE_ENGINE_SHADERCHUNK_H
+#define INC_KRYNE_ENGINE_SHADERCHUNK_H
 
 #include <unordered_map>
 #include <string>
@@ -67,4 +67,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_SHADERCHUNK_H
+#endif //INC_KRYNE_ENGINE_SHADERCHUNK_H

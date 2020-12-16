@@ -4,8 +4,8 @@
  * @date 20/11/2020
  */
 
-#ifndef INC_3D_DEMOS_SCENE_H
-#define INC_3D_DEMOS_SCENE_H
+#ifndef INC_KRYNE_ENGINE_SCENE_H
+#define INC_KRYNE_ENGINE_SCENE_H
 
 
 #include "Object3D.h"
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //INC_3D_DEMOS_SCENE_H
+#endif //INC_KRYNE_ENGINE_SCENE_H

@@ -4,8 +4,8 @@
  * @date 22/04/19
  */
 
-#ifndef INC_3D_DEMOS_HIERARCHICALNODE_H
-#define INC_3D_DEMOS_HIERARCHICALNODE_H
+#ifndef INC_KRYNE_ENGINE_HIERARCHICALNODE_H
+#define INC_KRYNE_ENGINE_HIERARCHICALNODE_H
 
 #include <cstdarg>
 #include <kryne-engine/Rendering/RenderPass.h>
@@ -76,4 +76,4 @@ private:
 
 class HierarchicalNode;
 
-#endif //INC_3D_DEMOS_HIERARCHICALNODE_H
+#endif //INC_KRYNE_ENGINE_HIERARCHICALNODE_H

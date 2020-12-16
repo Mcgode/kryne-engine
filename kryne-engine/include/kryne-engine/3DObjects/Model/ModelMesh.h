@@ -4,8 +4,8 @@
  * @date 29/07/2019
  */
 
-#ifndef INC_3D_DEMOS_MODELMESH_H
-#define INC_3D_DEMOS_MODELMESH_H
+#ifndef INC_KRYNE_ENGINE_MODELMESH_H
+#define INC_KRYNE_ENGINE_MODELMESH_H
 
 #include <vector>
 #include <map>
@@ -49,4 +49,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_MODELMESH_H
+#endif //INC_KRYNE_ENGINE_MODELMESH_H

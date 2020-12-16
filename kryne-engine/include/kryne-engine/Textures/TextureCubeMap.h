@@ -4,8 +4,8 @@
  * @date 02/08/2019
  */
 
-#ifndef INC_3D_DEMOS_TEXTURECUBEMAP_H
-#define INC_3D_DEMOS_TEXTURECUBEMAP_H
+#ifndef INC_KRYNE_ENGINE_TEXTURECUBEMAP_H
+#define INC_KRYNE_ENGINE_TEXTURECUBEMAP_H
 
 
 #include <kryne-engine/Textures/Texture2D.h>
@@ -21,4 +21,4 @@ public:
 };
 
 
-#endif //INC_3D_DEMOS_TEXTURECUBEMAP_H
+#endif //INC_KRYNE_ENGINE_TEXTURECUBEMAP_H

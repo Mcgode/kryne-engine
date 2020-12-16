@@ -4,8 +4,8 @@
  * @date 6/1/20
  */
 
-#ifndef INC_3D_DEMOS_LIGHTINGREGISTRY_H
-#define INC_3D_DEMOS_LIGHTINGREGISTRY_H
+#ifndef INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H
+#define INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H
 
 #include <memory>
 #include "DirectionalLight.h"
@@ -31,4 +31,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_LIGHTINGREGISTRY_H
+#endif //INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H

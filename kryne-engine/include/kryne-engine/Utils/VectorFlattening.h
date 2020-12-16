@@ -4,8 +4,8 @@
  * @date 22/11/2020
  */
 
-#ifndef INC_3D_DEMOS_VECTORFLATTENING_H
-#define INC_3D_DEMOS_VECTORFLATTENING_H
+#ifndef INC_KRYNE_ENGINE_VECTORFLATTENING_H
+#define INC_KRYNE_ENGINE_VECTORFLATTENING_H
 
 #pragma once
 
@@ -26,4 +26,4 @@ std::vector<float> flattenVector3(const std::vector<vec3>& data);
 
 std::vector<float> flattenVector4(const std::vector<vec4>& data);
 
-#endif //INC_3D_DEMOS_VECTORFLATTENING_H
+#endif //INC_KRYNE_ENGINE_VECTORFLATTENING_H

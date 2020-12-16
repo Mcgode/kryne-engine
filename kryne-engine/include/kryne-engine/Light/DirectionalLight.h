@@ -4,8 +4,8 @@
  * @date 21/05/19
  */
 
-#ifndef INC_3D_DEMOS_DIRECTIONALLIGHT_H
-#define INC_3D_DEMOS_DIRECTIONALLIGHT_H
+#ifndef INC_KRYNE_ENGINE_DIRECTIONALLIGHT_H
+#define INC_KRYNE_ENGINE_DIRECTIONALLIGHT_H
 
 #include <glm/vec3.hpp>
 #include <vector>
@@ -71,4 +71,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_DIRECTIONALLIGHT_H
+#endif //INC_KRYNE_ENGINE_DIRECTIONALLIGHT_H

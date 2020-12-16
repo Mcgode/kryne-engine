@@ -4,8 +4,8 @@
  * @date 21/05/19
  */
 
-#ifndef INC_3D_DEMOS_POINTLIGHT_H
-#define INC_3D_DEMOS_POINTLIGHT_H
+#ifndef INC_KRYNE_ENGINE_POINTLIGHT_H
+#define INC_KRYNE_ENGINE_POINTLIGHT_H
 
 #include <glm/vec3.hpp>
 #include <kryne-engine/Material/Shader.h>
@@ -88,4 +88,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_POINTLIGHT_H
+#endif //INC_KRYNE_ENGINE_POINTLIGHT_H
