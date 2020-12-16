@@ -258,6 +258,7 @@ void PlayerInput::callCallbacks(const KeyData &data, const unordered_map<KeyMapI
 void PlayerInput::willPollEvents()
 {
     this->previousCursorPosition = this->cursorPosition;
+    this->inputText = "";
 }
 
 
