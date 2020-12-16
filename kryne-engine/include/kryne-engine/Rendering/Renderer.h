@@ -47,17 +47,18 @@ public:
     }
 
     /**
-     * Returns the player input for this rendering window.
+     * Returns the player input raw pointer for this rendering window.
      */
-#ifdef KRYNE_ENGINE_RENDERER_GET_PLAYER_INPUT_RAW
     [[nodiscard]] inline PlayerInput *getPlayerInput() const {
         return this->playerInput.get();
     }
-#else
-    [[nodiscard]] inline weak_ptr<PlayerInput> getPlayerInput() const {
+
+    /**
+     * Returns a weak reference to the player input for this rendering window.
+     */
+    [[nodiscard]] inline weak_ptr<PlayerInput> getWeakPlayerInput() const {
         return weak_ptr<PlayerInput>(this->playerInput);
     }
-#endif
 
 
 protected:

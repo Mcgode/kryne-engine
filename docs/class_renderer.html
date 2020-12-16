@@ -107,8 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab28d1a8538913a0a72130ba64af5a938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92287c94eab91f620b0949d0a83c1eb9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_window.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9">getWindow</a> ()</td></tr>
 <tr class="separator:a92287c94eab91f620b0949d0a83c1eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7678a78685ea3056678b931c64d3e325"><td class="memItemLeft" align="right" valign="top">weak_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7678a78685ea3056678b931c64d3e325">getPlayerInput</a> () const</td></tr>
-<tr class="separator:a7678a78685ea3056678b931c64d3e325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e69e6aab1a158a4d9920c93cdf67cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player_input.html">PlayerInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a33e69e6aab1a158a4d9920c93cdf67cb">getPlayerInput</a> () const</td></tr>
+<tr class="separator:a33e69e6aab1a158a4d9920c93cdf67cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c9de40d9506c3939c806a85f2f26ba"><td class="memItemLeft" align="right" valign="top">weak_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ae4c9de40d9506c3939c806a85f2f26ba">getWeakPlayerInput</a> () const</td></tr>
+<tr class="separator:ae4c9de40d9506c3939c806a85f2f26ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -174,8 +176,8 @@ shared_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7678a78685ea3056678b931c64d3e325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7678a78685ea3056678b931c64d3e325">&#9670;&nbsp;</a></span>getPlayerInput()</h2>
+<a id="a33e69e6aab1a158a4d9920c93cdf67cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e69e6aab1a158a4d9920c93cdf67cb">&#9670;&nbsp;</a></span>getPlayerInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +186,7 @@ shared_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">weak_ptr&lt;<a class="el" href="class_player_input.html">PlayerInput</a>&gt; Renderer::getPlayerInput </td>
+          <td class="memname"><a class="el" href="class_player_input.html">PlayerInput</a>* Renderer::getPlayerInput </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -196,7 +198,33 @@ shared_ptr&lt; <a class="el" href="class_player_input.html">PlayerInput</a> &gt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the player input for this rendering window. </p>
+<p>Returns the player input raw pointer for this rendering window. </p>
+
+</div>
+</div>
+<a id="ae4c9de40d9506c3939c806a85f2f26ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c9de40d9506c3939c806a85f2f26ba">&#9670;&nbsp;</a></span>getWeakPlayerInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">weak_ptr&lt;<a class="el" href="class_player_input.html">PlayerInput</a>&gt; Renderer::getWeakPlayerInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a weak reference to the player input for this rendering window. </p>
 
 </div>
 </div>

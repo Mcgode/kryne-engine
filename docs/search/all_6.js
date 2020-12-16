@@ -25,7 +25,7 @@ var searchData=
   ['getmaterial_73',['getMaterial',['../class_mesh.html#aecffca8fb03133d4c17187203cd0266c',1,'Mesh']]],
   ['getnearplane_74',['getNearPlane',['../class_perspective_projection_data.html#acdf3396f6d6aed68068d820ca83a8446',1,'PerspectiveProjectionData']]],
   ['getneedsupdate_75',['getNeedsUpdate',['../class_shader.html#a8dbd8d624b47ff9210792cf212b354cb',1,'Shader']]],
-  ['getplayerinput_76',['getPlayerInput',['../class_renderer.html#a7678a78685ea3056678b931c64d3e325',1,'Renderer']]],
+  ['getplayerinput_76',['getPlayerInput',['../class_renderer.html#a33e69e6aab1a158a4d9920c93cdf67cb',1,'Renderer']]],
   ['getprimitivetype_77',['getPrimitiveType',['../class_material.html#af4d74b55f8be6fead4bbd3ee29a529df',1,'Material']]],
   ['getprocesswindow_78',['getProcessWindow',['../class_process.html#a61fef43ccd3f307f3a9fd889b194c610',1,'Process']]],
   ['getprojectionmatrix_79',['getProjectionMatrix',['../class_projection_data.html#a81cad5915d286a7dc5aabd781a5340bc',1,'ProjectionData']]],
@@ -34,5 +34,6 @@ var searchData=
   ['getside_82',['getSide',['../class_material.html#a6a0744388287b0d1831904d77f7d8764',1,'Material']]],
   ['getvertexshader_83',['getVertexShader',['../class_shader.html#a8beb925ecccca417ef349bdfb79635d5',1,'Shader']]],
   ['getviewmatrix_84',['getViewMatrix',['../class_basic_camera.html#af355003705520940de1e2169cd5a12e2',1,'BasicCamera::getViewMatrix()'],['../class_first_person_camera.html#a77499b26c3c32c3f93a64210157f892f',1,'FirstPersonCamera::getViewMatrix()'],['../class_old_camera.html#a3eb26d0e7cc604ea067b3184bc24e80b',1,'OldCamera::getViewMatrix()'],['../class_trackball_camera.html#ace2e92dc8558efab21463e04faa9bd14',1,'TrackballCamera::getViewMatrix()']]],
-  ['getwindow_85',['getWindow',['../class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9',1,'Renderer']]]
+  ['getweakplayerinput_85',['getWeakPlayerInput',['../class_renderer.html#ae4c9de40d9506c3939c806a85f2f26ba',1,'Renderer']]],
+  ['getwindow_86',['getWindow',['../class_renderer.html#a92287c94eab91f620b0949d0a83c1eb9',1,'Renderer']]]
 ];
