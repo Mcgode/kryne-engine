@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(3D_demos)
+project(kryne_engine)
 
 set(CMAKE_CXX_STANDARD 20)
 
