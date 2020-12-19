@@ -12,26 +12,24 @@ message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
 include_directories(${GLFW3_INCLUDE_DIR})
 
 
+# Set up GLM
 add_subdirectory(external-libs/glm-0.9.9.5)
 include_directories(external-libs/glm-0.9.9.5)
 
 
-set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-add_subdirectory(external-libs/assimp)
-set(ASSIMP_INCLUDES external-libs/assimp/include ${PROJECT_BINARY_DIR}/external-libs/assimp/include)
-include_directories(${ASSIMP_INCLUDES})
-message(STATUS "Assimp includes: ${ASSIMP_INCLUDES}")
+# Set up assimp
+find_package(ASSIMP REQUIRED)
+message(STATUS "Found assimp in ${ASSIMP_INCLUDE_DIR}")
+include_directories(${ASSIMP_INCLUDE_DIR})
 
 
 #Adding GLAD library
 include_directories(external-libs/glad/include)
-add_library(glad STATIC
-        external-libs/glad/src/glad.c
-        external-libs/assimp/include/assimp/config.h)
+add_library(glad STATIC external-libs/glad/src/glad.c)
 
 
 #Set up the used libs
-set(LIBS glad ${GLFW3_LIBRARY} assimp glm)
+set(LIBS glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} glm)
 
 
 # Set up boost library
