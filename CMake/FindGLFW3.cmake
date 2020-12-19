@@ -19,12 +19,12 @@ set( _glfw3_HEADER_SEARCH_DIRS
         "/usr/include"
         "/usr/local/include"
         "${CMAKE_SOURCE_DIR}/includes"
-        "C:/Program Files/glfw/include" )
+        "$ENV{GLFW3_INCLUDE_DIR}")
 set( _glfw3_LIB_SEARCH_DIRS
         "/usr/lib"
         "/usr/local/lib"
         "${CMAKE_SOURCE_DIR}/lib"
-        "C:/Program Files/glfw/lib-vc2017" )
+        "$ENV{GLFW3_LIB_DIR}")
 
 # Check environment for root search directory
 set( _glfw3_ENV_ROOT $ENV{GLFW3_ROOT} )
