@@ -105,7 +105,7 @@ target_link_libraries(kryne-engine ${LIBS})
 function(COPYASSETDIR TARGET ASSET)
 
     if(${UNIX})
-        message(WARN todo)
+        set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_BINARY_DIR}/${ASSET})
     elseif(${WIN32})
         set(SYMLINK_COMMAND mklink /d ${CMAKE_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
     endif()
