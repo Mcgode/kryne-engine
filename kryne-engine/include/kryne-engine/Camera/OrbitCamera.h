@@ -36,7 +36,7 @@ protected:
 
     float distance {};
 
-    float radiansPerMousePixel = glm::pi<float>() / 1280.0f;
+    float radiansPerMousePixel = 2.0f * glm::pi<float>() / 1280.0f;
 
     float maxPhi = pi<float>() * 0.48;
 
