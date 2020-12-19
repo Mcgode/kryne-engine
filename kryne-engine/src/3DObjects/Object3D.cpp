@@ -141,7 +141,8 @@ void Object3D::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const 
 
         z = glm::normalize(z);
         x = glm::normalize(glm::cross(up, z));
-    }
+    } else
+        x = glm::normalize(x);
 
     auto y = glm::cross(z, x);
 
