@@ -72,6 +72,9 @@ protected:
     /// The max value for `abs(OrbitCamera::angle.y)`
     float maxPhi = pi<float>() * 0.48;
 
+    /// The zoom speed for the scrolling input
+    float scrollZoomSpeed = 0.2f;
+
 };
 
 

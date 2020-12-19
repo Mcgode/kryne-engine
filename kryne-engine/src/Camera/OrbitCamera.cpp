@@ -18,8 +18,9 @@ void OrbitCamera::update(bool force)
 {
     const auto input = this->playerInput.lock();
 
-    bool needAngleUpdate = false;
-    bool needCenterUpdate = false;
+    bool needsAngleUpdate = false;
+    bool needsCenterUpdate = false;
+    bool needsDistanceUpdate = false;
 
     if (input != nullptr)
     {
@@ -27,21 +28,23 @@ void OrbitCamera::update(bool force)
         this->distance = length(dir);
 
         const auto movement = input->getCursorMovement();
+        const auto scroll = input->getScrollInput();
         auto newAngle = this->angle;
         auto newCenter = this->centerPosition;
+        auto newDistance = this->distance;
 
         if (movement.x != 0 && movement.y != 0)
         {
             if (input->isKeyDown(GLFW_MOUSE_BUTTON_1))
             {
-                needAngleUpdate = true;
+                needsAngleUpdate = true;
                 newAngle.x += -movement.x * this->radiansPerMousePixel;
                 newAngle.y += movement.y * this->radiansPerMousePixel;
                 newAngle.y = glm::min(glm::max(newAngle.y, -this->maxPhi), this->maxPhi);
             }
             else if (input->isKeyDown(GLFW_MOUSE_BUTTON_2))
             {
-                needCenterUpdate = true;
+                needsCenterUpdate = true;
 
                 const auto transformMatrix = Math::getLookAtMatrix(newCenter, this->position);
 
@@ -49,16 +52,24 @@ void OrbitCamera::update(bool force)
             }
         }
 
-        if (needAngleUpdate || needCenterUpdate)
+        if (scroll.y != 0)
+        {
+            needsDistanceUpdate = true;
+            newDistance += -scroll.y * this->scrollZoomSpeed;
+            newDistance = glm::max(0.0001f, newDistance);
+        }
+
+        if (needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate)
         {
             this->angle = newAngle;
             this->centerPosition = newCenter;
+            this->distance = newDistance;
             this->updatePosition();
         }
 
     }
 
-    Camera::update(force || needAngleUpdate || needCenterUpdate);
+    Camera::update(force || needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate);
 }
 
 void OrbitCamera::setPosition(const vec3 &pos)
