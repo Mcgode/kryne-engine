@@ -1,15 +1,15 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.17)
 project(kryne_engine)
 
 set(CMAKE_CXX_STANDARD 20)
 
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
-#Setting up GLFW
-set(OpenGL_GL_PREFERENCE GLVND)
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(external-libs/GLFW)
+
+# Set up GLFW3
+find_package(GLFW3 REQUIRED)
+message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
+include_directories(${GLFW3_INCLUDE_DIR})
 
 
 add_subdirectory(external-libs/glm-0.9.9.5)
@@ -44,11 +44,15 @@ set (BOOST_INCLUDEDIR ${BASE_BOOST_ROOT})
 set (Boost_INCLUDE_DIR ${BASE_BOOST_ROOT})
 set (ENV{BOOST_INCLUDEDIR} ${BASE_BOOST_ROOT})
 
-set (Boost_DEBUG ON)  #<---------- Real life saver
+# set (Boost_DEBUG ON)  #<---------- Real life saver
 find_package(Boost REQUIRED COMPONENTS filesystem system)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
+
+
+#Set up the used libs
+set(LIBS glad ${GLFW3_LIBRARY} assimp glm ${Boost_LIBRARIES})
 
 
 # Set up common library
@@ -104,7 +108,7 @@ add_library(kryne-engine STATIC
         kryne-engine/include/kryne-engine/Utils/StringUtils.hpp
         kryne-engine/src/Input/PlayerInput.cpp kryne-engine/include/kryne-engine/Input/PlayerInput.h
         kryne-engine/src/Camera/OrbitCamera.cpp kryne-engine/include/kryne-engine/Camera/OrbitCamera.h kryne-engine/include/kryne-engine/Math/Transform.hpp)
-target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
+target_link_libraries(kryne-engine ${LIBS})
 
 
 function(COPYASSETDIR TARGET ASSET)
@@ -113,7 +117,6 @@ function(COPYASSETDIR TARGET ASSET)
         message(WARN todo)
     elseif(${WIN32})
         set(SYMLINK_COMMAND mklink /d ${CMAKE_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
-        message("Command is : '${SYMLINK_COMMAND}'")
     endif()
 
     add_custom_command(
