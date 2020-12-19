@@ -81,7 +81,7 @@ public:
     /**
      * Returns the cursor movement relative to its previous position.
      */
-    [[nodiscard]] inline glm::dvec2 getCursorMovement() const;
+    [[nodiscard]] inline glm::dvec2 getCursorMovement() const { return this->cursorPosition - this->previousCursorPosition; }
 
     ~PlayerInput();
 

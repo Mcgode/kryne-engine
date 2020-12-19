@@ -262,10 +262,4 @@ void PlayerInput::willPollEvents()
 }
 
 
-glm::dvec2 PlayerInput::getCursorMovement() const
-{
-    return this->cursorPosition - this->previousCursorPosition;
-}
-
-
 
