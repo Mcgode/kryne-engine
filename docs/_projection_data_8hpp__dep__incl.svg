@@ -75,18 +75,18 @@
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="_renderer_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="20,-0.5 20,-41.5 142,-41.5 142,-0.5 20,-0.5"/>
-<text text-anchor="start" x="28" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="28" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Rendering</text>
-<text text-anchor="middle" x="81" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Renderer.h</text>
+<polygon fill="white" stroke="black" points="17,-0.5 17,-41.5 139,-41.5 139,-0.5 17,-0.5"/>
+<text text-anchor="start" x="25" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Rendering</text>
+<text text-anchor="middle" x="78" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Renderer.h</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge6" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M150.48,-146.02C148.46,-125.87 143.78,-99.22 133,-78 126.03,-64.28 114.7,-51.49 104.39,-41.61"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="147.01,-146.52 151.34,-156.19 153.99,-145.93 147.01,-146.52"/>
+<path fill="none" stroke="midnightblue" d="M150.71,-146.3C148.79,-126.06 144.14,-99.2 133,-78 125.71,-64.13 113.87,-51.42 103.04,-41.63"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="147.24,-146.8 151.5,-156.5 154.22,-146.26 147.24,-146.8"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -108,24 +108,23 @@
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M69.35,-68.59C71.62,-59.51 74.06,-49.74 76.12,-41.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="65.92,-67.88 66.89,-78.43 72.71,-69.58 65.92,-67.88"/>
+<path fill="none" stroke="midnightblue" d="M68.19,-68.59C70.1,-59.51 72.16,-49.74 73.89,-41.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="64.76,-67.92 66.12,-78.43 71.61,-69.36 64.76,-67.92"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="_orbit_camera_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="180,-0.5 180,-41.5 292,-41.5 292,-0.5 180,-0.5"/>
-<text text-anchor="start" x="188" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="188" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Camera</text>
-<text text-anchor="middle" x="236" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/OrbitCamera.cpp</text>
+<polygon fill="white" stroke="black" points="173.5,-6 173.5,-36 298.5,-36 298.5,-6 173.5,-6"/>
+<text text-anchor="start" x="181.5" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Camera</text>
+<text text-anchor="middle" x="236" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">/OrbitCamera.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M236,-68.3C236,-59.3 236,-49.65 236,-41.51"/>
+<path fill="none" stroke="midnightblue" d="M236,-68.28C236,-57.25 236,-45.25 236,-36.23"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="232.5,-68.43 236,-78.43 239.5,-68.43 232.5,-68.43"/>
 </g>
 </g>

@@ -50,8 +50,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_main_renderer.html#ae75e50a50aeefe0a08068a57f67e36e5",
-"class_trackball_camera.html#ab633da8237e0240aff96f929d07dabd2"
+"class_main_renderer.html#a7bdd84247ecd2942b26896524d84a863",
+"class_trackball_camera.html#a572cc04653d154c03b92688c118529c5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

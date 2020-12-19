@@ -9,6 +9,7 @@ var dir_6f1e06805bf6fd443f4521a944e15946 =
     [ "Input", "dir_d63d35ee3bc125de0bc618dc0756060c.html", "dir_d63d35ee3bc125de0bc618dc0756060c" ],
     [ "Light", "dir_bc207b629cecfa3c79a9cf5cbcc913a7.html", "dir_bc207b629cecfa3c79a9cf5cbcc913a7" ],
     [ "Material", "dir_2df94ed6ef9db741bde0bb2b5d769537.html", "dir_2df94ed6ef9db741bde0bb2b5d769537" ],
+    [ "Math", "dir_0f92915ca20b087fd6327f83858c7195.html", "dir_0f92915ca20b087fd6327f83858c7195" ],
     [ "Rendering", "dir_242c69f8aa6c0b27ad66788f5b769271.html", "dir_242c69f8aa6c0b27ad66788f5b769271" ],
     [ "RenderTargets", "dir_8e35ed01eab1d27beb891e08b0498c56.html", "dir_8e35ed01eab1d27beb891e08b0498c56" ],
     [ "Textures", "dir_ff137d22f21ebfd8b3f4b25121363126.html", "dir_ff137d22f21ebfd8b3f4b25121363126" ],
