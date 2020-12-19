@@ -94,6 +94,11 @@ public:
         return this->keysDown.find(kd) != this->keysDown.end();
     }
 
+    /**
+     * Returns the scroll input for this frame
+     */
+    [[nodiscard]] inline const glm::vec2 &getScrollInput() const { return scrollInput; }
+
     ~PlayerInput();
 
 
@@ -129,6 +134,9 @@ protected:
 
     /// The previous cursor position
     glm::dvec2 previousCursorPosition {};
+
+    /// The total scroll input for this frame
+    glm::vec2 scrollInput {};
 
 
 // === Key mapping ===
@@ -260,6 +268,11 @@ protected:
      * GLFW callback function for handling mouse button input.
      */
     static void handleMouseButtonInput(GLFWwindow *window, int32_t button, int32_t action, int32_t mods);
+
+    /**
+     * GLFW callback function for handling mouse scroll input.
+     */
+    static void handleScrollInput(GLFWwindow *window, double xScroll, double yScroll);
 
 };
 

@@ -59,6 +59,7 @@ PlayerInput::PlayerInput(GLFWwindow *window) : window(window)
     glfwSetCharCallback(window, PlayerInput::handleTextInput);
     glfwSetCursorPosCallback(window, PlayerInput::handleCursorPosition);
     glfwSetMouseButtonCallback(window, PlayerInput::handleMouseButtonInput);
+    glfwSetScrollCallback(window, PlayerInput::handleScrollInput);
 }
 
 
@@ -259,6 +260,28 @@ void PlayerInput::willPollEvents()
 {
     this->previousCursorPosition = this->cursorPosition;
     this->inputText = "";
+    this->scrollInput = glm::vec2(0);
+}
+
+
+void PlayerInput::handleScrollInput(GLFWwindow *window, double xScroll, double yScroll)
+{
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
+
+    if (pair != inputMap.end())
+    {
+        const auto playerInput = playerInputPointer(pair);
+
+        if (playerInput)
+        {
+            playerInput->scrollInput = glm::vec2(xScroll, yScroll);
+        }
+        else
+        {
+            inputMap.erase(pair);
+        }
+    }
 }
 
 
