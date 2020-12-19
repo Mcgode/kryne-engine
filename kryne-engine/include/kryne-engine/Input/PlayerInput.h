@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <iostream>
+#include <memory>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
