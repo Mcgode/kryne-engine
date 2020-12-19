@@ -18,9 +18,9 @@ include_directories(external-libs/glm-0.9.9.5)
 
 set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
 add_subdirectory(external-libs/assimp)
-set(ASSIMP_INCLUDES external-libs/assimp/include ${PROJECT_BINARY_DIR}/assimp/include)
+set(ASSIMP_INCLUDES external-libs/assimp/include ${PROJECT_BINARY_DIR}/external-libs/assimp/include)
 include_directories(${ASSIMP_INCLUDES})
-message(STATUS ${PROJECT_BINARY_DIR}/assimp/include/assimp)
+message(STATUS "Assimp includes: ${ASSIMP_INCLUDES}")
 
 
 #Adding GLAD library
