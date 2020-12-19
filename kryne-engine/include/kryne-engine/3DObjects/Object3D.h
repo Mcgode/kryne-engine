@@ -110,7 +110,7 @@ public:
         return position;
     }
 
-    void setPosition(const glm::vec3 &pos) {
+    virtual void setPosition(const glm::vec3 &pos) {
         matrixWorldNeedsUpdate = needsUpdate(pos, Object3D::position);
         Object3D::position = glm::vec3(pos);
     }
