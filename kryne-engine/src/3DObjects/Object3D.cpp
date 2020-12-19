@@ -125,27 +125,5 @@ glm::vec3 Object3D::getWorldPosition() {
 
 void Object3D::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up)
 {
-    auto z = target - eye;
-
-    if (glm::length(z) == 0.f)
-        z.z = 1.f;
-
-    z = glm::normalize(z);
-    auto x = glm::cross(up, z);
-
-    if (glm::length(x) == 0.f) {
-        if (glm::abs(z.z) == 1.0f)
-            z.x += 0.0001f;
-        else
-            z.z += 0.0001f;
-
-        z = glm::normalize(z);
-        x = glm::normalize(glm::cross(up, z));
-    } else
-        x = glm::normalize(x);
-
-    auto y = glm::cross(z, x);
-
-    const auto lookAtMat = glm::mat3(x, y, z);
-    this->setQuaternion(glm::toQuat(lookAtMat));
+    this->setQuaternion(glm::toQuat(Math::getLookAtMatrix(eye, target, up)));
 }

@@ -103,7 +103,7 @@ add_library(kryne-engine STATIC
         kryne-engine/src/Rendering/ShaderProgramCompiler.cpp kryne-engine/include/kryne-engine/Rendering/ShaderProgramCompiler.h
         kryne-engine/include/kryne-engine/Utils/StringUtils.hpp
         kryne-engine/src/Input/PlayerInput.cpp kryne-engine/include/kryne-engine/Input/PlayerInput.h
-        kryne-engine/src/Camera/OrbitCamera.cpp kryne-engine/include/kryne-engine/Camera/OrbitCamera.h)
+        kryne-engine/src/Camera/OrbitCamera.cpp kryne-engine/include/kryne-engine/Camera/OrbitCamera.h kryne-engine/include/kryne-engine/Math/Transform.hpp)
 target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
 
 

@@ -6,8 +6,6 @@
 
 #include "kryne-engine/Camera/OrbitCamera.h"
 
-#include <utility>
-
 OrbitCamera::OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput) :
     Camera(move(projectionData)),
     playerInput(std::move(playerInput))
@@ -45,26 +43,9 @@ void OrbitCamera::update(bool force)
             {
                 needCenterUpdate = true;
 
-                const vec3 up(0, 1, 0);
-                auto z = normalize(this->position - newCenter);
-                auto x = cross(up, z);
+                const auto transformMatrix = Math::getLookAtMatrix(newCenter, this->position);
 
-                if (glm::length(x) == 0.f) {
-                    if (glm::abs(z.z) == 1.0f)
-                        z.x += 0.0001f;
-                    else
-                        z.z += 0.0001f;
-
-                    z = glm::normalize(z);
-                    x = glm::normalize(glm::cross(up, z));
-                } else
-                    x = glm::normalize(x);
-
-                auto y = glm::cross(z, x);
-
-                const float dx = -movement.x * this->radiansPerMousePixel;
-                const float dy = movement.y * this->radiansPerMousePixel;
-                newCenter += dx * x + dy * y;
+                newCenter += transformMatrix * vec3(-movement.x * this->radiansPerMousePixel, movement.y * this->radiansPerMousePixel, 0);
             }
         }
 

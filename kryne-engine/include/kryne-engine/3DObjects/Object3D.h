@@ -22,6 +22,8 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
 
+#include <kryne-engine/Math/Transform.hpp>
+
 
 using namespace std;
 
