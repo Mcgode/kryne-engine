@@ -27,9 +27,12 @@ void OrbitCamera::update(bool force)
 
         const auto movement = input->getCursorMovement();
         auto newAngle = this->angle;
-        newAngle.x += movement.x * this->radiansPerMousePixel / glm::max(cos(angle.y), 0.01f);
-        newAngle.y += movement.y * this->radiansPerMousePixel;
-        newAngle.y = glm::min(glm::max(newAngle.y, -this->maxPhi), this->maxPhi);
+
+        if (input->isKeyDown(GLFW_MOUSE_BUTTON_1)) {
+            newAngle.x += -movement.x * this->radiansPerMousePixel / glm::max(cos(angle.y), 0.01f);
+            newAngle.y += movement.y * this->radiansPerMousePixel;
+            newAngle.y = glm::min(glm::max(newAngle.y, -this->maxPhi), this->maxPhi);
+        }
 
         if (this->angle != newAngle)
         {
