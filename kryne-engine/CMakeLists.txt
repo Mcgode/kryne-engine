@@ -1,0 +1,57 @@
+
+add_library(kryne-engine STATIC
+        src/Material/Shader.cpp include/kryne-engine/Material/Shader.h
+        src/Rendering/RenderScene.cpp include/kryne-engine/Rendering/RenderScene.h
+        src/Core/VertexArray.cpp include/kryne-engine/Core/VertexArray.h
+        src/Core/Window.cpp include/kryne-engine/Core/Window.h
+        include/kryne-engine/Camera/OldCamera.h
+        src/Camera/BasicCamera.cpp include/kryne-engine/Camera/BasicCamera.h
+        src/Core/GeometricShapes.cpp include/kryne-engine/Core/GeometricShapes.h
+        src/3DObjects/BaseObject.cpp include/kryne-engine/3DObjects/BaseObject.h
+        src/3DObjects/HierarchicalNode.cpp include/kryne-engine/3DObjects/HierarchicalNode.h
+        src/Camera/TrackballCamera.cpp include/kryne-engine/Camera/TrackballCamera.h
+        src/Light/PointLight.cpp include/kryne-engine/Light/PointLight.h
+        src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.h
+        src/Core/AdditionalParameters.cpp include/kryne-engine/Core/AdditionalParameters.h
+        src/Textures/stb_image.cpp include/kryne-engine/Textures/stb_image.h
+        src/Textures/Texture2D.cpp include/kryne-engine/Textures/Texture2D.h
+        src/RenderTargets/PostProcess.cpp include/kryne-engine/RenderTargets/PostProcess.h
+        src/RenderTargets/FinalPostProcess.cpp include/kryne-engine/RenderTargets/FinalPostProcess.h
+        src/Camera/FirstPersonCamera.cpp include/kryne-engine/Camera/FirstPersonCamera.h
+        src/3DObjects/Model/ModelLoader.cpp include/kryne-engine/3DObjects/Model/ModelLoader.h
+        src/3DObjects/Model/ModelMesh.cpp include/kryne-engine/3DObjects/Model/ModelMesh.h
+        src/3DObjects/Skybox.cpp include/kryne-engine/3DObjects/Skybox.h
+        src/Textures/TextureCubeMap.cpp include/kryne-engine/Textures/TextureCubeMap.h
+        include/kryne-engine/Constants/CubeVertexData.h
+        include/kryne-engine/enums/SkyboxDrawOrder.h
+        include/kryne-engine/enums/BaseObject.h
+        src/Rendering/MainRenderer.cpp include/kryne-engine/Rendering/MainRenderer.h
+        include/kryne-engine/Rendering/RenderPass.h
+        src/Rendering/ShadowMapping/ShadowMapHandler.cpp include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
+        src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
+        src/Core/Process.cpp include/kryne-engine/Core/Process.h
+        src/Light/LightingRegistry.cpp include/kryne-engine/Light/LightingRegistry.h
+        src/Rendering/Renderer.cpp include/kryne-engine/Rendering/Renderer.h
+        src/3DObjects/Scene.cpp include/kryne-engine/3DObjects/Scene.h
+        src/3DObjects/Object3D.cpp include/kryne-engine/3DObjects/Object3D.h
+        src/Material/Material.cpp include/kryne-engine/Material/Material.h
+        src/Geometry/BufferGeometry.cpp include/kryne-engine/Geometry/BufferGeometry.h
+        src/3DObjects/Mesh.cpp include/kryne-engine/3DObjects/Mesh.h
+        src/Geometry/BufferAttribute.cpp include/kryne-engine/Geometry/BufferAttribute.h
+        src/Geometry/BoxBufferGeometry.cpp include/kryne-engine/Geometry/BoxBufferGeometry.h
+        include/kryne-engine/Rendering/RenderingState.hpp
+        src/Utils/VectorFlattening.cpp include/kryne-engine/Utils/VectorFlattening.h
+        include/kryne-engine/Camera/ProjectionData.hpp
+        src/Camera/Camera.cpp include/kryne-engine/Camera/Camera.h
+        include/kryne-engine/Camera/PerspectiveProjectionData.hpp
+        include/kryne-engine/enums/MaterialSide.h
+        src/Material/ShaderChunk.cpp include/kryne-engine/Material/ShaderChunk.h
+        src/Material/UniformsHandler.cpp include/kryne-engine/Material/UniformsHandler.h
+        src/Rendering/ShaderProgramCompiler.cpp include/kryne-engine/Rendering/ShaderProgramCompiler.h
+        include/kryne-engine/Utils/StringUtils.hpp
+        src/Input/PlayerInput.cpp include/kryne-engine/Input/PlayerInput.h
+        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h include/kryne-engine/Math/Transform.hpp)
+
+target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+target_link_libraries(kryne-engine ${LIBS})
