@@ -17,6 +17,7 @@ include_directories(${GLFW3_INCLUDE_DIR})
 
 
 # Set up GLM
+set(GLM_TEST_ENABLE OFF)
 add_subdirectory(external-libs/glm-0.9.9.5)
 include_directories(external-libs/glm-0.9.9.5)
 
