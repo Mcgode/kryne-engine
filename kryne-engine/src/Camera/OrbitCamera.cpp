@@ -4,7 +4,7 @@
  * @date 16/12/2020.
  */
 
-#include "OrbitCamera.h"
+#include "kryne-engine/Camera/OrbitCamera.h"
 
 #include <utility>
 
