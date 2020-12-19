@@ -1,10 +1,16 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Geometry/BufferAttribute.h" name="kryne&#45;engine/include/kryne&#45;engine/Geometry/BufferAttribute.h">
-<area shape="rect" id="node1" title=" " alt="" coords="103,5,264,61"/>
-<area shape="rect" id="node2" href="$_buffer_geometry_8h.html" title=" " alt="" coords="103,109,264,165"/>
-<area shape="rect" id="node3" href="$_box_buffer_geometry_8h.html" title=" " alt="" coords="5,213,167,269"/>
-<area shape="rect" id="node4" href="$_shader_program_compiler_8h.html" title=" " alt="" coords="191,213,370,269"/>
-<area shape="rect" id="node5" href="$_material_8h.html" title=" " alt="" coords="108,317,259,373"/>
-<area shape="rect" id="node8" href="$_shader_program_compiler_8cpp.html" title=" " alt="" coords="283,325,475,366"/>
-<area shape="rect" id="node6" href="$_mesh_8h.html" title=" " alt="" coords="101,421,266,477"/>
-<area shape="rect" id="node7" href="$_renderer_8h.html" title=" " alt="" coords="102,525,265,581"/>
+<area shape="rect" id="node1" title=" " alt="" coords="308,5,469,61"/>
+<area shape="rect" id="node2" href="$_buffer_geometry_8h.html" title=" " alt="" coords="211,109,372,165"/>
+<area shape="rect" id="node14" href="$_buffer_attribute_8cpp.html" title=" " alt="" coords="397,117,575,158"/>
+<area shape="rect" id="node3" href="$_box_buffer_geometry_8h.html" title=" " alt="" coords="16,213,177,269"/>
+<area shape="rect" id="node5" href="$_shader_program_compiler_8h.html" title=" " alt="" coords="202,213,381,269"/>
+<area shape="rect" id="node13" href="$_buffer_geometry_8cpp.html" title=" " alt="" coords="405,221,583,262"/>
+<area shape="rect" id="node4" href="$_box_buffer_geometry_8cpp.html" title=" " alt="" coords="7,325,186,366"/>
+<area shape="rect" id="node6" href="$_material_8h.html" title=" " alt="" coords="213,317,364,373"/>
+<area shape="rect" id="node12" href="$_shader_program_compiler_8cpp.html" title=" " alt="" coords="389,325,581,366"/>
+<area shape="rect" id="node7" href="$_mesh_8h.html" title=" " alt="" coords="111,421,277,477"/>
+<area shape="rect" id="node11" href="$_material_8cpp.html" title=" " alt="" coords="301,429,469,470"/>
+<area shape="rect" id="node8" href="$_renderer_8h.html" title=" " alt="" coords="14,525,177,581"/>
+<area shape="rect" id="node10" href="$_mesh_8cpp.html" title=" " alt="" coords="201,533,384,574"/>
+<area shape="rect" id="node9" href="$_renderer_8cpp.html" title=" " alt="" coords="5,629,185,671"/>
 </map>

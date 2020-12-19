@@ -25,13 +25,20 @@
 var NAVTREE =
 [
   [ "KryneEngine", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ]
       ] ]
@@ -41,6 +48,10 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -50,8 +61,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_main_renderer.html#a7bdd84247ecd2942b26896524d84a863",
-"class_trackball_camera.html#a572cc04653d154c03b92688c118529c5"
+"class_camera.html#ac41a74ed5e232d5506808006b31982e1",
+"class_rendering_state.html#a18fd46cb3589363bacb3fe8c43717a11",
+"stb__image_8h.html#ab18889e43518d6b4421b705782bb1b5e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

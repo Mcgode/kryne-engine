@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_first_person_camera_8h_source.html','
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define GLM_FORCE_SWIZZLE</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_first_person_camera_8h.html#aa5c438b4af14167ea5efa0924575950b">   12</a></span>&#160;<span class="preprocessor">#define GLM_FORCE_SWIZZLE</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;glm/gtx/euler_angles.hpp&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('_first_person_camera_8h_source.html','
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_first_person_camera.html">FirstPersonCamera</a>(<span class="keywordtype">float</span> speed, <span class="keywordtype">float</span> drag);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_first_person_camera.html#a270da206a52f409508792ac6069c3b2e">FirstPersonCamera</a>(<span class="keywordtype">float</span> speed, <span class="keywordtype">float</span> drag);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    glm::vec3 <a class="code" href="class_first_person_camera.html#a40ceac568649e6fe82f39f1f34e326c4">getCurrentPosition</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_first_person_camera_8h_source.html','
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_first_person_camera.html#a34a431444c04033455dea76b6ec17836">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_first_person_camera.html#a34a431444c04033455dea76b6ec17836">onScrollInput</a>(<a class="code" href="class_window.html">Window</a> *window, <span class="keywordtype">float</span> value)<span class="keyword"> override </span>{};</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> frameUpdate(<a class="code" href="class_window.html">Window</a> *window) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_first_person_camera.html#ac4c41efc23e9d98a4346e988eb272f2e">frameUpdate</a>(<a class="code" href="class_window.html">Window</a> *window) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    glm::vec3 position{};</div>
@@ -137,8 +137,10 @@ $(document).ready(function(){initNavTree('_first_person_camera_8h_source.html','
 <div class="ttc" id="aclass_first_person_camera_html_a40ceac568649e6fe82f39f1f34e326c4"><div class="ttname"><a href="class_first_person_camera.html#a40ceac568649e6fe82f39f1f34e326c4">FirstPersonCamera::getCurrentPosition</a></div><div class="ttdeci">glm::vec3 getCurrentPosition() override</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.cpp:18</div></div>
 <div class="ttc" id="aclass_first_person_camera_html_a6edb6064d84aa4e5cca8aae491e9ae22"><div class="ttname"><a href="class_first_person_camera.html#a6edb6064d84aa4e5cca8aae491e9ae22">FirstPersonCamera::onMouseMovementInput</a></div><div class="ttdeci">void onMouseMovementInput(Window *window, double xInput, double yInput) override</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.cpp:33</div></div>
 <div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:27</div></div>
+<div class="ttc" id="aclass_first_person_camera_html_ac4c41efc23e9d98a4346e988eb272f2e"><div class="ttname"><a href="class_first_person_camera.html#ac4c41efc23e9d98a4346e988eb272f2e">FirstPersonCamera::frameUpdate</a></div><div class="ttdeci">void frameUpdate(Window *window) override</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.cpp:50</div></div>
 <div class="ttc" id="aclass_first_person_camera_html"><div class="ttname"><a href="class_first_person_camera.html">FirstPersonCamera</a></div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.h:18</div></div>
 <div class="ttc" id="aclass_old_camera_html"><div class="ttname"><a href="class_old_camera.html">OldCamera</a></div><div class="ttdef"><b>Definition:</b> OldCamera.h:28</div></div>
+<div class="ttc" id="aclass_first_person_camera_html_a270da206a52f409508792ac6069c3b2e"><div class="ttname"><a href="class_first_person_camera.html#a270da206a52f409508792ac6069c3b2e">FirstPersonCamera::FirstPersonCamera</a></div><div class="ttdeci">FirstPersonCamera(float speed, float drag)</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.cpp:7</div></div>
 <div class="ttc" id="aclass_first_person_camera_html_a77499b26c3c32c3f93a64210157f892f"><div class="ttname"><a href="class_first_person_camera.html#a77499b26c3c32c3f93a64210157f892f">FirstPersonCamera::getViewMatrix</a></div><div class="ttdeci">glm::mat4 getViewMatrix() override</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.cpp:23</div></div>
 <div class="ttc" id="aclass_first_person_camera_html_a34a431444c04033455dea76b6ec17836"><div class="ttname"><a href="class_first_person_camera.html#a34a431444c04033455dea76b6ec17836">FirstPersonCamera::onScrollInput</a></div><div class="ttdeci">void onScrollInput(Window *window, float value) override</div><div class="ttdef"><b>Definition:</b> FirstPersonCamera.h:32</div></div>
 <!-- start footer part -->

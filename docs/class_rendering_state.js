@@ -6,5 +6,6 @@ var class_rendering_state =
     [ "isDepthWriteEnabled", "class_rendering_state.html#a146f2037a5c55a8e2a7b2b5c9e111aa7", null ],
     [ "setDepthTest", "class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c", null ],
     [ "setDepthWrite", "class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319", null ],
-    [ "setSide", "class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce", null ]
+    [ "setSide", "class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce", null ],
+    [ "updateToSide", "class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6", null ]
 ];

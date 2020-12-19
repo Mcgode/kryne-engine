@@ -108,13 +108,74 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0513347a702b085b71766674e5a214c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca1e468586b3a920cafc980a3555c32"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_old_camera.html#aeca1e468586b3a920cafc980a3555c32">onMouseMovementInput</a> (<a class="el" href="class_window.html">Window</a> *window, double xInput, double yInput)=0</td></tr>
 <tr class="separator:aeca1e468586b3a920cafc980a3555c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad177f7a375dba9b57c1397c7ad84957c"><td class="memItemLeft" align="right" valign="top"><a id="ad177f7a375dba9b57c1397c7ad84957c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>frameUpdate</b> (<a class="el" href="class_window.html">Window</a> *window)=0</td></tr>
+<tr class="memitem:ad177f7a375dba9b57c1397c7ad84957c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_old_camera.html#ad177f7a375dba9b57c1397c7ad84957c">frameUpdate</a> (<a class="el" href="class_window.html">Window</a> *window)=0</td></tr>
 <tr class="separator:ad177f7a375dba9b57c1397c7ad84957c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68529812425f862f47102a5c443c8c4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_old_camera.html#ac68529812425f862f47102a5c443c8c4">~OldCamera</a> ()=default</td></tr>
+<tr class="separator:ac68529812425f862f47102a5c443c8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract class for representing a camera </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac68529812425f862f47102a5c443c8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68529812425f862f47102a5c443c8c4">&#9670;&nbsp;</a></span>~OldCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OldCamera::~OldCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad177f7a375dba9b57c1397c7ad84957c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad177f7a375dba9b57c1397c7ad84957c">&#9670;&nbsp;</a></span>frameUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void OldCamera::frameUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_window.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_trackball_camera.html#a1f62725c7b7b4b4987166763af079351">TrackballCamera</a>, and <a class="el" href="class_first_person_camera.html#ac4c41efc23e9d98a4346e988eb272f2e">FirstPersonCamera</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_old_camera_ad177f7a375dba9b57c1397c7ad84957c_icgraph.svg" width="1008" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="aed1a7a66b2b277079f6c2610a0f2346b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed1a7a66b2b277079f6c2610a0f2346b">&#9670;&nbsp;</a></span>getCurrentPosition()</h2>
 
@@ -173,6 +234,12 @@ Here is the caller graph for this function:</div>
 <p>Retrieves the view matrix for this camera </p><dl class="section return"><dt>Returns</dt><dd>The view matrix for this camera. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_trackball_camera.html#ace2e92dc8558efab21463e04faa9bd14">TrackballCamera</a>, <a class="el" href="class_first_person_camera.html#a77499b26c3c32c3f93a64210157f892f">FirstPersonCamera</a>, and <a class="el" href="class_basic_camera.html#af355003705520940de1e2169cd5a12e2">BasicCamera</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_old_camera_a3eb26d0e7cc604ea067b3184bc24e80b_icgraph.svg" width="1018" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -218,6 +285,12 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p>Implemented in <a class="el" href="class_trackball_camera.html#ab633da8237e0240aff96f929d07dabd2">TrackballCamera</a>, and <a class="el" href="class_first_person_camera.html#a756c25ccc1fb2167d65b225f62074209">FirstPersonCamera</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_old_camera_a8e557ec90b0eda4b80d1579fe1d95602_icgraph.svg" width="536" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -270,6 +343,12 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p>Implemented in <a class="el" href="class_trackball_camera.html#abc11a864dd088577e2480193cf8addbc">TrackballCamera</a>, and <a class="el" href="class_first_person_camera.html#a6edb6064d84aa4e5cca8aae491e9ae22">FirstPersonCamera</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_old_camera_aeca1e468586b3a920cafc980a3555c32_icgraph.svg" width="660" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -315,6 +394,12 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p>Implemented in <a class="el" href="class_trackball_camera.html#a572cc04653d154c03b92688c118529c5">TrackballCamera</a>, and <a class="el" href="class_first_person_camera.html#a34a431444c04033455dea76b6ec17836">FirstPersonCamera</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_old_camera_a0513347a702b085b71766674e5a214c5_icgraph.svg" width="558" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>

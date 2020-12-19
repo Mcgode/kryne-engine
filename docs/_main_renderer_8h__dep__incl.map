@@ -1,5 +1,8 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Rendering/MainRenderer.h" name="kryne&#45;engine/include/kryne&#45;engine/Rendering/MainRenderer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="21,5,184,61"/>
-<area shape="rect" id="node2" href="$_render_scene_8h.html" title=" " alt="" coords="21,109,184,165"/>
+<area shape="rect" id="node1" title=" " alt="" coords="224,5,387,61"/>
+<area shape="rect" id="node2" href="$_render_scene_8h.html" title=" " alt="" coords="127,109,289,165"/>
+<area shape="rect" id="node6" href="$_main_renderer_8cpp.html" title=" " alt="" coords="314,117,494,158"/>
 <area shape="rect" id="node3" href="$_process_8h.html" title=" " alt="" coords="5,213,200,255"/>
+<area shape="rect" id="node5" href="$_render_scene_8cpp.html" title=" " alt="" coords="225,213,405,255"/>
+<area shape="rect" id="node4" href="$_process_8cpp.html" title=" " alt="" coords="28,303,177,344"/>
 </map>

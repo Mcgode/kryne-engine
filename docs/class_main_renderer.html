@@ -88,6 +88,8 @@ $(document).ready(function(){initNavTree('class_main_renderer.html',''); initRes
 <div class="title">MainRenderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_main_renderer_8h_source.html">MainRenderer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainRenderer:</div>
 <div class="dyncontent">
@@ -101,8 +103,7 @@ Collaboration diagram for MainRenderer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c36e164ccc8b9b12ed04c5f5e7d7988"><td class="memItemLeft" align="right" valign="top"><a id="a2c36e164ccc8b9b12ed04c5f5e7d7988"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MainRenderer</b> (<a class="el" href="class_old_camera.html">OldCamera</a> *camera, unsigned int width, unsigned int height)</td></tr>
+<tr class="memitem:a2c36e164ccc8b9b12ed04c5f5e7d7988"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#a2c36e164ccc8b9b12ed04c5f5e7d7988">MainRenderer</a> (<a class="el" href="class_old_camera.html">OldCamera</a> *camera, unsigned int width, unsigned int height)</td></tr>
 <tr class="separator:a2c36e164ccc8b9b12ed04c5f5e7d7988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bdd84247ecd2942b26896524d84a863"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#a7bdd84247ecd2942b26896524d84a863">render</a> (<a class="el" href="class_window.html">Window</a> *window, std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *rootNodes, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params) override</td></tr>
 <tr class="separator:a7bdd84247ecd2942b26896524d84a863"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,16 +113,75 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa9f1a22299240e8783683dbd759b1182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1191369910e4001cbfcbb253b9b1a347"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#a1191369910e4001cbfcbb253b9b1a347">updateCamera</a> (<a class="el" href="class_old_camera.html">OldCamera</a> *newCamera)</td></tr>
 <tr class="separator:a1191369910e4001cbfcbb253b9b1a347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9f29fe27421266481a2a89c7447e1d0"><td class="memItemLeft" align="right" valign="top"><a id="af9f29fe27421266481a2a89c7447e1d0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSkybox</b> (<a class="el" href="class_skybox.html">Skybox</a> *skybox, SkyboxDrawOrder drawOrder, <a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
+<tr class="memitem:af9f29fe27421266481a2a89c7447e1d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#af9f29fe27421266481a2a89c7447e1d0">setSkybox</a> (<a class="el" href="class_skybox.html">Skybox</a> *skybox, <a class="el" href="_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31b">SkyboxDrawOrder</a> drawOrder, <a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
 <tr class="separator:af9f29fe27421266481a2a89c7447e1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29bc65ec3c5c60d2902611a9633fdd3d"><td class="memItemLeft" align="right" valign="top"><a id="a29bc65ec3c5c60d2902611a9633fdd3d"></a>
-<a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCamera</b> () const</td></tr>
+<tr class="memitem:a29bc65ec3c5c60d2902611a9633fdd3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#a29bc65ec3c5c60d2902611a9633fdd3d">getCamera</a> () const</td></tr>
 <tr class="separator:a29bc65ec3c5c60d2902611a9633fdd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7584fa123e4918d2b91d7dcd540dbe70"><td class="memItemLeft" align="right" valign="top"><a id="a7584fa123e4918d2b91d7dcd540dbe70"></a>
-<a class="el" href="class_skybox.html">Skybox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSkybox</b> () const</td></tr>
+<tr class="memitem:a7584fa123e4918d2b91d7dcd540dbe70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skybox.html">Skybox</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#a7584fa123e4918d2b91d7dcd540dbe70">getSkybox</a> () const</td></tr>
 <tr class="separator:a7584fa123e4918d2b91d7dcd540dbe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75e50a50aeefe0a08068a57f67e36e5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_renderer.html#ae75e50a50aeefe0a08068a57f67e36e5">~MainRenderer</a> ()</td></tr>
+<tr class="separator:ae75e50a50aeefe0a08068a57f67e36e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2c36e164ccc8b9b12ed04c5f5e7d7988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c36e164ccc8b9b12ed04c5f5e7d7988">&#9670;&nbsp;</a></span>MainRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainRenderer::MainRenderer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae75e50a50aeefe0a08068a57f67e36e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75e50a50aeefe0a08068a57f67e36e5">&#9670;&nbsp;</a></span>~MainRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainRenderer::~MainRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa9f1a22299240e8783683dbd759b1182"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9f1a22299240e8783683dbd759b1182">&#9670;&nbsp;</a></span>drawInScene()</h2>
@@ -183,7 +243,54 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setSkybox</b> (<a cla
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_aa9f1a22299240e8783683dbd759b1182_cgraph.svg" width="616" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_aa9f1a22299240e8783683dbd759b1182_cgraph.svg" width="668" height="607"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a29bc65ec3c5c60d2902611a9633fdd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29bc65ec3c5c60d2902611a9633fdd3d">&#9670;&nbsp;</a></span>getCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_old_camera.html">OldCamera</a> * MainRenderer::getCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a29bc65ec3c5c60d2902611a9633fdd3d_icgraph.svg" width="403" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a7584fa123e4918d2b91d7dcd540dbe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7584fa123e4918d2b91d7dcd540dbe70">&#9670;&nbsp;</a></span>getSkybox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_skybox.html">Skybox</a> * MainRenderer::getSkybox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a7584fa123e4918d2b91d7dcd540dbe70_icgraph.svg" width="418" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
@@ -240,7 +347,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a7bdd84247ecd2942b26896524d84a863_cgraph.svg" width="631" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a7bdd84247ecd2942b26896524d84a863_cgraph.svg" width="1274" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -306,12 +414,59 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a508a80df1c58c0820c8f18ced3a0558d_cgraph.svg" width="436" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a508a80df1c58c0820c8f18ced3a0558d_cgraph.svg" width="1051" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_a508a80df1c58c0820c8f18ced3a0558d_icgraph.svg" width="792" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af9f29fe27421266481a2a89c7447e1d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f29fe27421266481a2a89c7447e1d0">&#9670;&nbsp;</a></span>setSkybox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainRenderer::setSkybox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skybox.html">Skybox</a> *&#160;</td>
+          <td class="paramname"><em>skybox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31b">SkyboxDrawOrder</a>&#160;</td>
+          <td class="paramname"><em>drawOrder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_directional_light.html">DirectionalLight</a> *&#160;</td>
+          <td class="paramname"><em>directionalLight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_af9f29fe27421266481a2a89c7447e1d0_cgraph.svg" width="600" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_renderer_af9f29fe27421266481a2a89c7447e1d0_icgraph.svg" width="402" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
@@ -347,7 +502,7 @@ Here is the caller graph for this function:</div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Rendering/<a class="el" href="_main_renderer_8h_source.html">MainRenderer.h</a></li>
-<li>kryne-engine/src/Rendering/MainRenderer.cpp</li>
+<li>kryne-engine/src/Rendering/<a class="el" href="_main_renderer_8cpp.html">MainRenderer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

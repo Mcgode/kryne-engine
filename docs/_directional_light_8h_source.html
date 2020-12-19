@@ -106,22 +106,22 @@ $(document).ready(function(){initNavTree('_directional_light_8h_source.html','')
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_directional_light.html#acc011ed29f9bd3397ab07f9c1c114e9f">shaderSet</a>(<a class="code" href="class_shader.html">Shader</a> *shader, std::string uniformName);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    [[nodiscard]] <span class="keyword">const</span> glm::vec3 &amp;getDirection() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    [[nodiscard]] <span class="keyword">const</span> glm::vec3 &amp;<a class="code" href="class_directional_light.html#a620fc95395f452e6718eca660c3f66f6">getDirection</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> isCastingShadow() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_directional_light.html#a477e25055fcb464b5537a78b396b9479">isCastingShadow</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    [[nodiscard]] uint16_t getShadowResolution() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    [[nodiscard]] uint16_t <a class="code" href="class_directional_light.html#a8a2c21ebbd97eae462e67997bb8d4f43">getShadowResolution</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    [[nodiscard]] std::vector&lt;double&gt; getShadowCastRadii() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    [[nodiscard]] std::vector&lt;double&gt; <a class="code" href="class_directional_light.html#a31299ba8011eb2bb093e22561935862c">getShadowCastRadii</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setCastsShadow(uint16_t resolution, <span class="keywordtype">double</span> radius);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_directional_light.html#a92c39ef5f2f40dde810336e6f06511fc">setCastsShadow</a>(uint16_t resolution, <span class="keywordtype">double</span> radius);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> setCastsShadowCascaded(uint16_t resolution, std::vector&lt;double&gt; radii);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_directional_light.html#aa7e3a75769222bbd60c6b169b84b4875">setCastsShadowCascaded</a>(uint16_t resolution, std::vector&lt;double&gt; radii);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
@@ -140,11 +140,17 @@ $(document).ready(function(){initNavTree('_directional_light_8h_source.html','')
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_DIRECTIONALLIGHT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_directional_light_html_a477e25055fcb464b5537a78b396b9479"><div class="ttname"><a href="class_directional_light.html#a477e25055fcb464b5537a78b396b9479">DirectionalLight::isCastingShadow</a></div><div class="ttdeci">bool isCastingShadow() const</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:39</div></div>
+<div class="ttc" id="aclass_directional_light_html_aa7e3a75769222bbd60c6b169b84b4875"><div class="ttname"><a href="class_directional_light.html#aa7e3a75769222bbd60c6b169b84b4875">DirectionalLight::setCastsShadowCascaded</a></div><div class="ttdeci">void setCastsShadowCascaded(uint16_t resolution, std::vector&lt; double &gt; radii)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:65</div></div>
+<div class="ttc" id="aclass_directional_light_html_a8a2c21ebbd97eae462e67997bb8d4f43"><div class="ttname"><a href="class_directional_light.html#a8a2c21ebbd97eae462e67997bb8d4f43">DirectionalLight::getShadowResolution</a></div><div class="ttdeci">uint16_t getShadowResolution() const</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:45</div></div>
+<div class="ttc" id="aclass_directional_light_html_a92c39ef5f2f40dde810336e6f06511fc"><div class="ttname"><a href="class_directional_light.html#a92c39ef5f2f40dde810336e6f06511fc">DirectionalLight::setCastsShadow</a></div><div class="ttdeci">void setCastsShadow(uint16_t resolution, double radius)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:57</div></div>
+<div class="ttc" id="aclass_directional_light_html_a31299ba8011eb2bb093e22561935862c"><div class="ttname"><a href="class_directional_light.html#a31299ba8011eb2bb093e22561935862c">DirectionalLight::getShadowCastRadii</a></div><div class="ttdeci">std::vector&lt; double &gt; getShadowCastRadii() const</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:51</div></div>
 <div class="ttc" id="a_shader_8h_html"><div class="ttname"><a href="_shader_8h.html">Shader.h</a></div></div>
 <div class="ttc" id="aclass_directional_light_html_a62ad2568ba3970b888e98d1fd700d577"><div class="ttname"><a href="class_directional_light.html#a62ad2568ba3970b888e98d1fd700d577">DirectionalLight::DirectionalLight</a></div><div class="ttdeci">DirectionalLight(glm::vec3 direction, glm::vec3 diffuseColor=glm::vec3(1), glm::vec3 *ambientColor=nullptr, glm::vec3 *specularColor=nullptr)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:9</div></div>
 <div class="ttc" id="aclass_directional_light_html_acc011ed29f9bd3397ab07f9c1c114e9f"><div class="ttname"><a href="class_directional_light.html#acc011ed29f9bd3397ab07f9c1c114e9f">DirectionalLight::shaderSet</a></div><div class="ttdeci">void shaderSet(Shader *shader, std::string uniformName)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:21</div></div>
 <div class="ttc" id="aclass_directional_light_html"><div class="ttname"><a href="class_directional_light.html">DirectionalLight</a></div><div class="ttdef"><b>Definition:</b> DirectionalLight.h:17</div></div>
 <div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.h:25</div></div>
+<div class="ttc" id="aclass_directional_light_html_a620fc95395f452e6718eca660c3f66f6"><div class="ttname"><a href="class_directional_light.html#a620fc95395f452e6718eca660c3f66f6">DirectionalLight::getDirection</a></div><div class="ttdeci">const glm::vec3 &amp; getDirection() const</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:33</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

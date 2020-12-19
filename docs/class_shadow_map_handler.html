@@ -88,28 +88,159 @@ $(document).ready(function(){initNavTree('class_shadow_map_handler.html',''); in
 <div class="title">ShadowMapHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_shadow_map_handler_8h_source.html">ShadowMapHandler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0a42e1cbf0ce219e38c2be3cf9fe562b"><td class="memItemLeft" align="right" valign="top"><a id="a0a42e1cbf0ce219e38c2be3cf9fe562b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ShadowMapHandler</b> (<a class="el" href="class_old_camera.html">OldCamera</a> *mainCamera)</td></tr>
+<tr class="memitem:a0a42e1cbf0ce219e38c2be3cf9fe562b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a0a42e1cbf0ce219e38c2be3cf9fe562b">ShadowMapHandler</a> (<a class="el" href="class_old_camera.html">OldCamera</a> *mainCamera)</td></tr>
 <tr class="separator:a0a42e1cbf0ce219e38c2be3cf9fe562b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39151dc2a0fc09dea5332bc6a5801fe3"><td class="memItemLeft" align="right" valign="top"><a id="a39151dc2a0fc09dea5332bc6a5801fe3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>renderShadowMaps</b> (<a class="el" href="class_window.html">Window</a> *window, std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *rootNodes, const shared_ptr&lt; <a class="el" href="class_lighting_registry.html">LightingRegistry</a> &gt; &amp;lightingRegistry, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)</td></tr>
+<tr class="memitem:a39151dc2a0fc09dea5332bc6a5801fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a39151dc2a0fc09dea5332bc6a5801fe3">renderShadowMaps</a> (<a class="el" href="class_window.html">Window</a> *window, std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *rootNodes, const shared_ptr&lt; <a class="el" href="class_lighting_registry.html">LightingRegistry</a> &gt; &amp;lightingRegistry, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)</td></tr>
 <tr class="separator:a39151dc2a0fc09dea5332bc6a5801fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c34abd0197752a503545db2e93f57c2"><td class="memItemLeft" align="right" valign="top"><a id="a0c34abd0197752a503545db2e93f57c2"></a>
-std::vector&lt; GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDirectionalShadowMaps</b> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
+<tr class="memitem:a0c34abd0197752a503545db2e93f57c2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a0c34abd0197752a503545db2e93f57c2">getDirectionalShadowMaps</a> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
 <tr class="separator:a0c34abd0197752a503545db2e93f57c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2139b487e8d96e0e5a0f80c08e94677"><td class="memItemLeft" align="right" valign="top"><a id="aa2139b487e8d96e0e5a0f80c08e94677"></a>
-std::vector&lt; glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLightSpaceMatrices</b> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
+<tr class="memitem:aa2139b487e8d96e0e5a0f80c08e94677"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#aa2139b487e8d96e0e5a0f80c08e94677">getLightSpaceMatrices</a> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
 <tr class="separator:aa2139b487e8d96e0e5a0f80c08e94677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c8de5c6bac0602fb4641470f6bb3e1f"><td class="memItemLeft" align="right" valign="top"><a id="a7c8de5c6bac0602fb4641470f6bb3e1f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateCamera</b> (<a class="el" href="class_old_camera.html">OldCamera</a> *newCamera)</td></tr>
+<tr class="memitem:a7c8de5c6bac0602fb4641470f6bb3e1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a7c8de5c6bac0602fb4641470f6bb3e1f">updateCamera</a> (<a class="el" href="class_old_camera.html">OldCamera</a> *newCamera)</td></tr>
 <tr class="separator:a7c8de5c6bac0602fb4641470f6bb3e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0a42e1cbf0ce219e38c2be3cf9fe562b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a42e1cbf0ce219e38c2be3cf9fe562b">&#9670;&nbsp;</a></span>ShadowMapHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ShadowMapHandler::ShadowMapHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td>
+          <td class="paramname"><em>mainCamera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0c34abd0197752a503545db2e93f57c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c34abd0197752a503545db2e93f57c2">&#9670;&nbsp;</a></span>getDirectionalShadowMaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; GLuint &gt; ShadowMapHandler::getDirectionalShadowMaps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_directional_light.html">DirectionalLight</a> *&#160;</td>
+          <td class="paramname"><em>directionalLight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2139b487e8d96e0e5a0f80c08e94677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2139b487e8d96e0e5a0f80c08e94677">&#9670;&nbsp;</a></span>getLightSpaceMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; glm::mat4 &gt; ShadowMapHandler::getLightSpaceMatrices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_directional_light.html">DirectionalLight</a> *&#160;</td>
+          <td class="paramname"><em>directionalLight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39151dc2a0fc09dea5332bc6a5801fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39151dc2a0fc09dea5332bc6a5801fe3">&#9670;&nbsp;</a></span>renderShadowMaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShadowMapHandler::renderShadowMaps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_window.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>rootNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const shared_ptr&lt; <a class="el" href="class_lighting_registry.html">LightingRegistry</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lightingRegistry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_shadow_map_handler_a39151dc2a0fc09dea5332bc6a5801fe3_cgraph.svg" width="443" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_shadow_map_handler_a39151dc2a0fc09dea5332bc6a5801fe3_icgraph.svg" width="604" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a7c8de5c6bac0602fb4641470f6bb3e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8de5c6bac0602fb4641470f6bb3e1f">&#9670;&nbsp;</a></span>updateCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShadowMapHandler::updateCamera </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_old_camera.html">OldCamera</a> *&#160;</td>
+          <td class="paramname"><em>newCamera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Rendering/ShadowMapping/<a class="el" href="_shadow_map_handler_8h_source.html">ShadowMapHandler.h</a></li>
-<li>kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp</li>
+<li>kryne-engine/src/Rendering/ShadowMapping/<a class="el" href="_shadow_map_handler_8cpp.html">ShadowMapHandler.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

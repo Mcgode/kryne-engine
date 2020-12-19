@@ -1,7 +1,10 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/enums/MaterialSide.h" name="kryne&#45;engine/include/kryne&#45;engine/enums/MaterialSide.h">
-<area shape="rect" id="node1" title=" " alt="" coords="85,5,278,61"/>
-<area shape="rect" id="node2" href="$_material_8h.html" title=" " alt="" coords="50,109,201,165"/>
-<area shape="rect" id="node5" href="$_rendering_state_8hpp.html" title=" " alt="" coords="195,213,357,269"/>
-<area shape="rect" id="node3" href="$_mesh_8h.html" title=" " alt="" coords="5,213,171,269"/>
-<area shape="rect" id="node4" href="$_renderer_8h.html" title=" " alt="" coords="100,317,263,373"/>
+<area shape="rect" id="node1" title=" " alt="" coords="221,5,415,61"/>
+<area shape="rect" id="node2" href="$_material_8h.html" title=" " alt="" coords="152,109,303,165"/>
+<area shape="rect" id="node8" href="$_rendering_state_8hpp.html" title=" " alt="" coords="327,109,490,165"/>
+<area shape="rect" id="node3" href="$_mesh_8h.html" title=" " alt="" coords="14,213,179,269"/>
+<area shape="rect" id="node7" href="$_material_8cpp.html" title=" " alt="" coords="203,221,371,262"/>
+<area shape="rect" id="node4" href="$_renderer_8h.html" title=" " alt="" coords="270,317,433,373"/>
+<area shape="rect" id="node6" href="$_mesh_8cpp.html" title=" " alt="" coords="5,325,188,366"/>
+<area shape="rect" id="node5" href="$_renderer_8cpp.html" title=" " alt="" coords="261,421,441,463"/>
 </map>

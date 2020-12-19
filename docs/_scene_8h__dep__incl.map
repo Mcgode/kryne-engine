@@ -1,4 +1,6 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/3DObjects/Scene.h" name="kryne&#45;engine/include/kryne&#45;engine/3DObjects/Scene.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,171,61"/>
-<area shape="rect" id="node2" href="$_renderer_8h.html" title=" " alt="" coords="7,109,169,165"/>
+<area shape="rect" id="node1" title=" " alt="" coords="111,5,277,61"/>
+<area shape="rect" id="node2" href="$_renderer_8h.html" title=" " alt="" coords="14,109,177,165"/>
+<area shape="rect" id="node4" href="$_scene_8cpp.html" title=" " alt="" coords="201,117,384,158"/>
+<area shape="rect" id="node3" href="$_renderer_8cpp.html" title=" " alt="" coords="5,213,185,255"/>
 </map>

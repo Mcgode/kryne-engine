@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['_7ebufferattribute_505',['~BufferAttribute',['../class_buffer_attribute.html#a1e41df80b37dd9473ddfd3444c04120b',1,'BufferAttribute']]],
-  ['_7ebuffergeometry_506',['~BufferGeometry',['../class_buffer_geometry.html#ae3febfe3850d87b18a4e8d42352f0b94',1,'BufferGeometry']]],
-  ['_7eshader_507',['~Shader',['../class_shader.html#aff01df87e8a102f270b5b135a295e59d',1,'Shader']]],
-  ['_7evertexarray_508',['~VertexArray',['../class_vertex_array.html#a82597eb9daba5ad66dd3cf898e159a95',1,'VertexArray']]]
+  ['vertexarray_930',['VertexArray',['../class_vertex_array.html#a657de057e7bc3c7a8655ee8f7bc1dbe7',1,'VertexArray::VertexArray(std::vector&lt; glm::vec2 &gt; *first_data, GLenum usage=GL_STATIC_DRAW)'],['../class_vertex_array.html#a15890bd80fa43ce9f63c0e89025d9ab8',1,'VertexArray::VertexArray(std::vector&lt; glm::vec3 &gt; *first_data, GLenum usage=GL_STATIC_DRAW)']]]
 ];

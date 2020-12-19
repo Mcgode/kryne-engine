@@ -2,6 +2,7 @@ var class_buffer_geometry =
 [
     [ "BufferGeometry", "class_buffer_geometry.html#a4147124a76077d48735c37d8b65f5d79", null ],
     [ "~BufferGeometry", "class_buffer_geometry.html#ae3febfe3850d87b18a4e8d42352f0b94", null ],
+    [ "computeTangent", "class_buffer_geometry.html#a082b7e73a394537b11e32f78ca68df79", null ],
     [ "computeTangents", "class_buffer_geometry.html#a1d92262d7fd788c5cc64bac05b56bb04", null ],
     [ "draw", "class_buffer_geometry.html#a60de1441e336eea4a82e36f74273988f", null ],
     [ "getShaderLayoutCode", "class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201", null ],

@@ -1,5 +1,16 @@
 <map id="ShaderProgramCompiler::checkShaderCompile" name="ShaderProgramCompiler::checkShaderCompile">
-<area shape="rect" id="node1" title=" " alt="" coords="5,27,168,69"/>
-<area shape="rect" id="node2" href="$class_shader.html#a8dbd8d624b47ff9210792cf212b354cb" title=" " alt="" coords="222,5,389,32"/>
-<area shape="rect" id="node3" href="$class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201" title=" " alt="" coords="216,57,395,98"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,209,168,251"/>
+<area shape="rect" id="node2" href="$class_shader_program_compiler.html#a3a9b9a6eee545b38eb9d58b033a334f3" title=" " alt="" coords="227,5,390,47"/>
+<area shape="rect" id="node8" href="$class_shader_program_compiler.html#ad5186f5a62633607111af3e57231d7b1" title=" " alt="" coords="227,71,390,112"/>
+<area shape="rect" id="node9" href="$class_shader.html#a06a13afc6b863a1eb9740a2627888e30" title=" " alt="" coords="216,137,401,163"/>
+<area shape="rect" id="node10" href="$class_shader.html#a8dbd8d624b47ff9210792cf212b354cb" title=" " alt="" coords="225,187,392,214"/>
+<area shape="rect" id="node11" href="$class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201" title=" " alt="" coords="219,239,398,280"/>
+<area shape="rect" id="node12" href="$class_shader.html#a8beb925ecccca417ef349bdfb79635d5" title=" " alt="" coords="225,305,393,331"/>
+<area shape="rect" id="node13" href="$class_shader.html#a7637efa75bb0ae98a750d644cb6d353e" title=" " alt="" coords="239,355,379,382"/>
+<area shape="rect" id="node14" href="$class_shader.html#a0c7f6034531e85b8581b71a24e183232" title=" " alt="" coords="221,406,397,433"/>
+<area shape="rect" id="node3" href="$class_shader_program_compiler.html#a6ac22a7f73bd784c42f7c315d0bd0573" title=" " alt="" coords="449,5,612,47"/>
+<area shape="rect" id="node5" href="$class_shader_program_compiler.html#a00138214b02ebdfed1eb2d1757272bf1" title=" " alt="" coords="449,71,612,112"/>
+<area shape="rect" id="node4" href="$class_shader_program_compiler.html#ac43a664df77428ba6bbb54be4e42b443" title=" " alt="" coords="675,5,838,47"/>
+<area shape="rect" id="node6" href="$class_shader_chunk.html#a2aa72c90a348e244f66a2286d3992300" title=" " alt="" coords="660,125,853,151"/>
+<area shape="rect" id="node7" href="$class_shader_chunk.html#a24c2b1bd2fa2adf692718b5b97cb33b5" title=" " alt="" coords="669,74,844,101"/>
 </map>

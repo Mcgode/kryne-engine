@@ -15,6 +15,7 @@ var class_object3_d =
     [ "getWorldPosition", "class_object3_d.html#a1282f3d1bc1eac2d428f7183ffd0311b", null ],
     [ "isVisible", "class_object3_d.html#abaa0d30b4a47aea16646a0202586b1e4", null ],
     [ "lookAt", "class_object3_d.html#aebe1a3d71cb9a31d64c4939eeb033535", null ],
+    [ "nextId", "class_object3_d.html#ad70b39a48e574386a0aea57a3b014650", null ],
     [ "remove", "class_object3_d.html#ac26886db5acb179dde3b1ab7b3eee80d", null ],
     [ "removeFromParent", "class_object3_d.html#a785a086d20af6431304b7aad44b31657", null ],
     [ "setPosition", "class_object3_d.html#a7797af713ae1804875079851760b2c6c", null ],
