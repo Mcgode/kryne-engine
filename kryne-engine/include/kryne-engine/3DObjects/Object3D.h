@@ -20,7 +20,9 @@
 #include <glm/matrix.hpp>
 #include <glm/vec3.hpp>
 #include <glm/gtc/quaternion.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include <kryne-engine/Math/Transform.hpp>
 
