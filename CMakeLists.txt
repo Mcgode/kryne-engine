@@ -28,31 +28,22 @@ include_directories(external-libs/glad/include)
 add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h kryne-engine/include/kryne-engine/enums/MaterialSide.h)
 
 
-set (Boost_DETAILED_FAILURE_MSG ON)
-set (Boost_THREADAPI win32)
-set (Boost_USE_STATIC_LIBS 1)
+#Set up the used libs
+set(LIBS glad ${GLFW3_LIBRARY} assimp glm)
 
-set (BASE_BOOST_ROOT "C:/Program Files/boost/boost_1_73_0")
 
-set (BOOST_ROOT ${BASE_BOOST_ROOT}/boost)
-set (ENV{BOOST_ROOT} ${BASE_BOOST_ROOT}/boost)
+# Set up boost library
+if(WIN32)
+    # Required, or else CMake won't find boost components
+    set (Boost_USE_STATIC_LIBS 1)
+endif()
 
-set (BOOST_LIBRARYDIR ${BASE_BOOST_ROOT}/stage/lib)
-set (ENV{BOOST_LIBRARYDIR} ${BASE_BOOST_ROOT}/stage/lib)
-
-set (BOOST_INCLUDEDIR ${BASE_BOOST_ROOT})
-set (Boost_INCLUDE_DIR ${BASE_BOOST_ROOT})
-set (ENV{BOOST_INCLUDEDIR} ${BASE_BOOST_ROOT})
-
-# set (Boost_DEBUG ON)  #<---------- Real life saver
 find_package(Boost REQUIRED COMPONENTS filesystem system)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 
-
-#Set up the used libs
-set(LIBS glad ${GLFW3_LIBRARY} assimp glm ${Boost_LIBRARIES})
+set(LIBS ${LIBS} ${Boost_LIBRARIES})
 
 
 # Set up common library
