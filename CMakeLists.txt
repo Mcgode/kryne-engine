@@ -25,7 +25,9 @@ message(STATUS ${PROJECT_BINARY_DIR}/assimp/include/assimp)
 
 #Adding GLAD library
 include_directories(external-libs/glad/include)
-add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h kryne-engine/include/kryne-engine/enums/MaterialSide.h)
+add_library(glad STATIC
+        external-libs/glad/src/glad.c
+        external-libs/assimp/include/assimp/config.h)
 
 
 #Set up the used libs
@@ -93,6 +95,7 @@ add_library(kryne-engine STATIC
         kryne-engine/include/kryne-engine/Camera/ProjectionData.hpp
         kryne-engine/src/Camera/Camera.cpp kryne-engine/include/kryne-engine/Camera/Camera.h
         kryne-engine/include/kryne-engine/Camera/PerspectiveProjectionData.hpp
+        kryne-engine/include/kryne-engine/enums/MaterialSide.h
         kryne-engine/src/Material/ShaderChunk.cpp kryne-engine/include/kryne-engine/Material/ShaderChunk.h
         kryne-engine/src/Material/UniformsHandler.cpp kryne-engine/include/kryne-engine/Material/UniformsHandler.h
         kryne-engine/src/Rendering/ShaderProgramCompiler.cpp kryne-engine/include/kryne-engine/Rendering/ShaderProgramCompiler.h
