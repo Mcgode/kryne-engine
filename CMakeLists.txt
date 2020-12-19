@@ -17,9 +17,9 @@ include_directories(${GLFW3_INCLUDE_DIR})
 
 
 # Set up GLM
-set(GLM_TEST_ENABLE OFF)
-add_subdirectory(external-libs/glm-0.9.9.5)
-include_directories(external-libs/glm-0.9.9.5)
+find_package(GLM REQUIRED)
+message(STATUS "Found GLM in ${GLM_INCLUDE_DIR}")
+include_directories(${GLM_INCLUDE_DIR})
 
 
 # Set up assimp
@@ -28,13 +28,13 @@ message(STATUS "Found assimp in ${ASSIMP_INCLUDE_DIR}")
 include_directories(${ASSIMP_INCLUDE_DIR})
 
 
-#Adding GLAD library
+# Set up GLAD library
 include_directories(external-libs/glad/include)
 add_library(glad STATIC external-libs/glad/src/glad.c)
 
 
 #Set up the used libs
-set(LIBS glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} glm)
+set(LIBS glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES})
 
 
 # Set up boost library
