@@ -37,7 +37,7 @@ void OrbitCamera::update(bool force)
         if (this->angle != newAngle)
         {
             this->angle = newAngle;
-            this->updatePosition(newAngle, this->distance);
+            this->updatePosition();
         }
 
     }
@@ -48,23 +48,23 @@ void OrbitCamera::update(bool force)
 void OrbitCamera::setPosition(const vec3 &pos)
 {
     auto p = pos - this->centerPosition;
-    this->distance = length(p);
-    p /= this->distance;
+    const float d = length(p);
+    p /= d;
 
     const float phi = asin(p.y);
     const float theta = p.z != 0 ? atan2(p.x, p.z) : (p.x >= 0 ? 0 : pi<float>());
 
     this->angle = vec2(theta, phi);
-
-    this->updatePosition(this->angle, this->distance);
+    this->distance = d;
+    this->updatePosition();
 }
 
 
-void OrbitCamera::updatePosition(const vec2 &newAngle, float dist)
+void OrbitCamera::updatePosition()
 {
-    float cosPhi = cos(newAngle.y);
-    auto pos = vec3(cosPhi * sin(newAngle.x), sin(newAngle.y), cosPhi * cos(newAngle.x));
-    pos *= dist;
+    float cosPhi = cos(this->angle.y);
+    auto pos = vec3(cosPhi * sin(this->angle.x), sin(this->angle.y), cosPhi * cos(this->angle.x));
+    pos *= this->distance;
     Object3D::setPosition(pos + this->centerPosition);
     this->lookAt(this->centerPosition);
 }

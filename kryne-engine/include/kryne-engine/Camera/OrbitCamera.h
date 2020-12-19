@@ -11,33 +11,56 @@
 #include "Camera.h"
 
 
+/**
+ * A camera that allows for orbit controls around a center position
+ */
 class OrbitCamera : public Camera {
 
 public:
 
+    /**
+     * Initializes the camera.
+     * @param projectionData    The projection data for this camera.
+     * @param playerInput       The input controller associated with this camera.
+     */
     OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput);
 
+    /**
+     * @copydoc Object3D::update()
+     */
     void update(bool force) override;
 
+    /**
+     * @copydoc Object3D::setPosition()
+     */
     void setPosition(const vec3 &pos) override;
 
 
 protected:
 
-    void updatePosition(const vec2 &newAngle, float dist);
+    /**
+     * Updates OrbitCamera#position according to the orbit values
+     */
+    void updatePosition();
 
 protected:
 
+    /// The player input for handling the orbit controls.
     weak_ptr<PlayerInput> playerInput;
 
+    /// The orbit center position
     vec3 centerPosition {};
 
+    /// The spherical angle coordinates of the camera
     vec2 angle {};
 
+    /// The distance of the camera from the orbit center
     float distance {};
 
+    /// The speed of the swipe gesture, in radians per pixel
     float radiansPerMousePixel = 2.0f * glm::pi<float>() / 1280.0f;
 
+    /// The max value for `abs(OrbitCamera::angle.y)`
     float maxPhi = pi<float>() * 0.48;
 
 };
