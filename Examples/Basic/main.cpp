@@ -6,6 +6,7 @@
 #include <kryne-engine/Camera/PerspectiveProjectionData.hpp>
 #include <kryne-engine/Rendering/Renderer.h>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
+#include <kryne-engine/Camera/OrbitCamera.h>
 
 int main()
 {
@@ -32,7 +33,10 @@ int main()
 
     scene->add(unique_ptr<Object3D>(new Mesh(geometry, material)));
 
-    const auto camera = make_unique<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
+    const auto camera = make_unique<OrbitCamera>(
+        make_unique<PerspectiveProjectionData>(16.f / 9.f),
+        renderer->getWeakPlayerInput()
+    );
 
     const auto window = renderer->getWindow()->getGlfwWindow();
     using namespace std::chrono;
@@ -46,12 +50,13 @@ int main()
 
 //        material->getShader()->debugPrintActiveUniforms();
 
-        auto newPos = glm::vec3(2.*glm::cos(t), 1, 2.*glm::sin(t));
-        camera->setPosition(newPos);
-        camera->lookAt();
+//        auto newPos = glm::vec3(2.*glm::cos(t), 1, 2.*glm::sin(t));
+//        camera->setPosition(newPos);
+//        camera->lookAt();
 
         renderer->render(scene.get(), camera.get());
         glfwSwapBuffers(window);
+        renderer->getPlayerInput()->willPollEvents();
         glfwPollEvents();
     }
 
