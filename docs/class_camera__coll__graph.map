@@ -1,4 +1,6 @@
 <map id="Camera" name="Camera">
-<area shape="rect" id="node1" title=" " alt="" coords="10,81,77,108"/>
-<area shape="rect" id="node2" href="$class_object3_d.html" title=" " alt="" coords="5,5,81,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,95,72,121"/>
+<area shape="rect" id="node2" href="$class_object3_d.html" title=" " alt="" coords="151,5,227,32"/>
+<area shape="rect" id="node4" title=" " alt="" coords="96,95,283,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="209,184,343,225"/>
 </map>

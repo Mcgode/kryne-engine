@@ -2,7 +2,7 @@ var searchData=
 [
   ['perspectiveprojectiondata_149',['PerspectiveProjectionData',['../class_perspective_projection_data.html',1,'PerspectiveProjectionData'],['../class_perspective_projection_data.html#aded21ef3140afbeb16acdfbe72091431',1,'PerspectiveProjectionData::PerspectiveProjectionData()']]],
   ['perspectiveprojectiondata_2ehpp_150',['PerspectiveProjectionData.hpp',['../_perspective_projection_data_8hpp.html',1,'']]],
-  ['playerinput_151',['PlayerInput',['../class_player_input.html',1,'PlayerInput'],['../class_player_input.html#ac7e7f65b22d437bc66ac1eaeb91c0d99',1,'PlayerInput::PlayerInput()'],['../class_orbit_camera.html#aefce4f20d90a27f5085578a63f62b42c',1,'OrbitCamera::playerInput()'],['../class_renderer.html#a94e0132d8f5e75835b4b6ed0305276ce',1,'Renderer::playerInput()']]],
+  ['playerinput_151',['PlayerInput',['../class_player_input.html',1,'PlayerInput'],['../class_orbit_camera.html#aefce4f20d90a27f5085578a63f62b42c',1,'OrbitCamera::playerInput()'],['../class_renderer.html#a94e0132d8f5e75835b4b6ed0305276ce',1,'Renderer::playerInput()'],['../class_player_input.html#ac7e7f65b22d437bc66ac1eaeb91c0d99',1,'PlayerInput::PlayerInput()']]],
   ['playerinput_2ecpp_152',['PlayerInput.cpp',['../_player_input_8cpp.html',1,'']]],
   ['playerinput_2eh_153',['PlayerInput.h',['../_player_input_8h.html',1,'']]],
   ['pointlight_154',['PointLight',['../class_point_light.html',1,'PointLight'],['../class_point_light.html#ad7a5e1d7f526bf29786792f25673f640',1,'PointLight::PointLight()']]],
