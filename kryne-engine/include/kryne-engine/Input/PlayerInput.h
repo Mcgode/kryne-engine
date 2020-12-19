@@ -83,6 +83,17 @@ public:
      */
     [[nodiscard]] inline glm::dvec2 getCursorMovement() const { return this->cursorPosition - this->previousCursorPosition; }
 
+    /**
+     * Makes a non-fuzzy check on whether the provided key is pressed or not.
+     * @param key       The GLFW key value.
+     * @param modifier  The GLFW key modifiers value. None (0) by default.
+     * @return `true` if the precise key is pressed, `false` otherwise.
+     */
+    [[nodiscard]] inline bool isKeyDown(int32_t key, int32_t modifier = 0) const {
+        KeyData kd(key, modifier);
+        return this->keysDown.find(kd) != this->keysDown.end();
+    }
+
     ~PlayerInput();
 
 
