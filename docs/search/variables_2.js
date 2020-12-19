@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ebo_489',['ebo',['../class_buffer_geometry.html#a689cc72be6cb39978e322bea65141051',1,'BufferGeometry']]]
+  ['distance_511',['distance',['../class_orbit_camera.html#ae421db2656651ac4cef2b6ae5f127f3c',1,'OrbitCamera']]]
 ];

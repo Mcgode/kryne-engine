@@ -10,8 +10,8 @@ var hierarchy =
     [ "FinalPostProcess", "class_final_post_process.html", [
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
-    [ "PlayerInput::KeyMapItem::Hasher", "struct_player_input_1_1_key_map_item_1_1_hasher.html", null ],
     [ "PlayerInput::KeyData::Hasher", "struct_player_input_1_1_key_data_1_1_hasher.html", null ],
+    [ "PlayerInput::KeyMapItem::Hasher", "struct_player_input_1_1_key_map_item_1_1_hasher.html", null ],
     [ "HierarchicalNode", "class_hierarchical_node.html", null ],
     [ "PlayerInput::KeyData", "struct_player_input_1_1_key_data.html", null ],
     [ "PlayerInput::KeyMapItem", "struct_player_input_1_1_key_map_item.html", null ],
@@ -20,7 +20,9 @@ var hierarchy =
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "ModelMesh", "class_model_mesh.html", null ],
     [ "Object3D", "class_object3_d.html", [
-      [ "Camera", "class_camera.html", null ],
+      [ "Camera", "class_camera.html", [
+        [ "OrbitCamera", "class_orbit_camera.html", null ]
+      ] ],
       [ "Mesh", "class_mesh.html", null ],
       [ "Scene", "class_scene.html", null ]
     ] ],

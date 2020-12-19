@@ -20,6 +20,7 @@ var annotated_dup =
     [ "ModelMesh", "class_model_mesh.html", "class_model_mesh" ],
     [ "Object3D", "class_object3_d.html", "class_object3_d" ],
     [ "OldCamera", "class_old_camera.html", "class_old_camera" ],
+    [ "OrbitCamera", "class_orbit_camera.html", "class_orbit_camera" ],
     [ "PerspectiveProjectionData", "class_perspective_projection_data.html", "class_perspective_projection_data" ],
     [ "PlayerInput", "class_player_input.html", "class_player_input" ],
     [ "PointLight", "class_point_light.html", "class_point_light" ],

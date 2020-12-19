@@ -17,7 +17,7 @@ var class_object3_d =
     [ "lookAt", "class_object3_d.html#aebe1a3d71cb9a31d64c4939eeb033535", null ],
     [ "remove", "class_object3_d.html#ac26886db5acb179dde3b1ab7b3eee80d", null ],
     [ "removeFromParent", "class_object3_d.html#a785a086d20af6431304b7aad44b31657", null ],
-    [ "setPosition", "class_object3_d.html#a91e452880cf4654fbb3ef007f6a5450f", null ],
+    [ "setPosition", "class_object3_d.html#a7797af713ae1804875079851760b2c6c", null ],
     [ "setQuaternion", "class_object3_d.html#a722bb19a2d011e0f845be13e0cba9b39", null ],
     [ "setScale", "class_object3_d.html#a40393bae0bfc3592b9e2ec876133c5f6", null ],
     [ "setVisible", "class_object3_d.html#acaca49c3e8bd815284f6c8c569ba47b9", null ],
