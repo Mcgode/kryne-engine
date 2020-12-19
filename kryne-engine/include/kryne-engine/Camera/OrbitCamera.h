@@ -35,6 +35,15 @@ public:
      */
     void setPosition(const vec3 &pos) override;
 
+    /**
+     * Changes the value of #centerPosition and updates the camera position accordingly.
+     * @param newCenter The new center position for the orbit
+     */
+    void setCenterPosition(const vec3 &newCenter) {
+        OrbitCamera::centerPosition = newCenter;
+        OrbitCamera::updatePosition();
+    }
+
 
 protected:
 
