@@ -50,7 +50,6 @@ var hierarchy =
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
-    [ "StringUtils", "class_string_utils.html", null ],
     [ "Texture2D", "class_texture2_d.html", [
       [ "TextureCubeMap", "class_texture_cube_map.html", null ]
     ] ],

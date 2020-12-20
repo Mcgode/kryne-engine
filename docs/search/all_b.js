@@ -4,7 +4,7 @@ var searchData=
   ['mainrenderer_2ecpp_215',['MainRenderer.cpp',['../_main_renderer_8cpp.html',1,'']]],
   ['mainrenderer_2eh_216',['MainRenderer.h',['../_main_renderer_8h.html',1,'']]],
   ['makedefinescode_217',['makeDefinesCode',['../class_shader.html#a0c7f6034531e85b8581b71a24e183232',1,'Shader']]],
-  ['material_218',['Material',['../class_material.html',1,'Material'],['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh::material()'],['../class_material.html#a38391efabd8dabb8f3e18e84eda8105b',1,'Material::Material()']]],
+  ['material_218',['Material',['../class_material.html',1,'Material'],['../class_material.html#a38391efabd8dabb8f3e18e84eda8105b',1,'Material::Material()'],['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh::material()']]],
   ['material_2ecpp_219',['Material.cpp',['../_material_8cpp.html',1,'']]],
   ['material_2eh_220',['Material.h',['../_material_8h.html',1,'']]],
   ['materialside_221',['MaterialSide',['../_material_side_8h.html#a48a16246aa30572345771e9de71915b5',1,'MaterialSide.h']]],

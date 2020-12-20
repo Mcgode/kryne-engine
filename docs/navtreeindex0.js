@@ -154,6 +154,7 @@ var NAVTREEINDEX0 =
 "_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31babd85028bc4085db7d45f221580a09b1d":[2,0,0,0,0,4,2,0,0],
 "_skybox_draw_order_8h_source.html":[2,0,0,0,0,4,2],
 "_string_utils_8hpp.html":[2,0,0,0,0,13,0],
+"_string_utils_8hpp.html#ada083b726c0a64adcfcad1606d6d0404":[2,0,0,0,0,13,0,0],
 "_string_utils_8hpp_source.html":[2,0,0,0,0,13,0],
 "_texture2_d_8cpp.html":[2,0,0,1,9,1],
 "_texture2_d_8h.html":[2,0,0,0,0,12,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_camera.html#a2068e31d770ec3d205abe5621a174d01":[1,0,6,6],
 "class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7":[1,0,6,4],
 "class_camera.html#aac9d10742b161857a2bf8b8926087cc1":[1,0,6,0],
-"class_camera.html#ab76660d45be9625ada2f80d376d7cb15":[1,0,6,5],
-"class_camera.html#ac41a74ed5e232d5506808006b31982e1":[1,0,6,3]
+"class_camera.html#ab76660d45be9625ada2f80d376d7cb15":[1,0,6,5]
 };

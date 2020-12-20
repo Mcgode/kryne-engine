@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['safegetline_320',['safeGetLine',['../class_string_utils.html#a451dd5d4c14ee8b80181ff7d118a935b',1,'StringUtils']]],
+  ['safegetline_320',['safeGetLine',['../namespace_utils.html#ada083b726c0a64adcfcad1606d6d0404',1,'Utils']]],
   ['scale_321',['scale',['../class_object3_d.html#a5f47065dec0ec0fe94a6d01fdc237745',1,'Object3D']]],
   ['scene_322',['Scene',['../class_scene.html',1,'Scene'],['../class_scene.html#ad10176d75a9cc0da56626f682d083507',1,'Scene::Scene()']]],
   ['scene_2ecpp_323',['Scene.cpp',['../_scene_8cpp.html',1,'']]],
@@ -49,7 +49,7 @@ var searchData=
   ['setvisible_366',['setVisible',['../class_object3_d.html#acaca49c3e8bd815284f6c8c569ba47b9',1,'Object3D']]],
   ['setworldmatrixneedsupdate_367',['setWorldMatrixNeedsUpdate',['../class_object3_d.html#a66d25b92a27913f49412699516f90747',1,'Object3D']]],
   ['setwritedepth_368',['setWriteDepth',['../class_material.html#a5db1d2d3f143144d0e2f11037e2a5355',1,'Material']]],
-  ['shader_369',['Shader',['../class_shader.html',1,'Shader'],['../class_base_object.html#a4f1b75719faccd4cf508644454e79940',1,'BaseObject::shader()'],['../class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11',1,'Material::shader()'],['../class_shader.html#a153d748b994fd4d7447e5ac4af8f30be',1,'Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename)'],['../class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b',1,'Shader::Shader(const char *shaderName)'],['../class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38',1,'Shader::Shader(const string &amp;vertexShader, const string &amp;fragmentShader)'],['../class_shader.html#a0d654ebaca4e0555197c0724c6d30610',1,'Shader::Shader()']]],
+  ['shader_369',['Shader',['../class_shader.html',1,'Shader'],['../class_shader.html#a153d748b994fd4d7447e5ac4af8f30be',1,'Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename)'],['../class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b',1,'Shader::Shader(const char *shaderName)'],['../class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38',1,'Shader::Shader(const string &amp;vertexShader, const string &amp;fragmentShader)'],['../class_shader.html#a0d654ebaca4e0555197c0724c6d30610',1,'Shader::Shader()'],['../class_base_object.html#a4f1b75719faccd4cf508644454e79940',1,'BaseObject::shader()'],['../class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11',1,'Material::shader()']]],
   ['shader_2ecpp_370',['Shader.cpp',['../_shader_8cpp.html',1,'']]],
   ['shader_2eh_371',['Shader.h',['../_shader_8h.html',1,'']]],
   ['shader_5ffragment_5fneeds_5fupdate_372',['SHADER_FRAGMENT_NEEDS_UPDATE',['../_shader_8h.html#a59307b0b566d19fab211c96b74e1243f',1,'Shader.h']]],
@@ -129,7 +129,6 @@ var searchData=
   ['stbi_5fzlib_5fdecode_5fnoheader_5fbuffer_446',['stbi_zlib_decode_noheader_buffer',['../stb__image_8h.html#a0d12efc011adfff7521f3b924feb0b0e',1,'stb_image.h']]],
   ['stbi_5fzlib_5fdecode_5fnoheader_5fmalloc_447',['stbi_zlib_decode_noheader_malloc',['../stb__image_8h.html#a7fbd65c83495f13f22469fe493775739',1,'stb_image.h']]],
   ['stbidef_448',['STBIDEF',['../stb__image_8h.html#a2d9ec9850cd12aefe7641b456266a4c2',1,'stb_image.h']]],
-  ['stringutils_449',['StringUtils',['../class_string_utils.html',1,'']]],
-  ['stringutils_2ehpp_450',['StringUtils.hpp',['../_string_utils_8hpp.html',1,'']]],
-  ['supportslighting_451',['supportsLighting',['../class_base_object.html#a931c2b0730708a240ece11f5b86f2dbd',1,'BaseObject']]]
+  ['stringutils_2ehpp_449',['StringUtils.hpp',['../_string_utils_8hpp.html',1,'']]],
+  ['supportslighting_450',['supportsLighting',['../class_base_object.html#a931c2b0730708a240ece11f5b86f2dbd',1,'BaseObject']]]
 ];

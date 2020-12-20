@@ -10,11 +10,18 @@
 #include <iostream>
 
 
-class StringUtils {
+using namespace std;
 
-public:
 
-    static std::istream& safeGetLine(std::istream& is, std::string& t)
+namespace Utils {
+
+    /**
+     * Sets up a safe line by line string iteration stream. Handles all line separators (`\n`, `\r\n` and `\r`)
+     * @param is    The input string stream to read the lines from
+     * @param t     The output string reference
+     * @return A reference to the \p is parameter value
+     */
+    istream& safeGetLine(istream& is, string& t)
     {
         t.clear();
 
@@ -24,8 +31,8 @@ public:
         // The sentry object performs various tasks,
         // such as thread synchronization and updating the stream state.
 
-        std::istream::sentry se(is, true);
-        std::streambuf* sb = is.rdbuf();
+        istream::sentry se(is, true);
+        streambuf* sb = is.rdbuf();
 
         for(;;) {
             int c = sb->sbumpc();
@@ -36,10 +43,10 @@ public:
                     if(sb->sgetc() == '\n')
                         sb->sbumpc();
                     return is;
-                case std::streambuf::traits_type::eof():
+                case streambuf::traits_type::eof():
                     // Also handle the case when the last line has no line ending
                     if(t.empty())
-                        is.setstate(std::ios::eofbit);
+                        is.setstate(ios::eofbit);
                     return is;
                 default:
                     t += (char)c;
@@ -47,6 +54,6 @@ public:
         }
     }
 
-};
+}
 
 #endif //INC_KRYNE_ENGINE_STRINGUTILS_HPP

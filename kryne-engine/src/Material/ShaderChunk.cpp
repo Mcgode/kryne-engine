@@ -40,7 +40,7 @@ string ShaderChunk::loadCodeFile(const string &filename) {
 
     // Parsing source code into a string
     string line;
-    while (StringUtils::safeGetLine(file, line)) {
+    while (Utils::safeGetLine(file, line)) {
         if (!shaderCode.empty())
             shaderCode.push_back('\n');
         shaderCode += line;

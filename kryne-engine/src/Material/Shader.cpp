@@ -67,7 +67,7 @@ void Shader::loadShaderFromFile(GLenum type, const char *filename, std::string *
 
     // Parsing source code into a string
     string line;
-    while (StringUtils::safeGetLine(file, line)) {
+    while (Utils::safeGetLine(file, line)) {
         if (!shaderCode->empty())
             shaderCode->push_back('\n');
         *shaderCode += line;
