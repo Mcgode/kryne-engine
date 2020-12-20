@@ -5,6 +5,7 @@
 #include "kryne-engine/Geometry/BoxBufferGeometry.h"
 
 using namespace glm;
+using namespace Constants;
 
 BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): BufferGeometry()
 {
@@ -13,7 +14,7 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
     vector<vec2> textureCoordinates;
     float x = xSize / 2.f, y = ySize / 2.f, z = zSize / 2.f;
 
-    for (int i = 0; i < CUBE_AMOUNT_OF_VERTICES; i += 3)
+    for (int i = 0; i < CUBE_AMOUNT_OF_RAW_VERTICES; i += 3)
     {
         int j = i;
         vec3 p0 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
