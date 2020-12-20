@@ -40,7 +40,7 @@ add_library(kryne-engine STATIC
         src/Geometry/BufferAttribute.cpp include/kryne-engine/Geometry/BufferAttribute.h
         src/Geometry/BoxBufferGeometry.cpp include/kryne-engine/Geometry/BoxBufferGeometry.h
         include/kryne-engine/Rendering/RenderingState.hpp
-        src/Utils/VectorFlattening.cpp include/kryne-engine/Utils/VectorFlattening.h
+        include/kryne-engine/Utils/VectorMapping.hpp
         include/kryne-engine/Camera/ProjectionData.hpp
         src/Camera/Camera.cpp include/kryne-engine/Camera/Camera.h
         include/kryne-engine/Camera/PerspectiveProjectionData.hpp
