@@ -38,6 +38,7 @@ void Object3D::update(bool force)
         this->matrixWorld = this->parent != nullptr ?
                 this->parent->matrixWorld * this->localTransform :
                 this->localTransform;
+        this->normalMatrix = mat3(transpose(inverse(this->matrixWorld)));
 
         for (const auto& child : this->children)
             child->update(true);

@@ -139,9 +139,12 @@ public:
         Object3D::scale = glm::vec3(s);
     }
 
-    void setWorldMatrixNeedsUpdate() {
-        matrixWorldNeedsUpdate = true;
-    }
+    void setWorldMatrixNeedsUpdate() { this->matrixWorldNeedsUpdate = true; }
+
+    /**
+     * Retrieve the normal matrix for this object
+     */
+    [[nodiscard]] const mat3 &getNormalMatrix() const { return this->normalMatrix; }
 
 protected:
 
@@ -150,6 +153,9 @@ protected:
     glm::mat4 localTransform {};
 
     glm::mat4 matrixWorld {};
+
+    /// The world normal matrix of the object
+    glm::mat3 normalMatrix {};
 
     bool matrixWorldNeedsUpdate = true;
 
