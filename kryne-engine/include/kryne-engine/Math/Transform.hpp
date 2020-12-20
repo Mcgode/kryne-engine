@@ -13,6 +13,9 @@
 using namespace glm;
 
 
+/**
+ * Namespace for handling math code
+ */
 namespace Math {
 
 

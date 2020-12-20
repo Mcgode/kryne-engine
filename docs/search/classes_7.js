@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lightingregistry_525',['LightingRegistry',['../class_lighting_registry.html',1,'']]]
+  ['lightingregistry_530',['LightingRegistry',['../class_lighting_registry.html',1,'']]]
 ];

@@ -1,5 +1,12 @@
 var NAVTREEINDEX2 =
 {
+"class_renderer.html#ab28d1a8538913a0a72130ba64af5a938":[1,0,27,4],
+"class_renderer.html#ad904efce3ea7579819bbe3371543efca":[1,0,27,0],
+"class_renderer.html#ae4c9de40d9506c3939c806a85f2f26ba":[1,0,27,2],
+"class_rendering_state.html":[1,0,28],
+"class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c":[1,0,28,4],
+"class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce":[1,0,28,6],
+"class_rendering_state.html#a146f2037a5c55a8e2a7b2b5c9e111aa7":[1,0,28,3],
 "class_rendering_state.html#a18fd46cb3589363bacb3fe8c43717a11":[1,0,28,2],
 "class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319":[1,0,28,5],
 "class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6":[1,0,28,7],
@@ -210,9 +217,11 @@ var NAVTREEINDEX2 =
 "globals_vars.html":[2,1,2],
 "hierarchy.html":[1,2],
 "index.html":[],
-"namespace_math.html":[0,0,0],
+"namespace_constants.html":[0,0,0],
+"namespace_math.html":[0,0,1],
 "namespacemembers.html":[0,1,0],
 "namespacemembers_func.html":[0,1,1],
+"namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
 "pages.html":[],
 "stb__image_8cpp.html":[2,0,0,1,9,0],
@@ -240,14 +249,5 @@ var NAVTREEINDEX2 =
 "stb__image_8h.html#a6e7fd261af79ecef2208df3a6cc806bb":[2,0,0,0,0,12,0,39],
 "stb__image_8h.html#a7d9af55a35382c011cc186f7b62c00af":[2,0,0,0,0,12,0,19],
 "stb__image_8h.html#a7fbd65c83495f13f22469fe493775739":[2,0,0,0,0,12,0,49],
-"stb__image_8h.html#a82bcc0957b6a4ebfdfa3d7f04fbaed18":[2,0,0,0,0,12,0,31],
-"stb__image_8h.html#a86291c64cb663f41a34647d5e1abf363":[2,0,0,0,0,12,0,16],
-"stb__image_8h.html#a8a58b6bcd805afa1bdb14f988dd37fee":[2,0,0,0,0,12,0,30],
-"stb__image_8h.html#a95ebc5c42c1a753200be8d465e933af7":[2,0,0,0,0,12,0,33],
-"stb__image_8h.html#a990e0e38ab6e600bd9cbf5d30abd2f8f":[2,0,0,0,0,12,0,20],
-"stb__image_8h.html#a9ca2591f0987284129e82bf9dbcf7c6c":[2,0,0,0,0,12,0,35],
-"stb__image_8h.html#aa874b3ba909f3281d499894909678336":[2,0,0,0,0,12,0,11],
-"stb__image_8h.html#aa9994764695597161e8f3776e97caa99":[2,0,0,0,0,12,0,34],
-"stb__image_8h.html#aaaa17a529bec51403cc23dc2e7c36d79":[2,0,0,0,0,12,0,46],
-"stb__image_8h.html#aaf10d41631e1e9214fde1688bdbd8524":[2,0,0,0,0,12,0,25]
+"stb__image_8h.html#a82bcc0957b6a4ebfdfa3d7f04fbaed18":[2,0,0,0,0,12,0,31]
 };
