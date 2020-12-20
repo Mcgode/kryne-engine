@@ -21,7 +21,7 @@ namespace Utils {
      * @param t     The output string reference
      * @return A reference to the \p is parameter value
      */
-    istream& safeGetLine(istream& is, string& t)
+    static istream& safeGetLine(istream& is, string& t)
     {
         t.clear();
 
