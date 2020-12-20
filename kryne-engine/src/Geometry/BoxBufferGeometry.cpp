@@ -14,34 +14,15 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
     vector<vec2> textureCoordinates;
     float x = xSize / 2.f, y = ySize / 2.f, z = zSize / 2.f;
 
-    for (int i = 0; i < CUBE_AMOUNT_OF_RAW_VERTICES; i += 3)
+    for (uint32_t i = 0; i < CUBE_AMOUNT_OF_RAW_VERTICES; i ++)
     {
-        int j = i;
-        vec3 p0 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
-        vec2 uv0 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
-        normals.emplace_back(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]);
-
-        j++;
-        vec3 p1 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
-        vec2 uv1 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
-        normals.emplace_back(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]);
-
-        j++;
-        vec3 p2 = vec3(x*CUBE_VERTEX_POSITIONS[3*j], y*CUBE_VERTEX_POSITIONS[3*j+1], z*CUBE_VERTEX_POSITIONS[3*j+2]);
-        vec2 uv2 = vec2(CUBE_VERTEX_UV_COORDINATES[2*j], CUBE_VERTEX_UV_COORDINATES[2*j+1]);
-        normals.emplace_back(CUBE_VERTEX_NORMALS[3*j], CUBE_VERTEX_NORMALS[3*j+1], CUBE_VERTEX_NORMALS[3*j+2]);
-
-        positions.push_back(p0);
-        positions.push_back(p1);
-        positions.push_back(p2);
-
-        textureCoordinates.push_back(uv0);
-        textureCoordinates.push_back(uv1);
-        textureCoordinates.push_back(uv2);
+        positions.emplace_back(x * CUBE_VERTEX_POSITIONS[3 * i], y * CUBE_VERTEX_POSITIONS[3 * i + 1], z * CUBE_VERTEX_POSITIONS[3 * i + 2]);
+        textureCoordinates.emplace_back(CUBE_VERTEX_UV_COORDINATES[2 * i], CUBE_VERTEX_UV_COORDINATES[2 * i + 1]);
+        normals.emplace_back(CUBE_VERTEX_NORMALS[3 * i], CUBE_VERTEX_NORMALS[3 * i + 1], CUBE_VERTEX_NORMALS[3 * i + 2]);
     }
 
     vector<uint32_t> indexes;
-    indexes.reserve(sizeof(CUBE_INDEXES) / sizeof(uint32_t));
+    indexes.reserve(CUBE_AMOUNT_OF_INDEXES);
     for (uint32_t i : CUBE_INDEXES)
         indexes.push_back(i);
 
