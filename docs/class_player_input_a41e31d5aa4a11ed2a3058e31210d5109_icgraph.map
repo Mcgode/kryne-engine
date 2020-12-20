@@ -1,0 +1,11 @@
+<map id="PlayerInput::inputMap" name="PlayerInput::inputMap">
+<area shape="rect" id="node1" title="The map of GLFW windows to their associated PlayerInput instances." alt="" coords="667,177,815,203"/>
+<area shape="rect" id="node2" href="$class_player_input.html#a1159455dba7ecb31c935c4a51afb15c7" title=" " alt="" coords="440,52,611,93"/>
+<area shape="rect" id="node4" href="$class_player_input.html#ac4b822917a8be991362091d2da7883e8" title=" " alt="" coords="5,89,176,115"/>
+<area shape="rect" id="node5" href="$class_player_input.html#afb9d2e949dbd3d69c36e5d5519e43824" title=" " alt="" coords="433,118,617,145"/>
+<area shape="rect" id="node6" href="$class_player_input.html#aba00f66210c0c6569823c25afda4a5da" title=" " alt="" coords="439,169,611,211"/>
+<area shape="rect" id="node7" href="$class_player_input.html#a48150e7bcc0b23258071f59ff2636590" title=" " alt="" coords="442,235,609,276"/>
+<area shape="rect" id="node8" href="$class_player_input.html#af99688e0116feca7e153e551a056fd24" title=" " alt="" coords="432,301,619,327"/>
+<area shape="rect" id="node9" href="$class_player_input.html#aba1dd18f95d0c7d01ce2114297bbf101" title=" " alt="" coords="441,351,609,378"/>
+<area shape="rect" id="node3" href="$class_player_input.html#ac7e7f65b22d437bc66ac1eaeb91c0d99" title=" " alt="" coords="224,147,384,174"/>
+</map>

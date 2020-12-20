@@ -1,0 +1,10 @@
+<map id="Skybox::draw" name="Skybox::draw">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,107,133"/>
+<area shape="rect" id="node2" href="$class_vertex_array.html#acbd3f02e554fa827be46baf96d8bdabc" title=" " alt="" coords="177,5,322,32"/>
+<area shape="rect" id="node3" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="188,56,311,83"/>
+<area shape="rect" id="node4" href="$class_texture_cube_map.html#af452a341bdd71814388c5b0e799bd490" title=" " alt="" coords="155,107,344,133"/>
+<area shape="rect" id="node7" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="183,157,316,184"/>
+<area shape="rect" id="node8" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="203,208,295,235"/>
+<area shape="rect" id="node5" href="$class_texture2_d.html#a88024715528fe768cc3fbd087c72abe2" title=" " alt="" coords="392,107,541,133"/>
+<area shape="rect" id="node6" href="$class_shader.html#adbb128dcd061b123414bb026bf608863" title=" " alt="" coords="589,107,721,133"/>
+</map>

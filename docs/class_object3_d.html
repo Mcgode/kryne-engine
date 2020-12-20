@@ -147,6 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a40393bae0bfc3592b9e2ec876133c5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66d25b92a27913f49412699516f90747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a66d25b92a27913f49412699516f90747">setWorldMatrixNeedsUpdate</a> ()</td></tr>
 <tr class="separator:a66d25b92a27913f49412699516f90747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad139fed2dd890543b32aa4e23d27a28c"><td class="memItemLeft" align="right" valign="top">const mat3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ad139fed2dd890543b32aa4e23d27a28c">getNormalMatrix</a> () const</td></tr>
+<tr class="separator:ad139fed2dd890543b32aa4e23d27a28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1282f3d1bc1eac2d428f7183ffd0311b"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a1282f3d1bc1eac2d428f7183ffd0311b">getWorldPosition</a> ()</td></tr>
 <tr class="separator:a1282f3d1bc1eac2d428f7183ffd0311b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebe1a3d71cb9a31d64c4939eeb033535"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#aebe1a3d71cb9a31d64c4939eeb033535">lookAt</a> (const glm::vec3 &amp;target=glm::vec3(0), const glm::vec3 &amp;up=glm::vec3(0, 1, 0))</td></tr>
@@ -183,6 +185,9 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ac2fec9756bbb33ba52725ec6d76d48c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33994437eccd7a5c6af4d5c582efb04"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ac33994437eccd7a5c6af4d5c582efb04">matrixWorld</a> {}</td></tr>
 <tr class="separator:ac33994437eccd7a5c6af4d5c582efb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcb949247a61a87d6e2a4e1197b4b27"><td class="memItemLeft" align="right" valign="top">glm::mat3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#abfcb949247a61a87d6e2a4e1197b4b27">normalMatrix</a> {}</td></tr>
+<tr class="memdesc:abfcb949247a61a87d6e2a4e1197b4b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">The world normal matrix of the object.  <a href="class_object3_d.html#abfcb949247a61a87d6e2a4e1197b4b27">More...</a><br /></td></tr>
+<tr class="separator:abfcb949247a61a87d6e2a4e1197b4b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace6710e25a49723102494cc44b56906f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ace6710e25a49723102494cc44b56906f">matrixWorldNeedsUpdate</a> = true</td></tr>
 <tr class="separator:ace6710e25a49723102494cc44b56906f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade45bcdb557da11317580481412862e0"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ade45bcdb557da11317580481412862e0">position</a> {}</td></tr>
@@ -418,6 +423,32 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_object3_d_a9a45dfcf810592185d0aef128d7456b7_icgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="ad139fed2dd890543b32aa4e23d27a28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad139fed2dd890543b32aa4e23d27a28c">&#9670;&nbsp;</a></span>getNormalMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const mat3&amp; Object3D::getNormalMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieve the normal matrix for this object </p>
 
 </div>
 </div>
@@ -774,6 +805,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Changes the object scale </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new scale information. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1035,6 +1072,30 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfcb949247a61a87d6e2a4e1197b4b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfcb949247a61a87d6e2a4e1197b4b27">&#9670;&nbsp;</a></span>normalMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat3 Object3D::normalMatrix {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The world normal matrix of the object. </p>
 
 </div>
 </div>

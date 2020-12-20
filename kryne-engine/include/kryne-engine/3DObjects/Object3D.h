@@ -109,31 +109,26 @@ public:
 
     virtual const glm::mat4 &updateParents(const Object3D *caller);
 
-    [[nodiscard]]
-    const glm::vec3 &getPosition() const {
-        return position;
-    }
+    [[nodiscard]] const glm::vec3 &getPosition() const { return position; }
 
     virtual void setPosition(const glm::vec3 &pos) {
         matrixWorldNeedsUpdate = needsUpdate(pos, Object3D::position);
         Object3D::position = glm::vec3(pos);
     }
 
-    [[nodiscard]]
-    const glm::quat &getQuaternion() const {
-        return quaternion;
-    }
+    [[nodiscard]] const glm::quat &getQuaternion() const { return quaternion; }
 
     void setQuaternion(const glm::quat &quat) {
         matrixWorldNeedsUpdate = needsUpdate(quat, Object3D::quaternion);
         Object3D::quaternion = glm::quat(quat);
     }
 
-    [[nodiscard]]
-    const glm::vec3 &getScale() const {
-        return scale;
-    }
+    [[nodiscard]] const glm::vec3 &getScale() const { return scale; }
 
+    /**
+     * Changes the object scale
+     * @param The new scale information.
+     */
     void setScale(const glm::vec3 &s) {
         matrixWorldNeedsUpdate = needsUpdate(s, Object3D::scale);
         Object3D::scale = glm::vec3(s);
