@@ -11,7 +11,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include <kryne-engine/Utils/StringUtils.hpp>
+#include <kryne-engine/Utils/Utils.h>
 
 using namespace std;
 

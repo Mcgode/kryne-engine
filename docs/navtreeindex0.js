@@ -172,9 +172,11 @@ var NAVTREEINDEX0 =
 "_uniforms_handler_8cpp.html":[2,0,0,1,6,3],
 "_uniforms_handler_8h.html":[2,0,0,0,0,8,3],
 "_uniforms_handler_8h_source.html":[2,0,0,0,0,8,3],
-"_vector_mapping_8hpp.html":[2,0,0,0,0,13,1],
-"_vector_mapping_8hpp.html#a407c7f36cca64e0f18d989bac065614f":[2,0,0,0,0,13,1,0],
-"_vector_mapping_8hpp_source.html":[2,0,0,0,0,13,1],
+"_utils_8h.html":[2,0,0,0,0,13,1],
+"_utils_8h_source.html":[2,0,0,0,0,13,1],
+"_vector_mapping_8hpp.html":[2,0,0,0,0,13,2],
+"_vector_mapping_8hpp.html#a407c7f36cca64e0f18d989bac065614f":[2,0,0,0,0,13,2,0],
+"_vector_mapping_8hpp_source.html":[2,0,0,0,0,13,2],
 "_vertex_array_8cpp.html":[2,0,0,1,2,3],
 "_vertex_array_8h.html":[2,0,0,0,0,3,3],
 "_vertex_array_8h_source.html":[2,0,0,0,0,3,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7":[1,0,6,4],
 "class_camera.html#aac9d10742b161857a2bf8b8926087cc1":[1,0,6,0],
 "class_camera.html#ab76660d45be9625ada2f80d376d7cb15":[1,0,6,5],
-"class_camera.html#ac41a74ed5e232d5506808006b31982e1":[1,0,6,3],
-"class_camera.html#afa63fa057ff14d083a1fc909c714a193":[1,0,6,2],
-"class_directional_light.html":[1,0,7]
+"class_camera.html#ac41a74ed5e232d5506808006b31982e1":[1,0,6,3]
 };

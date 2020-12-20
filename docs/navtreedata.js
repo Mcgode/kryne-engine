@@ -62,9 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_directional_light.html#a31299ba8011eb2bb093e22561935862c",
-"class_rendering_state.html#a146f2037a5c55a8e2a7b2b5c9e111aa7",
-"stb__image_8h.html#aa9994764695597161e8f3776e97caa99"
+"class_camera.html#afa63fa057ff14d083a1fc909c714a193",
+"class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c",
+"stb__image_8h.html#a9ca2591f0987284129e82bf9dbcf7c6c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

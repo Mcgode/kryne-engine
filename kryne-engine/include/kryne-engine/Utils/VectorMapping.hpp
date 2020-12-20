@@ -10,18 +10,13 @@
 #pragma once
 
 #include <vector>
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
+#include <glm/detail/qualifier.hpp>
 
 
 using namespace glm;
 using namespace std;
 
 
-/**
- * Namespace for handling various utils functions
- */
 namespace Utils {
 
     /**
