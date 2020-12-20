@@ -56,6 +56,7 @@ const glm::mat4 &Object3D::updateParents(const Object3D *caller)
     this->matrixWorld = this->parent != nullptr ?
                         this->parent->updateParents(this) * this->localTransform :
                         this->localTransform;
+    this->normalMatrix = mat3(transpose(inverse(this->matrixWorld)));
 
     for (const auto &child : this->children) {
         if (child.get() != caller)

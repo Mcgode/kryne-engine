@@ -9,8 +9,10 @@ void Mesh::update(bool force)
 {
     const bool willUpdate = (this->matrixWorldNeedsUpdate || force) && this->visible;
     Object3D::update(force);
-    if (willUpdate)
+    if (willUpdate) {
         this->material->setUniform("modelMatrix", this->matrixWorld);
+        this->material->setUniform("normalMatrix", this->normalMatrix);
+    }
 }
 
 
@@ -18,5 +20,6 @@ const mat4 &Mesh::updateParents(const Object3D *caller)
 {
     const auto &matrixWorld = Object3D::updateParents(caller);
     this->material->setUniform("modelMatrix", matrixWorld);
+    this->material->setUniform("normalMatrix", normalMatrix);
     return matrixWorld;
 }
