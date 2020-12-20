@@ -82,8 +82,8 @@ $(document).ready(function(){initNavTree('class_object3_d.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
@@ -105,6 +105,11 @@ Collaboration diagram for Object3D:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_object3_d__coll__graph.svg" width="314" height="231"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6652dc261a7568b5fd5c1410e916821d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a6652dc261a7568b5fd5c1410e916821d">TraverseCallback</a>) (<a class="el" href="class_object3_d.html">Object3D</a> *object)</td></tr>
+<tr class="separator:a6652dc261a7568b5fd5c1410e916821d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3a1b17fb43ab59f5cf7b0ee21b9120b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ae3a1b17fb43ab59f5cf7b0ee21b9120b">Object3D</a> ()</td></tr>
@@ -154,11 +159,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe1a3d71cb9a31d64c4939eeb033535"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#aebe1a3d71cb9a31d64c4939eeb033535">lookAt</a> (const glm::vec3 &amp;target=glm::vec3(0), const glm::vec3 &amp;up=glm::vec3(0, 1, 0))</td></tr>
 <tr class="separator:aebe1a3d71cb9a31d64c4939eeb033535"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a6652dc261a7568b5fd5c1410e916821d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a6652dc261a7568b5fd5c1410e916821d">TraverseCallback</a>) (<a class="el" href="class_object3_d.html">Object3D</a> *object)</td></tr>
-<tr class="separator:a6652dc261a7568b5fd5c1410e916821d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:abc681f1051acec39dd995a1bab816eba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#abc681f1051acec39dd995a1bab816eba">calculateLocalTransform</a> ()</td></tr>
@@ -174,49 +174,54 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aa2b545aeb3b9f52498840becb525ef80"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#aa2b545aeb3b9f52498840becb525ef80">id</a></td></tr>
+<tr class="memdesc:aa2b545aeb3b9f52498840becb525ef80"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unique id of the object.  <a href="class_object3_d.html#aa2b545aeb3b9f52498840becb525ef80">More...</a><br /></td></tr>
 <tr class="separator:aa2b545aeb3b9f52498840becb525ef80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c1a5c9f0fed1e1eea29dca2b9768407"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407">visible</a> = true</td></tr>
+<tr class="memdesc:a2c1a5c9f0fed1e1eea29dca2b9768407"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to false, the object won't be updated and won't be rendered.  <a href="class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407">More...</a><br /></td></tr>
 <tr class="separator:a2c1a5c9f0fed1e1eea29dca2b9768407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f04d3d13130b3e42bcb598120d46412"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object3_d.html">Object3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a5f04d3d13130b3e42bcb598120d46412">parent</a> = nullptr</td></tr>
+<tr class="memdesc:a5f04d3d13130b3e42bcb598120d46412"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parent of the object.  <a href="class_object3_d.html#a5f04d3d13130b3e42bcb598120d46412">More...</a><br /></td></tr>
 <tr class="separator:a5f04d3d13130b3e42bcb598120d46412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8287771a8ea95634d3d677a872c665d"><td class="memItemLeft" align="right" valign="top">vector&lt; unique_ptr&lt; <a class="el" href="class_object3_d.html">Object3D</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ab8287771a8ea95634d3d677a872c665d">children</a> {}</td></tr>
+<tr class="memdesc:ab8287771a8ea95634d3d677a872c665d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object children.  <a href="class_object3_d.html#ab8287771a8ea95634d3d677a872c665d">More...</a><br /></td></tr>
 <tr class="separator:ab8287771a8ea95634d3d677a872c665d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2fec9756bbb33ba52725ec6d76d48c6"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ac2fec9756bbb33ba52725ec6d76d48c6">localTransform</a> {}</td></tr>
+<tr class="memdesc:ac2fec9756bbb33ba52725ec6d76d48c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local transform matrix.  <a href="class_object3_d.html#ac2fec9756bbb33ba52725ec6d76d48c6">More...</a><br /></td></tr>
 <tr class="separator:ac2fec9756bbb33ba52725ec6d76d48c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33994437eccd7a5c6af4d5c582efb04"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ac33994437eccd7a5c6af4d5c582efb04">matrixWorld</a> {}</td></tr>
+<tr class="memdesc:ac33994437eccd7a5c6af4d5c582efb04"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object world matrix.  <a href="class_object3_d.html#ac33994437eccd7a5c6af4d5c582efb04">More...</a><br /></td></tr>
 <tr class="separator:ac33994437eccd7a5c6af4d5c582efb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfcb949247a61a87d6e2a4e1197b4b27"><td class="memItemLeft" align="right" valign="top">glm::mat3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#abfcb949247a61a87d6e2a4e1197b4b27">normalMatrix</a> {}</td></tr>
 <tr class="memdesc:abfcb949247a61a87d6e2a4e1197b4b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">The world normal matrix of the object.  <a href="class_object3_d.html#abfcb949247a61a87d6e2a4e1197b4b27">More...</a><br /></td></tr>
 <tr class="separator:abfcb949247a61a87d6e2a4e1197b4b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace6710e25a49723102494cc44b56906f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ace6710e25a49723102494cc44b56906f">matrixWorldNeedsUpdate</a> = true</td></tr>
+<tr class="memdesc:ace6710e25a49723102494cc44b56906f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to true to update the world matrix at the next <a class="el" href="class_object3_d.html#a1bcfea2816e897423eb9e2c8dd3af393">update()</a> call.  <a href="class_object3_d.html#ace6710e25a49723102494cc44b56906f">More...</a><br /></td></tr>
 <tr class="separator:ace6710e25a49723102494cc44b56906f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade45bcdb557da11317580481412862e0"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ade45bcdb557da11317580481412862e0">position</a> {}</td></tr>
+<tr class="memdesc:ade45bcdb557da11317580481412862e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local position of the object.  <a href="class_object3_d.html#ade45bcdb557da11317580481412862e0">More...</a><br /></td></tr>
 <tr class="separator:ade45bcdb557da11317580481412862e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab483d6a2d9ea781cc5f044a6234a21e"><td class="memItemLeft" align="right" valign="top">glm::quat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#aab483d6a2d9ea781cc5f044a6234a21e">quaternion</a> {}</td></tr>
+<tr class="memdesc:aab483d6a2d9ea781cc5f044a6234a21e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local rotation quaternion.  <a href="class_object3_d.html#aab483d6a2d9ea781cc5f044a6234a21e">More...</a><br /></td></tr>
 <tr class="separator:aab483d6a2d9ea781cc5f044a6234a21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f47065dec0ec0fe94a6d01fdc237745"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a5f47065dec0ec0fe94a6d01fdc237745">scale</a> {}</td></tr>
+<tr class="memdesc:a5f47065dec0ec0fe94a6d01fdc237745"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local object scale.  <a href="class_object3_d.html#a5f47065dec0ec0fe94a6d01fdc237745">More...</a><br /></td></tr>
 <tr class="separator:a5f47065dec0ec0fe94a6d01fdc237745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An object in 3D space </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6652dc261a7568b5fd5c1410e916821d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6652dc261a7568b5fd5c1410e916821d">&#9670;&nbsp;</a></span>TraverseCallback</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">typedef void(* Object3D::TraverseCallback) (<a class="el" href="class_object3_d.html">Object3D</a> *object)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>The traversal callback function type. </p>
 
 </div>
 </div>
@@ -235,6 +240,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initializes the object and assigns it its id. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -265,6 +271,7 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="class_object3_d.html">Object3D</a> destructor. All its children's <a class="el" href="class_object3_d.html#a5f04d3d13130b3e42bcb598120d46412" title="The parent of the object.">parent</a> value will be set to <code>nullptr</code>. </p>
 
 </div>
 </div>
@@ -284,6 +291,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds a child to the object. If the new child already has a parent, call <a class="el" href="class_object3_d.html#ac26886db5acb179dde3b1ab7b3eee80d">remove()</a> first. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">child</td><td>The new child to add. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -327,10 +340,18 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Computes and applies the lookAt transformation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eye</td><td>The eye position. </td></tr>
+    <tr><td class="paramname">target</td><td>The target position, in the same coordinate space. </td></tr>
+    <tr><td class="paramname">up</td><td>The up vector, in the same coordinate space. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -366,6 +387,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Computes the local transform matrix. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -388,6 +410,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieve the object's children </p><dl class="section return"><dt>Returns</dt><dd>A list of raw pointers to the children </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -418,6 +441,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieve the unique id of this object </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -474,6 +498,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieve the object's parent </p><dl class="section return"><dt>Returns</dt><dd>A raw pointer to the object's parent. May be null. </dd></dl>
 
 </div>
 </div>
@@ -499,6 +524,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieve the current object position. </p>
 
 </div>
 </div>
@@ -524,6 +550,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieve the current object quaternion. </p>
 
 </div>
 </div>
@@ -549,6 +576,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieve the current object scale. </p>
 
 </div>
 </div>
@@ -566,6 +594,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves the world position of the object </p><dl class="section return"><dt>Returns</dt><dd>A <code>vec3</code> of the object's world position. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -601,6 +630,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieves the value of <a class="el" href="class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407" title="If set to false, the object won&#39;t be updated and won&#39;t be rendered.">visible</a> </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -642,6 +672,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Changes the object's rotation (through <a class="el" href="class_object3_d.html#aab483d6a2d9ea781cc5f044a6234a21e" title="The local rotation quaternion.">quaternion</a>) for it to look at the target position. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target position in world coordinates. </td></tr>
+    <tr><td class="paramname">up</td><td>The up direction in world coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented in <a class="el" href="class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7">Camera</a>.</p>
 
@@ -669,6 +706,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieves the unique id for the next instance of <a class="el" href="class_object3_d.html">Object3D</a>. Thread-safe operation, thanks to an atomic counter. </p><dl class="section return"><dt>Returns</dt><dd>A unique id. </dd></dl>
 
 </div>
 </div>
@@ -687,6 +725,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Removes the provided object from this object's children, if it belonged to it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">childToRemove</td><td>The raw pointer to the child to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique pointer to the removed child. May be null. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -717,6 +762,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Removes this object from its parent, if it has one. </p><dl class="section return"><dt>Returns</dt><dd>The unique pointer for this object. Will be null if the object has no parent. </dd></dl>
 
 </div>
 </div>
@@ -743,6 +789,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Change the object position </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The new position value </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -774,6 +826,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Change the object quaternion. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">quat</td><td>The new quaternion value. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -805,9 +863,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Changes the object scale </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Changes the object scale. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>new scale information. </td></tr>
+    <tr><td class="paramname">s</td><td>The new scale information. </td></tr>
   </table>
   </dd>
 </dl>
@@ -837,6 +895,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the value of <a class="el" href="class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407" title="If set to false, the object won&#39;t be updated and won&#39;t be rendered.">visible</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The new value of <a class="el" href="class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407" title="If set to false, the object won&#39;t be updated and won&#39;t be rendered.">visible</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -862,6 +926,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Marks the object as needing a matrix world update. </p>
 
 </div>
 </div>
@@ -880,6 +945,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -911,6 +982,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Updates the object transform if needed. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">force</td><td>Set to true to force the update </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented in <a class="el" href="class_orbit_camera.html#a65d5df2a3a79021fb4b88d1bb8ee079d">OrbitCamera</a>, <a class="el" href="class_camera.html#a2068e31d770ec3d205abe5621a174d01">Camera</a>, and <a class="el" href="class_mesh.html#a9251aae1089010332848a75d0b1b75d9">Mesh</a>.</p>
 <div class="dynheader">
@@ -949,6 +1026,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Update the object itself along its parents. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caller</td><td>The child that called the object. Can be null </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new matrixWorld value of this object </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_mesh.html#a6f10e6a450f6437695ca02100c9a903f">Mesh</a>.</p>
 <div class="dynheader">
@@ -985,6 +1069,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The object children. </p>
+
 </div>
 </div>
 <a id="aa2b545aeb3b9f52498840becb525ef80"></a>
@@ -1006,6 +1092,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The unique id of the object. </p>
 
 </div>
 </div>
@@ -1029,6 +1117,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The local transform matrix. </p>
+
 </div>
 </div>
 <a id="ac33994437eccd7a5c6af4d5c582efb04"></a>
@@ -1051,6 +1141,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The object world matrix. </p>
+
 </div>
 </div>
 <a id="ace6710e25a49723102494cc44b56906f"></a>
@@ -1072,6 +1164,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set to true to update the world matrix at the next <a class="el" href="class_object3_d.html#a1bcfea2816e897423eb9e2c8dd3af393">update()</a> call. </p>
 
 </div>
 </div>
@@ -1119,6 +1213,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The parent of the object. </p>
+
 </div>
 </div>
 <a id="ade45bcdb557da11317580481412862e0"></a>
@@ -1140,6 +1236,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The local position of the object. </p>
 
 </div>
 </div>
@@ -1163,6 +1261,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The local rotation quaternion. </p>
+
 </div>
 </div>
 <a id="a5f47065dec0ec0fe94a6d01fdc237745"></a>
@@ -1185,6 +1285,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The local object scale. </p>
+
 </div>
 </div>
 <a id="a2c1a5c9f0fed1e1eea29dca2b9768407"></a>
@@ -1206,6 +1308,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>If set to false, the object won't be updated and won't be rendered. </p>
 
 </div>
 </div>
