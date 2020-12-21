@@ -18,7 +18,7 @@ MeshLambertMaterial::MeshLambertMaterial(const InitParameters &options):
 void MeshLambertMaterial::setColor(const vec3 &newColor)
 {
     if (newColor != this->color)
-        this->setUniform("color", this->color);
+        this->setUniform("color", newColor);
     this->color = newColor;
 }
 
