@@ -16,10 +16,12 @@ int main()
     auto scene = make_unique<Scene>();
 
     const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+    const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
     const auto roughnessMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_rough.jpg");
 
     MeshStandardMaterial::StandardInitParameters params;
     params.map = map;
+    params.normalMap = normalMap;
     params.roughnessMap = roughnessMap;
     params.metalness = 0.0;
     auto material = make_shared<MeshStandardMaterial>(params);
