@@ -7,6 +7,7 @@
 #include <kryne-engine/Rendering/Renderer.h>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include <kryne-engine/Camera/OrbitCamera.h>
+#include <kryne-engine/Textures/Texture2D.h>
 
 int main()
 {
@@ -28,6 +29,10 @@ int main()
     material->setUniform("hemisphereLights[0].direction", glm::vec3(0, 1, 0));
 
     material->setUniform("color", glm::vec3(1, 0.4, 0));
+
+    const auto texture = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+    material->setUniform("map", texture);
+    material->setDefine("USE_MAP", "");
 
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
