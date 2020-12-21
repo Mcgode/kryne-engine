@@ -49,7 +49,24 @@ add_library(kryne-engine STATIC
         src/Rendering/ShaderProgramCompiler.cpp include/kryne-engine/Rendering/ShaderProgramCompiler.h
         include/kryne-engine/Utils/StringUtils.hpp
         src/Input/PlayerInput.cpp include/kryne-engine/Input/PlayerInput.h
-        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h include/kryne-engine/Math/Transform.hpp include/kryne-engine/Utils/Utils.h src/Textures/Texture.cpp include/kryne-engine/Textures/Texture.h)
+        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h
+        include/kryne-engine/Math/Transform.hpp
+        include/kryne-engine/Utils/Utils.h src/Textures/Texture.cpp include/kryne-engine/Textures/Texture.h
+        include/KryneEngine
+        include/KEModules/3DObjects.h
+        include/KEModules/Camera.h
+        include/KEModules/Constants.h
+        include/KEModules/Core.h
+        include/KEModules/enums.h
+        include/KEModules/Geometry.h
+        include/KEModules/Input.h
+        include/KEModules/Light.h
+        include/KEModules/Material.h
+        include/KEModules/Math.h
+        include/KEModules/Rendering.h
+        include/KEModules/RenderTargets.h
+        include/KEModules/Textures.h
+        include/KEModules/Utils.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
