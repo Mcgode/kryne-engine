@@ -8,6 +8,8 @@
 
 void MeshMaterialCommon::initialize(const InitParameters &options)
 {
+    // If color is (0, 0, 0), the uniform won't be created, but it's fine, since OpenGL will give it the default value
+    // of (0, 0, 0) anyway.
     this->setColor(options.color);
     this->setMap(options.map.value_or(nullptr));
 }
