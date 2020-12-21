@@ -16,7 +16,7 @@ void Renderer::render(Scene *scene, Camera *camera)
     scene->traverse(&updateObjects);
     camera->update(false);
 
-    glViewport(0, 0, associatedWindow->getWidth(), associatedWindow->getHeight());
+    glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     this->renderObject(scene, camera);
