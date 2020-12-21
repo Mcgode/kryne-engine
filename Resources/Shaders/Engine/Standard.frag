@@ -6,8 +6,7 @@
 
 in GeometryData vGeometry;
 
-uniform float roughness;
-uniform float metalness;
+#include <physical_material_pars_fragment>
 
 #include <lights_pars_begin>
 #include <lights_physical_pars_fragment>
@@ -23,6 +22,19 @@ void main() {
                                          normalize(vGeometry.viewDir));
 
     PhysicalMaterial material = PhysicalMaterial( diffuseColor, roughness, metalness );
+
+    #ifdef USE_ROUGHNESS_MAP
+
+        material.roughness *= texture(roughnessMap, vUv).r;
+
+    #endif
+
+    #ifdef USE_METALNESS_MAP
+
+        material.metalness *= texture(metalnessMap, vUv).r;
+
+    #endif
+
     #include <lights_fragment>
 
     vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.directSpecular + reflectedLight.indirectDiffuse;
