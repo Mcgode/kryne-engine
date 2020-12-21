@@ -3,11 +3,10 @@
 //
 
 #include <chrono>
-#include <kryne-engine/Camera/PerspectiveProjectionData.hpp>
-#include <kryne-engine/Rendering/Renderer.h>
-#include <kryne-engine/Geometry/BoxBufferGeometry.h>
-#include <kryne-engine/Camera/OrbitCamera.h>
-#include <kryne-engine/Textures/Texture2D.h>
+#include <KEModules/Rendering.h>
+#include <KEModules/Camera.h>
+#include <KEModules/Geometry.h>
+#include <KEModules/Textures.h>
 
 int main()
 {
