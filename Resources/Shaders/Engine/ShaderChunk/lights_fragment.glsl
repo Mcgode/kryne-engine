@@ -5,35 +5,29 @@ IncidentLight lightData;
 
     ITERATE_DIRECTIONAL_LIGHTS
     {
-
         getDirectionalLightData( directionalLights[i], geometry, lightData );
         ApplyDirectLight( lightData, geometry, material, reflectedLight );
-
     }
 
 #endif
 
     
-//#ifdef MAX_AMBIENT_LIGHTS
-//
-//    ITERATE_AMBIENT_LIGHTS
-//    {
-//
-//        lambertLight.indirectDiffuse += getAmbientLightData( ambientLights[i], geometry, indirectData );
-//
-//    }
-//
-//#endif
-//
-//
-//
-//#ifdef MAX_HEMISPHERE_LIGHTS
-//
-//    ITERATE_HEMISPHERE_LIGHTS
-//    {
-//
-//        lambertLight.indirectDiffuse += getHemisphereLightData( hemisphereLights[i], geometry );
-//
-//    }
-//
-//#endif
+#ifdef MAX_AMBIENT_LIGHTS
+
+    ITERATE_AMBIENT_LIGHTS
+    {
+        ApplyIndirectDiffuseLight( getAmbientLightData( ambientLights[i], geometry ), geometry, material, reflectedLight );
+    }
+
+#endif
+
+
+
+#ifdef MAX_HEMISPHERE_LIGHTS
+
+    ITERATE_HEMISPHERE_LIGHTS
+    {
+        ApplyIndirectDiffuseLight( getHemisphereLightData( hemisphereLights[i], geometry ), geometry, material, reflectedLight );
+    }
+
+#endif

@@ -78,4 +78,15 @@ void LightDirectPhysical( const in IncidentLight light,
     reflectedLight.directSpecular += specular * light.color * cosTheta;
 }
 
-#define ApplyDirectLight LightDirectPhysical
+
+void LightIndirectDiffusePhysical( const in vec3 irradiance,
+                                   const in GeometryData geometry,
+                                   const in PhysicalMaterial material,
+                                   inout ReflectedLight reflectedLight  )
+{
+    reflectedLight.indirectDiffuse += irradiance * material.albedo / PI;
+}
+
+
+#define ApplyDirectLight            LightDirectPhysical
+#define ApplyIndirectDiffuseLight   LightIndirectDiffusePhysical

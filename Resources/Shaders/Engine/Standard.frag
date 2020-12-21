@@ -25,7 +25,7 @@ void main() {
     PhysicalMaterial material = PhysicalMaterial( diffuseColor, roughness, metalness );
     #include <lights_fragment>
 
-    vec3 outgoingLight = reflectedLight.directDiffuse * diffuseColor + reflectedLight.directSpecular;
+    vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.directSpecular + reflectedLight.indirectDiffuse;
 
     FragColor = vec4( outgoingLight, opacity );
 
