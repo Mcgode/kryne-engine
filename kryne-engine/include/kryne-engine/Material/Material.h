@@ -33,6 +33,9 @@ public:
     //! @copydoc Shader::setDefine()
     void setDefine(const string &defineName, const string &defineValue) const { this->shader->setDefine(defineName, defineValue); }
 
+    //! @copydoc Shader::removeDefine()
+    inline bool removeDefine(const string &defineName) const { return this->shader->removeDefine(defineName); }
+
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &)
     void setUniform(const string &name, const UniformsHandler::UniformTypes &value) const { Material::shader->setUniform(name, value); }
 
