@@ -7,14 +7,14 @@
 #ifndef INC_KRYNE_ENGINE_TEXTURE2D_H
 #define INC_KRYNE_ENGINE_TEXTURE2D_H
 
-#include <kryne-engine/Textures/stb_image.h>
+#include <stb_image.h>
 #include <string>
 #include <iostream>
 #include <boost/filesystem.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "kryne-engine/Material/Shader.h"
+#include <kryne-engine/Material/Shader.h>
 
 class Texture2D {
 

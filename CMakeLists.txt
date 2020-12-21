@@ -32,9 +32,13 @@ include_directories(${ASSIMP_INCLUDE_DIR})
 include_directories(external-libs/glad/include)
 add_library(glad STATIC external-libs/glad/src/glad.c)
 
+# Set up stb_image library
+include_directories(external-libs/stb_image)
+add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
+
 
 #Set up the used libs
-set(LIBS glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES})
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES})
 
 
 # Set up boost library

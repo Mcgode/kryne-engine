@@ -13,7 +13,6 @@ add_library(kryne-engine STATIC
         src/Light/PointLight.cpp include/kryne-engine/Light/PointLight.h
         src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.h
         src/Core/AdditionalParameters.cpp include/kryne-engine/Core/AdditionalParameters.h
-        src/Textures/stb_image.cpp include/kryne-engine/Textures/stb_image.h
         src/Textures/Texture2D.cpp include/kryne-engine/Textures/Texture2D.h
         src/RenderTargets/PostProcess.cpp include/kryne-engine/RenderTargets/PostProcess.h
         src/RenderTargets/FinalPostProcess.cpp include/kryne-engine/RenderTargets/FinalPostProcess.h
