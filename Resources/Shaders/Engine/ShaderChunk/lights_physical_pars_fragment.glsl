@@ -54,15 +54,15 @@ void LightDirectPhysical( const in IncidentLight light,
                           const in PhysicalMaterial material,
                           inout ReflectedLight reflectedLight )
 {
-    vec3 h = normalize(-light.direction + geometry.viewDir);
+    vec3 h = normalize(light.direction + geometry.viewDir);
 
-    float cosTheta = max(0, dot(geometry.normal, -light.direction));
+    float cosTheta = max(0, dot(geometry.normal, light.direction));
 
     vec3 F0 = mix(vec3(0.04), material.albedo, material.metalness);
     vec3 F  = fresnelSchlick(max(0, dot(h, geometry.viewDir)), F0);
 
     float NdV = max(0, dot(geometry.normal, geometry.viewDir));
-    float NdL = max(0, dot(geometry.normal, -light.direction));
+    float NdL = max(0, dot(geometry.normal, light.direction));
 
     float NDF = DistributionGGX(geometry.normal, h, material.roughness);
     float G   = GeometrySmith(NdV, NdL, material.roughness);

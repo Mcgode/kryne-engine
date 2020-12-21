@@ -8,7 +8,7 @@ IncidentLight directData;
     {
 
         getDirectionalLightData( directionalLights[i], geometry, directData );
-        lambertLight.directDiffuse += max( 0, dot( -normalize( directData.direction ), geometry.normal ) ) * directData.color;
+        lambertLight.directDiffuse += max( 0, dot( normalize( directData.direction ), geometry.normal ) ) * directData.color;
 
     }
 

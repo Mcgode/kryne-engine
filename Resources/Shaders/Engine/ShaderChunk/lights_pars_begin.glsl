@@ -23,7 +23,7 @@
                                   out IncidentLight lightData ) {
 
         lightData.color = directionalLight.color;
-        lightData.direction = directionalLight.direction;
+        lightData.direction = -directionalLight.direction;
 
     }
 
