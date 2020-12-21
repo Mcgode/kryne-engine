@@ -21,18 +21,28 @@ void UniformsHandler::notifyUniformLocationsNeedUpdate()
 {
     for (auto &entry : this->uniforms)
         entry.second.second = -2;
+    this->activeTextures.clear();
+    this->nextTextureIndex = GL_TEXTURE0;
 }
 
 
 bool UniformsHandler::removeUniform(const string &name)
 {
-    return this->uniforms.erase(name) > 0;
+    auto it = this->uniforms.find(name);
+
+    if (it != this->uniforms.end())
+    {
+        if (it->second.second >= 0)
+            this->activeTextures.erase(it->second.second);
+        this->uniforms.erase(it);
+        return true;
+    }
+    return false;
 }
 
 
 void UniformsHandler::updateUniforms()
 {
-    static UniformsSetter setter;
     for (auto &entry : this->uniforms) {
         const auto data = entry.second;
 
@@ -42,7 +52,30 @@ void UniformsHandler::updateUniforms()
 
         if (data.second > -1) {
             UniformLocationType location = data.second;
-            boost::apply_visitor(setter, data.first, location);
+            boost::apply_visitor(this->setter, data.first, location);
         }
     }
+}
+
+
+void UniformsHandler::setTexture(const shared_ptr<Texture> &texture, GLint location)
+{
+    if (location < 0) return;
+
+    const auto it = this->activeTextures.find(location);
+    GLint activeTexture;
+    if (it != this->activeTextures.end())
+    {
+        activeTexture = it->second;
+    }
+    else
+    {
+        activeTexture = this->nextTextureIndex++;
+        this->activeTextures.insert(make_pair(location, activeTexture));
+    }
+
+    glActiveTexture(activeTexture);
+    texture->bindTexture();
+    glUniform1i(location, activeTexture - GL_TEXTURE0);
+
 }

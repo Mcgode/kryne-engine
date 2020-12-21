@@ -18,6 +18,8 @@
 
 #include <boost/variant.hpp>
 
+#include <kryne-engine/Textures/Texture.h>
+
 using namespace std;
 
 
@@ -34,7 +36,7 @@ public:
      */
     explicit UniformsHandler(GLuint programId) : programId(programId) {}
 
-private:
+protected:
 
     /// The program ID for the associated shader
     GLuint programId;
@@ -52,7 +54,8 @@ public:
             glm::vec3,
             glm::vec4,
             glm::mat3,
-            glm::mat4> UniformTypes;
+            glm::mat4,
+            shared_ptr<Texture>> UniformTypes;
 
     /**
      * Sets the value of a uniform
@@ -88,10 +91,18 @@ public:
      */
     void updateUniforms();
 
-private:
+protected:
+
+    void setTexture(const shared_ptr<Texture> &texture, GLint location);
+
+protected:
 
     /// The stored uniform data
     unordered_map<string, pair<UniformTypes, GLint>> uniforms {};
+
+    unordered_map<GLint, GLint> activeTextures {};
+
+    GLint nextTextureIndex = GL_TEXTURE0;
 
 
 private:
@@ -101,6 +112,8 @@ private:
     class UniformsSetter: boost::static_visitor<> {
 
     public:
+
+        UniformsSetter(UniformsHandler *handler): handler(handler) {}
 
         void operator() (const int32_t &data, const GLint &location) {
             glUniform1i(location, data);
@@ -130,7 +143,17 @@ private:
             glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(data));
         }
 
+        void operator() (const shared_ptr<Texture> &data, const GLint &location) {
+            handler->setTexture(data, location);
+        }
+
+        UniformsHandler *handler;
+
     };
+
+private:
+
+    UniformsSetter setter { this };
 
 };
 
