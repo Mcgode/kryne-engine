@@ -6,6 +6,7 @@
 #include <KEModules/Rendering.h>
 #include <KEModules/Camera.h>
 #include <KEModules/Geometry.h>
+#include <KEModules/Material.h>
 #include <KEModules/Textures.h>
 
 int main()
@@ -14,7 +15,12 @@ int main()
 
     auto scene = make_unique<Scene>();
 
-    auto material = make_shared<Material>(make_unique<Shader>("Engine/Lambert"));
+    const auto texture = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+
+    MeshLambertMaterial::InitParameters params;
+    params.color = glm::vec3(1, 0.4, 0);
+    params.map = texture;
+    auto material = make_shared<MeshLambertMaterial>(params);
     material->setSide(FrontSide);
 
     material->setDefine("MAX_DIRECTIONAL_LIGHTS", "1");
@@ -26,12 +32,6 @@ int main()
     material->setUniform("hemisphereLights[0].skyColor", intensity * glm::vec3(1));
     material->setUniform("hemisphereLights[0].groundColor", intensity * glm::vec3(0.5));
     material->setUniform("hemisphereLights[0].direction", glm::vec3(0, 1, 0));
-
-    material->setUniform("color", glm::vec3(1, 0.4, 0));
-
-    const auto texture = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
-    material->setUniform("map", texture);
-    material->setDefine("USE_MAP", "");
 
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
