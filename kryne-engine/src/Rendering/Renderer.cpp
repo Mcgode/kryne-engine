@@ -57,6 +57,7 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         // Renderer-level uniforms
         material->setUniform("projectionMatrix", camera->getProjectionMatrix());
         material->setUniform("viewMatrix", camera->getViewMatrix());
+        material->setUniform("cameraPosition", camera->getWorldPosition());
 
         // Run mesh updates
         mesh->onBeforeRender(camera);
