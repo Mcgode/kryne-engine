@@ -7,11 +7,6 @@
 #ifndef INC_KRYNE_ENGINE_TEXTURE2D_H
 #define INC_KRYNE_ENGINE_TEXTURE2D_H
 
-#include <stb_image.h>
-#include <string>
-#include <iostream>
-#include <boost/filesystem.hpp>
-
 #include "Texture.h"
 
 

@@ -7,6 +7,12 @@
 #ifndef KRYNE_ENGINE_TEXTURE_H
 #define KRYNE_ENGINE_TEXTURE_H
 
+#include <stb_image.h>
+#include <string>
+#include <iostream>
+
+#include <boost/filesystem.hpp>
+
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 
