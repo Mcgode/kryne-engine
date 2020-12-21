@@ -12,6 +12,8 @@ MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options
     this->initialize(options);
     this->setRoughness(options.roughness);
     this->setMetalness(options.metalness);
+    this->setRoughnessMap(options.roughnessMap);
+    this->setMetalnessMap(options.metalnessMap);
 }
 
 
