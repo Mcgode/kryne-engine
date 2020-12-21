@@ -1,5 +1,8 @@
-#ifndef USE_MAP
+
 uniform vec3 color;
-#else
+
+#ifdef USE_MAP
+
 uniform sampler2D map;
+
 #endif
