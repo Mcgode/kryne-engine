@@ -9,35 +9,13 @@
 
 #include <optional>
 
-#include "Material.h"
+#include "MeshMaterialCommon.h"
 
-class MeshLambertMaterial : public Material {
-
-public:
-
-    struct InitParameters {
-
-        vec3 color {1};
-
-        optional<shared_ptr<Texture>> map;
-
-        InitParameters() {}
-
-    };
+class MeshLambertMaterial : public MeshMaterialCommon {
 
 public:
 
     explicit MeshLambertMaterial(const InitParameters &options = InitParameters());
-
-    void setColor(const vec3 &newColor);
-
-    void setMap(const shared_ptr<Texture> &newMap);
-
-protected:
-
-    vec3 color {};
-
-    shared_ptr<Texture> map {};
 
 };
 
