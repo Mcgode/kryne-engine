@@ -12,6 +12,7 @@ MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options
     this->initialize(options);
     this->setRoughness(options.roughness);
     this->setMetalness(options.metalness);
+    this->setNormalMap(options.normalMap);
     this->setRoughnessMap(options.roughnessMap);
     this->setMetalnessMap(options.metalnessMap);
 }
@@ -34,6 +35,24 @@ void MeshStandardMaterial::setMetalness(float newMetalness)
     this->metalness = newMetalness;
 }
 
+
+void MeshStandardMaterial::setNormalMap(const shared_ptr<Texture> &newMap)
+{
+    if (newMap != this->normalMap)
+    {
+        if (newMap == nullptr)
+            this->removeDefine("USE_NORMAL_MAP");
+
+        else if (this->normalMap == nullptr)
+            this->setDefine("USE_NORMAL_MAP", "");
+
+        this->setUniform("normalMap", newMap);
+    }
+
+    this->normalMap = newMap;
+}
+
+
 void MeshStandardMaterial::setRoughnessMap(const shared_ptr<Texture> &newMap)
 {
     if (newMap != this->roughnessMap)
@@ -49,6 +68,7 @@ void MeshStandardMaterial::setRoughnessMap(const shared_ptr<Texture> &newMap)
 
     this->roughnessMap = newMap;
 }
+
 
 void MeshStandardMaterial::setMetalnessMap(const shared_ptr<Texture> &newMap)
 {

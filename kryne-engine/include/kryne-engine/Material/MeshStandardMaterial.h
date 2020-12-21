@@ -18,6 +18,8 @@ public:
         float roughness = 0.5;
         float metalness = 0.5;
 
+        shared_ptr<Texture> normalMap;
+
         shared_ptr<Texture> roughnessMap;
         shared_ptr<Texture> metalnessMap;
 
@@ -33,6 +35,8 @@ public:
 
     void setMetalness(float newMetalness);
 
+    void setNormalMap(const shared_ptr<Texture> &newMap);
+
     void setRoughnessMap(const shared_ptr<Texture> &newMap);
 
     void setMetalnessMap(const shared_ptr<Texture> &newMap);
@@ -42,6 +46,8 @@ protected:
     float roughness = 0;
 
     float metalness = 0;
+
+    shared_ptr<Texture> normalMap;
 
     shared_ptr<Texture> roughnessMap;
 
