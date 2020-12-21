@@ -17,10 +17,10 @@ int main()
 
     const auto texture = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
 
-    MeshLambertMaterial::InitParameters params;
+    MeshStandardMaterial::StandardInitParameters params;
     params.color = glm::vec3(1, 0.4, 0);
     params.map = texture;
-    auto material = make_shared<MeshLambertMaterial>(params);
+    auto material = make_shared<MeshStandardMaterial>(params);
     material->setSide(FrontSide);
 
     material->setDefine("MAX_DIRECTIONAL_LIGHTS", "1");
@@ -56,7 +56,7 @@ int main()
 //        material->getShader()->debugPrintActiveUniforms();
 
         auto lookPos = glm::vec3(2.*glm::cos(t), 1, 2.*glm::sin(t));
-        mesh->lookAt(lookPos);
+//        mesh->lookAt(lookPos);
 
         renderer->render(scene.get(), camera.get());
         glfwSwapBuffers(window);
