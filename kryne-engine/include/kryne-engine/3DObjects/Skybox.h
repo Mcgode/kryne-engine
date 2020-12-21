@@ -10,7 +10,7 @@
 #include <string>
 
 #include <kryne-engine/Material/Shader.h>
-#include <kryne-engine/Textures/TextureCubeMap.h>
+#include <kryne-engine/Textures/CubeTexture.h>
 #include <kryne-engine/Core/VertexArray.h>
 #include <kryne-engine/Core/GeometricShapes.h>
 #include <kryne-engine/enums/SkyboxDrawOrder.h>
@@ -29,7 +29,7 @@ private:
 
     VertexArray *vertexArray{};
     Shader *shader{};
-    TextureCubeMap *cubemap{};
+    CubeTexture *cubemap{};
 
 };
 
