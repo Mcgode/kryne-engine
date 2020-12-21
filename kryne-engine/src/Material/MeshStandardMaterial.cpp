@@ -31,3 +31,35 @@ void MeshStandardMaterial::setMetalness(float newMetalness)
 
     this->metalness = newMetalness;
 }
+
+void MeshStandardMaterial::setRoughnessMap(const shared_ptr<Texture> &newMap)
+{
+    if (newMap != this->roughnessMap)
+    {
+        if (newMap == nullptr)
+            this->removeDefine("USE_ROUGHNESS_MAP");
+
+        else if (this->roughnessMap == nullptr)
+            this->setDefine("USE_ROUGHNESS_MAP", "");
+
+        this->setUniform("roughnessMap", newMap);
+    }
+
+    this->roughnessMap = newMap;
+}
+
+void MeshStandardMaterial::setMetalnessMap(const shared_ptr<Texture> &newMap)
+{
+    if (newMap != this->metalnessMap)
+    {
+        if (newMap == nullptr)
+            this->removeDefine("USE_METALNESS_MAP");
+
+        else if (this->metalnessMap == nullptr)
+            this->setDefine("USE_METALNESS_MAP", "");
+
+        this->setUniform("metalnessMap", newMap);
+    }
+
+    this->metalnessMap = newMap;
+}
