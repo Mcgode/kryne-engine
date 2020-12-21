@@ -8,6 +8,7 @@
 #define KRYNE_ENGINE_MATERIAL_H
 
 #include <kryne-engine/Material/Material.h>
+#include <kryne-engine/Material/MeshLambertMaterial.h>
 #include <kryne-engine/Material/Shader.h>
 #include <kryne-engine/Material/ShaderChunk.h>
 #include <kryne-engine/Material/UniformsHandler.h>
