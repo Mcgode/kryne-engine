@@ -20,7 +20,7 @@ add_library(kryne-engine STATIC
         src/3DObjects/Model/ModelLoader.cpp include/kryne-engine/3DObjects/Model/ModelLoader.h
         src/3DObjects/Model/ModelMesh.cpp include/kryne-engine/3DObjects/Model/ModelMesh.h
         src/3DObjects/Skybox.cpp include/kryne-engine/3DObjects/Skybox.h
-        src/Textures/TextureCubeMap.cpp include/kryne-engine/Textures/TextureCubeMap.h
+        src/Textures/CubeTexture.cpp include/kryne-engine/Textures/CubeTexture.h
         include/kryne-engine/Constants/CubeVertexData.h
         include/kryne-engine/enums/SkyboxDrawOrder.h
         include/kryne-engine/enums/BaseObject.h
