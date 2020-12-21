@@ -20,7 +20,7 @@ add_library(kryne-engine STATIC
         src/3DObjects/Model/ModelLoader.cpp include/kryne-engine/3DObjects/Model/ModelLoader.h
         src/3DObjects/Model/ModelMesh.cpp include/kryne-engine/3DObjects/Model/ModelMesh.h
         src/3DObjects/Skybox.cpp include/kryne-engine/3DObjects/Skybox.h
-        src/Textures/TextureCubeMap.cpp include/kryne-engine/Textures/TextureCubeMap.h
+        src/Textures/CubeTexture.cpp include/kryne-engine/Textures/CubeTexture.h
         include/kryne-engine/Constants/CubeVertexData.h
         include/kryne-engine/enums/SkyboxDrawOrder.h
         include/kryne-engine/enums/BaseObject.h
@@ -49,7 +49,7 @@ add_library(kryne-engine STATIC
         src/Rendering/ShaderProgramCompiler.cpp include/kryne-engine/Rendering/ShaderProgramCompiler.h
         include/kryne-engine/Utils/StringUtils.hpp
         src/Input/PlayerInput.cpp include/kryne-engine/Input/PlayerInput.h
-        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h include/kryne-engine/Math/Transform.hpp include/kryne-engine/Utils/Utils.h)
+        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h include/kryne-engine/Math/Transform.hpp include/kryne-engine/Utils/Utils.h src/Textures/Texture.cpp include/kryne-engine/Textures/Texture.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

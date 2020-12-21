@@ -8,22 +8,18 @@
 namespace fs = boost::filesystem;
 
 
-Texture2D::Texture2D(const std::string& filename, bool generateMipmap)
+Texture2D::Texture2D(const std::string& filename, bool generateMipmap): Texture2D(0)
 {
+    int32_t width, height, nbChannels;
     void *data = stbi_load(filename.c_str(), &width, &height, &nbChannels, 0);
 
     if (data == nullptr) {
         std::cerr << "Failed to load texture file '" << filename << "'" << std::endl;
-        exit(EXIT_FAILURE);
+        throw EXIT_FAILURE;
     }
 
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glGenTextures(1, &id);
+    this->setFiltering(GL_LINEAR, GL_LINEAR);
 
     GLenum format;
     switch (nbChannels) {
@@ -38,72 +34,20 @@ Texture2D::Texture2D(const std::string& filename, bool generateMipmap)
             break;
         default:
             std::cerr << "Unsupported number of color channels: " << nbChannels << std::endl;
-            exit(EXIT_FAILURE);
+            throw EXIT_FAILURE;
     }
 
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 
-    if (generateMipmap)
-        glGenerateMipmap(GL_TEXTURE_2D);
-
     stbi_image_free(data);
 }
 
-
-void Texture2D::textureSet(int textureID, Shader *shader, const std::string &uniformName, GLenum textureType)
+shared_ptr<Texture2D> Texture2D::loadFromFileSync(const string &filename)
 {
-    shader->setTexture(uniformName);
+    const auto path = fs::path(filename);
+    if (fs::exists(path) && fs::is_regular_file(path))
+        return shared_ptr<Texture2D>(new Texture2D(path.string()));
 
-    glBindTexture(textureType, textureID);
-
-    glActiveTexture(GL_TEXTURE0);
+    cerr << "Unable to find file '" << filename << "'" << endl;
+    throw EXIT_FAILURE;
 }
-
-
-void Texture2D::setTexture(Shader *shader, const std::string &uniformName)
-{
-    Texture2D::textureSet(textureId, shader, uniformName, GL_TEXTURE_2D);
-}
-
-
-Texture2D *Texture2D::getTexture(const std::string &directoryName, const std::string &filenameSuffix)
-{
-    fs::path dirPath("Resources/Textures/" + directoryName);
-
-    if (!fs::exists(dirPath)) {
-        std::cerr << "No such directory: '" << dirPath.string() << "'" << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
-    fs::directory_iterator end_itr;
-    for (fs::directory_iterator itr(dirPath); itr != end_itr; ++itr)
-    {
-        fs::path p = itr->path();
-        if (fs::is_regular_file(p) && p.string().find("_" + filenameSuffix + ".") != std::string::npos) {
-            return new Texture2D(p.string());
-        }
-    }
-
-    std::cerr << "No file found in directory with suffix: '" << filenameSuffix << "'" << std::endl;
-    exit(EXIT_FAILURE);
-}
-
-Texture2D::Texture2D(Texture2D *texture)
-{
-    textureId = texture->textureId;
-    height = texture->height;
-    width = texture->width;
-    nbChannels = texture->nbChannels;
-
-    originalTexture = false;
-}
-
-
-Texture2D::~Texture2D()
-{
-    if (originalTexture)
-        glDeleteTextures(1, &textureId);
-}
-
-
-Texture2D::Texture2D() {}

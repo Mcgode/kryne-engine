@@ -19,7 +19,8 @@ Skybox::Skybox(const std::string &cubemapDirectoryName, const std::string &fileE
 
     this->shader = new Shader("Skybox/Skybox");
 
-    this->cubemap = new TextureCubeMap("Resources/Textures/" + cubemapDirectoryName, fileExtension);
+//    this->cubemap = new CubeTexture("Resources/Textures/" + cubemapDirectoryName, fileExtension);
+    throw "Fix needed";
 }
 
 
@@ -27,7 +28,10 @@ void Skybox::draw(glm::mat4 projection, glm::mat4 view)
 {
     glCullFace(GL_FRONT);
     shader->use();
-    cubemap->setTexture(shader, "cubemap");
+
+//    cubemap->setTexture(shader, "cubemap");
+    throw "Fix needed";
+
     shader->setUniform("projectionMatrix", projection);
     shader->setUniform("viewMatrix", view);
     vertexArray->execute(GL_TRIANGLES);
