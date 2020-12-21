@@ -8,9 +8,11 @@
 
 Texture::Texture(GLuint id, GLenum textureType) :
         id(id),
-        textureType(textureType)
+        textureType(textureType),
+        filterParams(GL_LINEAR)
 {
-    this->setFiltering(GL_LINEAR, GL_LINEAR);
+    if (id)
+        this->setFiltering(GL_LINEAR, GL_LINEAR);
 }
 
 
