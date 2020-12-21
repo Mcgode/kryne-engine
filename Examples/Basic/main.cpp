@@ -15,11 +15,13 @@ int main()
 
     auto scene = make_unique<Scene>();
 
-    const auto texture = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+    const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+    const auto roughnessMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_rough.jpg");
 
     MeshStandardMaterial::StandardInitParameters params;
-    params.color = glm::vec3(1, 0.4, 0);
-    params.map = texture;
+    params.map = map;
+    params.roughnessMap = roughnessMap;
+    params.metalness = 0.0;
     auto material = make_shared<MeshStandardMaterial>(params);
     material->setSide(FrontSide);
 
