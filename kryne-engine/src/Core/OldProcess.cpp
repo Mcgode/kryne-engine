@@ -2,9 +2,9 @@
 // Created by max on 16/10/2019.
 //
 
-#include "kryne-engine/Core/Process.h"
+#include "kryne-engine/Core/OldProcess.h"
 
-Process::Process(OldCamera *camera, uint16_t windowWidth, uint16_t windowHeight)
+OldProcess::OldProcess(OldCamera *camera, uint16_t windowWidth, uint16_t windowHeight)
 {
     this->processWindow = new Window(windowWidth, windowHeight);
     this->processWindow->setCurrentCamera(camera);
@@ -13,7 +13,7 @@ Process::Process(OldCamera *camera, uint16_t windowWidth, uint16_t windowHeight)
 }
 
 
-void Process::runProcess(AdditionalParameters *parameters)
+void OldProcess::runProcess(AdditionalParameters *parameters)
 {
     AdditionalParameters *p = (parameters == nullptr) ? new AdditionalParameters() : parameters;
 
@@ -29,13 +29,13 @@ void Process::runProcess(AdditionalParameters *parameters)
 }
 
 
-Window *Process::getProcessWindow() const
+Window *OldProcess::getProcessWindow() const
 {
     return processWindow;
 }
 
 
-RenderScene *Process::getScene() const
+RenderScene *OldProcess::getScene() const
 {
     return scene;
 }

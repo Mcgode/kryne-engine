@@ -6,7 +6,7 @@
 #include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
-#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/OldProcess.h>
 #include "kryne-engine/Material/Shader.h"
 #include "Floor.h"
 #include "Model.h"
@@ -28,7 +28,7 @@ void error_callback(int error_code, const char error[])
 
 int main(int argc, const char **argv)
 {
-    auto process = new Process(new FirstPersonCamera(2.5f, 0.25f));
+    auto process = new OldProcess(new FirstPersonCamera(2.5f, 0.25f));
     auto pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");

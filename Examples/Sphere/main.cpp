@@ -6,7 +6,7 @@
 #include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/TrackballCamera.h>
 #include <kryne-engine/Core/GeometricShapes.h>
-#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/OldProcess.h>
 #include "SphereParallax.h"
 
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 
 int main(int argc, const char **argv)
 {
-    auto process = new Process(new TrackballCamera(glm::vec3(0, 0, 0)));
+    auto process = new OldProcess(new TrackballCamera(glm::vec3(0, 0, 0)));
     auto *pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");

@@ -16,7 +16,7 @@
 /**
  * Handles the engine running process
  */
-class Process {
+class OldProcess {
 
 public:
 
@@ -26,7 +26,7 @@ public:
      * @param windowWidth   The window width for the rendering
      * @param windowHeight  The window height for the rendering
      */
-    explicit Process(OldCamera *camera, uint16_t windowWidth = 1280, uint16_t windowHeight = 720);
+    explicit OldProcess(OldCamera *camera, uint16_t windowWidth = 1280, uint16_t windowHeight = 720);
 
 
     /**

@@ -28,7 +28,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Rendering/RenderPass.h
         src/Rendering/ShadowMapping/ShadowMapHandler.cpp include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
-        src/Core/Process.cpp include/kryne-engine/Core/Process.h
+        src/Core/OldProcess.cpp include/kryne-engine/Core/OldProcess.h
         src/Light/LightingRegistry.cpp include/kryne-engine/Light/LightingRegistry.h
         src/Rendering/Renderer.cpp include/kryne-engine/Rendering/Renderer.h
         src/3DObjects/Scene.cpp include/kryne-engine/3DObjects/Scene.h
