@@ -15,28 +15,24 @@ void MeshMaterialCommon::initializeCommon(const InitParameters &options)
 }
 
 
-void MeshMaterialCommon::setColor(const vec3 &newColor)
-{
-    if (this->color != newColor)
-        this->setUniform("color", newColor);
+MeshMaterialCommon::MeshMaterialCommon(unique_ptr<Shader> shader) : Material(move(shader)) {}
 
-    this->color = newColor;
-}
 
-void MeshMaterialCommon::setMap(const shared_ptr<Texture> &newMap)
+void MeshMaterialCommon::setMaterialOptionalProperty(shared_ptr<Texture> &property,
+                                                     const shared_ptr<Texture> &newValue,
+                                                     const string &uniformName,
+                                                     const string &define)
 {
-    if (newMap != this->map)
+    if (newValue != property)
     {
-        if (newMap == nullptr)
-            this->removeDefine("USE_MAP");
+        if (newValue == nullptr)
+            this->removeDefine(define);
 
-        else if (this->map == nullptr)
-            this->setDefine("USE_MAP", "");
+        else if (property == nullptr)
+            this->setDefine(define, "");
 
-        this->setUniform("map", newMap);
+        this->setUniform(uniformName, newValue);
     }
 
-    this->map = newMap;
+    property = newValue;
 }
-
-MeshMaterialCommon::MeshMaterialCommon(unique_ptr<Shader> shader) : Material(move(shader)) {}
