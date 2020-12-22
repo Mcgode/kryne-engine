@@ -90,7 +90,12 @@ $(document).ready(function(){initNavTree('class_material.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_material_8h_source.html">Material.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="kryne-engine_2_material_2_material_8h_source.html">Material.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Material:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material__inherit__graph.svg" width="334" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Material:</div>
 <div class="dyncontent">
@@ -109,9 +114,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a36a235f5948f6f0e5719a4bb636cf0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7476a27aaaa3337d6f4dfa3c5e44d22d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d">setDefine</a> (const string &amp;defineName, const string &amp;defineValue) const</td></tr>
 <tr class="separator:a7476a27aaaa3337d6f4dfa3c5e44d22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade3d70e1ef2ebc40918f7de6134ccc00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value) const</td></tr>
+<tr class="memitem:a053e033e624bc01399fb6491f663a7d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a053e033e624bc01399fb6491f663a7d3">removeDefine</a> (const string &amp;defineName) const</td></tr>
+<tr class="separator:a053e033e624bc01399fb6491f663a7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade3d70e1ef2ebc40918f7de6134ccc00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value) const</td></tr>
 <tr class="separator:ade3d70e1ef2ebc40918f7de6134ccc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f85f0fc45d441a5da4179579015c351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a6f85f0fc45d441a5da4179579015c351">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex) const</td></tr>
+<tr class="memitem:a6f85f0fc45d441a5da4179579015c351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a6f85f0fc45d441a5da4179579015c351">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex) const</td></tr>
 <tr class="separator:a6f85f0fc45d441a5da4179579015c351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7de9a9344f8b329de2c2be89e67c52b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a7de9a9344f8b329de2c2be89e67c52b2">removeUniform</a> (const string &amp;name) const</td></tr>
 <tr class="separator:a7de9a9344f8b329de2c2be89e67c52b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +172,12 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initializes a material by attaching a shader to it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shader</td><td>The shader for this material. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -316,6 +329,47 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a053e033e624bc01399fb6491f663a7d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a053e033e624bc01399fb6491f663a7d3">&#9670;&nbsp;</a></span>removeDefine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Material::removeDefine </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>defineName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>Removes a define constant from the list </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defineName</td><td>The name of the constant to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if an element was erased, false otherwise. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_a053e033e624bc01399fb6491f663a7d3_icgraph.svg" width="772" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a7de9a9344f8b329de2c2be89e67c52b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7de9a9344f8b329de2c2be89e67c52b2">&#9670;&nbsp;</a></span>removeUniform()</h2>
 
@@ -422,6 +476,12 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_a7476a27aaaa3337d6f4dfa3c5e44d22d_icgraph.svg" width="750" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -565,7 +625,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -589,6 +649,12 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_ade3d70e1ef2ebc40918f7de6134ccc00_icgraph.svg" width="758" height="423"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -610,7 +676,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
@@ -722,7 +788,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>kryne-engine/include/kryne-engine/Material/<a class="el" href="_material_8h_source.html">Material.h</a></li>
+<li>kryne-engine/include/kryne-engine/Material/<a class="el" href="kryne-engine_2_material_2_material_8h_source.html">Material.h</a></li>
 <li>kryne-engine/src/Material/<a class="el" href="_material_8cpp.html">Material.cpp</a></li>
 </ul>
 </div><!-- contents -->

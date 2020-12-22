@@ -1,21 +1,23 @@
 <map id="Renderer::render" name="Renderer::render">
-<area shape="rect" id="node1" title=" " alt="" coords="5,497,124,524"/>
-<area shape="rect" id="node2" href="$class_renderer.html#a2bdeeed1ec04732473b593ae7729e3a0" title=" " alt="" coords="177,300,333,327"/>
-<area shape="rect" id="node15" href="$class_object3_d.html#abfcb01c6c466abc2c90e82c9722eb9e5" title=" " alt="" coords="191,472,320,499"/>
-<area shape="rect" id="node16" href="$class_camera.html#a2068e31d770ec3d205abe5621a174d01" title=" " alt="" coords="198,523,313,549"/>
-<area shape="rect" id="node19" href="$class_renderer.html#a5f8debf05f18645236b8dc487a6aa86d" title=" " alt="" coords="172,573,339,600"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,513,124,540"/>
+<area shape="rect" id="node2" href="$class_renderer.html#a2bdeeed1ec04732473b593ae7729e3a0" title=" " alt="" coords="177,317,333,344"/>
+<area shape="rect" id="node18" href="$class_object3_d.html#abfcb01c6c466abc2c90e82c9722eb9e5" title=" " alt="" coords="191,488,320,515"/>
+<area shape="rect" id="node19" href="$class_camera.html#a2068e31d770ec3d205abe5621a174d01" title=" " alt="" coords="198,539,313,565"/>
+<area shape="rect" id="node21" href="$class_renderer.html#a5f8debf05f18645236b8dc487a6aa86d" title=" " alt="" coords="172,589,339,616"/>
 <area shape="rect" id="node3" href="$class_object3_d.html#add236be584240de0df808f4a656572c4" title=" " alt="" coords="410,5,559,32"/>
 <area shape="rect" id="node4" href="$class_mesh.html#aecffca8fb03133d4c17187203cd0266c" title=" " alt="" coords="421,56,548,83"/>
 <area shape="rect" id="node5" href="$class_camera.html#afa63fa057ff14d083a1fc909c714a193" title=" " alt="" coords="391,107,578,133"/>
 <area shape="rect" id="node6" href="$class_rendering_state.html#aeed41975ad27a7047fbd53de0bf8bffe" title=" " alt="" coords="403,157,566,184"/>
 <area shape="rect" id="node7" href="$class_camera.html#ac41a74ed5e232d5506808006b31982e1" title=" " alt="" coords="406,208,563,235"/>
-<area shape="rect" id="node8" href="$class_rendering_state.html#a18fd46cb3589363bacb3fe8c43717a11" title=" " alt="" coords="391,259,579,301"/>
-<area shape="rect" id="node9" href="$class_rendering_state.html#a146f2037a5c55a8e2a7b2b5c9e111aa7" title=" " alt="" coords="387,325,582,366"/>
-<area shape="rect" id="node10" href="$class_object3_d.html#abaa0d30b4a47aea16646a0202586b1e4" title=" " alt="" coords="418,391,551,417"/>
-<area shape="rect" id="node11" href="$class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c" title=" " alt="" coords="387,441,583,468"/>
-<area shape="rect" id="node12" href="$class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319" title=" " alt="" coords="399,493,570,534"/>
-<area shape="rect" id="node13" href="$class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce" title=" " alt="" coords="403,559,566,585"/>
-<area shape="rect" id="node14" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title=" " alt="" coords="631,556,829,583"/>
-<area shape="rect" id="node17" href="$class_object3_d.html#a1bcfea2816e897423eb9e2c8dd3af393" title=" " alt="" coords="423,611,546,637"/>
-<area shape="rect" id="node18" href="$class_object3_d.html#abc681f1051acec39dd995a1bab816eba" title=" " alt="" coords="647,607,813,649"/>
+<area shape="rect" id="node8" href="$class_object3_d.html#a1282f3d1bc1eac2d428f7183ffd0311b" title=" " alt="" coords="393,259,576,285"/>
+<area shape="rect" id="node11" href="$class_rendering_state.html#a18fd46cb3589363bacb3fe8c43717a11" title=" " alt="" coords="391,310,579,351"/>
+<area shape="rect" id="node12" href="$class_rendering_state.html#a146f2037a5c55a8e2a7b2b5c9e111aa7" title=" " alt="" coords="387,375,582,417"/>
+<area shape="rect" id="node13" href="$class_object3_d.html#abaa0d30b4a47aea16646a0202586b1e4" title=" " alt="" coords="418,441,551,468"/>
+<area shape="rect" id="node14" href="$class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c" title=" " alt="" coords="387,492,583,519"/>
+<area shape="rect" id="node15" href="$class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319" title=" " alt="" coords="399,543,570,585"/>
+<area shape="rect" id="node16" href="$class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce" title=" " alt="" coords="403,609,566,636"/>
+<area shape="rect" id="node9" href="$class_object3_d.html#a550760d083917c13f981f6ac4bcfd167" title=" " alt="" coords="646,409,814,436"/>
+<area shape="rect" id="node10" href="$class_object3_d.html#abc681f1051acec39dd995a1bab816eba" title=" " alt="" coords="877,602,1044,643"/>
+<area shape="rect" id="node17" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title=" " alt="" coords="631,609,829,636"/>
+<area shape="rect" id="node20" href="$class_object3_d.html#a1bcfea2816e897423eb9e2c8dd3af393" title=" " alt="" coords="669,660,791,687"/>
 </map>

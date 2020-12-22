@@ -89,62 +89,33 @@ $(document).ready(function(){initNavTree('_texture2_d_8h_source.html',''); initR
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef INC_KRYNE_ENGINE_TEXTURE2D_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_KRYNE_ENGINE_TEXTURE2D_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="stb__image_8h.html">kryne-engine/Textures/stb_image.h</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;glad/glad.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_shader_8h.html">kryne-engine/Material/Shader.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_texture2_d.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_texture2_d.html">Texture2D</a>: <span class="keyword">public</span> <a class="code" href="class_texture.html">Texture</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_texture2_d.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_texture2_d.html">Texture2D</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_texture2_d.html#acc885a28feff038d648a3c73c41f1e4f">   19</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_texture2_d.html#acc885a28feff038d648a3c73c41f1e4f">Texture2D</a>(GLuint <span class="keywordtype">id</span>): <a class="code" href="class_texture.html">Texture</a>(id, GL_TEXTURE_2D) {};</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_texture2_d.html#ab62c7c5172a4800b4629cd475147819d">Texture2D</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">bool</span> generateMipMap = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_texture2_d.html#ab62c7c5172a4800b4629cd475147819d">Texture2D</a>(<a class="code" href="class_texture2_d.html">Texture2D</a> *texture);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_texture2_d.html#a88024715528fe768cc3fbd087c72abe2">textureSet</a>(<span class="keywordtype">int</span> textureID, <a class="code" href="class_shader.html">Shader</a> *shader, <span class="keyword">const</span> std::string &amp;uniformName, GLenum textureType = GL_TEXTURE_2D);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> shared_ptr&lt;Texture2D&gt; loadFromFileSync(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;filename);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_texture2_d.html">Texture2D</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">bool</span> generateMipMap = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_texture2_d.html">Texture2D</a> *<a class="code" href="class_texture2_d.html#a60166bc5c39a73768c3f2697b42015ad">getTexture</a>(<span class="keyword">const</span> std::string &amp;directoryName, <span class="keyword">const</span> std::string &amp;filenameSuffix = <span class="stringliteral">&quot;diff&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_texture2_d.html#aaf010a4c527630700b3678298f98b05e">setTexture</a>(<a class="code" href="class_shader.html">Shader</a> *shader, <span class="keyword">const</span> std::string &amp;uniformName);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_texture2_d.html#a84210f27b55799a096b8abc36380a077">~Texture2D</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_texture2_d.html#ab62c7c5172a4800b4629cd475147819d">Texture2D</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_texture2_d.html#ae5b4d0f6e86aa5c997746eb51a0c7bee">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_texture2_d.html#ae5b4d0f6e86aa5c997746eb51a0c7bee">width</a>{};</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_texture2_d.html#aa93b0289e30da08c409287d185e5a538">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_texture2_d.html#aa93b0289e30da08c409287d185e5a538">height</a>{};</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_texture2_d.html#ab8e37bf8a3e055ebba4a014f43b10411">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_texture2_d.html#ab8e37bf8a3e055ebba4a014f43b10411">nbChannels</a>{};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_texture2_d.html#a34d7a05ddd6edd59c284d670d486aefc">   43</a></span>&#160;    GLuint <a class="code" href="class_texture2_d.html#a34d7a05ddd6edd59c284d670d486aefc">textureId</a>{};</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_texture2_d.html#ace787217551a5c5a9d552c82c5a3d2c6">   44</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_texture2_d.html#ace787217551a5c5a9d552c82c5a3d2c6">originalTexture</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_TEXTURE2D_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_TEXTURE2D_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_texture2_d_html_aa93b0289e30da08c409287d185e5a538"><div class="ttname"><a href="class_texture2_d.html#aa93b0289e30da08c409287d185e5a538">Texture2D::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> Texture2D.h:40</div></div>
-<div class="ttc" id="aclass_texture2_d_html_a84210f27b55799a096b8abc36380a077"><div class="ttname"><a href="class_texture2_d.html#a84210f27b55799a096b8abc36380a077">Texture2D::~Texture2D</a></div><div class="ttdeci">virtual ~Texture2D()</div><div class="ttdef"><b>Definition:</b> Texture2D.cpp:102</div></div>
-<div class="ttc" id="aclass_texture2_d_html_ab62c7c5172a4800b4629cd475147819d"><div class="ttname"><a href="class_texture2_d.html#ab62c7c5172a4800b4629cd475147819d">Texture2D::Texture2D</a></div><div class="ttdeci">Texture2D()</div><div class="ttdef"><b>Definition:</b> Texture2D.cpp:109</div></div>
-<div class="ttc" id="aclass_texture2_d_html_ab8e37bf8a3e055ebba4a014f43b10411"><div class="ttname"><a href="class_texture2_d.html#ab8e37bf8a3e055ebba4a014f43b10411">Texture2D::nbChannels</a></div><div class="ttdeci">int nbChannels</div><div class="ttdef"><b>Definition:</b> Texture2D.h:41</div></div>
-<div class="ttc" id="a_shader_8h_html"><div class="ttname"><a href="_shader_8h.html">Shader.h</a></div></div>
-<div class="ttc" id="aclass_texture2_d_html_ace787217551a5c5a9d552c82c5a3d2c6"><div class="ttname"><a href="class_texture2_d.html#ace787217551a5c5a9d552c82c5a3d2c6">Texture2D::originalTexture</a></div><div class="ttdeci">bool originalTexture</div><div class="ttdef"><b>Definition:</b> Texture2D.h:44</div></div>
-<div class="ttc" id="astb__image_8h_html"><div class="ttname"><a href="stb__image_8h.html">stb_image.h</a></div></div>
-<div class="ttc" id="aclass_texture2_d_html_a60166bc5c39a73768c3f2697b42015ad"><div class="ttname"><a href="class_texture2_d.html#a60166bc5c39a73768c3f2697b42015ad">Texture2D::getTexture</a></div><div class="ttdeci">static Texture2D * getTexture(const std::string &amp;directoryName, const std::string &amp;filenameSuffix=&quot;diff&quot;)</div><div class="ttdef"><b>Definition:</b> Texture2D.cpp:69</div></div>
-<div class="ttc" id="aclass_texture2_d_html_a34d7a05ddd6edd59c284d670d486aefc"><div class="ttname"><a href="class_texture2_d.html#a34d7a05ddd6edd59c284d670d486aefc">Texture2D::textureId</a></div><div class="ttdeci">GLuint textureId</div><div class="ttdef"><b>Definition:</b> Texture2D.h:43</div></div>
-<div class="ttc" id="aclass_texture2_d_html_aaf010a4c527630700b3678298f98b05e"><div class="ttname"><a href="class_texture2_d.html#aaf010a4c527630700b3678298f98b05e">Texture2D::setTexture</a></div><div class="ttdeci">virtual void setTexture(Shader *shader, const std::string &amp;uniformName)</div><div class="ttdef"><b>Definition:</b> Texture2D.cpp:63</div></div>
-<div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.h:25</div></div>
-<div class="ttc" id="aclass_texture2_d_html_ae5b4d0f6e86aa5c997746eb51a0c7bee"><div class="ttname"><a href="class_texture2_d.html#ae5b4d0f6e86aa5c997746eb51a0c7bee">Texture2D::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> Texture2D.h:39</div></div>
-<div class="ttc" id="aclass_texture2_d_html_a88024715528fe768cc3fbd087c72abe2"><div class="ttname"><a href="class_texture2_d.html#a88024715528fe768cc3fbd087c72abe2">Texture2D::textureSet</a></div><div class="ttdeci">static void textureSet(int textureID, Shader *shader, const std::string &amp;uniformName, GLenum textureType=GL_TEXTURE_2D)</div><div class="ttdef"><b>Definition:</b> Texture2D.cpp:53</div></div>
-<div class="ttc" id="aclass_texture2_d_html"><div class="ttname"><a href="class_texture2_d.html">Texture2D</a></div><div class="ttdef"><b>Definition:</b> Texture2D.h:19</div></div>
+<div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> Texture.h:29</div></div>
+<div class="ttc" id="a_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="aclass_texture2_d_html_acc885a28feff038d648a3c73c41f1e4f"><div class="ttname"><a href="class_texture2_d.html#acc885a28feff038d648a3c73c41f1e4f">Texture2D::Texture2D</a></div><div class="ttdeci">Texture2D(GLuint id)</div><div class="ttdef"><b>Definition:</b> Texture2D.h:19</div></div>
+<div class="ttc" id="aclass_texture2_d_html"><div class="ttname"><a href="class_texture2_d.html">Texture2D</a></div><div class="ttdef"><b>Definition:</b> Texture2D.h:15</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

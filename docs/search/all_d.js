@@ -1,20 +1,13 @@
 var searchData=
 [
-  ['object3d_249',['Object3D',['../class_object3_d.html',1,'Object3D'],['../class_object3_d.html#ae3a1b17fb43ab59f5cf7b0ee21b9120b',1,'Object3D::Object3D()']]],
-  ['object3d_2ecpp_250',['Object3D.cpp',['../_object3_d_8cpp.html',1,'']]],
-  ['object3d_2eh_251',['Object3D.h',['../_object3_d_8h.html',1,'']]],
-  ['oldcamera_252',['OldCamera',['../class_old_camera.html',1,'']]],
-  ['oldcamera_2eh_253',['OldCamera.h',['../_old_camera_8h.html',1,'']]],
-  ['onbeforerender_254',['onBeforeRender',['../class_mesh.html#a4764fc868d28a272572af5e9ab416ce0',1,'Mesh']]],
-  ['onkeyinput_255',['onKeyInput',['../class_first_person_camera.html#a756c25ccc1fb2167d65b225f62074209',1,'FirstPersonCamera::onKeyInput()'],['../class_old_camera.html#a8e557ec90b0eda4b80d1579fe1d95602',1,'OldCamera::onKeyInput()'],['../class_trackball_camera.html#ab633da8237e0240aff96f929d07dabd2',1,'TrackballCamera::onKeyInput()']]],
-  ['onkeypress_256',['onKeyPress',['../class_player_input.html#a228f6e5c8e3432021c0195922d246823',1,'PlayerInput']]],
-  ['onkeyrelease_257',['onKeyRelease',['../class_player_input.html#a1689bbddb2f00b80740f0a592f727b07',1,'PlayerInput']]],
-  ['onmousemovementinput_258',['onMouseMovementInput',['../class_first_person_camera.html#a6edb6064d84aa4e5cca8aae491e9ae22',1,'FirstPersonCamera::onMouseMovementInput()'],['../class_old_camera.html#aeca1e468586b3a920cafc980a3555c32',1,'OldCamera::onMouseMovementInput()'],['../class_trackball_camera.html#abc11a864dd088577e2480193cf8addbc',1,'TrackballCamera::onMouseMovementInput()']]],
-  ['onscrollinput_259',['onScrollInput',['../class_first_person_camera.html#a34a431444c04033455dea76b6ec17836',1,'FirstPersonCamera::onScrollInput()'],['../class_old_camera.html#a0513347a702b085b71766674e5a214c5',1,'OldCamera::onScrollInput()'],['../class_trackball_camera.html#a572cc04653d154c03b92688c118529c5',1,'TrackballCamera::onScrollInput()']]],
-  ['operator_28_29_260',['operator()',['../struct_player_input_1_1_key_data_1_1_hasher.html#a11d5472c6d874b009cf102d750d11d42',1,'PlayerInput::KeyData::Hasher::operator()()'],['../struct_player_input_1_1_key_map_item_1_1_hasher.html#a9253c674d1f08d4644d8fb9b4f359dfb',1,'PlayerInput::KeyMapItem::Hasher::operator()()']]],
-  ['operator_3d_3d_261',['operator==',['../struct_player_input_1_1_key_data.html#a98520e71d03608822f7e78eb749a3e6e',1,'PlayerInput::KeyData::operator==()'],['../struct_player_input_1_1_key_map_item.html#af6c980bcbd3e7256c2b35ee28f927ffa',1,'PlayerInput::KeyMapItem::operator==()']]],
-  ['orbitcamera_262',['OrbitCamera',['../class_orbit_camera.html',1,'OrbitCamera'],['../class_orbit_camera.html#a8f5a8bc9cf82a5a0d933dd84e7923792',1,'OrbitCamera::OrbitCamera()']]],
-  ['orbitcamera_2ecpp_263',['OrbitCamera.cpp',['../_orbit_camera_8cpp.html',1,'']]],
-  ['orbitcamera_2eh_264',['OrbitCamera.h',['../_orbit_camera_8h.html',1,'']]],
-  ['originaltexture_265',['originalTexture',['../class_texture2_d.html#ace787217551a5c5a9d552c82c5a3d2c6',1,'Texture2D']]]
+  ['name_270',['name',['../struct_player_input_1_1_key_map_item.html#a97f6b9c8ef46a06b3c47339867d5ca4f',1,'PlayerInput::KeyMapItem']]],
+  ['needsupdate_271',['needsUpdate',['../_object3_d_8h.html#aa4d748d302384e9610a8f8038f30ab6a',1,'Object3D.h']]],
+  ['nextid_272',['nextId',['../class_object3_d.html#ad70b39a48e574386a0aea57a3b014650',1,'Object3D']]],
+  ['nextindex_273',['nextIndex',['../class_final_post_process.html#a8ed5222e11705d2e996e41827789b944',1,'FinalPostProcess']]],
+  ['nextlocation_274',['nextLocation',['../class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22',1,'BufferGeometry']]],
+  ['nexttextureindex_275',['nextTextureIndex',['../class_uniforms_handler.html#a88b13b7a6ecc0eef9c4c92a911c332d3',1,'UniformsHandler']]],
+  ['no_5fshadow_276',['NO_SHADOW',['../enums_2_base_object_8h.html#ac0f5017bd97449fa761e87e240568170a1987bc725e987c2cedfa22650a4efe23',1,'BaseObject.h']]],
+  ['normalmap_277',['normalMap',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a8a871c164db62126bd113f7cae25e3d2',1,'MeshStandardMaterial::StandardInitParameters::normalMap()'],['../class_mesh_standard_material.html#a1a91b0a1e97a3753100db4914425e664',1,'MeshStandardMaterial::normalMap()']]],
+  ['normalmatrix_278',['normalMatrix',['../class_object3_d.html#abfcb949247a61a87d6e2a4e1197b4b27',1,'Object3D']]],
+  ['notifyuniformlocationsneedupdate_279',['notifyUniformLocationsNeedUpdate',['../class_shader.html#aba3a4c3871308ae17fadb917b85e54a9',1,'Shader::notifyUniformLocationsNeedUpdate()'],['../class_uniforms_handler.html#a6a5d31101756e3a8f05e414031bf955a',1,'UniformsHandler::notifyUniformLocationsNeedUpdate()']]]
 ];

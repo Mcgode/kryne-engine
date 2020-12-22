@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['originaltexture_1007',['originalTexture',['../class_texture2_d.html#ace787217551a5c5a9d552c82c5a3d2c6',1,'Texture2D']]]
+  ['quaternion_1011',['quaternion',['../class_object3_d.html#aab483d6a2d9ea781cc5f044a6234a21e',1,'Object3D']]]
 ];

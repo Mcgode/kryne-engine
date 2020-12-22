@@ -9,7 +9,7 @@
 MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options):
     MeshMaterialCommon(make_unique<Shader>("Engine/Standard"))
 {
-    this->initialize(options);
+    this->initializeCommon(options);
     this->setRoughness(options.roughness);
     this->setMetalness(options.metalness);
     this->setNormalMap(options.normalMap);

@@ -1,15 +1,19 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Math/Transform.hpp" name="kryne&#45;engine/include/kryne&#45;engine/Math/Transform.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="259,5,477,47"/>
-<area shape="rect" id="node2" href="$_object3_d_8h.html" title=" " alt="" coords="285,95,451,151"/>
-<area shape="rect" id="node3" href="$_scene_8h.html" title=" " alt="" coords="36,199,201,255"/>
-<area shape="rect" id="node7" href="$_camera_8h.html" title=" " alt="" coords="293,199,443,255"/>
-<area shape="rect" id="node13" href="$_object3_d_8cpp.html" title=" " alt="" coords="467,206,650,247"/>
-<area shape="rect" id="node4" href="$_renderer_8h.html" title=" " alt="" coords="89,407,252,463"/>
-<area shape="rect" id="node6" href="$_scene_8cpp.html" title=" " alt="" coords="27,310,210,351"/>
-<area shape="rect" id="node5" href="$_renderer_8cpp.html" title=" " alt="" coords="81,511,261,552"/>
-<area shape="rect" id="node8" href="$_mesh_8h.html" title=" " alt="" coords="285,303,451,359"/>
-<area shape="rect" id="node10" href="$_orbit_camera_8h.html" title=" " alt="" coords="475,303,624,359"/>
-<area shape="rect" id="node12" href="$_camera_8cpp.html" title=" " alt="" coords="649,310,815,351"/>
-<area shape="rect" id="node9" href="$_mesh_8cpp.html" title=" " alt="" coords="277,414,459,455"/>
-<area shape="rect" id="node11" href="$_orbit_camera_8cpp.html" title=" " alt="" coords="483,414,650,455"/>
+<area shape="rect" id="node1" title=" " alt="" coords="271,5,490,47"/>
+<area shape="rect" id="node2" href="$_math_8h.html" title=" " alt="" coords="222,102,363,143"/>
+<area shape="rect" id="node3" href="$_object3_d_8h.html" title=" " alt="" coords="387,95,553,151"/>
+<area shape="rect" id="node4" href="$3_d_objects_8h.html" title=" " alt="" coords="5,414,175,455"/>
+<area shape="rect" id="node5" href="$_scene_8h.html" title=" " alt="" coords="130,303,295,359"/>
+<area shape="rect" id="node10" href="$kryne-engine_2_camera_2_camera_8h.html" title=" " alt="" coords="519,199,669,255"/>
+<area shape="rect" id="node17" href="$_object3_d_8cpp.html" title=" " alt="" coords="693,206,876,247"/>
+<area shape="rect" id="node6" href="$_renderer_8h.html" title=" " alt="" coords="406,407,569,463"/>
+<area shape="rect" id="node9" href="$_scene_8cpp.html" title=" " alt="" coords="199,414,381,455"/>
+<area shape="rect" id="node7" href="$_rendering_8h.html" title=" " alt="" coords="305,511,472,552"/>
+<area shape="rect" id="node8" href="$_renderer_8cpp.html" title=" " alt="" coords="496,511,676,552"/>
+<area shape="rect" id="node11" href="$_k_e_modules_2_camera_8h.html" title=" " alt="" coords="800,414,953,455"/>
+<area shape="rect" id="node12" href="$_mesh_8h.html" title=" " alt="" coords="511,303,677,359"/>
+<area shape="rect" id="node14" href="$_orbit_camera_8h.html" title=" " alt="" coords="802,303,951,359"/>
+<area shape="rect" id="node16" href="$_camera_8cpp.html" title=" " alt="" coords="320,310,487,351"/>
+<area shape="rect" id="node13" href="$_mesh_8cpp.html" title=" " alt="" coords="593,414,776,455"/>
+<area shape="rect" id="node15" href="$_orbit_camera_8cpp.html" title=" " alt="" coords="977,414,1144,455"/>
 </map>

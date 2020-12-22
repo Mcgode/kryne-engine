@@ -1,6 +1,8 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/3DObjects/Mesh.h" name="kryne&#45;engine/include/kryne&#45;engine/3DObjects/Mesh.h">
-<area shape="rect" id="node1" title=" " alt="" coords="111,5,277,61"/>
-<area shape="rect" id="node2" href="$_renderer_8h.html" title=" " alt="" coords="14,109,177,165"/>
-<area shape="rect" id="node4" href="$_mesh_8cpp.html" title=" " alt="" coords="201,117,384,158"/>
-<area shape="rect" id="node3" href="$_renderer_8cpp.html" title=" " alt="" coords="5,213,185,255"/>
+<area shape="rect" id="node1" title=" " alt="" coords="198,5,363,61"/>
+<area shape="rect" id="node2" href="$3_d_objects_8h.html" title=" " alt="" coords="5,117,175,158"/>
+<area shape="rect" id="node3" href="$_renderer_8h.html" title=" " alt="" coords="199,109,362,165"/>
+<area shape="rect" id="node6" href="$_mesh_8cpp.html" title=" " alt="" coords="387,117,569,158"/>
+<area shape="rect" id="node4" href="$_rendering_8h.html" title=" " alt="" coords="99,213,265,255"/>
+<area shape="rect" id="node5" href="$_renderer_8cpp.html" title=" " alt="" coords="289,213,469,255"/>
 </map>

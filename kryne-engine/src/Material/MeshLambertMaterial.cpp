@@ -10,5 +10,5 @@
 MeshLambertMaterial::MeshLambertMaterial(const InitParameters &options):
     MeshMaterialCommon(make_unique<Shader>("Engine/Lambert"))
 {
-    this->initialize(options);
+    this->initializeCommon(options);
 }

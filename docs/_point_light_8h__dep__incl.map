@@ -1,14 +1,17 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Light/PointLight.h" name="kryne&#45;engine/include/kryne&#45;engine/Light/PointLight.h">
-<area shape="rect" id="node1" title=" " alt="" coords="365,5,570,47"/>
-<area shape="rect" id="node2" href="$_lighting_registry_8h.html" title=" " alt="" coords="282,95,463,151"/>
-<area shape="rect" id="node12" href="$_point_light_8cpp.html" title=" " alt="" coords="488,102,639,143"/>
-<area shape="rect" id="node3" href="$_main_renderer_8h.html" title=" " alt="" coords="91,199,254,255"/>
-<area shape="rect" id="node4" href="$_render_scene_8h.html" title=" " alt="" coords="210,303,373,359"/>
-<area shape="rect" id="node9" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="329,199,579,255"/>
-<area shape="rect" id="node11" href="$_lighting_registry_8cpp.html" title=" " alt="" coords="604,206,755,247"/>
-<area shape="rect" id="node8" href="$_main_renderer_8cpp.html" title=" " alt="" coords="5,310,185,351"/>
-<area shape="rect" id="node5" href="$_process_8h.html" title=" " alt="" coords="89,407,283,448"/>
-<area shape="rect" id="node7" href="$_render_scene_8cpp.html" title=" " alt="" coords="308,407,488,448"/>
-<area shape="rect" id="node6" href="$_process_8cpp.html" title=" " alt="" coords="111,496,261,537"/>
-<area shape="rect" id="node10" href="$_shadow_map_handler_8cpp.html" title=" " alt="" coords="397,310,663,351"/>
+<area shape="rect" id="node1" title=" " alt="" coords="200,5,405,47"/>
+<area shape="rect" id="node2" href="$_light_8h.html" title=" " alt="" coords="5,206,147,247"/>
+<area shape="rect" id="node3" href="$_lighting_registry_8h.html" title=" " alt="" coords="212,95,393,151"/>
+<area shape="rect" id="node15" href="$_point_light_8cpp.html" title=" " alt="" coords="418,102,569,143"/>
+<area shape="rect" id="node4" href="$_main_renderer_8h.html" title=" " alt="" coords="672,199,835,255"/>
+<area shape="rect" id="node6" href="$_render_scene_8h.html" title=" " alt="" coords="212,303,375,359"/>
+<area shape="rect" id="node12" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="397,199,648,255"/>
+<area shape="rect" id="node14" href="$_lighting_registry_8cpp.html" title=" " alt="" coords="171,206,322,247"/>
+<area shape="rect" id="node5" href="$_rendering_8h.html" title=" " alt="" coords="619,407,786,448"/>
+<area shape="rect" id="node11" href="$_main_renderer_8cpp.html" title=" " alt="" coords="791,310,971,351"/>
+<area shape="rect" id="node7" href="$_process_8h.html" title=" " alt="" coords="299,407,493,448"/>
+<area shape="rect" id="node10" href="$_render_scene_8cpp.html" title=" " alt="" coords="94,407,274,448"/>
+<area shape="rect" id="node8" href="$_core_8h.html" title=" " alt="" coords="241,496,383,537"/>
+<area shape="rect" id="node9" href="$_process_8cpp.html" title=" " alt="" coords="407,496,556,537"/>
+<area shape="rect" id="node13" href="$_shadow_map_handler_8cpp.html" title=" " alt="" coords="399,310,665,351"/>
 </map>

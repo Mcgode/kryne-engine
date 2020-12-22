@@ -1,11 +1,15 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/enums/SkyboxDrawOrder.h" name="kryne&#45;engine/include/kryne&#45;engine/enums/SkyboxDrawOrder.h">
-<area shape="rect" id="node1" title=" " alt="" coords="294,5,514,61"/>
-<area shape="rect" id="node2" href="$_skybox_8h.html" title=" " alt="" coords="321,109,487,165"/>
-<area shape="rect" id="node3" href="$_main_renderer_8h.html" title=" " alt="" coords="224,213,387,269"/>
-<area shape="rect" id="node9" href="$_skybox_8cpp.html" title=" " alt="" coords="411,221,594,262"/>
-<area shape="rect" id="node4" href="$_render_scene_8h.html" title=" " alt="" coords="127,317,289,373"/>
-<area shape="rect" id="node8" href="$_main_renderer_8cpp.html" title=" " alt="" coords="314,325,494,366"/>
-<area shape="rect" id="node5" href="$_process_8h.html" title=" " alt="" coords="5,421,200,463"/>
-<area shape="rect" id="node7" href="$_render_scene_8cpp.html" title=" " alt="" coords="225,421,405,463"/>
-<area shape="rect" id="node6" href="$_process_8cpp.html" title=" " alt="" coords="28,511,177,552"/>
+<area shape="rect" id="node1" title=" " alt="" coords="80,5,300,61"/>
+<area shape="rect" id="node2" href="$enums_8h.html" title=" " alt="" coords="27,117,174,158"/>
+<area shape="rect" id="node3" href="$_skybox_8h.html" title=" " alt="" coords="198,109,363,165"/>
+<area shape="rect" id="node4" href="$3_d_objects_8h.html" title=" " alt="" coords="5,221,175,262"/>
+<area shape="rect" id="node5" href="$_main_renderer_8h.html" title=" " alt="" coords="199,213,362,269"/>
+<area shape="rect" id="node13" href="$_skybox_8cpp.html" title=" " alt="" coords="387,221,569,262"/>
+<area shape="rect" id="node6" href="$_rendering_8h.html" title=" " alt="" coords="15,421,181,463"/>
+<area shape="rect" id="node7" href="$_render_scene_8h.html" title=" " alt="" coords="199,317,362,373"/>
+<area shape="rect" id="node12" href="$_main_renderer_8cpp.html" title=" " alt="" coords="387,325,567,366"/>
+<area shape="rect" id="node8" href="$_process_8h.html" title=" " alt="" coords="206,421,401,463"/>
+<area shape="rect" id="node11" href="$_render_scene_8cpp.html" title=" " alt="" coords="425,421,605,463"/>
+<area shape="rect" id="node9" href="$_core_8h.html" title=" " alt="" coords="147,511,289,552"/>
+<area shape="rect" id="node10" href="$_process_8cpp.html" title=" " alt="" coords="313,511,462,552"/>
 </map>

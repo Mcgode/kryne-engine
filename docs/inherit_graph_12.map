@@ -1,6 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_old_camera.html" title=" " alt="" coords="5,56,92,83"/>
-<area shape="rect" id="node2" href="$class_basic_camera.html" title=" " alt="" coords="157,5,257,32"/>
-<area shape="rect" id="node3" href="$class_first_person_camera.html" title=" " alt="" coords="140,56,275,83"/>
-<area shape="rect" id="node4" href="$class_trackball_camera.html" title=" " alt="" coords="148,107,267,133"/>
+<area shape="rect" id="node1" href="$class_object3_d.html" title=" " alt="" coords="5,56,81,83"/>
+<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="129,5,196,32"/>
+<area shape="rect" id="node4" href="$class_mesh.html" title=" " alt="" coords="135,56,190,83"/>
+<area shape="rect" id="node5" href="$class_scene.html" title=" " alt="" coords="133,107,192,133"/>
+<area shape="rect" id="node3" href="$class_orbit_camera.html" title=" " alt="" coords="244,5,339,32"/>
 </map>

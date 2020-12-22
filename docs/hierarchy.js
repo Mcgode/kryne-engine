@@ -13,10 +13,18 @@ var hierarchy =
     [ "PlayerInput::KeyData::Hasher", "struct_player_input_1_1_key_data_1_1_hasher.html", null ],
     [ "PlayerInput::KeyMapItem::Hasher", "struct_player_input_1_1_key_map_item_1_1_hasher.html", null ],
     [ "HierarchicalNode", "class_hierarchical_node.html", null ],
+    [ "MeshMaterialCommon::InitParameters", "struct_mesh_material_common_1_1_init_parameters.html", [
+      [ "MeshStandardMaterial::StandardInitParameters", "struct_mesh_standard_material_1_1_standard_init_parameters.html", null ]
+    ] ],
     [ "PlayerInput::KeyData", "struct_player_input_1_1_key_data.html", null ],
     [ "PlayerInput::KeyMapItem", "struct_player_input_1_1_key_map_item.html", null ],
     [ "LightingRegistry", "class_lighting_registry.html", null ],
-    [ "Material", "class_material.html", null ],
+    [ "Material", "class_material.html", [
+      [ "MeshMaterialCommon", "class_mesh_material_common.html", [
+        [ "MeshLambertMaterial", "class_mesh_lambert_material.html", null ],
+        [ "MeshStandardMaterial", "class_mesh_standard_material.html", null ]
+      ] ]
+    ] ],
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "ModelMesh", "class_model_mesh.html", null ],
     [ "Object3D", "class_object3_d.html", [
@@ -49,9 +57,9 @@ var hierarchy =
     [ "ShaderProgramCompiler", "class_shader_program_compiler.html", null ],
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
-    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
-    [ "Texture2D", "class_texture2_d.html", [
-      [ "TextureCubeMap", "class_texture_cube_map.html", null ]
+    [ "Texture", "class_texture.html", [
+      [ "CubeTexture", "class_cube_texture.html", null ],
+      [ "Texture2D", "class_texture2_d.html", null ]
     ] ],
     [ "UniformsHandler", "class_uniforms_handler.html", null ],
     [ "VertexArray", "class_vertex_array.html", null ],

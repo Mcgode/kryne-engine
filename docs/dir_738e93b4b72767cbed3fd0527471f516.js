@@ -3,7 +3,7 @@ var dir_738e93b4b72767cbed3fd0527471f516 =
     [ "BasicCamera.h", "_basic_camera_8h.html", [
       [ "BasicCamera", "class_basic_camera.html", "class_basic_camera" ]
     ] ],
-    [ "Camera.h", "_camera_8h.html", [
+    [ "Camera.h", "kryne-engine_2_camera_2_camera_8h.html", [
       [ "Camera", "class_camera.html", "class_camera" ]
     ] ],
     [ "FirstPersonCamera.h", "_first_person_camera_8h.html", "_first_person_camera_8h" ],

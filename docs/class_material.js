@@ -7,6 +7,7 @@ var class_material =
     [ "isDepthTest", "class_material.html#a6a918f09c4360477f74356110126df8e", null ],
     [ "isWriteDepth", "class_material.html#a895211010246aa1ee74a7808190b5b0b", null ],
     [ "prepareShader", "class_material.html#a67459e974f4150ebd7c617c11a418e82", null ],
+    [ "removeDefine", "class_material.html#a053e033e624bc01399fb6491f663a7d3", null ],
     [ "removeUniform", "class_material.html#a7de9a9344f8b329de2c2be89e67c52b2", null ],
     [ "resetUse", "class_material.html#a36a235f5948f6f0e5719a4bb636cf0de", null ],
     [ "setDefine", "class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d", null ],

@@ -61,7 +61,7 @@ public:
 public:
 
     /**
-     * Retrieves the PlayerInput instance for the provided window. Will initialize one if none exist yet.
+     * Retrieves the PlayerInput instance for the provided window. Will initializeCommon one if none exist yet.
      * @param window    The window whose player input to retrieve.
      */
     static shared_ptr<PlayerInput> tryMakeInput(GLFWwindow *window);

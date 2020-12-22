@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('class_uniforms_handler.html',''); init
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_uniforms_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">UniformsHandler Class Reference</div>  </div>
@@ -92,19 +94,24 @@ $(document).ready(function(){initNavTree('class_uniforms_handler.html',''); init
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_uniforms_handler_8h_source.html">UniformsHandler.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for UniformsHandler:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniforms_handler__coll__graph.svg" width="792" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae16bbd01117414ec64dc631fa8a3ac28"><td class="memItemLeft" align="right" valign="top">typedef boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformTypes</a></td></tr>
-<tr class="separator:ae16bbd01117414ec64dc631fa8a3ac28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfb4dcaeaea8e2e9b7bb951f681bacf"><td class="memItemLeft" align="right" valign="top">typedef boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4, shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a></td></tr>
+<tr class="separator:a0cfb4dcaeaea8e2e9b7bb951f681bacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ae1741bb50a3117b0abb417e607c002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a4ae1741bb50a3117b0abb417e607c002">UniformsHandler</a> (GLuint programId)</td></tr>
+<tr class="memitem:a4ae1741bb50a3117b0abb417e607c002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a4ae1741bb50a3117b0abb417e607c002">UniformsHandler</a> (GLuint <a class="el" href="class_uniforms_handler.html#affec747cdf3aaa6b291f02e4d8d3b171">programId</a>)</td></tr>
 <tr class="separator:a4ae1741bb50a3117b0abb417e607c002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55e00197016296d2419c1531e595719e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a55e00197016296d2419c1531e595719e">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformTypes</a> &amp;value)</td></tr>
+<tr class="memitem:a55e00197016296d2419c1531e595719e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a55e00197016296d2419c1531e595719e">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a> &amp;value)</td></tr>
 <tr class="separator:a55e00197016296d2419c1531e595719e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5c89bb98e98da28b546e2f8d5cbc5e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#ad5c89bb98e98da28b546e2f8d5cbc5e7">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformTypes</a> &amp;value, uint32_t arrayIndex)</td></tr>
+<tr class="memitem:ad5c89bb98e98da28b546e2f8d5cbc5e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#ad5c89bb98e98da28b546e2f8d5cbc5e7">setUniform</a> (const string &amp;name, const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a> &amp;value, uint32_t arrayIndex)</td></tr>
 <tr class="separator:ad5c89bb98e98da28b546e2f8d5cbc5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85e9b48ba3273c0e6179f3c9aa42b54d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a85e9b48ba3273c0e6179f3c9aa42b54d">removeUniform</a> (const string &amp;name)</td></tr>
 <tr class="separator:a85e9b48ba3273c0e6179f3c9aa42b54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,18 +119,36 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6a5d31101756e3a8f05e414031bf955a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09f6d91b5be31dff5798462c6b278ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#ae09f6d91b5be31dff5798462c6b278ad">updateUniforms</a> ()</td></tr>
 <tr class="separator:ae09f6d91b5be31dff5798462c6b278ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8e6defcc09674d0a2bac25ef19cd2aa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a8e6defcc09674d0a2bac25ef19cd2aa0">setTexture</a> (const shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &amp;texture, GLint location)</td></tr>
+<tr class="separator:a8e6defcc09674d0a2bac25ef19cd2aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:affec747cdf3aaa6b291f02e4d8d3b171"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#affec747cdf3aaa6b291f02e4d8d3b171">programId</a></td></tr>
+<tr class="memdesc:affec747cdf3aaa6b291f02e4d8d3b171"><td class="mdescLeft">&#160;</td><td class="mdescRight">The program ID for the associated shader.  <a href="class_uniforms_handler.html#affec747cdf3aaa6b291f02e4d8d3b171">More...</a><br /></td></tr>
+<tr class="separator:affec747cdf3aaa6b291f02e4d8d3b171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34482777f3ca197e5920af98db887549"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; string, pair&lt; <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a>, GLint &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a34482777f3ca197e5920af98db887549">uniforms</a> {}</td></tr>
+<tr class="memdesc:a34482777f3ca197e5920af98db887549"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stored uniform data.  <a href="class_uniforms_handler.html#a34482777f3ca197e5920af98db887549">More...</a><br /></td></tr>
+<tr class="separator:a34482777f3ca197e5920af98db887549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f823544e90618f0d872e6e2b274494"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; GLint, GLint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a72f823544e90618f0d872e6e2b274494">activeTextures</a> {}</td></tr>
+<tr class="separator:a72f823544e90618f0d872e6e2b274494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b13b7a6ecc0eef9c4c92a911c332d3"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a88b13b7a6ecc0eef9c4c92a911c332d3">nextTextureIndex</a> = GL_TEXTURE0</td></tr>
+<tr class="separator:a88b13b7a6ecc0eef9c4c92a911c332d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles the storage and update of uniform states and values. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae16bbd01117414ec64dc631fa8a3ac28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae16bbd01117414ec64dc631fa8a3ac28">&#9670;&nbsp;</a></span>UniformTypes</h2>
+<a id="a0cfb4dcaeaea8e2e9b7bb951f681bacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfb4dcaeaea8e2e9b7bb951f681bacf">&#9670;&nbsp;</a></span>UniformTypes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4&gt; <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformsHandler::UniformTypes</a></td>
+          <td class="memname">typedef boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4, shared_ptr&lt;<a class="el" href="class_texture.html">Texture</a>&gt; &gt; <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,6 +233,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8e6defcc09674d0a2bac25ef19cd2aa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e6defcc09674d0a2bac25ef19cd2aa0">&#9670;&nbsp;</a></span>setTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UniformsHandler::setTexture </td>
+          <td>(</td>
+          <td class="paramtype">const shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLint&#160;</td>
+          <td class="paramname"><em>location</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniforms_handler_a8e6defcc09674d0a2bac25ef19cd2aa0_cgraph.svg" width="386" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a55e00197016296d2419c1531e595719e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55e00197016296d2419c1531e595719e">&#9670;&nbsp;</a></span>setUniform() <span class="overload">[1/2]</span></h2>
 
@@ -223,7 +289,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformTypes</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -261,7 +327,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#ae16bbd01117414ec64dc631fa8a3ac28">UniformTypes</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
@@ -308,6 +374,99 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Uploads the uniform data to the shader program </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a72f823544e90618f0d872e6e2b274494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72f823544e90618f0d872e6e2b274494">&#9670;&nbsp;</a></span>activeTextures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unordered_map&lt;GLint, GLint&gt; UniformsHandler::activeTextures {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88b13b7a6ecc0eef9c4c92a911c332d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88b13b7a6ecc0eef9c4c92a911c332d3">&#9670;&nbsp;</a></span>nextTextureIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint UniformsHandler::nextTextureIndex = GL_TEXTURE0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affec747cdf3aaa6b291f02e4d8d3b171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affec747cdf3aaa6b291f02e4d8d3b171">&#9670;&nbsp;</a></span>programId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint UniformsHandler::programId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The program ID for the associated shader. </p>
+
+</div>
+</div>
+<a id="a34482777f3ca197e5920af98db887549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34482777f3ca197e5920af98db887549">&#9670;&nbsp;</a></span>uniforms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unordered_map&lt;string, pair&lt;<a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a>, GLint&gt; &gt; UniformsHandler::uniforms {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The stored uniform data. </p>
 
 </div>
 </div>

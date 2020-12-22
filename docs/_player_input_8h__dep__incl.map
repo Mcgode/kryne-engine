@@ -1,8 +1,11 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Input/PlayerInput.h" name="kryne&#45;engine/include/kryne&#45;engine/Input/PlayerInput.h">
-<area shape="rect" id="node1" title=" " alt="" coords="175,5,387,47"/>
-<area shape="rect" id="node2" href="$_orbit_camera_8h.html" title=" " alt="" coords="22,95,171,151"/>
-<area shape="rect" id="node4" href="$_renderer_8h.html" title=" " alt="" coords="199,95,362,151"/>
-<area shape="rect" id="node6" href="$_player_input_8cpp.html" title=" " alt="" coords="387,102,537,143"/>
-<area shape="rect" id="node3" href="$_orbit_camera_8cpp.html" title=" " alt="" coords="5,199,172,240"/>
-<area shape="rect" id="node5" href="$_renderer_8cpp.html" title=" " alt="" coords="196,199,376,240"/>
+<area shape="rect" id="node1" title=" " alt="" coords="255,5,467,47"/>
+<area shape="rect" id="node2" href="$_input_8h.html" title=" " alt="" coords="29,102,170,143"/>
+<area shape="rect" id="node3" href="$_orbit_camera_8h.html" title=" " alt="" coords="194,95,343,151"/>
+<area shape="rect" id="node6" href="$_renderer_8h.html" title=" " alt="" coords="373,95,535,151"/>
+<area shape="rect" id="node9" href="$_player_input_8cpp.html" title=" " alt="" coords="560,102,711,143"/>
+<area shape="rect" id="node4" href="$_k_e_modules_2_camera_8h.html" title=" " alt="" coords="5,199,159,240"/>
+<area shape="rect" id="node5" href="$_orbit_camera_8cpp.html" title=" " alt="" coords="183,199,349,240"/>
+<area shape="rect" id="node7" href="$_rendering_8h.html" title=" " alt="" coords="373,199,540,240"/>
+<area shape="rect" id="node8" href="$_renderer_8cpp.html" title=" " alt="" coords="564,199,744,240"/>
 </map>

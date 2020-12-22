@@ -17,15 +17,15 @@ class Material {
 
 public:
 
+    /**
+     * Initializes a material by attaching a shader to it.
+     * @param shader The shader for this material.
+     */
     explicit Material(unique_ptr<Shader> shader) : shader(move(shader)) {}
 
-    [[nodiscard]] const Shader *getShader() const {
-        return shader.get();
-    }
+    [[nodiscard]] const Shader *getShader() const { return shader.get(); }
 
-    void setShader(unique_ptr<Shader> newShader) {
-        Material::shader = move(newShader);
-    }
+    void setShader(unique_ptr<Shader> newShader) { Material::shader = move(newShader); }
 
     //! @copydoc Shader::resetUse()
     void resetUse() { Material::shader->resetUse(); }
