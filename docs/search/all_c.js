@@ -5,7 +5,7 @@ var searchData=
   ['mainrenderer_2eh_233',['MainRenderer.h',['../_main_renderer_8h.html',1,'']]],
   ['makedefinescode_234',['makeDefinesCode',['../class_shader.html#a0c7f6034531e85b8581b71a24e183232',1,'Shader']]],
   ['map_235',['map',['../struct_mesh_material_common_1_1_init_parameters.html#a0f40d38515c8fb4874bb19e1f2b01b1b',1,'MeshMaterialCommon::InitParameters::map()'],['../class_mesh_material_common.html#a9eefe4004bb0eb4b54b902dd97aa184f',1,'MeshMaterialCommon::map()']]],
-  ['material_236',['Material',['../class_material.html',1,'Material'],['../class_material.html#a38391efabd8dabb8f3e18e84eda8105b',1,'Material::Material()'],['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh::material()']]],
+  ['material_236',['Material',['../class_material.html',1,'Material'],['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh::material()'],['../class_material.html#a38391efabd8dabb8f3e18e84eda8105b',1,'Material::Material()']]],
   ['material_2ecpp_237',['Material.cpp',['../_material_8cpp.html',1,'']]],
   ['material_2eh_238',['Material.h',['../_k_e_modules_2_material_8h.html',1,'(Global Namespace)'],['../kryne-engine_2_material_2_material_8h.html',1,'(Global Namespace)']]],
   ['materialside_239',['MaterialSide',['../_material_side_8h.html#a48a16246aa30572345771e9de71915b5',1,'MaterialSide.h']]],
