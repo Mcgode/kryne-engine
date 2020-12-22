@@ -29,9 +29,9 @@ public:
         return viewMatrix;
     }
 
-    void update(bool force) override {
+    void updateTransform(bool force) override {
         bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->visible;
-        Object3D::update(force);
+        Object3D::updateTransform(force);
         if (willUpdate) {
             viewMatrix = inverse(matrixWorld);
         }

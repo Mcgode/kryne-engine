@@ -26,9 +26,9 @@ public:
     OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput);
 
     /**
-     * @copydoc Object3D::update()
+     * @copydoc Object3D::updateTransform()
      */
-    void update(bool force) override;
+    void updateTransform(bool force) override;
 
     /**
      * @copydoc Object3D::setPosition()

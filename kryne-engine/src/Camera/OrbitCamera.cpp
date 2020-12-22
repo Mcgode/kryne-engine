@@ -14,7 +14,7 @@ OrbitCamera::OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<Pla
 }
 
 
-void OrbitCamera::update(bool force)
+void OrbitCamera::updateTransform(bool force)
 {
     const auto input = this->playerInput.lock();
 
@@ -69,7 +69,7 @@ void OrbitCamera::update(bool force)
 
     }
 
-    Camera::update(force || needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate);
+    Camera::updateTransform(force || needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate);
 }
 
 void OrbitCamera::setPosition(const vec3 &pos)

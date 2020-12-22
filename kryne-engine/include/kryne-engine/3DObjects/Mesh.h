@@ -80,8 +80,8 @@ protected:
 
 public:
 
-    //! @copydoc Object3D::update()
-    void update(bool force) override;
+    //! @copydoc Object3D::updateTransform()
+    void updateTransform(bool force) override;
 
     //! @copydoc Object3D::updateParents()
     const mat4 &updateParents(const Object3D *caller) override;

@@ -164,7 +164,7 @@ public:
      * Updates the object transform if needed.
      * @param force  Set to true to force the update
      */
-    virtual void update(bool force);
+    virtual void updateTransform(bool force);
 
     /**
      * Update the object itself along its parents.
@@ -243,7 +243,7 @@ protected:
     /// The world normal matrix of the object.
     glm::mat3 normalMatrix {};
 
-    /// Set to true to update the world matrix at the next #update() call.
+    /// Set to true to update the world matrix at the next #updateTransform() call.
     bool matrixWorldNeedsUpdate = true;
 
     /// The local position of the object.

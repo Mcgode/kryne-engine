@@ -29,7 +29,7 @@ void Object3D::calculateLocalTransform()
 }
 
 
-void Object3D::update(bool force)
+void Object3D::updateTransform(bool force)
 {
     if ((this->matrixWorldNeedsUpdate || force) && this->visible)
     {
@@ -41,7 +41,7 @@ void Object3D::update(bool force)
         this->normalMatrix = mat3(transpose(inverse(this->matrixWorld)));
 
         for (const auto& child : this->children)
-            child->update(true);
+            child->updateTransform(true);
 
         this->matrixWorldNeedsUpdate = false;
     }
