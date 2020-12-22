@@ -7,14 +7,20 @@
 #ifndef KRYNE_ENGINE_MESHLAMBERTMATERIAL_H
 #define KRYNE_ENGINE_MESHLAMBERTMATERIAL_H
 
-#include <optional>
 
 #include "MeshMaterialCommon.h"
 
+/**
+ * A material class with Lambertian properties
+ */
 class MeshLambertMaterial : public MeshMaterialCommon {
 
 public:
 
+    /**
+     * Initializes the lambertian material
+     * @param options The material initial properties
+     */
     explicit MeshLambertMaterial(const InitParameters &options = InitParameters());
 
 };
