@@ -39,7 +39,7 @@ public:
      * @return  A weak reference to the provided entity. Will link to nullptr if the provided entity is not attached to
      *          the process.
      */
-    weak_ptr<Entity *> getWeakReference(Entity *entity);
+    weak_ptr<Entity> getWeakReference(Entity *entity);
 
     /**
      * Detaches an entity from the process, meaning it should be deleted (if there is no other shared reference active

@@ -17,11 +17,11 @@ T *Process::makeEntity(Args &&... args)
 }
 
 
-weak_ptr<Entity *> Process::getWeakReference(Entity *entity)
+weak_ptr<Entity> Process::getWeakReference(Entity *entity)
 {
     const auto it = this->processEntities.find(entity);
 
-    weak_ptr<Entity *> ptr;
+    weak_ptr<Entity> ptr;
     if (it != this->processEntities.end())
         ptr = it->second;
 
