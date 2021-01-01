@@ -66,7 +66,12 @@ add_library(kryne-engine STATIC
         include/KEModules/Rendering.h
         include/KEModules/RenderTargets.h
         include/KEModules/Textures.h
-        include/KEModules/Utils.h src/Material/MeshLambertMaterial.cpp include/kryne-engine/Material/MeshLambertMaterial.h src/Material/MeshStandardMaterial.cpp include/kryne-engine/Material/MeshStandardMaterial.h src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h)
+        include/KEModules/Utils.h
+        src/Material/MeshLambertMaterial.cpp include/kryne-engine/Material/MeshLambertMaterial.h
+        src/Material/MeshStandardMaterial.cpp include/kryne-engine/Material/MeshStandardMaterial.h
+        src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h
+        src/Core/Entity.cpp include/kryne-engine/Core/Entity.h
+        src/Core/Process.cpp include/kryne-engine/Core/Process.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
