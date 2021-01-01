@@ -1,5 +1,6 @@
 <map id="OrbitCamera" name="OrbitCamera">
-<area shape="rect" id="node1" title=" " alt="" coords="5,155,100,181"/>
-<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="19,80,86,107"/>
-<area shape="rect" id="node3" href="$class_object3_d.html" title=" " alt="" coords="15,5,91,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,100,256"/>
+<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="19,155,86,181"/>
+<area shape="rect" id="node3" href="$class_object3_d.html" title=" " alt="" coords="15,80,91,107"/>
+<area shape="rect" id="node4" href="$class_entity.html" title=" " alt="" coords="25,5,81,32"/>
 </map>

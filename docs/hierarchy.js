@@ -6,12 +6,22 @@ var hierarchy =
     [ "BufferGeometry", "class_buffer_geometry.html", [
       [ "BoxBufferGeometry", "class_box_buffer_geometry.html", null ]
     ] ],
+    [ "Component", "class_component.html", null ],
     [ "DirectionalLight", "class_directional_light.html", null ],
+    [ "Entity", "class_entity.html", [
+      [ "Object3D", "class_object3_d.html", [
+        [ "Camera", "class_camera.html", [
+          [ "OrbitCamera", "class_orbit_camera.html", null ]
+        ] ],
+        [ "Mesh", "class_mesh.html", null ],
+        [ "Scene", "class_scene.html", null ]
+      ] ]
+    ] ],
     [ "FinalPostProcess", "class_final_post_process.html", [
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
-    [ "PlayerInput::KeyData::Hasher", "struct_player_input_1_1_key_data_1_1_hasher.html", null ],
     [ "PlayerInput::KeyMapItem::Hasher", "struct_player_input_1_1_key_map_item_1_1_hasher.html", null ],
+    [ "PlayerInput::KeyData::Hasher", "struct_player_input_1_1_key_data_1_1_hasher.html", null ],
     [ "HierarchicalNode", "class_hierarchical_node.html", null ],
     [ "MeshMaterialCommon::InitParameters", "struct_mesh_material_common_1_1_init_parameters.html", [
       [ "MeshStandardMaterial::StandardInitParameters", "struct_mesh_standard_material_1_1_standard_init_parameters.html", null ]
@@ -27,18 +37,12 @@ var hierarchy =
     ] ],
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "ModelMesh", "class_model_mesh.html", null ],
-    [ "Object3D", "class_object3_d.html", [
-      [ "Camera", "class_camera.html", [
-        [ "OrbitCamera", "class_orbit_camera.html", null ]
-      ] ],
-      [ "Mesh", "class_mesh.html", null ],
-      [ "Scene", "class_scene.html", null ]
-    ] ],
     [ "OldCamera", "class_old_camera.html", [
       [ "BasicCamera", "class_basic_camera.html", null ],
       [ "FirstPersonCamera", "class_first_person_camera.html", null ],
       [ "TrackballCamera", "class_trackball_camera.html", null ]
     ] ],
+    [ "OldProcess", "class_old_process.html", null ],
     [ "PlayerInput", "class_player_input.html", null ],
     [ "PointLight", "class_point_light.html", null ],
     [ "Process", "class_process.html", null ],

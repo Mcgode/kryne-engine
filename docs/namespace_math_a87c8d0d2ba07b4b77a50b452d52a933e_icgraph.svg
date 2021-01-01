@@ -36,16 +36,16 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="class_orbit_camera.html#a65d5df2a3a79021fb4b88d1bb8ee079d" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="24,-0.5 24,-19.5 131,-19.5 131,-0.5 24,-0.5"/>
-<text text-anchor="middle" x="77.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">OrbitCamera::update</text>
+<g id="a_node7"><a xlink:href="class_orbit_camera.html#ac109700d0b3ff41c0a5963d7e78ff79f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="3,-0.5 3,-19.5 152,-19.5 152,-0.5 3,-0.5"/>
+<text text-anchor="middle" x="77.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">OrbitCamera::updateTransform</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge7" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M631.57,-26.94C507.1,-23.12 243.68,-15.06 131.2,-11.61"/>
+<path fill="none" stroke="midnightblue" d="M631.46,-26.93C514.16,-23.34 273.72,-15.98 152.23,-12.26"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="631.63,-30.44 641.74,-27.25 631.85,-23.44 631.63,-30.44"/>
 </g>
 <!-- Node3 -->
