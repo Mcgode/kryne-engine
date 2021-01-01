@@ -7,7 +7,7 @@
 #include "kryne-engine/Core/Process.h"
 
 template<typename T, typename... Args>
-T *Process::makeEntity(Args &&... args)
+inline T *Process::makeEntity(Args &&... args)
 {
     static_assert(is_convertible<T, Entity>::value, "Class must inherit from Entity");
 

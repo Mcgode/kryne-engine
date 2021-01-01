@@ -31,7 +31,7 @@ public:
      *         process. Weak reference to the object can be retrieved using #getWeakReference
      */
     template<typename T, typename... Args>
-    inline T *makeEntity(Args&&... args);
+    T *makeEntity(Args&&... args);
 
     /**
      * Retrieves a weak reference of an entity attached to the process.
