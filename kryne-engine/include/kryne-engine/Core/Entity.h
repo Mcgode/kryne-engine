@@ -140,7 +140,7 @@ public:
      * @return A raw pointer to the component. If none were found, will be `nullptr`.
      */
     template<class C>
-    C *getComponent();
+    C *getComponent() const;
 
     /**
      * Retrieves components belonging to the provided class.
@@ -148,7 +148,7 @@ public:
      * @return A vector of all the components.
      */
     template<class C>
-    vector<C *> getComponents();
+    vector<C *> getComponents() const;
 
 private:
 

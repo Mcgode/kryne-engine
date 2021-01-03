@@ -32,7 +32,7 @@ inline T *Entity::addComponent(Args &&... args)
 
 
 template<class C>
-C *Entity::getComponent()
+C *Entity::getComponent() const
 {
     for (const auto & it : this->components)
     {
@@ -45,7 +45,7 @@ C *Entity::getComponent()
 
 
 template<class C>
-vector<C *> Entity::getComponents()
+vector<C *> Entity::getComponents() const
 {
     vector<C *> result {};
 
