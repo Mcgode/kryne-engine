@@ -8,18 +8,18 @@
 #define KRYNE_ENGINE_ENTITY_H
 
 
-class Transform;
+// Circular dependencies forward declaration
 class Process;
-class Component;
+//class Component;
+//class Transform; <- class is guaranteed to be pre-declared
 
 
 #include <atomic>
 #include <vector>
 #include <unordered_set>
 
+// Pre-declared circular dependencies includes
 #include <kryne-engine/3DObjects/Transform.h>
-
-#include "Process.h"
 #include "Component.h"
 
 
@@ -83,13 +83,13 @@ public:
      * Retrieves the transform of this entity.
      * @return A raw pointer to this entity's 3D transform.
      */
-    [[nodiscard]] const Transform *getTransform() const { return Entity::transform.get(); }
+    [[nodiscard]] const Transform *getTransform() const { return &this->transform; }
 
 
 protected:
 
     /// The 3D transform for this entity
-    unique_ptr<Transform> transform;
+    Transform transform;
 
 
 // -----
@@ -156,6 +156,10 @@ private:
     unordered_set<shared_ptr<Component>> components {};
 
 };
+
+
+// Circular dependencies includes
+#include "Process.h"
 
 
 #endif //KRYNE_ENGINE_ENTITY_H

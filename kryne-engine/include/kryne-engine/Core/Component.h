@@ -8,7 +8,8 @@
 #define KRYNE_ENGINE_COMPONENT_H
 
 
-#include "Entity.h"
+// Circular dependencies forward declaration
+class Entity;
 
 
 class Component {
@@ -22,6 +23,10 @@ protected:
     Entity *associatedEntity;
 
 };
+
+
+// Circular dependencies includes
+#include "Entity.h"
 
 
 #endif //KRYNE_ENGINE_COMPONENT_H

@@ -7,6 +7,8 @@
 #ifndef INC_KRYNE_ENGINE_OBJECT3D_H
 #define INC_KRYNE_ENGINE_OBJECT3D_H
 
+
+// Circular dependencies forward declaration
 class Entity;
 
 
@@ -24,7 +26,6 @@ class Entity;
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <kryne-engine/Math/Transform.hpp>
-#include <kryne-engine/Core/Entity.h>
 
 
 using namespace std;
@@ -255,6 +256,11 @@ protected:
     inline void applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up);
 
 };
+
+
+
+// Circular dependencies includes
+#include <kryne-engine/Core/Entity.h>
 
 
 #endif //INC_KRYNE_ENGINE_OBJECT3D_H

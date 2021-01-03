@@ -7,11 +7,10 @@
 #ifndef KRYNE_ENGINE_PROCESS_H
 #define KRYNE_ENGINE_PROCESS_H
 
-class Entity;
-
 
 #include <memory>
 #include <unordered_map>
+
 #include "Entity.h"
 
 
