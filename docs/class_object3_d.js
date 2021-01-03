@@ -13,14 +13,12 @@ var class_object3_d =
     [ "getQuaternion", "class_object3_d.html#a09a57724d04f51f602e588b22c9d177b", null ],
     [ "getScale", "class_object3_d.html#a0aa705e345cd365bf4b539b2d4f15327", null ],
     [ "getWorldPosition", "class_object3_d.html#a1282f3d1bc1eac2d428f7183ffd0311b", null ],
-    [ "isVisible", "class_object3_d.html#abaa0d30b4a47aea16646a0202586b1e4", null ],
     [ "lookAt", "class_object3_d.html#aebe1a3d71cb9a31d64c4939eeb033535", null ],
     [ "remove", "class_object3_d.html#ac26886db5acb179dde3b1ab7b3eee80d", null ],
     [ "removeFromParent", "class_object3_d.html#a785a086d20af6431304b7aad44b31657", null ],
     [ "setPosition", "class_object3_d.html#a7797af713ae1804875079851760b2c6c", null ],
     [ "setQuaternion", "class_object3_d.html#a722bb19a2d011e0f845be13e0cba9b39", null ],
     [ "setScale", "class_object3_d.html#a40393bae0bfc3592b9e2ec876133c5f6", null ],
-    [ "setVisible", "class_object3_d.html#acaca49c3e8bd815284f6c8c569ba47b9", null ],
     [ "setWorldMatrixNeedsUpdate", "class_object3_d.html#a66d25b92a27913f49412699516f90747", null ],
     [ "traverse", "class_object3_d.html#abfcb01c6c466abc2c90e82c9722eb9e5", null ],
     [ "updateParents", "class_object3_d.html#a550760d083917c13f981f6ac4bcfd167", null ],
@@ -33,6 +31,5 @@ var class_object3_d =
     [ "parent", "class_object3_d.html#a5f04d3d13130b3e42bcb598120d46412", null ],
     [ "position", "class_object3_d.html#ade45bcdb557da11317580481412862e0", null ],
     [ "quaternion", "class_object3_d.html#aab483d6a2d9ea781cc5f044a6234a21e", null ],
-    [ "scale", "class_object3_d.html#a5f47065dec0ec0fe94a6d01fdc237745", null ],
-    [ "visible", "class_object3_d.html#a2c1a5c9f0fed1e1eea29dca2b9768407", null ]
+    [ "scale", "class_object3_d.html#a5f47065dec0ec0fe94a6d01fdc237745", null ]
 ];

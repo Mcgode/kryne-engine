@@ -1,6 +1,6 @@
 var class_orbit_camera =
 [
-    [ "OrbitCamera", "class_orbit_camera.html#a8f5a8bc9cf82a5a0d933dd84e7923792", null ],
+    [ "OrbitCamera", "class_orbit_camera.html#abf78bdbdfb62c42d93caf08f70b7ba7b", null ],
     [ "setCenterPosition", "class_orbit_camera.html#ae286482b57a80eca137b076a9d6232b5", null ],
     [ "setPosition", "class_orbit_camera.html#a772fc7ce7430d4c03d7fffc06ad09933", null ],
     [ "updatePosition", "class_orbit_camera.html#aa1a54b3e3d8a69b681159f2b05c57878", null ],

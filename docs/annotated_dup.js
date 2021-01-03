@@ -24,7 +24,6 @@ var annotated_dup =
     [ "MeshStandardMaterial", "class_mesh_standard_material.html", "class_mesh_standard_material" ],
     [ "ModelLoader", "class_model_loader.html", "class_model_loader" ],
     [ "ModelMesh", "class_model_mesh.html", "class_model_mesh" ],
-    [ "Object3D", "class_object3_d.html", "class_object3_d" ],
     [ "OldCamera", "class_old_camera.html", "class_old_camera" ],
     [ "OldProcess", "class_old_process.html", "class_old_process" ],
     [ "OrbitCamera", "class_orbit_camera.html", "class_orbit_camera" ],
@@ -47,6 +46,7 @@ var annotated_dup =
     [ "Texture", "class_texture.html", "class_texture" ],
     [ "Texture2D", "class_texture2_d.html", "class_texture2_d" ],
     [ "TrackballCamera", "class_trackball_camera.html", "class_trackball_camera" ],
+    [ "Transform", "class_transform.html", "class_transform" ],
     [ "UniformsHandler", "class_uniforms_handler.html", "class_uniforms_handler" ],
     [ "VertexArray", "class_vertex_array.html", "class_vertex_array" ],
     [ "Window", "class_window.html", "class_window" ]

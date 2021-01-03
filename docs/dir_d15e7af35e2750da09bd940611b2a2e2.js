@@ -10,11 +10,11 @@ var dir_d15e7af35e2750da09bd940611b2a2e2 =
     [ "Mesh.h", "_mesh_8h.html", [
       [ "Mesh", "class_mesh.html", "class_mesh" ]
     ] ],
-    [ "Object3D.h", "_object3_d_8h.html", "_object3_d_8h" ],
     [ "Scene.h", "_scene_8h.html", [
       [ "Scene", "class_scene.html", "class_scene" ]
     ] ],
     [ "Skybox.h", "_skybox_8h.html", [
       [ "Skybox", "class_skybox.html", "class_skybox" ]
-    ] ]
+    ] ],
+    [ "Transform.h", "_transform_8h.html", "_transform_8h" ]
 ];

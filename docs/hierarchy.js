@@ -8,15 +8,7 @@ var hierarchy =
     ] ],
     [ "Component", "class_component.html", null ],
     [ "DirectionalLight", "class_directional_light.html", null ],
-    [ "Entity", "class_entity.html", [
-      [ "Object3D", "class_object3_d.html", [
-        [ "Camera", "class_camera.html", [
-          [ "OrbitCamera", "class_orbit_camera.html", null ]
-        ] ],
-        [ "Mesh", "class_mesh.html", null ],
-        [ "Scene", "class_scene.html", null ]
-      ] ]
-    ] ],
+    [ "Entity", "class_entity.html", null ],
     [ "FinalPostProcess", "class_final_post_process.html", [
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
@@ -64,6 +56,13 @@ var hierarchy =
     [ "Texture", "class_texture.html", [
       [ "CubeTexture", "class_cube_texture.html", null ],
       [ "Texture2D", "class_texture2_d.html", null ]
+    ] ],
+    [ "Transform", "class_transform.html", [
+      [ "Camera", "class_camera.html", [
+        [ "OrbitCamera", "class_orbit_camera.html", null ]
+      ] ],
+      [ "Mesh", "class_mesh.html", null ],
+      [ "Scene", "class_scene.html", null ]
     ] ],
     [ "UniformsHandler", "class_uniforms_handler.html", null ],
     [ "VertexArray", "class_vertex_array.html", null ],

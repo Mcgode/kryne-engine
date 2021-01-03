@@ -1,8 +1,7 @@
 <map id="Object3D" name="Object3D">
-<area shape="rect" id="node1" title=" " alt="" coords="100,80,176,107"/>
-<area shape="rect" id="node3" href="$class_camera.html" title=" " alt="" coords="19,155,86,181"/>
-<area shape="rect" id="node5" href="$class_mesh.html" title=" " alt="" coords="111,155,165,181"/>
-<area shape="rect" id="node6" href="$class_scene.html" title=" " alt="" coords="190,155,249,181"/>
-<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="110,5,166,32"/>
-<area shape="rect" id="node4" href="$class_orbit_camera.html" title=" " alt="" coords="5,229,100,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="100,5,176,32"/>
+<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="19,80,86,107"/>
+<area shape="rect" id="node4" href="$class_mesh.html" title=" " alt="" coords="111,80,165,107"/>
+<area shape="rect" id="node5" href="$class_scene.html" title=" " alt="" coords="190,80,249,107"/>
+<area shape="rect" id="node3" href="$class_orbit_camera.html" title=" " alt="" coords="5,155,100,181"/>
 </map>
