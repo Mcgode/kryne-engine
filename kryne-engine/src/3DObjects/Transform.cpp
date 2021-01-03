@@ -5,9 +5,10 @@
 #include "kryne-engine/3DObjects/Transform.h"
 
 
-Transform::Transform()
+Transform::Transform(Entity *entity) :
+    attachedEntity(entity)
 {
-    this->scale = glm::vec3(1.f, 1.f, 1.f);
+    this->scale = glm::vec3(1);
 }
 
 
@@ -22,7 +23,7 @@ void Transform::calculateLocalTransform()
 
 void Transform::updateTransform(bool force)
 {
-    if ((this->matrixWorldNeedsUpdate || force) && this->visible)
+    if ((this->matrixWorldNeedsUpdate || force) && this->attachedEntity->isEnabled())
     {
         calculateLocalTransform();
 
@@ -49,8 +50,9 @@ const glm::mat4 &Transform::updateParents(const Transform *caller)
                         this->localTransform;
     this->normalMatrix = mat3(transpose(inverse(this->matrixWorld)));
 
-    for (const auto &child : this->children) {
-        if (child.get() != caller)
+    for (const auto &child : this->children)
+    {
+        if (child != caller)
             child->setWorldMatrixNeedsUpdate();
     }
 
@@ -58,26 +60,26 @@ const glm::mat4 &Transform::updateParents(const Transform *caller)
 }
 
 
-void Transform::add(unique_ptr<Transform> child)
+void Transform::add(Transform *child)
 {
-    if (child->parent != nullptr)
-        child->parent->remove(child.get());
+    child->removeFromParent();
 
     child->parent = this;
-    this->children.push_back(std::move(child));
+    this->children.push_back(child);
 }
 
 
-unique_ptr<Transform> Transform::remove(Transform *childToRemove)
+bool Transform::remove(Transform *childToRemove)
 {
-    for (auto it = this->children.begin(); it != this->children.end(); it++) {
-        if (it->get() == childToRemove) {
-            auto result = std::move(*it);
+    for (auto it = this->children.begin(); it != this->children.end(); it++)
+    {
+        if (*it == childToRemove)
+        {
             this->children.erase(it);
-            return result;
+            return true;
         }
     }
-    return nullptr;
+    return false;
 }
 
 
@@ -89,26 +91,23 @@ void Transform::traverse(Transform::TraverseCallback callback)
 }
 
 
-vector<Transform *> Transform::getChildren() {
-    vector<Transform *> result;
-    for (const auto &child : this->children)
-        result.push_back(child.get());
-    return result;
-}
-
-
 Transform::~Transform()
 {
     for (const auto& child : this->children) {
         child->parent = nullptr;
     }
+    this->removeFromParent();
 }
 
 
-glm::vec3 Transform::getWorldPosition() {
-    if (this->parent == nullptr) {
+glm::vec3 Transform::getWorldPosition()
+{
+    if (this->parent == nullptr)
+    {
         return this->position;
-    } else {
+    }
+    else
+    {
         this->updateParents(nullptr);
         auto p = this->parent->matrixWorld * glm::vec4(position, 1.);
         return glm::vec3(p) * (1.f / p.w);

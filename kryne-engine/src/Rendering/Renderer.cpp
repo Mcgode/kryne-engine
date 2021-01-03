@@ -31,7 +31,7 @@ void Renderer::updateObjects(Transform *object)
 
 void Renderer::renderObject(Transform *object, Camera *camera)
 {
-    if (!object->isVisible())
+    if (!object->getEntity()->isEnabled())
         return;
 
     auto mesh = dynamic_cast<Mesh *>(object);

@@ -6,8 +6,8 @@
 
 #include "kryne-engine/Camera/OrbitCamera.h"
 
-OrbitCamera::OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput) :
-    Camera(move(projectionData)),
+OrbitCamera::OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput, Entity *entity) :
+    Camera(entity, move(projectionData)),
     playerInput(std::move(playerInput))
 {
     this->position = glm::vec3(0, 0, 5);

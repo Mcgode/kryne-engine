@@ -27,8 +27,8 @@ public:
      * @param geometry  The geometry for this mesh.
      * @param material  The material for this mesh.
      */
-    Mesh(const shared_ptr<BufferGeometry> &geometry, const shared_ptr<Material> &material) :
-            Transform(),
+    Mesh(const shared_ptr<BufferGeometry> &geometry, const shared_ptr<Material> &material, Entity *entity) :
+            Transform(entity),
             geometry(geometry),
             material(material)
         {};

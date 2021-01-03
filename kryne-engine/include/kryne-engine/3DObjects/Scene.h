@@ -13,7 +13,7 @@
 class Scene : public Transform {
 
 public:
-    Scene(): Transform() {}
+    Scene(Entity *entity): Transform(entity) {}
 
 };
 

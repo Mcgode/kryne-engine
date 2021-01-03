@@ -15,7 +15,9 @@ class Camera : public Transform {
 
 public:
 
-    explicit Camera(unique_ptr<ProjectionData> projectionData) : projectionData(std::move(projectionData)) {}
+    explicit Camera(Entity *entity, unique_ptr<ProjectionData> projectionData) :
+        Transform(entity),
+        projectionData(std::move(projectionData)) {}
 
     const mat4 &getProjectionMatrix() {
         return projectionData->getProjectionMatrix();
@@ -30,7 +32,7 @@ public:
     }
 
     void updateTransform(bool force) override {
-        bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->visible;
+        bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->attachedEntity->isEnabled();
         Transform::updateTransform(force);
         if (willUpdate) {
             viewMatrix = inverse(matrixWorld);

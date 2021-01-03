@@ -23,7 +23,7 @@ public:
      * @param projectionData    The projection data for this camera.
      * @param playerInput       The input controller associated with this camera.
      */
-    OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput);
+    OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput, Entity *entity);
 
     /**
      * @copydoc Object3D::updateTransform()

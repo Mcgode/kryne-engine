@@ -7,7 +7,7 @@
 #ifndef INC_KRYNE_ENGINE_OBJECT3D_H
 #define INC_KRYNE_ENGINE_OBJECT3D_H
 
-
+class Entity;
 
 
 #include <memory>
@@ -24,6 +24,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <kryne-engine/Math/Transform.hpp>
+#include <kryne-engine/Core/Entity.h>
 
 
 using namespace std;
@@ -39,15 +40,27 @@ class Transform {
 public:
 
     /**
-     * Initializes the object and assigns it its id.
+     * Initializes the transforms and saves its attached entity.
      */
-    Transform();
+    explicit Transform(Entity *entity);
 
     /**
      * Object3D destructor.
-     * All its children's #parent value will be set to `nullptr`.
+     * All its children's #parent value will be set to `nullptr`, and it will be removed from its parent (if it has
+     * one).
      */
     virtual ~Transform();
+
+    /**
+     * Returns the entity this transform is attached to
+     * @return A raw pointer to the attached entity.
+     */
+    [[nodiscard]] const Entity *getEntity() const { return attachedEntity; }
+
+protected:
+
+    /// The entity this transform is attached to.
+    const Entity *attachedEntity;
 
 
 // -- Hierarchy --
@@ -63,20 +76,19 @@ public:
      * Adds a child to the object. If the new child already has a parent, call #remove() first.
      * @param child The new child to add.
      */
-    void add(unique_ptr<Transform> child);
+    void add(Transform *child);
 
     /**
      * Removes the provided object from this object's children, if it belonged to it.
      * @param childToRemove The raw pointer to the child to remove.
-     * @return The unique pointer to the removed child. May be null.
+     * @return `true` is the provided transform was removed, `false` otherwise
      */
-    unique_ptr<Transform> remove(Transform *childToRemove);
+    bool remove(Transform *childToRemove);
 
     /**
      * Removes this object from its parent, if it has one.
-     * @return The unique pointer for this object. Will be null if the object has no parent.
      */
-    unique_ptr<Transform> removeFromParent() { return this->parent ? this->parent->remove(this) : nullptr; }
+    void removeFromParent() { if (this->parent) this->parent->remove(this); }
 
     /**
      * Retrieve the object's parent
@@ -94,7 +106,7 @@ public:
      * Retrieve the object's children
      * @return A list of raw pointers to the children
      */
-    vector<Transform *> getChildren();
+    [[nodiscard]] const vector<Transform *> &getChildren() const { return children; }
 
 protected:
 
@@ -102,7 +114,7 @@ protected:
     Transform *parent = nullptr;
 
     /// The object children
-    vector<unique_ptr<Transform>> children {};
+    vector<Transform *> children {};
 
 
 // -- Transform --

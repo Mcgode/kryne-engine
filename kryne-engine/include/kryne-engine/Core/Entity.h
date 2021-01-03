@@ -8,6 +8,7 @@
 #define KRYNE_ENGINE_ENTITY_H
 
 
+class Transform;
 class Process;
 class Component;
 
@@ -15,6 +16,9 @@ class Component;
 #include <atomic>
 #include <vector>
 #include <unordered_set>
+
+#include <kryne-engine/3DObjects/Transform.h>
+
 #include "Process.h"
 #include "Component.h"
 
@@ -23,6 +27,11 @@ using namespace std;
 
 
 class Entity {
+
+// -----
+// Base
+// -----
+
 
 public:
 
@@ -61,6 +70,57 @@ private:
 
     /// The process this entity is attached to.
     Process *process;
+
+
+// -----
+// Transform
+// -----
+
+
+public:
+
+    /**
+     * Retrieves the transform of this entity.
+     * @return A raw pointer to this entity's 3D transform.
+     */
+    [[nodiscard]] const Transform *getTransform() const { return Entity::transform.get(); }
+
+
+protected:
+
+    /// The 3D transform for this entity
+    unique_ptr<Transform> transform;
+
+
+// -----
+// Enabling
+// -----
+
+public:
+
+    /**
+     * Retrieves the value of #enabled
+     * @return
+     */
+    [[nodiscard]] inline bool isEnabled() const { return enabled; }
+
+    /**
+     * Enables/disables the entity.
+     * When disabled, an entity won't be updated or rendered.
+     * @param newValue Set to `true` to enable, `false` to disable.
+     */
+    void setEnabled(bool newValue) { Entity::enabled = newValue; }
+
+protected:
+
+    /// Enabled status of the entity.
+    bool enabled = true;
+
+
+// -----
+// Components
+// -----
+
 
 public:
 
