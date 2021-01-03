@@ -23,13 +23,13 @@ void Renderer::render(Scene *scene, Camera *camera)
 }
 
 
-void Renderer::updateObjects(Object3D *object)
+void Renderer::updateObjects(Transform *object)
 {
     object->updateTransform(false);
 }
 
 
-void Renderer::renderObject(Object3D *object, Camera *camera)
+void Renderer::renderObject(Transform *object, Camera *camera)
 {
     if (!object->isVisible())
         return;

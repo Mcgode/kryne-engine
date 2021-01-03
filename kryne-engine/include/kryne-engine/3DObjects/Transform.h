@@ -11,7 +11,6 @@
 
 
 #include <memory>
-#include <atomic>
 #include <vector>
 
 #define GLM_FORCE_SWIZZLE
@@ -32,7 +31,7 @@ using namespace std;
 /**
  * An object in 3D space
  */
-class Object3D {
+class Transform {
 
 
 // -- Base --
@@ -42,53 +41,13 @@ public:
     /**
      * Initializes the object and assigns it its id.
      */
-    Object3D();
-
-    /**
-     * Retrieve the unique id of this object
-     */
-    [[nodiscard]] uint32_t getId() const { return id; }
-
-protected:
-
-    /**
-     * Retrieves the unique id for the next instance of #Object3D.
-     * Thread-safe operation, thanks to an atomic counter.
-     * @return A unique id.
-     */
-    static uint32_t nextId();
-
-protected:
-
-    /// The unique id of the object.
-    uint32_t id;
-
-
-// -- Rendering --
-
-public:
-
-    /**
-     * Retrieves the value of #visible
-     */
-    [[nodiscard]] bool isVisible() const { return visible; }
-
-    /**
-     * Set the value of #visible.
-     * @param v The new value of #visible.
-     */
-    void setVisible(bool v) { Object3D::visible = v; }
+    Transform();
 
     /**
      * Object3D destructor.
      * All its children's #parent value will be set to `nullptr`.
      */
-    virtual ~Object3D();
-
-protected:
-
-    /// If set to false, the object won't be updated and won't be rendered.
-    bool visible = true;
+    virtual ~Transform();
 
 
 // -- Hierarchy --
@@ -98,32 +57,32 @@ public:
     /**
      * The traversal callback function type.
      */
-    typedef void (*TraverseCallback)(Object3D *object);
+    typedef void (*TraverseCallback)(Transform *object);
 
     /**
      * Adds a child to the object. If the new child already has a parent, call #remove() first.
      * @param child The new child to add.
      */
-    void add(unique_ptr<Object3D> child);
+    void add(unique_ptr<Transform> child);
 
     /**
      * Removes the provided object from this object's children, if it belonged to it.
      * @param childToRemove The raw pointer to the child to remove.
      * @return The unique pointer to the removed child. May be null.
      */
-    unique_ptr<Object3D> remove(Object3D *childToRemove);
+    unique_ptr<Transform> remove(Transform *childToRemove);
 
     /**
      * Removes this object from its parent, if it has one.
      * @return The unique pointer for this object. Will be null if the object has no parent.
      */
-    unique_ptr<Object3D> removeFromParent() { return this->parent ? this->parent->remove(this) : nullptr; }
+    unique_ptr<Transform> removeFromParent() { return this->parent ? this->parent->remove(this) : nullptr; }
 
     /**
      * Retrieve the object's parent
      * @return A raw pointer to the object's parent. May be null.
      */
-    [[nodiscard]] Object3D *getParent() const { return parent; }
+    [[nodiscard]] Transform *getParent() const { return parent; }
 
     /**
      *
@@ -135,15 +94,15 @@ public:
      * Retrieve the object's children
      * @return A list of raw pointers to the children
      */
-    vector<Object3D *> getChildren();
+    vector<Transform *> getChildren();
 
 protected:
 
     /// The parent of the object
-    Object3D *parent = nullptr;
+    Transform *parent = nullptr;
 
     /// The object children
-    vector<unique_ptr<Object3D>> children {};
+    vector<unique_ptr<Transform>> children {};
 
 
 // -- Transform --
@@ -171,7 +130,7 @@ public:
      * @param caller  The child that called the object. Can be null
      * @return The new matrixWorld value of this object
      */
-    virtual const glm::mat4 &updateParents(const Object3D *caller);
+    virtual const glm::mat4 &updateParents(const Transform *caller);
 
     /**
      * Retrieve the current object position.
@@ -183,8 +142,8 @@ public:
      * @param pos   The new position value
      */
     virtual void setPosition(const glm::vec3 &pos) {
-        matrixWorldNeedsUpdate = needsUpdate(pos, Object3D::position);
-        Object3D::position = glm::vec3(pos);
+        matrixWorldNeedsUpdate = needsUpdate(pos, Transform::position);
+        Transform::position = glm::vec3(pos);
     }
 
     /**
@@ -197,8 +156,8 @@ public:
      * @param quat  The new quaternion value.
      */
     void setQuaternion(const glm::quat &quat) {
-        matrixWorldNeedsUpdate = needsUpdate(quat, Object3D::quaternion);
-        Object3D::quaternion = glm::quat(quat);
+        matrixWorldNeedsUpdate = needsUpdate(quat, Transform::quaternion);
+        Transform::quaternion = glm::quat(quat);
     }
 
     /**
@@ -211,8 +170,8 @@ public:
      * @param s The new scale information.
      */
     void setScale(const glm::vec3 &s) {
-        matrixWorldNeedsUpdate = needsUpdate(s, Object3D::scale);
-        Object3D::scale = glm::vec3(s);
+        matrixWorldNeedsUpdate = needsUpdate(s, Transform::scale);
+        Transform::scale = glm::vec3(s);
     }
 
     /**

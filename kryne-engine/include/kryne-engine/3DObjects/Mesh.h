@@ -18,7 +18,7 @@ using namespace std;
  * Its geometry and material are saved as shared pointers because sharing the same geometry and/or material between
  * multiple meshes is an expected behaviour and an Engine feature.
  */
-class Mesh: public Object3D {
+class Mesh: public Transform {
 
 public:
 
@@ -28,9 +28,9 @@ public:
      * @param material  The material for this mesh.
      */
     Mesh(const shared_ptr<BufferGeometry> &geometry, const shared_ptr<Material> &material) :
-        Object3D(),
-        geometry(geometry),
-        material(material)
+            Transform(),
+            geometry(geometry),
+            material(material)
         {};
 
     /**
@@ -84,7 +84,7 @@ public:
     void updateTransform(bool force) override;
 
     //! @copydoc Object3D::updateParents()
-    const mat4 &updateParents(const Object3D *caller) override;
+    const mat4 &updateParents(const Transform *caller) override;
 
 
 };

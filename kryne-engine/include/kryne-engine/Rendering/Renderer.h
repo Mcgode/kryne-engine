@@ -68,13 +68,13 @@ protected:
      * @param object    The object to render.
      * @param camera    The camera used for rendering.
      */
-    void renderObject(Object3D *object, Camera *camera);
+    void renderObject(Transform *object, Camera *camera);
 
     /**
      * Updates a specific object
      * @param object    The object to update.
      */
-    static void updateObjects(Object3D *object);
+    static void updateObjects(Transform *object);
 
 
 protected:

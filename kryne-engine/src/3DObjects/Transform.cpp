@@ -2,25 +2,16 @@
 // Created by Max Godefroy on 21/11/2020.
 //
 
-#include "kryne-engine/3DObjects/Object3D.h"
+#include "kryne-engine/3DObjects/Transform.h"
 
 
-Object3D::Object3D()
+Transform::Transform()
 {
-    this->id = Object3D::getId();
     this->scale = glm::vec3(1.f, 1.f, 1.f);
 }
 
 
-uint32_t Object3D::nextId()
-{
-    // Use static atomic to handle next id thread-safely
-    static std::atomic<uint32_t> uid { 0 };
-    return ++uid;
-}
-
-
-void Object3D::calculateLocalTransform()
+void Transform::calculateLocalTransform()
 {
     const auto scaleMatrix = glm::scale(glm::mat4(1), this->scale);
     const auto rotationMatrix = glm::toMat4(this->quaternion);
@@ -29,7 +20,7 @@ void Object3D::calculateLocalTransform()
 }
 
 
-void Object3D::updateTransform(bool force)
+void Transform::updateTransform(bool force)
 {
     if ((this->matrixWorldNeedsUpdate || force) && this->visible)
     {
@@ -48,7 +39,7 @@ void Object3D::updateTransform(bool force)
 }
 
 
-const glm::mat4 &Object3D::updateParents(const Object3D *caller)
+const glm::mat4 &Transform::updateParents(const Transform *caller)
 {
     if (this->matrixWorldNeedsUpdate)
         this->calculateLocalTransform();
@@ -67,7 +58,7 @@ const glm::mat4 &Object3D::updateParents(const Object3D *caller)
 }
 
 
-void Object3D::add(unique_ptr<Object3D> child)
+void Transform::add(unique_ptr<Transform> child)
 {
     if (child->parent != nullptr)
         child->parent->remove(child.get());
@@ -77,7 +68,7 @@ void Object3D::add(unique_ptr<Object3D> child)
 }
 
 
-unique_ptr<Object3D> Object3D::remove(Object3D *childToRemove)
+unique_ptr<Transform> Transform::remove(Transform *childToRemove)
 {
     for (auto it = this->children.begin(); it != this->children.end(); it++) {
         if (it->get() == childToRemove) {
@@ -90,7 +81,7 @@ unique_ptr<Object3D> Object3D::remove(Object3D *childToRemove)
 }
 
 
-void Object3D::traverse(Object3D::TraverseCallback callback)
+void Transform::traverse(Transform::TraverseCallback callback)
 {
     callback(this);
     for (const auto &child : this->children)
@@ -98,15 +89,15 @@ void Object3D::traverse(Object3D::TraverseCallback callback)
 }
 
 
-vector<Object3D *> Object3D::getChildren() {
-    vector<Object3D *> result;
+vector<Transform *> Transform::getChildren() {
+    vector<Transform *> result;
     for (const auto &child : this->children)
         result.push_back(child.get());
     return result;
 }
 
 
-Object3D::~Object3D()
+Transform::~Transform()
 {
     for (const auto& child : this->children) {
         child->parent = nullptr;
@@ -114,7 +105,7 @@ Object3D::~Object3D()
 }
 
 
-glm::vec3 Object3D::getWorldPosition() {
+glm::vec3 Transform::getWorldPosition() {
     if (this->parent == nullptr) {
         return this->position;
     } else {
@@ -125,7 +116,7 @@ glm::vec3 Object3D::getWorldPosition() {
 }
 
 
-void Object3D::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up)
+void Transform::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up)
 {
     this->setQuaternion(glm::toQuat(Math::getLookAtMatrix(eye, target, up)));
 }

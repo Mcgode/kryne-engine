@@ -8,10 +8,10 @@
 #define INC_KRYNE_ENGINE_CAMERA_H
 
 #include <memory>
-#include <kryne-engine/3DObjects/Object3D.h>
+#include <kryne-engine/3DObjects/Transform.h>
 #include "ProjectionData.hpp"
 
-class Camera : public Object3D {
+class Camera : public Transform {
 
 public:
 
@@ -31,7 +31,7 @@ public:
 
     void updateTransform(bool force) override {
         bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->visible;
-        Object3D::updateTransform(force);
+        Transform::updateTransform(force);
         if (willUpdate) {
             viewMatrix = inverse(matrixWorld);
         }

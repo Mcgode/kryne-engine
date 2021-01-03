@@ -40,7 +40,7 @@ int main()
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
     const auto mesh = new Mesh(geometry, material);
-    scene->add(unique_ptr<Object3D>(mesh));
+    scene->add(unique_ptr<Transform>(mesh));
 
     const auto camera = make_unique<OrbitCamera>(
         make_unique<PerspectiveProjectionData>(16.f / 9.f),

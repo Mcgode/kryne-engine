@@ -32,7 +32,7 @@ add_library(kryne-engine STATIC
         src/Light/LightingRegistry.cpp include/kryne-engine/Light/LightingRegistry.h
         src/Rendering/Renderer.cpp include/kryne-engine/Rendering/Renderer.h
         src/3DObjects/Scene.cpp include/kryne-engine/3DObjects/Scene.h
-        src/3DObjects/Object3D.cpp include/kryne-engine/3DObjects/Object3D.h
+        src/3DObjects/Transform.cpp include/kryne-engine/3DObjects/Transform.h
         src/Material/Material.cpp include/kryne-engine/Material/Material.h
         src/Geometry/BufferGeometry.cpp include/kryne-engine/Geometry/BufferGeometry.h
         src/3DObjects/Mesh.cpp include/kryne-engine/3DObjects/Mesh.h

@@ -8,12 +8,12 @@
 #define INC_KRYNE_ENGINE_SCENE_H
 
 
-#include "Object3D.h"
+#include "Transform.h"
 
-class Scene : public Object3D {
+class Scene : public Transform {
 
 public:
-    Scene(): Object3D() {}
+    Scene(): Transform() {}
 
 };
 

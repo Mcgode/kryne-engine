@@ -92,6 +92,6 @@ void OrbitCamera::updatePosition()
     float cosPhi = cos(this->angle.y);
     auto pos = vec3(cosPhi * sin(this->angle.x), sin(this->angle.y), cosPhi * cos(this->angle.x));
     pos *= this->distance;
-    Object3D::setPosition(pos + this->centerPosition);
+    Transform::setPosition(pos + this->centerPosition);
     this->lookAt(this->centerPosition);
 }
