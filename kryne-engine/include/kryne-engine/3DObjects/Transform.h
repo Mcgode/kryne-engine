@@ -193,6 +193,11 @@ public:
     void setWorldMatrixNeedsUpdate() { this->matrixWorldNeedsUpdate = true; }
 
     /**
+     * Retrieve the world matrix for this object
+     */
+    const mat4 &getWorldMatrix() const { return this->matrixWorld; }
+
+    /**
      * Retrieve the normal matrix for this object
      */
     [[nodiscard]] const mat3 &getNormalMatrix() const { return this->normalMatrix; }
