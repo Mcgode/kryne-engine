@@ -36,6 +36,8 @@ void Transform::updateTransform(bool force)
             child->updateTransform(true);
 
         this->matrixWorldNeedsUpdate = false;
+
+        this->attachedEntity->transformDidUpdate();
     }
 }
 

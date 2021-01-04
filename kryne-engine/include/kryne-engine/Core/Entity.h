@@ -85,6 +85,11 @@ public:
      */
     [[nodiscard]] const Transform *getTransform() const { return &this->transform; }
 
+    /**
+     * A callback that is called if the entity's transform was updated.
+     */
+    virtual void transformDidUpdate() = 0;
+
 
 protected:
 

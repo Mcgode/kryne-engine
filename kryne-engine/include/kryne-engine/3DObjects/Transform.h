@@ -56,12 +56,12 @@ public:
      * Returns the entity this transform is attached to
      * @return A raw pointer to the attached entity.
      */
-    [[nodiscard]] const Entity *getEntity() const { return attachedEntity; }
+    [[nodiscard]] inline Entity *getEntity() const { return attachedEntity; }
 
-protected:
+private:
 
     /// The entity this transform is attached to.
-    const Entity *attachedEntity;
+    Entity *attachedEntity;
 
 
 // -- Hierarchy --
