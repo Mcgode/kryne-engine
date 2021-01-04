@@ -112,12 +112,16 @@ glm::vec3 Transform::getWorldPosition()
     {
         this->updateParents(nullptr);
         auto p = this->parent->matrixWorld * glm::vec4(position, 1.);
-        return glm::vec3(p) * (1.f / p.w);
+        return vec3(p) * (1.f / p.w);
     }
 }
 
 
-void Transform::applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up)
+inline void Transform::lookAt(const vec3 &target, const vec3 &up, bool swap)
 {
-    this->setQuaternion(glm::toQuat(Math::getLookAtMatrix(eye, target, up)));
+    if ( swap )
+        this->setQuaternion(toQuat(Math::getLookAtMatrix(target, position, up)));
+
+    else
+        this->setQuaternion(toQuat(Math::getLookAtMatrix(position, target, up)));
 }

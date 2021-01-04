@@ -242,23 +242,13 @@ public:
     glm::vec3 getWorldPosition();
 
     /**
-     * Changes the object's rotation (through #quaternion) for it to look at the target position.
+     * Changes the object's rotation (through #quaternion) for it to look at the target position, using the current
+     * transform position as the 'eye' position.
      * @param target    The target position in world coordinates.
      * @param up        The up direction in world coordinates.
+     * @param swap      Set to `true` to swap the target and eye positions. Useful for camera lookAt operations.
      */
-    virtual void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0)) {
-        this->applyLookAt(this->getWorldPosition(), target, up);
-    }
-
-protected:
-
-    /**
-     * Computes and applies the lookAt transformation.
-     * @param eye       The eye position.
-     * @param target    The target position, in the same coordinate space.
-     * @param up        The up vector, in the same coordinate space.
-     */
-    inline void applyLookAt(const glm::vec3 &eye, const glm::vec3 &target, const glm::vec3 &up);
+    void lookAt(const vec3 &target = vec3(0), const vec3 &up = vec3(0, 1, 0), bool swap = false);
 
 };
 
