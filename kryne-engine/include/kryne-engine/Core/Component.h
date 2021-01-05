@@ -50,7 +50,7 @@ public:
 
     /**
      * A function for just-in-time initializations.
-     * This function is called just before its first #update() call;
+     * This function is called just before its first #onUpdate() call;
      */
     virtual void onBegin();
 
@@ -89,7 +89,7 @@ private:
 protected:
 
     /// @copydoc Entity::getTransform()
-    [[nodiscard]] const Transform *getTransform() const;
+    [[nodiscard]] Transform *getTransform() const;
 
     /// @copydoc Entity::addComponent()
     template<typename T, typename... Args>

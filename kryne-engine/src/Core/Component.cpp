@@ -13,7 +13,7 @@ void Component::onBegin()
 }
 
 
-inline const Transform *Component::getTransform() const
+inline Transform *Component::getTransform() const
 {
     return this->associatedEntity->getTransform();
 }

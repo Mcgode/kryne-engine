@@ -83,7 +83,7 @@ public:
      * Retrieves the transform of this entity.
      * @return A raw pointer to this entity's 3D transform.
      */
-    [[nodiscard]] const Transform *getTransform() const { return &this->transform; }
+    [[nodiscard]] Transform *getTransform() { return &this->transform; }
 
     /**
      * A callback that is called if the entity's transform was updated.
