@@ -4,44 +4,43 @@
  * @date 16/12/2020.
  */
 
-#ifndef KRYNE_ENGINE_ORBITCAMERA_H
-#define KRYNE_ENGINE_ORBITCAMERA_H
+#ifndef KRYNE_ENGINE_ORBITCONTROLSCOMPONENT_H
+#define KRYNE_ENGINE_ORBITCONTROLSCOMPONENT_H
 
 #include <kryne-engine/Input/PlayerInput.h>
 #include "Camera.h"
 
 
 /**
- * A camera that allows for orbit controls around a center position
+ * A camera control component that allows for orbit controls around a center position
  */
-class OrbitCamera : public Camera {
+class OrbitControlsComponent : public Component {
 
 public:
 
     /**
-     * Initializes the camera.
-     * @param projectionData    The projection data for this camera.
-     * @param playerInput       The input controller associated with this camera.
+     * Initializes the camera control component.
+     * @param entity The entity to attach this control component to
      */
-    OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput, Entity *entity);
+    explicit OrbitControlsComponent(Entity *entity);
 
     /**
      * @copydoc Object3D::updateTransform()
      */
-    void updateTransform(bool force) override;
+    void onUpdate() override;
 
     /**
      * @copydoc Object3D::setPosition()
      */
-    void setPosition(const vec3 &pos) override;
+    void setPosition(const vec3 &pos);
 
     /**
      * Changes the value of #centerPosition and updates the camera position accordingly.
      * @param newCenter The new center position for the orbit
      */
     void setCenterPosition(const vec3 &newCenter) {
-        OrbitCamera::centerPosition = newCenter;
-        OrbitCamera::updatePosition();
+        OrbitControlsComponent::centerPosition = newCenter;
+        OrbitControlsComponent::updatePosition();
     }
 
 
@@ -78,4 +77,4 @@ protected:
 };
 
 
-#endif //KRYNE_ENGINE_ORBITCAMERA_H
+#endif //KRYNE_ENGINE_ORBITCONTROLSCOMPONENT_H

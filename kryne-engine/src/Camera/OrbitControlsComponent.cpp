@@ -4,17 +4,16 @@
  * @date 16/12/2020.
  */
 
-#include "kryne-engine/Camera/OrbitCamera.h"
+#include "kryne-engine/Camera/OrbitControlsComponent.h"
 
-OrbitCamera::OrbitCamera(unique_ptr<ProjectionData> projectionData, weak_ptr<PlayerInput> playerInput, Entity *entity) :
-    Camera(entity, move(projectionData)),
-    playerInput(std::move(playerInput))
+OrbitControlsComponent::OrbitControlsComponent(Entity *entity) :
+    Component(entity)
 {
-    this->position = glm::vec3(0, 0, 5);
+    this->setPosition(vec3(0, 0, 5));
 }
 
 
-void OrbitCamera::updateTransform(bool force)
+void OrbitControlsComponent::onUpdate()
 {
     const auto input = this->playerInput.lock();
 
@@ -24,7 +23,8 @@ void OrbitCamera::updateTransform(bool force)
 
     if (input != nullptr)
     {
-        const auto dir = this->position - this->centerPosition;
+        const auto currentPosition = this->getTransform()->getPosition();
+        const auto dir = currentPosition - this->centerPosition;
         this->distance = length(dir);
 
         const auto movement = input->getCursorMovement();
@@ -46,7 +46,7 @@ void OrbitCamera::updateTransform(bool force)
             {
                 needsCenterUpdate = true;
 
-                const auto transformMatrix = Math::getLookAtMatrix(newCenter, this->position);
+                const auto transformMatrix = Math::getLookAtMatrix(newCenter, currentPosition);
 
                 newCenter += transformMatrix * vec3(-movement.x * this->radiansPerMousePixel, movement.y * this->radiansPerMousePixel, 0);
             }
@@ -68,11 +68,9 @@ void OrbitCamera::updateTransform(bool force)
         }
 
     }
-
-    Camera::updateTransform(force || needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate);
 }
 
-void OrbitCamera::setPosition(const vec3 &pos)
+void OrbitControlsComponent::setPosition(const vec3 &pos)
 {
     auto p = pos - this->centerPosition;
     const float d = length(p);
@@ -87,11 +85,11 @@ void OrbitCamera::setPosition(const vec3 &pos)
 }
 
 
-void OrbitCamera::updatePosition()
+void OrbitControlsComponent::updatePosition()
 {
     float cosPhi = cos(this->angle.y);
     auto pos = vec3(cosPhi * sin(this->angle.x), sin(this->angle.y), cosPhi * cos(this->angle.x));
     pos *= this->distance;
-    Transform::setPosition(pos + this->centerPosition);
-    this->lookAt(this->centerPosition);
+    this->getTransform()->setPosition(pos + this->centerPosition);
+    this->getTransform()->lookAt(this->centerPosition, vec3(0, 1, 0), true);
 }

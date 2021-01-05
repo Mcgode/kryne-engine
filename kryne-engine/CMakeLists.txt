@@ -49,7 +49,7 @@ add_library(kryne-engine STATIC
         src/Rendering/ShaderProgramCompiler.cpp include/kryne-engine/Rendering/ShaderProgramCompiler.h
         include/kryne-engine/Utils/StringUtils.hpp
         src/Input/PlayerInput.cpp include/kryne-engine/Input/PlayerInput.h
-        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h
+        src/Camera/OrbitControlsComponent.cpp include/kryne-engine/Camera/OrbitControlsComponent.h
         include/kryne-engine/Math/Transform.hpp
         include/kryne-engine/Utils/Utils.h src/Textures/Texture.cpp include/kryne-engine/Textures/Texture.h
         include/KryneEngine

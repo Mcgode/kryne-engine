@@ -11,7 +11,7 @@
 #include <kryne-engine/Camera/Camera.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/Camera/OldCamera.h>
-#include <kryne-engine/Camera/OrbitCamera.h>
+#include <kryne-engine/Camera/OrbitControlsComponent.h>
 #include <kryne-engine/Camera/PerspectiveProjectionData.hpp>
 #include <kryne-engine/Camera/ProjectionData.hpp>
 #include <kryne-engine/Camera/TrackballCamera.h>
