@@ -7,7 +7,7 @@
 
 void Mesh::updateTransform(bool force)
 {
-    const bool willUpdate = (this->matrixWorldNeedsUpdate || force) && this->attachedEntity->isEnabled();
+    const bool willUpdate = (this->matrixWorldNeedsUpdate || force) && this->getEntity()->isEnabled();
     Transform::updateTransform(force);
     if (willUpdate) {
         this->material->setUniform("modelMatrix", this->matrixWorld);
