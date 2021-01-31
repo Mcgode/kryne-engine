@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <unordered_map>
+#include <iostream>
 
 #include "Entity.h"
 #include "System.h"
@@ -18,7 +19,34 @@
 using namespace std;
 
 
+
+// ===========
+// Core process logic
+// ===========
+
 class Process {
+
+
+public:
+
+    /**
+     * Instantiates a new scene.
+     */
+    Scene *makeScene();
+
+    /**
+     * Runs a single game loop
+     */
+    void runLoop();
+
+protected:
+
+    /// The current scene used in the loop
+    Scene *currentScene;
+
+    /// The scenes for this process
+    unordered_set<unique_ptr<Scene>> scenes;
+
 
 // ===========
 // Entities-related interface

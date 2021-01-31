@@ -78,3 +78,30 @@ bool Process::detachSystem(System *system)
 
     return false;
 }
+
+
+Scene *Process::makeScene()
+{
+    unique_ptr<Scene> scene = make_unique<Scene>();
+    const auto p = scene.get();
+    scenes.emplace(move(scene));
+    return p;
+}
+
+
+void Process::runLoop()
+{
+    if (this->currentScene == nullptr && !this->scenes.empty())
+        this->currentScene = this->scenes.begin()->get();
+
+    if (this->currentScene != nullptr)
+    {
+        // TODO: multithread this
+        for (const auto& systemPair : this->processSystems)
+            systemPair.first->runSystem(this->currentScene, false);
+    }
+    else
+        cerr << "There is no scene for the process." << endl;
+
+    // TODO : see if anything else needs updating
+}
