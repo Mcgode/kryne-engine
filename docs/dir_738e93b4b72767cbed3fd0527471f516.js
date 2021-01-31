@@ -10,8 +10,8 @@ var dir_738e93b4b72767cbed3fd0527471f516 =
     [ "OldCamera.h", "_old_camera_8h.html", [
       [ "OldCamera", "class_old_camera.html", "class_old_camera" ]
     ] ],
-    [ "OrbitCamera.h", "_orbit_camera_8h.html", [
-      [ "OrbitCamera", "class_orbit_camera.html", "class_orbit_camera" ]
+    [ "OrbitControlsComponent.h", "_orbit_controls_component_8h.html", [
+      [ "OrbitControlsComponent", "class_orbit_controls_component.html", "class_orbit_controls_component" ]
     ] ],
     [ "PerspectiveProjectionData.hpp", "_perspective_projection_data_8hpp.html", [
       [ "PerspectiveProjectionData", "class_perspective_projection_data.html", "class_perspective_projection_data" ]

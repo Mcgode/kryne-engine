@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Updates OrbitCamera::position according to the orbit values.">
 <polygon fill="#bfbfbf" stroke="black" points="191,-38.5 191,-57.5 333,-57.5 333,-38.5 191,-38.5"/>
 <text text-anchor="middle" x="262" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">OrbitCamera::updatePosition</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="class_orbit_camera.html#ae286482b57a80eca137b076a9d6232b5" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="class_orbit_camera.html#ae286482b57a80eca137b076a9d6232b5" target="_top" xlink:title="Changes the value of centerPosition and updates the camera position accordingly.">
 <polygon fill="white" stroke="black" points="0,-76.5 0,-95.5 155,-95.5 155,-76.5 0,-76.5"/>
 <text text-anchor="middle" x="77.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">OrbitCamera::setCenterPosition</text>
 </a>

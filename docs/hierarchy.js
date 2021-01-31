@@ -6,9 +6,13 @@ var hierarchy =
     [ "BufferGeometry", "class_buffer_geometry.html", [
       [ "BoxBufferGeometry", "class_box_buffer_geometry.html", null ]
     ] ],
-    [ "Component", "class_component.html", null ],
+    [ "Component", "class_component.html", [
+      [ "OrbitControlsComponent", "class_orbit_controls_component.html", null ]
+    ] ],
     [ "DirectionalLight", "class_directional_light.html", null ],
-    [ "Entity", "class_entity.html", null ],
+    [ "Entity", "class_entity.html", [
+      [ "Camera", "class_camera.html", null ]
+    ] ],
     [ "FinalPostProcess", "class_final_post_process.html", [
       [ "PostProcess", "class_post_process.html", null ]
     ] ],
@@ -58,9 +62,6 @@ var hierarchy =
       [ "Texture2D", "class_texture2_d.html", null ]
     ] ],
     [ "Transform", "class_transform.html", [
-      [ "Camera", "class_camera.html", [
-        [ "OrbitCamera", "class_orbit_camera.html", null ]
-      ] ],
       [ "Mesh", "class_mesh.html", null ],
       [ "Scene", "class_scene.html", null ]
     ] ],

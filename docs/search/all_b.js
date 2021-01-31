@@ -12,5 +12,5 @@ var searchData=
   ['loadmodel_244',['loadModel',['../class_model_loader.html#aec9c0315046c513b20ca64eb7562a67c',1,'ModelLoader']]],
   ['loadshaderfromfile_245',['loadShaderFromFile',['../class_shader.html#ad6b977ab2afc45fe10382616ac4f899c',1,'Shader']]],
   ['localtransform_246',['localTransform',['../class_transform.html#a2ac7e7611d6faa4e00c356d3b710695d',1,'Transform']]],
-  ['lookat_247',['lookAt',['../class_transform.html#af6246a1939f5664ea95724b256dfc57a',1,'Transform::lookAt()'],['../class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7',1,'Camera::lookAt()']]]
+  ['lookat_247',['lookAt',['../class_transform.html#a139e1092c8752834c80e4e67c207bb80',1,'Transform']]]
 ];

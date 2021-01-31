@@ -1,6 +1,5 @@
 <map id="Scene" name="Scene">
 <area shape="rect" id="node1" title=" " alt="" coords="5,95,64,121"/>
-<area shape="rect" id="node2" href="$class_transform.html" title=" " alt="" coords="129,5,207,32"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="123,95,179,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="219,95,391,121"/>
+<area shape="rect" id="node2" href="$class_transform.html" title=" " alt="" coords="47,5,126,32"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,95,261,121"/>
 </map>

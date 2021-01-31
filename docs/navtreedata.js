@@ -62,8 +62,8 @@ var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
 "class_base_object.html#af3cb04a275093f0128f6d5b65f4d1e43",
-"class_player_input.html#aba1dd18f95d0c7d01ce2114297bbf101",
-"enums_8h_source.html"
+"class_player_input.html#a6ea4210836785a2b6b4fcfdf9e03dac8",
+"enums_2_base_object_8h.html#ac0f5017bd97449fa761e87e240568170"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,11 +1,4 @@
 <map id="OrbitCamera::updatePosition" name="OrbitCamera::updatePosition">
-<area shape="rect" id="node1" title=" " alt="" coords="5,112,195,139"/>
-<area shape="rect" id="node2" href="$class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7" title=" " alt="" coords="263,87,375,113"/>
-<area shape="rect" id="node9" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title=" " alt="" coords="243,137,395,164"/>
-<area shape="rect" id="node3" href="$class_transform.html#af5734ec7bdafe7d1476e97aa09c9fcf6" title=" " alt="" coords="457,56,615,83"/>
-<area shape="rect" id="node6" href="$class_transform.html#a4aceae93bd257caee5459fe0d2c44dcf" title=" " alt="" coords="443,119,629,145"/>
-<area shape="rect" id="node4" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title=" " alt="" coords="685,5,840,32"/>
-<area shape="rect" id="node5" href="$class_transform.html#af5791c2b5044fe3db559579c21feaec8" title=" " alt="" coords="679,56,847,83"/>
-<area shape="rect" id="node7" href="$class_transform.html#a1a6acc87d9a71ce0017898ba55b0951b" title=" " alt="" coords="677,131,848,157"/>
-<area shape="rect" id="node8" href="$class_transform.html#ae511cc7b5382f46863ed06975ed80e57" title=" " alt="" coords="896,123,1067,165"/>
+<area shape="rect" id="node1" title="Updates OrbitCamera::position according to the orbit values." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node2" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title="Change the object position." alt="" coords="243,5,395,32"/>
 </map>
