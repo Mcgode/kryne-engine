@@ -72,7 +72,7 @@ add_library(kryne-engine STATIC
         src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h
         src/Core/Entity.cpp include/kryne-engine/Core/Entity.h
         src/Core/Process.cpp include/kryne-engine/Core/Process.h
-        src/Core/Component.cpp include/kryne-engine/Core/Component.h)
+        src/Core/Component.cpp include/kryne-engine/Core/Component.h src/Core/System.cpp include/kryne-engine/Core/System.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

@@ -41,3 +41,40 @@ bool Process::detachEntity(Entity *entity)
 
     return false;
 }
+
+
+template<typename T, typename... Args>
+T *Process::makeSystem(Args&&... args)
+{
+    static_assert(is_convertible<T, System>::value, "Class must inherit from System");
+
+    const auto entity = make_shared<T>(this, forward<Args>(args)...);
+    this->processEntities.emplace(pair(entity->get(), entity));
+    return entity->get();
+}
+
+
+weak_ptr<Entity> Process::getWeakReference(System *system)
+{
+    const auto it = this->processSystems.find(system);
+
+    weak_ptr<Entity> ptr;
+    if (it != this->processSystems.end())
+        ptr = it->second;
+
+    return ptr;
+}
+
+
+bool Process::detachSystem(System *system)
+{
+    const auto it = this->processSystems.find(system);
+
+    if (it != this->processSystems.end())
+    {
+        this->processSystems.erase(it);
+        return true;
+    }
+
+    return false;
+}

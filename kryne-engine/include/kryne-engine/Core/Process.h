@@ -12,12 +12,17 @@
 #include <unordered_map>
 
 #include "Entity.h"
+#include "System.h"
 
 
 using namespace std;
 
 
 class Process {
+
+// ===========
+// Entities-related interface
+// ===========
 
 public:
 
@@ -34,7 +39,7 @@ public:
 
     /**
      * Retrieves a weak reference of an entity attached to the process.
-     * @param entity    The attached entity.
+     * @param system    The attached entity.
      * @return  A weak reference to the provided entity. Will link to nullptr if the provided entity is not attached to
      *          the process.
      */
@@ -52,6 +57,45 @@ protected:
 
     /// The set of entities attached to this process, mapping the pointer to its corresponding shared pointer.
     unordered_map<Entity *, shared_ptr<Entity>> processEntities;
+
+
+// ===========
+// Systems-related interface
+// ===========
+
+public:
+
+    /**
+     * Initializes a system and attaches it to this process.
+     * @tparam T        The system class
+     * @tparam Args     The class constructor argument types collection.
+     * @param args      The arguments for the class constructor
+     * @return A pointer to the newly created system. The pointer is linked to a shared pointer owned only by the
+     *         process. Weak reference to the object can be retrieved using #getWeakReference
+     */
+    template<typename T, typename... Args>
+    T *makeSystem(Args&&... args);
+
+    /**
+     * Retrieves a weak reference of a system attached to the process.
+     * @param system    The attached system.
+     * @return  A weak reference to the provided system. Will link to nullptr if the provided system is not attached to
+     *          the process.
+     */
+    weak_ptr<Entity> getWeakReference(System *system);
+
+    /**
+     * Detaches a system from the process, meaning it should be deleted (if there is no other shared reference active
+     * at the moment).
+     * @param system    The system to detach.
+     * @return `true` if the provided system was attached. `false` otherwise.
+     */
+    bool detachSystem(System *system);
+
+protected:
+
+    /// The set of systems attached to this process, mapping the pointer to its corresponding shared pointer.
+    unordered_map<System *, shared_ptr<System>> processSystems;
 
 };
 
