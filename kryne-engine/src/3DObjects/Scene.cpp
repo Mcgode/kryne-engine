@@ -21,3 +21,17 @@ void Scene::remove(Transform *transform)
     for (const auto child : transform->getChildren())
         this->remove(child);
 }
+
+
+const unordered_set<Entity *> &Scene::getTopLevelEntities()
+{
+    this->topLevelEntities.clear();
+
+    for (Entity *entity : this->sceneEntities)
+    {
+        if (entity->getTransform()->getParent() == nullptr)
+            this->topLevelEntities.insert(entity);
+    }
+
+    return this->topLevelEntities;
+}

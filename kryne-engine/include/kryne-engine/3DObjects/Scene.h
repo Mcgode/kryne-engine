@@ -42,11 +42,20 @@ public:
      */
     void remove(Transform *transform);
 
+    /**
+     * Retrieves the top-level entities of the scene (meaning the super-parent entities)
+     * @return An unordered set of those entities.
+     */
+    const unordered_set<Entity *> &getTopLevelEntities();
+
 
 protected:
 
     /// A flat set of entities
     unordered_set<Entity *> sceneEntities {};
+
+    /// TODO: Update it automatically
+    unordered_set<Entity *> topLevelEntities {};
 
 
 };
