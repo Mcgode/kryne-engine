@@ -14,6 +14,7 @@
 
 #include "Entity.h"
 #include "System.h"
+#include "GraphicContext/GraphicContext.h"
 
 
 using namespace std;
@@ -29,6 +30,8 @@ class Process {
 
 public:
 
+    Process(GraphicContext *context): context(context) {}
+
     /**
      * Instantiates a new scene.
      */
@@ -39,7 +42,15 @@ public:
      */
     void runLoop();
 
+    /**
+     * Returns the graphic context used for this process.
+     */
+    GraphicContext *getGraphicContext() const { return this->context; }
+
 protected:
+
+    /// The graphical context for this process
+    GraphicContext *context;
 
     /// The current scene used in the loop
     Scene *currentScene;
