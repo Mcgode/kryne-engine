@@ -9,7 +9,7 @@
 Entity::Entity(Process *process):
     id(Entity::nextId()),
     process(process),
-    transform(this)
+    transform(make_unique<Transform>(this))
 {}
 
 
