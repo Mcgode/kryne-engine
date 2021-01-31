@@ -21,6 +21,17 @@ class System {
 public:
 
     /**
+     * Initializes the system
+     * @param process The process this system is attached to
+     */
+    explicit System(Process *process): attachedProcess(process) {}
+
+    /**
+     * Returns the process this system is attached to
+     */
+    [[nodiscard]] Process *getAttachedProcess() const { return attachedProcess; }
+
+    /**
      * Runs the provided system. Called once every loop.
      *
      * @param scene                     The scene on which to run this process.
@@ -32,6 +43,11 @@ public:
      * @warning Expect systems to be run concurrently.
      */
     virtual void runSystem(Scene *scene, bool allowConcurrentChunks) = 0;
+
+private:
+
+    /// The process this system is attached to
+    Process *attachedProcess;
 
 };
 
