@@ -12,5 +12,5 @@ void Camera::setProjectionData(unique_ptr<ProjectionData> newProjectionData)
 
 void Camera::transformDidUpdate()
 {
-    viewMatrix = inverse(this->transform.getWorldMatrix());
+    viewMatrix = inverse(this->transform->getWorldMatrix());
 }
