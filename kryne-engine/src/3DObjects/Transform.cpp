@@ -68,6 +68,13 @@ void Transform::add(Transform *child)
 
     child->parent = this;
     this->children.push_back(child);
+
+    if (child->attachedScene != this->attachedScene) {
+
+        child->attachedScene->remove(child);
+        this->attachedScene->add(child);
+
+    }
 }
 
 
@@ -95,10 +102,13 @@ void Transform::traverse(Transform::TraverseCallback callback)
 
 Transform::~Transform()
 {
-    for (const auto& child : this->children) {
+    for (const auto& child : this->children)
         child->parent = nullptr;
-    }
+
     this->removeFromParent();
+
+    if (this->attachedScene != nullptr)
+        this->attachedScene->remove(this);
 }
 
 
@@ -124,4 +134,18 @@ inline void Transform::lookAt(const vec3 &target, const vec3 &up, bool swap)
 
     else
         this->setQuaternion(toQuat(Math::getLookAtMatrix(position, target, up)));
+}
+
+
+void Transform::setScene(Scene *scene)
+{
+    if (this->parent != nullptr)
+        this->removeFromParent();
+
+    if (this->attachedScene != nullptr)
+        this->attachedScene->remove(this);
+
+    this->attachedScene = scene;
+    if (scene != nullptr)
+        scene->add(this);
 }

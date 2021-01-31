@@ -10,6 +10,7 @@
 
 // Circular dependencies forward declaration
 class Entity;
+class Scene;
 
 
 #include <memory>
@@ -26,6 +27,7 @@ class Entity;
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <kryne-engine/Math/Transform.hpp>
+#include "Scene.h"
 
 
 using namespace std;
@@ -58,10 +60,20 @@ public:
      */
     [[nodiscard]] inline Entity *getEntity() const { return attachedEntity; }
 
+    /**
+     * Attaches the transform (and its attached entity) to a scene.
+     * @param scene     The scene to attach to. Can be null.
+     * @warning If the transform has a parent, will remove itself from its children before setting the scene.
+     */
+    void setScene(Scene *scene);
+
 private:
 
     /// The entity this transform is attached to.
     Entity *attachedEntity;
+
+    /// The scene this transform is attached to.
+    Scene *attachedScene;
 
 
 // -- Hierarchy --
@@ -83,6 +95,8 @@ public:
      * Removes the provided object from this object's children, if it belonged to it.
      * @param childToRemove The raw pointer to the child to remove.
      * @return `true` is the provided transform was removed, `false` otherwise
+     * @note    The child won't be detached from the scene by default. Use Transform::setScene() on the child with
+     *          `nullptr` as parameter to detach it from the scene completely.
      */
     bool remove(Transform *childToRemove);
 
