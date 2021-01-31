@@ -82,7 +82,7 @@ public:
      * @return  A weak reference to the provided system. Will link to nullptr if the provided system is not attached to
      *          the process.
      */
-    weak_ptr<Entity> getWeakReference(System *system);
+    weak_ptr<System> getWeakReference(System *system);
 
     /**
      * Detaches a system from the process, meaning it should be deleted (if there is no other shared reference active

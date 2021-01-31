@@ -54,11 +54,11 @@ T *Process::makeSystem(Args&&... args)
 }
 
 
-weak_ptr<Entity> Process::getWeakReference(System *system)
+weak_ptr<System> Process::getWeakReference(System *system)
 {
     const auto it = this->processSystems.find(system);
 
-    weak_ptr<Entity> ptr;
+    weak_ptr<System> ptr;
     if (it != this->processSystems.end())
         ptr = it->second;
 
