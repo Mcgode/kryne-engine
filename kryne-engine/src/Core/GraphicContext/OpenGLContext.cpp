@@ -4,7 +4,7 @@
  * @date 31/01/2021.
  */
 
-#include "OpenGLContext.h"
+#include "kryne-engine/Core/GraphicContext/OpenGLContext.h"
 
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
