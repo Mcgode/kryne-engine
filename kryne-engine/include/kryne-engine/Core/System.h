@@ -13,7 +13,7 @@
 
 // Circular dependencies forward declaration
 class Process;
-class Scene;
+class Entity;
 
 
 /**
@@ -36,18 +36,16 @@ public:
     [[nodiscard]] Process *getAttachedProcess() const { return attachedProcess; }
 
     /**
-     * Runs the provided system. Called once every loop.
+     * Runs the system. Called once per entity every loop.
      *
-     * @param scene                     The scene on which to run this process.
-     *
-     * @param allowConcurrentChunks     If `true`, the process expects systems to try and divide its current tasks into
-     *                                  multiple chunks of code that can be run concurrently.
-     *                                  You can ignore this flag if it is not relevant.
-     *
-     * @warning Expect systems to be run concurrently.
+     * @param entity    The entity to run this system for.
      */
-    virtual void runSystem(Scene *scene, bool allowConcurrentChunks) = 0;
+    virtual void runSystem(Entity *entity) = 0;
 
+    /**
+     * A function that is called once, at the start of every loop.
+     */
+    virtual void loopReset() = 0;
 
     [[nodiscard]] SystemTypes getType() const { return type; }
 
@@ -66,7 +64,7 @@ private:
 
 // Circular dependencies includes
 #include "Process.h"
-#include <kryne-engine/3DObjects/Scene.h>
+#include "Entity.h"
 
 
 #endif //KRYNE_ENGINE_SYSTEM_H

@@ -110,36 +110,39 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
-        auto it = this->systemsByType.find(PreRendering);
-        if (it != this->systemsByType.end())
+        for (const auto entity : this->currentScene->getEntities()) 
         {
-            // TODO: multithread this
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(this->currentScene, false);
-        }
+            auto it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
 
-        it = this->systemsByType.find(GameLogic);
-        if (it != this->systemsByType.end())
-        {
-            // TODO: multithread this
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(this->currentScene, false);
-        }
+            it = this->systemsByType.find(GameLogic);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
 
-        it = this->systemsByType.find(PreRendering);
-        if (it != this->systemsByType.end())
-        {
-            // TODO: multithread this
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(this->currentScene, false);
-        }
+            it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
 
-        it = this->systemsByType.find(PostRendering);
-        if (it != this->systemsByType.end())
-        {
-            // TODO: multithread this
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(this->currentScene, false);
+            it = this->systemsByType.find(PostRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
         }
     }
     else
