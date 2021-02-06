@@ -136,6 +136,20 @@ protected:
     /// The set of systems attached to this process, mapping the pointer to its corresponding shared pointer.
     unordered_map<System *, shared_ptr<System>> processSystems;
 
+
+// ===========
+// Helper functions
+// ===========
+
+
+public:
+
+    /**
+     * Helper function for retrieving the current player input handler.
+     * @return The PlayerInput for the current graphic context
+     */
+    PlayerInput *getPlayerInput();
+
 };
 
 

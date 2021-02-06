@@ -105,3 +105,9 @@ void Process::runLoop()
 
     // TODO : see if anything else needs updating
 }
+
+
+inline PlayerInput *Process::getPlayerInput()
+{
+    return this->context->getPlayerInput();
+}
