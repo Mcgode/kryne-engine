@@ -11,6 +11,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <kryne-engine/Rendering/RenderingState.hpp>
+#include <kryne-engine/Rendering/Renderers/OpenGLRenderer.h>
 #include "GraphicContext.h"
 
 
@@ -20,6 +22,8 @@ using namespace std;
  * An OpenGL graphic context for the process
  */
 class OpenGLContext: public GraphicContext {
+
+friend class OpenGLRenderer;
 
 public:
 
@@ -55,6 +59,8 @@ public:
      */
     PlayerInput *getPlayerInput() override;
 
+    LoopRenderer *getRenderer() override;
+
     /**
      * Terminates the OpenGL context.
      */
@@ -67,5 +73,11 @@ protected:
 
     /// The PlayerInput for this context.
     shared_ptr<PlayerInput> input;
+
+    /// The rendering state of the graphic context.
+    unique_ptr<RenderingState> renderingState;
+
+    /// The renderer for this context
+    unique_ptr<OpenGLRenderer> renderer;
 
 };

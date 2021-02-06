@@ -83,3 +83,9 @@ OpenGLContext::~OpenGLContext()
 {
     glfwTerminate();
 }
+
+
+LoopRenderer *OpenGLContext::getRenderer()
+{
+    return reinterpret_cast<LoopRenderer *>(this->renderer.get());
+}
