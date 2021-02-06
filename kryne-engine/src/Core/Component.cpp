@@ -7,12 +7,6 @@
 #include "kryne-engine/Core/Component.h"
 
 
-void Component::onBegin()
-{
-    this->begun = true;
-}
-
-
 inline Transform *Component::getTransform() const
 {
     return this->associatedEntity->getTransform();

@@ -130,11 +130,14 @@ protected:
 public:
 
     /**
-     * Initializes and attaches a new component to the entity.
+     * @brief Initializes and attaches a new component to the entity.
      * @tparam T        The component class
      * @tparam Args     The class constructor argument types collection.
      * @param args      The arguments for the class constructor
      * @return A raw pointer to the new component
+     *
+     * @details The function will call the corresponding component constructor, by prepending a pointer to itself to the
+     *          argument list. As such, the called constructor must be in the form `Component(Entity *, Args ...args)`.
      */
     template<typename T, typename... Args>
     T *addComponent(Args&&... args);

@@ -7,7 +7,7 @@
 #include "kryne-engine/Camera/OrbitControlsComponent.h"
 
 OrbitControlsComponent::OrbitControlsComponent(Entity *entity) :
-    Component(entity)
+    LogicComponent(entity)
 {
     this->setPosition(vec3(0, 0, 5));
 }

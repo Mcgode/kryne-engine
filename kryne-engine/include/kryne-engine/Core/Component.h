@@ -42,47 +42,6 @@ protected:
 
 
 // -----
-// Component lifecycle
-// -----
-
-
-public:
-
-    /**
-     * A function for just-in-time initializations.
-     * This function is called just before its first #onUpdate() call;
-     */
-    virtual void onBegin();
-
-    /**
-     * @return `true` if onBegin has already been called
-     */
-    [[nodiscard]] inline bool hasBegun() const { return this->begun; }
-
-    /**
-     * Function called when the component is attached to an entity
-     * @warning #onBegin() might not have been called yet
-     */
-    virtual void onAttach() = 0;
-
-    /**
-     * Update function called once per frame. Use it to run your component logic.
-     */
-    virtual void onUpdate() = 0;
-
-    /**
-     * Function called when the component is detached from its entity.
-     * Won't be called if the component is simply destroyed along its attached entity.
-     * @warning #onBegin() might not have been called yet.
-     */
-     virtual void onDetach() = 0;
-
-private:
-
-    bool begun = false;
-
-
-// -----
 // Entity helper functions
 // -----
 

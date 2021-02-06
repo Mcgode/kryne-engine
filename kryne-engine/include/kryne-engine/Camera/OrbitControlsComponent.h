@@ -8,13 +8,14 @@
 #define KRYNE_ENGINE_ORBITCONTROLSCOMPONENT_H
 
 #include <kryne-engine/Input/PlayerInput.h>
+#include <kryne-engine/Core/LogicComponent.h>
 #include "Camera.h"
 
 
 /**
  * A camera control component that allows for orbit controls around a center position
  */
-class OrbitControlsComponent : public Component {
+class OrbitControlsComponent : public LogicComponent {
 
 public:
 
