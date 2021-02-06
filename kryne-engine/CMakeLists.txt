@@ -78,7 +78,8 @@ add_library(kryne-engine STATIC
         src/Core/GraphicContext/OpenGLContext.cpp include/kryne-engine/Core/GraphicContext/OpenGLContext.h
         src/Rendering/RenderMesh.cpp include/kryne-engine/Rendering/RenderMesh.h
         src/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h
-        include/kryne-engine/enums/SystemTypes.h)
+        include/kryne-engine/enums/SystemTypes.h
+        include/kryne-engine/Systems/TransformUpdateSystem.cpp include/kryne-engine/Systems/TransformUpdateSystem.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
