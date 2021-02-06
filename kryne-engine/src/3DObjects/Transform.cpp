@@ -21,7 +21,7 @@ void Transform::calculateLocalTransform()
 }
 
 
-void Transform::updateTransform(bool force)
+void Transform::updateTransform(bool force, bool updateChildren)
 {
     if ((this->matrixWorldNeedsUpdate || force) && this->attachedEntity->isEnabled())
     {
@@ -33,7 +33,12 @@ void Transform::updateTransform(bool force)
         this->normalMatrix = mat3(transpose(inverse(this->matrixWorld)));
 
         for (const auto& child : this->children)
-            child->updateTransform(true);
+        {
+            if (updateChildren)
+                child->updateTransform(true, updateChildren);
+            else
+                child->setWorldMatrixNeedsUpdate();
+        }
 
         this->matrixWorldNeedsUpdate = false;
 

@@ -81,7 +81,7 @@ protected:
 public:
 
     //! @copydoc Object3D::updateTransform()
-    void updateTransform(bool force) override;
+    void updateTransform(bool force, bool updateChildren) override;
 
     //! @copydoc Object3D::updateParents()
     const mat4 &updateParents(const Transform *caller) override;

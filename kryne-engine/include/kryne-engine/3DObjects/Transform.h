@@ -148,9 +148,10 @@ public:
 
     /**
      * Updates the object transform if needed.
-     * @param force  Set to true to force the update
+     * @param force             Set to true to force the update
+     * @param updateChildren    Set to true to update children transforms as well.
      */
-    virtual void updateTransform(bool force);
+    virtual void updateTransform(bool force, bool updateChildren);
 
     /**
      * Update the object itself along its parents.

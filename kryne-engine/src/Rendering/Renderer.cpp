@@ -14,7 +14,7 @@ Renderer::Renderer(uint16_t width, uint16_t height) :
 void Renderer::render(Scene *scene, Camera *camera)
 {
 //    scene->traverse(&updateObjects);
-    camera->getTransform()->updateTransform(false);
+//    camera->getTransform()->updateTransform(false);
 
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -25,7 +25,7 @@ void Renderer::render(Scene *scene, Camera *camera)
 
 void Renderer::updateObjects(Transform *object)
 {
-    object->updateTransform(false);
+//    object->updateTransform(false);
 }
 
 
