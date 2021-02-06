@@ -35,6 +35,8 @@ public:
      */
     explicit Component(Entity *entity): associatedEntity(entity) {}
 
+    [[nodiscard]] Entity *getEntity() const { return this->associatedEntity; }
+
 protected:
 
     /// The entity this component is attached to.
