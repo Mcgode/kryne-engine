@@ -9,15 +9,11 @@
 
 #include <kryne-engine/Core/Component.h>
 
-class Entity;
-class Camera;
+
+#include "IRenderMesh.hpp"
 
 
-#include <kryne-engine/Geometry/BufferGeometry.h>
-#include <kryne-engine/Material/Material.h>
-
-
-class RenderMesh: public Component {
+class RenderMesh: public Component, virtual public IRenderMesh {
 
 public:
 
@@ -27,7 +23,7 @@ public:
      * Function called before the mesh is rendered
      * @param camera    The camera used for the rendering
      */
-    virtual void onBeforeRender(const Camera *camera) {};
+    void onBeforeRender(const ICamera *camera) override {};
 
     /**
      * Returns the current geometry in the form of a shared pointer.
@@ -47,9 +43,7 @@ public:
     /**
      * Returns the current material in the form of a shared pointer.
      */
-    [[nodiscard]] const shared_ptr<Material> &getMaterial() const {
-        return material;
-    }
+    [[nodiscard]] const shared_ptr<Material> &getMaterial() const  { return material; }
 
     /**
      * Overrides the current mesh material.
@@ -68,5 +62,3 @@ protected:
     shared_ptr<Material> material;
 
 };
-
-#include <kryne-engine/Camera/Camera.h>
