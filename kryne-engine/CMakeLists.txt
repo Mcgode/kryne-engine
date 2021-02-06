@@ -72,7 +72,7 @@ add_library(kryne-engine STATIC
         src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h
         src/Core/Entity.cpp include/kryne-engine/Core/Entity.h
         src/Core/Process.cpp include/kryne-engine/Core/Process.h
-        src/Core/Component.cpp include/kryne-engine/Core/Component.h src/Core/System.cpp include/kryne-engine/Core/System.h include/kryne-engine/Core/GraphicContext/GraphicContext.h src/Core/GraphicContext/OpenGLContext.cpp include/kryne-engine/Core/GraphicContext/OpenGLContext.h include/kryne-engine/Rendering/RendererSystem.h src/Rendering/RendererSystem.cpp src/Rendering/RenderMesh.cpp include/kryne-engine/Rendering/RenderMesh.h include/kryne-engine/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h)
+        src/Core/Component.cpp include/kryne-engine/Core/Component.h src/Core/System.cpp include/kryne-engine/Core/System.h include/kryne-engine/Core/GraphicContext/GraphicContext.h src/Core/GraphicContext/OpenGLContext.cpp include/kryne-engine/Core/GraphicContext/OpenGLContext.h include/kryne-engine/Rendering/RendererSystem.h src/Rendering/RendererSystem.cpp src/Rendering/RenderMesh.cpp include/kryne-engine/Rendering/RenderMesh.h src/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

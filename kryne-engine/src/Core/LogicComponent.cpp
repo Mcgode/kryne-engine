@@ -4,7 +4,7 @@
  * @date 06/02/2021.
  */
 
-#include "LogicComponent.h"
+#include "kryne-engine/Core/LogicComponent.h"
 
 
 void LogicComponent::onBegin()
