@@ -4,7 +4,7 @@
  * @date 06/02/2021.
  */
 
-#include "TransformUpdateSystem.h"
+#include "kryne-engine/Systems/TransformUpdateSystem.h"
 
 void TransformUpdateSystem::runSystem(Entity *entity)
 {
