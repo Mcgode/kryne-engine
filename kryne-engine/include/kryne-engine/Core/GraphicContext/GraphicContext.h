@@ -8,6 +8,7 @@
 
 
 #include <kryne-engine/Input/PlayerInput.h>
+#include <kryne-engine/Rendering/LoopRenderer.h>
 
 
 /**
@@ -36,5 +37,10 @@ public:
      * Retrieves the player input associated with this context.
      */
     virtual PlayerInput *getPlayerInput() = 0;
+
+    /**
+     * Retrieves the renderer for this context.
+     */
+    virtual LoopRenderer *getRenderer() = 0;
 
 };
