@@ -57,7 +57,7 @@ T *Process::makeSystem(Args&&... args)
         unordered_set<System *> set;
         it = this->systemsByType.emplace(system->getType(), set).first;
     }
-    it.second.emplace(system);
+    it->second.emplace(system);
 
     return system->get();
 }
@@ -110,9 +110,37 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
-        // TODO: multithread this
-        for (const auto& systemPair : this->processSystems)
-            systemPair.first->runSystem(this->currentScene, false);
+        auto it = this->systemsByType.find(PreRendering);
+        if (it != this->systemsByType.end())
+        {
+            // TODO: multithread this
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(this->currentScene, false);
+        }
+
+        it = this->systemsByType.find(GameLogic);
+        if (it != this->systemsByType.end())
+        {
+            // TODO: multithread this
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(this->currentScene, false);
+        }
+
+        it = this->systemsByType.find(PreRendering);
+        if (it != this->systemsByType.end())
+        {
+            // TODO: multithread this
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(this->currentScene, false);
+        }
+
+        it = this->systemsByType.find(PostRendering);
+        if (it != this->systemsByType.end())
+        {
+            // TODO: multithread this
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(this->currentScene, false);
+        }
     }
     else
         cerr << "There is no scene for the process." << endl;
