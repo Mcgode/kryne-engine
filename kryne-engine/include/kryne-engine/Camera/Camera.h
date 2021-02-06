@@ -7,11 +7,14 @@
 #ifndef INC_KRYNE_ENGINE_CAMERA_H
 #define INC_KRYNE_ENGINE_CAMERA_H
 
+
 #include <memory>
 #include <kryne-engine/Core/Entity.h>
-#include "ProjectionData.hpp"
 
-class Camera : public Entity {
+#include "ICamera.hpp"
+
+
+class Camera : public Entity, virtual public ICamera {
 
 public:
 
