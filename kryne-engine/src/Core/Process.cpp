@@ -48,9 +48,18 @@ T *Process::makeSystem(Args&&... args)
 {
     static_assert(is_convertible<T, System>::value, "Class must inherit from System");
 
-    const auto entity = make_shared<T>(this, forward<Args>(args)...);
-    this->processEntities.emplace(pair(entity->get(), entity));
-    return entity->get();
+    const auto system = make_shared<T>(this, forward<Args>(args)...);
+    this->processSystems.emplace(system->get(), system);
+
+    auto it = this->systemsByType.find(system->getType());
+    if (it == this->systemsByType.end())
+    {
+        unordered_set<System *> set;
+        it = this->systemsByType.emplace(system->getType(), set).first;
+    }
+    it.second.emplace(system);
+
+    return system->get();
 }
 
 
@@ -73,6 +82,11 @@ bool Process::detachSystem(System *system)
     if (it != this->processSystems.end())
     {
         this->processSystems.erase(it);
+
+        const auto it2 = this->systemsByType.find(system->getType());
+        if ( it2 != this->systemsByType.end() )
+            it2->second.erase(system);
+
         return true;
     }
 

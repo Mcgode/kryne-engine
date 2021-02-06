@@ -8,6 +8,9 @@
 #define KRYNE_ENGINE_SYSTEM_H
 
 
+#include <kryne-engine/enums/SystemTypes.h>
+
+
 // Circular dependencies forward declaration
 class Process;
 class Scene;
@@ -22,9 +25,10 @@ public:
 
     /**
      * Initializes the system
-     * @param process The process this system is attached to
+     * @param process   The process this system is attached to.
+     * @param type      The type of this system.
      */
-    explicit System(Process *process): attachedProcess(process) {}
+    explicit System(Process *process, SystemTypes type = PostRendering): attachedProcess(process), type(type) {}
 
     /**
      * Returns the process this system is attached to
@@ -43,6 +47,14 @@ public:
      * @warning Expect systems to be run concurrently.
      */
     virtual void runSystem(Scene *scene, bool allowConcurrentChunks) = 0;
+
+
+    [[nodiscard]] SystemTypes getType() const { return type; }
+
+protected:
+
+    /// The type of this system.
+    SystemTypes type;
 
 private:
 

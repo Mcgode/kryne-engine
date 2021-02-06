@@ -136,6 +136,9 @@ protected:
     /// The set of systems attached to this process, mapping the pointer to its corresponding shared pointer.
     unordered_map<System *, shared_ptr<System>> processSystems;
 
+    /// A map of processes by type
+    unordered_map<SystemTypes, unordered_set<System *>> systemsByType;
+
 
 // ===========
 // Helper functions
