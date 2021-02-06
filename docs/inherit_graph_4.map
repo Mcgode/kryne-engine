@@ -1,4 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_component.html" title=" " alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node2" href="$class_orbit_controls_component.html" title=" " alt="" coords="141,5,305,32"/>
+<area shape="rect" id="node1" href="$class_component.html" title=" " alt="" coords="5,31,93,57"/>
+<area shape="rect" id="node2" href="$class_logic_component.html" title=" " alt="" coords="141,5,260,32"/>
+<area shape="rect" id="node4" href="$class_render_mesh.html" title=" " alt="" coords="153,56,248,83"/>
+<area shape="rect" id="node3" href="$class_orbit_controls_component.html" title=" " alt="" coords="308,5,472,32"/>
 </map>
