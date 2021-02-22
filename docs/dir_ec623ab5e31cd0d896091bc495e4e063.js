@@ -11,7 +11,6 @@ var dir_ec623ab5e31cd0d896091bc495e4e063 =
       [ "Entity", "class_entity.html", "class_entity" ]
     ] ],
     [ "GeometricShapes.h", "_geometric_shapes_8h.html", "_geometric_shapes_8h" ],
-    [ "LogicComponent.cpp", "_logic_component_8cpp.html", null ],
     [ "LogicComponent.h", "_logic_component_8h.html", [
       [ "LogicComponent", "class_logic_component.html", "class_logic_component" ]
     ] ],

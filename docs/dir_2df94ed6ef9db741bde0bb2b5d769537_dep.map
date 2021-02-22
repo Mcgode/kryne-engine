@@ -1,14 +1,14 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Material" name="kryne&#45;engine/include/kryne&#45;engine/Material">
 <area shape="rect" id="node1" href="dir_2df94ed6ef9db741bde0bb2b5d769537.html" title="Material" alt="" coords="100,52,172,100"/>
 <area shape="rect" id="node2" href="dir_ff137d22f21ebfd8b3f4b25121363126.html" title="Textures" alt="" coords="5,148,77,196"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000005_000020.html" title="2" alt="" coords="79,134,87,148"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000005_000022.html" title="2" alt="" coords="79,134,87,148"/>
 <area shape="rect" id="node3" href="dir_6461cf5290df6a95e69a46be8b2326db.html" title="Utils" alt="" coords="101,148,173,196"/>
 <area shape="rect" id="edge2-headlabel" href="dir_000005_000006.html" title="1" alt="" coords="141,122,149,137"/>
 <area shape="rect" id="node4" href="dir_242c69f8aa6c0b27ad66788f5b769271.html" title="Rendering" alt="" coords="196,52,276,100"/>
 <area shape="rect" id="edge3-headlabel" href="dir_000005_000017.html" title="1" alt="" coords="174,60,182,75"/>
 <area shape="rect" id="node5" href="dir_38bf7f35d8fb44d8d23d70926bbee9d1.html" title="enums" alt="" coords="199,148,271,196"/>
 <area shape="rect" id="edge4-headlabel" href="dir_000005_000008.html" title="1" alt="" coords="199,122,207,137"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000017_000005.html" title="1" alt="" coords="186,77,194,92"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000017_000005.html" title="2" alt="" coords="186,77,194,92"/>
 <area shape="rect" id="edge6-headlabel" href="dir_000017_000008.html" title="1" alt="" coords="240,123,248,137"/>
 <area shape="rect" id="clust1" href="dir_6f1e06805bf6fd443f4521a944e15946.html" title="kryne&#45;engine" alt="" coords="88,16,184,111"/>
 </map>

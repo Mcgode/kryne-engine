@@ -7,6 +7,9 @@ var dir_738e93b4b72767cbed3fd0527471f516 =
       [ "Camera", "class_camera.html", "class_camera" ]
     ] ],
     [ "FirstPersonCamera.h", "_first_person_camera_8h.html", "_first_person_camera_8h" ],
+    [ "ICamera.hpp", "_i_camera_8hpp.html", [
+      [ "ICamera", "class_i_camera.html", "class_i_camera" ]
+    ] ],
     [ "OldCamera.h", "_old_camera_8h.html", [
       [ "OldCamera", "class_old_camera.html", "class_old_camera" ]
     ] ],

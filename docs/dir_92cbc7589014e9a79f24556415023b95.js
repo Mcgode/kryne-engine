@@ -5,6 +5,7 @@ var dir_92cbc7589014e9a79f24556415023b95 =
     [ "Component.cpp", "_component_8cpp.html", null ],
     [ "Entity.cpp", "_entity_8cpp.html", null ],
     [ "GeometricShapes.cpp", "_geometric_shapes_8cpp.html", "_geometric_shapes_8cpp" ],
+    [ "LogicComponent.cpp", "_logic_component_8cpp.html", null ],
     [ "OldProcess.cpp", "_old_process_8cpp.html", null ],
     [ "Process.cpp", "_process_8cpp.html", null ],
     [ "System.cpp", "_system_8cpp.html", null ],

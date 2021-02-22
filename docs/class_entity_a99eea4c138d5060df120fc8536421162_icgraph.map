@@ -1,0 +1,4 @@
+<map id="Entity::getTransform" name="Entity::getTransform">
+<area shape="rect" id="node1" title="Retrieves the transform of this entity." alt="" coords="224,5,363,32"/>
+<area shape="rect" id="node2" href="$class_component.html#ab3b4ba3b543a101821c5479af523ba8a" title="Retrieves the transform of this entity." alt="" coords="5,5,176,32"/>
+</map>

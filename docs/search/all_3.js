@@ -25,7 +25,7 @@ var searchData=
   ['constants_61',['Constants',['../namespace_constants.html',1,'']]],
   ['constants_2eh_62',['Constants.h',['../_constants_8h.html',1,'']]],
   ['contains_63',['contains',['../class_additional_parameters.html#a1d3310c8f694b12193d305f3785ff4c1',1,'AdditionalParameters']]],
-  ['context_64',['context',['../class_process.html#a8702579dadfdf9f5773a051504d62504',1,'Process']]],
+  ['context_64',['context',['../class_process.html#a8702579dadfdf9f5773a051504d62504',1,'Process::context()'],['../class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a',1,'OpenGLRenderer::context()']]],
   ['core_2eh_65',['Core.h',['../_core_8h.html',1,'']]],
   ['cube_5famount_5fof_5findexes_66',['CUBE_AMOUNT_OF_INDEXES',['../namespace_constants.html#ace7eb203e5b347d95c9d84bb37e39c68',1,'Constants']]],
   ['cube_5famount_5fof_5fraw_5fvertices_67',['CUBE_AMOUNT_OF_RAW_VERTICES',['../namespace_constants.html#a265f3ccfab955d1b4919bf25b0684259',1,'Constants']]],

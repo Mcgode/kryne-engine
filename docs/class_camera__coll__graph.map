@@ -1,9 +1,10 @@
 <map id="Camera" name="Camera">
-<area shape="rect" id="node1" title=" " alt="" coords="279,288,345,315"/>
-<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="215,191,271,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="263,288,329,315"/>
+<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="147,191,203,218"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,95,195,121"/>
 <area shape="rect" id="node4" href="$class_transform.html" title=" " alt="" coords="178,5,257,32"/>
 <area shape="rect" id="node5" title=" " alt="" coords="219,95,391,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="352,184,531,225"/>
-<area shape="rect" id="node7" href="$class_projection_data.html" title=" " alt="" coords="416,95,523,121"/>
+<area shape="rect" id="node6" href="$class_i_camera.html" title=" " alt="" coords="261,191,331,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="372,184,551,225"/>
+<area shape="rect" id="node8" href="$class_projection_data.html" title=" " alt="" coords="416,95,523,121"/>
 </map>

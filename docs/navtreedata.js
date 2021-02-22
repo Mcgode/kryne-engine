@@ -41,7 +41,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -61,9 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_additional_parameters.html#a0c0c715d7fabc84c0357f89e3210cb47",
-"class_orbit_controls_component.html#a61c565a9cc83fae3337bc1346a9e2428",
-"class_uniforms_handler.html#a72f823544e90618f0d872e6e2b274494"
+"_uniforms_handler_8h_source.html",
+"class_model_mesh.html",
+"class_texture2_d.html#ab944b22a4f96e7115286ce3e7bea3dbb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

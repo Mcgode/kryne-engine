@@ -1,0 +1,11 @@
+<map id="Entity::getTransform" name="Entity::getTransform">
+<area shape="rect" id="node1" title=" " alt="" coords="868,95,1007,122"/>
+<area shape="rect" id="node2" href="$class_component.html#a8cd5ee4645a0cbe620c1acef8118549b" title=" " alt="" coords="649,45,820,71"/>
+<area shape="rect" id="node8" href="$class_renderer.html#aa814eabb912509d0cd34b61018e98fb4" title=" " alt="" coords="657,95,813,122"/>
+<area shape="rect" id="node9" href="$class_transform_update_system.html#a6d72963cb88ce1c1de8c77b4760a3813" title=" " alt="" coords="652,147,817,188"/>
+<area shape="rect" id="node3" href="$class_orbit_controls_component.html#ac63d4a4bec582b9b23b757cdda4693ff" title=" " alt="" coords="225,5,389,47"/>
+<area shape="rect" id="node4" href="$class_orbit_controls_component.html#aedf4dc7f005ffee67f71660dc0652354" title=" " alt="" coords="437,68,601,109"/>
+<area shape="rect" id="node5" href="$class_orbit_controls_component.html#aa87d7904483e91ed6b11eaca2486d7ad" title=" " alt="" coords="225,71,389,112"/>
+<area shape="rect" id="node6" href="$class_orbit_controls_component.html#ac8611a683dbd195df68c64940d622d57" title=" " alt="" coords="225,136,389,177"/>
+<area shape="rect" id="node7" href="$class_orbit_controls_component.html#adfc80f4e131076981f58094e95262eb3" title=" " alt="" coords="5,136,177,177"/>
+</map>

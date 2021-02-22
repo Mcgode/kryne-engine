@@ -7,7 +7,7 @@ var class_mesh =
     [ "setGeometry", "class_mesh.html#aca73de12ee6a2d7fb3f36ef103e66ec3", null ],
     [ "setMaterial", "class_mesh.html#a35a377eb69c4baa0d495cb3ab1fde48d", null ],
     [ "updateParents", "class_mesh.html#a5def90a3e5cbb089e75d8568f7f7f94c", null ],
-    [ "updateTransform", "class_mesh.html#a9eeec99c80bf693805a42d21a1d29317", null ],
+    [ "updateTransform", "class_mesh.html#a220745f5b2ebc6f1d0577165b0d7fc74", null ],
     [ "geometry", "class_mesh.html#a84c17ac45dfa440d2dcf56102ea9e914", null ],
     [ "material", "class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b", null ]
 ];

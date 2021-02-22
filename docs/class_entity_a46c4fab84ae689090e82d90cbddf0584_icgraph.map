@@ -1,0 +1,4 @@
+<map id="Entity::addComponent" name="Entity::addComponent">
+<area shape="rect" id="node1" title="Initializes and attaches a new component to the entity." alt="" coords="236,5,387,32"/>
+<area shape="rect" id="node2" href="$class_component.html#a5ac570aeae510e1a2e1126cb97872be5" title="Initializes and attaches a new component to the entity." alt="" coords="5,5,188,32"/>
+</map>
