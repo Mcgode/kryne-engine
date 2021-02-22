@@ -30,12 +30,6 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
     this->mainWindow = glfwCreateWindow(baseWidth, baseHeight, "Kryne engine - OpenGL", nullptr, nullptr);
     if (this->mainWindow == nullptr)
     {
@@ -45,6 +39,12 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     }
 
     glfwMakeContextCurrent(this->mainWindow);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cerr << "Failed to initialize GLAD" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
     glfwSetFramebufferSizeCallback(this->mainWindow, framebufferSizeCallback);
     glfwSetErrorCallback(errorCallback);
