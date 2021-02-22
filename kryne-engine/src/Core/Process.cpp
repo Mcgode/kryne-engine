@@ -118,7 +118,7 @@ void Process::runLoop()
     else
         cerr << "There is no scene for the process." << endl;
 
-    // TODO : see if anything else needs updating
+    this->context->endFrame();
 }
 
 
