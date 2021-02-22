@@ -144,13 +144,8 @@ void Transform::lookAt(const vec3 &target, const vec3 &up, bool swap)
 
 void Transform::setScene(Scene *scene)
 {
-    if (this->parent != nullptr)
-        this->removeFromParent();
-
-    if (this->attachedScene != nullptr)
-        this->attachedScene->remove(this);
-
-    this->attachedScene = scene;
     if (scene != nullptr)
         scene->add(this);
+    else if (this->attachedScene != nullptr)
+        this->attachedScene->remove(this);
 }

@@ -15,6 +15,7 @@ class Scene;
 
 #include <memory>
 #include <vector>
+#include <queue>
 
 #define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
@@ -36,6 +37,9 @@ using namespace std;
  * An object in 3D space
  */
 class Transform {
+
+
+friend class Scene;
 
 
 // -- Base --
@@ -73,7 +77,7 @@ private:
     Entity *attachedEntity;
 
     /// The scene this transform is attached to.
-    Scene *attachedScene;
+    Scene *attachedScene = nullptr;
 
 
 // -- Hierarchy --

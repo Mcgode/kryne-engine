@@ -7,19 +7,45 @@
 
 void Scene::add(Transform *transform)
 {
-    this->sceneEntities.emplace(transform->getEntity());
+    if (transform->parent != nullptr)
+        transform->removeFromParent();
 
-    for (const auto child : transform->getChildren())
-        this->add(child);
+    if (transform->attachedScene != nullptr)
+        this->remove(transform);
+
+    queue<Transform *> transformQueue;
+    transformQueue.push(transform);
+
+    while (!transformQueue.empty())
+    {
+        const auto t = transformQueue.front();
+        this->sceneEntities.emplace(t->getEntity());
+        t->attachedScene = this;
+
+        for (const auto child : t->children)
+            transformQueue.push(child);
+
+        transformQueue.pop();
+    }
 }
 
 
 void Scene::remove(Transform *transform)
 {
-    this->sceneEntities.erase(transform->getEntity());
+    queue<Transform *> transformQueue;
+    transformQueue.push(transform);
 
-    for (const auto child : transform->getChildren())
-        this->remove(child);
+    while (!transformQueue.empty())
+    {
+        const auto t = transformQueue.front();
+        this->sceneEntities.erase(t->getEntity());
+        t->attachedScene = nullptr;
+
+        for (const auto child : t->children)
+            transformQueue.push(child);
+
+        transformQueue.pop();
+    }
 }
 
 
