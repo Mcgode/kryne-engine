@@ -74,7 +74,14 @@ public:
      *         process. Weak reference to the object can be retrieved using #getWeakReference
      */
     template<typename T, typename... Args>
-    T *makeEntity(Args&&... args);
+    inline T *makeEntity(Args&&... args)
+    {
+        static_assert(is_convertible<T, Entity>::value, "Class must inherit from Entity");
+
+        const auto entity = make_shared<T>(this, forward<Args>(args)...);
+        this->processEntities.emplace(pair(entity.get(), entity));
+        return entity.get();
+    }
 
     /**
      * Retrieves a weak reference of an entity attached to the process.
@@ -113,7 +120,23 @@ public:
      *         process. Weak reference to the object can be retrieved using #getWeakReference
      */
     template<typename T, typename... Args>
-    T *makeSystem(Args&&... args);
+    T *makeSystem(Args&&... args)
+    {
+        static_assert(is_convertible<T, System>::value, "Class must inherit from System");
+
+        const auto system = make_shared<T>(this, forward<Args>(args)...);
+        this->processSystems.emplace(system->get(), system);
+
+        auto it = this->systemsByType.find(system->getType());
+        if (it == this->systemsByType.end())
+        {
+            unordered_set<System *> set;
+            it = this->systemsByType.emplace(system->getType(), set).first;
+        }
+        it->second.emplace(system);
+
+        return system->get();
+    }
 
     /**
      * Retrieves a weak reference of a system attached to the process.
