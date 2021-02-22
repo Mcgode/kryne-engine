@@ -58,7 +58,7 @@ public:
      * Returns the entity this transform is attached to
      * @return A raw pointer to the attached entity.
      */
-    [[nodiscard]] inline Entity *getEntity() const { return attachedEntity; }
+    [[nodiscard]] Entity *getEntity() const { return attachedEntity; }
 
     /**
      * Attaches the transform (and its attached entity) to a scene.
