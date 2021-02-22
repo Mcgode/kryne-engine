@@ -7,21 +7,21 @@
 #include "kryne-engine/Core/Component.h"
 
 
-inline Transform *Component::getTransform() const
+Transform *Component::getTransform() const
 {
     return this->associatedEntity->getTransform();
 }
 
 
 template<typename T, typename... Args>
-inline T *Component::addComponent(Args &&...args)
+T *Component::addComponent(Args &&...args)
 {
-    return this->associatedEntity->addComponent<T>(args);
+    return this->associatedEntity->addComponent<T>(forward<Args>(args)...);
 }
 
 
 template<class C>
-inline C *Component::getComponent() const
+C *Component::getComponent() const
 {
     return this->associatedEntity->getComponent<C>();
 }
