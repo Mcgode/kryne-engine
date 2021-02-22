@@ -83,12 +83,12 @@ public:
      * Retrieves the transform of this entity.
      * @return A raw pointer to this entity's 3D transform.
      */
-    [[nodiscard]] Transform *getTransform() { return this->transform.get(); }
+    [[nodiscard]] inline Transform *getTransform() { return this->transform.get(); }
 
     /**
      * A callback that is called if the entity's transform was updated.
      */
-    virtual void transformDidUpdate() = 0;
+    virtual void transformDidUpdate() {};
 
 
 protected:
@@ -140,7 +140,14 @@ public:
      *          argument list. As such, the called constructor must be in the form `Component(Entity *, Args ...args)`.
      */
     template<typename T, typename... Args>
-    T *addComponent(Args&&... args);
+    T *addComponent(Args&&... args)
+    {
+        static_assert(is_convertible<T, Component>::value, "Class must inherit from Component");
+
+        const auto component = make_shared<T>(this, forward<Args>(args)...);
+        this->components.emplace(component);
+        return component.get();
+    }
 
     /**
      * Retrieves the first component belonging to the provided class.
@@ -148,7 +155,16 @@ public:
      * @return A raw pointer to the component. If none were found, will be `nullptr`.
      */
     template<class C>
-    C *getComponent() const;
+    C *getComponent() const
+    {
+        for (const auto & it : this->components)
+        {
+            auto component = dynamic_cast<C *>(it.get());
+            if (component)
+                return component;
+        }
+        return nullptr;
+    }
 
     /**
      * Retrieves components belonging to the provided class.
@@ -156,7 +172,19 @@ public:
      * @return A vector of all the components.
      */
     template<class C>
-    vector<C *> getComponents() const;
+    vector<C *> getComponents() const
+    {
+        vector<C *> result {};
+
+        for (const auto &it : this->components)
+        {
+            const auto component = dynamic_cast<C *>(it.get());
+            if (component)
+                result.push_back(component);
+        }
+
+        return result;
+    }
 
 private:
 
