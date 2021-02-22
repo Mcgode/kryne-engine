@@ -50,19 +50,19 @@ public:
      * Function called when the component is attached to an entity
      * @warning #onBegin() might not have been called yet
      */
-    virtual void onAttach() = 0;
+    virtual void onAttach() {};
 
     /**
      * Update function called once per frame. Use it to run your component logic.
      */
-    virtual void onUpdate() = 0;
+    virtual void onUpdate() {};
 
     /**
      * Function called when the component is detached from its entity.
      * Won't be called if the component is simply destroyed along its attached entity.
      * @warning #onBegin() might not have been called yet.
      */
-    virtual void onDetach() = 0;
+    virtual void onDetach() {};
 
 private:
 
