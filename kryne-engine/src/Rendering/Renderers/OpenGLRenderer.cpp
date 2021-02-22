@@ -4,10 +4,10 @@
  * @date 06/02/2021.
  */
 
-#include "OpenGLRenderer.h"
+#include "kryne-engine/Rendering/Renderers/OpenGLRenderer.h"
 
 
-void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
+void OpenGLRenderer::handleMesh(IRenderMesh *renderMesh)
 {
     const auto camera = this->mainCamera.lock();
 

@@ -18,15 +18,15 @@ public:
 
     explicit OpenGLRenderer(OpenGLContext *context) : context(context) {};
 
-    void handleMesh(RenderMesh *renderMesh) override;
+    void handleMesh(IRenderMesh *renderMesh) override;
 
     void parseScene(Scene *scene) override {};
 
-    void setCamera(weak_ptr<Camera> camera) override { this->mainCamera = camera; }
+    void setCamera(weak_ptr<ICamera> camera) override { this->mainCamera = camera; }
 
 protected:
 
-    weak_ptr<Camera> mainCamera {};
+    weak_ptr<ICamera> mainCamera {};
 
     OpenGLContext *context;
 
