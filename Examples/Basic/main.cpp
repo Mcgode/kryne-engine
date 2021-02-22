@@ -8,12 +8,15 @@
 #include <KEModules/Geometry.h>
 #include <KEModules/Material.h>
 #include <KEModules/Textures.h>
+#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
+#include <kryne-engine/Rendering/RenderMesh.h>
 
 int main()
 {
-    auto renderer = make_unique<Renderer>(1280, 720);
-
-    auto scene = make_unique<Scene>();
+    const auto process = make_unique<Process>(new OpenGLContext());
+    const auto scene = process->makeScene();
+    process->setCurrentScene(scene);
 
     const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
     const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
@@ -39,19 +42,17 @@ int main()
 
     auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
-    const auto mesh = new Mesh(geometry, material);
-    scene->add(unique_ptr<Transform>(mesh));
+    const auto entity = process->makeEntity<Entity>();
+    const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
+    scene->add(entity->getTransform());
 
-    const auto camera = make_unique<OrbitCamera>(
-        make_unique<PerspectiveProjectionData>(16.f / 9.f),
-        renderer->getWeakPlayerInput()
-    );
+    const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
+    camera->addComponent<OrbitControlsComponent>();
 
-    const auto window = renderer->getWindow()->getGlfwWindow();
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
     double t;
-    while (!glfwWindowShouldClose(window)) {
+    while (!process->getGraphicContext()->shouldStop()) {
 
         uint64_t uit = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
         t = (uit - start);
@@ -62,10 +63,7 @@ int main()
         auto lookPos = glm::vec3(2.*glm::cos(t), 1, 2.*glm::sin(t));
 //        mesh->lookAt(lookPos);
 
-        renderer->render(scene.get(), camera.get());
-        glfwSwapBuffers(window);
-        renderer->getPlayerInput()->willPollEvents();
-        glfwPollEvents();
+        process->runLoop();
     }
 
     return 0;

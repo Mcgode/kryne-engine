@@ -47,13 +47,19 @@ public:
      */
     GraphicContext *getGraphicContext() const { return this->context; }
 
+    /**
+     * Set the value of #currentScene
+     * @param scene
+     */
+    void setCurrentScene(Scene *scene) { this->currentScene = scene; }
+
 protected:
 
     /// The graphical context for this process
     GraphicContext *context;
 
     /// The current scene used in the loop
-    Scene *currentScene;
+    Scene *currentScene = nullptr;
 
     /// The scenes for this process
     unordered_set<unique_ptr<Scene>> scenes;
