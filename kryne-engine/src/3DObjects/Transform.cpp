@@ -132,7 +132,7 @@ glm::vec3 Transform::getWorldPosition()
 }
 
 
-inline void Transform::lookAt(const vec3 &target, const vec3 &up, bool swap)
+void Transform::lookAt(const vec3 &target, const vec3 &up, bool swap)
 {
     if ( swap )
         this->setQuaternion(toQuat(Math::getLookAtMatrix(target, position, up)));
