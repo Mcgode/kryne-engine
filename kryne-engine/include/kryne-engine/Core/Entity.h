@@ -46,6 +46,12 @@ public:
      */
     [[nodiscard]] uint32_t getId() const { return id; }
 
+    /**
+     * Retrieves the process this entity is attached to.
+     * @return The process this instance is attached to.
+     */
+    [[nodiscard]] inline Process *getProcess() const { return process; }
+
 protected:
 
     /**
@@ -54,12 +60,6 @@ protected:
      * @return A unique id.
      */
     static uint32_t nextId();
-
-    /**
-     * Retrieves the process this entity is attached to.
-     * @return The process this instance is attached to.
-     */
-    [[nodiscard]] inline Process *getProcess() const { return process; }
 
 protected:
 
