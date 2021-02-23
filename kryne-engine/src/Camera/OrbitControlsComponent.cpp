@@ -15,58 +15,54 @@ OrbitControlsComponent::OrbitControlsComponent(Entity *entity) :
 
 void OrbitControlsComponent::onUpdate()
 {
-    const auto input = this->playerInput.lock();
+    const auto input = this->associatedEntity->getProcess()->getPlayerInput();
 
     bool needsAngleUpdate = false;
     bool needsCenterUpdate = false;
     bool needsDistanceUpdate = false;
 
-    if (input != nullptr)
+    const auto currentPosition = this->getTransform()->getPosition();
+    const auto dir = currentPosition - this->centerPosition;
+    this->distance = length(dir);
+
+    const auto movement = input->getCursorMovement();
+    const auto scroll = input->getScrollInput();
+    auto newAngle = this->angle;
+    auto newCenter = this->centerPosition;
+    auto newDistance = this->distance;
+
+    if (movement.x != 0 && movement.y != 0)
     {
-        const auto currentPosition = this->getTransform()->getPosition();
-        const auto dir = currentPosition - this->centerPosition;
-        this->distance = length(dir);
-
-        const auto movement = input->getCursorMovement();
-        const auto scroll = input->getScrollInput();
-        auto newAngle = this->angle;
-        auto newCenter = this->centerPosition;
-        auto newDistance = this->distance;
-
-        if (movement.x != 0 && movement.y != 0)
+        if (input->isKeyDown(GLFW_MOUSE_BUTTON_1))
         {
-            if (input->isKeyDown(GLFW_MOUSE_BUTTON_1))
-            {
-                needsAngleUpdate = true;
-                newAngle.x += -movement.x * this->radiansPerMousePixel;
-                newAngle.y += movement.y * this->radiansPerMousePixel;
-                newAngle.y = glm::min(glm::max(newAngle.y, -this->maxPhi), this->maxPhi);
-            }
-            else if (input->isKeyDown(GLFW_MOUSE_BUTTON_2))
-            {
-                needsCenterUpdate = true;
-
-                const auto transformMatrix = Math::getLookAtMatrix(newCenter, currentPosition);
-
-                newCenter += transformMatrix * vec3(-movement.x * this->radiansPerMousePixel, movement.y * this->radiansPerMousePixel, 0);
-            }
+            needsAngleUpdate = true;
+            newAngle.x += -movement.x * this->radiansPerMousePixel;
+            newAngle.y += movement.y * this->radiansPerMousePixel;
+            newAngle.y = glm::min(glm::max(newAngle.y, -this->maxPhi), this->maxPhi);
         }
-
-        if (scroll.y != 0)
+        else if (input->isKeyDown(GLFW_MOUSE_BUTTON_2))
         {
-            needsDistanceUpdate = true;
-            newDistance += -scroll.y * this->scrollZoomSpeed;
-            newDistance = glm::max(0.0001f, newDistance);
-        }
+            needsCenterUpdate = true;
 
-        if (needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate)
-        {
-            this->angle = newAngle;
-            this->centerPosition = newCenter;
-            this->distance = newDistance;
-            this->updatePosition();
-        }
+            const auto transformMatrix = Math::getLookAtMatrix(newCenter, currentPosition);
 
+            newCenter += transformMatrix * vec3(-movement.x * this->radiansPerMousePixel, movement.y * this->radiansPerMousePixel, 0);
+        }
+    }
+
+    if (scroll.y != 0)
+    {
+        needsDistanceUpdate = true;
+        newDistance += -scroll.y * this->scrollZoomSpeed;
+        newDistance = glm::max(0.0001f, newDistance);
+    }
+
+    if (needsAngleUpdate || needsCenterUpdate || needsDistanceUpdate)
+    {
+        this->angle = newAngle;
+        this->centerPosition = newCenter;
+        this->distance = newDistance;
+        this->updatePosition();
     }
 }
 

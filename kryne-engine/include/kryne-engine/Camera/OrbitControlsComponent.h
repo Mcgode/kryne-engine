@@ -54,9 +54,6 @@ protected:
 
 protected:
 
-    /// The player input for handling the orbit controls.
-    weak_ptr<PlayerInput> playerInput;
-
     /// The orbit center position
     vec3 centerPosition {};
 
