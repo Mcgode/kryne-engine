@@ -10,6 +10,7 @@
 #include <KEModules/Textures.h>
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
+#include <kryne-engine/Systems/GameLogicComponentsRunner.h>
 
 int main()
 {
@@ -17,6 +18,7 @@ int main()
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);
     process->makeSystem<TransformUpdateSystem>();
+    process->makeSystem<GameLogicComponentsRunner>();
 
     const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
     const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
@@ -48,6 +50,7 @@ int main()
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
+    camera->getTransform()->setScene(scene);
     process->getGraphicContext()->getRenderer()->setCamera(camera);
 
     using namespace std::chrono;
