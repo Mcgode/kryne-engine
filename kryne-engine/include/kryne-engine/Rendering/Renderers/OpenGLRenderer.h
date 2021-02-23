@@ -9,6 +9,7 @@
 
 #include <kryne-engine/Rendering/LoopRenderer.h>
 
+
 class OpenGLContext;
 
 
@@ -18,15 +19,15 @@ public:
 
     explicit OpenGLRenderer(OpenGLContext *context) : context(context) {};
 
-    void handleMesh(IRenderMesh *renderMesh) override;
+    void handleMesh(RenderMesh *renderMesh) override;
 
     void parseScene(Scene *scene) override {};
 
-    void setCamera(weak_ptr<ICamera> camera) override { this->mainCamera = camera; }
+    void setCamera(Camera *camera) override { this->mainCamera = camera; }
 
 protected:
 
-    weak_ptr<ICamera> mainCamera {};
+    Camera *mainCamera {};
 
     OpenGLContext *context;
 

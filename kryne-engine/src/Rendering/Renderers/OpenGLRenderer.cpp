@@ -4,14 +4,16 @@
  * @date 06/02/2021.
  */
 
+#include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/Camera/Camera.h>
 #include "kryne-engine/Rendering/Renderers/OpenGLRenderer.h"
 
 
-void OpenGLRenderer::handleMesh(IRenderMesh *renderMesh)
+void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 {
-    const auto camera = this->mainCamera.lock();
+    const auto camera = this->mainCamera;
 
-    if (!camera) return;
+    if (camera == nullptr) return;
 
     const auto& material = renderMesh->getMaterial();
     const auto& geometry = renderMesh->getGeometry();
@@ -40,7 +42,7 @@ void OpenGLRenderer::handleMesh(IRenderMesh *renderMesh)
     material->setUniform("normalMatrix", transform->getNormalMatrix());
 
     // Run mesh updates
-    renderMesh->onBeforeRender(camera.get());
+    renderMesh->onBeforeRender(camera);
 
     // Upload uniforms
     material->getShader()->updateUniforms();

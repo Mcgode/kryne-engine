@@ -7,10 +7,10 @@
 #pragma once
 
 
-#include "IRenderMesh.hpp"
-#include <kryne-engine/Camera/ICamera.hpp>
 
 
+class RenderMesh;
+class Camera;
 class Scene;
 
 
@@ -21,13 +21,14 @@ class LoopRenderer {
 
 public:
 
-    virtual void handleMesh(IRenderMesh *renderMesh) = 0;
+    virtual void handleMesh(RenderMesh *renderMesh) = 0;
 
     virtual void parseScene(Scene *scene) = 0;
 
-    virtual void setCamera(weak_ptr<ICamera> camera) = 0;
+    virtual void setCamera(Camera *camera) = 0;
 
 };
 
 
 #include <kryne-engine/3DObjects/Scene.h>
+#include <kryne-engine/Rendering/RenderMesh.h>
