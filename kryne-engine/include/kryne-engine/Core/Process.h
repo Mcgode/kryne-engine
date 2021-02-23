@@ -15,6 +15,7 @@
 #include "Entity.h"
 #include "System.h"
 #include "GraphicContext/GraphicContext.h"
+#include <kryne-engine/Rendering/RenderMesh.h>
 
 
 using namespace std;

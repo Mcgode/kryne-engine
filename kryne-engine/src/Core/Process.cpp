@@ -80,6 +80,10 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
+        const auto renderer = this->context->getRenderer();
+
+        renderer->prepareFrame();
+
         for (const auto entity : this->currentScene->getEntities()) 
         {
             auto it = this->systemsByType.find(PreRendering);
@@ -105,6 +109,10 @@ void Process::runLoop()
                 for (const auto& systemPair : it->second)
                     systemPair->runSystem(entity);
             }
+
+            // TODO: Multithread this
+            for (auto renderMesh : entity->getComponents<RenderMesh>())
+                renderer->handleMesh(renderMesh);
 
             it = this->systemsByType.find(PostRendering);
             if (it != this->systemsByType.end())
