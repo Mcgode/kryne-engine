@@ -130,7 +130,7 @@ void Process::runLoop()
 }
 
 
-inline PlayerInput *Process::getPlayerInput()
+PlayerInput *Process::getPlayerInput()
 {
     return this->context->getPlayerInput();
 }
