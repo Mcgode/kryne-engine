@@ -38,7 +38,7 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     material->setUniform("projectionMatrix", camera->getProjectionMatrix());
     material->setUniform("viewMatrix", camera->getViewMatrix());
     material->setUniform("cameraPosition", camera->getTransform()->getWorldPosition());
-    material->setUniform("worldMatrix", transform->getWorldMatrix());
+    material->setUniform("modelMatrix", transform->getWorldMatrix());
     material->setUniform("normalMatrix", transform->getNormalMatrix());
 
     // Run mesh updates
