@@ -21,6 +21,8 @@ class LoopRenderer {
 
 public:
 
+    virtual void prepareFrame() = 0;
+
     virtual void handleMesh(RenderMesh *renderMesh) = 0;
 
     virtual void parseScene(Scene *scene) = 0;

@@ -19,6 +19,8 @@ public:
 
     explicit OpenGLRenderer(OpenGLContext *context) : context(context) {};
 
+    void prepareFrame() override;
+
     void handleMesh(RenderMesh *renderMesh) override;
 
     void parseScene(Scene *scene) override {};
