@@ -75,7 +75,7 @@ protected:
     shared_ptr<PlayerInput> input;
 
     /// The rendering state of the graphic context.
-    unique_ptr<RenderingState> renderingState;
+    unique_ptr<RenderingState> renderingState {};
 
     /// The renderer for this context
     unique_ptr<OpenGLRenderer> renderer {};

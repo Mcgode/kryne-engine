@@ -50,6 +50,8 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     glfwSetErrorCallback(errorCallback);
 
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
+    this->renderer = make_unique<OpenGLRenderer>(this);
+    this->renderingState = make_unique<RenderingState>(FrontSide, true);
 }
 
 
