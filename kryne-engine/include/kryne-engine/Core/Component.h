@@ -37,6 +37,8 @@ public:
 
     [[nodiscard]] Entity *getEntity() const { return this->associatedEntity; }
 
+    virtual ~Component() = default;
+
 protected:
 
     /// The entity this component is attached to.
