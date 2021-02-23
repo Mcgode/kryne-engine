@@ -128,10 +128,10 @@ public:
     template<typename T, typename... Args>
     T *makeSystem(Args&&... args)
     {
-        static_assert(is_convertible<T, System>::value, "Class must inherit from System");
+        static_assert(std::is_base_of_v<System, T>, "Class must inherit from System");
 
         const auto system = make_shared<T>(this, forward<Args>(args)...);
-        this->processSystems.emplace(system->get(), system);
+        this->processSystems.emplace(system.get(), system);
 
         auto it = this->systemsByType.find(system->getType());
         if (it == this->systemsByType.end())
@@ -139,9 +139,9 @@ public:
             unordered_set<System *> set;
             it = this->systemsByType.emplace(system->getType(), set).first;
         }
-        it->second.emplace(system);
+        it->second.emplace(system.get());
 
-        return system->get();
+        return system.get();
     }
 
     /**
