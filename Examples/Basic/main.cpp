@@ -8,15 +8,15 @@
 #include <KEModules/Geometry.h>
 #include <KEModules/Material.h>
 #include <KEModules/Textures.h>
-#include <kryne-engine/Core/Process.h>
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
-#include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/Systems/TransformUpdateSystem.h>
 
 int main()
 {
     const auto process = make_unique<Process>(new OpenGLContext());
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);
+    process->makeSystem<TransformUpdateSystem>();
 
     const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
     const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
@@ -44,10 +44,11 @@ int main()
 
     const auto entity = process->makeEntity<Entity>();
     const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
-    scene->add(entity->getTransform());
+    entity->getTransform()->setScene(scene);
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
+    process->getGraphicContext()->getRenderer()->setCamera(camera);
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
