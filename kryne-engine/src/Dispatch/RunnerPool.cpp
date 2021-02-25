@@ -44,6 +44,8 @@ RunnerPool::RunnerPool(uint16_t threadCount): RunnerPool(threadCount, RunnerPool
 
 RunnerPool::~RunnerPool()
 {
+    this->attachedPools.clear();
+
     {
         unique_lock<mutex> lock(*this->poolMutex);
         this->stop = true;

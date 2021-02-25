@@ -20,6 +20,7 @@ using namespace std;
 
 class RunnerPool {
 
+    friend class ChildPool;
 
 public:
 
@@ -74,6 +75,8 @@ protected:
     condition_variable waitCondition {};
 
     bool stop = false;
+
+    vector<unique_ptr<RunnerPool>> attachedPools {};
 
 };
 
