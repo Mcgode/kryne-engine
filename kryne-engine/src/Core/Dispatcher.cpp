@@ -87,7 +87,7 @@ Dispatcher::~Dispatcher()
     for ( uint16_t i = 0; i < this->threadCount; i++ )
         this->executionThreads[i].join();
 
-    delete this->executionThreads;
+    delete[] this->executionThreads;
 }
 
 
