@@ -39,11 +39,21 @@ public:
 
 protected:
 
+    inline bool hasExecutionTask(uint16_t i)
+    {
+        return !this->executionTasks.empty() || (i == 0 && !this->mainThreadTasks.empty());
+    }
+
+protected:
+
     /// The count of base execution threads
     uint16_t threadCount;
 
     /// The ThreadObject objects representing the execution threads
     thread *executionThreads;
+
+    /// The amount of threads running at the same time
+    uint16_t runningThreads = 0;
 
     /// The synchronization mutex for execution threads.
     mutex executionMutex;

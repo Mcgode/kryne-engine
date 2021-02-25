@@ -16,6 +16,9 @@ Dispatcher::Dispatcher()
 
     this->executionThreads = new thread[this->threadCount];
 
+    // By default, all threads are considered to be running.
+    this->runningThreads = this->threadCount;
+
     for ( uint16_t i = 0; i < this->threadCount; i++ )
     {
         this->executionThreads[i] = thread(
@@ -26,19 +29,33 @@ Dispatcher::Dispatcher()
                         function<void()> task;
                         {
                             unique_lock<mutex> lock(this->executionMutex);
+
+                            bool hasExecutionTask = this->hasExecutionTask(i);
+
+                            // If there are currently no tasks to execute, the thread will enter the pause state and
+                            // will stop running, so we decrement the number of running threads.
+                            if (!hasExecutionTask)
+                                this->runningThreads--;
+
                             this->executionCondition.wait(
                                     lock,
-                                    [this, i]
+                                    [this, hasExecutionTask]
                                     {
-                                        return this->stop ||
-                                               !this->executionTasks.empty() ||
-                                               (i == 0 && !this->mainThreadTasks.empty());
+                                        return this->stop || hasExecutionTask;
                                     }
                             );
 
-                            if (this->stop && this->executionTasks.empty() && (i != 0 || this->mainThreadTasks.empty()))
+                            // If there was no tasks to execute before the wait, it means the thread has woken, and is
+                            // now running again -> increment number of running threads.
+                            if (!hasExecutionTask)
+                                this->runningThreads++;
+
+                            if (this->stop && !hasExecutionTask)
                                 return;
 
+                            // TODO: Separate main thread function code from regular thread code, for optimization.
+                            // If index is 0, it's the main thread, and as such it needs to run main threads task in
+                            // priority
                             if (i == 0 && !this->mainThreadTasks.empty())
                             {
                                 task = move(this->mainThreadTasks.front());
