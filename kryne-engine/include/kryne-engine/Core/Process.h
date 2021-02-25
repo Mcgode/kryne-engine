@@ -14,6 +14,7 @@
 
 #include "Entity.h"
 #include "System.h"
+#include "Dispatcher.h"
 #include "GraphicContext/GraphicContext.h"
 #include <kryne-engine/Rendering/RenderMesh.h>
 
@@ -54,6 +55,12 @@ public:
      */
     void setCurrentScene(Scene *scene) { this->currentScene = scene; }
 
+    /**
+     * Retrieves the dispatcher object of the process. Used for running multithreaded workloads.
+     * @returns The process dispatcher
+     */
+    Dispatcher *getDispatcher() const { return this->dispatcher.get(); }
+
 protected:
 
     /// The graphical context for this process
@@ -64,6 +71,9 @@ protected:
 
     /// The scenes for this process
     unordered_set<unique_ptr<Scene>> scenes;
+
+    /// The multithreading dispatcher for the process.
+    unique_ptr<Dispatcher> dispatcher = make_unique<Dispatcher>();
 
 
 // ===========
