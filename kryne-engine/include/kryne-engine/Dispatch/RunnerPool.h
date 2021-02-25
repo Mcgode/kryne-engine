@@ -41,7 +41,7 @@ public:
             unique_lock<mutex> lock(this->poolMutex);
 
             if (this->stop)
-                throw runtime_error("Tried to enqueue a stopped thread");
+                throw runtime_error("Tried to enqueue a stopped pool");
 
             tasks.emplace([task] { task.get()(); });
         }
