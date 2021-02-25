@@ -11,6 +11,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <queue>
+#include <iostream>
 
 
 using namespace std;
@@ -32,9 +33,9 @@ private:
 
 public:
 
-    void runBasicExecutionTask(function <void()> basicTask);
+    void runBasicExecutionTask(function<void()> basicTask);
 
-    void runBasicMainThreadTask(function <void()> basicTask);
+    void runBasicMainThreadTask(function<void()> basicTask);
 
 protected:
 
@@ -55,6 +56,19 @@ protected:
 
     /// Tasks that must be run in the main thread.
     queue<function<void()>> mainThreadTasks;
+
+
+public:
+
+    void addAsyncTask(function<void()> asyncTask);
+
+    void launchAsyncProcessing();
+
+protected:
+
+    queue<function<void()>> asyncTasks;
+
+    mutex asyncMutex {};
 
 };
 

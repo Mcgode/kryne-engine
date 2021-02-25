@@ -92,3 +92,25 @@ void Dispatcher::runBasicMainThreadTask(function<void()> basicTask)
     }
     this->executionCondition.notify_one();
 }
+
+
+void Dispatcher::addAsyncTask(function<void()> asyncTask)
+{
+    unique_lock<mutex> lock( this->asyncMutex );
+    this->asyncTasks.push(move(asyncTask));
+}
+
+
+void Dispatcher::launchAsyncProcessing()
+{
+    unique_lock<mutex> lock1(this->asyncMutex);
+    unique_lock<mutex> lock2(this->executionMutex);
+
+    if (!this->executionTasks.empty() && !this->mainThreadTasks.empty())
+    {
+        cerr << "Task queue is not empty yet." << endl;
+        return;
+    }
+
+    swap(this->executionTasks, this->asyncTasks);
+}
