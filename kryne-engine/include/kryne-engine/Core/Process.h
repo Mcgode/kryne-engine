@@ -14,7 +14,7 @@
 
 #include "Entity.h"
 #include "System.h"
-#include "Dispatcher.h"
+#include "kryne-engine/Dispatch/Dispatcher.h"
 #include "GraphicContext/GraphicContext.h"
 #include <kryne-engine/Rendering/RenderMesh.h>
 
