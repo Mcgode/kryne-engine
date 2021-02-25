@@ -12,6 +12,8 @@
 
 class SynchronizablePool: public RunnerPool {
 
+    friend class SynchronizableChildPool;
+
 public:
 
     explicit SynchronizablePool(uint16_t threadCount);
