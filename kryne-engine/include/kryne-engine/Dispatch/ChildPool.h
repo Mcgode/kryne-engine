@@ -7,10 +7,12 @@
 #pragma once
 
 
-#include "RunnerPool.h"
+#include "BasePool.h"
+
+class RunnerPool;
 
 
-class ChildPool: public RunnerPool {
+class ChildPool final : public BasePool {
 
 public:
 
@@ -25,12 +27,12 @@ protected:
 
     explicit ChildPool(uint16_t threadCount, RunnerPool *parent);
 
-    ChildPool(uint16_t threadCount, RunnerPool *parent, enum internal): RunnerPool(threadCount, internal()), parent(parent) {}
-
 protected:
 
     RunnerPool *parent;
 
 };
 
+
+#include "RunnerPool.h"
 

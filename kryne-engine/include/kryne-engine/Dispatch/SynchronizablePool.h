@@ -7,10 +7,12 @@
 #pragma once
 
 
-#include "RunnerPool.h"
+#include "BasePool.h"
+
+class SynchronizableChildPool;
 
 
-class SynchronizablePool: public RunnerPool {
+class SynchronizablePool final: public BasePool {
 
     friend class SynchronizableChildPool;
 
@@ -20,16 +22,23 @@ public:
 
     void synchronize();
 
-protected:
+    virtual ~SynchronizablePool();
 
-    SynchronizablePool(uint16_t threadCount, internal internal);
+private:
 
-protected:
+    mutex _poolMutex {};
+
+    condition_variable _waitCondition {};
+
+    vector<unique_ptr<SynchronizableChildPool>> attachedPools {};
 
     uint16_t runningThreads = 0;
 
     condition_variable synchronizeWait {};
 
 };
+
+
+#include "SynchronizableChildPool.h"
 
 

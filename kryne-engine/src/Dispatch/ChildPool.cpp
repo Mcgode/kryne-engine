@@ -12,19 +12,17 @@ ChildPool *ChildPool::make(RunnerPool *parent, uint16_t threadCount)
     if (parent == nullptr)
         throw runtime_error("parent can't be null");
 
-    if (dynamic_cast<ChildPool *>(parent) != nullptr)
-        throw runtime_error("parent can't be another ChildPool.");
-
     auto pointer = new ChildPool(threadCount, parent);
-    parent->attachedPools.push_back(unique_ptr<RunnerPool>(pointer));
-    pointer->poolMutex = parent->poolMutex;
+    parent->attachedPools.push_back(unique_ptr<ChildPool>(pointer));
 
     return pointer;
 }
 
 
-ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : ChildPool(threadCount, parent, RunnerPool::internal())
+ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : BasePool(threadCount, parent->poolMutex, parent->waitCondition, RunnerPool::internal())
 {
+    this->parent = parent;
+
     for (uint16_t i = 0; i < this->threadCount; i++)
     {
         threads[i] = thread(
@@ -38,7 +36,7 @@ ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : ChildPool(threa
 
                             bool empty = this->tasks.empty() && this->parent->tasks.empty();
 
-                            waitCondition.wait(lock, [this, empty] { return this->stop || !empty; });
+                            waitCondition->wait(lock, [this, empty] { return this->stop || !empty; });
 
                             if (this->stop && empty)
                                 return;
@@ -50,8 +48,8 @@ ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : ChildPool(threa
                             }
                             else
                             {
-                                task = move(parent->tasks.front());
-                                parent->tasks.pop();
+                                task = move(this->parent->tasks.front());
+                                this->parent->tasks.pop();
                             }
                         }
                         task();

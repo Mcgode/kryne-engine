@@ -7,9 +7,12 @@
 #pragma once
 
 
-#include "SynchronizablePool.h"
+#include "BasePool.h"
 
-class SynchronizableChildPool: public SynchronizablePool {
+class SynchronizablePool;
+
+
+class SynchronizableChildPool final : public BasePool {
 
 public:
 
@@ -20,16 +23,17 @@ public:
      */
     static SynchronizableChildPool *make(SynchronizablePool *parent, uint16_t threadCount);
 
-protected:
+private:
 
     explicit SynchronizableChildPool(uint16_t threadCount, SynchronizablePool *parent);
 
-    SynchronizableChildPool(uint16_t threadCount, SynchronizablePool *parent, enum internal): SynchronizablePool(threadCount, internal()), parent(parent) {}
-
-protected:
+private:
 
     SynchronizablePool *parent;
 
 };
+
+
+#include "SynchronizablePool.h"
 
 

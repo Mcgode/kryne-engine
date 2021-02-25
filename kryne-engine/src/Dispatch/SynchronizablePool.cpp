@@ -8,12 +8,7 @@
 #include "kryne-engine/Dispatch/SynchronizablePool.h"
 
 
-SynchronizablePool::SynchronizablePool(uint16_t threadCount, RunnerPool::internal internal)
-        : RunnerPool(threadCount, internal)
-{}
-
-
-SynchronizablePool::SynchronizablePool(uint16_t threadCount) : SynchronizablePool(threadCount, RunnerPool::internal())
+SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCount, &this->_poolMutex, &this->_waitCondition, BasePool::internal())
 {
     // By default, all threads are running.
     this->runningThreads = this->threadCount;
@@ -39,7 +34,7 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : SynchronizablePoo
                                     this->synchronizeWait.notify_all();
                             }
 
-                            this->waitCondition.wait(
+                            this->waitCondition->wait(
                                     lock,
                                     [this, hasTask] {
                                         return this->stop || hasTask;
@@ -70,4 +65,12 @@ void SynchronizablePool::synchronize()
 {
     unique_lock<mutex> lock(*this->poolMutex);
     this->synchronizeWait.wait(lock, [this] { return this->runningThreads == 0; });
+}
+
+
+SynchronizablePool::~SynchronizablePool()
+{
+    this->attachedPools.clear();
+
+    BasePool::~BasePool();
 }
