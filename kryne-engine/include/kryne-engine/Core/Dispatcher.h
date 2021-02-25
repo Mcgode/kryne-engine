@@ -37,6 +37,12 @@ public:
 
     void runBasicMainThreadTask(function<void()> basicTask);
 
+    /**
+     * Synchronizes the current thread to the execution threads, by waiting for them to stop running.
+     * The current thread will sleep during this time.
+     */
+    void synchronize();
+
 protected:
 
     inline bool hasExecutionTask(uint16_t i)
@@ -54,6 +60,9 @@ protected:
 
     /// The amount of threads running at the same time
     uint16_t runningThreads = 0;
+
+    /// The condition variable for waiting for the end of the tasks execution.
+    condition_variable synchronizeCondition;
 
     /// The synchronization mutex for execution threads.
     mutex executionMutex;

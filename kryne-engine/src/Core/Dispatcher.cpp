@@ -91,6 +91,13 @@ Dispatcher::~Dispatcher()
 }
 
 
+void Dispatcher::synchronize()
+{
+    unique_lock<mutex> lock(this->executionMutex);
+    this->synchronizeCondition.wait(lock, [this] { return this->runningThreads == 0; });
+}
+
+
 void Dispatcher::runBasicExecutionTask(function<void()> basicTask)
 {
     {
