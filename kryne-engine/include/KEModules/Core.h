@@ -9,7 +9,7 @@
 
 #include <kryne-engine/Core/AdditionalParameters.h>
 #include <kryne-engine/Core/GeometricShapes.h>
-#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/OldProcess.h>
 #include <kryne-engine/Core/VertexArray.h>
 #include <kryne-engine/Core/Window.h>
 

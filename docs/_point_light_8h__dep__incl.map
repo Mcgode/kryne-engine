@@ -9,9 +9,9 @@
 <area shape="rect" id="node14" href="$_lighting_registry_8cpp.html" title=" " alt="" coords="171,206,322,247"/>
 <area shape="rect" id="node5" href="$_rendering_8h.html" title=" " alt="" coords="619,407,786,448"/>
 <area shape="rect" id="node11" href="$_main_renderer_8cpp.html" title=" " alt="" coords="791,310,971,351"/>
-<area shape="rect" id="node7" href="$_process_8h.html" title=" " alt="" coords="299,407,493,448"/>
-<area shape="rect" id="node10" href="$_render_scene_8cpp.html" title=" " alt="" coords="94,407,274,448"/>
-<area shape="rect" id="node8" href="$_core_8h.html" title=" " alt="" coords="241,496,383,537"/>
-<area shape="rect" id="node9" href="$_process_8cpp.html" title=" " alt="" coords="407,496,556,537"/>
+<area shape="rect" id="node7" href="$_old_process_8h.html" title=" " alt="" coords="283,407,498,448"/>
+<area shape="rect" id="node10" href="$_render_scene_8cpp.html" title=" " alt="" coords="79,407,259,448"/>
+<area shape="rect" id="node8" href="$_core_8h.html" title=" " alt="" coords="236,496,377,537"/>
+<area shape="rect" id="node9" href="$_old_process_8cpp.html" title=" " alt="" coords="401,496,551,537"/>
 <area shape="rect" id="node13" href="$_shadow_map_handler_8cpp.html" title=" " alt="" coords="399,310,665,351"/>
 </map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['object3d_532',['Object3D',['../class_object3_d.html',1,'']]],
-  ['oldcamera_533',['OldCamera',['../class_old_camera.html',1,'']]],
-  ['orbitcamera_534',['OrbitCamera',['../class_orbit_camera.html',1,'']]]
+  ['lightingregistry_622',['LightingRegistry',['../class_lighting_registry.html',1,'']]],
+  ['logiccomponent_623',['LogicComponent',['../class_logic_component.html',1,'']]],
+  ['looprenderer_624',['LoopRenderer',['../class_loop_renderer.html',1,'']]]
 ];

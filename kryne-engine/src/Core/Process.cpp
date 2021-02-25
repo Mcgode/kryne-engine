@@ -1,41 +1,136 @@
-//
-// Created by max on 16/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/12/2020.
+ */
 
 #include "kryne-engine/Core/Process.h"
 
-Process::Process(OldCamera *camera, uint16_t windowWidth, uint16_t windowHeight)
-{
-    this->processWindow = new Window(windowWidth, windowHeight);
-    this->processWindow->setCurrentCamera(camera);
 
-    this->scene = new RenderScene(this->processWindow, camera);
+weak_ptr<Entity> Process::getWeakReference(Entity *entity)
+{
+    const auto it = this->processEntities.find(entity);
+
+    weak_ptr<Entity> ptr;
+    if (it != this->processEntities.end())
+        ptr = it->second;
+
+    return ptr;
 }
 
 
-void Process::runProcess(AdditionalParameters *parameters)
+bool Process::detachEntity(Entity *entity)
 {
-    AdditionalParameters *p = (parameters == nullptr) ? new AdditionalParameters() : parameters;
+    const auto it = this->processEntities.find(entity);
 
-    while (!glfwWindowShouldClose(this->processWindow->getGlfwWindow())) {
-        scene->renderLoop(p);
-        glfwSwapBuffers(this->processWindow->getGlfwWindow());
-        glfwPollEvents();
-        p->cleanupLoopParameters();
+    if (it != this->processEntities.end())
+    {
+        this->processEntities.erase(it);
+        return true;
     }
 
-    if (parameters == nullptr)
-        delete(p);
+    return false;
 }
 
 
-Window *Process::getProcessWindow() const
+weak_ptr<System> Process::getWeakReference(System *system)
 {
-    return processWindow;
+    const auto it = this->processSystems.find(system);
+
+    weak_ptr<System> ptr;
+    if (it != this->processSystems.end())
+        ptr = it->second;
+
+    return ptr;
 }
 
 
-RenderScene *Process::getScene() const
+bool Process::detachSystem(System *system)
 {
-    return scene;
+    const auto it = this->processSystems.find(system);
+
+    if (it != this->processSystems.end())
+    {
+        this->processSystems.erase(it);
+
+        const auto it2 = this->systemsByType.find(system->getType());
+        if ( it2 != this->systemsByType.end() )
+            it2->second.erase(system);
+
+        return true;
+    }
+
+    return false;
+}
+
+
+Scene *Process::makeScene()
+{
+    unique_ptr<Scene> scene = make_unique<Scene>();
+    const auto p = scene.get();
+    scenes.emplace(move(scene));
+    return p;
+}
+
+
+void Process::runLoop()
+{
+    if (this->currentScene == nullptr && !this->scenes.empty())
+        this->currentScene = this->scenes.begin()->get();
+
+    if (this->currentScene != nullptr)
+    {
+        const auto renderer = this->context->getRenderer();
+
+        renderer->prepareFrame();
+
+        for (const auto entity : this->currentScene->getEntities()) 
+        {
+            auto it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
+
+            it = this->systemsByType.find(GameLogic);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
+
+            it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
+
+            // TODO: Multithread this
+            for (auto renderMesh : entity->getComponents<RenderMesh>())
+                renderer->handleMesh(renderMesh);
+
+            it = this->systemsByType.find(PostRendering);
+            if (it != this->systemsByType.end())
+            {
+                // TODO: multithread this
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
+        }
+    }
+    else
+        cerr << "There is no scene for the process." << endl;
+
+    this->context->endFrame();
+}
+
+
+PlayerInput *Process::getPlayerInput()
+{
+    return this->context->getPlayerInput();
 }

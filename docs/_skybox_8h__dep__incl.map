@@ -3,11 +3,11 @@
 <area shape="rect" id="node2" href="$3_d_objects_8h.html" title=" " alt="" coords="5,117,175,158"/>
 <area shape="rect" id="node3" href="$_main_renderer_8h.html" title=" " alt="" coords="199,109,362,165"/>
 <area shape="rect" id="node11" href="$_skybox_8cpp.html" title=" " alt="" coords="387,117,569,158"/>
-<area shape="rect" id="node4" href="$_rendering_8h.html" title=" " alt="" coords="15,317,181,359"/>
+<area shape="rect" id="node4" href="$_rendering_8h.html" title=" " alt="" coords="7,317,173,359"/>
 <area shape="rect" id="node5" href="$_render_scene_8h.html" title=" " alt="" coords="199,213,362,269"/>
 <area shape="rect" id="node10" href="$_main_renderer_8cpp.html" title=" " alt="" coords="387,221,567,262"/>
-<area shape="rect" id="node6" href="$_process_8h.html" title=" " alt="" coords="206,317,401,359"/>
-<area shape="rect" id="node9" href="$_render_scene_8cpp.html" title=" " alt="" coords="425,317,605,359"/>
-<area shape="rect" id="node7" href="$_core_8h.html" title=" " alt="" coords="147,407,289,448"/>
-<area shape="rect" id="node8" href="$_process_8cpp.html" title=" " alt="" coords="313,407,462,448"/>
+<area shape="rect" id="node6" href="$_old_process_8h.html" title=" " alt="" coords="197,317,412,359"/>
+<area shape="rect" id="node9" href="$_render_scene_8cpp.html" title=" " alt="" coords="436,317,616,359"/>
+<area shape="rect" id="node7" href="$_core_8h.html" title=" " alt="" coords="149,407,290,448"/>
+<area shape="rect" id="node8" href="$_old_process_8cpp.html" title=" " alt="" coords="314,407,463,448"/>
 </map>

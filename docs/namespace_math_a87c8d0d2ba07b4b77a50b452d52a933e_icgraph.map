@@ -1,9 +1,9 @@
 <map id="Math::getLookAtMatrix" name="Math::getLookAtMatrix">
-<area shape="rect" id="node1" title=" " alt="" coords="861,81,1016,108"/>
-<area shape="rect" id="node2" href="$class_object3_d.html#a5fb9d0e5407b2c1a415543128b79b537" title=" " alt="" coords="657,56,813,83"/>
-<area shape="rect" id="node7" href="$class_orbit_camera.html#a65d5df2a3a79021fb4b88d1bb8ee079d" title=" " alt="" coords="37,107,180,133"/>
-<area shape="rect" id="node3" href="$class_camera.html#a781c538ca705b4fa8482e817cbdf7dc7" title=" " alt="" coords="497,56,609,83"/>
-<area shape="rect" id="node4" href="$class_orbit_camera.html#aa1a54b3e3d8a69b681159f2b05c57878" title=" " alt="" coords="260,56,449,83"/>
-<area shape="rect" id="node5" href="$class_orbit_camera.html#ae286482b57a80eca137b076a9d6232b5" title=" " alt="" coords="5,5,212,32"/>
-<area shape="rect" id="node6" href="$class_orbit_camera.html#a772fc7ce7430d4c03d7fffc06ad09933" title=" " alt="" coords="25,56,193,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="821,45,976,71"/>
+<area shape="rect" id="node2" href="$class_transform.html#a139e1092c8752834c80e4e67c207bb80" title=" " alt="" coords="649,70,773,97"/>
+<area shape="rect" id="node4" href="$class_orbit_controls_component.html#ac63d4a4bec582b9b23b757cdda4693ff" title=" " alt="" coords="225,5,389,47"/>
+<area shape="rect" id="node3" href="$class_orbit_controls_component.html#aedf4dc7f005ffee67f71660dc0652354" title=" " alt="" coords="437,68,601,109"/>
+<area shape="rect" id="node5" href="$class_orbit_controls_component.html#aa87d7904483e91ed6b11eaca2486d7ad" title=" " alt="" coords="225,71,389,112"/>
+<area shape="rect" id="node6" href="$class_orbit_controls_component.html#ac8611a683dbd195df68c64940d622d57" title=" " alt="" coords="225,136,389,177"/>
+<area shape="rect" id="node7" href="$class_orbit_controls_component.html#adfc80f4e131076981f58094e95262eb3" title=" " alt="" coords="5,136,177,177"/>
 </map>

@@ -10,7 +10,7 @@
 #include <kryne-engine/3DObjects/BaseObject.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
 #include <kryne-engine/3DObjects/Mesh.h>
-#include <kryne-engine/3DObjects/Object3D.h>
+#include <kryne-engine/3DObjects/Transform.h>
 #include <kryne-engine/3DObjects/Scene.h>
 #include <kryne-engine/3DObjects/Skybox.h>
 

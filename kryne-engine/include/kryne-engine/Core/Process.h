@@ -1,62 +1,189 @@
 /**
  * @file
  * @author Max Godefroy
- * @date 16/10/2019
+ * @date 22/12/2020.
  */
 
-#ifndef INC_KRYNE_ENGINE_PROCESS_H
-#define INC_KRYNE_ENGINE_PROCESS_H
+#ifndef KRYNE_ENGINE_PROCESS_H
+#define KRYNE_ENGINE_PROCESS_H
 
 
-#include <kryne-engine/Camera/OldCamera.h>
-#include <kryne-engine/Rendering/RenderScene.h>
-#include "Window.h"
+#include <memory>
+#include <unordered_map>
+#include <iostream>
+
+#include "Entity.h"
+#include "System.h"
+#include "GraphicContext/GraphicContext.h"
+#include <kryne-engine/Rendering/RenderMesh.h>
 
 
-/**
- * Handles the engine running process
- */
+using namespace std;
+
+
+
+// ===========
+// Core process logic
+// ===========
+
 class Process {
+
+
+public:
+
+    Process(GraphicContext *context): context(context) {}
+
+    /**
+     * Instantiates a new scene.
+     */
+    Scene *makeScene();
+
+    /**
+     * Runs a single game loop
+     */
+    void runLoop();
+
+    /**
+     * Returns the graphic context used for this process.
+     */
+    GraphicContext *getGraphicContext() const { return this->context; }
+
+    /**
+     * Set the value of #currentScene
+     * @param scene
+     */
+    void setCurrentScene(Scene *scene) { this->currentScene = scene; }
+
+protected:
+
+    /// The graphical context for this process
+    GraphicContext *context;
+
+    /// The current scene used in the loop
+    Scene *currentScene = nullptr;
+
+    /// The scenes for this process
+    unordered_set<unique_ptr<Scene>> scenes;
+
+
+// ===========
+// Entities-related interface
+// ===========
 
 public:
 
     /**
-     * Handles the engine running process
-     * @param camera        The base camera for the process
-     * @param windowWidth   The window width for the rendering
-     * @param windowHeight  The window height for the rendering
+     * Initializes an entity and attaches it to this process.
+     * @tparam T        The entity class
+     * @tparam Args     The class constructor argument types collection.
+     * @param args      The arguments for the class constructor
+     * @return A pointer to the newly created entity. The pointer is linked to a shared pointer owned only by the
+     *         process. Weak reference to the object can be retrieved using #getWeakReference
      */
-    explicit Process(OldCamera *camera, uint16_t windowWidth = 1280, uint16_t windowHeight = 720);
+    template<typename T, typename... Args>
+    inline T *makeEntity(Args&&... args)
+    {
+        static_assert(is_convertible<T, Entity>::value, "Class must inherit from Entity");
 
+        const auto entity = make_shared<T>(this, forward<Args>(args)...);
+        this->processEntities.emplace(pair(entity.get(), entity));
+        return entity.get();
+    }
 
     /**
-     * Runs the render loop until the window is asked to be closed
-     * @param parameters The additional parameters to pass down to the loop
+     * Retrieves a weak reference of an entity attached to the process.
+     * @param system    The attached entity.
+     * @return  A weak reference to the provided entity. Will link to nullptr if the provided entity is not attached to
+     *          the process.
      */
-    void runProcess(AdditionalParameters *parameters = nullptr);
-
+    weak_ptr<Entity> getWeakReference(Entity *entity);
 
     /**
-     * Retrieves the current window for the process.
+     * Detaches an entity from the process, meaning it should be deleted (if there is no other shared reference active
+     * at the moment).
+     * @param entity    The entity to detach.
+     * @return `true` if the provided entity was attached. `false` otherwise.
      */
-    [[nodiscard]] Window *getProcessWindow() const;
+    bool detachEntity(Entity *entity);
 
+protected:
+
+    /// The set of entities attached to this process, mapping the pointer to its corresponding shared pointer.
+    unordered_map<Entity *, shared_ptr<Entity>> processEntities;
+
+
+// ===========
+// Systems-related interface
+// ===========
+
+public:
 
     /**
-     * Retrieves the scene for the current engine process.
+     * Initializes a system and attaches it to this process.
+     * @tparam T        The system class
+     * @tparam Args     The class constructor argument types collection.
+     * @param args      The arguments for the class constructor
+     * @return A pointer to the newly created system. The pointer is linked to a shared pointer owned only by the
+     *         process. Weak reference to the object can be retrieved using #getWeakReference
      */
-    [[nodiscard]] RenderScene *getScene() const;
+    template<typename T, typename... Args>
+    T *makeSystem(Args&&... args)
+    {
+        static_assert(std::is_base_of_v<System, T>, "Class must inherit from System");
+
+        const auto system = make_shared<T>(this, forward<Args>(args)...);
+        this->processSystems.emplace(system.get(), system);
+
+        auto it = this->systemsByType.find(system->getType());
+        if (it == this->systemsByType.end())
+        {
+            unordered_set<System *> set;
+            it = this->systemsByType.emplace(system->getType(), set).first;
+        }
+        it->second.emplace(system.get());
+
+        return system.get();
+    }
+
+    /**
+     * Retrieves a weak reference of a system attached to the process.
+     * @param system    The attached system.
+     * @return  A weak reference to the provided system. Will link to nullptr if the provided system is not attached to
+     *          the process.
+     */
+    weak_ptr<System> getWeakReference(System *system);
+
+    /**
+     * Detaches a system from the process, meaning it should be deleted (if there is no other shared reference active
+     * at the moment).
+     * @param system    The system to detach.
+     * @return `true` if the provided system was attached. `false` otherwise.
+     */
+    bool detachSystem(System *system);
+
+protected:
+
+    /// The set of systems attached to this process, mapping the pointer to its corresponding shared pointer.
+    unordered_map<System *, shared_ptr<System>> processSystems;
+
+    /// A map of processes by type
+    unordered_map<SystemTypes, unordered_set<System *>> systemsByType;
 
 
-private:
+// ===========
+// Helper functions
+// ===========
 
-    /// The render window for the current engine process.
-    Window *processWindow;
 
-    /// The scene for the current engine process.
-    RenderScene *scene;
+public:
+
+    /**
+     * Helper function for retrieving the current player input handler.
+     * @return The PlayerInput for the current graphic context
+     */
+    PlayerInput *getPlayerInput();
 
 };
 
 
-#endif //INC_KRYNE_ENGINE_PROCESS_H
+#endif //KRYNE_ENGINE_PROCESS_H

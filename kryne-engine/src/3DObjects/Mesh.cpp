@@ -5,10 +5,10 @@
 #include "kryne-engine/3DObjects/Mesh.h"
 
 
-void Mesh::updateTransform(bool force)
+void Mesh::updateTransform(bool force, bool updateChildren)
 {
-    const bool willUpdate = (this->matrixWorldNeedsUpdate || force) && this->visible;
-    Object3D::updateTransform(force);
+    const bool willUpdate = (this->matrixWorldNeedsUpdate || force) && this->getEntity()->isEnabled();
+    Transform::updateTransform(force, updateChildren);
     if (willUpdate) {
         this->material->setUniform("modelMatrix", this->matrixWorld);
         this->material->setUniform("normalMatrix", this->normalMatrix);
@@ -16,9 +16,9 @@ void Mesh::updateTransform(bool force)
 }
 
 
-const mat4 &Mesh::updateParents(const Object3D *caller)
+const mat4 &Mesh::updateParents(const Transform *caller)
 {
-    const auto &matrixWorld = Object3D::updateParents(caller);
+    const auto &matrixWorld = Transform::updateParents(caller);
     this->material->setUniform("modelMatrix", matrixWorld);
     this->material->setUniform("normalMatrix", normalMatrix);
     return matrixWorld;

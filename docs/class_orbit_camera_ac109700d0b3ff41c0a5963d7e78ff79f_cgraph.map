@@ -1,0 +1,6 @@
+<map id="OrbitCamera::updateTransform" name="OrbitCamera::updateTransform">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,204,57"/>
+<area shape="rect" id="node2" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title="Computes a lookAt matrix." alt="" coords="269,5,424,32"/>
+<area shape="rect" id="node3" href="$class_orbit_camera.html#aa1a54b3e3d8a69b681159f2b05c57878" title="Updates OrbitCamera::position according to the orbit values." alt="" coords="252,56,441,83"/>
+<area shape="rect" id="node4" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title="Change the object position." alt="" coords="489,56,641,83"/>
+</map>

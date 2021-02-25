@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distance_971',['distance',['../class_orbit_camera.html#ae421db2656651ac4cef2b6ae5f127f3c',1,'OrbitCamera']]]
+  ['distance_1148',['distance',['../class_orbit_controls_component.html#ac4301ae9e03bbd4175a1ad35d75940a4',1,'OrbitControlsComponent']]]
 ];

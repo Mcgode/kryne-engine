@@ -13,25 +13,25 @@ Renderer::Renderer(uint16_t width, uint16_t height) :
 
 void Renderer::render(Scene *scene, Camera *camera)
 {
-    scene->traverse(&updateObjects);
-    camera->updateTransform(false);
+//    scene->traverse(&updateObjects);
+//    camera->getTransform()->updateTransform(false);
 
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    this->renderObject(scene, camera);
+//    this->renderObject(scene, camera);
 }
 
 
-void Renderer::updateObjects(Object3D *object)
+void Renderer::updateObjects(Transform *object)
 {
-    object->updateTransform(false);
+//    object->updateTransform(false);
 }
 
 
-void Renderer::renderObject(Object3D *object, Camera *camera)
+void Renderer::renderObject(Transform *object, Camera *camera)
 {
-    if (!object->isVisible())
+    if (!object->getEntity()->isEnabled())
         return;
 
     auto mesh = dynamic_cast<Mesh *>(object);
@@ -57,7 +57,7 @@ void Renderer::renderObject(Object3D *object, Camera *camera)
         // Renderer-level uniforms
         material->setUniform("projectionMatrix", camera->getProjectionMatrix());
         material->setUniform("viewMatrix", camera->getViewMatrix());
-        material->setUniform("cameraPosition", camera->getWorldPosition());
+        material->setUniform("cameraPosition", camera->getTransform()->getWorldPosition());
 
         // Run mesh updates
         mesh->onBeforeRender(camera);

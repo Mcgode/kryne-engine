@@ -28,11 +28,11 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Rendering/RenderPass.h
         src/Rendering/ShadowMapping/ShadowMapHandler.cpp include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
-        src/Core/Process.cpp include/kryne-engine/Core/Process.h
+        src/Core/OldProcess.cpp include/kryne-engine/Core/OldProcess.h
         src/Light/LightingRegistry.cpp include/kryne-engine/Light/LightingRegistry.h
         src/Rendering/Renderer.cpp include/kryne-engine/Rendering/Renderer.h
         src/3DObjects/Scene.cpp include/kryne-engine/3DObjects/Scene.h
-        src/3DObjects/Object3D.cpp include/kryne-engine/3DObjects/Object3D.h
+        src/3DObjects/Transform.cpp include/kryne-engine/3DObjects/Transform.h
         src/Material/Material.cpp include/kryne-engine/Material/Material.h
         src/Geometry/BufferGeometry.cpp include/kryne-engine/Geometry/BufferGeometry.h
         src/3DObjects/Mesh.cpp include/kryne-engine/3DObjects/Mesh.h
@@ -49,7 +49,7 @@ add_library(kryne-engine STATIC
         src/Rendering/ShaderProgramCompiler.cpp include/kryne-engine/Rendering/ShaderProgramCompiler.h
         include/kryne-engine/Utils/StringUtils.hpp
         src/Input/PlayerInput.cpp include/kryne-engine/Input/PlayerInput.h
-        src/Camera/OrbitCamera.cpp include/kryne-engine/Camera/OrbitCamera.h
+        src/Camera/OrbitControlsComponent.cpp include/kryne-engine/Camera/OrbitControlsComponent.h
         include/kryne-engine/Math/Transform.hpp
         include/kryne-engine/Utils/Utils.h src/Textures/Texture.cpp include/kryne-engine/Textures/Texture.h
         include/KryneEngine
@@ -66,7 +66,22 @@ add_library(kryne-engine STATIC
         include/KEModules/Rendering.h
         include/KEModules/RenderTargets.h
         include/KEModules/Textures.h
-        include/KEModules/Utils.h src/Material/MeshLambertMaterial.cpp include/kryne-engine/Material/MeshLambertMaterial.h src/Material/MeshStandardMaterial.cpp include/kryne-engine/Material/MeshStandardMaterial.h src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h)
+        include/KEModules/Utils.h
+        src/Material/MeshLambertMaterial.cpp include/kryne-engine/Material/MeshLambertMaterial.h
+        src/Material/MeshStandardMaterial.cpp include/kryne-engine/Material/MeshStandardMaterial.h
+        src/Material/MeshMaterialCommon.cpp include/kryne-engine/Material/MeshMaterialCommon.h
+        src/Core/Entity.cpp include/kryne-engine/Core/Entity.h
+        src/Core/Process.cpp include/kryne-engine/Core/Process.h
+        src/Core/Component.cpp include/kryne-engine/Core/Component.h
+        src/Core/System.cpp include/kryne-engine/Core/System.h
+        include/kryne-engine/Core/GraphicContext/GraphicContext.h
+        src/Core/GraphicContext/OpenGLContext.cpp include/kryne-engine/Core/GraphicContext/OpenGLContext.h
+        src/Rendering/RenderMesh.cpp include/kryne-engine/Rendering/RenderMesh.h
+        src/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h
+        include/kryne-engine/enums/SystemTypes.h
+        src/Systems/TransformUpdateSystem.cpp include/kryne-engine/Systems/TransformUpdateSystem.h
+        include/kryne-engine/Rendering/LoopRenderer.h
+        include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h src/Rendering/Renderers/OpenGLRenderer.cpp src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

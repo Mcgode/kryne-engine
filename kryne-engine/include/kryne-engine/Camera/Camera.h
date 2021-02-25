@@ -7,49 +7,61 @@
 #ifndef INC_KRYNE_ENGINE_CAMERA_H
 #define INC_KRYNE_ENGINE_CAMERA_H
 
-#include <memory>
-#include <kryne-engine/3DObjects/Object3D.h>
-#include "ProjectionData.hpp"
 
-class Camera : public Object3D {
+#include <memory>
+#include <kryne-engine/Core/Entity.h>
+
+#include "ICamera.hpp"
+
+
+class Camera : public Entity, virtual public ICamera {
 
 public:
 
-    explicit Camera(unique_ptr<ProjectionData> projectionData) : projectionData(std::move(projectionData)) {}
+    /**
+     * Initializes the camera entity. Using Process::makeEntity() is recommended
+     * @param process           The process to attach this camera entity to.
+     * @param projectionData    The projection data for this camera
+     */
+    explicit Camera(Process *process, unique_ptr<ProjectionData> projectionData) :
+        Entity(process),
+        projectionData(std::move(projectionData)) {}
 
-    const mat4 &getProjectionMatrix() {
-        return projectionData->getProjectionMatrix();
-    }
+    /// @copydoc Entity::transformDidUpdate
+    void transformDidUpdate() override;
 
-    const mat4 &getInverseProjectionMatrix() {
-        return projectionData->getInverseProjectionMatrix();
-    }
+public:
 
-    [[nodiscard]] const mat4 &getViewMatrix() const {
-        return viewMatrix;
-    }
+    /**
+     * Retrieves the projection matrix of the camera.
+     * @return A const reference to the projection matrix
+     */
+    inline const mat4 &getProjectionMatrix() { return projectionData->getProjectionMatrix(); }
 
-    void updateTransform(bool force) override {
-        bool willUpdate = (force || this->matrixWorldNeedsUpdate) && this->visible;
-        Object3D::updateTransform(force);
-        if (willUpdate) {
-            viewMatrix = inverse(matrixWorld);
-        }
-    }
+    /**
+     * Retrieves the inverse of the projection matrix of the camera.
+     * @return A const reference to the projection matrix inverse
+     */
+    inline const mat4 &getInverseProjectionMatrix() { return projectionData->getInverseProjectionMatrix(); }
 
-    virtual void lookAt(const glm::vec3 &target = glm::vec3(0), const glm::vec3 &up = glm::vec3(0, 1, 0)) {
-        this->applyLookAt(target, this->getWorldPosition(), up);
-    }
+    /**
+     * Retrieves the view matrix of the camera.
+     * @return A const reference to the view matrix.
+     */
+    [[nodiscard]] inline const mat4 &getViewMatrix() const { return viewMatrix; }
 
-    void setProjectionData(unique_ptr<ProjectionData> newProjectionData) {
-        Camera::projectionData = std::move(newProjectionData);
-    }
+    /**
+     * Overrides the projection data for this camera
+     * @param newProjectionData
+     */
+    void setProjectionData(unique_ptr<ProjectionData> newProjectionData);
 
-private:
+protected:
 
     /// The projection data for this camera
     unique_ptr<ProjectionData> projectionData;
 
+    /// The view matrix of this camera
     mat4 viewMatrix {};
 
 };

@@ -41,7 +41,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -61,9 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_objects_2_base_object_8h.html",
-"class_buffer_attribute.html",
-"class_player_input.html#a91690a116dc4edc745f75de1ecd96a93",
-"functions_func_~.html"
+"_uniforms_handler_8h_source.html",
+"class_model_mesh.html",
+"class_texture2_d.html#ab944b22a4f96e7115286ce3e7bea3dbb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

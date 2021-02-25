@@ -1,0 +1,6 @@
+<map id="Component" name="Component">
+<area shape="rect" id="node1" title=" " alt="" coords="109,5,197,32"/>
+<area shape="rect" id="node2" href="$class_logic_component.html" title=" " alt="" coords="28,80,147,107"/>
+<area shape="rect" id="node4" href="$class_render_mesh.html" title=" " alt="" coords="171,80,265,107"/>
+<area shape="rect" id="node3" href="$class_orbit_controls_component.html" title=" " alt="" coords="5,155,169,181"/>
+</map>
