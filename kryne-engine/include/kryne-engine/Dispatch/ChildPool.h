@@ -23,13 +23,13 @@ public:
 
 protected:
 
-    explicit ChildPool(uint16_t threadCount);
+    explicit ChildPool(uint16_t threadCount, RunnerPool *parent);
 
-    ChildPool(uint16_t threadCount, enum internal): RunnerPool(threadCount, internal()) {}
+    ChildPool(uint16_t threadCount, RunnerPool *parent, enum internal): RunnerPool(threadCount, internal()), parent(parent) {}
 
 protected:
 
-    RunnerPool *parent = nullptr;
+    RunnerPool *parent;
 
 };
 

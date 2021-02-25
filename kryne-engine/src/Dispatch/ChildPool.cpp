@@ -15,7 +15,7 @@ ChildPool *ChildPool::make(RunnerPool *parent, uint16_t threadCount)
     if (dynamic_cast<ChildPool *>(parent) != nullptr)
         throw runtime_error("parent can't be another ChildPool.");
 
-    auto pointer = new ChildPool(threadCount);
+    auto pointer = new ChildPool(threadCount, parent);
     parent->attachedPools.push_back(unique_ptr<RunnerPool>(pointer));
     pointer->poolMutex = parent->poolMutex;
 
@@ -23,7 +23,7 @@ ChildPool *ChildPool::make(RunnerPool *parent, uint16_t threadCount)
 }
 
 
-ChildPool::ChildPool(uint16_t threadCount) : ChildPool(threadCount, RunnerPool::internal())
+ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : ChildPool(threadCount, parent, RunnerPool::internal())
 {
     for (uint16_t i = 0; i < this->threadCount; i++)
     {
