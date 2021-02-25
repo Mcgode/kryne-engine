@@ -4,7 +4,7 @@
  * @date 23/02/2021.
  */
 
-#include "Dispatcher.h"
+#include "kryne-engine/Core/Dispatcher.h"
 
 Dispatcher::Dispatcher()
 {
