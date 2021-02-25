@@ -38,7 +38,7 @@ public:
 
         future<returnType> result = task->get_future();
         {
-            unique_lock<mutex> lock(this->poolMutex);
+            unique_lock<mutex> lock(*this->poolMutex);
 
             if (this->stop)
                 throw runtime_error("Tried to enqueue a stopped pool");
@@ -67,7 +67,9 @@ protected:
 
     queue<function<void()>> tasks {};
 
-    mutex poolMutex {};
+    mutex _poolMutex {};
+
+    mutex *poolMutex;
 
     condition_variable waitCondition {};
 

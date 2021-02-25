@@ -7,7 +7,7 @@
 #include "kryne-engine/Dispatch/RunnerPool.h"
 
 
-RunnerPool::RunnerPool(uint16_t threadCount, enum internal): threadCount(threadCount)
+RunnerPool::RunnerPool(uint16_t threadCount, enum internal): threadCount(threadCount), poolMutex(&this->_poolMutex)
 {
     this->threads = new thread[this->threadCount];
 }
@@ -24,7 +24,7 @@ RunnerPool::RunnerPool(uint16_t threadCount): RunnerPool(threadCount, RunnerPool
                 {
                     function<void()> task;
                     {
-                        unique_lock<mutex> lock(this->poolMutex);
+                        unique_lock<mutex> lock(*this->poolMutex);
 
                         waitCondition.wait(lock, [this] { return this->stop || !this->tasks.empty(); });
 
@@ -45,7 +45,7 @@ RunnerPool::RunnerPool(uint16_t threadCount): RunnerPool(threadCount, RunnerPool
 RunnerPool::~RunnerPool()
 {
     {
-        unique_lock<mutex> lock(this->poolMutex);
+        unique_lock<mutex> lock(*this->poolMutex);
         this->stop = true;
     }
 
