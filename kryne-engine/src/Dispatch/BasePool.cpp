@@ -36,10 +36,19 @@ BasePool::~BasePool()
 
 void BasePool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
 {
-    unique_lock<mutex> lock(*this->poolMutex);
+    const auto swapSize = swapQueue.size();
+    {
+        unique_lock<mutex> lock(*this->poolMutex);
 
-    if (!allowNonEmpty && !this->tasks.empty())
-        throw runtime_error("Can't swap non-empty task queue");
+        if (!allowNonEmpty && !this->tasks.empty())
+            throw runtime_error("Can't swap non-empty task queue");
 
-    swap(swapQueue, this->tasks);
+        swap(swapQueue, this->tasks);
+    }
+
+    if (swapSize > 0)
+        cout << "Added delayed tasks" << endl;
+
+    this->waitCondition->notify_all();
+
 }
