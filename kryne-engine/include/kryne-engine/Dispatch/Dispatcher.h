@@ -7,11 +7,8 @@
 #pragma once
 
 
-#include <thread>
-#include <mutex>
-#include <condition_variable>
-#include <queue>
-#include <iostream>
+#include "SynchronizablePool.h"
+#include "RunnerPool.h"
 
 
 using namespace std;
@@ -23,71 +20,63 @@ public:
 
     Dispatcher();
 
-    virtual ~Dispatcher();
 
-private:
+public:
 
-    /// Stop condition. Set it to true to stop all threads.
-    bool stop = false;
+    [[nodiscard]] SynchronizableChildPool *main() const { return mainThread; }
+
+    [[nodiscard]] SynchronizablePool *parallel() const { return this->parallelExecutionThreads.get(); }
+
+protected:
+
+    unique_ptr<SynchronizablePool> parallelExecutionThreads;
+
+    SynchronizableChildPool *mainThread;
 
 
 public:
 
-    void runBasicExecutionTask(function<void()> basicTask);
-
-    void runBasicMainThreadTask(function<void()> basicTask);
-
-    /**
-     * Synchronizes the current thread to the execution threads, by waiting for them to stop running.
-     * The current thread will sleep during this time.
-     */
-    void synchronize();
+    [[nodiscard]] RunnerPool *io() const { return this->ioPool.get(); }
 
 protected:
 
-    inline bool hasExecutionTask(uint16_t i)
+    unique_ptr<RunnerPool> ioPool;
+
+
+public:
+
+    template<class F, class... Args>
+    future<result_of_t<F(Args...)>> enqueueDelayed(F&& function, Args&& ...args)
     {
-        return !this->executionTasks.empty() || (i == 0 && !this->mainThreadTasks.empty());
+        using returnType = result_of_t<F(Args...)>;
+
+        auto task = make_shared<packaged_task<returnType()>>(
+                bind(forward<F>(function), forward<Args>(args)...)
+        );
+
+        future<returnType> result = task->get_future();
+        {
+            unique_lock<mutex> lock(this->delayedMutex);
+
+            delayedQueue.emplace([task] { task.get()(); });
+        }
+
+        return result;
+    }
+
+    inline void synchronizeDelayed()
+    {
+        this->delayedPool->swapQueues(this->delayedQueue);
+        this->delayedPool->synchronize();
     }
 
 protected:
 
-    /// The count of base execution threads
-    uint16_t threadCount;
+    unique_ptr<SynchronizablePool> delayedPool;
 
-    /// The ThreadObject objects representing the execution threads
-    thread *executionThreads;
+    queue<function<void()>> delayedQueue;
 
-    /// The amount of threads running at the same time
-    uint16_t runningThreads = 0;
-
-    /// The condition variable for waiting for the end of the tasks execution.
-    condition_variable synchronizeCondition;
-
-    /// The synchronization mutex for execution threads.
-    mutex executionMutex;
-
-    /// The execution wait condition.
-    condition_variable executionCondition;
-
-    /// Tasks that can be executed in parallel.
-    queue<function<void()>> executionTasks;
-
-    /// Tasks that must be run in the main thread.
-    queue<function<void()>> mainThreadTasks;
-
-
-public:
-
-    void addAsyncTask(function<void()> asyncTask);
-
-    void launchAsyncProcessing();
-
-protected:
-
-    queue<function<void()>> asyncTasks;
-
-    mutex asyncMutex {};
+    mutex delayedMutex {};
 
 };
 
