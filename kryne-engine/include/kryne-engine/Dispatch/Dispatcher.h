@@ -16,9 +16,19 @@ using namespace std;
 
 class Dispatcher {
 
+
 public:
 
+    static Dispatcher &instance()
+    {
+        static Dispatcher dispatcher;
+        return dispatcher;
+    }
+
+protected:
+
     Dispatcher();
+
 
 
 public:
@@ -77,7 +87,6 @@ protected:
     queue<function<void()>> delayedQueue;
 
     mutex delayedMutex {};
-
 };
 
 

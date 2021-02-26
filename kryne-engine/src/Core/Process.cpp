@@ -126,8 +126,8 @@ void Process::runLoop()
     else
         cerr << "There is no scene for the process." << endl;
 
-    this->dispatcher->parallel()->synchronize();
-    this->dispatcher->synchronizeDelayed();
+    Dispatcher::instance().parallel()->synchronize();
+    Dispatcher::instance().synchronizeDelayed();
 
     this->context->endFrame();
 }
