@@ -58,7 +58,7 @@ public:
         {
             unique_lock<mutex> lock(this->delayedMutex);
 
-            delayedQueue.emplace([task] { task.get()(); });
+            delayedQueue.emplace([task] { (*task)(); });
         }
 
         return result;

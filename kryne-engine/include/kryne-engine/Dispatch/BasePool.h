@@ -13,6 +13,7 @@
 #include <queue>
 #include <future>
 #include <memory>
+#include <iostream>
 
 
 using namespace std;
@@ -40,7 +41,7 @@ public:
             if (this->stop)
                 throw runtime_error("Tried to enqueue a stopped pool");
 
-            tasks.emplace([task] { task.get()(); });
+            tasks.emplace([task] { (*task)(); });
         }
 
         waitCondition->notify_one();
