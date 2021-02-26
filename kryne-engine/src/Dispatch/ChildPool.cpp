@@ -34,11 +34,9 @@ ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : BasePool(thread
                         {
                             unique_lock<mutex> lock(*this->poolMutex);
 
-                            bool empty = this->tasks.empty() && this->parent->tasks.empty();
+                            waitCondition->wait(lock, [this] { return this->stop || !this->tasks.empty() || !this->parent->tasks.empty(); });
 
-                            waitCondition->wait(lock, [this, empty] { return this->stop || !empty; });
-
-                            if (this->stop && empty)
+                            if (this->stop && this->tasks.empty() && this->parent->tasks.empty())
                                 return;
 
                             if (!this->tasks.empty())

@@ -21,11 +21,11 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
                         {
                             unique_lock<mutex> lock(*this->poolMutex);
 
-                            bool hasTask = !this->tasks.empty();
+                            bool hadTasks = !this->tasks.empty();
 
                             // If there are currently no tasks to execute, the thread will enter the pause state and
                             // will stop running, so we decrement the number of running threads.
-                            if (!hasTask)
+                            if (!hadTasks)
                             {
                                 this->runningThreads--;
 
@@ -36,14 +36,14 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
 
                             this->waitCondition->wait(
                                     lock,
-                                    [this, hasTask] {
-                                        return this->stop || hasTask;
+                                    [this] {
+                                        return this->stop || !this->tasks.empty();
                                     }
                             );
 
                             // If there was no tasks to execute before the wait, it means the thread has woken, and is
                             // now running again -> increment number of running threads.
-                            if (!hasTask)
+                            if (!hadTasks)
                                 this->runningThreads++;
 
                             if (this->stop && this->tasks.empty())
