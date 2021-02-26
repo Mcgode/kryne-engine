@@ -81,7 +81,15 @@ add_library(kryne-engine STATIC
         include/kryne-engine/enums/SystemTypes.h
         src/Systems/TransformUpdateSystem.cpp include/kryne-engine/Systems/TransformUpdateSystem.h
         include/kryne-engine/Rendering/LoopRenderer.h
-        include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h src/Rendering/Renderers/OpenGLRenderer.cpp src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h src/Dispatch/Dispatcher.cpp include/kryne-engine/Dispatch/Dispatcher.h src/Dispatch/RunnerPool.cpp include/kryne-engine/Dispatch/RunnerPool.h src/Dispatch/ChildPool.cpp include/kryne-engine/Dispatch/ChildPool.h src/Dispatch/SynchronizablePool.cpp include/kryne-engine/Dispatch/SynchronizablePool.h src/Dispatch/SynchronizableChildPool.cpp include/kryne-engine/Dispatch/SynchronizableChildPool.h src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h)
+        include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h src/Rendering/Renderers/OpenGLRenderer.cpp
+        src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h
+        src/Dispatch/Dispatcher.cpp include/kryne-engine/Dispatch/Dispatcher.h
+        src/Dispatch/RunnerPool.cpp include/kryne-engine/Dispatch/RunnerPool.h
+        src/Dispatch/ChildPool.cpp include/kryne-engine/Dispatch/ChildPool.h
+        src/Dispatch/SynchronizablePool.cpp include/kryne-engine/Dispatch/SynchronizablePool.h
+        src/Dispatch/SynchronizableChildPool.cpp include/kryne-engine/Dispatch/SynchronizableChildPool.h
+        src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
+        include/kryne-engine/Utils/Debugging.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
