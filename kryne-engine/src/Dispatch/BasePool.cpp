@@ -29,3 +29,14 @@ BasePool::~BasePool()
 
     delete[] this->threads;
 }
+
+
+void BasePool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
+{
+    unique_lock<mutex> lock(*this->poolMutex);
+
+    if (!allowNonEmpty && this->tasks.empty())
+        throw runtime_error("Can't swap non-empty task queue");
+
+    swap(swapQueue, this->tasks);
+}
