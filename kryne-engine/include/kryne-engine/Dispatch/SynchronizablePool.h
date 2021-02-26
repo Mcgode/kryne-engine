@@ -22,7 +22,7 @@ public:
 
     void synchronize();
 
-    virtual ~SynchronizablePool();
+    ~SynchronizablePool() override;
 
 private:
 
