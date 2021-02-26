@@ -58,7 +58,7 @@ SynchronizableChildPool::SynchronizableChildPool(uint16_t threadCount, Synchroni
                             if (!hadTasks)
                                 this->parent->runningThreads++;
 
-                            if (this->stop && this->tasks.empty() && this->parent->tasks.empty());
+                            if (this->stop && this->tasks.empty() && this->parent->tasks.empty())
                                 return;
 
                             if (!this->tasks.empty())
