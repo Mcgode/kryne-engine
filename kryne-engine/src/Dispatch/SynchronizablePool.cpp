@@ -71,6 +71,4 @@ void SynchronizablePool::synchronize()
 SynchronizablePool::~SynchronizablePool()
 {
     this->attachedPools.clear();
-
-    BasePool::~BasePool();
 }

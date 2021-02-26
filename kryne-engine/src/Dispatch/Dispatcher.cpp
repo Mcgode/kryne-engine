@@ -17,4 +17,6 @@ Dispatcher::Dispatcher()
     this->mainThread = SynchronizableChildPool::make(this->parallelExecutionThreads.get(), 1);
 
     this->delayedPool = make_unique<SynchronizablePool>(threadCount);
+
+    this->ioPool = make_unique<RunnerPool>(2);
 }

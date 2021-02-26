@@ -39,6 +39,4 @@ RunnerPool::RunnerPool(uint16_t threadCount): BasePool(threadCount, &this->_pool
 RunnerPool::~RunnerPool()
 {
     this->attachedPools.clear();
-
-    BasePool::~BasePool();
 }
