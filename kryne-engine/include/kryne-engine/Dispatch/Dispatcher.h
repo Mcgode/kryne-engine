@@ -33,7 +33,7 @@ protected:
 
 public:
 
-    [[nodiscard]] SynchronizableChildPool *main() const { return mainThread; }
+    [[nodiscard]] SynchronizablePool *main() const { return this->mainThread.get(); }
 
     [[nodiscard]] SynchronizablePool *parallel() const { return this->parallelExecutionThreads.get(); }
 
@@ -41,7 +41,7 @@ protected:
 
     unique_ptr<SynchronizablePool> parallelExecutionThreads;
 
-    SynchronizableChildPool *mainThread;
+    unique_ptr<SynchronizablePool> mainThread;
 
 
 public:
