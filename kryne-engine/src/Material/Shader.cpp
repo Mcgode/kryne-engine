@@ -14,7 +14,12 @@
 Shader::Shader()
 {
     // Initialise program
-    this->programID = glCreateProgram();
+    // TODO: Better main thread initialization
+    Dispatcher::instance().main()->enqueue([this]()
+    {
+        this->programID = glCreateProgram();
+    })
+    .wait();
 
     this->needsUpdate = SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
 

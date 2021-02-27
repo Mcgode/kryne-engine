@@ -10,6 +10,8 @@
 #include <map>
 #include <sstream>
 
+#include <kryne-engine/Dispatch/Dispatcher.h>
+
 #include "UniformsHandler.h"
 #include "ShaderChunk.h"
 
