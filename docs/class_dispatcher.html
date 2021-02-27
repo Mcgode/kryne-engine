@@ -393,11 +393,6 @@ template&lt;class F , class... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Meyer's singleton instance of <a class="el" href="class_dispatcher.html" title="A central multithreaded task dispatcher, in the form of a singleton class.">Dispatcher</a> </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a72977dbd43a8cf501c05d915858d39ba_icgraph.svg" width="531" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -457,11 +452,6 @@ Here is the caller graph for this function:</div>
 <p>This is a single-thread pool that will be used to synchronize the game loop (and, depending on the graphics API, run API calls).</p>
 <p>This pool will synchronize with <a class="el" href="class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool.">parallel()</a> twice every game loop: once to run the entire game loop, and once more to run the delayed tasks. Synchronization means that the main thread will wait until all of its tasks are finished executed and the same is true for the parallel pool.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue main thread tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311" title="Enqueues a task to be executed in the main thread.">enqueueMainDelayed()</a> instead. </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a289257d29e2583f5ef40b7b5c4fdae8b_icgraph.svg" width="510" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -492,11 +482,6 @@ Here is the caller graph for this function:</div>
 <p>This pool will directly execute all the tasks that are enqueued to it, and can be synchronized with the current thread (meaning, the current thread will be paused until all tasks are finished executing), though you should let the engine handle that synchronization.</p>
 <p>It'll happen during every game loop, and will be synchronized with the main thread. This means that you should be wary and only enqueue small tasks, or else you might make the main thread wait for too long. If you have bigger tasks try breaking them into smaller tasks or run it in another pool or even a dedicated thread.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue parallel tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#ad513166b4c194964181acd3a41b49316" title="Enqueues a task to be executed in the main thread.">enqueueParallelDelayed()</a> instead. </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_acf9ae07e5cac994e98b814e0526ba481_icgraph.svg" width="523" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -532,11 +517,6 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a7fc98ec9f5619056a275aefa34d7cdbb_cgraph.svg" width="383" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a7fc98ec9f5619056a275aefa34d7cdbb_icgraph.svg" width="346" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -564,11 +544,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Waits for all the tasks in the main thread and the parallel threads to finish their execution before continuing. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a047690da9f4ddd3bc4027e0eb918f5f3_icgraph.svg" width="326" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

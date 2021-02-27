@@ -177,11 +177,11 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_basic_camera_8h.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="_first_person_camera_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="150,-296 150,-337 262,-337 262,-296 150,-296"/>
 <text text-anchor="start" x="158" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="158" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Camera</text>
-<text text-anchor="middle" x="206" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.h</text>
+<text text-anchor="middle" x="206" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.h</text>
 </a>
 </g>
 </g>
@@ -194,11 +194,11 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="_first_person_camera_8h.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="_basic_camera_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="318,-296 318,-337 430,-337 430,-296 318,-296"/>
 <text text-anchor="start" x="326" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="326" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Camera</text>
-<text text-anchor="middle" x="374" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.h</text>
+<text text-anchor="middle" x="374" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.h</text>
 </a>
 </g>
 </g>
@@ -257,10 +257,10 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_basic_camera_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_first_person_camera_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="28.5,-218 28.5,-248 153.5,-248 153.5,-218 28.5,-218"/>
 <text text-anchor="start" x="36.5" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Camera</text>
-<text text-anchor="middle" x="91" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.cpp</text>
+<text text-anchor="middle" x="91" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.cpp</text>
 </a>
 </g>
 </g>
@@ -279,10 +279,10 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="_first_person_camera_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="_basic_camera_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="304.5,-218 304.5,-248 429.5,-248 429.5,-218 304.5,-218"/>
 <text text-anchor="start" x="312.5" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Camera</text>
-<text text-anchor="middle" x="367" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.cpp</text>
+<text text-anchor="middle" x="367" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.cpp</text>
 </a>
 </g>
 </g>
