@@ -110,17 +110,20 @@ void Process::runLoop()
                     systemPair->runSystem(entity);
             }
 
-            // TODO: Multithread this
-            for (auto renderMesh : entity->getComponents<RenderMesh>())
-                renderer->handleMesh(renderMesh);
-
-            it = this->systemsByType.find(PostRendering);
-            if (it != this->systemsByType.end())
+            Dispatcher::instance().main()->enqueue([this, renderer, entity]()
             {
-                // TODO: multithread this
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
+                // TODO: Multithread this
+                for (auto renderMesh : entity->getComponents<RenderMesh>())
+                    renderer->handleMesh(renderMesh);
+
+                auto it = this->systemsByType.find(PostRendering);
+                if (it != this->systemsByType.end())
+                {
+                    // TODO: multithread this
+                    for (const auto& systemPair : it->second)
+                        systemPair->runSystem(entity);
+                }
+            });
         }
     }
     else
