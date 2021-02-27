@@ -38,6 +38,8 @@ public:
 
     [[nodiscard]] SynchronizablePool *parallel() const { return this->parallelExecutionThreads.get(); }
 
+    inline void waitMain() const { mainThread->synchronize(parallelExecutionThreads.get()); }
+
 protected:
 
     unique_ptr<SynchronizablePool> parallelExecutionThreads;
