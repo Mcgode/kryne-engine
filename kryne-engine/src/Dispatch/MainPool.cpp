@@ -33,3 +33,18 @@ void MainPool::synchronize(SynchronizablePool *pool)
     }
     pool->overrideSynchronizeWait(nullptr, true);
 }
+
+
+void MainPool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
+{
+    {
+        unique_lock<mutex> lock(this->mainMutex);
+
+        if (!allowNonEmpty && !this->tasks.empty())
+            throw runtime_error("Can't swap non-empty task queue");
+
+        swap(swapQueue, this->tasks);
+    }
+
+    this->waitCondition.notify_all();
+}

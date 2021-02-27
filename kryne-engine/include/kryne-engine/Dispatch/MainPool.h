@@ -37,6 +37,8 @@ public:
         return result;
     }
 
+    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false);
+
     void synchronize(SynchronizablePool *pool);
 
     [[nodiscard]] inline bool isCurrentThread() const { return this_thread::get_id() == this->id; }
