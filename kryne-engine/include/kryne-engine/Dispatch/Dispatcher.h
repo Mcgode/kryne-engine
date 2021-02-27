@@ -9,6 +9,7 @@
 
 #include "SynchronizablePool.h"
 #include "RunnerPool.h"
+#include "MainPool.h"
 
 
 using namespace std;
@@ -33,7 +34,7 @@ protected:
 
 public:
 
-    [[nodiscard]] SynchronizablePool *main() const { return this->mainThread.get(); }
+    [[nodiscard]] MainPool *main() const { return this->mainThread.get(); }
 
     [[nodiscard]] SynchronizablePool *parallel() const { return this->parallelExecutionThreads.get(); }
 
@@ -41,7 +42,7 @@ protected:
 
     unique_ptr<SynchronizablePool> parallelExecutionThreads;
 
-    unique_ptr<SynchronizablePool> mainThread;
+    unique_ptr<MainPool> mainThread;
 
 
 public:

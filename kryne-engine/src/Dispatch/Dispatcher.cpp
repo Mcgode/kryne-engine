@@ -14,7 +14,7 @@ Dispatcher::Dispatcher()
         threadCount = 4;
 
     this->parallelExecutionThreads = make_unique<SynchronizablePool>(threadCount - 1);
-    this->mainThread = make_unique<SynchronizablePool>(1);
+    this->mainThread = make_unique<MainPool>();
 
     this->delayedPool = make_unique<SynchronizablePool>(threadCount);
 
