@@ -84,47 +84,8 @@ void Process::runLoop()
 
         renderer->prepareFrame();
 
-        for (const auto entity : this->currentScene->getEntities()) 
-        {
-            auto it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
-            {
-                // TODO: multithread this
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
-
-            it = this->systemsByType.find(GameLogic);
-            if (it != this->systemsByType.end())
-            {
-                // TODO: multithread this
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
-
-            it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
-            {
-                // TODO: multithread this
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
-
-            Dispatcher::instance().main()->enqueue([this, renderer, entity]()
-            {
-                // TODO: Multithread this
-                for (auto renderMesh : entity->getComponents<RenderMesh>())
-                    renderer->handleMesh(renderMesh);
-
-                auto it = this->systemsByType.find(PostRendering);
-                if (it != this->systemsByType.end())
-                {
-                    // TODO: multithread this
-                    for (const auto& systemPair : it->second)
-                        systemPair->runSystem(entity);
-                }
-            });
-        }
+        for (const auto entity : this->currentScene->getTopLevelEntities())
+            this->processEntity(entity, renderer);
     }
     else
         cerr << "There is no scene for the process." << endl;
@@ -133,6 +94,52 @@ void Process::runLoop()
     Dispatcher::instance().synchronizeDelayed();
 
     this->context->endFrame();
+}
+
+void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
+{
+    Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
+    {
+        auto it = this->systemsByType.find(PreRendering);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        it = this->systemsByType.find(GameLogic);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        it = this->systemsByType.find(PreRendering);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        Dispatcher::instance().main()->enqueue([this, entity, renderer]()
+        {
+            for (auto renderMesh : entity->getComponents<RenderMesh>())
+                renderer->handleMesh(renderMesh);
+
+            Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
+            {
+                auto it = this->systemsByType.find(PostRendering);
+                if (it != this->systemsByType.end())
+                {
+                    for (const auto& systemPair : it->second)
+                        systemPair->runSystem(entity);
+                }
+
+                for (const auto child: entity->getTransform()->getChildren())
+                    this->processEntity(child->getEntity(), renderer);
+            });
+        });
+    });
 }
 
 

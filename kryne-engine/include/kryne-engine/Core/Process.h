@@ -57,6 +57,10 @@ public:
 
 protected:
 
+    void processEntity(Entity *entity, LoopRenderer *renderer) const;
+
+protected:
+
     /// The graphical context for this process
     GraphicContext *context;
 
