@@ -11,6 +11,7 @@
 #include <glm/vec3.hpp>
 #include <kryne-engine/Constants/CubeVertexData.h>
 #include <kryne-engine/Utils/Utils.h>
+#include <kryne-engine/Dispatch/Dispatcher.h>
 #include "BufferGeometry.h"
 
 
