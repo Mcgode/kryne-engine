@@ -130,7 +130,7 @@ void Process::runLoop()
         cerr << "There is no scene for the process." << endl;
 
     Dispatcher::instance().waitMain();
-//    Dispatcher::instance().synchronizeDelayed();
+    Dispatcher::instance().synchronizeDelayed();
 
     this->context->endFrame();
 }
