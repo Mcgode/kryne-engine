@@ -7,9 +7,6 @@
 #pragma once
 
 
-#include <cassert>
-
-
 #include "SynchronizablePool.h"
 #include "RunnerPool.h"
 #include "MainPool.h"
@@ -92,14 +89,15 @@ protected:
 
     mutex delayedMutex {};
 
-
-public:
-
-    static inline void assertIsMainThread()
-    {
-        assert(("This is not the main thread", instance().main()->isCurrentThread()));
-    }
-
 };
 
+#ifdef KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
+
+    #define assertIsMainThread() ""
+
+#else
+
+    #define assertIsMainThread() assert(("This is not the main thread", Dispatcher::instance().main()->isCurrentThread()))
+
+#endif
 

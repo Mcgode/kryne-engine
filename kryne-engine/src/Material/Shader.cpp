@@ -15,7 +15,7 @@ Shader::Shader()
 {
     // Initialise program
     // TODO: Better main thread initialization
-    Dispatcher::assertIsMainThread();
+    assertIsMainThread();
     this->programID = glCreateProgram();
 
     this->needsUpdate = SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;

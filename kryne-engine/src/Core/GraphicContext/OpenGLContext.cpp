@@ -88,7 +88,7 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     }
 
     // Assert current context is main thread.
-    Dispatcher::assertIsMainThread();
+    assertIsMainThread();
 
     glfwMakeContextCurrent(this->mainWindow);
 
@@ -146,7 +146,7 @@ PlayerInput *OpenGLContext::getPlayerInput()
 
 OpenGLContext::~OpenGLContext()
 {
-    Dispatcher::assertIsMainThread();
+    assertIsMainThread();
     glfwTerminate();
 }
 

@@ -27,7 +27,7 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
         indexes.push_back(i);
 
     // TODO : cleaner multithreading setup
-    Dispatcher::assertIsMainThread();
+    assertIsMainThread();
     this->setAttribute("position", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(positions), 3));
     this->setAttribute("normal", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(normals), 3));
     this->setAttribute("uv", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(textureCoordinates), 2));
