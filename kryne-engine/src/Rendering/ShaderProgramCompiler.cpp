@@ -9,6 +9,8 @@
 
 ShaderProgramCompiler::ShaderProgramCompiler()
 {
+    // TODO : Better initialization
+    assertIsMainThread();
     this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
     this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 }

@@ -121,11 +121,11 @@ $(document).ready(function(){initNavTree('_entity_8h_source.html',''); initResiz
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_entity.html#a93c54f49ef525fb5461ef456593abcbb">   47</a></span>&#160;    [[nodiscard]] uint32_t <a class="code" href="class_entity.html#a93c54f49ef525fb5461ef456593abcbb">getId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> id; }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">static</span> uint32_t nextId();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">   62</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <a class="code" href="class_process.html">Process</a> *<a class="code" href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">getProcess</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> process; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">   53</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <a class="code" href="class_process.html">Process</a> *<a class="code" href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">getProcess</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> process; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> uint32_t nextId();</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
@@ -236,13 +236,13 @@ $(document).ready(function(){initNavTree('_entity_8h_source.html',''); initResiz
 <div class="ttc" id="aclass_entity_html_a49e8ec94c9ee228b7411060613bc6f93"><div class="ttname"><a href="class_entity.html#a49e8ec94c9ee228b7411060613bc6f93">Entity::transform</a></div><div class="ttdeci">unique_ptr&lt; Transform &gt; transform</div><div class="ttdoc">The 3D transform for this entity.</div><div class="ttdef"><b>Definition:</b> Entity.h:91</div></div>
 <div class="ttc" id="aclass_entity_html_a2a0f7811f8c3f8726be1549e1c4acba4"><div class="ttname"><a href="class_entity.html#a2a0f7811f8c3f8726be1549e1c4acba4">Entity::isEnabled</a></div><div class="ttdeci">bool isEnabled() const</div><div class="ttdef"><b>Definition:</b> Entity.h:110</div></div>
 <div class="ttc" id="aclass_entity_html_ae1a51900fcd0eadbc172656f4fbc2f5d"><div class="ttname"><a href="class_entity.html#ae1a51900fcd0eadbc172656f4fbc2f5d">Entity::setEnabled</a></div><div class="ttdeci">void setEnabled(bool newValue)</div><div class="ttdef"><b>Definition:</b> Entity.h:117</div></div>
-<div class="ttc" id="aclass_process_html"><div class="ttname"><a href="class_process.html">Process</a></div><div class="ttdef"><b>Definition:</b> Process.h:28</div></div>
+<div class="ttc" id="aclass_process_html"><div class="ttname"><a href="class_process.html">Process</a></div><div class="ttdef"><b>Definition:</b> Process.h:30</div></div>
 <div class="ttc" id="aclass_entity_html_acc08af95e32ae999517fa26b01840a54"><div class="ttname"><a href="class_entity.html#acc08af95e32ae999517fa26b01840a54">Entity::id</a></div><div class="ttdeci">uint32_t id</div><div class="ttdoc">The unique id of the object.</div><div class="ttdef"><b>Definition:</b> Entity.h:67</div></div>
 <div class="ttc" id="a_transform_8h_html"><div class="ttname"><a href="_transform_8h.html">Transform.h</a></div></div>
 <div class="ttc" id="aclass_entity_html_a844794654f15fa342f4b02e2faaf395f"><div class="ttname"><a href="class_entity.html#a844794654f15fa342f4b02e2faaf395f">Entity::enabled</a></div><div class="ttdeci">bool enabled</div><div class="ttdoc">Enabled status of the entity.</div><div class="ttdef"><b>Definition:</b> Entity.h:122</div></div>
-<div class="ttc" id="aclass_entity_html_a35cd2fcd274b17c3f395a4bfebabfb56"><div class="ttname"><a href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">Entity::getProcess</a></div><div class="ttdeci">Process * getProcess() const</div><div class="ttdef"><b>Definition:</b> Entity.h:62</div></div>
+<div class="ttc" id="aclass_entity_html_a35cd2fcd274b17c3f395a4bfebabfb56"><div class="ttname"><a href="class_entity.html#a35cd2fcd274b17c3f395a4bfebabfb56">Entity::getProcess</a></div><div class="ttdeci">Process * getProcess() const</div><div class="ttdef"><b>Definition:</b> Entity.h:53</div></div>
 <div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:29</div></div>
-<div class="ttc" id="aclass_transform_html"><div class="ttname"><a href="class_transform.html">Transform</a></div><div class="ttdef"><b>Definition:</b> Transform.h:38</div></div>
+<div class="ttc" id="aclass_transform_html"><div class="ttname"><a href="class_transform.html">Transform</a></div><div class="ttdef"><b>Definition:</b> Transform.h:39</div></div>
 <div class="ttc" id="aclass_entity_html_a3451b5a0c02ea5d16d8cb0763858bc2b"><div class="ttname"><a href="class_entity.html#a3451b5a0c02ea5d16d8cb0763858bc2b">Entity::getComponents</a></div><div class="ttdeci">vector&lt; C * &gt; getComponents() const</div><div class="ttdef"><b>Definition:</b> Entity.h:175</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

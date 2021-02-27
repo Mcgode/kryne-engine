@@ -2,6 +2,12 @@ var hierarchy =
 [
     [ "AdditionalParameters", "class_additional_parameters.html", null ],
     [ "BaseObject", "class_base_object.html", null ],
+    [ "BasePool", "class_base_pool.html", [
+      [ "ChildPool", "class_child_pool.html", null ],
+      [ "RunnerPool", "class_runner_pool.html", null ],
+      [ "SynchronizableChildPool", "class_synchronizable_child_pool.html", null ],
+      [ "SynchronizablePool", "class_synchronizable_pool.html", null ]
+    ] ],
     [ "BufferAttribute", "class_buffer_attribute.html", null ],
     [ "BufferGeometry", "class_buffer_geometry.html", [
       [ "BoxBufferGeometry", "class_box_buffer_geometry.html", null ]
@@ -13,6 +19,7 @@ var hierarchy =
       [ "RenderMesh", "class_render_mesh.html", null ]
     ] ],
     [ "DirectionalLight", "class_directional_light.html", null ],
+    [ "Dispatcher", "class_dispatcher.html", null ],
     [ "Entity", "class_entity.html", [
       [ "Camera", "class_camera.html", null ]
     ] ],
@@ -40,6 +47,7 @@ var hierarchy =
     [ "LoopRenderer", "class_loop_renderer.html", [
       [ "OpenGLRenderer", "class_open_g_l_renderer.html", null ]
     ] ],
+    [ "MainPool", "class_main_pool.html", null ],
     [ "Material", "class_material.html", [
       [ "MeshMaterialCommon", "class_mesh_material_common.html", [
         [ "MeshLambertMaterial", "class_mesh_lambert_material.html", null ],
@@ -74,6 +82,7 @@ var hierarchy =
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
     [ "System", "class_system.html", [
+      [ "GameLogicComponentsRunner", "class_game_logic_components_runner.html", null ],
       [ "TransformUpdateSystem", "class_transform_update_system.html", null ]
     ] ],
     [ "Texture", "class_texture.html", [

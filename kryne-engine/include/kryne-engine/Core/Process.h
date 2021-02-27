@@ -14,6 +14,7 @@
 
 #include "Entity.h"
 #include "System.h"
+#include "kryne-engine/Dispatch/Dispatcher.h"
 #include "GraphicContext/GraphicContext.h"
 #include <kryne-engine/Rendering/RenderMesh.h>
 
@@ -53,6 +54,10 @@ public:
      * @param scene
      */
     void setCurrentScene(Scene *scene) { this->currentScene = scene; }
+
+protected:
+
+    void processEntity(Entity *entity, LoopRenderer *renderer) const;
 
 protected:
 

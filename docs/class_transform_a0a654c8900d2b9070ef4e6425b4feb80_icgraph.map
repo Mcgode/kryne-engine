@@ -1,10 +1,5 @@
 <map id="Transform::getEntity" name="Transform::getEntity">
-<area shape="rect" id="node1" title=" " alt="" coords="412,81,551,108"/>
-<area shape="rect" id="node2" href="$class_scene.html#aed4bf402a8745e782fb5f711bb6d20ad" title=" " alt="" coords="241,5,329,32"/>
-<area shape="rect" id="node5" href="$class_scene.html#a5e62816b2e2c566c8f1bc151688c2c36" title=" " alt="" coords="231,56,339,83"/>
-<area shape="rect" id="node7" href="$class_renderer.html#aa814eabb912509d0cd34b61018e98fb4" title=" " alt="" coords="207,107,363,133"/>
-<area shape="rect" id="node8" href="$class_mesh.html#a220745f5b2ebc6f1d0577165b0d7fc74" title=" " alt="" coords="205,157,364,184"/>
-<area shape="rect" id="node3" href="$class_transform.html#a1512e279c1952d25d4e0f6a75ad9414a" title=" " alt="" coords="27,56,135,83"/>
-<area shape="rect" id="node4" href="$class_transform.html#a0c54fa70e0f0467753cd675ea2a5b2c6" title=" " alt="" coords="10,5,153,32"/>
-<area shape="rect" id="node6" href="$class_transform.html#aa72e286c069850db80927b0e6554cd3e" title=" " alt="" coords="5,107,157,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="212,31,351,57"/>
+<area shape="rect" id="node2" href="$class_renderer.html#aa814eabb912509d0cd34b61018e98fb4" title=" " alt="" coords="7,5,163,32"/>
+<area shape="rect" id="node3" href="$class_mesh.html#a220745f5b2ebc6f1d0577165b0d7fc74" title=" " alt="" coords="5,56,164,83"/>
 </map>

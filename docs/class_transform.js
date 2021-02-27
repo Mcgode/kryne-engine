@@ -25,6 +25,7 @@ var class_transform =
     [ "traverse", "class_transform.html#ac347ad73951c53a3df8a065cb418673f", null ],
     [ "updateParents", "class_transform.html#a1a6acc87d9a71ce0017898ba55b0951b", null ],
     [ "updateTransform", "class_transform.html#ae74e29748e59e117ecff0f7ef02556b8", null ],
+    [ "Scene", "class_transform.html#a032858ae1fe02d2d1170981c2af2d67c", null ],
     [ "children", "class_transform.html#a1d60993d03cb24a0c58e50222ecb780b", null ],
     [ "localTransform", "class_transform.html#a2ac7e7611d6faa4e00c356d3b710695d", null ],
     [ "matrixWorld", "class_transform.html#aeb29cbb513913de3dfc02fcb4c0bd5ae", null ],

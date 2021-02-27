@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dir_1252',['DIR',['../_shader_8cpp.html#a6c8de73bb604d91743c7f6f356eb171e',1,'DIR():&#160;Shader.cpp'],['../_shader_chunk_8cpp.html#a6c8de73bb604d91743c7f6f356eb171e',1,'DIR():&#160;ShaderChunk.cpp']]],
-  ['drag_5fspeed_1253',['DRAG_SPEED',['../_trackball_camera_8cpp.html#af001698479bebb56f5b2818ebffa15a4',1,'TrackballCamera.cpp']]]
+  ['base_5fglsl_5fversion_5fstring_1380',['BASE_GLSL_VERSION_STRING',['../_shader_program_compiler_8h.html#a431929f952df50ef69ff716939e27aa2',1,'ShaderProgramCompiler.h']]]
 ];

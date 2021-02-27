@@ -10,6 +10,7 @@
 #include <regex>
 #include <kryne-engine/Material/Shader.h>
 #include <kryne-engine/Geometry/BufferGeometry.h>
+#include <kryne-engine/Dispatch/Dispatcher.h>
 
 
 /// The default GLSL version that is put at the start of every new shader

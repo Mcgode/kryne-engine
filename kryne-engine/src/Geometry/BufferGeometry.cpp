@@ -8,6 +8,8 @@
 
 BufferGeometry::BufferGeometry()
 {
+    // TODO : Better main thread init
+    assertIsMainThread();
     glGenVertexArrays(1, &this->vao);
 }
 

@@ -1,4 +1,5 @@
 <map id="Entity::getComponents" name="Entity::getComponents">
-<area shape="rect" id="node1" title=" " alt="" coords="240,5,395,32"/>
-<area shape="rect" id="node2" href="$class_component.html#a9490a7db267c92b8b69bf5cea74ac1c1" title=" " alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="256,35,411,61"/>
+<area shape="rect" id="node2" href="$class_component.html#a9490a7db267c92b8b69bf5cea74ac1c1" title=" " alt="" coords="13,5,200,32"/>
+<area shape="rect" id="node3" href="$class_game_logic_components_runner.html#ad7d04bea68c654604bdb6c9942e429b6" title=" " alt="" coords="5,57,208,98"/>
 </map>

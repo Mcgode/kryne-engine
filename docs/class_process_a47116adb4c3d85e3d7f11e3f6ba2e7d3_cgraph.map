@@ -1,4 +1,11 @@
 <map id="Process::runLoop" name="Process::runLoop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,129,32"/>
-<area shape="rect" id="node2" href="$class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e" title=" " alt="" coords="177,5,307,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,183,129,209"/>
+<area shape="rect" id="node2" href="$class_graphic_context.html#a74eae76a491ec993e5d65019d50626e3" title=" " alt="" coords="183,5,362,32"/>
+<area shape="rect" id="node3" href="$class_main_pool.html#ad39482392e579e95034085591498d3ee" title=" " alt="" coords="206,56,339,83"/>
+<area shape="rect" id="node4" href="$class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e" title=" " alt="" coords="208,107,337,133"/>
+<area shape="rect" id="node5" href="$class_graphic_context.html#ad894031ecb6889fe7e3c9b0019303a99" title=" " alt="" coords="177,157,368,184"/>
+<area shape="rect" id="node6" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="202,208,343,235"/>
+<area shape="rect" id="node7" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="213,259,333,285"/>
+<area shape="rect" id="node8" href="$class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5" title=" " alt="" coords="177,309,368,336"/>
+<area shape="rect" id="node9" href="$class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3" title=" " alt="" coords="201,360,344,387"/>
 </map>

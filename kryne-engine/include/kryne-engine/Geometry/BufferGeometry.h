@@ -16,6 +16,9 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/geometric.hpp>
+
+#include <kryne-engine/Dispatch/Dispatcher.h>
+
 #include "BufferAttribute.h"
 
 using namespace std;

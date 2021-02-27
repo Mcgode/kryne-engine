@@ -14,6 +14,8 @@
 
 int main()
 {
+    cout << "Is main thread: " << Dispatcher::instance().main()->isCurrentThread() << endl;
+
     const auto process = make_unique<Process>(new OpenGLContext());
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);

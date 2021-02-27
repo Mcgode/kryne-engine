@@ -9,7 +9,6 @@ var class_orbit_controls_component =
     [ "centerPosition", "class_orbit_controls_component.html#af6e538e1af1f101f636d716fffd88ead", null ],
     [ "distance", "class_orbit_controls_component.html#ac4301ae9e03bbd4175a1ad35d75940a4", null ],
     [ "maxPhi", "class_orbit_controls_component.html#ac46867b48a914f2c6e49e3e314c502dc", null ],
-    [ "playerInput", "class_orbit_controls_component.html#ae3c492db983807fe3a1af8e492f684f3", null ],
     [ "radiansPerMousePixel", "class_orbit_controls_component.html#a0c4427aa326549c31ac5839046916191", null ],
     [ "scrollZoomSpeed", "class_orbit_controls_component.html#a61c565a9cc83fae3337bc1346a9e2428", null ]
 ];
