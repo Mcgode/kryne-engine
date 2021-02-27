@@ -19,7 +19,7 @@ void MainPool::synchronize(SynchronizablePool *pool)
             this->waitCondition.wait(lock, [this, pool, &synchronize]
             {
                 synchronize = pool->trySynchronize();
-                return pool->trySynchronize() || !this->tasks.empty();
+                return synchronize || !this->tasks.empty();
             });
 
             if (synchronize && this->tasks.empty())
