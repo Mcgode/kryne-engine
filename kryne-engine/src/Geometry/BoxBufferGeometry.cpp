@@ -27,15 +27,12 @@ BoxBufferGeometry::BoxBufferGeometry(float xSize, float ySize, float zSize): Buf
         indexes.push_back(i);
 
     // TODO : cleaner multithreading setup
-    Dispatcher::instance().main()->enqueue([this, positions, indexes, normals, textureCoordinates]()
-    {
-        this->setAttribute("position", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(positions), 3));
-        this->setAttribute("normal", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(normals), 3));
-        this->setAttribute("uv", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(textureCoordinates), 2));
+    Dispatcher::assertIsMainThread();
+    this->setAttribute("position", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(positions), 3));
+    this->setAttribute("normal", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(normals), 3));
+    this->setAttribute("uv", std::make_unique<BufferAttribute>(Utils::flatMapFloatVectors(textureCoordinates), 2));
 
-        this->setIndices(indexes);
+    this->setIndices(indexes);
 
-        this->computeTangents();
-    })
-    .wait();
+    this->computeTangents();
 }

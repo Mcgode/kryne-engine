@@ -10,12 +10,9 @@
 ShaderProgramCompiler::ShaderProgramCompiler()
 {
     // TODO : Better initialization
-    Dispatcher::instance().main()->enqueue([this]()
-    {
-        this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
-        this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-    })
-    .wait();
+    Dispatcher::assertIsMainThread();
+    this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+    this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 }
 
 
