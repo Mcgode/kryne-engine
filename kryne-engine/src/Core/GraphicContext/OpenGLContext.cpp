@@ -87,27 +87,32 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
         exit(EXIT_FAILURE);
     }
 
-    glfwMakeContextCurrent(this->mainWindow);
-
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    // Current context is main thread.
+    Dispatcher::instance().main()->enqueue([this]()
     {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
-        exit(EXIT_FAILURE);
-    }
+        glfwMakeContextCurrent(this->mainWindow);
 
-    glfwSetFramebufferSizeCallback(this->mainWindow, framebufferSizeCallback);
-    glfwSetErrorCallback(errorCallback);
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        {
+            std::cerr << "Failed to initialize GLAD" << std::endl;
+            exit(EXIT_FAILURE);
+        }
 
-    int flags; glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
-    if (flags & GL_CONTEXT_FLAG_DEBUG_BIT)
-    {
-        glEnable(GL_DEBUG_OUTPUT);
-        glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-        glDebugMessageCallback(glDebugOutput, nullptr);
-        glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
-    }
+        glfwSetFramebufferSizeCallback(this->mainWindow, framebufferSizeCallback);
+        glfwSetErrorCallback(errorCallback);
 
-    cout << "Initialized OpenGL context" << endl;
+        int flags; glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
+        if (flags & GL_CONTEXT_FLAG_DEBUG_BIT)
+        {
+            glEnable(GL_DEBUG_OUTPUT);
+            glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+            glDebugMessageCallback(glDebugOutput, nullptr);
+            glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+        }
+
+        cout << "Initialized OpenGL context" << endl;
+    })
+    .wait();
 
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
     this->renderer = make_unique<OpenGLRenderer>(this);
@@ -143,7 +148,7 @@ PlayerInput *OpenGLContext::getPlayerInput()
 
 OpenGLContext::~OpenGLContext()
 {
-    glfwTerminate();
+    Dispatcher::instance().main()->enqueue(glfwTerminate).wait();
 }
 
 
