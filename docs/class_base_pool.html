@@ -83,12 +83,10 @@ $(document).ready(function(){initNavTree('class_base_pool.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_base_pool-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasePool Class Reference</div>  </div>
+<div class="title">BasePool Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -96,193 +94,38 @@ $(document).ready(function(){initNavTree('class_base_pool.html',''); initResizab
 <div class="dynheader">
 Inheritance diagram for BasePool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_base_pool__inherit__graph.svg" width="555" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_base_pool__inherit__graph.svg" width="291" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for BasePool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_base_pool__coll__graph.svg" width="367" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_base_pool__coll__graph.svg" width="151" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af14c9cd14bccd79224d9c51eae760963"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#af14c9cd14bccd79224d9c51eae760963">~BasePool</a> ()</td></tr>
-<tr class="separator:af14c9cd14bccd79224d9c51eae760963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e10614759ea0ec436d799a5cffc081"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
-<tr class="memitem:a67e10614759ea0ec436d799a5cffc081"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a67e10614759ea0ec436d799a5cffc081">enqueue</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
-<tr class="separator:a67e10614759ea0ec436d799a5cffc081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8430f9361ffbc2f8603f4fa1cb56e44b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a8430f9361ffbc2f8603f4fa1cb56e44b">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty=false)</td></tr>
-<tr class="separator:a8430f9361ffbc2f8603f4fa1cb56e44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a0a2c6fd0d22467d22ee480777c7b4fe0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a0a2c6fd0d22467d22ee480777c7b4fe0">internal</a> </td></tr>
-<tr class="separator:a0a2c6fd0d22467d22ee480777c7b4fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a74f415df64d3fad6e19ed95e60953b02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a74f415df64d3fad6e19ed95e60953b02">BasePool</a> (uint16_t <a class="el" href="class_base_pool.html#a8d2c10ec66de44bcc2f8265303f11e0e">threadCount</a>, mutex *mutex, condition_variable *condition, enum <a class="el" href="class_base_pool.html#a0a2c6fd0d22467d22ee480777c7b4fe0">internal</a>)</td></tr>
-<tr class="separator:a74f415df64d3fad6e19ed95e60953b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad683e420fe4348a7a57fc9496729adb0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#ad683e420fe4348a7a57fc9496729adb0">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty)=0</td></tr>
+<tr class="separator:ad683e420fe4348a7a57fc9496729adb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a8d2c10ec66de44bcc2f8265303f11e0e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a8d2c10ec66de44bcc2f8265303f11e0e">threadCount</a></td></tr>
-<tr class="separator:a8d2c10ec66de44bcc2f8265303f11e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e8b031edbaeee05b43a6dc1d9add1f1"><td class="memItemLeft" align="right" valign="top">thread *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a3e8b031edbaeee05b43a6dc1d9add1f1">threads</a></td></tr>
-<tr class="separator:a3e8b031edbaeee05b43a6dc1d9add1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a014f306ce33ba08399ef6f4aabf4c8d9"><td class="memItemLeft" align="right" valign="top">queue&lt; function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a014f306ce33ba08399ef6f4aabf4c8d9">tasks</a> {}</td></tr>
 <tr class="separator:a014f306ce33ba08399ef6f4aabf4c8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd471393ddda2a4862e03cd0279d0da"><td class="memItemLeft" align="right" valign="top">mutex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#acbd471393ddda2a4862e03cd0279d0da">poolMutex</a></td></tr>
-<tr class="separator:acbd471393ddda2a4862e03cd0279d0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4499a836e5a03a415e031a3f9e248aff"><td class="memItemLeft" align="right" valign="top">condition_variable *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#a4499a836e5a03a415e031a3f9e248aff">waitCondition</a></td></tr>
-<tr class="separator:a4499a836e5a03a415e031a3f9e248aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4c4b1282638b790196bfa4d1565325b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_pool.html#ab4c4b1282638b790196bfa4d1565325b">stop</a> = false</td></tr>
-<tr class="separator:ab4c4b1282638b790196bfa4d1565325b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a0a2c6fd0d22467d22ee480777c7b4fe0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a2c6fd0d22467d22ee480777c7b4fe0">&#9670;&nbsp;</a></span>internal</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="class_base_pool.html#a0a2c6fd0d22467d22ee480777c7b4fe0">BasePool::internal</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af14c9cd14bccd79224d9c51eae760963"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af14c9cd14bccd79224d9c51eae760963">&#9670;&nbsp;</a></span>~BasePool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">BasePool::~BasePool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a74f415df64d3fad6e19ed95e60953b02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74f415df64d3fad6e19ed95e60953b02">&#9670;&nbsp;</a></span>BasePool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">BasePool::BasePool </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>threadCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">mutex *&#160;</td>
-          <td class="paramname"><em>mutex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">condition_variable *&#160;</td>
-          <td class="paramname"><em>condition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">enum&#160;</td>
-          <td class="paramname"><em>internal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a67e10614759ea0ec436d799a5cffc081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67e10614759ea0ec436d799a5cffc081">&#9670;&nbsp;</a></span>enqueue()</h2>
+<a id="ad683e420fe4348a7a57fc9496729adb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad683e420fe4348a7a57fc9496729adb0">&#9670;&nbsp;</a></span>swapQueues()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class F , class... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; BasePool::enqueue </td>
-          <td>(</td>
-          <td class="paramtype">F &amp;&amp;&#160;</td>
-          <td class="paramname"><em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8430f9361ffbc2f8603f4fa1cb56e44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8430f9361ffbc2f8603f4fa1cb56e44b">&#9670;&nbsp;</a></span>swapQueues()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BasePool::swapQueues </td>
+          <td class="memname">virtual void BasePool::swapQueues </td>
           <td>(</td>
           <td class="paramtype">queue&lt; function&lt; void()&gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>swapQueue</em>, </td>
@@ -291,7 +134,7 @@ template&lt;class F , class... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allowNonEmpty</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>allowNonEmpty</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -299,55 +142,18 @@ template&lt;class F , class... Args&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_thread_pool.html#afa9d39c72761bc8f7019e4c0ea3bacec">ThreadPool</a>, and <a class="el" href="class_main_pool.html#aff4c4a0fe8a5adaf313ec36f739d2d29">MainPool</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="acbd471393ddda2a4862e03cd0279d0da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd471393ddda2a4862e03cd0279d0da">&#9670;&nbsp;</a></span>poolMutex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">mutex* BasePool::poolMutex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab4c4b1282638b790196bfa4d1565325b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4c4b1282638b790196bfa4d1565325b">&#9670;&nbsp;</a></span>stop</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool BasePool::stop = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a014f306ce33ba08399ef6f4aabf4c8d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a014f306ce33ba08399ef6f4aabf4c8d9">&#9670;&nbsp;</a></span>tasks</h2>
 
@@ -370,75 +176,8 @@ template&lt;class F , class... Args&gt; </div>
 
 </div>
 </div>
-<a id="a8d2c10ec66de44bcc2f8265303f11e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2c10ec66de44bcc2f8265303f11e0e">&#9670;&nbsp;</a></span>threadCount</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t BasePool::threadCount</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3e8b031edbaeee05b43a6dc1d9add1f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e8b031edbaeee05b43a6dc1d9add1f1">&#9670;&nbsp;</a></span>threads</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread* BasePool::threads</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4499a836e5a03a415e031a3f9e248aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4499a836e5a03a415e031a3f9e248aff">&#9670;&nbsp;</a></span>waitCondition</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">condition_variable* BasePool::waitCondition</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>kryne-engine/include/kryne-engine/Dispatch/<a class="el" href="_base_pool_8h_source.html">BasePool.h</a></li>
-<li>kryne-engine/src/Dispatch/<a class="el" href="_base_pool_8cpp.html">BasePool.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

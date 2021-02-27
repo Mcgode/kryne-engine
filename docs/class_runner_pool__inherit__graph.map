@@ -1,4 +1,5 @@
 <map id="RunnerPool" name="RunnerPool">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,95,107"/>
-<area shape="rect" id="node2" href="$class_base_pool.html" title=" " alt="" coords="11,5,89,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,95,181"/>
+<area shape="rect" id="node2" href="$class_thread_pool.html" title=" " alt="" coords="7,80,93,107"/>
+<area shape="rect" id="node3" href="$class_base_pool.html" title=" " alt="" coords="11,5,89,32"/>
 </map>

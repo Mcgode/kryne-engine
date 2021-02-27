@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['baseobject_898',['BaseObject',['../class_base_object.html#a335d95d71c3d03861eed619a7bca30a3',1,'BaseObject']]],
-  ['basepool_899',['BasePool',['../class_base_pool.html#a74f415df64d3fad6e19ed95e60953b02',1,'BasePool']]],
-  ['basiccamera_900',['BasicCamera',['../class_basic_camera.html#abf2403b1304b08f07f3ba94c14e1fc09',1,'BasicCamera::BasicCamera(glm::vec3 initial_position, glm::mat4 initial_rotation=glm::mat4())'],['../class_basic_camera.html#a0ee0998b537ef817645a569a710be41b',1,'BasicCamera::BasicCamera(glm::vec3 camera_position, glm::vec3 target_position, glm::vec3 up_vector=glm::vec3(0, 1, 0))']]],
-  ['bindtexture_901',['bindTexture',['../class_texture.html#a1b472af3e9b4a4c2f0785b75bbc22265',1,'Texture']]],
-  ['bindtovao_902',['bindToVAO',['../class_buffer_attribute.html#a53a9287ad87576c00bd8387449aed77a',1,'BufferAttribute']]],
-  ['boxbuffergeometry_903',['BoxBufferGeometry',['../class_box_buffer_geometry.html#ac0a9b216ef4cdf59f6376fb27f34de22',1,'BoxBufferGeometry']]],
-  ['bufferattribute_904',['BufferAttribute',['../class_buffer_attribute.html#a899fbd7fbcf0bccdc5bd609a4de4b3eb',1,'BufferAttribute']]],
-  ['buffergeometry_905',['BufferGeometry',['../class_buffer_geometry.html#a4147124a76077d48735c37d8b65f5d79',1,'BufferGeometry']]]
+  ['baseobject_889',['BaseObject',['../class_base_object.html#a335d95d71c3d03861eed619a7bca30a3',1,'BaseObject']]],
+  ['basiccamera_890',['BasicCamera',['../class_basic_camera.html#abf2403b1304b08f07f3ba94c14e1fc09',1,'BasicCamera::BasicCamera(glm::vec3 initial_position, glm::mat4 initial_rotation=glm::mat4())'],['../class_basic_camera.html#a0ee0998b537ef817645a569a710be41b',1,'BasicCamera::BasicCamera(glm::vec3 camera_position, glm::vec3 target_position, glm::vec3 up_vector=glm::vec3(0, 1, 0))']]],
+  ['bindtexture_891',['bindTexture',['../class_texture.html#a1b472af3e9b4a4c2f0785b75bbc22265',1,'Texture']]],
+  ['bindtovao_892',['bindToVAO',['../class_buffer_attribute.html#a53a9287ad87576c00bd8387449aed77a',1,'BufferAttribute']]],
+  ['boxbuffergeometry_893',['BoxBufferGeometry',['../class_box_buffer_geometry.html#ac0a9b216ef4cdf59f6376fb27f34de22',1,'BoxBufferGeometry']]],
+  ['bufferattribute_894',['BufferAttribute',['../class_buffer_attribute.html#a899fbd7fbcf0bccdc5bd609a4de4b3eb',1,'BufferAttribute']]],
+  ['buffergeometry_895',['BufferGeometry',['../class_buffer_geometry.html#a4147124a76077d48735c37d8b65f5d79',1,'BufferGeometry']]]
 ];

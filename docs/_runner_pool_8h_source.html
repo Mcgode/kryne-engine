@@ -89,45 +89,31 @@ $(document).ready(function(){initNavTree('_runner_pool_8h_source.html',''); init
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_base_pool_8h.html">BasePool.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_thread_pool_8h.html">ThreadPool.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_child_pool.html">ChildPool</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_runner_pool.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_runner_pool.html">RunnerPool</a> final : <span class="keyword">public</span> <a class="code" href="class_thread_pool.html">ThreadPool</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_runner_pool.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_runner_pool.html">RunnerPool</a> final : <span class="keyword">public</span> <a class="code" href="class_base_pool.html">BasePool</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_runner_pool.html#a21e07ca440f0516e66aeb0f3b9da4dda">   17</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_child_pool.html">ChildPool</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_runner_pool.html#a81ba303d2ff3d76ececf00049eeba666">RunnerPool</a>(uint16_t <a class="code" href="class_thread_pool.html#a603c987af066171f2c988834ea1c866d">threadCount</a>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_runner_pool.html#a81ba303d2ff3d76ececf00049eeba666">RunnerPool</a>(uint16_t <a class="code" href="class_base_pool.html#a8d2c10ec66de44bcc2f8265303f11e0e">threadCount</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    mutex _poolMutex {};</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_runner_pool.html#af93748c602fabf450a649f3013459d2e">~RunnerPool</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    condition_variable _waitCondition {};</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    mutex _poolMutex {};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    condition_variable _waitCondition {};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    vector&lt;unique_ptr&lt;ChildPool&gt;&gt; attachedPools {};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_child_pool_8h.html">ChildPool.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_thread_pool_html"><div class="ttname"><a href="class_thread_pool.html">ThreadPool</a></div><div class="ttdef"><b>Definition:</b> ThreadPool.h:23</div></div>
 <div class="ttc" id="aclass_runner_pool_html_a81ba303d2ff3d76ececf00049eeba666"><div class="ttname"><a href="class_runner_pool.html#a81ba303d2ff3d76ececf00049eeba666">RunnerPool::RunnerPool</a></div><div class="ttdeci">RunnerPool(uint16_t threadCount)</div><div class="ttdef"><b>Definition:</b> RunnerPool.cpp:10</div></div>
-<div class="ttc" id="a_child_pool_8h_html"><div class="ttname"><a href="_child_pool_8h.html">ChildPool.h</a></div></div>
-<div class="ttc" id="aclass_runner_pool_html"><div class="ttname"><a href="class_runner_pool.html">RunnerPool</a></div><div class="ttdef"><b>Definition:</b> RunnerPool.h:15</div></div>
-<div class="ttc" id="aclass_runner_pool_html_af93748c602fabf450a649f3013459d2e"><div class="ttname"><a href="class_runner_pool.html#af93748c602fabf450a649f3013459d2e">RunnerPool::~RunnerPool</a></div><div class="ttdeci">~RunnerPool() override</div><div class="ttdef"><b>Definition:</b> RunnerPool.cpp:39</div></div>
-<div class="ttc" id="aclass_child_pool_html"><div class="ttname"><a href="class_child_pool.html">ChildPool</a></div><div class="ttdef"><b>Definition:</b> ChildPool.h:15</div></div>
-<div class="ttc" id="a_base_pool_8h_html"><div class="ttname"><a href="_base_pool_8h.html">BasePool.h</a></div></div>
-<div class="ttc" id="aclass_base_pool_html"><div class="ttname"><a href="class_base_pool.html">BasePool</a></div><div class="ttdef"><b>Definition:</b> BasePool.h:22</div></div>
-<div class="ttc" id="aclass_base_pool_html_a8d2c10ec66de44bcc2f8265303f11e0e"><div class="ttname"><a href="class_base_pool.html#a8d2c10ec66de44bcc2f8265303f11e0e">BasePool::threadCount</a></div><div class="ttdeci">uint16_t threadCount</div><div class="ttdef"><b>Definition:</b> BasePool.h:64</div></div>
+<div class="ttc" id="a_thread_pool_8h_html"><div class="ttname"><a href="_thread_pool_8h.html">ThreadPool.h</a></div></div>
+<div class="ttc" id="aclass_thread_pool_html_a603c987af066171f2c988834ea1c866d"><div class="ttname"><a href="class_thread_pool.html#a603c987af066171f2c988834ea1c866d">ThreadPool::threadCount</a></div><div class="ttdeci">uint16_t threadCount</div><div class="ttdef"><b>Definition:</b> ThreadPool.h:65</div></div>
+<div class="ttc" id="aclass_runner_pool_html"><div class="ttname"><a href="class_runner_pool.html">RunnerPool</a></div><div class="ttdef"><b>Definition:</b> RunnerPool.h:13</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

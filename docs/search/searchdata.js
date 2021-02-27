@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "ctu",
   7: "bims",
   8: "bdfghlnpst",
-  9: "cos",
+  9: "os",
   10: "abdgknps"
 };
 

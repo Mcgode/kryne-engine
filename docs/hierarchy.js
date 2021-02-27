@@ -3,10 +3,11 @@ var hierarchy =
     [ "AdditionalParameters", "class_additional_parameters.html", null ],
     [ "BaseObject", "class_base_object.html", null ],
     [ "BasePool", "class_base_pool.html", [
-      [ "ChildPool", "class_child_pool.html", null ],
-      [ "RunnerPool", "class_runner_pool.html", null ],
-      [ "SynchronizableChildPool", "class_synchronizable_child_pool.html", null ],
-      [ "SynchronizablePool", "class_synchronizable_pool.html", null ]
+      [ "MainPool", "class_main_pool.html", null ],
+      [ "ThreadPool", "class_thread_pool.html", [
+        [ "RunnerPool", "class_runner_pool.html", null ],
+        [ "SynchronizablePool", "class_synchronizable_pool.html", null ]
+      ] ]
     ] ],
     [ "BufferAttribute", "class_buffer_attribute.html", null ],
     [ "BufferGeometry", "class_buffer_geometry.html", [
@@ -47,7 +48,6 @@ var hierarchy =
     [ "LoopRenderer", "class_loop_renderer.html", [
       [ "OpenGLRenderer", "class_open_g_l_renderer.html", null ]
     ] ],
-    [ "MainPool", "class_main_pool.html", null ],
     [ "Material", "class_material.html", [
       [ "MeshMaterialCommon", "class_mesh_material_common.html", [
         [ "MeshLambertMaterial", "class_mesh_lambert_material.html", null ],

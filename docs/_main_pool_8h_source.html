@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('_main_pool_8h_source.html',''); initRe
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_synchronizable_pool_8h.html">SynchronizablePool.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_main_pool.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_pool.html">MainPool</a> final {</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_main_pool.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_pool.html">MainPool</a> final : <span class="keyword">public</span> <a class="code" href="class_base_pool.html">BasePool</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_main_pool_8h_source.html',''); initRe
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            unique_lock&lt;mutex&gt; lock(this-&gt;mainMutex);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            tasks.emplace([task] { (*task)(); });</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="class_base_pool.html#a014f306ce33ba08399ef6f4aabf4c8d9">tasks</a>.emplace([task] { (*task)(); });</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        waitCondition.notify_all();</div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('_main_pool_8h_source.html',''); initRe
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_pool.html#a7db25a498a38a10b5dcf2ed9b01a9ebf">swapQueues</a>(queue&lt;<span class="keyword">function</span>&lt;<span class="keywordtype">void</span>()&gt;&gt; &amp;swapQueue, <span class="keywordtype">bool</span> allowNonEmpty = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_pool.html#aff4c4a0fe8a5adaf313ec36f739d2d29">swapQueues</a>(queue&lt;<span class="keyword">function</span>&lt;<span class="keywordtype">void</span>()&gt;&gt; &amp;swapQueue, <span class="keywordtype">bool</span> allowNonEmpty = <span class="keyword">false</span>) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_pool.html#a5cb31a9c0f093c0623dbdb471dc822a4">synchronize</a>(<a class="code" href="class_synchronizable_pool.html">SynchronizablePool</a> *pool);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
@@ -133,21 +133,21 @@ $(document).ready(function(){initNavTree('_main_pool_8h_source.html',''); initRe
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    condition_variable waitCondition;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    queue&lt;<span class="keyword">function</span>&lt;void()&gt;&gt; tasks {};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_main_pool_html_ad39482392e579e95034085591498d3ee"><div class="ttname"><a href="class_main_pool.html#ad39482392e579e95034085591498d3ee">MainPool::enqueue</a></div><div class="ttdeci">future&lt; result_of_t&lt; F(Args...)&gt; &gt; enqueue(F &amp;&amp;function, Args &amp;&amp;...args)</div><div class="ttdef"><b>Definition:</b> MainPool.h:20</div></div>
-<div class="ttc" id="aclass_main_pool_html_a7db25a498a38a10b5dcf2ed9b01a9ebf"><div class="ttname"><a href="class_main_pool.html#a7db25a498a38a10b5dcf2ed9b01a9ebf">MainPool::swapQueues</a></div><div class="ttdeci">void swapQueues(queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty=false)</div><div class="ttdef"><b>Definition:</b> MainPool.cpp:38</div></div>
-<div class="ttc" id="aclass_synchronizable_pool_html"><div class="ttname"><a href="class_synchronizable_pool.html">SynchronizablePool</a></div><div class="ttdef"><b>Definition:</b> SynchronizablePool.h:15</div></div>
+<div class="ttc" id="aclass_synchronizable_pool_html"><div class="ttname"><a href="class_synchronizable_pool.html">SynchronizablePool</a></div><div class="ttdef"><b>Definition:</b> SynchronizablePool.h:13</div></div>
 <div class="ttc" id="a_synchronizable_pool_8h_html"><div class="ttname"><a href="_synchronizable_pool_8h.html">SynchronizablePool.h</a></div></div>
 <div class="ttc" id="aclass_main_pool_html"><div class="ttname"><a href="class_main_pool.html">MainPool</a></div><div class="ttdef"><b>Definition:</b> MainPool.h:13</div></div>
 <div class="ttc" id="aclass_main_pool_html_afce2bdbb82e4f0c4a8a4a89a566c1a53"><div class="ttname"><a href="class_main_pool.html#afce2bdbb82e4f0c4a8a4a89a566c1a53">MainPool::MainPool</a></div><div class="ttdeci">MainPool()</div><div class="ttdef"><b>Definition:</b> MainPool.h:17</div></div>
 <div class="ttc" id="aclass_main_pool_html_a5cb31a9c0f093c0623dbdb471dc822a4"><div class="ttname"><a href="class_main_pool.html#a5cb31a9c0f093c0623dbdb471dc822a4">MainPool::synchronize</a></div><div class="ttdeci">void synchronize(SynchronizablePool *pool)</div><div class="ttdef"><b>Definition:</b> MainPool.cpp:9</div></div>
+<div class="ttc" id="aclass_main_pool_html_aff4c4a0fe8a5adaf313ec36f739d2d29"><div class="ttname"><a href="class_main_pool.html#aff4c4a0fe8a5adaf313ec36f739d2d29">MainPool::swapQueues</a></div><div class="ttdeci">void swapQueues(queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty=false) override</div><div class="ttdef"><b>Definition:</b> MainPool.cpp:38</div></div>
 <div class="ttc" id="aclass_main_pool_html_af7e6592ed496156a1a5abe621b540147"><div class="ttname"><a href="class_main_pool.html#af7e6592ed496156a1a5abe621b540147">MainPool::isCurrentThread</a></div><div class="ttdeci">bool isCurrentThread() const</div><div class="ttdef"><b>Definition:</b> MainPool.h:44</div></div>
+<div class="ttc" id="aclass_base_pool_html"><div class="ttname"><a href="class_base_pool.html">BasePool</a></div><div class="ttdef"><b>Definition:</b> BasePool.h:17</div></div>
+<div class="ttc" id="aclass_base_pool_html_a014f306ce33ba08399ef6f4aabf4c8d9"><div class="ttname"><a href="class_base_pool.html#a014f306ce33ba08399ef6f4aabf4c8d9">BasePool::tasks</a></div><div class="ttdeci">queue&lt; function&lt; void()&gt; &gt; tasks</div><div class="ttdef"><b>Definition:</b> BasePool.h:25</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

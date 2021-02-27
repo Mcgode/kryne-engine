@@ -6,7 +6,7 @@ var searchData=
   ['baseobject_2ecpp_23',['BaseObject.cpp',['../_base_object_8cpp.html',1,'']]],
   ['baseobject_2eh_24',['BaseObject.h',['../3_d_objects_2_base_object_8h.html',1,'(Global Namespace)'],['../enums_2_base_object_8h.html',1,'(Global Namespace)']]],
   ['baseobjectshadowtype_25',['BaseObjectShadowType',['../enums_2_base_object_8h.html#ac0f5017bd97449fa761e87e240568170',1,'BaseObject.h']]],
-  ['basepool_26',['BasePool',['../class_base_pool.html',1,'BasePool'],['../class_base_pool.html#a74f415df64d3fad6e19ed95e60953b02',1,'BasePool::BasePool()']]],
+  ['basepool_26',['BasePool',['../class_base_pool.html',1,'']]],
   ['basepool_2ecpp_27',['BasePool.cpp',['../_base_pool_8cpp.html',1,'']]],
   ['basepool_2eh_28',['BasePool.h',['../_base_pool_8h.html',1,'']]],
   ['basiccamera_29',['BasicCamera',['../class_basic_camera.html',1,'BasicCamera'],['../class_basic_camera.html#abf2403b1304b08f07f3ba94c14e1fc09',1,'BasicCamera::BasicCamera(glm::vec3 initial_position, glm::mat4 initial_rotation=glm::mat4())'],['../class_basic_camera.html#a0ee0998b537ef817645a569a710be41b',1,'BasicCamera::BasicCamera(glm::vec3 camera_position, glm::vec3 target_position, glm::vec3 up_vector=glm::vec3(0, 1, 0))']]],
