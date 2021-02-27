@@ -8,7 +8,7 @@
 #include "kryne-engine/Dispatch/SynchronizablePool.h"
 
 
-SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCount, &this->_poolMutex, &this->_waitCondition, BasePool::internal())
+SynchronizablePool::SynchronizablePool(uint16_t threadCount) : ThreadPool(threadCount, &this->_poolMutex, &this->_waitCondition, ThreadPool::internal())
 {
     // By default, all threads are running.
     this->runningThreads = this->threadCount;

@@ -20,7 +20,7 @@ SynchronizableChildPool *SynchronizableChildPool::make(SynchronizablePool *paren
 
 
 SynchronizableChildPool::SynchronizableChildPool(uint16_t threadCount, SynchronizablePool *parent)
-    : BasePool(threadCount, parent->poolMutex, parent->waitCondition, BasePool::internal())
+    : ThreadPool(threadCount, parent->poolMutex, parent->waitCondition, ThreadPool::internal())
 {
     this->parent = parent;
     parent->runningThreads += this->threadCount;

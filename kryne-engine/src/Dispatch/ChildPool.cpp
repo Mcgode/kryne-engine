@@ -19,7 +19,7 @@ ChildPool *ChildPool::make(RunnerPool *parent, uint16_t threadCount)
 }
 
 
-ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : BasePool(threadCount, parent->poolMutex, parent->waitCondition, RunnerPool::internal())
+ChildPool::ChildPool(uint16_t threadCount, RunnerPool *parent) : ThreadPool(threadCount, parent->poolMutex, parent->waitCondition, RunnerPool::internal())
 {
     this->parent = parent;
 

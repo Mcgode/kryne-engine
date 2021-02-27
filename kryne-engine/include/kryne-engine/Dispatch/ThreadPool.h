@@ -19,11 +19,11 @@
 using namespace std;
 
 
-class BasePool {
+class ThreadPool {
 
 public:
 
-    virtual ~BasePool();
+    virtual ~ThreadPool();
 
     template<class F, class... Args>
     future<result_of_t<F(Args...)>> enqueue(F&& function, Args&& ...args)
@@ -56,7 +56,7 @@ protected:
 
     enum internal {};
 
-    BasePool(uint16_t threadCount, mutex *mutex, condition_variable *condition, enum internal);
+    ThreadPool(uint16_t threadCount, mutex *mutex, condition_variable *condition, enum internal);
 
 
 protected:

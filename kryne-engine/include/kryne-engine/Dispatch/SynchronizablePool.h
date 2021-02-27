@@ -7,12 +7,12 @@
 #pragma once
 
 
-#include "BasePool.h"
+#include "ThreadPool.h"
 
 class SynchronizableChildPool;
 
 
-class SynchronizablePool final: public BasePool {
+class SynchronizablePool final: public ThreadPool {
 
     friend class SynchronizableChildPool;
 

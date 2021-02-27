@@ -4,9 +4,9 @@
  * @date 25/02/2021.
  */
 
-#include "kryne-engine/Dispatch/BasePool.h"
+#include "kryne-engine/Dispatch/ThreadPool.h"
 
-BasePool::BasePool(uint16_t threadCount, mutex *mutex, condition_variable *condition, BasePool::internal)
+ThreadPool::ThreadPool(uint16_t threadCount, mutex *mutex, condition_variable *condition, ThreadPool::internal)
     : threadCount(threadCount),
       poolMutex(mutex),
       waitCondition(condition)
@@ -15,7 +15,7 @@ BasePool::BasePool(uint16_t threadCount, mutex *mutex, condition_variable *condi
 }
 
 
-BasePool::~BasePool()
+ThreadPool::~ThreadPool()
 {
     {
         unique_lock<mutex> lock(*this->poolMutex);
@@ -34,7 +34,7 @@ BasePool::~BasePool()
 }
 
 
-void BasePool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
+void ThreadPool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
 {
     {
         unique_lock<mutex> lock(*this->poolMutex);
