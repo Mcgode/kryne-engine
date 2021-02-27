@@ -7,6 +7,9 @@
 #pragma once
 
 
+#include <cassert>
+
+
 #include "SynchronizablePool.h"
 #include "RunnerPool.h"
 #include "MainPool.h"
@@ -88,6 +91,15 @@ protected:
     queue<function<void()>> delayedQueue;
 
     mutex delayedMutex {};
+
+
+public:
+
+    static inline void assertIsMainThread()
+    {
+        assert(("This is not the main thread", instance().main()->isCurrentThread()));
+    }
+
 };
 
 
