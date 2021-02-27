@@ -59,7 +59,7 @@ public:
      *
      * @warning
      * This queue should only be directly enqueued by the engine. If you need to enqueue main thread tasks from outside
-     * the engine code, use #enqueueDelayed() instead.
+     * the engine code, use #enqueueMainDelayed() instead.
      */
     [[nodiscard]] MainPool *main() const { return this->mainThread.get(); }
 
@@ -77,7 +77,7 @@ public:
      *
      * @warning
      * This queue should only be directly enqueued by the engine. If you need to enqueue parallel tasks from outside the
-     * engine code, use #enqueueDelayed() instead.
+     * engine code, use #enqueueParallelDelayed() instead.
      */
     [[nodiscard]] SynchronizablePool *parallel() const { return this->parallelExecutionThreads.get(); }
 
@@ -119,7 +119,28 @@ protected:
 public:
 
     template<class F, class... Args>
-    future<result_of_t<F(Args...)>> enqueueDelayed(F&& function, Args&& ...args)
+    inline future<result_of_t<F(Args...)>> enqueueMainDelayed(F&& function, Args&& ...args)
+    {
+        return enqueueDelayed(this->delayedMainQueue, function, args...);
+    }
+
+    template<class F, class... Args>
+    inline future<result_of_t<F(Args...)>> enqueueParallelDelayed(F&& function, Args&& ...args)
+    {
+        return enqueueDelayed(this->delayedParallelQueue, function, args...);
+    }
+
+    inline void synchronizeDelayed()
+    {
+        this->mainThread->swapQueues(this->delayedMainQueue);
+        this->parallelExecutionThreads->swapQueues(this->delayedParallelQueue);
+        this->waitMain();
+    }
+
+protected:
+
+    template<class F, class... Args>
+    future<result_of_t<F(Args...)>> enqueueDelayed(queue<function<void()>> &taskQueue, F&& function, Args&& ...args)
     {
         using returnType = result_of_t<F(Args...)>;
 
@@ -131,23 +152,17 @@ public:
         {
             unique_lock<mutex> lock(this->delayedMutex);
 
-            delayedQueue.emplace([task] { (*task)(); });
+            taskQueue.emplace([task] { (*task)(); });
         }
 
         return result;
     }
 
-    inline void synchronizeDelayed()
-    {
-        this->delayedPool->swapQueues(this->delayedQueue);
-        this->delayedPool->synchronize();
-    }
-
 protected:
 
-    unique_ptr<SynchronizablePool> delayedPool;
+    queue<function<void()>> delayedMainQueue {};
 
-    queue<function<void()>> delayedQueue;
+    queue<function<void()>> delayedParallelQueue {};
 
     mutex delayedMutex {};
 
