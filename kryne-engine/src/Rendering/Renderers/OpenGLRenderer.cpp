@@ -57,6 +57,10 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 
 void OpenGLRenderer::prepareFrame()
 {
-    glClearColor(0.f, 0.f, 0.f, 0.f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    Dispatcher::instance().main()->enqueue([]()
+    {
+        glClearColor(0.f, 0.f, 0.f, 0.f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    })
+    .wait();
 }
