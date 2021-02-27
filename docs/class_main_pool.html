@@ -98,6 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad39482392e579e95034085591498d3ee"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
 <tr class="memitem:ad39482392e579e95034085591498d3ee"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_main_pool.html#ad39482392e579e95034085591498d3ee">enqueue</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
 <tr class="separator:ad39482392e579e95034085591498d3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db25a498a38a10b5dcf2ed9b01a9ebf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#a7db25a498a38a10b5dcf2ed9b01a9ebf">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty=false)</td></tr>
+<tr class="separator:a7db25a498a38a10b5dcf2ed9b01a9ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cb31a9c0f093c0623dbdb471dc822a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#a5cb31a9c0f093c0623dbdb471dc822a4">synchronize</a> (<a class="el" href="class_synchronizable_pool.html">SynchronizablePool</a> *pool)</td></tr>
 <tr class="separator:a5cb31a9c0f093c0623dbdb471dc822a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7e6592ed496156a1a5abe621b540147"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#af7e6592ed496156a1a5abe621b540147">isCurrentThread</a> () const</td></tr>
@@ -168,7 +170,7 @@ template&lt;class F , class... Args&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_pool_ad39482392e579e95034085591498d3ee_icgraph.svg" width="316" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_pool_ad39482392e579e95034085591498d3ee_icgraph.svg" width="523" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -195,6 +197,39 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7db25a498a38a10b5dcf2ed9b01a9ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db25a498a38a10b5dcf2ed9b01a9ebf">&#9670;&nbsp;</a></span>swapQueues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainPool::swapQueues </td>
+          <td>(</td>
+          <td class="paramtype">queue&lt; function&lt; void()&gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>swapQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowNonEmpty</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_pool_a7db25a498a38a10b5dcf2ed9b01a9ebf_icgraph.svg" width="552" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>

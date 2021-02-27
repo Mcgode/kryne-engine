@@ -105,8 +105,9 @@ public:
      * Use this pool to execute IO tasks that will take some time. This thread pool is not synchronized with other pools
      * so time of execution is not too much of a concern.
      *
-     * It is highly recommended to use #enqueueDelayed() to save the result of the task into game loop objects, to
-     * limit data racing issues. Delayed enqueueing allows to resynchronize the data with the game loop.
+     * It is highly recommended to use #enqueueMainDelayed() or #enqueueParallelDelayed() to save the result of the task
+     * into game loop objects, to limit data racing issues. Delayed enqueueing allows to resynchronize the data with the
+     * game loop.
      */
     [[nodiscard]] RunnerPool *io() const { return this->ioPool.get(); }
 
@@ -118,19 +119,61 @@ protected:
 
 public:
 
+    /**
+     * @brief Enqueues a task to be executed in the main thread
+     *
+     * @details
+     * The task will be executed at the end of the game loop (hence the 'delayed' in the name) by the main thread.
+     *
+     * @see #main() for more documentation on the %main thread.
+     *
+     * @tparam F        Function type
+     * @tparam Args     Function arguments packed typed
+     * @param function  The task function to execute
+     * @param args      The task function arguments
+     * @return A future for the result of the enqueued task
+     */
     template<class F, class... Args>
     inline future<result_of_t<F(Args...)>> enqueueMainDelayed(F&& function, Args&& ...args)
     {
         return enqueueDelayed(this->delayedMainQueue, function, args...);
     }
 
+    /**
+     * @brief Enqueues a task to be executed in the main thread
+     *
+     * @details
+     * The task will be executed at the end of the game loop (hence the 'delayed' in the name) by the parallel threads.
+     *
+     * @see #parallel() for more documentation on the %parallel thread pool.
+     *
+     * @tparam F        Function type
+     * @tparam Args     Function arguments packed typed
+     * @param function  The task function to execute
+     * @param args      The task function arguments
+     * @return A future for the result of the enqueued task
+     */
     template<class F, class... Args>
     inline future<result_of_t<F(Args...)>> enqueueParallelDelayed(F&& function, Args&& ...args)
     {
         return enqueueDelayed(this->delayedParallelQueue, function, args...);
     }
 
-    inline void synchronizeDelayed()
+    /**
+     * @brief Executes and waits for all the delayed tasks.
+     *
+     * @details
+     * Will swap queues for both the main thread and the parallel thread pool, with the delayed tasks queues of the
+     * dispatcher (#delayedMainQueue and #delayedParallelQueue).
+     *
+     * Ensure that all tasks from both of them are executed (and thus flushed) first, since it is considered as a
+     * precondition for the queue swapping. Do do so, call #waitMain() first. <br>
+     * This is the main reason why you always want to enqueue into delayed queues. If you try to enqueue one of the
+     * pools directly (using `%main()->enqueue()` for instance), you might run in a situation where #waitMain()
+     * finished, another thread enqueues a new task directly, before #waitDelayed() is called and any queue swap can be
+     * done, and thus breaks the precondition, leading to a crash.
+     */
+    inline void waitDelayed()
     {
         this->mainThread->swapQueues(this->delayedMainQueue);
         this->parallelExecutionThreads->swapQueues(this->delayedParallelQueue);
@@ -139,6 +182,16 @@ public:
 
 protected:
 
+    /**
+     * @brief Enqueues a task to the provided queue
+     *
+     * @tparam F        Function type
+     * @tparam Args     Function arguments packed typed
+     * @param taskQueue The queue to enqueue
+     * @param function  The task function to execute
+     * @param args      The task function arguments
+     * @return A future for the result of the enqueued task
+     */
     template<class F, class... Args>
     future<result_of_t<F(Args...)>> enqueueDelayed(queue<function<void()>> &taskQueue, F&& function, Args&& ...args)
     {
@@ -160,10 +213,13 @@ protected:
 
 protected:
 
+    /// The delayed task queue for the main thread.
     queue<function<void()>> delayedMainQueue {};
 
+    /// The delayed task queue for the parallel thread pool.
     queue<function<void()>> delayedParallelQueue {};
 
+    /// The mutex for handling concurrent write of delayed queues
     mutex delayedMutex {};
 
 };

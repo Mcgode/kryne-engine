@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_dispatcher.html',''); initResiza
 <div class="dynheader">
 Collaboration diagram for Dispatcher:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher__coll__graph.svg" width="1084" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher__coll__graph.svg" width="1088" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -111,15 +111,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acf9ae07e5cac994e98b814e0526ba481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the parallel threads pool.  <a href="class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481">More...</a><br /></td></tr>
 <tr class="separator:acf9ae07e5cac994e98b814e0526ba481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a047690da9f4ddd3bc4027e0eb918f5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3">waitMain</a> () const</td></tr>
+<tr class="memdesc:a047690da9f4ddd3bc4027e0eb918f5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for all the tasks in the main thread and the parallel threads to finish their execution before continuing.  <a href="class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3">More...</a><br /></td></tr>
 <tr class="separator:a047690da9f4ddd3bc4027e0eb918f5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdc5d4742c7697dfc345f8edc5445c5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_runner_pool.html">RunnerPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#acdc5d4742c7697dfc345f8edc5445c5d">io</a> () const</td></tr>
 <tr class="memdesc:acdc5d4742c7697dfc345f8edc5445c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the IO thread pool.  <a href="class_dispatcher.html#acdc5d4742c7697dfc345f8edc5445c5d">More...</a><br /></td></tr>
 <tr class="separator:acdc5d4742c7697dfc345f8edc5445c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae206f89a6b6a58c41686cbf4b95f1ca8"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
-<tr class="memitem:ae206f89a6b6a58c41686cbf4b95f1ca8"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#ae206f89a6b6a58c41686cbf4b95f1ca8">enqueueDelayed</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
-<tr class="separator:ae206f89a6b6a58c41686cbf4b95f1ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c66ceb2ea24474db61951e8207c49ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a3c66ceb2ea24474db61951e8207c49ef">synchronizeDelayed</a> ()</td></tr>
-<tr class="separator:a3c66ceb2ea24474db61951e8207c49ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b21cd9508ad91cf1928959e7c235311"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
+<tr class="memitem:a1b21cd9508ad91cf1928959e7c235311"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311">enqueueMainDelayed</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a1b21cd9508ad91cf1928959e7c235311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a task to be executed in the main thread.  <a href="class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311">More...</a><br /></td></tr>
+<tr class="separator:a1b21cd9508ad91cf1928959e7c235311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad513166b4c194964181acd3a41b49316"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
+<tr class="memitem:ad513166b4c194964181acd3a41b49316"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#ad513166b4c194964181acd3a41b49316">enqueueParallelDelayed</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:ad513166b4c194964181acd3a41b49316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a task to be executed in the main thread.  <a href="class_dispatcher.html#ad513166b4c194964181acd3a41b49316">More...</a><br /></td></tr>
+<tr class="separator:ad513166b4c194964181acd3a41b49316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc98ec9f5619056a275aefa34d7cdbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a7fc98ec9f5619056a275aefa34d7cdbb">waitDelayed</a> ()</td></tr>
+<tr class="memdesc:a7fc98ec9f5619056a275aefa34d7cdbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes and waits for all the delayed tasks.  <a href="class_dispatcher.html#a7fc98ec9f5619056a275aefa34d7cdbb">More...</a><br /></td></tr>
+<tr class="separator:a7fc98ec9f5619056a275aefa34d7cdbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -130,6 +137,10 @@ Static Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a1bd5ef08a829632075b6ccc7c81b1609"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a1bd5ef08a829632075b6ccc7c81b1609">Dispatcher</a> ()</td></tr>
 <tr class="separator:a1bd5ef08a829632075b6ccc7c81b1609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f10d38929a6d712b82b3a1b3a8fe668"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
+<tr class="memitem:a9f10d38929a6d712b82b3a1b3a8fe668"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a9f10d38929a6d712b82b3a1b3a8fe668">enqueueDelayed</a> (queue&lt; function&lt; void()&gt;&gt; &amp;taskQueue, F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a9f10d38929a6d712b82b3a1b3a8fe668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a task to the provided queue.  <a href="class_dispatcher.html#a9f10d38929a6d712b82b3a1b3a8fe668">More...</a><br /></td></tr>
+<tr class="separator:a9f10d38929a6d712b82b3a1b3a8fe668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -142,11 +153,14 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ac4c0fb96335bbdcdc6159dc5ba93a33d"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_runner_pool.html">RunnerPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#ac4c0fb96335bbdcdc6159dc5ba93a33d">ioPool</a></td></tr>
 <tr class="memdesc:ac4c0fb96335bbdcdc6159dc5ba93a33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The IO thread pool. Uses 2 threads.  <a href="class_dispatcher.html#ac4c0fb96335bbdcdc6159dc5ba93a33d">More...</a><br /></td></tr>
 <tr class="separator:ac4c0fb96335bbdcdc6159dc5ba93a33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82076d8f7322cdef87c9801d5882368b"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_synchronizable_pool.html">SynchronizablePool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a82076d8f7322cdef87c9801d5882368b">delayedPool</a></td></tr>
-<tr class="separator:a82076d8f7322cdef87c9801d5882368b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee2eaa82aeb3a7998f6ce6c0fcd850cf"><td class="memItemLeft" align="right" valign="top">queue&lt; function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#aee2eaa82aeb3a7998f6ce6c0fcd850cf">delayedQueue</a></td></tr>
-<tr class="separator:aee2eaa82aeb3a7998f6ce6c0fcd850cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f49f693d5a443649dce36ec10d6164d"><td class="memItemLeft" align="right" valign="top">queue&lt; function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a4f49f693d5a443649dce36ec10d6164d">delayedMainQueue</a> {}</td></tr>
+<tr class="memdesc:a4f49f693d5a443649dce36ec10d6164d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The delayed task queue for the main thread.  <a href="class_dispatcher.html#a4f49f693d5a443649dce36ec10d6164d">More...</a><br /></td></tr>
+<tr class="separator:a4f49f693d5a443649dce36ec10d6164d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe12dffbd016e6d9417226fda02961f8"><td class="memItemLeft" align="right" valign="top">queue&lt; function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#afe12dffbd016e6d9417226fda02961f8">delayedParallelQueue</a> {}</td></tr>
+<tr class="memdesc:afe12dffbd016e6d9417226fda02961f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The delayed task queue for the parallel thread pool.  <a href="class_dispatcher.html#afe12dffbd016e6d9417226fda02961f8">More...</a><br /></td></tr>
+<tr class="separator:afe12dffbd016e6d9417226fda02961f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245c42b665518c4557750e217d86a3dc"><td class="memItemLeft" align="right" valign="top">mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dispatcher.html#a245c42b665518c4557750e217d86a3dc">delayedMutex</a> {}</td></tr>
+<tr class="memdesc:a245c42b665518c4557750e217d86a3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mutex for handling concurrent write of delayed queues.  <a href="class_dispatcher.html#a245c42b665518c4557750e217d86a3dc">More...</a><br /></td></tr>
 <tr class="separator:a245c42b665518c4557750e217d86a3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -180,8 +194,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae206f89a6b6a58c41686cbf4b95f1ca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae206f89a6b6a58c41686cbf4b95f1ca8">&#9670;&nbsp;</a></span>enqueueDelayed()</h2>
+<a id="a9f10d38929a6d712b82b3a1b3a8fe668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f10d38929a6d712b82b3a1b3a8fe668">&#9670;&nbsp;</a></span>enqueueDelayed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,6 +207,68 @@ template&lt;class F , class... Args&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; Dispatcher::enqueueDelayed </td>
+          <td>(</td>
+          <td class="paramtype">queue&lt; function&lt; void()&gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>taskQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enqueues a task to the provided queue. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>Function type </td></tr>
+    <tr><td class="paramname">Args</td><td>Function arguments packed typed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taskQueue</td><td>The queue to enqueue </td></tr>
+    <tr><td class="paramname">function</td><td>The task function to execute </td></tr>
+    <tr><td class="paramname">args</td><td>The task function arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A future for the result of the enqueued task </dd></dl>
+
+</div>
+</div>
+<a id="a1b21cd9508ad91cf1928959e7c235311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b21cd9508ad91cf1928959e7c235311">&#9670;&nbsp;</a></span>enqueueMainDelayed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; Dispatcher::enqueueMainDelayed </td>
           <td>(</td>
           <td class="paramtype">F &amp;&amp;&#160;</td>
           <td class="paramname"><em>function</em>, </td>
@@ -215,6 +291,82 @@ template&lt;class F , class... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Enqueues a task to be executed in the main thread. </p>
+<p>The task will be executed at the end of the game loop (hence the 'delayed' in the name) by the main thread.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool.">main()</a> for more documentation on the main thread.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>Function type </td></tr>
+    <tr><td class="paramname">Args</td><td>Function arguments packed typed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>The task function to execute </td></tr>
+    <tr><td class="paramname">args</td><td>The task function arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A future for the result of the enqueued task </dd></dl>
+
+</div>
+</div>
+<a id="ad513166b4c194964181acd3a41b49316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad513166b4c194964181acd3a41b49316">&#9670;&nbsp;</a></span>enqueueParallelDelayed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; Dispatcher::enqueueParallelDelayed </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enqueues a task to be executed in the main thread. </p>
+<p>The task will be executed at the end of the game loop (hence the 'delayed' in the name) by the parallel threads.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool.">parallel()</a> for more documentation on the parallel thread pool.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>Function type </td></tr>
+    <tr><td class="paramname">Args</td><td>Function arguments packed typed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>The task function to execute </td></tr>
+    <tr><td class="paramname">args</td><td>The task function arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A future for the result of the enqueued task </dd></dl>
 
 </div>
 </div>
@@ -244,7 +396,7 @@ template&lt;class F , class... Args&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a72977dbd43a8cf501c05d915858d39ba_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a72977dbd43a8cf501c05d915858d39ba_icgraph.svg" width="531" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -273,7 +425,8 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Retrieves the IO thread pool. </p>
-<p>Use this pool to execute </p>
+<p>Use this pool to execute IO tasks that will take some time. This thread pool is not synchronized with other pools so time of execution is not too much of a concern.</p>
+<p>It is highly recommended to use <a class="el" href="class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311" title="Enqueues a task to be executed in the main thread.">enqueueMainDelayed()</a> or <a class="el" href="class_dispatcher.html#ad513166b4c194964181acd3a41b49316" title="Enqueues a task to be executed in the main thread.">enqueueParallelDelayed()</a> to save the result of the task into game loop objects, to limit data racing issues. Delayed enqueueing allows to resynchronize the data with the game loop. </p>
 
 </div>
 </div>
@@ -303,11 +456,11 @@ Here is the caller graph for this function:</div>
 <p>Retrieves the main thread pool. </p>
 <p>This is a single-thread pool that will be used to synchronize the game loop (and, depending on the graphics API, run API calls).</p>
 <p>This pool will synchronize with <a class="el" href="class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool.">parallel()</a> twice every game loop: once to run the entire game loop, and once more to run the delayed tasks. Synchronization means that the main thread will wait until all of its tasks are finished executed and the same is true for the parallel pool.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue main thread tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#ae206f89a6b6a58c41686cbf4b95f1ca8">enqueueDelayed</a> instead. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue main thread tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311" title="Enqueues a task to be executed in the main thread.">enqueueMainDelayed()</a> instead. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a289257d29e2583f5ef40b7b5c4fdae8b_icgraph.svg" width="303" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a289257d29e2583f5ef40b7b5c4fdae8b_icgraph.svg" width="510" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -338,12 +491,17 @@ Here is the caller graph for this function:</div>
 <p>Retrieves the parallel threads pool. </p>
 <p>This pool will directly execute all the tasks that are enqueued to it, and can be synchronized with the current thread (meaning, the current thread will be paused until all tasks are finished executing), though you should let the engine handle that synchronization.</p>
 <p>It'll happen during every game loop, and will be synchronized with the main thread. This means that you should be wary and only enqueue small tasks, or else you might make the main thread wait for too long. If you have bigger tasks try breaking them into smaller tasks or run it in another pool or even a dedicated thread.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue parallel tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#ae206f89a6b6a58c41686cbf4b95f1ca8">enqueueDelayed</a> instead. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This queue should only be directly enqueued by the engine. If you need to enqueue parallel tasks from outside the engine code, use <a class="el" href="class_dispatcher.html#ad513166b4c194964181acd3a41b49316" title="Enqueues a task to be executed in the main thread.">enqueueParallelDelayed()</a> instead. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_acf9ae07e5cac994e98b814e0526ba481_icgraph.svg" width="523" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a3c66ceb2ea24474db61951e8207c49ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c66ceb2ea24474db61951e8207c49ef">&#9670;&nbsp;</a></span>synchronizeDelayed()</h2>
+<a id="a7fc98ec9f5619056a275aefa34d7cdbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc98ec9f5619056a275aefa34d7cdbb">&#9670;&nbsp;</a></span>waitDelayed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +510,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Dispatcher::synchronizeDelayed </td>
+          <td class="memname">void Dispatcher::waitDelayed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -364,6 +522,21 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes and waits for all the delayed tasks. </p>
+<p>Will swap queues for both the main thread and the parallel thread pool, with the delayed tasks queues of the dispatcher (<a class="el" href="class_dispatcher.html#a4f49f693d5a443649dce36ec10d6164d" title="The delayed task queue for the main thread.">delayedMainQueue</a> and <a class="el" href="class_dispatcher.html#afe12dffbd016e6d9417226fda02961f8" title="The delayed task queue for the parallel thread pool.">delayedParallelQueue</a>).</p>
+<p>Ensure that all tasks from both of them are executed (and thus flushed) first, since it is considered as a precondition for the queue swapping. Do do so, call <a class="el" href="class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3" title="Waits for all the tasks in the main thread and the parallel threads to finish their execution before ...">waitMain()</a> first. <br  />
+ This is the main reason why you always want to enqueue into delayed queues. If you try to enqueue one of the pools directly (using <code>main()-&gt;enqueue()</code> for instance), you might run in a situation where <a class="el" href="class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3" title="Waits for all the tasks in the main thread and the parallel threads to finish their execution before ...">waitMain()</a> finished, another thread enqueues a new task directly, before <a class="el" href="class_dispatcher.html#a7fc98ec9f5619056a275aefa34d7cdbb" title="Executes and waits for all the delayed tasks.">waitDelayed()</a> is called and any queue swap can be done, and thus breaks the precondition, leading to a crash. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a7fc98ec9f5619056a275aefa34d7cdbb_cgraph.svg" width="383" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dispatcher_a7fc98ec9f5619056a275aefa34d7cdbb_icgraph.svg" width="346" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -389,6 +562,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Waits for all the tasks in the main thread and the parallel threads to finish their execution before continuing. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -399,6 +573,30 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4f49f693d5a443649dce36ec10d6164d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f49f693d5a443649dce36ec10d6164d">&#9670;&nbsp;</a></span>delayedMainQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">queue&lt;function&lt;void()&gt; &gt; Dispatcher::delayedMainQueue {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The delayed task queue for the main thread. </p>
+
+</div>
+</div>
 <a id="a245c42b665518c4557750e217d86a3dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a245c42b665518c4557750e217d86a3dc">&#9670;&nbsp;</a></span>delayedMutex</h2>
 
@@ -419,10 +617,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The mutex for handling concurrent write of delayed queues. </p>
+
 </div>
 </div>
-<a id="a82076d8f7322cdef87c9801d5882368b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82076d8f7322cdef87c9801d5882368b">&#9670;&nbsp;</a></span>delayedPool</h2>
+<a id="afe12dffbd016e6d9417226fda02961f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe12dffbd016e6d9417226fda02961f8">&#9670;&nbsp;</a></span>delayedParallelQueue</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -431,7 +631,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unique_ptr&lt;<a class="el" href="class_synchronizable_pool.html">SynchronizablePool</a>&gt; Dispatcher::delayedPool</td>
+          <td class="memname">queue&lt;function&lt;void()&gt; &gt; Dispatcher::delayedParallelQueue {}</td>
         </tr>
       </table>
   </td>
@@ -441,27 +641,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aee2eaa82aeb3a7998f6ce6c0fcd850cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee2eaa82aeb3a7998f6ce6c0fcd850cf">&#9670;&nbsp;</a></span>delayedQueue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">queue&lt;function&lt;void()&gt; &gt; Dispatcher::delayedQueue</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>The delayed task queue for the parallel thread pool. </p>
 
 </div>
 </div>

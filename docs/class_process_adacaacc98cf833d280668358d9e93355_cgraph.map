@@ -1,0 +1,8 @@
+<map id="Process::processEntity" name="Process::processEntity">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,164,133"/>
+<area shape="rect" id="node2" href="$class_base_pool.html#a67e10614759ea0ec436d799a5cffc081" title=" " alt="" coords="215,5,350,32"/>
+<area shape="rect" id="node3" href="$class_main_pool.html#ad39482392e579e95034085591498d3ee" title=" " alt="" coords="216,56,349,83"/>
+<area shape="rect" id="node4" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="212,107,353,133"/>
+<area shape="rect" id="node5" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="223,157,343,184"/>
+<area shape="rect" id="node6" href="$class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool." alt="" coords="216,208,349,235"/>
+</map>

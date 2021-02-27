@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Waits for all the tasks in the main thread and the parallel threads to finish their execution before ...">
 <polygon fill="#bfbfbf" stroke="black" points="129,-0.5 129,-19.5 236,-19.5 236,-0.5 129,-0.5"/>
 <text text-anchor="middle" x="182.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Dispatcher::waitMain</text>
 </a>
