@@ -22,6 +22,10 @@ public:
 
     void synchronize();
 
+    bool trySynchronize();
+
+    void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
+
     ~SynchronizablePool() override;
 
 private:
@@ -34,7 +38,9 @@ private:
 
     uint16_t runningThreads = 0;
 
-    condition_variable synchronizeWait {};
+    condition_variable *synchronizeWait;
+
+    condition_variable _defaultWait {};
 
 };
 

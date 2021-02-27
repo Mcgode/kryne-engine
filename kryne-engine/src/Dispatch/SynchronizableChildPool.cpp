@@ -43,7 +43,7 @@ SynchronizableChildPool::SynchronizableChildPool(uint16_t threadCount, Synchroni
 
                                 // If there are no more running threads, wake all threads waiting for synchronization.
                                 if (this->parent->runningThreads == 0)
-                                    this->parent->synchronizeWait.notify_all();
+                                    this->parent->synchronizeWait->notify_all();
                             }
 
                             this->waitCondition->wait(

@@ -12,6 +12,7 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
 {
     // By default, all threads are running.
     this->runningThreads = this->threadCount;
+    this->synchronizeWait = &this->_defaultWait;
 
     for ( uint16_t i = 0; i < this->threadCount; i++ ) {
         this->threads[i] = thread(
@@ -31,7 +32,7 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
 
                                 // If there are no more running threads, wake all threads waiting for synchronization.
                                 if (this->runningThreads == 0)
-                                    this->synchronizeWait.notify_all();
+                                    this->synchronizeWait->notify_all();
                             }
 
                             this->waitCondition->wait(
@@ -64,7 +65,26 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
 void SynchronizablePool::synchronize()
 {
     unique_lock<mutex> lock(*this->poolMutex);
-    this->synchronizeWait.wait(lock, [this] { return this->runningThreads == 0; });
+    this->synchronizeWait->wait(lock, [this] { return this->runningThreads == 0; });
+}
+
+
+bool SynchronizablePool::trySynchronize()
+{
+    unique_lock<mutex> lock(*this->poolMutex);
+    return this->runningThreads == 0;
+}
+
+
+void SynchronizablePool::overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll)
+{
+    {
+        unique_lock<mutex> lock(*this->poolMutex);
+        this->synchronizeWait = newCondition == nullptr ? &this->_defaultWait : newCondition;
+    }
+
+    if (notifyAll)
+        this->synchronizeWait->notify_all();
 }
 
 
