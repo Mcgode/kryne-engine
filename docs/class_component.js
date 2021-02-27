@@ -1,6 +1,7 @@
 var class_component =
 [
     [ "Component", "class_component.html#a13fba4e303a201b7ff21557fdb5c34c3", null ],
+    [ "~Component", "class_component.html#ad82d7393e339c1b19cc17a0d55b5674d", null ],
     [ "addComponent", "class_component.html#a5ac570aeae510e1a2e1126cb97872be5", null ],
     [ "getComponent", "class_component.html#a1248f2438d120f025da66a59f38d7a97", null ],
     [ "getComponents", "class_component.html#a9490a7db267c92b8b69bf5cea74ac1c1", null ],

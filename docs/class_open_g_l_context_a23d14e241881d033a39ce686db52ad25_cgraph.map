@@ -1,13 +1,14 @@
 <map id="OpenGLContext::OpenGLContext" name="OpenGLContext::OpenGLContext">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,221,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,221,108"/>
 <area shape="rect" id="node2" href="$_open_g_l_context_8cpp.html#ae9f4b850e6ccff72bf6da71038d9687f" title=" " alt="" coords="305,5,404,32"/>
 <area shape="rect" id="node3" href="$_open_g_l_context_8cpp.html#a09882d71c70e402a1d6179c914a001c2" title=" " alt="" coords="274,56,435,83"/>
-<area shape="rect" id="node4" href="$class_player_input.html#ac4b822917a8be991362091d2da7883e8" title=" " alt="" coords="269,107,440,133"/>
-<area shape="rect" id="node5" href="$class_player_input.html#a41e31d5aa4a11ed2a3058e31210d5109" title="The map of GLFW windows to their associated PlayerInput instances." alt="" coords="931,165,1079,192"/>
-<area shape="rect" id="node6" href="$class_player_input.html#ac7e7f65b22d437bc66ac1eaeb91c0d99" title=" " alt="" coords="488,165,648,192"/>
-<area shape="rect" id="node7" href="$class_player_input.html#a1159455dba7ecb31c935c4a51afb15c7" title=" " alt="" coords="704,70,875,111"/>
-<area shape="rect" id="node8" href="$class_player_input.html#afb9d2e949dbd3d69c36e5d5519e43824" title=" " alt="" coords="697,136,881,163"/>
-<area shape="rect" id="node9" href="$class_player_input.html#aba00f66210c0c6569823c25afda4a5da" title=" " alt="" coords="703,187,875,229"/>
-<area shape="rect" id="node10" href="$class_player_input.html#a48150e7bcc0b23258071f59ff2636590" title=" " alt="" coords="706,253,873,294"/>
-<area shape="rect" id="node11" href="$class_player_input.html#af99688e0116feca7e153e551a056fd24" title=" " alt="" coords="696,319,883,345"/>
+<area shape="rect" id="node4" href="$_open_g_l_context_8cpp.html#af833243b97061a22e702b3b11a7b647c" title=" " alt="" coords="301,107,409,133"/>
+<area shape="rect" id="node5" href="$class_player_input.html#ac4b822917a8be991362091d2da7883e8" title=" " alt="" coords="269,157,440,184"/>
+<area shape="rect" id="node6" href="$class_player_input.html#a41e31d5aa4a11ed2a3058e31210d5109" title="The map of GLFW windows to their associated PlayerInput instances." alt="" coords="931,216,1079,243"/>
+<area shape="rect" id="node7" href="$class_player_input.html#ac7e7f65b22d437bc66ac1eaeb91c0d99" title=" " alt="" coords="488,216,648,243"/>
+<area shape="rect" id="node8" href="$class_player_input.html#a1159455dba7ecb31c935c4a51afb15c7" title=" " alt="" coords="704,121,875,162"/>
+<area shape="rect" id="node9" href="$class_player_input.html#afb9d2e949dbd3d69c36e5d5519e43824" title=" " alt="" coords="697,187,881,213"/>
+<area shape="rect" id="node10" href="$class_player_input.html#aba00f66210c0c6569823c25afda4a5da" title=" " alt="" coords="703,238,875,279"/>
+<area shape="rect" id="node11" href="$class_player_input.html#a48150e7bcc0b23258071f59ff2636590" title=" " alt="" coords="706,303,873,345"/>
+<area shape="rect" id="node12" href="$class_player_input.html#af99688e0116feca7e153e551a056fd24" title=" " alt="" coords="696,369,883,396"/>
 </map>

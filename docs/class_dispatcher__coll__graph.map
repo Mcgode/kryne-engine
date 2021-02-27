@@ -1,0 +1,13 @@
+<map id="Dispatcher" name="Dispatcher">
+<area shape="rect" id="node1" title="A central multithreaded task dispatcher, in the form of a singleton class." alt="" coords="995,120,1079,147"/>
+<area shape="rect" id="node2" title=" " alt="" coords="592,111,801,153"/>
+<area shape="rect" id="node3" href="$class_synchronizable_pool.html" title=" " alt="" coords="387,119,524,145"/>
+<area shape="rect" id="node4" href="$class_base_pool.html" title=" " alt="" coords="259,88,337,115"/>
+<area shape="rect" id="node9" href="$class_runner_pool.html" title=" " alt="" coords="411,68,500,95"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,11,145,53"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="33,157,117,184"/>
+<area shape="rect" id="node7" title="STL class." alt="" coords="33,88,117,115"/>
+<area shape="rect" id="node8" title=" " alt="" coords="597,60,796,87"/>
+<area shape="rect" id="node10" title=" " alt="" coords="603,233,790,260"/>
+<area shape="rect" id="node11" href="$class_main_pool.html" title=" " alt="" coords="417,239,493,265"/>
+</map>

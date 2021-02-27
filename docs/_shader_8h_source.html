@@ -92,160 +92,163 @@ $(document).ready(function(){initNavTree('_shader_8h_source.html',''); initResiz
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_uniforms_handler_8h.html">UniformsHandler.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_shader_chunk_8h.html">ShaderChunk.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">   16</a></span>&#160;<span class="preprocessor">#define SHADER_VERTEX_NEEDS_UPDATE      0b001u</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">   17</a></span>&#160;<span class="preprocessor">#define SHADER_FRAGMENT_NEEDS_UPDATE    0b010u</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_dispatcher_8h.html">kryne-engine/Dispatch/Dispatcher.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_uniforms_handler_8h.html">UniformsHandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_shader_chunk_8h.html">ShaderChunk.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">   18</a></span>&#160;<span class="preprocessor">#define SHADER_VERTEX_NEEDS_UPDATE      0b001u</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">   19</a></span>&#160;<span class="preprocessor">#define SHADER_FRAGMENT_NEEDS_UPDATE    0b010u</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_shader.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_shader.html">Shader</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_shader.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_shader.html">Shader</a> {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_shader.html">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* vertexShaderFilename, <span class="keyword">const</span> <span class="keywordtype">char</span>* fragmentShaderFilename);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">   40</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *shaderName) : <a class="code" href="class_shader.html">Shader</a>(shaderName, shaderName) {};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">   47</a></span>&#160;    <a class="code" href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;vertexShader, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fragmentShader): <a class="code" href="class_shader.html">Shader</a>() {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">Shader::setVertexShader</a>(vertexShader);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">Shader::setFragmentShader</a>(fragmentShader);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ~<a class="code" href="class_shader.html">Shader</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> linkProgram(<span class="keyword">const</span> GLuint &amp;vertex, <span class="keyword">const</span> GLuint &amp;fragment) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_shader.html">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* vertexShaderFilename, <span class="keyword">const</span> <span class="keywordtype">char</span>* fragmentShaderFilename);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">   42</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *shaderName) : <a class="code" href="class_shader.html">Shader</a>(shaderName, shaderName) {};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">   49</a></span>&#160;    <a class="code" href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;vertexShader, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fragmentShader): <a class="code" href="class_shader.html">Shader</a>() {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">Shader::setVertexShader</a>(vertexShader);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">Shader::setFragmentShader</a>(fragmentShader);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="class_shader.html">Shader</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> linkProgram(<span class="keyword">const</span> GLuint &amp;vertex, <span class="keyword">const</span> GLuint &amp;fragment) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_shader.html">Shader</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> loadShaderFromFile(GLenum type, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename, std::string *shaderCode);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_shader.html">Shader</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> loadShaderFromFile(GLenum type, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename, std::string *shaderCode);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> use();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> resetUse();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">   97</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">getVertexShader</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> vertexShader;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">  105</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">setVertexShader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newVertexShader) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Shader::vertexShader = newVertexShader;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">  114</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">getFragmentShader</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> fragmentShader;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">  122</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">setFragmentShader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newFragmentShader) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        Shader::fragmentShader = newFragmentShader;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">  130</a></span>&#160;    [[nodiscard]] uint8_t <a class="code" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">getNeedsUpdate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a>; }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> use();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> resetUse();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">   99</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">getVertexShader</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> vertexShader;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">  107</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">setVertexShader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newVertexShader) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        Shader::vertexShader = newVertexShader;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">  116</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">getFragmentShader</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> fragmentShader;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">  124</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">setFragmentShader</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newFragmentShader) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        Shader::fragmentShader = newFragmentShader;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">  132</a></span>&#160;    [[nodiscard]] uint8_t <a class="code" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">getNeedsUpdate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a>; }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    GLuint programID;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    uint8_t <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a> = 0b00;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    GLuint programID;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">string</span> vertexShader;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    uint8_t <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a> = 0b00;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">string</span> fragmentShader;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">string</span> vertexShader;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    std::map&lt;std::string, uint8_t&gt; textureMap{};</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">string</span> fragmentShader;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    uint8_t maxIndex{};</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    std::map&lt;std::string, uint8_t&gt; textureMap{};</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    uint8_t maxIndex{};</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">  152</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> unordered_map&lt;string, string&gt; &amp;<a class="code" href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">getDefines</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> defines;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">  162</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">setDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineValue) {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> emplaceResult = Shader::defines.emplace(defineName, defineValue);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (!emplaceResult.second)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            emplaceResult.first-&gt;second = defineValue;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a> | <a class="code" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">  174</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">removeDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName) {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a> | <a class="code" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span> Shader::defines.erase(defineName) &gt; 0;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">string</span> makeDefinesCode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">  154</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> unordered_map&lt;string, string&gt; &amp;<a class="code" href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">getDefines</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> defines;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">  164</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">setDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineValue) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> emplaceResult = Shader::defines.emplace(defineName, defineValue);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">if</span> (!emplaceResult.second)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            emplaceResult.first-&gt;second = defineValue;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a> | <a class="code" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a>;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">  176</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">removeDefine</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;defineName) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a> | <a class="code" href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> Shader::defines.erase(defineName) &gt; 0;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">string</span> makeDefinesCode() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    unordered_map&lt;string, string&gt; defines;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    unordered_map&lt;string, string&gt; defines;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> setTexture(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">  195</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value)<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;setUniform(name, value); }</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">  198</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex)<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;setUniform(name, value, arrayIndex); }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">  201</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">removeUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Shader::uniformsHandler-&gt;removeUniform(name); }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">  204</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">notifyUniformLocationsNeedUpdate</a>() { this-&gt;uniformsHandler-&gt;notifyUniformLocationsNeedUpdate(); }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">  207</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">updateUniforms</a>()<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;updateUniforms(); }</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">void</span> setTexture(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">  197</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value)<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;setUniform(name, value); }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">  200</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">setUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <a class="code" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a> &amp;value, uint32_t arrayIndex)<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;setUniform(name, value, arrayIndex); }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">  203</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">removeUniform</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Shader::uniformsHandler-&gt;removeUniform(name); }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">  206</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">notifyUniformLocationsNeedUpdate</a>() { this-&gt;uniformsHandler-&gt;notifyUniformLocationsNeedUpdate(); }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">  209</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">updateUniforms</a>()<span class="keyword"> const </span>{ Shader::uniformsHandler-&gt;updateUniforms(); }</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">void</span> setInt(<span class="keyword">const</span> std::string &amp;name, <span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    unique_ptr&lt;UniformsHandler&gt; uniformsHandler {};</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">void</span> setInt(<span class="keyword">const</span> std::string &amp;name, <span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    unique_ptr&lt;UniformsHandler&gt; uniformsHandler {};</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">void</span> debugPrintActiveAttributes() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">void</span> debugPrintActiveUniforms() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;};</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">void</span> debugPrintActiveAttributes() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> debugPrintActiveUniforms() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor">#endif //GLFW_TRAINING_SHADER_H</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;};</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">#endif //GLFW_TRAINING_SHADER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_shader_html_a4b326f5b184c138cd724da54b75d9123"><div class="ttname"><a href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">Shader::updateUniforms</a></div><div class="ttdeci">void updateUniforms() const</div><div class="ttdef"><b>Definition:</b> Shader.h:207</div></div>
-<div class="ttc" id="aclass_shader_html_a7e328f1cedac7d28169e8cee0643046e"><div class="ttname"><a href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">Shader::setDefine</a></div><div class="ttdeci">void setDefine(const string &amp;defineName, const string &amp;defineValue)</div><div class="ttdef"><b>Definition:</b> Shader.h:162</div></div>
-<div class="ttc" id="aclass_shader_html_ae61e5eede95aea935a9ed04722184af1"><div class="ttname"><a href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">Shader::setVertexShader</a></div><div class="ttdeci">void setVertexShader(const string &amp;newVertexShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:105</div></div>
-<div class="ttc" id="aclass_shader_html_a14cbf6a53594238fd33c1b051f319270"><div class="ttname"><a href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">Shader::removeDefine</a></div><div class="ttdeci">bool removeDefine(const string &amp;defineName)</div><div class="ttdef"><b>Definition:</b> Shader.h:174</div></div>
-<div class="ttc" id="aclass_shader_html_aba3a4c3871308ae17fadb917b85e54a9"><div class="ttname"><a href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">Shader::notifyUniformLocationsNeedUpdate</a></div><div class="ttdeci">void notifyUniformLocationsNeedUpdate()</div><div class="ttdef"><b>Definition:</b> Shader.h:204</div></div>
-<div class="ttc" id="a_transform_8h_html_aa4d748d302384e9610a8f8038f30ab6a"><div class="ttname"><a href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a></div><div class="ttdeci">#define needsUpdate(a, b)</div><div class="ttdef"><b>Definition:</b> Transform.h:141</div></div>
-<div class="ttc" id="aclass_shader_html_afa65ccfbc91a1ec842bd2a5ad3d7fe38"><div class="ttname"><a href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">Shader::Shader</a></div><div class="ttdeci">Shader(const string &amp;vertexShader, const string &amp;fragmentShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:47</div></div>
-<div class="ttc" id="a_shader_8h_html_a59307b0b566d19fab211c96b74e1243f"><div class="ttname"><a href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a></div><div class="ttdeci">#define SHADER_FRAGMENT_NEEDS_UPDATE</div><div class="ttdef"><b>Definition:</b> Shader.h:17</div></div>
-<div class="ttc" id="aclass_shader_html_a06a13afc6b863a1eb9740a2627888e30"><div class="ttname"><a href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">Shader::getFragmentShader</a></div><div class="ttdeci">const string &amp; getFragmentShader() const</div><div class="ttdef"><b>Definition:</b> Shader.h:114</div></div>
-<div class="ttc" id="aclass_shader_html_a39cc44566da583a305e1251a06b7bd38"><div class="ttname"><a href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">Shader::removeUniform</a></div><div class="ttdeci">bool removeUniform(const string &amp;name) const</div><div class="ttdef"><b>Definition:</b> Shader.h:201</div></div>
-<div class="ttc" id="aclass_shader_html_a82fe6945ba9bbc794d23d87fa57b0c0c"><div class="ttname"><a href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">Shader::setFragmentShader</a></div><div class="ttdeci">void setFragmentShader(const string &amp;newFragmentShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:122</div></div>
-<div class="ttc" id="aclass_shader_html_a8dbd8d624b47ff9210792cf212b354cb"><div class="ttname"><a href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">Shader::getNeedsUpdate</a></div><div class="ttdeci">uint8_t getNeedsUpdate() const</div><div class="ttdef"><b>Definition:</b> Shader.h:130</div></div>
-<div class="ttc" id="aclass_shader_html_a93d2d95ef6b2bdd86febc26a7739bd1b"><div class="ttname"><a href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">Shader::Shader</a></div><div class="ttdeci">Shader(const char *shaderName)</div><div class="ttdef"><b>Definition:</b> Shader.h:40</div></div>
-<div class="ttc" id="a_shader_8h_html_a0682a6f83d3f2a8b6f25ee25e576c231"><div class="ttname"><a href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a></div><div class="ttdeci">#define SHADER_VERTEX_NEEDS_UPDATE</div><div class="ttdef"><b>Definition:</b> Shader.h:16</div></div>
-<div class="ttc" id="aclass_shader_html_a810238d7b925c90a6495b6c25ffdb568"><div class="ttname"><a href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">Shader::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value) const</div><div class="ttdef"><b>Definition:</b> Shader.h:195</div></div>
+<div class="ttc" id="aclass_shader_html_a4b326f5b184c138cd724da54b75d9123"><div class="ttname"><a href="class_shader.html#a4b326f5b184c138cd724da54b75d9123">Shader::updateUniforms</a></div><div class="ttdeci">void updateUniforms() const</div><div class="ttdef"><b>Definition:</b> Shader.h:209</div></div>
+<div class="ttc" id="aclass_shader_html_a7e328f1cedac7d28169e8cee0643046e"><div class="ttname"><a href="class_shader.html#a7e328f1cedac7d28169e8cee0643046e">Shader::setDefine</a></div><div class="ttdeci">void setDefine(const string &amp;defineName, const string &amp;defineValue)</div><div class="ttdef"><b>Definition:</b> Shader.h:164</div></div>
+<div class="ttc" id="aclass_shader_html_ae61e5eede95aea935a9ed04722184af1"><div class="ttname"><a href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">Shader::setVertexShader</a></div><div class="ttdeci">void setVertexShader(const string &amp;newVertexShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:107</div></div>
+<div class="ttc" id="aclass_shader_html_a14cbf6a53594238fd33c1b051f319270"><div class="ttname"><a href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">Shader::removeDefine</a></div><div class="ttdeci">bool removeDefine(const string &amp;defineName)</div><div class="ttdef"><b>Definition:</b> Shader.h:176</div></div>
+<div class="ttc" id="aclass_shader_html_aba3a4c3871308ae17fadb917b85e54a9"><div class="ttname"><a href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">Shader::notifyUniformLocationsNeedUpdate</a></div><div class="ttdeci">void notifyUniformLocationsNeedUpdate()</div><div class="ttdef"><b>Definition:</b> Shader.h:206</div></div>
+<div class="ttc" id="a_transform_8h_html_aa4d748d302384e9610a8f8038f30ab6a"><div class="ttname"><a href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a></div><div class="ttdeci">#define needsUpdate(a, b)</div><div class="ttdef"><b>Definition:</b> Transform.h:145</div></div>
+<div class="ttc" id="aclass_shader_html_afa65ccfbc91a1ec842bd2a5ad3d7fe38"><div class="ttname"><a href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">Shader::Shader</a></div><div class="ttdeci">Shader(const string &amp;vertexShader, const string &amp;fragmentShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:49</div></div>
+<div class="ttc" id="a_shader_8h_html_a59307b0b566d19fab211c96b74e1243f"><div class="ttname"><a href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a></div><div class="ttdeci">#define SHADER_FRAGMENT_NEEDS_UPDATE</div><div class="ttdef"><b>Definition:</b> Shader.h:19</div></div>
+<div class="ttc" id="aclass_shader_html_a06a13afc6b863a1eb9740a2627888e30"><div class="ttname"><a href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">Shader::getFragmentShader</a></div><div class="ttdeci">const string &amp; getFragmentShader() const</div><div class="ttdef"><b>Definition:</b> Shader.h:116</div></div>
+<div class="ttc" id="aclass_shader_html_a39cc44566da583a305e1251a06b7bd38"><div class="ttname"><a href="class_shader.html#a39cc44566da583a305e1251a06b7bd38">Shader::removeUniform</a></div><div class="ttdeci">bool removeUniform(const string &amp;name) const</div><div class="ttdef"><b>Definition:</b> Shader.h:203</div></div>
+<div class="ttc" id="aclass_shader_html_a82fe6945ba9bbc794d23d87fa57b0c0c"><div class="ttname"><a href="class_shader.html#a82fe6945ba9bbc794d23d87fa57b0c0c">Shader::setFragmentShader</a></div><div class="ttdeci">void setFragmentShader(const string &amp;newFragmentShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:124</div></div>
+<div class="ttc" id="aclass_shader_html_a8dbd8d624b47ff9210792cf212b354cb"><div class="ttname"><a href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">Shader::getNeedsUpdate</a></div><div class="ttdeci">uint8_t getNeedsUpdate() const</div><div class="ttdef"><b>Definition:</b> Shader.h:132</div></div>
+<div class="ttc" id="aclass_shader_html_a93d2d95ef6b2bdd86febc26a7739bd1b"><div class="ttname"><a href="class_shader.html#a93d2d95ef6b2bdd86febc26a7739bd1b">Shader::Shader</a></div><div class="ttdeci">Shader(const char *shaderName)</div><div class="ttdef"><b>Definition:</b> Shader.h:42</div></div>
+<div class="ttc" id="a_shader_8h_html_a0682a6f83d3f2a8b6f25ee25e576c231"><div class="ttname"><a href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a></div><div class="ttdeci">#define SHADER_VERTEX_NEEDS_UPDATE</div><div class="ttdef"><b>Definition:</b> Shader.h:18</div></div>
+<div class="ttc" id="aclass_shader_html_a810238d7b925c90a6495b6c25ffdb568"><div class="ttname"><a href="class_shader.html#a810238d7b925c90a6495b6c25ffdb568">Shader::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value) const</div><div class="ttdef"><b>Definition:</b> Shader.h:197</div></div>
 <div class="ttc" id="a_shader_chunk_8h_html"><div class="ttname"><a href="_shader_chunk_8h.html">ShaderChunk.h</a></div></div>
-<div class="ttc" id="aclass_shader_html_a8beb925ecccca417ef349bdfb79635d5"><div class="ttname"><a href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">Shader::getVertexShader</a></div><div class="ttdeci">const string &amp; getVertexShader() const</div><div class="ttdef"><b>Definition:</b> Shader.h:97</div></div>
-<div class="ttc" id="aclass_shader_html_acce1edbe7e892fd91a654c57b4cfab06"><div class="ttname"><a href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">Shader::getDefines</a></div><div class="ttdeci">const unordered_map&lt; string, string &gt; &amp; getDefines() const</div><div class="ttdef"><b>Definition:</b> Shader.h:152</div></div>
+<div class="ttc" id="aclass_shader_html_a8beb925ecccca417ef349bdfb79635d5"><div class="ttname"><a href="class_shader.html#a8beb925ecccca417ef349bdfb79635d5">Shader::getVertexShader</a></div><div class="ttdeci">const string &amp; getVertexShader() const</div><div class="ttdef"><b>Definition:</b> Shader.h:99</div></div>
+<div class="ttc" id="aclass_shader_html_acce1edbe7e892fd91a654c57b4cfab06"><div class="ttname"><a href="class_shader.html#acce1edbe7e892fd91a654c57b4cfab06">Shader::getDefines</a></div><div class="ttdeci">const unordered_map&lt; string, string &gt; &amp; getDefines() const</div><div class="ttdef"><b>Definition:</b> Shader.h:154</div></div>
 <div class="ttc" id="aclass_uniforms_handler_html_a0cfb4dcaeaea8e2e9b7bb951f681bacf"><div class="ttname"><a href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformsHandler::UniformTypes</a></div><div class="ttdeci">boost::variant&lt; int32_t, float, glm::vec2, glm::vec3, glm::vec4, glm::mat3, glm::mat4, shared_ptr&lt; Texture &gt; &gt; UniformTypes</div><div class="ttdef"><b>Definition:</b> UniformsHandler.h:58</div></div>
-<div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.h:25</div></div>
-<div class="ttc" id="aclass_shader_html_a84ff47b9eb80373a004fd1c6f30f9b12"><div class="ttname"><a href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">Shader::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value, uint32_t arrayIndex) const</div><div class="ttdef"><b>Definition:</b> Shader.h:198</div></div>
+<div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.h:27</div></div>
+<div class="ttc" id="aclass_shader_html_a84ff47b9eb80373a004fd1c6f30f9b12"><div class="ttname"><a href="class_shader.html#a84ff47b9eb80373a004fd1c6f30f9b12">Shader::setUniform</a></div><div class="ttdeci">void setUniform(const string &amp;name, const UniformsHandler::UniformTypes &amp;value, uint32_t arrayIndex) const</div><div class="ttdef"><b>Definition:</b> Shader.h:200</div></div>
+<div class="ttc" id="a_dispatcher_8h_html"><div class="ttname"><a href="_dispatcher_8h.html">Dispatcher.h</a></div></div>
 <div class="ttc" id="a_uniforms_handler_8h_html"><div class="ttname"><a href="_uniforms_handler_8h.html">UniformsHandler.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

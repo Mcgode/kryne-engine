@@ -1,8 +1,6 @@
 <map id="Transform::add" name="Transform::add">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,113,83"/>
-<area shape="rect" id="node2" href="$class_scene.html#aed4bf402a8745e782fb5f711bb6d20ad" title=" " alt="" coords="215,56,303,83"/>
-<area shape="rect" id="node5" href="$class_scene.html#a5e62816b2e2c566c8f1bc151688c2c36" title=" " alt="" coords="205,5,313,32"/>
-<area shape="rect" id="node6" href="$class_transform.html#a9fdc9cf291d37f17003fab4834d0ddb2" title=" " alt="" coords="161,107,357,133"/>
-<area shape="rect" id="node3" href="$class_transform.html#aa88751206dca7860f5c17977c8c10aa0" title=" " alt="" coords="405,5,557,32"/>
-<area shape="rect" id="node4" href="$class_transform.html#a0a654c8900d2b9070ef4e6425b4feb80" title=" " alt="" coords="412,56,551,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,113,57"/>
+<area shape="rect" id="node2" href="$class_scene.html#aed4bf402a8745e782fb5f711bb6d20ad" title=" " alt="" coords="161,31,249,57"/>
+<area shape="rect" id="node3" href="$class_scene.html#a5e62816b2e2c566c8f1bc151688c2c36" title=" " alt="" coords="341,5,449,32"/>
+<area shape="rect" id="node4" href="$class_transform.html#a9fdc9cf291d37f17003fab4834d0ddb2" title=" " alt="" coords="297,68,493,95"/>
 </map>

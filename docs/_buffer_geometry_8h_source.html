@@ -98,76 +98,80 @@ $(document).ready(function(){initNavTree('_buffer_geometry_8h_source.html',''); 
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;glm/vec2.hpp&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;glm/vec3.hpp&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;glm/geometric.hpp&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_buffer_attribute_8h.html">BufferAttribute.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_dispatcher_8h.html">kryne-engine/Dispatch/Dispatcher.h</a>&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_buffer_attribute_8h.html">BufferAttribute.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_buffer_geometry.html">BufferGeometry</a> {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_buffer_geometry.html">BufferGeometry</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setAttribute(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, unique_ptr&lt;BufferAttribute&gt; attribute);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> draw(GLenum geometry = GL_TRIANGLES) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> setIndices(vector&lt;uint32_t&gt; newIndexes);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_buffer_geometry.html">BufferGeometry</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> updateLength();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a196c715dde467c5e79a0d7183b2d502b">   73</a></span>&#160;    GLuint vao {};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_buffer_geometry.html">BufferGeometry</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_buffer_geometry.html">BufferGeometry</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setAttribute(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, unique_ptr&lt;BufferAttribute&gt; attribute);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> draw(GLenum geometry = GL_TRIANGLES) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setIndices(vector&lt;uint32_t&gt; newIndexes);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_buffer_geometry.html">BufferGeometry</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> updateLength();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22">   76</a></span>&#160;    GLuint nextLocation = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a196c715dde467c5e79a0d7183b2d502b">   76</a></span>&#160;    GLuint vao {};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">   79</a></span>&#160;    unordered_map&lt;string, pair&lt;unique_ptr&lt;BufferAttribute&gt;, GLint&gt;&gt; <a class="code" href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">attributes</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22">   79</a></span>&#160;    GLuint nextLocation = 0;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f">   82</a></span>&#160;    uint32_t length = 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">   82</a></span>&#160;    unordered_map&lt;string, pair&lt;unique_ptr&lt;BufferAttribute&gt;, GLint&gt;&gt; <a class="code" href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">attributes</a>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">   85</a></span>&#160;    vector&lt;uint32_t&gt; <a class="code" href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">indexes</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a4e494765b987a0de790dffd992c9094f">   85</a></span>&#160;    uint32_t length = 0;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a689cc72be6cb39978e322bea65141051">   88</a></span>&#160;    GLuint ebo = 0;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">   88</a></span>&#160;    vector&lt;uint32_t&gt; <a class="code" href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">indexes</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> computeTangents();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> glm::vec3 <a class="code" href="_geometric_shapes_8cpp.html#adf58ddd38e2f76cd1047be5b5be097a0">computeTangent</a>(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a689cc72be6cb39978e322bea65141051">   91</a></span>&#160;    GLuint ebo = 0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> computeTangents();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">static</span> glm::vec3 <a class="code" href="_geometric_shapes_8cpp.html#adf58ddd38e2f76cd1047be5b5be097a0">computeTangent</a>(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec2 uv0, glm::vec2 uv1, glm::vec2 uv2);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">  120</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> pair&lt;string, uint64_t&gt; &amp;<a class="code" href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">getShaderLayoutCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">BufferGeometry::layoutCode</a>; };</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> updateLayoutCode();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">  132</a></span>&#160;    pair&lt;string, uint64_t&gt; layoutCode {};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">  123</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> pair&lt;string, uint64_t&gt; &amp;<a class="code" href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">getShaderLayoutCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">BufferGeometry::layoutCode</a>; };</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> updateLayoutCode();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">  135</a></span>&#160;    pair&lt;string, uint64_t&gt; layoutCode {};</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_BUFFERGEOMETRY_H</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_BUFFERGEOMETRY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_buffer_geometry_html"><div class="ttname"><a href="class_buffer_geometry.html">BufferGeometry</a></div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:27</div></div>
-<div class="ttc" id="aclass_buffer_geometry_html_ac8beb2a2f2bc00e4fd82bb5c34d7ba03"><div class="ttname"><a href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">BufferGeometry::layoutCode</a></div><div class="ttdeci">pair&lt; string, uint64_t &gt; layoutCode</div><div class="ttdoc">The shader layout code along its hash value.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:132</div></div>
+<div class="ttc" id="aclass_buffer_geometry_html"><div class="ttname"><a href="class_buffer_geometry.html">BufferGeometry</a></div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:30</div></div>
+<div class="ttc" id="aclass_buffer_geometry_html_ac8beb2a2f2bc00e4fd82bb5c34d7ba03"><div class="ttname"><a href="class_buffer_geometry.html#ac8beb2a2f2bc00e4fd82bb5c34d7ba03">BufferGeometry::layoutCode</a></div><div class="ttdeci">pair&lt; string, uint64_t &gt; layoutCode</div><div class="ttdoc">The shader layout code along its hash value.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:135</div></div>
 <div class="ttc" id="a_geometric_shapes_8cpp_html_adf58ddd38e2f76cd1047be5b5be097a0"><div class="ttname"><a href="_geometric_shapes_8cpp.html#adf58ddd38e2f76cd1047be5b5be097a0">computeTangent</a></div><div class="ttdeci">vec3 computeTangent(vec3 p0, vec3 p1, vec3 p2, vec2 uv0, vec2 uv1, vec2 uv2)</div><div class="ttdef"><b>Definition:</b> GeometricShapes.cpp:14</div></div>
 <div class="ttc" id="a_buffer_attribute_8h_html"><div class="ttname"><a href="_buffer_attribute_8h.html">BufferAttribute.h</a></div></div>
-<div class="ttc" id="aclass_buffer_geometry_html_a5a7aa14a2ffd791ea99e21792a0ae50c"><div class="ttname"><a href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">BufferGeometry::indexes</a></div><div class="ttdeci">vector&lt; uint32_t &gt; indexes</div><div class="ttdoc">The indexes for the geometry faces.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:85</div></div>
-<div class="ttc" id="aclass_buffer_geometry_html_a54f15fb480ea53aa5f187a42bda8dbbd"><div class="ttname"><a href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">BufferGeometry::attributes</a></div><div class="ttdeci">unordered_map&lt; string, pair&lt; unique_ptr&lt; BufferAttribute &gt;, GLint &gt; &gt; attributes</div><div class="ttdoc">The attributes of the geometry, stored by name, containing both the BufferAttribute and its location.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:79</div></div>
-<div class="ttc" id="aclass_buffer_geometry_html_a60467b97a564b06120f28948b5cf4201"><div class="ttname"><a href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">BufferGeometry::getShaderLayoutCode</a></div><div class="ttdeci">const pair&lt; string, uint64_t &gt; &amp; getShaderLayoutCode() const</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:120</div></div>
+<div class="ttc" id="aclass_buffer_geometry_html_a5a7aa14a2ffd791ea99e21792a0ae50c"><div class="ttname"><a href="class_buffer_geometry.html#a5a7aa14a2ffd791ea99e21792a0ae50c">BufferGeometry::indexes</a></div><div class="ttdeci">vector&lt; uint32_t &gt; indexes</div><div class="ttdoc">The indexes for the geometry faces.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:88</div></div>
+<div class="ttc" id="aclass_buffer_geometry_html_a54f15fb480ea53aa5f187a42bda8dbbd"><div class="ttname"><a href="class_buffer_geometry.html#a54f15fb480ea53aa5f187a42bda8dbbd">BufferGeometry::attributes</a></div><div class="ttdeci">unordered_map&lt; string, pair&lt; unique_ptr&lt; BufferAttribute &gt;, GLint &gt; &gt; attributes</div><div class="ttdoc">The attributes of the geometry, stored by name, containing both the BufferAttribute and its location.</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:82</div></div>
+<div class="ttc" id="a_dispatcher_8h_html"><div class="ttname"><a href="_dispatcher_8h.html">Dispatcher.h</a></div></div>
+<div class="ttc" id="aclass_buffer_geometry_html_a60467b97a564b06120f28948b5cf4201"><div class="ttname"><a href="class_buffer_geometry.html#a60467b97a564b06120f28948b5cf4201">BufferGeometry::getShaderLayoutCode</a></div><div class="ttdeci">const pair&lt; string, uint64_t &gt; &amp; getShaderLayoutCode() const</div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:123</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
