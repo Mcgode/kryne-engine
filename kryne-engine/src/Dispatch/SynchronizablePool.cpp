@@ -86,9 +86,3 @@ void SynchronizablePool::overrideSynchronizeWait(condition_variable *newConditio
     if (notifyAll)
         this->synchronizeWait->notify_all();
 }
-
-
-SynchronizablePool::~SynchronizablePool()
-{
-    this->attachedPools.clear();
-}

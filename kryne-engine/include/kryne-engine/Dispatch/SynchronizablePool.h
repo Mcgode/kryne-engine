@@ -9,12 +9,8 @@
 
 #include "ThreadPool.h"
 
-class SynchronizableChildPool;
-
 
 class SynchronizablePool final: public ThreadPool {
-
-    friend class SynchronizableChildPool;
 
 public:
 
@@ -26,15 +22,11 @@ public:
 
     void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
 
-    ~SynchronizablePool() override;
-
 private:
 
     mutex _poolMutex {};
 
     condition_variable _waitCondition {};
-
-    vector<unique_ptr<SynchronizableChildPool>> attachedPools {};
 
     uint16_t runningThreads = 0;
 
@@ -43,8 +35,5 @@ private:
     condition_variable _defaultWait {};
 
 };
-
-
-#include "SynchronizableChildPool.h"
 
 

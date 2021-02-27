@@ -85,9 +85,7 @@ add_library(kryne-engine STATIC
         src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h
         src/Dispatch/Dispatcher.cpp include/kryne-engine/Dispatch/Dispatcher.h
         src/Dispatch/RunnerPool.cpp include/kryne-engine/Dispatch/RunnerPool.h
-        src/Dispatch/ChildPool.cpp include/kryne-engine/Dispatch/ChildPool.h
         src/Dispatch/SynchronizablePool.cpp include/kryne-engine/Dispatch/SynchronizablePool.h
-        src/Dispatch/SynchronizableChildPool.cpp include/kryne-engine/Dispatch/SynchronizableChildPool.h
         src/Dispatch/ThreadPool.cpp include/kryne-engine/Dispatch/ThreadPool.h
         include/kryne-engine/Utils/Debugging.hpp src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h)
 

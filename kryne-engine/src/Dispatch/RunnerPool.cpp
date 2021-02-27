@@ -34,9 +34,3 @@ RunnerPool::RunnerPool(uint16_t threadCount): ThreadPool(threadCount, &this->_po
         );
     }
 }
-
-
-RunnerPool::~RunnerPool()
-{
-    this->attachedPools.clear();
-}
