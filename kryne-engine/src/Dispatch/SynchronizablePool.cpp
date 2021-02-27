@@ -65,14 +65,14 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : BasePool(threadCo
 void SynchronizablePool::synchronize()
 {
     unique_lock<mutex> lock(*this->poolMutex);
-    this->synchronizeWait->wait(lock, [this] { return this->runningThreads == 0; });
+    this->synchronizeWait->wait(lock, [this] { return this->runningThreads == 0 && this->tasks.empty(); });
 }
 
 
 bool SynchronizablePool::trySynchronize()
 {
     unique_lock<mutex> lock(*this->poolMutex);
-    return this->runningThreads == 0;
+    return this->runningThreads == 0 && this->tasks.empty();
 }
 
 
