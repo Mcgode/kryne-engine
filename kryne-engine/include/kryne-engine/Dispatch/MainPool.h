@@ -10,7 +10,7 @@
 #include "SynchronizablePool.h"
 
 
-class MainPool final {
+class MainPool final : public BasePool {
 
 public:
 
@@ -37,7 +37,7 @@ public:
         return result;
     }
 
-    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false);
+    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false) override;
 
     void synchronize(SynchronizablePool *pool);
 
@@ -50,8 +50,6 @@ private:
     mutex mainMutex {};
 
     condition_variable waitCondition;
-
-    queue<function<void()>> tasks {};
 
 };
 

@@ -87,7 +87,10 @@ add_library(kryne-engine STATIC
         src/Dispatch/RunnerPool.cpp include/kryne-engine/Dispatch/RunnerPool.h
         src/Dispatch/SynchronizablePool.cpp include/kryne-engine/Dispatch/SynchronizablePool.h
         src/Dispatch/ThreadPool.cpp include/kryne-engine/Dispatch/ThreadPool.h
-        include/kryne-engine/Utils/Debugging.hpp src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h)
+        include/kryne-engine/Utils/Debugging.hpp
+        src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
+        src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
+        )
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

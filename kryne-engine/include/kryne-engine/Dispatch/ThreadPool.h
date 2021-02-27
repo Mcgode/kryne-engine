@@ -10,16 +10,17 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-#include <queue>
 #include <future>
 #include <memory>
 #include <iostream>
+
+#include "BasePool.h"
 
 
 using namespace std;
 
 
-class ThreadPool {
+class ThreadPool: public BasePool {
 
 public:
 
@@ -49,7 +50,7 @@ public:
         return result;
     }
 
-    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false);
+    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false) override;
 
 
 protected:
@@ -64,8 +65,6 @@ protected:
     uint16_t threadCount;
 
     thread *threads;
-
-    queue<function<void()>> tasks {};
 
     mutex *poolMutex;
 
