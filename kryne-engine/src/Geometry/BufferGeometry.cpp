@@ -8,7 +8,11 @@
 
 BufferGeometry::BufferGeometry()
 {
-    glGenVertexArrays(1, &this->vao);
+    // TODO : Better main thread init
+    Dispatcher::instance().main()->enqueue([this]() {
+        glGenVertexArrays(1, &this->vao);
+    })
+    .wait();
 }
 
 
