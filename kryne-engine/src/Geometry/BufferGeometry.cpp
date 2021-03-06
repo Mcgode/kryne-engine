@@ -66,16 +66,34 @@ void BufferGeometry::update()
         if (attribPair.second.needsLink)
             attribPair.second.attribute->bindToVAO(this->vao, attribPair.second.location);
     }
+
+    if (this->indicesChanged)
+    {
+        if (this->ebo == 0)
+            glGenBuffers(1, &this->ebo);
+
+        glBindVertexArray(this->vao);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indexes.size() * sizeof(uint32_t), this->indexes.data(), GL_STATIC_DRAW); //< TODO : handle non-static draw case
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        glBindVertexArray(0);
+
+        this->indicesChanged = false;
+    }
+
+    this->updateNeeded = false;
 }
 
 
 void BufferGeometry::updateLength()
 {
-    if (ebo == 0) {
+    if (this->indexes.empty())
+    {
         auto it = this->attributes.begin();
         this->length = it->second.attribute->getLength();
 
-        for (; it != this->attributes.end(); ++it) {
+        for (; it != this->attributes.end(); ++it)
+        {
             const auto l = it->second.attribute->getLength();
             if (l < this->length)
                 this->length = l;
@@ -130,15 +148,8 @@ void BufferGeometry::draw(GLenum geometry)
 void BufferGeometry::setIndices(vector<uint32_t> newIndexes)
 {
     this->indexes = std::move(newIndexes);
-    if (this->ebo == 0)
-        glGenBuffers(1, &this->ebo);
-
-    glBindVertexArray(this->vao);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indexes.size() * sizeof(uint32_t), this->indexes.data(), GL_STATIC_DRAW); //< TODO : handle non-static draw case
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-
+    this->indicesChanged = true;
+    this->updateNeeded = true;
     this->length = this->indexes.size();
 }
 
@@ -204,7 +215,7 @@ bool BufferGeometry::computeTangents()
     vector<glm::vec3> tangents;
     tangents.assign(std::min(positionsAttribute->getLength(), uvsAttribute->getLength()), glm::vec3(0));
 
-    if (this->ebo) {
+    if (!this->indexes.empty()) {
         for (uint32_t i = 0; i < this->length; i += 3) {
             uint32_t j1 = this->indexes[i],
                      j2 = this->indexes[i+1],

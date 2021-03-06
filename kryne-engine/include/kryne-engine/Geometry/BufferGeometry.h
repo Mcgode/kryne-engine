@@ -128,6 +128,9 @@ protected:
     /// Stores the attributes that will need to be disabled during the next update
     vector<GLuint> locationsToDisable {};
 
+    /// Stores whether the geometry have been changed, but the geometry hasn't been updated accordingly
+    bool indicesChanged = false;
+
 
 // ============
 // Geometry computing utils
