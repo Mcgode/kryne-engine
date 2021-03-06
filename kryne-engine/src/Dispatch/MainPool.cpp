@@ -9,6 +9,12 @@
 void MainPool::synchronize(SynchronizablePool *pool)
 {
     pool->overrideSynchronizeWait(&this->waitCondition);
+
+    {
+        unique_lock<mutex> l(*this->mainMutex);
+        this->mainMutex = pool->getMutex();
+    }
+
     for (;;)
     {
         function <void()> task;
@@ -31,6 +37,12 @@ void MainPool::synchronize(SynchronizablePool *pool)
 
         task();
     }
+
+    {
+        unique_lock<mutex> l(*this->mainMutex);
+        this->mainMutex = &this->_mainMutex;
+    }
+
     pool->overrideSynchronizeWait(nullptr, true);
 }
 
