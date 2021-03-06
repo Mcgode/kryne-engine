@@ -11,8 +11,11 @@ with the end goal of being able to have a basic game run on it.
 The code structure and the pipeline are currently having an overhaul.
 
 More specifically, right now, I'm working on:
-- Restructure engine code, to improve current pipeline and have one similar to [three.js](https://threejs.org))
-- Switch to smart pointers
+- ~~Switch to using smart pointers.~~ Done.
+- ~~Switch to a ECS structure.~~ Done.
+- ~~Use multi-threading.~~ Done.
+- Reimplement previous features to the new pipeline.
+- Improve current pipeline, by adding features mostly.
 
 
 ## Examples
