@@ -11,7 +11,7 @@ void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
     if (l != this->uniforms.end()) {
         l->second.first = value;
     } else {
-        GLint location = glGetUniformLocation(this->programId, name.c_str());
+        GLint location = (*this->programId != 0) ? glGetUniformLocation(*this->programId, name.c_str()) : -2;
         this->uniforms.emplace(name, make_pair(value, location));
     }
 }
@@ -43,11 +43,14 @@ bool UniformsHandler::removeUniform(const string &name)
 
 void UniformsHandler::updateUniforms()
 {
+    if (*this->programId == 0)
+        return;
+
     for (auto &entry : this->uniforms) {
         const auto data = entry.second;
 
         if (data.second < -1) {
-            entry.second.second = glGetUniformLocation(this->programId, entry.first.c_str());
+            entry.second.second = glGetUniformLocation(*this->programId, entry.first.c_str());
         }
 
         if (data.second > -1) {

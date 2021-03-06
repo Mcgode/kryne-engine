@@ -142,9 +142,9 @@ protected:
  * Replace the needs update value check according to the defined behaviour
  */
 #ifndef NO_CHANGE_CHECK
-#define needsUpdate(a,b) !glm::all(glm::equal(a,b))
+#define compareNeedsUpdate(a,b) !glm::all(glm::equal(a,b))
 #else
-#define needsUpdate(a,b) true
+#define compareNeedsUpdate(a,b) true
 #endif
 
 
@@ -174,7 +174,7 @@ public:
      * @param pos   The new position value
      */
     virtual void setPosition(const glm::vec3 &pos) {
-        matrixWorldNeedsUpdate = needsUpdate(pos, Transform::position);
+        matrixWorldNeedsUpdate = compareNeedsUpdate(pos, Transform::position);
         Transform::position = glm::vec3(pos);
     }
 
@@ -188,7 +188,7 @@ public:
      * @param quat  The new quaternion value.
      */
     void setQuaternion(const glm::quat &quat) {
-        matrixWorldNeedsUpdate = needsUpdate(quat, Transform::quaternion);
+        matrixWorldNeedsUpdate = compareNeedsUpdate(quat, Transform::quaternion);
         Transform::quaternion = glm::quat(quat);
     }
 
@@ -202,7 +202,7 @@ public:
      * @param s The new scale information.
      */
     void setScale(const glm::vec3 &s) {
-        matrixWorldNeedsUpdate = needsUpdate(s, Transform::scale);
+        matrixWorldNeedsUpdate = compareNeedsUpdate(s, Transform::scale);
         Transform::scale = glm::vec3(s);
     }
 

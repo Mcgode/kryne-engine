@@ -34,12 +34,12 @@ public:
      * Initializes the UniformHandler and link it to its shader program.
      * @param programId     The OpenGL shader program id
      */
-    explicit UniformsHandler(GLuint programId) : programId(programId) {}
+    explicit UniformsHandler(GLuint *programId) : programId(programId) {}
 
 protected:
 
     /// The program ID for the associated shader
-    GLuint programId;
+    GLuint *programId;
 
 
 public:

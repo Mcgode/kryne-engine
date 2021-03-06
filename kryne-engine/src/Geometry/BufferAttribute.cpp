@@ -4,20 +4,32 @@
 
 #include "kryne-engine/Geometry/BufferAttribute.h"
 
-BufferAttribute::BufferAttribute(vector<float> data, uint32_t itemSize, GLint drawType) :
-    data(data),
-    itemSize(itemSize)
+BufferAttribute::BufferAttribute(vector<float> data, uint32_t itemSize, GLint usage) :
+        data(data),
+        itemSize(itemSize),
+        usage(usage),
+        needUpdate(true)
+{}
+
+
+void BufferAttribute::updateData()
 {
-    glGenBuffers(1, &this->vbo);
+    if (this->vbo == 0)
+        glGenBuffers(1, &this->vbo);
 
     glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), drawType);
+    glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), this->usage);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    this->needUpdate = false;
 }
 
 
 void BufferAttribute::bindToVAO(GLuint vao, GLuint location) const
 {
+    if (this->vbo == 0)
+        return;
+
     glBindVertexArray(vao);
 
     glEnableVertexAttribArray(location);
@@ -31,7 +43,8 @@ void BufferAttribute::bindToVAO(GLuint vao, GLuint location) const
 
 BufferAttribute::~BufferAttribute()
 {
-    glDeleteBuffers(1, &this->vbo);
+    if (this->vbo != 0)
+        glDeleteBuffers(1, &this->vbo);
 }
 
 
