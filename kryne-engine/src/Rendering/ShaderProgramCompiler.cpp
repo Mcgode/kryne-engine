@@ -7,17 +7,16 @@
 #include "kryne-engine/Rendering/ShaderProgramCompiler.h"
 
 
-ShaderProgramCompiler::ShaderProgramCompiler()
+void ShaderProgramCompiler::checkShaderCompile(Shader *shader, const BufferGeometry *geometry)
 {
-    // TODO : Better initialization
     assertIsMainThread();
-    this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
-    this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-}
 
+    if (this->vertexShaderId == 0)
+        this->vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
 
-void ShaderProgramCompiler::checkShaderCompile(const Shader *shader, const BufferGeometry *geometry)
-{
+    if (this->fragmentShaderId == 0)
+        this->fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
+
     const auto &layoutCode = geometry->getShaderLayoutCode();
     bool vertexNeedsUpdate = shader->getNeedsUpdate() & SHADER_VERTEX_NEEDS_UPDATE;
 

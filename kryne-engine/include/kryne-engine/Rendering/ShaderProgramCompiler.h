@@ -27,14 +27,14 @@ public:
     /**
      * Initializes the shaders
      */
-    ShaderProgramCompiler();
+    ShaderProgramCompiler() {}
 
     /**
      * Will check if a shader (re)compile is needed, and will proceed to do so.
      * @param shader    The shader information to compile.
      * @param geometry  The geometry that will be compiled.
      */
-    void checkShaderCompile(const Shader *shader, const BufferGeometry *geometry);
+    void checkShaderCompile(Shader *shader, const BufferGeometry *geometry);
 
 protected:
 
