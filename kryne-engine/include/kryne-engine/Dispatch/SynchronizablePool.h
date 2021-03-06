@@ -22,6 +22,8 @@ public:
 
     void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
 
+    [[nodiscard]] mutex *getMutex() const { return this->poolMutex; }
+
 private:
 
     mutex _poolMutex {};
