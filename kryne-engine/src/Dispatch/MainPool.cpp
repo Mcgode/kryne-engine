@@ -9,11 +9,17 @@
 void MainPool::synchronize(SynchronizablePool *pool)
 {
     pool->overrideSynchronizeWait(&this->waitCondition);
+
+    {
+        unique_lock<mutex> l(*this->mainMutex);
+        this->mainMutex = pool->getMutex();
+    }
+
     for (;;)
     {
         function <void()> task;
         {
-            unique_lock<mutex> lock(this->mainMutex);
+            unique_lock<mutex> lock(*this->mainMutex);
 
             bool synchronize;
             this->waitCondition.wait(lock, [this, pool, &synchronize]
@@ -31,6 +37,12 @@ void MainPool::synchronize(SynchronizablePool *pool)
 
         task();
     }
+
+    {
+        unique_lock<mutex> l(*this->mainMutex);
+        this->mainMutex = &this->_mainMutex;
+    }
+
     pool->overrideSynchronizeWait(nullptr, true);
 }
 
@@ -38,7 +50,7 @@ void MainPool::synchronize(SynchronizablePool *pool)
 void MainPool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
 {
     {
-        unique_lock<mutex> lock(this->mainMutex);
+        unique_lock<mutex> lock(*this->mainMutex);
 
         if (!allowNonEmpty && !this->tasks.empty())
             throw runtime_error("Can't swap non-empty task queue");

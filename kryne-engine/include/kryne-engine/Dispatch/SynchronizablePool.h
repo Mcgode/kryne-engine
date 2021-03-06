@@ -18,9 +18,11 @@ public:
 
     void synchronize();
 
-    bool trySynchronize();
+    [[nodiscard]] bool trySynchronize() const;
 
     void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
+
+    [[nodiscard]] mutex *getMutex() const { return this->poolMutex; }
 
 private:
 
