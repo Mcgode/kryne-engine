@@ -6,37 +6,66 @@
 
 #include <utility>
 
-BufferGeometry::BufferGeometry()
-{
-    // TODO : Better main thread init
-    assertIsMainThread();
-    glGenVertexArrays(1, &this->vao);
-}
-
 
 void BufferGeometry::setAttribute(const string &name, unique_ptr<BufferAttribute> attribute)
 {
     GLuint location = this->nextLocation;
-    BufferAttribute *attr = attribute.release();
 
     auto l = this->attributes.find(name);
-    if (l != this->attributes.end()) {
-        if (l->second.first->getItemSize() != attr->getItemSize()) {
-            glDisableVertexAttribArray(l->second.second);
-            this->nextLocation += (attr->getItemSize() - 1) % 4 + 1;
-        } else
-            location = l->second.second;
+    if (l != this->attributes.end())
+    {
+        bool willNeedLocationRecompute = false;
 
-        attr->bindToVAO(this->vao, location);
-        l->second = make_pair(unique_ptr<BufferAttribute>(attr), location);
-    } else {
-        this->nextLocation += (attr->getItemSize() - 1) / 4 + 1;
-        attr->bindToVAO(this->vao, location);
-        this->attributes.emplace(name, make_pair(unique_ptr<BufferAttribute>(attr), location));
+        if (l->second.attribute->getItemSize() != attribute->getItemSize())
+        {
+            willNeedLocationRecompute = true;
+        }
+        else
+        {
+            location = l->second.location;
+        }
+
+        l->second = AttributeData(move(attribute), location, true);
+
+        if (willNeedLocationRecompute)
+            this->recomputeLocations();
+    }
+    else
+    {
+        this->nextLocation += (attribute->getItemSize() + 3) / 4;
+        this->attributes.emplace(name, AttributeData(move(attribute), location, true));
     }
 
+    this->updateNeeded = true;
     this->updateLength();
     this->updateLayoutCode();
+}
+
+
+void BufferGeometry::removeAttribute(const string &name)
+{
+    if (this->attributes.erase(name))
+    {
+        this->updateLength();
+        this->recomputeLocations();
+        this->updateNeeded = true;
+    }
+}
+
+void BufferGeometry::update()
+{
+    for (auto location : this->locationsToDisable)
+        glDisableVertexAttribArray( location );
+    this->locationsToDisable.clear();
+
+    if (this->vao == 0)
+        glGenVertexArrays(1, &this->vao);
+
+    for (const auto &attribPair : this->attributes)
+    {
+        if (attribPair.second.needsLink)
+            attribPair.second.attribute->bindToVAO(this->vao, attribPair.second.location);
+    }
 }
 
 
@@ -44,10 +73,10 @@ void BufferGeometry::updateLength()
 {
     if (ebo == 0) {
         auto it = this->attributes.begin();
-        this->length = it->second.first->getLength();
+        this->length = it->second.attribute->getLength();
 
         for (; it != this->attributes.end(); ++it) {
-            const auto l = it->second.first->getLength();
+            const auto l = it->second.attribute->getLength();
             if (l < this->length)
                 this->length = l;
         }
@@ -55,8 +84,38 @@ void BufferGeometry::updateLength()
 }
 
 
-void BufferGeometry::draw(GLenum geometry) const
+void BufferGeometry::recomputeLocations()
 {
+    GLuint currentLocation = 0;
+
+    for ( auto &attributePair : this->attributes )
+    {
+        auto &p = attributePair.second;
+        this->locationsToDisable.push_back(p.location);
+        p.location = currentLocation;
+        currentLocation += (p.attribute->getItemSize() + 3) / 4;
+        p.needsLink = true;
+    }
+
+    this->nextLocation = currentLocation;
+    this->updateLayoutCode();
+    this->updateNeeded = true;
+}
+
+
+void BufferGeometry::draw(GLenum geometry)
+{
+    assertIsMainThread();
+
+    for (const auto &p : this->attributes)
+    {
+        if (p.second.attribute->needsUpdate())
+            p.second.attribute->updateData();
+    }
+
+    if (this->updateNeeded)
+        this->update();
+
     glBindVertexArray(this->vao);
     if (this->ebo) {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
@@ -120,10 +179,10 @@ bool BufferGeometry::computeTangents()
 
     for (const auto &attribute : this->attributes) {
         if (attribute.first == "position")
-            positionsAttribute = attribute.second.first.get();
+            positionsAttribute = attribute.second.attribute.get();
 
         if (attribute.first == "uv")
-            uvsAttribute = attribute.second.first.get();
+            uvsAttribute = attribute.second.attribute.get();
 
         if (positionsAttribute && uvsAttribute)
             break;
@@ -191,13 +250,13 @@ void BufferGeometry::updateLayoutCode()
 
     for (const auto &attribute : this->attributes) {
 
-        string code = "layout (location = " + to_string(attribute.second.second) + ") in ";
+        string code = "layout (location = " + to_string(attribute.second.location) + ") in ";
 
-        string type = attribute.second.first->inferTypeString();
+        string type = attribute.second.attribute->inferTypeString();
         if (type.empty()) {
             cout << "Unable to infer type for attribute '"
                  << attribute.first << "' with item size "
-                 << attribute.second.first->getItemSize() << endl;
+                 << attribute.second.attribute->getItemSize() << endl;
             continue;
         }
 
