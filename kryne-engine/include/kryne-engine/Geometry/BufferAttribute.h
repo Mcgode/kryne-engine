@@ -26,9 +26,14 @@ public:
      * Initializes a new buffer attribute.
      * @param data      The data for this attribute, as a vector of floats.
      * @param itemSize  The number of floats per item.
-     * @param drawType  The draw type for this buffer attribute.
+     * @param usage  The draw type for this buffer attribute.
      */
-    BufferAttribute(vector<float> data, uint32_t itemSize, GLint drawType = GL_STATIC_DRAW);
+    BufferAttribute(vector<float> data, uint32_t itemSize, GLint usage = GL_STATIC_DRAW);
+
+    /**
+     * Updates the VBO and uploads its data to the GPU
+     */
+    void updateData();
 
     /**
      * Binds the buffer to a vertex array object.
@@ -53,6 +58,11 @@ public:
     [[nodiscard]] const float *getData() const { return data.data(); }
 
     /**
+     * Returns whether or not the attribute needs to be updated
+     */
+    inline bool needsUpdate() const { return this->needUpdate; }
+
+    /**
      * Deletes the buffer and clears its memory
      */
     ~BufferAttribute();
@@ -67,6 +77,12 @@ private:
 
     /// The VBO id of the buffer
     GLuint vbo {};
+
+    /// The VBO usage tag.
+    GLuint usage;
+
+    /// If true, data needs to be updated and uploaded.
+    bool needUpdate;
 
 
 public:
