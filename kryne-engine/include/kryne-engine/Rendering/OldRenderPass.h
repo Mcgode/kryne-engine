@@ -12,7 +12,7 @@
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
 #include <kryne-engine/3DObjects/BaseObject.h>
 
-class RenderPass {
+class OldRenderPass {
 
 public:
 

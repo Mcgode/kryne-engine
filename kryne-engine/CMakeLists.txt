@@ -25,7 +25,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/enums/SkyboxDrawOrder.h
         include/kryne-engine/enums/BaseObject.h
         src/Rendering/MainRenderer.cpp include/kryne-engine/Rendering/MainRenderer.h
-        include/kryne-engine/Rendering/RenderPass.h
+        include/kryne-engine/Rendering/OldRenderPass.h
         src/Rendering/ShadowMapping/ShadowMapHandler.cpp include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
         src/Core/OldProcess.cpp include/kryne-engine/Core/OldProcess.h

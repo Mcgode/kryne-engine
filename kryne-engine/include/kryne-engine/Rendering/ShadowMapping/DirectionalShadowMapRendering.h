@@ -8,10 +8,10 @@
 #define INC_KRYNE_ENGINE_DIRECTIONAL_SHADOW_MAP_RENDERING_H
 
 
-#include <kryne-engine/Rendering/RenderPass.h>
+#include <kryne-engine/Rendering/OldRenderPass.h>
 #include <kryne-engine/Light/DirectionalLight.h>
 
-class DirectionalShadowMapRendering: public RenderPass {
+class DirectionalShadowMapRendering: public OldRenderPass {
 
 public:
 
