@@ -14,13 +14,11 @@
 Shader::Shader()
 {
     // Initialise program
-    // TODO: Better main thread initialization
-    assertIsMainThread();
-    this->programID = glCreateProgram();
+    this->programID = 0;
 
     this->needsUpdate = SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
 
-    this->uniformsHandler = make_unique<UniformsHandler>(this->programID);
+    this->uniformsHandler = make_unique<UniformsHandler>(&this->programID);
 
     maxIndex = 0;
 }
@@ -116,8 +114,13 @@ void Shader::setTexture(const std::string &name)
 }
 
 
-void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment) const
+void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment)
 {
+    assertIsMainThread();
+
+    if (this->programID == 0)
+        this->programID = glCreateProgram();
+
     // Attaching shaders to program
     glAttachShader(this->programID, vertex);
     glAttachShader(this->programID, fragment);

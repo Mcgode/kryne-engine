@@ -61,7 +61,7 @@ public:
      * @param vertex    The vertex shader to attach to the program.
      * @param fragment  The fragment shader to attach to the program.
      */
-    void linkProgram(const GLuint &vertex, const GLuint &fragment) const;
+    void linkProgram(const GLuint &vertex, const GLuint &fragment);
 
 protected:
 
