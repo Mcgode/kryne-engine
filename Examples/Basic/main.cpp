@@ -44,11 +44,17 @@ int main()
     material->setUniform("hemisphereLights[0].groundColor", intensity * glm::vec3(0.5));
     material->setUniform("hemisphereLights[0].direction", glm::vec3(0, 1, 0));
 
-    auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
+    Dispatcher::instance().enqueueParallelDelayed([&process, &material, &scene]()
+    {
+        auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
 
-    const auto entity = process->makeEntity<Entity>();
-    const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
-    entity->getTransform()->setScene(scene);
+        Dispatcher::instance().enqueueMainDelayed([&process, &material, &scene, geometry]()
+        {
+            const auto entity = process->makeEntity<Entity>();
+            const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
+            entity->getTransform()->setScene(scene);
+        });
+    });
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
