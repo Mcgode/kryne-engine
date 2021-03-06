@@ -69,9 +69,8 @@ void SynchronizablePool::synchronize()
 }
 
 
-bool SynchronizablePool::trySynchronize()
+bool SynchronizablePool::trySynchronize() const
 {
-    unique_lock<mutex> lock(*this->poolMutex);
     return this->runningThreads == 0 && this->tasks.empty();
 }
 
