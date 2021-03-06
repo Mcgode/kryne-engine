@@ -12,12 +12,15 @@
 #include <iostream>
 
 #include <boost/filesystem.hpp>
+#include <boost/format.hpp>
 
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include <kryne-engine/Dispatch/Dispatcher.h>
 
 
 using namespace glm;
