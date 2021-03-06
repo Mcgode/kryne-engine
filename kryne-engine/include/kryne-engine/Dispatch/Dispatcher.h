@@ -175,8 +175,8 @@ public:
      */
     inline void waitDelayed()
     {
-        this->mainThread->swapQueues(this->delayedMainQueue);
-        this->parallelExecutionThreads->swapQueues(this->delayedParallelQueue);
+        this->mainThread->swapQueues(this->delayedMainQueue, false);
+        this->parallelExecutionThreads->swapQueues(this->delayedParallelQueue, false);
         this->waitMain();
     }
 

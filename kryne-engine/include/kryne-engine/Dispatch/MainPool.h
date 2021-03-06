@@ -37,7 +37,7 @@ public:
         return result;
     }
 
-    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty = false) override;
+    void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty) override;
 
     void synchronize(SynchronizablePool *pool);
 
