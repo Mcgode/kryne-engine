@@ -18,7 +18,7 @@ public:
 
     void synchronize();
 
-    bool trySynchronize() const;
+    [[nodiscard]] bool trySynchronize() const;
 
     void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
 
