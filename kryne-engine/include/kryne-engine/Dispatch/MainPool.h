@@ -14,7 +14,7 @@ class MainPool final : public BasePool {
 
 public:
 
-    MainPool(): id(this_thread::get_id()) {}
+    MainPool(): id(this_thread::get_id()), mainMutex(&_mainMutex) {}
 
     template<class F, class... Args>
     future<result_of_t<F(Args...)>> enqueue(F&& function, Args&& ...args)
@@ -27,7 +27,7 @@ public:
 
         future<returnType> result = task->get_future();
         {
-            unique_lock<mutex> lock(this->mainMutex);
+            unique_lock<mutex> lock(*this->mainMutex);
 
             tasks.emplace([task] { (*task)(); });
         }
@@ -47,7 +47,9 @@ private:
 
     const thread::id id;
 
-    mutex mainMutex {};
+    mutex _mainMutex {};
+
+    mutex *mainMutex;
 
     condition_variable waitCondition;
 
