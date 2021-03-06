@@ -90,7 +90,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Utils/Debugging.hpp
         src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
         src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
-        )
+        include/kryne-engine/enums/RenderMode.h)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

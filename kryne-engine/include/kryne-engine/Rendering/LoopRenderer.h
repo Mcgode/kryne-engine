@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include <kryne-engine/enums/RenderMode.h>
 
 
 class RenderMesh;
@@ -28,6 +29,14 @@ public:
     virtual void parseScene(Scene *scene) = 0;
 
     virtual void setCamera(Camera *camera) = 0;
+
+    [[nodiscard]] RenderMode getRenderingMode() const { return this->renderMode; }
+
+    virtual void setRenderingMode(RenderMode mode) { this->renderMode = mode; }
+
+protected:
+
+    RenderMode renderMode = ForwardRendering;
 
 };
 
