@@ -55,7 +55,7 @@ public:
      * @param model      The combined model transform matrix of the scene and the node successive parents.
      * @param params     The additional params to pass down the rendering pipeline.
      */
-    void draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
+//    void draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     ~HierarchicalNode();
 

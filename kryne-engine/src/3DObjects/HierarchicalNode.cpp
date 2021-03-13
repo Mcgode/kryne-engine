@@ -41,15 +41,15 @@ HierarchicalNode::~HierarchicalNode()
 }
 
 
-void HierarchicalNode::draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
-{
-    glm::mat4 final_model = this->transform * model;
-
-    for (BaseObject *obj: objects)
-        renderer->drawInScene(obj, view, final_model, params);
-
-    for (HierarchicalNode *node: children)
-        node->draw(renderer, view, final_model, params);
-}
+//void HierarchicalNode::draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
+//{
+//    glm::mat4 final_model = this->transform * model;
+//
+//    for (BaseObject *obj: objects)
+//        renderer->drawInScene(obj, view, final_model, params);
+//
+//    for (HierarchicalNode *node: children)
+//        node->draw(renderer, view, final_model, params);
+//}
 
 
