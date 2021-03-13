@@ -7,12 +7,15 @@
 #pragma once
 
 
+#include <vector>
+
 #include <kryne-engine/enums/RenderMode.h>
 
 
 class RenderMesh;
 class Camera;
 class Scene;
+class Entity;
 
 
 /**
@@ -26,7 +29,7 @@ public:
 
     virtual void handleMesh(RenderMesh *renderMesh) = 0;
 
-    virtual void parseScene(Scene *scene) = 0;
+    virtual std::vector<Entity *> parseScene(Scene *scene) = 0;
 
     virtual void setCamera(Camera *camera) = 0;
 
@@ -41,5 +44,6 @@ protected:
 };
 
 
+#include <kryne-engine/Core/Entity.h>
 #include <kryne-engine/3DObjects/Scene.h>
 #include <kryne-engine/Rendering/RenderMesh.h>

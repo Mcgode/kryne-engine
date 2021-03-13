@@ -61,3 +61,13 @@ void OpenGLRenderer::prepareFrame()
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
+
+
+vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
+{
+    vector<Entity *> result;
+
+    result.push_back(this->mainCamera);
+
+    return result;
+}
