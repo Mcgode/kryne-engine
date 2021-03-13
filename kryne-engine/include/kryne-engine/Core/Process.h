@@ -88,7 +88,7 @@ public:
     template<typename T, typename... Args>
     inline T *makeEntity(Args&&... args)
     {
-        static_assert(is_convertible<T, Entity>::value, "Class must inherit from Entity");
+        static_assert(is_convertible_v<T*, Entity*>, "Class must inherit from Entity");
 
         const auto entity = make_shared<T>(this, forward<Args>(args)...);
         this->processEntities.emplace(pair(entity.get(), entity));
@@ -134,7 +134,7 @@ public:
     template<typename T, typename... Args>
     T *makeSystem(Args&&... args)
     {
-        static_assert(std::is_base_of_v<System, T>, "Class must inherit from System");
+        static_assert(std::is_convertible_v<T*, System*>, "Class must inherit from System");
 
         const auto system = make_shared<T>(this, forward<Args>(args)...);
         this->processSystems.emplace(system.get(), system);
