@@ -15,10 +15,11 @@ SynchronizablePool::SynchronizablePool(uint16_t threadCount) : ThreadPool(thread
     this->synchronizeWait = &this->_defaultWait;
 
     for ( uint16_t i = 0; i < this->threadCount; i++ ) {
-        this->threads[i] = thread(
-                [this] {
-                    for (;;) {
-                        function < void() > task;
+        this->threads[i] = thread([this]
+                {
+                    for (;;)
+                    {
+                        function <void()> task;
                         {
                             unique_lock<mutex> lock(*this->poolMutex);
 
