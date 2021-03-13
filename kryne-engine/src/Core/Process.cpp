@@ -80,7 +80,13 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
+        for (const auto entity : this->currentScene->getEntities())
+            entity->ranPreRenderingProcessing = 0;
+
         const auto renderer = this->context->getRenderer();
+
+        auto entities = renderer->parseScene(this->currentScene);
+        this->runPriorityPreProcesses(entities);
 
         renderer->prepareFrame();
 
@@ -96,29 +102,37 @@ void Process::runLoop()
     this->context->endFrame();
 }
 
+
 void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 {
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        auto it = this->systemsByType.find(LoopStart);
-        if (it != this->systemsByType.end())
+        // No data race can happen in this state, since any entity is only called once by all parallel threads.
+        // As a consequence, no fancy lock operation is needed.
+        if (!entity->ranPreRenderingProcessing)
         {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
+            auto it = this->systemsByType.find(LoopStart);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
 
-        it = this->systemsByType.find(GameLogic);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
+            it = this->systemsByType.find(GameLogic);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
 
-        it = this->systemsByType.find(PreRendering);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
+            it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entity);
+            }
+
+            entity->ranPreRenderingProcessing = true;
         }
 
         Dispatcher::instance().main()->enqueue([this, entity, renderer]()
@@ -140,6 +154,66 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
             });
         });
     });
+}
+
+
+void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
+{
+    for (const auto entity : entities)
+    {
+        Dispatcher::instance().parallel()->enqueue([this, entity]()
+        {
+            stack<Entity *> processStack;
+
+            Transform *current = entity->getTransform();
+            do
+            {
+                processStack.push(current->getEntity());
+                current = current->getParent();
+            } while (current != nullptr);
+
+            while (!processStack.empty())
+            {
+                Entity *entityToProcess = processStack.top();
+                processStack.pop();
+
+                // Lock entity processing, to solve potential data racing issues.
+                // Data racing can occur because the same entities can be called multiple times (like common parents),
+                // on potentially different threads.
+                {
+                    unique_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
+
+                    if (entityToProcess->ranPreRenderingProcessing)
+                        continue;
+
+                    auto it = this->systemsByType.find(LoopStart);
+                    if (it != this->systemsByType.end())
+                    {
+                        for (const auto& systemPair : it->second)
+                            systemPair->runSystem(entityToProcess);
+                    }
+
+                    it = this->systemsByType.find(GameLogic);
+                    if (it != this->systemsByType.end())
+                    {
+                        for (const auto& systemPair : it->second)
+                            systemPair->runSystem(entityToProcess);
+                    }
+
+                    it = this->systemsByType.find(PreRendering);
+                    if (it != this->systemsByType.end())
+                    {
+                        for (const auto& systemPair : it->second)
+                            systemPair->runSystem(entityToProcess);
+                    }
+
+                    entityToProcess->ranPreRenderingProcessing = true;
+                }
+            }
+        });
+    }
+
+    Dispatcher::instance().waitMain();
 }
 
 

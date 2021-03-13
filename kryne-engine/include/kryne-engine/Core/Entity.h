@@ -17,6 +17,7 @@ class Process;
 #include <atomic>
 #include <vector>
 #include <unordered_set>
+#include <mutex>
 
 // Pre-declared circular dependencies includes
 #include <kryne-engine/3DObjects/Transform.h>
@@ -190,6 +191,21 @@ private:
 
     /// The components attached to this entity.
     unordered_set<shared_ptr<Component>> components {};
+
+
+// -----
+// Components
+// -----
+
+
+friend class Process;
+friend class Scene;
+
+private:
+
+    mutex preRenderingProcessingMutex {};
+
+    bool ranPreRenderingProcessing = false;
 
 };
 

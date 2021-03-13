@@ -11,6 +11,7 @@
 #include <memory>
 #include <unordered_map>
 #include <iostream>
+#include <stack>
 
 #include "Entity.h"
 #include "System.h"
@@ -58,6 +59,8 @@ public:
 protected:
 
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
+
+    void runPriorityPreProcesses(const vector<Entity *> &entities) const;
 
 protected:
 
