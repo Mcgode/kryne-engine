@@ -100,7 +100,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 {
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        auto it = this->systemsByType.find(PreRendering);
+        auto it = this->systemsByType.find(LoopStart);
         if (it != this->systemsByType.end())
         {
             for (const auto& systemPair : it->second)
