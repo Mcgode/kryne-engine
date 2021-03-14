@@ -7,13 +7,11 @@
 #pragma once
 
 
-#include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
 #include <glm/gtx/norm.hpp>
 #include <glm/gtx/component_wise.hpp>
 
-
-using namespace glm;
+#include "AxisAlignedBox.hpp"
 
 
 namespace Math {
@@ -44,7 +42,7 @@ namespace Math {
          *
          * @param point The point to expand the sphere with.
          */
-        void expandByPoint(vec3 point)
+        inline void expandByPoint(vec3 point)
         {
             if (radius == std::numeric_limits<float>::infinity())
             {
@@ -58,7 +56,7 @@ namespace Math {
             {
                 radius = (radius + dist) / 2.f;
                 float x = radius / dist;
-                center = point * (1.f - x) + x * center;
+                center = mix(point, center, x);
             }
         }
 
@@ -69,7 +67,7 @@ namespace Math {
          * @param m The transformation matrix to apply to the new sphere.
          * @return A new Sphere structure instance, with its attributes updated.
          */
-        [[nodiscard]] Sphere fromMatrix(const mat4 &m) const
+        [[nodiscard]] inline Sphere fromMatrix(const mat4 &m) const
         {
             vec3 squaredScale(length2(vec3(m[0])),
                               length2(vec3(m[1])),
@@ -79,6 +77,18 @@ namespace Math {
             return Sphere(radius * scale,
                           vec3(m * vec4(center, 1.f)));
 
+        }
+
+
+        /**
+         * @brief Updates the sphere parameters to bound the provided box.
+         *
+         * @param box An axis aligned box, which will be bounded by the sphere.
+         */
+        inline void fromBox(const AxisAlignedBox &box)
+        {
+            this->center = (box.min + box.max) * 0.5f;
+            this->radius = 0.5f * distance(box.min, box.max);
         }
 
     };
