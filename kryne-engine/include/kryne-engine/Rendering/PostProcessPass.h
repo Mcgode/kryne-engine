@@ -55,6 +55,14 @@ public:
 
     virtual void processPass(LoopRenderer *renderer, Camera *camera, Framebuffer *readBuffer, Framebuffer *writeBuffer) = 0;
 
+    [[nodiscard]] bool isEnabled() const { return enabled; }
+
+    void setEnabled(bool value) { PostProcessPass::enabled = value; }
+
+protected:
+
+    bool enabled;
+
 
 };
 
