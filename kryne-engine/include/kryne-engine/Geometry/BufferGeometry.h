@@ -141,6 +141,11 @@ protected:
 public:
 
     /**
+     * @brief Retrieve the local geometry bounding box.
+     */
+    [[nodiscard]] const Math::AxisAlignedBox &getBoundingBox() const { return boundingBox; }
+
+    /**
      * @brief Retrieve the local object bounding sphere.
      *
      * @details
@@ -149,6 +154,9 @@ public:
     [[nodiscard]] const Math::Sphere &getBoundingSphere() const { return this->boundingSphere; }
 
 protected:
+
+    /// The bounding box of the geometry. Auto-updated upon modifying the position attribute.
+    Math::AxisAlignedBox boundingBox {};
 
     /// The bounding sphere of the geometry. Auto-updated upon modifying the position attribute.
     Math::Sphere boundingSphere {};
@@ -178,10 +186,8 @@ public:
      * Is automatically called when the 'position' attribute is set (using #setAttribute()) or removed (using
      * #removeAttribute()). <br>
      * Be sure to call this function if you change the position attribute data in-place.
-     *
-     * @return A const reference to #boundingSphere.
      */
-    const Math::Sphere &computeBoundingSphere();
+    void computeBoundingVolumes();
 
 protected:
 
