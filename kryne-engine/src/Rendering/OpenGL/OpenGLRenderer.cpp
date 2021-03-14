@@ -6,7 +6,7 @@
 
 #include <kryne-engine/Rendering/RenderMesh.h>
 #include <kryne-engine/Camera/Camera.h>
-#include "kryne-engine/Rendering/Renderers/OpenGLRenderer.h"
+#include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
 void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)

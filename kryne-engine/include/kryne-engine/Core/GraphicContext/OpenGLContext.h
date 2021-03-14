@@ -12,7 +12,7 @@
 #include <GLFW/glfw3.h>
 
 #include <kryne-engine/Rendering/RenderingState.hpp>
-#include <kryne-engine/Rendering/Renderers/OpenGLRenderer.h>
+#include <kryne-engine/Rendering/OpenGL/OpenGLRenderer.h>
 #include "GraphicContext.h"
 
 
