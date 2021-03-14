@@ -66,7 +66,15 @@ public:
 
     void transformDidUpdate() override;
 
+    [[nodiscard]] bool isFrustumCull() const { return frustumCull; }
+
+    void setFrustumCull(bool value) { RenderMesh::frustumCull = value; }
+
+    [[nodiscard]] const Math::Sphere &getBoundingSphere() const { return boundingSphere; }
+
 protected:
+
+    bool frustumCull = true;
 
     Math::Sphere boundingSphere;
 
