@@ -18,6 +18,7 @@
 #include <glm/geometric.hpp>
 
 #include <kryne-engine/Dispatch/Dispatcher.h>
+#include <kryne-engine/Math/Sphere.hpp>
 
 #include "BufferAttribute.h"
 
@@ -133,6 +134,27 @@ protected:
 
 
 // ============
+// Bounding volumes
+// ============
+
+
+public:
+
+    /**
+     * @brief Retrieve the local object bounding sphere.
+     *
+     * @details
+     * Don't forget to take the object's matrix into account manually.
+     */
+    [[nodiscard]] const Math::Sphere &getBoundingSphere() const { return this->boundingSphere; }
+
+protected:
+
+    /// The bounding sphere of the geometry. Auto-updated upon modifying the position attribute.
+    Math::Sphere boundingSphere {};
+
+
+// ============
 // Geometry computing utils
 // ============
 
@@ -140,11 +162,26 @@ protected:
 public:
 
     /**
-     * Computes the 'tangent' attribute for this geometry.
+     * @brief Computes the 'tangent' attribute for this geometry.
+     *
+     * @details
      * Requires both the 'position' and 'uv' attributes to be set.
+     *
      * @returns `true` if successful at computing the tangents, `false` otherwise.
      */
     bool computeTangents();
+
+    /**
+     * @brief Computes the bounding sphere for this specific geometry, based on the the 'position' attribute.
+     *
+     * @details
+     * Is automatically called when the 'position' attribute is set (using #setAttribute()) or removed (using
+     * #removeAttribute()). <br>
+     * Be sure to call this function if you change the position attribute data in-place.
+     *
+     * @return A const reference to #boundingSphere.
+     */
+    const Math::Sphere &computeBoundingSphere();
 
 protected:
 
