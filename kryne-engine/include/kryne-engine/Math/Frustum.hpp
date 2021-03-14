@@ -39,7 +39,7 @@ namespace Math {
         }
 
 
-        inline bool sphereIntersects(const Sphere &sphere)
+        [[nodiscard]] inline bool sphereIntersects(const Sphere &sphere) const
         {
             for (const auto &plane : planes)
             {
