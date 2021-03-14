@@ -135,9 +135,13 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
             entity->ranPreRenderingProcessing = true;
         }
 
-        Dispatcher::instance().main()->enqueue([this, entity, renderer]()
+        const auto renderMeshes = entity->getComponents<RenderMesh>();
+        for (auto renderMesh : renderMeshes)
+            renderer->computeFrustumCulling(renderMesh);
+
+        Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
         {
-            for (auto renderMesh : entity->getComponents<RenderMesh>())
+            for (auto renderMesh : renderMeshes)
                 renderer->handleMesh(renderMesh);
 
             Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
