@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_hierarchical_node_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_KRYNE_ENGINE_HIERARCHICALNODE_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdarg&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_pass_8h.html">kryne-engine/Rendering/RenderPass.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_old_render_pass_8h.html">kryne-engine/Rendering/OldRenderPass.h</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="3_d_objects_2_base_object_8h.html">kryne-engine/3DObjects/BaseObject.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_additional_parameters_8h.html">kryne-engine/Core/AdditionalParameters.h</a>&quot;</span></div>
@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('_hierarchical_node_8h_source.html','')
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_hierarchical_node.html">HierarchicalNode</a> *<a class="code" href="class_hierarchical_node.html#a31f2e1069c0a61aed2cea22b5d7af210">addChild</a>(<a class="code" href="class_hierarchical_node.html">HierarchicalNode</a> *child);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hierarchical_node.html#a7eb66809a20ef110d48b8c6e1a55b0ca">draw</a>(<a class="code" href="class_render_pass.html">RenderPass</a> *renderer, glm::mat4 view, glm::mat4 model, <a class="code" href="class_additional_parameters.html">AdditionalParameters</a> *params);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//    void draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_hierarchical_node.html#ad037a44b0c5f0f4888f979a1337a8661">~HierarchicalNode</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
@@ -132,15 +132,12 @@ $(document).ready(function(){initNavTree('_hierarchical_node_8h_source.html','')
 <div class="ttc" id="a_additional_parameters_8h_html"><div class="ttname"><a href="_additional_parameters_8h.html">AdditionalParameters.h</a></div></div>
 <div class="ttc" id="aclass_hierarchical_node_html_a24551d9c917ff9f8cd92f0bbe3d30025"><div class="ttname"><a href="class_hierarchical_node.html#a24551d9c917ff9f8cd92f0bbe3d30025">HierarchicalNode::HierarchicalNode</a></div><div class="ttdeci">HierarchicalNode(glm::mat4 transform=glm::mat4(1.0f))</div><div class="ttdef"><b>Definition:</b> HierarchicalNode.cpp:8</div></div>
 <div class="ttc" id="aclass_base_object_html"><div class="ttname"><a href="class_base_object.html">BaseObject</a></div><div class="ttdef"><b>Definition:</b> BaseObject.h:25</div></div>
-<div class="ttc" id="aclass_additional_parameters_html"><div class="ttname"><a href="class_additional_parameters.html">AdditionalParameters</a></div><div class="ttdef"><b>Definition:</b> AdditionalParameters.h:17</div></div>
-<div class="ttc" id="a_render_pass_8h_html"><div class="ttname"><a href="_render_pass_8h.html">RenderPass.h</a></div></div>
+<div class="ttc" id="a_old_render_pass_8h_html"><div class="ttname"><a href="_old_render_pass_8h.html">OldRenderPass.h</a></div></div>
 <div class="ttc" id="aclass_hierarchical_node_html"><div class="ttname"><a href="class_hierarchical_node.html">HierarchicalNode</a></div><div class="ttdef"><b>Definition:</b> HierarchicalNode.h:20</div></div>
 <div class="ttc" id="aclass_hierarchical_node_html_ad037a44b0c5f0f4888f979a1337a8661"><div class="ttname"><a href="class_hierarchical_node.html#ad037a44b0c5f0f4888f979a1337a8661">HierarchicalNode::~HierarchicalNode</a></div><div class="ttdeci">~HierarchicalNode()</div><div class="ttdef"><b>Definition:</b> HierarchicalNode.cpp:35</div></div>
-<div class="ttc" id="aclass_render_pass_html"><div class="ttname"><a href="class_render_pass.html">RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.h:15</div></div>
 <div class="ttc" id="aclass_hierarchical_node_html_aae32988007be394ff79a2b60475503dc"><div class="ttname"><a href="class_hierarchical_node.html#aae32988007be394ff79a2b60475503dc">HierarchicalNode::addObject</a></div><div class="ttdeci">HierarchicalNode * addObject(BaseObject *object)</div><div class="ttdef"><b>Definition:</b> HierarchicalNode.cpp:21</div></div>
 <div class="ttc" id="a3_d_objects_2_base_object_8h_html"><div class="ttname"><a href="3_d_objects_2_base_object_8h.html">BaseObject.h</a></div></div>
 <div class="ttc" id="aclass_hierarchical_node_html_a31f2e1069c0a61aed2cea22b5d7af210"><div class="ttname"><a href="class_hierarchical_node.html#a31f2e1069c0a61aed2cea22b5d7af210">HierarchicalNode::addChild</a></div><div class="ttdeci">HierarchicalNode * addChild(HierarchicalNode *child)</div><div class="ttdef"><b>Definition:</b> HierarchicalNode.cpp:28</div></div>
-<div class="ttc" id="aclass_hierarchical_node_html_a7eb66809a20ef110d48b8c6e1a55b0ca"><div class="ttname"><a href="class_hierarchical_node.html#a7eb66809a20ef110d48b8c6e1a55b0ca">HierarchicalNode::draw</a></div><div class="ttdeci">void draw(RenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)</div><div class="ttdef"><b>Definition:</b> HierarchicalNode.cpp:44</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -155,11 +155,11 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_render_pass_8h.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_old_render_pass_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="560,-379.5 560,-420.5 682,-420.5 682,-379.5 560,-379.5"/>
 <text text-anchor="start" x="568" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="568" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Rendering</text>
-<text text-anchor="middle" x="621" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/RenderPass.h</text>
+<text text-anchor="middle" x="621" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/OldRenderPass.h</text>
 </a>
 </g>
 </g>

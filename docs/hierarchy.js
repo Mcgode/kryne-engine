@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "AdditionalParameters", "class_additional_parameters.html", null ],
+    [ "BufferGeometry::AttributeData", "struct_buffer_geometry_1_1_attribute_data.html", null ],
     [ "BaseObject", "class_base_object.html", null ],
     [ "BasePool", "class_base_pool.html", [
       [ "MainPool", "class_main_pool.html", null ],
@@ -62,6 +63,10 @@ var hierarchy =
       [ "TrackballCamera", "class_trackball_camera.html", null ]
     ] ],
     [ "OldProcess", "class_old_process.html", null ],
+    [ "OldRenderPass", "class_old_render_pass.html", [
+      [ "DirectionalShadowMapRendering", "class_directional_shadow_map_rendering.html", null ],
+      [ "MainRenderer", "class_main_renderer.html", null ]
+    ] ],
     [ "PlayerInput", "class_player_input.html", null ],
     [ "PointLight", "class_point_light.html", null ],
     [ "Process", "class_process.html", null ],
@@ -70,10 +75,7 @@ var hierarchy =
     ] ],
     [ "Renderer", "class_renderer.html", null ],
     [ "RenderingState", "class_rendering_state.html", null ],
-    [ "RenderPass", "class_render_pass.html", [
-      [ "DirectionalShadowMapRendering", "class_directional_shadow_map_rendering.html", null ],
-      [ "MainRenderer", "class_main_renderer.html", null ]
-    ] ],
+    [ "RenderPass", "class_render_pass.html", null ],
     [ "RenderScene", "class_render_scene.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "Shader", "class_shader.html", null ],
@@ -81,6 +83,7 @@ var hierarchy =
     [ "ShaderProgramCompiler", "class_shader_program_compiler.html", null ],
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
+    [ "Math::Sphere", "struct_math_1_1_sphere.html", null ],
     [ "System", "class_system.html", [
       [ "GameLogicComponentsRunner", "class_game_logic_components_runner.html", null ],
       [ "TransformUpdateSystem", "class_transform_update_system.html", null ]

@@ -17,6 +17,7 @@ class Process;
 #include <atomic>
 #include <vector>
 #include <unordered_set>
+#include <mutex>
 
 // Pre-declared circular dependencies includes
 #include <kryne-engine/3DObjects/Transform.h>
@@ -88,7 +89,7 @@ public:
     /**
      * A callback that is called if the entity's transform was updated.
      */
-    virtual void transformDidUpdate() {};
+    virtual void transformDidUpdate();
 
 
 protected:
@@ -142,7 +143,7 @@ public:
     template<typename T, typename... Args>
     T *addComponent(Args&&... args)
     {
-        static_assert(is_convertible<T, Component>::value, "Class must inherit from Component");
+        static_assert(is_convertible_v<T*, Component*>, "Class must inherit from Component");
 
         const auto component = make_shared<T>(this, forward<Args>(args)...);
         this->components.emplace(component);
@@ -190,6 +191,21 @@ private:
 
     /// The components attached to this entity.
     unordered_set<shared_ptr<Component>> components {};
+
+
+// -----
+// Components
+// -----
+
+
+friend class Process;
+friend class Scene;
+
+private:
+
+    mutex preRenderingProcessingMutex {};
+
+    bool ranPreRenderingProcessing = false;
 
 };
 

@@ -7,6 +7,7 @@ var dir_2dd932fc5c4f5b62276988dfe28c2718 =
       [ "BufferAttribute", "class_buffer_attribute.html", "class_buffer_attribute" ]
     ] ],
     [ "BufferGeometry.h", "_buffer_geometry_8h.html", [
-      [ "BufferGeometry", "class_buffer_geometry.html", "class_buffer_geometry" ]
+      [ "BufferGeometry", "class_buffer_geometry.html", "class_buffer_geometry" ],
+      [ "AttributeData", "struct_buffer_geometry_1_1_attribute_data.html", "struct_buffer_geometry_1_1_attribute_data" ]
     ] ]
 ];

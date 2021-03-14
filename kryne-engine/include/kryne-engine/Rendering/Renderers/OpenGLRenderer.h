@@ -23,13 +23,9 @@ public:
 
     void handleMesh(RenderMesh *renderMesh) override;
 
-    void parseScene(Scene *scene) override {};
-
-    void setCamera(Camera *camera) override { this->mainCamera = camera; }
+    vector<Entity *> parseScene(Scene *scene) override;
 
 protected:
-
-    Camera *mainCamera {};
 
     OpenGLContext *context;
 

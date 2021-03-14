@@ -93,14 +93,12 @@ $(document).ready(function(){initNavTree('class_synchronizable_pool.html',''); i
 <div class="dynheader">
 Inheritance diagram for SynchronizablePool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_synchronizable_pool__inherit__graph.svg" width="148" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_synchronizable_pool__inherit__graph.svg" width="148" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for SynchronizablePool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_synchronizable_pool__coll__graph.svg" width="336" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_synchronizable_pool__coll__graph.svg" width="336" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -109,18 +107,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a10e958c285214b10caf5e5bc65d17f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7503e7ed735ae5e5096d3125c23c9db9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_synchronizable_pool.html#a7503e7ed735ae5e5096d3125c23c9db9">synchronize</a> ()</td></tr>
 <tr class="separator:a7503e7ed735ae5e5096d3125c23c9db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a6bf8d567b6096f5417b4bde8534198"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_synchronizable_pool.html#a0a6bf8d567b6096f5417b4bde8534198">trySynchronize</a> ()</td></tr>
-<tr class="separator:a0a6bf8d567b6096f5417b4bde8534198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ed3e827c9ee87ea65ccae6e526be819"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_synchronizable_pool.html#a3ed3e827c9ee87ea65ccae6e526be819">trySynchronize</a> () const</td></tr>
+<tr class="separator:a3ed3e827c9ee87ea65ccae6e526be819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a043b27f1ac8c733973a0299974c10188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_synchronizable_pool.html#a043b27f1ac8c733973a0299974c10188">overrideSynchronizeWait</a> (condition_variable *newCondition, bool notifyAll=false)</td></tr>
 <tr class="separator:a043b27f1ac8c733973a0299974c10188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc0fd0538668c30c3e0ca4d3d56cbaa"><td class="memItemLeft" align="right" valign="top">mutex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_synchronizable_pool.html#a3cc0fd0538668c30c3e0ca4d3d56cbaa">getMutex</a> () const</td></tr>
+<tr class="separator:a3cc0fd0538668c30c3e0ca4d3d56cbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_thread_pool"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_thread_pool')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_thread_pool.html">ThreadPool</a></td></tr>
 <tr class="memitem:a44d3d2ab618970605e684efc216655eb inherit pub_methods_class_thread_pool"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_pool.html#a44d3d2ab618970605e684efc216655eb">~ThreadPool</a> ()</td></tr>
 <tr class="separator:a44d3d2ab618970605e684efc216655eb inherit pub_methods_class_thread_pool"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b5fece9b1a36b36f98e304b840c2648 inherit pub_methods_class_thread_pool"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
 <tr class="memitem:a6b5fece9b1a36b36f98e304b840c2648 inherit pub_methods_class_thread_pool"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648">enqueue</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
 <tr class="separator:a6b5fece9b1a36b36f98e304b840c2648 inherit pub_methods_class_thread_pool"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9d39c72761bc8f7019e4c0ea3bacec inherit pub_methods_class_thread_pool"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_pool.html#afa9d39c72761bc8f7019e4c0ea3bacec">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty=false) override</td></tr>
-<tr class="separator:afa9d39c72761bc8f7019e4c0ea3bacec inherit pub_methods_class_thread_pool"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac24b600c476f86bf7f11bb4b5a3e214 inherit pub_methods_class_thread_pool"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_pool.html#aac24b600c476f86bf7f11bb4b5a3e214">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty) override</td></tr>
+<tr class="separator:aac24b600c476f86bf7f11bb4b5a3e214 inherit pub_methods_class_thread_pool"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -173,6 +173,31 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3cc0fd0538668c30c3e0ca4d3d56cbaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cc0fd0538668c30c3e0ca4d3d56cbaa">&#9670;&nbsp;</a></span>getMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mutex* SynchronizablePool::getMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a043b27f1ac8c733973a0299974c10188"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a043b27f1ac8c733973a0299974c10188">&#9670;&nbsp;</a></span>overrideSynchronizeWait()</h2>
 
@@ -218,8 +243,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a0a6bf8d567b6096f5417b4bde8534198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a6bf8d567b6096f5417b4bde8534198">&#9670;&nbsp;</a></span>trySynchronize()</h2>
+<a id="a3ed3e827c9ee87ea65ccae6e526be819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ed3e827c9ee87ea65ccae6e526be819">&#9670;&nbsp;</a></span>trySynchronize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +253,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">bool SynchronizablePool::trySynchronize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">

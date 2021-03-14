@@ -1,5 +1,9 @@
 <map id="Texture2D::Texture2D" name="Texture2D::Texture2D">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,153,32"/>
-<area shape="rect" id="node2" href="$class_texture.html#a231e370a9d17ef609b53bd1f0f303535" title=" " alt="" coords="201,5,339,32"/>
-<area shape="rect" id="node3" href="$class_texture.html#a1b472af3e9b4a4c2f0785b75bbc22265" title=" " alt="" coords="387,5,527,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,153,133"/>
+<area shape="rect" id="node2" href="$class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648" title=" " alt="" coords="237,5,381,32"/>
+<area shape="rect" id="node3" href="$class_dispatcher.html#a1b21cd9508ad91cf1928959e7c235311" title="Enqueues a task to be executed in the main thread." alt="" coords="201,56,417,83"/>
+<area shape="rect" id="node4" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="239,107,380,133"/>
+<area shape="rect" id="node5" href="$class_dispatcher.html#acdc5d4742c7697dfc345f8edc5445c5d" title="Retrieves the IO thread pool." alt="" coords="258,157,361,184"/>
+<area shape="rect" id="node6" href="$class_texture.html#a231e370a9d17ef609b53bd1f0f303535" title=" " alt="" coords="241,208,378,235"/>
+<area shape="rect" id="node7" href="$class_texture.html#a1b472af3e9b4a4c2f0785b75bbc22265" title=" " alt="" coords="465,208,605,235"/>
 </map>

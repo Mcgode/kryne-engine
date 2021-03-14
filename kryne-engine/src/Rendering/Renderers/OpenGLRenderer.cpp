@@ -15,6 +15,17 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 
     if (camera == nullptr) return;
 
+    if (renderMesh->isFrustumCull())
+    {
+        const auto it = this->frustumCulled.find(camera);
+        if (it == this->frustumCulled.end())
+            return;
+
+        const auto culledIt = it->second.culledMeshes.find(renderMesh);
+        if (culledIt != it->second.culledMeshes.end() && culledIt->second)
+            return;
+    }
+
     const auto& material = renderMesh->getMaterial();
     const auto& geometry = renderMesh->getGeometry();
     const auto transform = renderMesh->getEntity()->getTransform();
@@ -58,6 +69,19 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 void OpenGLRenderer::prepareFrame()
 {
     assertIsMainThread();
+
+    LoopRenderer::prepareFrame();
+
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+
+vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
+{
+    vector<Entity *> result;
+
+    result.push_back(this->mainCamera);
+
+    return result;
 }

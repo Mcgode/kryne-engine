@@ -1,5 +1,5 @@
 <map id="BufferGeometry::computeTangents" name="BufferGeometry::computeTangents">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,228,83"/>
+<area shape="rect" id="node1" title="Computes the &#39;tangent&#39; attribute for this geometry." alt="" coords="5,56,228,83"/>
 <area shape="rect" id="node2" href="$class_buffer_geometry.html#a082b7e73a394537b11e32f78ca68df79" title=" " alt="" coords="276,5,492,32"/>
 <area shape="rect" id="node3" href="$class_buffer_attribute.html#a48182120a8d3c4c49008fab61ace89ed" title=" " alt="" coords="305,56,463,83"/>
 <area shape="rect" id="node4" href="$class_buffer_attribute.html#a630d89d5baf0f87d179a91ed4524d250" title=" " alt="" coords="299,107,469,133"/>

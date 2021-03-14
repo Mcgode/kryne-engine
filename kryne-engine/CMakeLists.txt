@@ -80,7 +80,7 @@ add_library(kryne-engine STATIC
         src/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h
         include/kryne-engine/enums/SystemTypes.h
         src/Systems/TransformUpdateSystem.cpp include/kryne-engine/Systems/TransformUpdateSystem.h
-        include/kryne-engine/Rendering/LoopRenderer.h
+        src/Rendering/LoopRenderer.cpp include/kryne-engine/Rendering/LoopRenderer.h
         include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h src/Rendering/Renderers/OpenGLRenderer.cpp
         src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h
         src/Dispatch/Dispatcher.cpp include/kryne-engine/Dispatch/Dispatcher.h
@@ -90,7 +90,11 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Utils/Debugging.hpp
         src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
         src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
-        include/kryne-engine/enums/RenderMode.h src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h)
+        include/kryne-engine/enums/RenderMode.h
+        src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h
+        include/kryne-engine/Math/Sphere.hpp
+        include/kryne-engine/Math/AxisAlignedBox.hpp
+        include/kryne-engine/Math/Frustum.hpp include/kryne-engine/Math/Plane.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

@@ -18,3 +18,12 @@ uint32_t Entity::nextId()
     static atomic<uint32_t> counter {0};
     return ++counter;
 }
+
+
+void Entity::transformDidUpdate()
+{
+    for (const auto &component : this->components)
+    {
+        component->transformDidUpdate();
+    }
+}

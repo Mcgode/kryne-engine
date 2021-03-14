@@ -37,6 +37,11 @@ public:
 
     [[nodiscard]] Entity *getEntity() const { return this->associatedEntity; }
 
+    /**
+     * @brief A function triggered every time the entity's transform is updated.
+     */
+    virtual void transformDidUpdate() = 0;
+
     virtual ~Component() = default;
 
 protected:

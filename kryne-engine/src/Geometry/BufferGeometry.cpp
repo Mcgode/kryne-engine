@@ -36,6 +36,9 @@ void BufferGeometry::setAttribute(const string &name, unique_ptr<BufferAttribute
         this->attributes.emplace(name, AttributeData(move(attribute), location, true));
     }
 
+    if (name == "position")
+        this->computeBoundingVolumes();
+
     this->updateNeeded = true;
     this->updateLength();
     this->updateLayoutCode();
@@ -46,6 +49,9 @@ void BufferGeometry::removeAttribute(const string &name)
 {
     if (this->attributes.erase(name))
     {
+        if (name == "position")
+            this->computeBoundingVolumes();
+
         this->updateLength();
         this->recomputeLocations();
         this->updateNeeded = true;
@@ -277,4 +283,24 @@ void BufferGeometry::updateLayoutCode()
     }
 
     this->layoutCode = make_pair(fullCode, hash<string>{}(fullCode));
+}
+
+
+void BufferGeometry::computeBoundingVolumes()
+{
+    this->boundingSphere = Math::Sphere();
+    this->boundingBox = Math::AxisAlignedBox();
+
+    const auto it = this->attributes.find("position");
+    if (it != this->attributes.end() && it->second.attribute->getItemSize() == 3)
+    {
+        const auto array = it->second.attribute->getData();
+        for (size_t i = 0; i < it->second.attribute->getLength(); i += 3)
+        {
+            this->boundingBox.expandByPoint(vec3(array[i],
+                                                   array[i + 1],
+                                                   array[i + 2]));
+        }
+        this->boundingSphere.fromBox(this->boundingBox);
+    }
 }
