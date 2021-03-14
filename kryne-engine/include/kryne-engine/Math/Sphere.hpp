@@ -58,7 +58,7 @@ namespace Math {
             {
                 radius = (radius + dist) / 2.f;
                 float x = radius / dist;
-                center = center * (1.f - x) + x * point;
+                center = point * (1.f - x) + x * center;
             }
         }
 
