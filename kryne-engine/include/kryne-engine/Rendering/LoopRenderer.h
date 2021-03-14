@@ -31,7 +31,7 @@ public:
 
     virtual std::vector<Entity *> parseScene(Scene *scene) = 0;
 
-    virtual void setCamera(Camera *camera) = 0;
+    virtual void setCamera(Camera *camera) { this->mainCamera = camera; }
 
     [[nodiscard]] RenderMode getRenderingMode() const { return this->renderMode; }
 
@@ -40,6 +40,8 @@ public:
 protected:
 
     RenderMode renderMode = ForwardRendering;
+
+    Camera *mainCamera {};
 
 };
 

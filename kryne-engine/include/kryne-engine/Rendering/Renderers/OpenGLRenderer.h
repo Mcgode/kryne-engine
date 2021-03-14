@@ -25,11 +25,7 @@ public:
 
     vector<Entity *> parseScene(Scene *scene) override;
 
-    void setCamera(Camera *camera) override { this->mainCamera = camera; }
-
 protected:
-
-    Camera *mainCamera {};
 
     OpenGLContext *context;
 
