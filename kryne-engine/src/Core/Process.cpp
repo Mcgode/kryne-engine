@@ -81,7 +81,7 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
     {
         for (const auto entity : this->currentScene->getEntities())
-            entity->ranPreRenderingProcessing = 0;
+            entity->ranPreRenderingProcessing = false;
 
         const auto renderer = this->context->getRenderer();
 
