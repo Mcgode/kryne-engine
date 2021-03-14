@@ -1,14 +1,15 @@
 <map id="BoxBufferGeometry::BoxBufferGeometry" name="BoxBufferGeometry::BoxBufferGeometry">
-<area shape="rect" id="node1" title=" " alt="" coords="5,175,148,217"/>
-<area shape="rect" id="node2" href="$class_buffer_geometry.html#a1d92262d7fd788c5cc64bac05b56bb04" title=" " alt="" coords="196,81,419,108"/>
-<area shape="rect" id="node6" href="$namespace_utils.html#a407c7f36cca64e0f18d989bac065614f" title=" " alt="" coords="221,157,393,184"/>
-<area shape="rect" id="node7" href="$class_buffer_geometry.html#abacb186563bd725c4e1b6dc9569d1f62" title=" " alt="" coords="214,208,401,235"/>
-<area shape="rect" id="node12" href="$class_buffer_geometry.html#ae0a5eb4a3a41bf8a777de7781b108c46" title=" " alt="" coords="218,259,397,285"/>
-<area shape="rect" id="node3" href="$class_buffer_geometry.html#a082b7e73a394537b11e32f78ca68df79" title=" " alt="" coords="473,5,689,32"/>
-<area shape="rect" id="node4" href="$class_buffer_attribute.html#a48182120a8d3c4c49008fab61ace89ed" title=" " alt="" coords="502,56,659,83"/>
-<area shape="rect" id="node5" href="$class_buffer_attribute.html#a630d89d5baf0f87d179a91ed4524d250" title=" " alt="" coords="496,107,665,133"/>
-<area shape="rect" id="node8" href="$class_buffer_attribute.html#a53a9287ad87576c00bd8387449aed77a" title=" " alt="" coords="491,157,670,184"/>
-<area shape="rect" id="node9" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title=" " alt="" coords="490,208,671,235"/>
-<area shape="rect" id="node10" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="467,259,695,285"/>
-<area shape="rect" id="node11" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title=" " alt="" coords="481,309,680,336"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,221,148,262"/>
+<area shape="rect" id="node2" href="$class_buffer_geometry.html#a1d92262d7fd788c5cc64bac05b56bb04" title="Computes the &#39;tangent&#39; attribute for this geometry." alt="" coords="196,81,419,108"/>
+<area shape="rect" id="node6" href="$namespace_utils.html#a407c7f36cca64e0f18d989bac065614f" title=" " alt="" coords="221,203,393,229"/>
+<area shape="rect" id="node7" href="$class_buffer_geometry.html#abacb186563bd725c4e1b6dc9569d1f62" title="Sets the value of a buffer attribute." alt="" coords="214,253,401,280"/>
+<area shape="rect" id="node13" href="$class_buffer_geometry.html#ae0a5eb4a3a41bf8a777de7781b108c46" title=" " alt="" coords="218,304,397,331"/>
+<area shape="rect" id="node3" href="$class_buffer_geometry.html#a082b7e73a394537b11e32f78ca68df79" title=" " alt="" coords="471,5,687,32"/>
+<area shape="rect" id="node4" href="$class_buffer_attribute.html#a48182120a8d3c4c49008fab61ace89ed" title=" " alt="" coords="500,56,657,83"/>
+<area shape="rect" id="node5" href="$class_buffer_attribute.html#a630d89d5baf0f87d179a91ed4524d250" title=" " alt="" coords="494,107,663,133"/>
+<area shape="rect" id="node8" href="$class_buffer_geometry.html#ac1e72a3d8ab4af731fd2e8afb58f8152" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="467,158,691,199"/>
+<area shape="rect" id="node9" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title=" " alt="" coords="488,224,669,251"/>
+<area shape="rect" id="node10" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title=" " alt="" coords="488,275,669,317"/>
+<area shape="rect" id="node11" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="739,312,967,339"/>
+<area shape="rect" id="node12" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title=" " alt="" coords="479,392,678,419"/>
 </map>

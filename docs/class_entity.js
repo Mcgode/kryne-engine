@@ -11,6 +11,8 @@ var class_entity =
     [ "nextId", "class_entity.html#a5498c502b04d91c70e767f12514a4587", null ],
     [ "setEnabled", "class_entity.html#ae1a51900fcd0eadbc172656f4fbc2f5d", null ],
     [ "transformDidUpdate", "class_entity.html#a5ef63e09990537ef3c474f463479f874", null ],
+    [ "Process", "class_entity.html#a7a4d413df5afafea63a3532759beeaa7", null ],
+    [ "Scene", "class_entity.html#a032858ae1fe02d2d1170981c2af2d67c", null ],
     [ "enabled", "class_entity.html#a844794654f15fa342f4b02e2faaf395f", null ],
     [ "id", "class_entity.html#acc08af95e32ae999517fa26b01840a54", null ],
     [ "transform", "class_entity.html#a49e8ec94c9ee228b7411060613bc6f93", null ]

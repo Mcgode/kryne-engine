@@ -56,11 +56,11 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_render_pass_8h.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="_old_render_pass_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="226.07,-379.5 226.07,-420.5 348.07,-420.5 348.07,-379.5 226.07,-379.5"/>
 <text text-anchor="start" x="234.07" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="234.07" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Rendering</text>
-<text text-anchor="middle" x="287.07" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/RenderPass.h</text>
+<text text-anchor="middle" x="287.07" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/OldRenderPass.h</text>
 </a>
 </g>
 </g>

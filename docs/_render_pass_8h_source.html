@@ -86,42 +86,67 @@ $(document).ready(function(){initNavTree('_render_pass_8h_source.html',''); init
 </div><!--header-->
 <div class="contents">
 <a href="_render_pass_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef INC_KRYNE_ENGINE_RENDER_PASS_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_KRYNE_ENGINE_RENDER_PASS_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_window_8h.html">kryne-engine/Core/Window.h</a>&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_hierarchical_node_8h.html">kryne-engine/3DObjects/HierarchicalNode.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="3_d_objects_2_base_object_8h.html">kryne-engine/3DObjects/BaseObject.h</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_render_pass.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_render_pass.html">RenderPass</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_render_pass.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_render_pass.html">RenderPass</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_render_pass.html#a82c8808f4f1a9c97409ca45ad97c32b2">   26</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_render_pass.html#a82c8808f4f1a9c97409ca45ad97c32b2">render</a>(<a class="code" href="class_window.html">Window</a> *window, std::vector&lt;HierarchicalNode *&gt; *rootNodes, <a class="code" href="class_additional_parameters.html">AdditionalParameters</a> *params) = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_render_pass.html#a1b0fd35fb75ce3a756cd84d8207fc33e">   36</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_render_pass.html#a1b0fd35fb75ce3a756cd84d8207fc33e">drawInScene</a>(<a class="code" href="class_base_object.html">BaseObject</a> *obj, glm::mat4 view, glm::mat4 model, <a class="code" href="class_additional_parameters.html">AdditionalParameters</a> *params) = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">   21</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72">   27</a></span>&#160;        <a class="code" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72">BeforeDeferred</a>,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29">   29</a></span>&#160;        <a class="code" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29">PostProcess</a>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_render_pass.html#a54b9aae87fdae2ce1163dc3d99003357">   36</a></span>&#160;    [[nodiscard]] <a class="code" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> <a class="code" href="class_render_pass.html#a54b9aae87fdae2ce1163dc3d99003357">getOrder</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> order; }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_render_pass.html#a39b69357d6923997a532f5fd1be47097">   38</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_render_pass.html#a39b69357d6923997a532f5fd1be47097">hasCustomCulling</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> customCull; }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span><a class="code" href="class_render_pass.html">RenderPass</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_RENDER_PASS_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_render_pass.html#a1c60ab6433d21b20cf7e495ecdf74658">   40</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="class_render_pass.html#a1c60ab6433d21b20cf7e495ecdf74658">needsRenderGeometry</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> renderGeometry; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_render_pass.html">RenderPass</a>(Order order, <span class="keywordtype">string</span> name, <span class="keywordtype">bool</span> customCull, <span class="keywordtype">bool</span> renderGeometry);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_render_pass.html#afb5878d4e4b0894eef4ce38ab6694127">   48</a></span>&#160;    <a class="code" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> <a class="code" href="class_render_pass.html#afb5878d4e4b0894eef4ce38ab6694127">order</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_render_pass.html#a641a93582bfd148fbb55c85be2247716">   50</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_render_pass.html#a641a93582bfd148fbb55c85be2247716">name</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_render_pass.html#aa0ae13c3bed2b847d2cd762bc097b181">   52</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_render_pass.html#aa0ae13c3bed2b847d2cd762bc097b181">customCull</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_render_pass.html#a8eb9d9a080a99e4f730bea92e4d7fc2e">   54</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_render_pass.html#a8eb9d9a080a99e4f730bea92e4d7fc2e">renderGeometry</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_render_pass_html_a1b0fd35fb75ce3a756cd84d8207fc33e"><div class="ttname"><a href="class_render_pass.html#a1b0fd35fb75ce3a756cd84d8207fc33e">RenderPass::drawInScene</a></div><div class="ttdeci">virtual void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)=0</div></div>
-<div class="ttc" id="aclass_base_object_html"><div class="ttname"><a href="class_base_object.html">BaseObject</a></div><div class="ttdef"><b>Definition:</b> BaseObject.h:25</div></div>
-<div class="ttc" id="aclass_additional_parameters_html"><div class="ttname"><a href="class_additional_parameters.html">AdditionalParameters</a></div><div class="ttdef"><b>Definition:</b> AdditionalParameters.h:17</div></div>
-<div class="ttc" id="a_hierarchical_node_8h_html"><div class="ttname"><a href="_hierarchical_node_8h.html">HierarchicalNode.h</a></div></div>
-<div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:27</div></div>
-<div class="ttc" id="aclass_render_pass_html"><div class="ttname"><a href="class_render_pass.html">RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.h:15</div></div>
-<div class="ttc" id="a_window_8h_html"><div class="ttname"><a href="_window_8h.html">Window.h</a></div></div>
-<div class="ttc" id="aclass_render_pass_html_a82c8808f4f1a9c97409ca45ad97c32b2"><div class="ttname"><a href="class_render_pass.html#a82c8808f4f1a9c97409ca45ad97c32b2">RenderPass::render</a></div><div class="ttdeci">virtual void render(Window *window, std::vector&lt; HierarchicalNode * &gt; *rootNodes, AdditionalParameters *params)=0</div></div>
-<div class="ttc" id="a3_d_objects_2_base_object_8h_html"><div class="ttname"><a href="3_d_objects_2_base_object_8h.html">BaseObject.h</a></div></div>
+<div class="ttc" id="aclass_render_pass_html_a39b69357d6923997a532f5fd1be47097"><div class="ttname"><a href="class_render_pass.html#a39b69357d6923997a532f5fd1be47097">RenderPass::hasCustomCulling</a></div><div class="ttdeci">bool hasCustomCulling() const</div><div class="ttdef"><b>Definition:</b> RenderPass.h:38</div></div>
+<div class="ttc" id="aclass_render_pass_html_a54b9aae87fdae2ce1163dc3d99003357"><div class="ttname"><a href="class_render_pass.html#a54b9aae87fdae2ce1163dc3d99003357">RenderPass::getOrder</a></div><div class="ttdeci">Order getOrder() const</div><div class="ttdef"><b>Definition:</b> RenderPass.h:36</div></div>
+<div class="ttc" id="aclass_render_pass_html_ad3fa6678a34a5bc739a3497ffaf71868"><div class="ttname"><a href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">RenderPass::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> RenderPass.h:21</div></div>
+<div class="ttc" id="aclass_render_pass_html_ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29"><div class="ttname"><a href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29">RenderPass::PostProcess</a></div><div class="ttdeci">@ PostProcess</div><div class="ttdef"><b>Definition:</b> RenderPass.h:29</div></div>
+<div class="ttc" id="aclass_render_pass_html"><div class="ttname"><a href="class_render_pass.html">RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.h:17</div></div>
+<div class="ttc" id="aclass_render_pass_html_ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72"><div class="ttname"><a href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72">RenderPass::BeforeDeferred</a></div><div class="ttdeci">@ BeforeDeferred</div><div class="ttdef"><b>Definition:</b> RenderPass.h:27</div></div>
+<div class="ttc" id="aclass_render_pass_html_afb5878d4e4b0894eef4ce38ab6694127"><div class="ttname"><a href="class_render_pass.html#afb5878d4e4b0894eef4ce38ab6694127">RenderPass::order</a></div><div class="ttdeci">Order order</div><div class="ttdef"><b>Definition:</b> RenderPass.h:48</div></div>
+<div class="ttc" id="aclass_render_pass_html_a8eb9d9a080a99e4f730bea92e4d7fc2e"><div class="ttname"><a href="class_render_pass.html#a8eb9d9a080a99e4f730bea92e4d7fc2e">RenderPass::renderGeometry</a></div><div class="ttdeci">bool renderGeometry</div><div class="ttdef"><b>Definition:</b> RenderPass.h:54</div></div>
+<div class="ttc" id="aclass_render_pass_html_aa0ae13c3bed2b847d2cd762bc097b181"><div class="ttname"><a href="class_render_pass.html#aa0ae13c3bed2b847d2cd762bc097b181">RenderPass::customCull</a></div><div class="ttdeci">bool customCull</div><div class="ttdef"><b>Definition:</b> RenderPass.h:52</div></div>
+<div class="ttc" id="aclass_render_pass_html_a1c60ab6433d21b20cf7e495ecdf74658"><div class="ttname"><a href="class_render_pass.html#a1c60ab6433d21b20cf7e495ecdf74658">RenderPass::needsRenderGeometry</a></div><div class="ttdeci">bool needsRenderGeometry() const</div><div class="ttdef"><b>Definition:</b> RenderPass.h:40</div></div>
+<div class="ttc" id="aclass_render_pass_html_a641a93582bfd148fbb55c85be2247716"><div class="ttname"><a href="class_render_pass.html#a641a93582bfd148fbb55c85be2247716">RenderPass::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> RenderPass.h:50</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

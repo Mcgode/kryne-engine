@@ -11,6 +11,9 @@ var dir_242c69f8aa6c0b27ad66788f5b769271 =
     [ "MainRenderer.h", "_main_renderer_8h.html", [
       [ "MainRenderer", "class_main_renderer.html", "class_main_renderer" ]
     ] ],
+    [ "OldRenderPass.h", "_old_render_pass_8h.html", [
+      [ "OldRenderPass", "class_old_render_pass.html", "class_old_render_pass" ]
+    ] ],
     [ "Renderer.h", "_renderer_8h.html", [
       [ "Renderer", "class_renderer.html", "class_renderer" ]
     ] ],
