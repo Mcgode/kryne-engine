@@ -27,6 +27,8 @@ public:
      */
     explicit LogicComponent(Entity *entity): Component(entity) {}
 
+    void transformDidUpdate() override {}
+
 
 // -----
 // Component lifecycle
