@@ -7,12 +7,32 @@
 #pragma once
 
 
-virtual class Framebuffer {
+#include <kryne-engine/Textures/Texture.h>
+
+
+class Framebuffer {
+
+
+public:
+
+    Framebuffer(uint16_t width, uint16_t height) : width(width), height(height) {}
+
+protected:
+
+    uint16_t width;
+
+    uint16_t height;
+
 
 public:
 
     virtual void setAsRenderTarget() = 0;
 
-    Texture *retrieveFramebufferTexture() = 0;
+
+public:
+
+    virtual void addColorAttachment() = 0;
+
+    virtual Texture *retrieveColor(uint8_t index) = 0;
 
 };

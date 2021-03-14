@@ -97,7 +97,9 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Math/Frustum.hpp
         include/kryne-engine/Math/Plane.hpp
         src/Rendering/PostProcessPass.cpp include/kryne-engine/Rendering/PostProcessPass.h
-        include/kryne-engine/Rendering/Framebuffer.hpp)
+        include/kryne-engine/Rendering/Framebuffer.hpp
+        src/Rendering/OpenGL/OpenGLFramebuffer.cpp include/kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h
+        )
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
