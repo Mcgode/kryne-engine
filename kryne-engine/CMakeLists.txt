@@ -94,7 +94,7 @@ add_library(kryne-engine STATIC
         src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h
         include/kryne-engine/Math/Sphere.hpp
         include/kryne-engine/Math/AxisAlignedBox.hpp
-        )
+        include/kryne-engine/Math/Frustum.hpp include/kryne-engine/Math/Plane.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
