@@ -12,3 +12,13 @@ RenderMesh::RenderMesh(Entity *entity, shared_ptr<BufferGeometry> geometry, shar
     geometry(move(geometry)),
     material(move(material))
 {}
+
+
+void RenderMesh::transformDidUpdate()
+{
+    auto transform = this->getEntity()->getTransform();
+    if (this->geometry != nullptr)
+        this->boundingSphere = this->geometry->getBoundingSphere().fromMatrix(transform->getWorldMatrix());
+    else
+        this->boundingSphere = Math::Sphere();
+}

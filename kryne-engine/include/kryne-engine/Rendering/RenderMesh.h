@@ -28,7 +28,7 @@ public:
     /**
      * Returns the current geometry in the form of a shared pointer.
      */
-    [[nodiscard]] const shared_ptr<BufferGeometry> &getGeometry() const {
+    [[nodiscard]] const shared_ptr<BufferGeometry> &getGeometry() const override {
         return geometry;
     }
 
@@ -43,7 +43,7 @@ public:
     /**
      * Returns the current material in the form of a shared pointer.
      */
-    [[nodiscard]] const shared_ptr<Material> &getMaterial() const  { return material; }
+    [[nodiscard]] const shared_ptr<Material> &getMaterial() const override  { return material; }
 
     /**
      * Overrides the current mesh material.
@@ -60,5 +60,14 @@ protected:
 
     /// The mesh material
     shared_ptr<Material> material;
+
+
+public:
+
+    void transformDidUpdate() override;
+
+protected:
+
+    Math::Sphere boundingSphere;
 
 };
