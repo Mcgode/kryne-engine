@@ -10,7 +10,10 @@
 #include <iostream>
 #include <utility>
 
-#include "LoopRenderer.h"
+class LoopRenderer;
+class Camera;
+
+
 #include "Framebuffer.hpp"
 
 
@@ -67,3 +70,4 @@ protected:
 };
 
 
+#include "LoopRenderer.h"
