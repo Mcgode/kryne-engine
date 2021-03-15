@@ -25,7 +25,10 @@ public:
      */
     explicit Camera(Process *process, unique_ptr<ProjectionData> projectionData) :
         Entity(process),
-        projectionData(std::move(projectionData)) {}
+        projectionData(std::move(projectionData))
+    {
+        this->name = "Camera";
+    }
 
     /// @copydoc Entity::transformDidUpdate
     void transformDidUpdate() override;
