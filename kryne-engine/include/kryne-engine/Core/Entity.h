@@ -74,6 +74,22 @@ private:
 
 
 // -----
+// Name
+// -----
+
+
+public:
+
+    [[nodiscard]] const string &getName() const { return name; }
+
+    void setName(const string &newName) { Entity::name = newName; }
+
+protected:
+
+    string name = "Entity";
+
+
+// -----
 // Transform
 // -----
 
