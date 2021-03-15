@@ -15,12 +15,14 @@
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
 #include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
+#include <kryne-engine/UI/DearIMGUI.h>
 
 int main()
 {
     cout << "Is main thread: " << Dispatcher::instance().main()->isCurrentThread() << endl;
 
-    const auto process = make_unique<Process>(new OpenGLContext());
+    const auto context = new OpenGLContext();
+    const auto process = make_unique<Process>(context);
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);
     process->makeSystem<TransformUpdateSystem>();
@@ -77,10 +79,22 @@ int main()
     auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
+//    auto context = dynamic_cast<OpenGLContext *>(process->getGraphicContext());
+//    IMGUI_CHECKVERSION();
+//    ImGui::CreateContext();
+//    ImGui_ImplGlfw_InitForOpenGL(context->getWindow(), true);
+//    ImGui_ImplOpenGL3_Init("#version 330 core");
+//    ImGui::StyleColorsDark();
+    process->setDearIMGUI(make_unique<DearIMGUI>(context->getWindow()));
+
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
     double t;
     while (!process->getGraphicContext()->shouldStop()) {
+
+//        ImGui_ImplOpenGL3_NewFrame();
+//        ImGui_ImplGlfw_NewFrame();
+//        ImGui::NewFrame();
 
         uint64_t uit = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
         t = (uit - start);
@@ -92,7 +106,18 @@ int main()
 //        mesh->lookAt(lookPos);
 
         process->runLoop();
+
+//        ImGui::Begin("Demo window");
+//        ImGui::Button("Hello!");
+//        ImGui::End();
+//
+//        ImGui::Render();
+//        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }
+
+//    ImGui_ImplOpenGL3_Shutdown();
+//    ImGui_ImplGlfw_Shutdown();
+//    ImGui::DestroyContext();
 
     return 0;
 }
