@@ -13,6 +13,7 @@
 
 #include <kryne-engine/enums/RenderMode.h>
 #include <kryne-engine/Math/Frustum.hpp>
+#include <kryne-engine/Utils/UniquePtrVector.hpp>
 #include "Framebuffer.hpp"
 
 
@@ -117,21 +118,13 @@ public:
 
 protected:
 
-    /**
-     * @brief Inserts a post process pass unique pointer to #postProcessPasses.
-     *
-     * @param it The iterator pointing to the post process pass insert position.
-     * @param pass The pass to insert into the list
-     */
-    void insertPostProcessPass(vector<unique_ptr<PostProcessPass>>::iterator it, unique_ptr<PostProcessPass> &pass);
-
-    /**
-     * @brief Removes a post process pass from #postProcessPasses.
-     *
-     * @param it The reverse iterator pointing to the post process pass to remove.
-     * @return A unique pointer owning the removed post process pass.
-     */
-    unique_ptr<PostProcessPass> removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it);
+//    /**
+//     * @brief Removes a post process pass from #postProcessPasses.
+//     *
+//     * @param it The reverse iterator pointing to the post process pass to remove.
+//     * @return A unique pointer owning the removed post process pass.
+//     */
+//    unique_ptr<PostProcessPass> removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it);
 
     /**
      * @brief Swaps the write and read framebuffers.
@@ -141,7 +134,7 @@ protected:
 protected:
 
     /// The ordered list of post process passes.
-    vector<unique_ptr<PostProcessPass>> postProcessPasses {};
+    Utils::UniquePtrVector<PostProcessPass> postProcessPasses {};
 
     /// The post process passes to use for this frame.
     vector<PostProcessPass *> framePostProcessPasses {};

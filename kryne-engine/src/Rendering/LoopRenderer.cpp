@@ -49,35 +49,6 @@ void LoopRenderer::computeFrustumCulling(RenderMesh *mesh)
 }
 
 
-void LoopRenderer::insertPostProcessPass(vector<unique_ptr<PostProcessPass>>::iterator it, unique_ptr<PostProcessPass> &pass)
-{
-    while (it != this->postProcessPasses.end())
-    {
-        swap(pass, *it);
-        ++it;
-    }
-
-    this->postProcessPasses.emplace_back(pass.release());
-}
-
-
-unique_ptr<PostProcessPass> LoopRenderer::removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it)
-{
-    auto it2 = this->postProcessPasses.rbegin();
-    unique_ptr<PostProcessPass> ptr(nullptr);
-
-    while (it2 != it)
-    {
-        swap(ptr, *it2);
-        it2++;
-    }
-
-    swap(ptr, *it);
-    this->postProcessPasses.pop_back();
-    return ptr;
-}
-
-
 void LoopRenderer::addPass(unique_ptr<PostProcessPass> pass)
 {
     auto it = this->postProcessPasses.begin();
@@ -88,7 +59,7 @@ void LoopRenderer::addPass(unique_ptr<PostProcessPass> pass)
             break;
     }
 
-    this->insertPostProcessPass(it, pass);
+    this->postProcessPasses.insert(it, move(pass));
 }
 
 
@@ -109,7 +80,7 @@ bool LoopRenderer::addPassAfter(unique_ptr<PostProcessPass> pass, const string &
         return false;
 
     it++;
-    this->insertPostProcessPass(it, pass);
+    this->postProcessPasses.insert(it, move(pass));
     return true;
 }
 
@@ -132,22 +103,24 @@ bool LoopRenderer::addPassBefore(unique_ptr<PostProcessPass> pass, const string 
     if (it != this->postProcessPasses.begin() && (*before)->getPriority() > pass->getPriority())
         return false;
 
-    this->insertPostProcessPass(it, pass);
+    this->postProcessPasses.insert(it, move(pass));
     return true;
 }
 
 
 unique_ptr<PostProcessPass> LoopRenderer::removePass(const string &name)
 {
-    auto it = this->postProcessPasses.rbegin();
-    for (; it != this->postProcessPasses.rend(); ++it)
+    auto it = this->postProcessPasses.begin();
+    for (; it != this->postProcessPasses.end(); ++it)
     {
         if ((*it)->getName() == name)
             break;
     }
 
-    if (it == this->postProcessPasses.rend())
+    if (it == this->postProcessPasses.end())
         return unique_ptr<PostProcessPass>();
 
-    return this->removePostProcessPass(it);
+    auto p = move(*it);
+    this->postProcessPasses.erase(it);
+    return p;
 }
