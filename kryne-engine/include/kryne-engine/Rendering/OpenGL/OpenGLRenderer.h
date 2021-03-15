@@ -8,6 +8,8 @@
 
 
 #include <kryne-engine/Rendering/LoopRenderer.h>
+#include <kryne-engine/Geometry/PlaneBufferGeometry.h>
+
 #include "OpenGLFramebuffer.h"
 #include "OpenGLScreenFramebuffer.hpp"
 
@@ -29,9 +31,13 @@ public:
 
     void renderToScreen() override;
 
+    void textureRender(Material *material) override;
+
 protected:
 
     OpenGLContext *context;
+
+    unique_ptr<PlaneBufferGeometry> fullscreenPlane;
 
 };
 

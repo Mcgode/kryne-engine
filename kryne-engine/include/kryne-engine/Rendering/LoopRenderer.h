@@ -21,6 +21,7 @@ class Camera;
 class Scene;
 class Entity;
 class PostProcessPass;
+class Material;
 
 
 using namespace std;
@@ -49,6 +50,8 @@ public:
      * @brief Runs all the processes for finishing the render and displaying it to the screen.
      */
     virtual void renderToScreen() = 0;
+
+    virtual void textureRender(Material *material) = 0;
 
 protected:
 

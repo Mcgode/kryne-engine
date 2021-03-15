@@ -15,6 +15,8 @@ OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
 {
     this->writeFramebuffer->addColorAttachment();
     this->readFramebuffer->addColorAttachment();
+
+    this->fullscreenPlane = make_unique<PlaneBufferGeometry>(2.f, 2.f);
 }
 
 
@@ -113,4 +115,32 @@ void OpenGLRenderer::renderToScreen()
                           this->readFramebuffer.get(),
                           (i + 1 == this->framePostProcessPasses.size()) ? this->screenFramebuffer.get() : this->writeFramebuffer.get());
     }
+}
+
+
+void OpenGLRenderer::textureRender(Material *material)
+{
+    material->prepareShader(this->fullscreenPlane.get());
+
+    // Only update external rendering state once, before drawing any object.
+    // Since each object can have a different required state in this regard, it needs to be checked every single time.
+    // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
+
+    if (context->renderingState->getSide() != material->getSide())
+        context->renderingState->setSide(material->getSide());
+
+    if (context->renderingState->isDepthTestEnabled() != material->isDepthTest())
+        context->renderingState->setDepthTest(material->isDepthTest());
+
+    if (context->renderingState->isDepthWriteEnabled() != material->isWriteDepth())
+        context->renderingState->setDepthWrite(material->isWriteDepth());
+
+    // Upload uniforms
+    material->getShader()->updateUniforms();
+
+    // Finally draw the object
+    this->fullscreenPlane->draw(material->getPrimitiveType());
+
+    // Reset shader use, just in case
+    material->resetUse();
 }
