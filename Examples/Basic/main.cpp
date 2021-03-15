@@ -15,7 +15,31 @@
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
 #include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
-#include <kryne-engine/UI/DearIMGUI.h>
+#include <kryne-engine/UI/DearIMGUIPrototype.hpp>
+
+
+void displayEntity(Entity *entity)
+{
+    auto children = entity->getTransform()->getChildren();
+
+    stringstream fmt;
+    fmt << "0x" << hex << entity;
+    auto name = fmt.str();
+
+    if (children.empty())
+        ImGui::Selectable(name.c_str());
+    else
+    {
+        if (ImGui::TreeNode(name.c_str()))
+        {
+            for (const auto &child : children)
+                displayEntity(child->getEntity());
+            ImGui::TreePop();
+        }
+    }
+
+}
+
 
 int main()
 {
@@ -85,7 +109,22 @@ int main()
 //    ImGui_ImplGlfw_InitForOpenGL(context->getWindow(), true);
 //    ImGui_ImplOpenGL3_Init("#version 330 core");
 //    ImGui::StyleColorsDark();
-    process->getUIRenderers().emplace_back(new DearIMGUI(context->getWindow()));
+    process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
+    {
+        ImGui::Begin("Scene browser");
+
+//        ImGui::SetNextTreeNodeOpen(true);
+        if (ImGui::TreeNode("Scene"))
+        {
+            for (const auto e : process->getCurrentScene()->getTopLevelEntities())
+                displayEntity(e);
+            ImGui::TreePop();
+        }
+
+        ImGui::End();
+
+        ImGui::ShowDemoWindow();
+    }));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
