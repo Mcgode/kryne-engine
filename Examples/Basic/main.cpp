@@ -2,6 +2,8 @@
 // Created by Max Godefroy on 22/11/2020.
 //
 
+#define KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
+
 #include <chrono>
 #include <KEModules/Rendering.h>
 #include <KEModules/Camera.h>
@@ -11,6 +13,8 @@
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
+#include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
+#include <kryne-engine/Rendering/Additional/ShaderPass.h>
 
 int main()
 {
@@ -68,6 +72,10 @@ int main()
     camera->addComponent<OrbitControlsComponent>();
     camera->getTransform()->setScene(scene);
     process->getGraphicContext()->getRenderer()->setCamera(camera);
+
+    const auto copyMaterial = make_shared<TextureCopyMaterial>();
+    auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
+    process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
