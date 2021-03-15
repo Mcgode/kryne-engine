@@ -85,7 +85,7 @@ int main()
 //    ImGui_ImplGlfw_InitForOpenGL(context->getWindow(), true);
 //    ImGui_ImplOpenGL3_Init("#version 330 core");
 //    ImGui::StyleColorsDark();
-    process->setDearIMGUI(make_unique<DearIMGUI>(context->getWindow()));
+    process->getUIRenderers().emplace_back(new DearIMGUI(context->getWindow()));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
