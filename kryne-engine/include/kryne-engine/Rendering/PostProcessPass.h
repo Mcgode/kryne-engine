@@ -33,8 +33,6 @@ public:
 
         Antialiasing = 2,
 
-        UI = 3,
-
     };
 
 public:
