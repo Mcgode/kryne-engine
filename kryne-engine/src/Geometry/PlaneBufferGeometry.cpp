@@ -4,7 +4,7 @@
  * @date 15/03/2021.
  */
 
-#include "PlaneBufferGeometry.h"
+#include "kryne-engine/Geometry/PlaneBufferGeometry.h"
 
 PlaneBufferGeometry::PlaneBufferGeometry(float width, float height, uint32_t widthSegments, uint32_t heightSegments) :
     BufferGeometry()
