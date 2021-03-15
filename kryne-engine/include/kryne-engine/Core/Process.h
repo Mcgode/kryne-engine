@@ -18,6 +18,7 @@
 #include "kryne-engine/Dispatch/Dispatcher.h"
 #include "GraphicContext/GraphicContext.h"
 #include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/Utils/UniquePtrVector.hpp>
 #include <kryne-engine/UI/UIRenderer.hpp>
 
 
@@ -57,7 +58,10 @@ public:
      */
     void setCurrentScene(Scene *scene) { this->currentScene = scene; }
 
-    void setDearIMGUI(unique_ptr<UIRenderer> imgui) { this->dearIMGUI = move(imgui); }
+    /**
+     * Retrieves the UIRenderer list.
+     */
+    Utils::UniquePtrVector<UIRenderer> &getUIRenderers() { return this->uiRenderers; }
 
 protected:
 
@@ -76,7 +80,8 @@ protected:
     /// The scenes for this process
     unordered_set<unique_ptr<Scene>> scenes;
 
-    unique_ptr<UIRenderer> dearIMGUI {};
+    /// The list of UI renderers
+    Utils::UniquePtrVector<UIRenderer> uiRenderers;
 
 
 // ===========

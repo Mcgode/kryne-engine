@@ -80,6 +80,10 @@ void Process::runLoop()
 
     const auto renderer = this->context->getRenderer();
 
+    vector<UIRenderer *> activeUIRenderers;
+    for (const auto &uiRenderer : this->uiRenderers)
+        activeUIRenderers.push_back(uiRenderer.get());
+
     if (this->currentScene != nullptr)
     {
         for (const auto entity : this->currentScene->getEntities())
@@ -101,8 +105,8 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
         renderer->renderToScreen();
 
-    if (this->dearIMGUI)
-        this->dearIMGUI->render(this);
+    for (auto uiRenderer : activeUIRenderers)
+        uiRenderer->render(this);
 
     Dispatcher::instance().waitDelayed();
 
