@@ -58,6 +58,8 @@ public:
      */
     void setCurrentScene(Scene *scene) { this->currentScene = scene; }
 
+    [[nodiscard]] Scene *getCurrentScene() const { return currentScene; }
+
     /**
      * Retrieves the UIRenderer list.
      */
