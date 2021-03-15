@@ -15,9 +15,6 @@ PlaneBufferGeometry::PlaneBufferGeometry(float width, float height, uint32_t wid
 
     vector<uint32_t> indices;
 
-    float halfWidth  = width * 0.5f,
-          halfHeight = height * 0.5f;
-
     for (uint32_t x = 0; x <= widthSegments; x++)
     {
         float dx = (float) x / widthSegments;
@@ -26,9 +23,9 @@ PlaneBufferGeometry::PlaneBufferGeometry(float width, float height, uint32_t wid
         {
             float dy = (float) y / widthSegments;
 
-            positions.emplace_back(halfWidth * (dx - 0.5f), halfHeight * (0.5f - dy), 0.f);
+            positions.emplace_back(width * (dx - 0.5f), height * (0.5f - dy), 0.f);
             normals.emplace_back(0, 0, 1);
-            uvs.emplace_back(dx, dy);
+            uvs.emplace_back(dx, 1.f - dy);
         }
     }
 
