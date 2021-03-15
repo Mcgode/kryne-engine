@@ -126,14 +126,9 @@ void OpenGLRenderer::textureRender(Material *material)
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-    if (context->renderingState->getSide() != material->getSide())
-        context->renderingState->setSide(material->getSide());
-
-    if (context->renderingState->isDepthTestEnabled() != material->isDepthTest())
-        context->renderingState->setDepthTest(material->isDepthTest());
-
-    if (context->renderingState->isDepthWriteEnabled() != material->isWriteDepth())
-        context->renderingState->setDepthWrite(material->isWriteDepth());
+    context->renderingState->setSide(FrontSide);
+    context->renderingState->setDepthTest(false);
+    context->renderingState->setDepthWrite(false);
 
     // Upload uniforms
     material->getShader()->updateUniforms();
