@@ -140,6 +140,9 @@ protected:
     /// The ordered list of post process passes.
     vector<unique_ptr<PostProcessPass>> postProcessPasses {};
 
+    /// The post process passes to use for this frame.
+    vector<PostProcessPass *> framePostProcessPasses {};
+
     unique_ptr<Framebuffer> readFramebuffer;
 
     unique_ptr<Framebuffer> writeFramebuffer;

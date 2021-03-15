@@ -27,6 +27,13 @@ void LoopRenderer::prepareFrame()
 
     FrustumCullingData mainCamFCD(mainCamera);
     this->frustumCulled.emplace(mainCamera, mainCamFCD);
+
+    this->framePostProcessPasses.clear();
+    for (const auto &pass : this->postProcessPasses)
+    {
+        if (pass->isEnabled())
+            this->framePostProcessPasses.push_back(pass.get());
+    }
 }
 
 
