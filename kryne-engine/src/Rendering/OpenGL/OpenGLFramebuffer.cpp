@@ -13,9 +13,9 @@ void OpenGLFramebuffer::addColorAttachment()
 }
 
 
-Texture *OpenGLFramebuffer::retrieveColor(uint8_t index)
+shared_ptr<Texture> OpenGLFramebuffer::retrieveColor(uint8_t index)
 {
-    return this->attachments[index].texture.get();
+    return this->attachments[index].texture;
 }
 
 
@@ -43,7 +43,7 @@ void OpenGLFramebuffer::setAsRenderTarget()
             glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texture, 0);
 
-            attachment.texture = make_unique<Texture2D>(texture);
+            attachment.texture = make_shared<Texture2D>(texture);
         }
     }
 }

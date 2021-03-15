@@ -25,6 +25,6 @@ public:
     void addColorAttachment() override {}
 
 
-    Texture *retrieveColor(uint8_t index) override { return nullptr; }
+    shared_ptr<Texture> retrieveColor(uint8_t index) override { return nullptr; }
 
 };

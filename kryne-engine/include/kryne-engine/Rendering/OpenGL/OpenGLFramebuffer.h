@@ -19,7 +19,7 @@ public:
 
     OpenGLFramebuffer(uint16_t width, uint16_t height) : Framebuffer(width, height) {}
 
-    Texture *retrieveColor(uint8_t index) override;
+    shared_ptr<Texture> retrieveColor(uint8_t index) override;
 
     void setAsRenderTarget() override;
 
@@ -36,7 +36,7 @@ protected:
 
     struct AttachmentData {
 
-        unique_ptr<Texture> texture {};
+        shared_ptr<Texture> texture {};
 
     };
 
