@@ -38,6 +38,7 @@ add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
 
 # Set up Dear IMGUI lib
 add_subdirectory(external-libs/imgui)
+include_directories(external-libs/imgui)
 
 
 #Set up the used libs

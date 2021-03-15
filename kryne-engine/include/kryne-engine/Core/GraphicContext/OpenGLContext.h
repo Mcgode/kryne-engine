@@ -61,6 +61,8 @@ public:
 
     LoopRenderer *getRenderer() override;
 
+    GLFWwindow *getWindow() const { return this->mainWindow; }
+
     /**
      * Terminates the OpenGL context.
      */
