@@ -78,12 +78,12 @@ void Process::runLoop()
     if (this->currentScene == nullptr && !this->scenes.empty())
         this->currentScene = this->scenes.begin()->get();
 
+    const auto renderer = this->context->getRenderer();
+
     if (this->currentScene != nullptr)
     {
         for (const auto entity : this->currentScene->getEntities())
             entity->ranPreRenderingProcessing = false;
-
-        const auto renderer = this->context->getRenderer();
 
         auto entities = renderer->parseScene(this->currentScene);
         this->runPriorityPreProcesses(entities);
@@ -97,6 +97,10 @@ void Process::runLoop()
         cerr << "There is no scene for the process." << endl;
 
     Dispatcher::instance().waitMain();
+
+    if (this->currentScene != nullptr)
+        renderer->renderToScreen();
+
     Dispatcher::instance().waitDelayed();
 
     this->context->endFrame();
