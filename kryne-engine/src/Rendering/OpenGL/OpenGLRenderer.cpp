@@ -81,6 +81,11 @@ void OpenGLRenderer::prepareFrame()
 
     LoopRenderer::prepareFrame();
 
+    if (this->framePostProcessPasses.empty())
+        this->screenFramebuffer->setAsRenderTarget();
+    else
+        this->writeFramebuffer->setAsRenderTarget();
+
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
@@ -93,4 +98,19 @@ vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
     result.push_back(this->mainCamera);
 
     return result;
+}
+
+
+void OpenGLRenderer::renderToScreen()
+{
+    assertIsMainThread();
+
+    for (size_t i = 0; i < this->framePostProcessPasses.size(); i++)
+    {
+        this->swapBuffers();
+        auto &pass = this->framePostProcessPasses[i];
+        pass->processPass(this,
+                          this->readFramebuffer.get(),
+                          (i + 1 == this->framePostProcessPasses.size()) ? this->screenFramebuffer.get() : this->writeFramebuffer.get());
+    }
 }

@@ -56,7 +56,7 @@ protected:
 
 public:
 
-    virtual void processPass(LoopRenderer *renderer, Camera *camera, Framebuffer *readBuffer, Framebuffer *writeBuffer) = 0;
+    virtual void processPass(LoopRenderer *renderer, Framebuffer *readBuffer, Framebuffer *writeBuffer) = 0;
 
     [[nodiscard]] bool isEnabled() const { return enabled; }
 

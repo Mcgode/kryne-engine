@@ -27,6 +27,8 @@ public:
 
     vector<Entity *> parseScene(Scene *scene) override;
 
+    void renderToScreen() override;
+
 protected:
 
     OpenGLContext *context;
