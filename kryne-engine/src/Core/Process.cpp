@@ -82,7 +82,10 @@ void Process::runLoop()
 
     vector<UIRenderer *> activeUIRenderers;
     for (const auto &uiRenderer : this->uiRenderers)
-        activeUIRenderers.push_back(uiRenderer.get());
+    {
+        if (uiRenderer->isEnabled())
+            activeUIRenderers.push_back(uiRenderer.get());
+    }
 
     if (this->currentScene != nullptr)
     {

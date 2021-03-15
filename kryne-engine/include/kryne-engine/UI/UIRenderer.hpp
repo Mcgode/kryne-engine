@@ -16,6 +16,14 @@ public:
 
     virtual void render(Process *process) = 0;
 
+    [[nodiscard]] bool isEnabled() const { return enabled; }
+
+    void setEnabled(bool value) { UIRenderer::enabled = value; }
+
+protected:
+
+    bool enabled = true;
+
 };
 
 
