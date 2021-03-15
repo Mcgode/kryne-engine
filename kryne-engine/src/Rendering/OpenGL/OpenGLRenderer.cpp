@@ -4,9 +4,18 @@
  * @date 06/02/2021.
  */
 
-#include <kryne-engine/Rendering/RenderMesh.h>
-#include <kryne-engine/Camera/Camera.h>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
+
+
+OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
+        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(1280, 720),
+                     make_unique<OpenGLFramebuffer>(1280, 720),
+                     make_unique<OpenGLFramebuffer>(1280, 720)),
+        context(context)
+{
+    this->writeFramebuffer->addColorAttachment();
+    this->readFramebuffer->addColorAttachment();
+}
 
 
 void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)

@@ -99,7 +99,7 @@ add_library(kryne-engine STATIC
         src/Rendering/PostProcessPass.cpp include/kryne-engine/Rendering/PostProcessPass.h
         include/kryne-engine/Rendering/Framebuffer.hpp
         src/Rendering/OpenGL/OpenGLFramebuffer.cpp include/kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h
-        )
+        include/kryne-engine/Rendering/OpenGL/OpenGLScreenFramebuffer.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

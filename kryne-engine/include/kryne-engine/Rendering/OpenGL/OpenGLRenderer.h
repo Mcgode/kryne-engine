@@ -8,6 +8,8 @@
 
 
 #include <kryne-engine/Rendering/LoopRenderer.h>
+#include "OpenGLFramebuffer.h"
+#include "OpenGLScreenFramebuffer.hpp"
 
 
 class OpenGLContext;
@@ -17,7 +19,7 @@ class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(OpenGLContext *context) : context(context) {};
+    explicit OpenGLRenderer(OpenGLContext *context);
 
     void prepareFrame() override;
 
