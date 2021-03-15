@@ -18,6 +18,7 @@
 #include "kryne-engine/Dispatch/Dispatcher.h"
 #include "GraphicContext/GraphicContext.h"
 #include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/UI/UIRenderer.hpp>
 
 
 using namespace std;
@@ -56,6 +57,8 @@ public:
      */
     void setCurrentScene(Scene *scene) { this->currentScene = scene; }
 
+    void setDearIMGUI(unique_ptr<UIRenderer> imgui) { this->dearIMGUI = move(imgui); }
+
 protected:
 
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
@@ -72,6 +75,8 @@ protected:
 
     /// The scenes for this process
     unordered_set<unique_ptr<Scene>> scenes;
+
+    unique_ptr<UIRenderer> dearIMGUI {};
 
 
 // ===========

@@ -101,6 +101,9 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
         renderer->renderToScreen();
 
+    if (this->dearIMGUI)
+        this->dearIMGUI->render(this);
+
     Dispatcher::instance().waitDelayed();
 
     this->context->endFrame();
