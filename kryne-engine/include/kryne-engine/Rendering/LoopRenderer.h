@@ -13,6 +13,7 @@
 
 #include <kryne-engine/enums/RenderMode.h>
 #include <kryne-engine/Math/Frustum.hpp>
+#include "Framebuffer.hpp"
 
 
 class RenderMesh;
@@ -44,11 +45,24 @@ public:
 
     virtual void setRenderingMode(RenderMode mode) { this->renderMode = mode; }
 
+    /**
+     * @brief Runs all the processes for finishing the render and displaying it to the screen.
+     */
+    virtual void renderToScreen() = 0;
+
+protected:
+
+    LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+                 unique_ptr<Framebuffer> readFramebuffer,
+                 unique_ptr<Framebuffer> writeFramebuffer);
+
 protected:
 
     RenderMode renderMode = ForwardRendering;
 
     Camera *mainCamera {};
+
+    unique_ptr<Framebuffer> screenFramebuffer;
 
 
 // ================
@@ -116,10 +130,19 @@ protected:
      */
     unique_ptr<PostProcessPass> removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it);
 
+    /**
+     * @brief Swaps the write and read framebuffers.
+     */
+    inline void swapBuffers() { swap(readFramebuffer, writeFramebuffer); }
+
 protected:
 
     /// The ordered list of post process passes.
     vector<unique_ptr<PostProcessPass>> postProcessPasses {};
+
+    unique_ptr<Framebuffer> readFramebuffer;
+
+    unique_ptr<Framebuffer> writeFramebuffer;
 
 
 // ==================

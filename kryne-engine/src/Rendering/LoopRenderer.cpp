@@ -7,6 +7,15 @@
 #include "kryne-engine/Rendering/LoopRenderer.h"
 
 
+LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+                           unique_ptr<Framebuffer> readFramebuffer,
+                           unique_ptr<Framebuffer> writeFramebuffer) :
+   screenFramebuffer(move(screenFramebuffer)),
+   readFramebuffer(move(readFramebuffer)),
+   writeFramebuffer(move(writeFramebuffer))
+{}
+
+
 LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
     frustum(camera->getProjectionMatrix() * camera->getViewMatrix())
 {}
