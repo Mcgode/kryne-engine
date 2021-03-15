@@ -36,9 +36,12 @@ add_library(glad STATIC external-libs/glad/src/glad.c)
 include_directories(external-libs/stb_image)
 add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
 
+# Set up Dear IMGUI lib
+add_subdirectory(external-libs/imgui)
+
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES})
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI)
 
 
 # Set up boost library
