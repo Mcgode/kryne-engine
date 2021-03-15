@@ -31,3 +31,107 @@ void LoopRenderer::computeFrustumCulling(RenderMesh *mesh)
         pair.second.culledMeshes.emplace(mesh, !pair.second.frustum.sphereIntersects(mesh->getBoundingSphere()));
     }
 }
+
+
+void LoopRenderer::insertPostProcessPass(vector<unique_ptr<PostProcessPass>>::iterator it, unique_ptr<PostProcessPass> &pass)
+{
+    while (it != this->postProcessPasses.end())
+    {
+        swap(pass, *it);
+        ++it;
+    }
+
+    this->postProcessPasses.emplace_back(pass.release());
+}
+
+
+unique_ptr<PostProcessPass> LoopRenderer::removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it)
+{
+    auto it2 = this->postProcessPasses.rbegin();
+    unique_ptr<PostProcessPass> ptr(nullptr);
+
+    while (it2 != it)
+    {
+        swap(ptr, *it2);
+        it2++;
+    }
+
+    swap(ptr, *it);
+    this->postProcessPasses.pop_back();
+    return ptr;
+}
+
+
+void LoopRenderer::addPass(unique_ptr<PostProcessPass> pass)
+{
+    auto it = this->postProcessPasses.begin();
+
+    while (this->postProcessPasses.end() != it)
+    {
+        if ((*it)->getPriority() >= pass->getPriority())
+            break;
+    }
+
+    this->insertPostProcessPass(it, pass);
+}
+
+
+bool LoopRenderer::addPassAfter(unique_ptr<PostProcessPass> pass, const string &name)
+{
+    auto it = this->postProcessPasses.begin();
+
+    for (; it != this->postProcessPasses.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+    }
+
+    if (it == this->postProcessPasses.end())
+        return false;
+
+    if ((*it)->getPriority() > pass->getPriority())
+        return false;
+
+    it++;
+    this->insertPostProcessPass(it, pass);
+    return true;
+}
+
+
+bool LoopRenderer::addPassBefore(unique_ptr<PostProcessPass> pass, const string &name)
+{
+    auto it = this->postProcessPasses.begin();
+    auto before = it;
+
+    for (; it != this->postProcessPasses.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+        before = it;
+    }
+
+    if (it == this->postProcessPasses.end())
+        return false;
+
+    if (it != this->postProcessPasses.begin() && (*before)->getPriority() > pass->getPriority())
+        return false;
+
+    this->insertPostProcessPass(it, pass);
+    return true;
+}
+
+
+unique_ptr<PostProcessPass> LoopRenderer::removePass(const string &name)
+{
+    auto it = this->postProcessPasses.rbegin();
+    for (; it != this->postProcessPasses.rend(); ++it)
+    {
+        if ((*it)->getName() == name)
+            break;
+    }
+
+    if (it == this->postProcessPasses.rend())
+        return unique_ptr<PostProcessPass>();
+
+    return this->removePostProcessPass(it);
+}
