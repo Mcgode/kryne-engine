@@ -119,6 +119,9 @@ void Process::runLoop()
 
 void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 {
+    if (!entity->isEnabled())
+        return;
+
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
         // No data race can happen in this state, since any entity is only called once by all parallel threads.
@@ -179,6 +182,9 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
 {
     for (const auto entity : entities)
     {
+        if (!entity->isEnabled())
+            continue;
+
         Dispatcher::instance().parallel()->enqueue([this, entity]()
         {
             stack<Entity *> processStack;
