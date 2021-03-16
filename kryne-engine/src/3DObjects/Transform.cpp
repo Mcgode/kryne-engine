@@ -76,7 +76,8 @@ void Transform::add(Transform *child)
 
     if (child->attachedScene != this->attachedScene) {
 
-        child->attachedScene->remove(child);
+        if (child->attachedScene)
+            child->attachedScene->remove(child);
         this->attachedScene->add(child);
 
     }
