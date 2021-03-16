@@ -203,6 +203,9 @@ public:
         return result;
     }
 
+
+    vector<Component *> getAllComponents();
+
 private:
 
     /// The components attached to this entity.

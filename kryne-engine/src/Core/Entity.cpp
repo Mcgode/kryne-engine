@@ -27,3 +27,13 @@ void Entity::transformDidUpdate()
         component->transformDidUpdate();
     }
 }
+
+vector<Component *> Entity::getAllComponents()
+{
+    vector<Component *> result;
+
+    for (const auto &component : this->components)
+        result.push_back(component.get());
+
+    return result;
+}
