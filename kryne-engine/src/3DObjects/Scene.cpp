@@ -7,11 +7,11 @@
 
 void Scene::add(Transform *transform)
 {
-    if (transform->parent != nullptr)
+    if (transform->parent != nullptr && transform->parent->attachedScene != this)
         transform->removeFromParent();
 
     if (transform->attachedScene != nullptr)
-        this->remove(transform);
+        transform->attachedScene->remove(transform);
 
     queue<Transform *> transformQueue;
     transformQueue.push(transform);
