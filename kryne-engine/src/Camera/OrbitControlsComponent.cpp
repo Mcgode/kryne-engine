@@ -10,6 +10,7 @@ OrbitControlsComponent::OrbitControlsComponent(Entity *entity) :
     LogicComponent(entity)
 {
     this->setPosition(vec3(0, 0, 5));
+    this->componentName = "OrbitControlsComponent";
 }
 
 

@@ -51,6 +51,19 @@ protected:
 
 
 // -----
+// Name
+// -----
+
+public:
+
+    [[nodiscard]] const string &getComponentName() const { return componentName; }
+
+protected:
+
+    string componentName = "Component";
+
+
+// -----
 // Entity helper functions
 // -----
 

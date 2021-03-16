@@ -11,7 +11,9 @@ RenderMesh::RenderMesh(Entity *entity, shared_ptr<BufferGeometry> geometry, shar
     Component(entity),
     geometry(move(geometry)),
     material(move(material))
-{}
+{
+    this->componentName = "RenderMesh";
+}
 
 
 void RenderMesh::transformDidUpdate()
