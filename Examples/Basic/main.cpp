@@ -90,13 +90,30 @@ int main()
 
         auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
         const auto entity = process->makeEntity<Entity>();
-        const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
         entity->getTransform()->setScene(scene);
+
+        const vec3 offsets[4] = {
+            vec3(-2, 0, -2),
+            vec3(-2, 0, 2),
+            vec3(2, 0, -2),
+            vec3(2, 0, 2),
+        };
+
+        for (uint32_t i = 0; i < 2; i++)
+        {
+            auto cube = process->makeEntity<Entity>();
+            cube->addComponent<RenderMesh>(geometry, material);
+            auto transform = cube->getTransform();
+            entity->getTransform()->add(transform);
+            transform->setPosition(offsets[i]);
+            cube->setName("Cube" + to_string(i));
+        }
     });
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
     camera->getTransform()->setScene(scene);
+    camera->setName("OrbitCamera");
     process->getGraphicContext()->getRenderer()->setCamera(camera);
 
     const auto copyMaterial = make_shared<TextureCopyMaterial>();
