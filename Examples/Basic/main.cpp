@@ -30,6 +30,9 @@ void displayEntityNode(Entity *entity)
     auto name = fmt.str();
     const uint32_t baseFlags = ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_SpanFullWidth;
 
+    if (!entity->isEnabled())
+        ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
+
     if (children.empty())
     {
         uint32_t flags = baseFlags | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
@@ -61,6 +64,9 @@ void displayEntityNode(Entity *entity)
         if (clicked)
             selectedEntity = (selectedEntity == entity) ? nullptr : entity;
     }
+
+    if (!entity->isEnabled())
+        ImGui::PopStyleColor();
 }
 
 
@@ -78,19 +84,29 @@ void displayEntityInfo(Entity *entity)
     ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
     if (ImGui::CollapsingHeader("Entity"))
     {
-        ImGui::AlignTextToFramePadding();
-        ImGui::Text("Name:");
+        {
+            bool enabled = entity->isEnabled();
+            ImGui::Checkbox("Enabled", &enabled);
+            entity->setEnabled(enabled);
+        }
 
-        ImGui::SameLine();
+        {
+            ImGui::AlignTextToFramePadding();
+            ImGui::Text("Name:");
 
-        char name[2048];
-        sprintf(name,"%s", entity->getName().c_str());
+            ImGui::SameLine();
 
-        ImGui::SetNextItemWidth(-FLT_MIN);
-        ImGui::InputTextWithHint(
-                "##", "Enter name",
-                name, IM_ARRAYSIZE(name),
-                ImGuiInputTextFlags_CallbackEdit, updateName, entity);
+            char name[2048];
+            sprintf(name,"%s", entity->getName().c_str());
+
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            ImGui::InputTextWithHint(
+                    "##", "Enter name",
+                    name, IM_ARRAYSIZE(name),
+                    ImGuiInputTextFlags_CallbackEdit, updateName, entity);
+        }
+
+        ImGui::Separator();
     }
 }
 
