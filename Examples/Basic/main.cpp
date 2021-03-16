@@ -112,6 +112,7 @@ int main()
     process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
     {
         ImGui::Begin("Scene browser");
+        ImGui::GetStyle().WindowRounding = 5.0f;
 
 //        ImGui::SetNextTreeNodeOpen(true);
         if (ImGui::TreeNode("Scene"))
