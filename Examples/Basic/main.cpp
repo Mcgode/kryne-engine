@@ -21,7 +21,7 @@
 Entity *selectedEntity = nullptr;
 
 
-void displayEntity(Entity *entity)
+void displayEntityNode(Entity *entity)
 {
     auto children = entity->getTransform()->getChildren();
 
@@ -54,14 +54,44 @@ void displayEntity(Entity *entity)
         if (open)
         {
             for (const auto &child : children)
-                displayEntity(child->getEntity());
+                displayEntityNode(child->getEntity());
             ImGui::TreePop();
         }
 
         if (clicked)
             selectedEntity = (selectedEntity == entity) ? nullptr : entity;
     }
+}
 
+
+int updateName(ImGuiInputTextCallbackData *data)
+{
+    auto entity = (Entity *)(data->UserData);
+    string name = data->Buf;
+    entity->setName(name);
+    return 0;
+}
+
+
+void displayEntityInfo(Entity *entity)
+{
+    ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
+    if (ImGui::CollapsingHeader("Entity"))
+    {
+        ImGui::AlignTextToFramePadding();
+        ImGui::Text("Name:");
+
+        ImGui::SameLine();
+
+        char name[2048];
+        sprintf(name,"%s", entity->getName().c_str());
+
+        ImGui::SetNextItemWidth(-FLT_MIN);
+        ImGui::InputTextWithHint(
+                "##", "Enter name",
+                name, IM_ARRAYSIZE(name),
+                ImGuiInputTextFlags_CallbackEdit, updateName, entity);
+    }
 }
 
 
@@ -163,9 +193,25 @@ int main()
             if (ImGui::TreeNode("Scene"))
             {
                 for (const auto e : process->getCurrentScene()->getTopLevelEntities())
-                    displayEntity(e);
+                    displayEntityNode(e);
                 ImGui::TreePop();
             }
+
+            ImGui::End();
+        }
+
+        if (selectedEntity)
+        {
+            float windowWidth = 320.f;
+            float windowHeight = io.DisplaySize.y;
+            float x = io.DisplaySize.x - windowWidth;
+
+            ImGui::SetNextWindowPos(ImVec2(x, 0.f), ImGuiCond_Appearing);
+            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
+
+            ImGui::Begin("Details");
+
+            displayEntityInfo(selectedEntity);
 
             ImGui::End();
         }
