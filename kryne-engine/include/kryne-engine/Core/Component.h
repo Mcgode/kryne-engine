@@ -64,6 +64,35 @@ protected:
 
 
 // -----
+// Enabling
+// -----
+
+
+public:
+
+    /**
+     * Retrieves the value of #enabled
+     * @return
+     */
+    [[nodiscard]] inline bool isEnabled() const { return enabled; }
+
+    /**
+     * @brief Enables/disables the component.
+     *
+     * @details
+     * When disabled, a component won't be updated or rendered.
+     *
+     * @param newValue Set to `true` to enable, `false` to disable.
+     */
+    void setEnabled(bool newValue) { this->enabled = newValue; }
+
+protected:
+
+    /// Enabled status of the component.
+    bool enabled = true;
+
+
+// -----
 // Entity helper functions
 // -----
 
