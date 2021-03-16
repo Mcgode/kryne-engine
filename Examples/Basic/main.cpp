@@ -143,12 +143,6 @@ int main()
     auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
-//    auto context = dynamic_cast<OpenGLContext *>(process->getGraphicContext());
-//    IMGUI_CHECKVERSION();
-//    ImGui::CreateContext();
-//    ImGui_ImplGlfw_InitForOpenGL(context->getWindow(), true);
-//    ImGui_ImplOpenGL3_Init("#version 330 core");
-//    ImGui::StyleColorsDark();
     process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
     {
         ImGui::Begin("Scene browser");
@@ -170,12 +164,8 @@ int main()
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
     double t;
-    while (!process->getGraphicContext()->shouldStop()) {
-
-//        ImGui_ImplOpenGL3_NewFrame();
-//        ImGui_ImplGlfw_NewFrame();
-//        ImGui::NewFrame();
-
+    while (!process->getGraphicContext()->shouldStop())
+    {
         uint64_t uit = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
         t = (uit - start);
         t /= 1000.0;
@@ -186,18 +176,7 @@ int main()
 //        mesh->lookAt(lookPos);
 
         process->runLoop();
-
-//        ImGui::Begin("Demo window");
-//        ImGui::Button("Hello!");
-//        ImGui::End();
-//
-//        ImGui::Render();
-//        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }
-
-//    ImGui_ImplOpenGL3_Shutdown();
-//    ImGui_ImplGlfw_Shutdown();
-//    ImGui::DestroyContext();
 
     return 0;
 }
