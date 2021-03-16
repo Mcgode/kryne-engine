@@ -18,6 +18,9 @@
 #include <kryne-engine/UI/DearIMGUIPrototype.hpp>
 
 
+Entity *selectedEntity = nullptr;
+
+
 void displayEntity(Entity *entity)
 {
     auto children = entity->getTransform()->getChildren();
@@ -25,17 +28,37 @@ void displayEntity(Entity *entity)
     stringstream fmt;
     fmt << "0x" << hex << entity;
     auto name = fmt.str();
+    const uint32_t baseFlags = ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_SpanFullWidth;
 
     if (children.empty())
-        ImGui::Selectable(name.c_str());
+    {
+        uint32_t flags = baseFlags | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+        if (entity == selectedEntity)
+            flags |= ImGuiTreeNodeFlags_Selected;
+
+        ImGui::TreeNodeEx(entity, flags, "%s", entity->getName().c_str());
+
+        if (ImGui::IsItemClicked())
+            selectedEntity = (selectedEntity == entity) ? nullptr : entity;
+    }
     else
     {
-        if (ImGui::TreeNode(name.c_str()))
+        uint32_t flags = baseFlags | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+        if (entity == selectedEntity)
+            flags |= ImGuiTreeNodeFlags_Selected;
+
+        bool open = ImGui::TreeNodeEx(entity, flags, "%s", entity->getName().c_str());
+        bool clicked = ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen();
+
+        if (open)
         {
             for (const auto &child : children)
                 displayEntity(child->getEntity());
             ImGui::TreePop();
         }
+
+        if (clicked)
+            selectedEntity = (selectedEntity == entity) ? nullptr : entity;
     }
 
 }
