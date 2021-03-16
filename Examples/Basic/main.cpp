@@ -47,6 +47,7 @@ void displayEntity(Entity *entity)
         if (entity == selectedEntity)
             flags |= ImGuiTreeNodeFlags_Selected;
 
+        ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
         bool open = ImGui::TreeNodeEx(entity, flags, "%s", entity->getName().c_str());
         bool clicked = ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen();
 
@@ -145,20 +146,33 @@ int main()
 
     process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
     {
-        ImGui::Begin("Scene browser");
-        ImGui::GetStyle().WindowRounding = 5.0f;
+        auto &io = ImGui::GetIO();
 
-//        ImGui::SetNextTreeNodeOpen(true);
-        if (ImGui::TreeNode("Scene"))
         {
-            for (const auto e : process->getCurrentScene()->getTopLevelEntities())
-                displayEntity(e);
-            ImGui::TreePop();
+            float windowWidth = 400.f;
+            float windowHeight = io.DisplaySize.y;
+
+            ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), ImGuiCond_Appearing);
+            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
+
+            ImGui::Begin("Scene browser");
+
+            ImGui::GetStyle().WindowRounding = 5.0f;
+
+            ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
+            if (ImGui::TreeNode("Scene"))
+            {
+                for (const auto e : process->getCurrentScene()->getTopLevelEntities())
+                    displayEntity(e);
+                ImGui::TreePop();
+            }
+
+            ImGui::End();
         }
 
-        ImGui::End();
-
-        ImGui::ShowDemoWindow();
+        {
+            ImGui::ShowDemoWindow();
+        }
     }));
 
     using namespace std::chrono;
