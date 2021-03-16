@@ -21,6 +21,14 @@
 Entity *selectedEntity = nullptr;
 
 
+string makeString(const char *prefix, void *object)
+{
+    stringstream fmt;
+    fmt << prefix << "##" << hex << object;
+    return fmt.str();
+}
+
+
 void displayEntityNode(Entity *entity)
 {
     auto children = entity->getTransform()->getChildren();
@@ -82,11 +90,11 @@ int updateName(ImGuiInputTextCallbackData *data)
 void displayEntityInfo(Entity *entity)
 {
     ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
-    if (ImGui::CollapsingHeader("Entity"))
+    if (ImGui::CollapsingHeader(makeString("Entity", entity).c_str()))
     {
         {
             bool enabled = entity->isEnabled();
-            ImGui::Checkbox("Enabled", &enabled);
+            ImGui::Checkbox(makeString("Enabled", entity).c_str(), &enabled);
             entity->setEnabled(enabled);
         }
 
@@ -101,12 +109,40 @@ void displayEntityInfo(Entity *entity)
 
             ImGui::SetNextItemWidth(-FLT_MIN);
             ImGui::InputTextWithHint(
-                    "##", "Enter name",
+                    makeString("", entity).c_str(), "Enter name",
                     name, IM_ARRAYSIZE(name),
                     ImGuiInputTextFlags_CallbackEdit, updateName, entity);
         }
 
         ImGui::Separator();
+    }
+}
+
+
+void displayComponents(Entity *entity)
+{
+    for (auto component : entity->getAllComponents())
+    {
+        ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
+
+        if (!component->isEnabled())
+            ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
+
+        bool open = ImGui::CollapsingHeader(component->getComponentName().c_str());
+
+        if (!component->isEnabled())
+            ImGui::PopStyleColor();
+
+        if (open)
+        {
+            {
+                bool enabled = component->isEnabled();
+                ImGui::Checkbox(makeString("Enabled", component).c_str(), &enabled);
+                component->setEnabled(enabled);
+            }
+
+            ImGui::Separator();
+        }
     }
 }
 
@@ -228,6 +264,7 @@ int main()
             ImGui::Begin("Details");
 
             displayEntityInfo(selectedEntity);
+            displayComponents(selectedEntity);
 
             ImGui::End();
         }
