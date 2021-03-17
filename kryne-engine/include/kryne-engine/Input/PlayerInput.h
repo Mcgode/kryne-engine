@@ -246,6 +246,31 @@ protected:
     unordered_map<KeyMapItem, CallbackList, KeyMapItem::Hasher> keyReleaseCallbacks {};
 
 
+// === Input captured handling ===
+
+public:
+
+    /**
+     * @brief Updated the captured status of the mouse and the keyboard
+     *
+     * @param mouse      Mouse captured state. See #mouseIsCaptured.
+     * @param keyboard   Keyboard captured state. See #keyboardIsCaptured.
+     */
+    void setExternallyCaptured(bool mouse, bool keyboard)
+    {
+        PlayerInput::mouseIsCaptured = mouse;
+        PlayerInput::keyboardIsCaptured = keyboard;
+    }
+
+protected:
+
+    /// When set to true, the mouse is captured by an external source (like Dear ImGui) and events should be ignored.
+    bool mouseIsCaptured = false;
+
+    /// When set to true, the keyboard is captured by an external source (like Dear ImGui) and events should be ignored.
+    bool keyboardIsCaptured = false;
+
+
 // === GLFW input callbacks handling ===
 
 protected:

@@ -89,6 +89,9 @@ void PlayerInput::handleKeyInput(GLFWwindow *window, int32_t key, int32_t scanco
 
         if (playerInput)
         {
+            if (playerInput->keyboardIsCaptured)
+                return;
+
             KeyData keyData { key, mods };
 
             if (action == GLFW_PRESS) {
@@ -119,6 +122,9 @@ void PlayerInput::handleTextInput(GLFWwindow *window, uint32_t unicodeChar)
 
         if (playerInput)
         {
+            if (playerInput->keyboardIsCaptured)
+                return;
+
             playerInput->inputText += boost::lexical_cast<string>(unicodeChar);
         }
         else
@@ -141,6 +147,9 @@ void PlayerInput::handleCursorPosition(GLFWwindow *window, double x, double y)
 
         if (playerInput)
         {
+            if (playerInput->mouseIsCaptured)
+                return;
+
             playerInput->cursorPosition = glm::dvec2(x, y);
         }
         else
@@ -163,6 +172,9 @@ void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int
 
         if (playerInput)
         {
+            if (playerInput->mouseIsCaptured)
+                return;
+
             KeyData keyData { button, mods };
 
             if (action == GLFW_PRESS) {
@@ -172,6 +184,30 @@ void PlayerInput::handleMouseButtonInput(GLFWwindow *window, int32_t button, int
                 playerInput->callCallbacks(keyData, playerInput->keyReleaseCallbacks);
                 playerInput->keysDown.erase(keyData);
             }
+        }
+        else
+        {
+            inputMap.erase(pair);
+        }
+    }
+}
+
+
+void PlayerInput::handleScrollInput(GLFWwindow *window, double xScroll, double yScroll)
+{
+    auto &inputMap = PlayerInput::inputMap();
+    const auto pair = inputMap.find(window);
+
+    if (pair != inputMap.end())
+    {
+        const auto playerInput = playerInputPointer(pair);
+
+        if (playerInput)
+        {
+            if (playerInput->mouseIsCaptured)
+                return;
+
+            playerInput->scrollInput = glm::vec2(xScroll, yScroll);
         }
         else
         {
@@ -261,27 +297,6 @@ void PlayerInput::willPollEvents()
     this->previousCursorPosition = this->cursorPosition;
     this->inputText = "";
     this->scrollInput = glm::vec2(0);
-}
-
-
-void PlayerInput::handleScrollInput(GLFWwindow *window, double xScroll, double yScroll)
-{
-    auto &inputMap = PlayerInput::inputMap();
-    const auto pair = inputMap.find(window);
-
-    if (pair != inputMap.end())
-    {
-        const auto playerInput = playerInputPointer(pair);
-
-        if (playerInput)
-        {
-            playerInput->scrollInput = glm::vec2(xScroll, yScroll);
-        }
-        else
-        {
-            inputMap.erase(pair);
-        }
-    }
 }
 
 
