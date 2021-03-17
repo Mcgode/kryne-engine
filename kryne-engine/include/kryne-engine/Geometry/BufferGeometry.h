@@ -229,6 +229,11 @@ protected:
     /// The shader layout code along its hash value.
     pair<string, uint64_t> layoutCode {};
 
+
+public:
+
+    [[nodiscard]] vector<string> getInfo() const;
+
 };
 
 

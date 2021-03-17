@@ -304,3 +304,27 @@ void BufferGeometry::computeBoundingVolumes()
         this->boundingSphere.fromBox(this->boundingBox);
     }
 }
+
+
+vector<string> BufferGeometry::getInfo() const
+{
+    vector<string> v;
+
+    auto posIt = this->attributes.find("position");
+    if (posIt != this->attributes.end())
+    {
+       auto &attribute = posIt->second.attribute;
+       string s = to_string(attribute->getLength()) + " vertices, ";
+       if (this->indexes.empty())
+           s += to_string(attribute->getLength() / 3) + " triangles";
+       else
+           s += to_string(this->indexes.size() / 3) + " triangles";
+       v.push_back(s);
+    }
+
+    v.emplace_back("Attributes:");
+    for (const auto &pair : this->attributes)
+        v.push_back(" - " + pair.first + " (" + pair.second.attribute->inferTypeString() + ")");
+
+    return v;
+}
