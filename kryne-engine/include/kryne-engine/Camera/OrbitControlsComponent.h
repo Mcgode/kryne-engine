@@ -72,6 +72,12 @@ protected:
     /// The zoom speed for the scrolling input
     float scrollZoomSpeed = 0.2f;
 
+
+public:
+
+    /// @copydoc Component::renderComponentDetails
+    void renderComponentDetails() override;
+
 };
 
 
