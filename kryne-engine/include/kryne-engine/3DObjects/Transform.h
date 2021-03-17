@@ -173,8 +173,9 @@ public:
      * Change the object position
      * @param pos   The new position value
      */
-    virtual void setPosition(const glm::vec3 &pos) {
-        matrixWorldNeedsUpdate = compareNeedsUpdate(pos, Transform::position);
+    virtual void setPosition(const glm::vec3 &pos)
+    {
+        matrixWorldNeedsUpdate |= compareNeedsUpdate(pos, Transform::position);
         Transform::position = glm::vec3(pos);
     }
 
@@ -187,8 +188,9 @@ public:
      * Change the object quaternion.
      * @param quat  The new quaternion value.
      */
-    void setQuaternion(const glm::quat &quat) {
-        matrixWorldNeedsUpdate = compareNeedsUpdate(quat, Transform::quaternion);
+    void setQuaternion(const glm::quat &quat)
+    {
+        matrixWorldNeedsUpdate |= compareNeedsUpdate(quat, Transform::quaternion);
         Transform::quaternion = glm::quat(quat);
     }
 
@@ -201,8 +203,9 @@ public:
      * Changes the object scale.
      * @param s The new scale information.
      */
-    void setScale(const glm::vec3 &s) {
-        matrixWorldNeedsUpdate = compareNeedsUpdate(s, Transform::scale);
+    void setScale(const glm::vec3 &s)
+    {
+        matrixWorldNeedsUpdate |= compareNeedsUpdate(s, Transform::scale);
         Transform::scale = glm::vec3(s);
     }
 
