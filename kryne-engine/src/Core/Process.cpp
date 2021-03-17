@@ -108,6 +108,7 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
         renderer->renderToScreen();
 
+    this->getPlayerInput()->setExternallyCaptured(false, false);
     for (auto uiRenderer : activeUIRenderers)
         uiRenderer->render(this);
 

@@ -33,6 +33,9 @@ void DearIMGUI::render(Process *process)
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+    auto &io = ImGui::GetIO();
+    process->getPlayerInput()->setExternallyCaptured(io.WantCaptureMouse, io.WantCaptureKeyboard);
 }
 
 
