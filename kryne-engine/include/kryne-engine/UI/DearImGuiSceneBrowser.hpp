@@ -7,18 +7,16 @@
 #pragma once
 
 
-#include "DearIMGUI.h"
+#include "DearImGuiComponent.hpp"
 
 
-class DearImGuiSceneBrowser : public DearIMGUI {
+class DearImGuiSceneBrowser : public DearImGuiComponent {
 
 public:
 
-    explicit DearImGuiSceneBrowser(GLFWwindow *window) : DearIMGUI(window) {}
+    void renderComponent(Process *process) override;
 
 protected:
-
-    void defineGUI(Process *process) override;
 
     virtual void displaySceneEntity(Entity *entity);
 

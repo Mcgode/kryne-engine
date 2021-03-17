@@ -15,7 +15,8 @@
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
 #include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
-#include <kryne-engine/UI/DearIMGUIPrototype.hpp>
+#include <kryne-engine/UI/DearImGui.h>
+#include <kryne-engine/UI/DearImGuiPrototype.hpp>
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 
 
@@ -98,14 +99,14 @@ int main()
     auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
-    process->getUIRenderers().emplace_back(new DearImGuiSceneBrowser(context->getWindow()));
+    auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
 
-//    process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
-//    {
-//        {
-//            ImGui::ShowDemoWindow();
-//        }
-//    }));
+    dearImGui->getComponents().emplace_back(new DearImGuiSceneBrowser());
+
+    dearImGui->getComponents().emplace_back(new DearImGuiPrototype([](Process *process)
+    {
+        ImGui::ShowDemoWindow();
+    }));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();

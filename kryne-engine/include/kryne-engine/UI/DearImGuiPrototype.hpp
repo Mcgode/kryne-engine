@@ -7,7 +7,7 @@
 #pragma once
 
 
-#include "DearIMGUI.h"
+#include "DearImGuiComponent.hpp"
 
 
 /**
@@ -17,16 +17,14 @@
  * This class is mainly meant to be used when prototyping a DearGUI interface. It is recommended to make a dedicated
  * class out of the final version.
  */
-class DearIMGUIPrototype: public DearIMGUI {
+class DearImGuiPrototype: public DearImGuiComponent {
 
 public:
 
-    DearIMGUIPrototype(GLFWwindow *window, const function<void(Process *)> &functor) : DearIMGUI(window), functor(functor)
+    explicit DearImGuiPrototype(const function<void(Process *)> &functor) : functor(functor)
     {}
 
-protected:
-
-    void defineGUI(Process *process) override
+    void renderComponent(Process *process) override
     {
         this->functor(process);
     }

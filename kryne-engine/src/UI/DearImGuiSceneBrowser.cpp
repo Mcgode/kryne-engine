@@ -11,7 +11,7 @@
 using Utils::ImGuiLabel;
 
 
-void DearImGuiSceneBrowser::defineGUI(Process *process)
+void DearImGuiSceneBrowser::renderComponent(Process *process)
 {
     auto &io = ImGui::GetIO();
 

@@ -25,7 +25,11 @@ namespace Utils {
 
     public:
 
-        inline unique_ptr<T> &emplace_back(T *pointer) { return _vector.emplace_back(pointer); }
+        inline T *emplace_back(T *pointer)
+        {
+            _vector.emplace_back(pointer);
+            return pointer;
+        }
 
 
         inline IteratorType begin() { return _vector.begin(); }
