@@ -18,6 +18,7 @@ class Process;
 #include <vector>
 #include <unordered_set>
 #include <mutex>
+#include <imgui.h>
 
 // Pre-declared circular dependencies includes
 #include <kryne-engine/3DObjects/Transform.h>
@@ -87,6 +88,19 @@ public:
 protected:
 
     string name = "Entity";
+
+
+// -----
+// DearImGui
+// -----
+
+
+public:
+
+    /**
+     * @brief Renders custom GUI for entity details.
+     */
+    virtual void renderEntityDetails() {}
 
 
 // -----
