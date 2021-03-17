@@ -16,164 +16,7 @@
 #include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
 #include <kryne-engine/UI/DearIMGUIPrototype.hpp>
-
-
-Entity *selectedEntity = nullptr;
-
-
-string makeString(const char *prefix, void *object)
-{
-    stringstream fmt;
-    fmt << prefix << "##" << hex << object;
-    return fmt.str();
-}
-
-
-void displayEntityNode(Entity *entity)
-{
-    auto children = entity->getTransform()->getChildren();
-
-    stringstream fmt;
-    fmt << "0x" << hex << entity;
-    auto name = fmt.str();
-    const uint32_t baseFlags = ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_SpanFullWidth;
-
-    if (!entity->isEnabled())
-        ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
-
-    if (children.empty())
-    {
-        uint32_t flags = baseFlags | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
-        if (entity == selectedEntity)
-            flags |= ImGuiTreeNodeFlags_Selected;
-
-        ImGui::TreeNodeEx(entity, flags, "%s", entity->getName().c_str());
-
-        if (ImGui::IsItemClicked())
-            selectedEntity = (selectedEntity == entity) ? nullptr : entity;
-    }
-    else
-    {
-        uint32_t flags = baseFlags | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-        if (entity == selectedEntity)
-            flags |= ImGuiTreeNodeFlags_Selected;
-
-        ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
-        bool open = ImGui::TreeNodeEx(entity, flags, "%s", entity->getName().c_str());
-        bool clicked = ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen();
-
-        if (open)
-        {
-            for (const auto &child : children)
-                displayEntityNode(child->getEntity());
-            ImGui::TreePop();
-        }
-
-        if (clicked)
-            selectedEntity = (selectedEntity == entity) ? nullptr : entity;
-    }
-
-    if (!entity->isEnabled())
-        ImGui::PopStyleColor();
-}
-
-
-int updateName(ImGuiInputTextCallbackData *data)
-{
-    auto entity = (Entity *)(data->UserData);
-    string name = data->Buf;
-    entity->setName(name);
-    return 0;
-}
-
-
-void displayEntityInfo(Entity *entity)
-{
-    ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
-    if (ImGui::CollapsingHeader(makeString("Entity", entity).c_str()))
-    {
-        {
-            bool enabled = entity->isEnabled();
-            ImGui::Checkbox(makeString("Enabled", entity).c_str(), &enabled);
-            entity->setEnabled(enabled);
-        }
-
-        {
-            ImGui::AlignTextToFramePadding();
-            ImGui::Text("Name:");
-
-            ImGui::SameLine();
-
-            char name[2048];
-            sprintf(name,"%s", entity->getName().c_str());
-
-            ImGui::SetNextItemWidth(-FLT_MIN);
-            ImGui::InputTextWithHint(
-                    makeString("##Name", entity).c_str(), "Enter name",
-                    name, IM_ARRAYSIZE(name),
-                    ImGuiInputTextFlags_CallbackEdit, updateName, entity);
-        }
-
-        ImGui::Separator();
-    }
-}
-
-
-void displayTransform(Transform *transform)
-{
-    ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
-
-    if (ImGui::CollapsingHeader(makeString("Transform", transform).c_str()))
-    {
-        {
-            vec3 position = transform->getPosition();
-            ImGui::DragFloat3(makeString("Position", transform).c_str(), value_ptr(position), .01f);
-            transform->setPosition(position);
-        }
-
-        {
-            vec3 scale = transform->getScale();
-            ImGui::DragFloat3(makeString("Scale", transform).c_str(), value_ptr(scale), .01f);
-            transform->setScale(scale);
-        }
-
-        {
-            vec3 rotation = degrees(transform->getEuler());
-            ImGui::DragFloat3(makeString("Rotation", transform).c_str(), value_ptr(rotation), .5f, 0.f, 0.f, "%.1f°");
-            transform->setEuler(radians(rotation));
-        }
-
-        ImGui::Separator();
-    }
-}
-
-
-void displayComponents(Entity *entity)
-{
-    for (auto component : entity->getAllComponents())
-    {
-        ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
-
-        if (!component->isEnabled())
-            ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
-
-        bool open = ImGui::CollapsingHeader(component->getComponentName().c_str());
-
-        if (!component->isEnabled())
-            ImGui::PopStyleColor();
-
-        if (open)
-        {
-            {
-                bool enabled = component->isEnabled();
-                ImGui::Checkbox(makeString("Enabled", component).c_str(), &enabled);
-                component->setEnabled(enabled);
-            }
-
-            ImGui::Separator();
-        }
-    }
-}
+#include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 
 
 int main()
@@ -255,54 +98,14 @@ int main()
     auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
-    process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
-    {
-        auto &io = ImGui::GetIO();
+    process->getUIRenderers().emplace_back(new DearImGuiSceneBrowser(context->getWindow()));
 
-        {
-            float windowWidth = 400.f;
-            float windowHeight = io.DisplaySize.y;
-
-            ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), ImGuiCond_Appearing);
-            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
-
-            ImGui::Begin("Scene browser");
-
-            ImGui::GetStyle().WindowRounding = 5.0f;
-
-            ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
-            if (ImGui::TreeNode("Scene"))
-            {
-                for (const auto e : process->getCurrentScene()->getTopLevelEntities())
-                    displayEntityNode(e);
-                ImGui::TreePop();
-            }
-
-            ImGui::End();
-        }
-
-        if (selectedEntity)
-        {
-            float windowWidth = 320.f;
-            float windowHeight = io.DisplaySize.y;
-            float x = io.DisplaySize.x - windowWidth;
-
-            ImGui::SetNextWindowPos(ImVec2(x, 0.f), ImGuiCond_Appearing);
-            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
-
-            ImGui::Begin("Details");
-
-            displayEntityInfo(selectedEntity);
-            displayTransform(selectedEntity->getTransform());
-            displayComponents(selectedEntity);
-
-            ImGui::End();
-        }
-
-        {
-            ImGui::ShowDemoWindow();
-        }
-    }));
+//    process->getUIRenderers().emplace_back(new DearIMGUIPrototype(context->getWindow(), [](Process *process)
+//    {
+//        {
+//            ImGui::ShowDemoWindow();
+//        }
+//    }));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
