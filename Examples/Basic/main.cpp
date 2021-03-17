@@ -109,9 +109,38 @@ void displayEntityInfo(Entity *entity)
 
             ImGui::SetNextItemWidth(-FLT_MIN);
             ImGui::InputTextWithHint(
-                    makeString("", entity).c_str(), "Enter name",
+                    makeString("##Name", entity).c_str(), "Enter name",
                     name, IM_ARRAYSIZE(name),
                     ImGuiInputTextFlags_CallbackEdit, updateName, entity);
+        }
+
+        ImGui::Separator();
+    }
+}
+
+
+void displayTransform(Transform *transform)
+{
+    ImGui::SetNextItemOpen(true, ImGuiCond_Appearing);
+
+    if (ImGui::CollapsingHeader(makeString("Transform", transform).c_str()))
+    {
+        {
+            vec3 position = transform->getPosition();
+            ImGui::DragFloat3(makeString("Position", transform).c_str(), value_ptr(position), .01f);
+            transform->setPosition(position);
+        }
+
+        {
+            vec3 scale = transform->getScale();
+            ImGui::DragFloat3(makeString("Scale", transform).c_str(), value_ptr(scale), .01f);
+            transform->setScale(scale);
+        }
+
+        {
+            vec3 rotation = degrees(transform->getEuler());
+            ImGui::DragFloat3(makeString("Rotation", transform).c_str(), value_ptr(rotation), .5f, 0.f, 0.f, "%.1f°");
+            transform->setEuler(radians(rotation));
         }
 
         ImGui::Separator();
@@ -264,6 +293,7 @@ int main()
             ImGui::Begin("Details");
 
             displayEntityInfo(selectedEntity);
+            displayTransform(selectedEntity->getTransform());
             displayComponents(selectedEntity);
 
             ImGui::End();
