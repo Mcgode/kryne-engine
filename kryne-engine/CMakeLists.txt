@@ -104,7 +104,12 @@ add_library(kryne-engine STATIC
         src/Material/AdditionalMaterials/TextureCopyMaterial.cpp include/kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h
         src/Rendering/Additional/ShaderPass.cpp include/kryne-engine/Rendering/Additional/ShaderPass.h
         src/UI/DearIMGUI.cpp include/kryne-engine/UI/DearIMGUI.h
-        include/kryne-engine/UI/UIRenderer.hpp include/kryne-engine/Utils/UniquePtrVector.hpp include/kryne-engine/UI/DearIMGUIPrototype.hpp)
+        include/kryne-engine/UI/UIRenderer.hpp
+        include/kryne-engine/Utils/UniquePtrVector.hpp
+        include/kryne-engine/UI/DearIMGUIPrototype.hpp
+        src/UI/DearImGuiSceneBrowser.cpp include/kryne-engine/UI/DearImGuiSceneBrowser.hpp
+        include/kryne-engine/Utils/DreamImGui.hpp
+        )
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
