@@ -14,6 +14,7 @@ class Transform;
 
 
 #include <vector>
+#include <imgui.h>
 
 
 using namespace std;
@@ -61,6 +62,19 @@ public:
 protected:
 
     string componentName = "Component";
+
+
+// -----
+// DearImGui
+// -----
+
+
+public:
+
+    /**
+     * @brief Renders custom GUI for component details.
+     */
+    virtual void renderComponentDetails() {}
 
 
 // -----
