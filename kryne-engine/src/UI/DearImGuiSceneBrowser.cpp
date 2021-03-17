@@ -141,6 +141,8 @@ void DearImGuiSceneBrowser::displayEntityInfo(Entity *entity)
                     ImGuiInputTextFlags_CallbackEdit, DearImGuiSceneBrowser::updateName, entity);
         }
 
+        entity->renderEntityDetails();
+
         ImGui::Separator();
     }
 }
@@ -195,6 +197,8 @@ void DearImGuiSceneBrowser::displayComponents(Entity *entity)
                 ImGui::Checkbox(ImGuiLabel("Enabled", component), &enabled);
                 component->setEnabled(enabled);
             }
+
+            component->renderComponentDetails();
 
             ImGui::Separator();
         }
