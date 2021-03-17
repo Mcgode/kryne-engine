@@ -40,10 +40,29 @@ void OpenGLFramebuffer::setAsRenderTarget()
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this->width, this->height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
             glBindTexture(GL_TEXTURE_2D, 0);
 
-            glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texture, 0);
 
             attachment.texture = make_shared<Texture2D>(texture);
         }
     }
+
+    if (this->depthStencilAttachment)
+    {
+        if (this->depthStencilAttachment->texture == nullptr)
+        {
+            GLuint texture;
+            glGenTextures(1, &texture);
+            glBindTexture(GL_TEXTURE_2D, texture);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, this->width, this->height, 0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, nullptr);
+            glBindTexture(GL_TEXTURE_2D, 0);
+
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, texture, 0);
+        }
+    }
+}
+
+
+void OpenGLFramebuffer::setUpDepthLayer()
+{
+    this->depthStencilAttachment = make_unique<AttachmentData>();
 }

@@ -33,6 +33,8 @@ public:
 
     virtual void addColorAttachment() = 0;
 
+    virtual void setUpDepthLayer() = 0;
+
     virtual shared_ptr<Texture> retrieveColor(uint8_t index) = 0;
 
 };

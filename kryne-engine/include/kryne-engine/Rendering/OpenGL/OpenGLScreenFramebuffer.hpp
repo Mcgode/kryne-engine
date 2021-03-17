@@ -24,6 +24,7 @@ public:
 
     void addColorAttachment() override {}
 
+    void setUpDepthLayer() override {}
 
     shared_ptr<Texture> retrieveColor(uint8_t index) override { return nullptr; }
 
