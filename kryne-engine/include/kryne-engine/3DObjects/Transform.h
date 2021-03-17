@@ -192,6 +192,23 @@ public:
     {
         matrixWorldNeedsUpdate |= compareNeedsUpdate(quat, Transform::quaternion);
         Transform::quaternion = glm::quat(quat);
+        Transform::euler = glm::eulerAngles(quat);
+    }
+
+    /**
+     * Retrieve the current object euler angles
+     */
+    [[nodiscard]] const vec3 &getEuler() const { return euler; }
+
+    /**
+     * Change the object rotation.
+     * @param newEuler The new euler angles value.
+     */
+    void setEuler(const vec3 &newEuler)
+    {
+        matrixWorldNeedsUpdate |= compareNeedsUpdate(newEuler, Transform::euler);
+        Transform::euler = newEuler;
+        Transform::quaternion = glm::quat(newEuler);
     }
 
     /**
@@ -250,6 +267,9 @@ protected:
 
     /// The local rotation quaternion.
     glm::quat quaternion {};
+
+    /// The local rotation euler angles.
+    glm::vec3 euler {};
 
     /// The local object scale.
     glm::vec3 scale {};
