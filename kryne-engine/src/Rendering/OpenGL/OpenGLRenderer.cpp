@@ -14,7 +14,10 @@ OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
         context(context)
 {
     this->writeFramebuffer->addColorAttachment();
+    this->writeFramebuffer->setUpDepthLayer();
+
     this->readFramebuffer->addColorAttachment();
+    this->readFramebuffer->setUpDepthLayer();
 
     this->fullscreenPlane = make_unique<PlaneBufferGeometry>(2.f, 2.f);
 }

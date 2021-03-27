@@ -78,4 +78,9 @@ protected:
 
     Math::Sphere boundingSphere;
 
+
+public:
+
+    void renderComponentDetails() override;
+
 };

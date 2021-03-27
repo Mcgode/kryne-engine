@@ -32,6 +32,8 @@ public:
 
     void addColorAttachment() override;
 
+    void setUpDepthLayer() override;
+
 protected:
 
     struct AttachmentData {
@@ -41,6 +43,8 @@ protected:
     };
 
     vector<AttachmentData> attachments;
+
+    unique_ptr<AttachmentData> depthStencilAttachment {};
 
 };
 

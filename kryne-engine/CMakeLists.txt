@@ -101,7 +101,15 @@ add_library(kryne-engine STATIC
         src/Rendering/OpenGL/OpenGLFramebuffer.cpp include/kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h
         include/kryne-engine/Rendering/OpenGL/OpenGLScreenFramebuffer.hpp
         src/Geometry/PlaneBufferGeometry.cpp include/kryne-engine/Geometry/PlaneBufferGeometry.h
-        src/Material/AdditionalMaterials/TextureCopyMaterial.cpp include/kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h src/Rendering/Additional/ShaderPass.cpp include/kryne-engine/Rendering/Additional/ShaderPass.h)
+        src/Material/AdditionalMaterials/TextureCopyMaterial.cpp include/kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h
+        src/Rendering/Additional/ShaderPass.cpp include/kryne-engine/Rendering/Additional/ShaderPass.h
+        src/UI/DearImGui.cpp include/kryne-engine/UI/DearImGui.h
+        include/kryne-engine/UI/UIRenderer.hpp
+        include/kryne-engine/Utils/UniquePtrVector.hpp
+        include/kryne-engine/UI/DearImGuiPrototype.hpp
+        src/UI/DearImGuiSceneBrowser.cpp include/kryne-engine/UI/DearImGuiSceneBrowser.hpp
+        include/kryne-engine/Utils/DreamImGui.hpp
+        include/kryne-engine/UI/DearImGuiComponent.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

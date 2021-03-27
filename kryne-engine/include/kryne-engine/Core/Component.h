@@ -14,6 +14,8 @@ class Transform;
 
 
 #include <vector>
+#include <imgui.h>
+#include <string>
 
 
 using namespace std;
@@ -48,6 +50,61 @@ protected:
 
     /// The entity this component is attached to.
     Entity *associatedEntity;
+
+
+// -----
+// Name
+// -----
+
+public:
+
+    [[nodiscard]] const string &getComponentName() const { return componentName; }
+
+protected:
+
+    string componentName = "Component";
+
+
+// -----
+// DearImGui
+// -----
+
+
+public:
+
+    /**
+     * @brief Renders custom GUI for component details.
+     */
+    virtual void renderComponentDetails() {}
+
+
+// -----
+// Enabling
+// -----
+
+
+public:
+
+    /**
+     * Retrieves the value of #enabled
+     * @return
+     */
+    [[nodiscard]] inline bool isEnabled() const { return enabled; }
+
+    /**
+     * @brief Enables/disables the component.
+     *
+     * @details
+     * When disabled, a component won't be updated or rendered.
+     *
+     * @param newValue Set to `true` to enable, `false` to disable.
+     */
+    void setEnabled(bool newValue) { this->enabled = newValue; }
+
+protected:
+
+    /// Enabled status of the component.
+    bool enabled = true;
 
 
 // -----

@@ -80,6 +80,13 @@ void Process::runLoop()
 
     const auto renderer = this->context->getRenderer();
 
+    vector<UIRenderer *> activeUIRenderers;
+    for (const auto &uiRenderer : this->uiRenderers)
+    {
+        if (uiRenderer->isEnabled())
+            activeUIRenderers.push_back(uiRenderer.get());
+    }
+
     if (this->currentScene != nullptr)
     {
         for (const auto entity : this->currentScene->getEntities())
@@ -101,6 +108,10 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
         renderer->renderToScreen();
 
+    this->getPlayerInput()->setExternallyCaptured(false, false);
+    for (auto uiRenderer : activeUIRenderers)
+        uiRenderer->render(this);
+
     Dispatcher::instance().waitDelayed();
 
     this->context->endFrame();
@@ -109,6 +120,9 @@ void Process::runLoop()
 
 void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 {
+    if (!entity->isEnabled())
+        return;
+
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
         // No data race can happen in this state, since any entity is only called once by all parallel threads.
@@ -169,6 +183,9 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
 {
     for (const auto entity : entities)
     {
+        if (!entity->isEnabled())
+            continue;
+
         Dispatcher::instance().parallel()->enqueue([this, entity]()
         {
             stack<Entity *> processStack;

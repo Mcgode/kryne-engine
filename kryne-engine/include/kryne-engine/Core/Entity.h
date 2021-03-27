@@ -18,6 +18,7 @@ class Process;
 #include <vector>
 #include <unordered_set>
 #include <mutex>
+#include <imgui.h>
 
 // Pre-declared circular dependencies includes
 #include <kryne-engine/3DObjects/Transform.h>
@@ -71,6 +72,35 @@ private:
 
     /// The process this entity is attached to.
     Process *process;
+
+
+// -----
+// Name
+// -----
+
+
+public:
+
+    [[nodiscard]] const string &getName() const { return name; }
+
+    void setName(const string &newName) { Entity::name = newName; }
+
+protected:
+
+    string name = "Entity";
+
+
+// -----
+// DearImGui
+// -----
+
+
+public:
+
+    /**
+     * @brief Renders custom GUI for entity details.
+     */
+    virtual void renderEntityDetails() {}
 
 
 // -----
@@ -186,6 +216,9 @@ public:
 
         return result;
     }
+
+
+    vector<Component *> getAllComponents();
 
 private:
 
