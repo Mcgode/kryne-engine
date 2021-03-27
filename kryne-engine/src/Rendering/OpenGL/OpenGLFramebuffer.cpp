@@ -28,6 +28,8 @@ void OpenGLFramebuffer::setAsRenderTarget()
 
     glBindFramebuffer(GL_FRAMEBUFFER, this->fbo);
 
+    bool changed = false;
+
     for (size_t i = 0; i < this->attachments.size(); i++)
     {
         auto &attachment = this->attachments[i];
@@ -43,6 +45,7 @@ void OpenGLFramebuffer::setAsRenderTarget()
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texture, 0);
 
             attachment.texture = make_shared<Texture2D>(texture);
+            changed = true;
         }
     }
 
@@ -57,7 +60,15 @@ void OpenGLFramebuffer::setAsRenderTarget()
             glBindTexture(GL_TEXTURE_2D, 0);
 
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, texture, 0);
+            this->depthStencilAttachment->texture = make_shared<Texture2D>(texture);
+            changed = true;
         }
+    }
+
+    if (changed)
+    {
+        if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+            throw runtime_error("ERROR::FRAMEBUFFER:: Framebuffer is not complete!");
     }
 }
 
