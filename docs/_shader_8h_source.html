@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('_shader_8h_source.html',''); initResiz
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="class_shader.html">Shader</a>();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> linkProgram(<span class="keyword">const</span> GLuint &amp;vertex, <span class="keyword">const</span> GLuint &amp;fragment) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> linkProgram(<span class="keyword">const</span> GLuint &amp;vertex, <span class="keyword">const</span> GLuint &amp;fragment);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
@@ -152,13 +152,13 @@ $(document).ready(function(){initNavTree('_shader_8h_source.html',''); initResiz
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        Shader::needsUpdate |= <a class="code" href="_shader_8h.html#a0682a6f83d3f2a8b6f25ee25e576c231">SHADER_VERTEX_NEEDS_UPDATE</a>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">  132</a></span>&#160;    [[nodiscard]] uint8_t <a class="code" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">getNeedsUpdate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a>; }</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">  132</a></span>&#160;    [[nodiscard]] uint8_t <a class="code" href="class_shader.html#a8dbd8d624b47ff9210792cf212b354cb">getNeedsUpdate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> needsUpdate; }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    GLuint programID;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    uint8_t <a class="code" href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a> = 0b00;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    uint8_t needsUpdate = 0b00;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">string</span> vertexShader;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
@@ -232,7 +232,6 @@ $(document).ready(function(){initNavTree('_shader_8h_source.html',''); initResiz
 <div class="ttc" id="aclass_shader_html_ae61e5eede95aea935a9ed04722184af1"><div class="ttname"><a href="class_shader.html#ae61e5eede95aea935a9ed04722184af1">Shader::setVertexShader</a></div><div class="ttdeci">void setVertexShader(const string &amp;newVertexShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:107</div></div>
 <div class="ttc" id="aclass_shader_html_a14cbf6a53594238fd33c1b051f319270"><div class="ttname"><a href="class_shader.html#a14cbf6a53594238fd33c1b051f319270">Shader::removeDefine</a></div><div class="ttdeci">bool removeDefine(const string &amp;defineName)</div><div class="ttdef"><b>Definition:</b> Shader.h:176</div></div>
 <div class="ttc" id="aclass_shader_html_aba3a4c3871308ae17fadb917b85e54a9"><div class="ttname"><a href="class_shader.html#aba3a4c3871308ae17fadb917b85e54a9">Shader::notifyUniformLocationsNeedUpdate</a></div><div class="ttdeci">void notifyUniformLocationsNeedUpdate()</div><div class="ttdef"><b>Definition:</b> Shader.h:206</div></div>
-<div class="ttc" id="a_transform_8h_html_aa4d748d302384e9610a8f8038f30ab6a"><div class="ttname"><a href="_transform_8h.html#aa4d748d302384e9610a8f8038f30ab6a">needsUpdate</a></div><div class="ttdeci">#define needsUpdate(a, b)</div><div class="ttdef"><b>Definition:</b> Transform.h:145</div></div>
 <div class="ttc" id="aclass_shader_html_afa65ccfbc91a1ec842bd2a5ad3d7fe38"><div class="ttname"><a href="class_shader.html#afa65ccfbc91a1ec842bd2a5ad3d7fe38">Shader::Shader</a></div><div class="ttdeci">Shader(const string &amp;vertexShader, const string &amp;fragmentShader)</div><div class="ttdef"><b>Definition:</b> Shader.h:49</div></div>
 <div class="ttc" id="a_shader_8h_html_a59307b0b566d19fab211c96b74e1243f"><div class="ttname"><a href="_shader_8h.html#a59307b0b566d19fab211c96b74e1243f">SHADER_FRAGMENT_NEEDS_UPDATE</a></div><div class="ttdeci">#define SHADER_FRAGMENT_NEEDS_UPDATE</div><div class="ttdef"><b>Definition:</b> Shader.h:19</div></div>
 <div class="ttc" id="aclass_shader_html_a06a13afc6b863a1eb9740a2627888e30"><div class="ttname"><a href="class_shader.html#a06a13afc6b863a1eb9740a2627888e30">Shader::getFragmentShader</a></div><div class="ttdeci">const string &amp; getFragmentShader() const</div><div class="ttdef"><b>Definition:</b> Shader.h:116</div></div>

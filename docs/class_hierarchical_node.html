@@ -101,8 +101,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aae32988007be394ff79a2b60475503dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31f2e1069c0a61aed2cea22b5d7af210"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hierarchical_node.html#a31f2e1069c0a61aed2cea22b5d7af210">addChild</a> (<a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> *child)</td></tr>
 <tr class="separator:a31f2e1069c0a61aed2cea22b5d7af210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eb66809a20ef110d48b8c6e1a55b0ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hierarchical_node.html#a7eb66809a20ef110d48b8c6e1a55b0ca">draw</a> (<a class="el" href="class_render_pass.html">RenderPass</a> *renderer, glm::mat4 view, glm::mat4 model, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)</td></tr>
-<tr class="separator:a7eb66809a20ef110d48b8c6e1a55b0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad037a44b0c5f0f4888f979a1337a8661"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hierarchical_node.html#ad037a44b0c5f0f4888f979a1337a8661">~HierarchicalNode</a> ()</td></tr>
 <tr class="separator:ad037a44b0c5f0f4888f979a1337a8661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -198,6 +196,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Draws the node objects and its children to the current framebuffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>The rendering handler. </td></tr>
+    <tr><td class="paramname">view</td><td>The view transform matrix of the scene. </td></tr>
+    <tr><td class="paramname">model</td><td>The combined model transform matrix of the scene and the node successive parents. </td></tr>
+    <tr><td class="paramname">params</td><td>The additional params to pass down the rendering pipeline. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -249,60 +256,6 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The pointer to the current <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a>. Used for call chains. </dd></dl>
-
-</div>
-</div>
-<a id="a7eb66809a20ef110d48b8c6e1a55b0ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7eb66809a20ef110d48b8c6e1a55b0ca">&#9670;&nbsp;</a></span>draw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HierarchicalNode::draw </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_render_pass.html">RenderPass</a> *&#160;</td>
-          <td class="paramname"><em>renderer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>view</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>model</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *&#160;</td>
-          <td class="paramname"><em>params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Draws the node objects and its children to the current framebuffer </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">renderer</td><td>The rendering handler. </td></tr>
-    <tr><td class="paramname">view</td><td>The view transform matrix of the scene. </td></tr>
-    <tr><td class="paramname">model</td><td>The combined model transform matrix of the scene and the node successive parents. </td></tr>
-    <tr><td class="paramname">params</td><td>The additional params to pass down the rendering pipeline. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_hierarchical_node_a7eb66809a20ef110d48b8c6e1a55b0ca_cgraph.svg" width="388" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

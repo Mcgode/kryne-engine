@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_loop_renderer.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_loop_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LoopRenderer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -102,14 +103,48 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0b406ec23ddf8953e17fc65f1f5b5be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c060e0cab35e5fbe85776950826442a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">handleMesh</a> (<a class="el" href="class_render_mesh.html">RenderMesh</a> *renderMesh)=0</td></tr>
 <tr class="separator:a7c060e0cab35e5fbe85776950826442a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34af7166c4de7f37f79d40fcfbd99353"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a34af7166c4de7f37f79d40fcfbd99353">parseScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)=0</td></tr>
-<tr class="separator:a34af7166c4de7f37f79d40fcfbd99353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bffd994023b4596d2965a57846484e5"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="class_entity.html">Entity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a0bffd994023b4596d2965a57846484e5">parseScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)=0</td></tr>
+<tr class="separator:a0bffd994023b4596d2965a57846484e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d5481d2ae18bd3619d3556e51b13c7e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">setCamera</a> (<a class="el" href="class_camera.html">Camera</a> *camera)=0</td></tr>
 <tr class="separator:a9d5481d2ae18bd3619d3556e51b13c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d51d9de9051be022798d291b4a01276"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276">getRenderingMode</a> () const</td></tr>
+<tr class="separator:a6d51d9de9051be022798d291b4a01276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab38b9a3759bf130522f992bc906d4f10"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">setRenderingMode</a> (<a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> mode)</td></tr>
+<tr class="separator:ab38b9a3759bf130522f992bc906d4f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a846d1a9ee557cb91d48375b5f7c4930e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">renderMode</a> = <a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88a33536bf13c4f79ef408651544f7a57d6">ForwardRendering</a></td></tr>
+<tr class="separator:a846d1a9ee557cb91d48375b5f7c4930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A renderer that will be run in the game loop. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6d51d9de9051be022798d291b4a01276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d51d9de9051be022798d291b4a01276">&#9670;&nbsp;</a></span>getRenderingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> LoopRenderer::getRenderingMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7c060e0cab35e5fbe85776950826442a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c060e0cab35e5fbe85776950826442a">&#9670;&nbsp;</a></span>handleMesh()</h2>
 
@@ -138,8 +173,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a34af7166c4de7f37f79d40fcfbd99353"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34af7166c4de7f37f79d40fcfbd99353">&#9670;&nbsp;</a></span>parseScene()</h2>
+<a id="a0bffd994023b4596d2965a57846484e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bffd994023b4596d2965a57846484e5">&#9670;&nbsp;</a></span>parseScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +183,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void LoopRenderer::parseScene </td>
+          <td class="memname">virtual std::vector&lt;<a class="el" href="class_entity.html">Entity</a> *&gt; LoopRenderer::parseScene </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
           <td class="paramname"><em>scene</em></td><td>)</td>
@@ -162,7 +197,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_open_g_l_renderer.html#a560ad92b36db4fa6101d094a01e98a84">OpenGLRenderer</a>.</p>
+<p>Implemented in <a class="el" href="class_open_g_l_renderer.html#affb404bd0e0f848c51cfe52d80592b4a">OpenGLRenderer</a>.</p>
 
 </div>
 </div>
@@ -218,6 +253,55 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="class_open_g_l_renderer.html#a37367a2f72f93dfdfe32ae7ef24ba1a9">OpenGLRenderer</a>.</p>
+
+</div>
+</div>
+<a id="ab38b9a3759bf130522f992bc906d4f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab38b9a3759bf130522f992bc906d4f10">&#9670;&nbsp;</a></span>setRenderingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void LoopRenderer::setRenderingMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a846d1a9ee557cb91d48375b5f7c4930e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a846d1a9ee557cb91d48375b5f7c4930e">&#9670;&nbsp;</a></span>renderMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> LoopRenderer::renderMode = <a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88a33536bf13c4f79ef408651544f7a57d6">ForwardRendering</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

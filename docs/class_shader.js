@@ -11,7 +11,7 @@ var class_shader =
     [ "getFragmentShader", "class_shader.html#a06a13afc6b863a1eb9740a2627888e30", null ],
     [ "getNeedsUpdate", "class_shader.html#a8dbd8d624b47ff9210792cf212b354cb", null ],
     [ "getVertexShader", "class_shader.html#a8beb925ecccca417ef349bdfb79635d5", null ],
-    [ "linkProgram", "class_shader.html#a7637efa75bb0ae98a750d644cb6d353e", null ],
+    [ "linkProgram", "class_shader.html#aa61bf5a5591777aea02d22ad173c3e96", null ],
     [ "loadShaderFromFile", "class_shader.html#ad6b977ab2afc45fe10382616ac4f899c", null ],
     [ "makeDefinesCode", "class_shader.html#a0c7f6034531e85b8581b71a24e183232", null ],
     [ "notifyUniformLocationsNeedUpdate", "class_shader.html#aba3a4c3871308ae17fadb917b85e54a9", null ],

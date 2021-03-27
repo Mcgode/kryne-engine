@@ -2,6 +2,8 @@
 // Created by Max Godefroy on 22/11/2020.
 //
 
+#define KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
+
 #include <chrono>
 #include <KEModules/Rendering.h>
 #include <KEModules/Camera.h>
@@ -11,12 +13,19 @@
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
+#include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
+#include <kryne-engine/Rendering/Additional/ShaderPass.h>
+#include <kryne-engine/UI/DearImGui.h>
+#include <kryne-engine/UI/DearImGuiPrototype.hpp>
+#include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
+
 
 int main()
 {
     cout << "Is main thread: " << Dispatcher::instance().main()->isCurrentThread() << endl;
 
-    const auto process = make_unique<Process>(new OpenGLContext());
+    const auto context = new OpenGLContext();
+    const auto process = make_unique<Process>(context);
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);
     process->makeSystem<TransformUpdateSystem>();
@@ -60,20 +69,50 @@ int main()
 
         auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
         const auto entity = process->makeEntity<Entity>();
-        const auto mesh = entity->addComponent<RenderMesh>(geometry, material);
         entity->getTransform()->setScene(scene);
+
+        const vec3 offsets[4] = {
+            vec3(-2, 0, -2),
+            vec3(-2, 0, 2),
+            vec3(2, 0, -2),
+            vec3(2, 0, 2),
+        };
+
+        for (uint32_t i = 0; i < 2; i++)
+        {
+            auto cube = process->makeEntity<Entity>();
+            cube->addComponent<RenderMesh>(geometry, material);
+            auto transform = cube->getTransform();
+            entity->getTransform()->add(transform);
+            transform->setPosition(offsets[i]);
+            cube->setName("Cube" + to_string(i));
+        }
     });
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
     camera->getTransform()->setScene(scene);
+    camera->setName("OrbitCamera");
     process->getGraphicContext()->getRenderer()->setCamera(camera);
+
+    const auto copyMaterial = make_shared<TextureCopyMaterial>();
+    auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
+    process->getGraphicContext()->getRenderer()->addPass(move(pass));
+
+    auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
+
+    dearImGui->getComponents().emplace_back(new DearImGuiSceneBrowser());
+
+    dearImGui->getComponents().emplace_back(new DearImGuiPrototype([](Process *process)
+    {
+        ImGui::ShowDemoWindow();
+    }));
 
     using namespace std::chrono;
     uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
     double t;
-    while (!process->getGraphicContext()->shouldStop()) {
-
+    while (!process->getGraphicContext()->shouldStop())
+    {
         uint64_t uit = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
         t = (uit - start);
         t /= 1000.0;

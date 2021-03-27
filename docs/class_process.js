@@ -12,6 +12,7 @@ var class_process =
     [ "makeSystem", "class_process.html#a156371553fd7977d500b20bb87422184", null ],
     [ "processEntity", "class_process.html#adacaacc98cf833d280668358d9e93355", null ],
     [ "runLoop", "class_process.html#a47116adb4c3d85e3d7f11e3f6ba2e7d3", null ],
+    [ "runPriorityPreProcesses", "class_process.html#a5ad258d342f4df82ca40e2fdd518dfb2", null ],
     [ "setCurrentScene", "class_process.html#a53ee2472f9194356dd239b121c5b12be", null ],
     [ "context", "class_process.html#a8702579dadfdf9f5773a051504d62504", null ],
     [ "currentScene", "class_process.html#ab27fb4af9a9e8e933389d9c939d0b818", null ],

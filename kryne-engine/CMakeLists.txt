@@ -25,7 +25,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/enums/SkyboxDrawOrder.h
         include/kryne-engine/enums/BaseObject.h
         src/Rendering/MainRenderer.cpp include/kryne-engine/Rendering/MainRenderer.h
-        include/kryne-engine/Rendering/RenderPass.h
+        include/kryne-engine/Rendering/OldRenderPass.h
         src/Rendering/ShadowMapping/ShadowMapHandler.cpp include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
         src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
         src/Core/OldProcess.cpp include/kryne-engine/Core/OldProcess.h
@@ -80,8 +80,8 @@ add_library(kryne-engine STATIC
         src/Core/LogicComponent.cpp include/kryne-engine/Core/LogicComponent.h
         include/kryne-engine/enums/SystemTypes.h
         src/Systems/TransformUpdateSystem.cpp include/kryne-engine/Systems/TransformUpdateSystem.h
-        include/kryne-engine/Rendering/LoopRenderer.h
-        include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h src/Rendering/Renderers/OpenGLRenderer.cpp
+        src/Rendering/LoopRenderer.cpp include/kryne-engine/Rendering/LoopRenderer.h
+        include/kryne-engine/Rendering/OpenGL/OpenGLRenderer.h src/Rendering/OpenGL/OpenGLRenderer.cpp
         src/Systems/GameLogicComponentsRunner.cpp include/kryne-engine/Systems/GameLogicComponentsRunner.h
         src/Dispatch/Dispatcher.cpp include/kryne-engine/Dispatch/Dispatcher.h
         src/Dispatch/RunnerPool.cpp include/kryne-engine/Dispatch/RunnerPool.h
@@ -90,7 +90,26 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Utils/Debugging.hpp
         src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
         src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
-        )
+        include/kryne-engine/enums/RenderMode.h
+        src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h
+        include/kryne-engine/Math/Sphere.hpp
+        include/kryne-engine/Math/AxisAlignedBox.hpp
+        include/kryne-engine/Math/Frustum.hpp
+        include/kryne-engine/Math/Plane.hpp
+        src/Rendering/PostProcessPass.cpp include/kryne-engine/Rendering/PostProcessPass.h
+        include/kryne-engine/Rendering/Framebuffer.hpp
+        src/Rendering/OpenGL/OpenGLFramebuffer.cpp include/kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h
+        include/kryne-engine/Rendering/OpenGL/OpenGLScreenFramebuffer.hpp
+        src/Geometry/PlaneBufferGeometry.cpp include/kryne-engine/Geometry/PlaneBufferGeometry.h
+        src/Material/AdditionalMaterials/TextureCopyMaterial.cpp include/kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h
+        src/Rendering/Additional/ShaderPass.cpp include/kryne-engine/Rendering/Additional/ShaderPass.h
+        src/UI/DearImGui.cpp include/kryne-engine/UI/DearImGui.h
+        include/kryne-engine/UI/UIRenderer.hpp
+        include/kryne-engine/Utils/UniquePtrVector.hpp
+        include/kryne-engine/UI/DearImGuiPrototype.hpp
+        src/UI/DearImGuiSceneBrowser.cpp include/kryne-engine/UI/DearImGuiSceneBrowser.hpp
+        include/kryne-engine/Utils/DreamImGui.hpp
+        include/kryne-engine/UI/DearImGuiComponent.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

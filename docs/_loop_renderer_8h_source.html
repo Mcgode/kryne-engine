@@ -89,41 +89,62 @@ $(document).ready(function(){initNavTree('_loop_renderer_8h_source.html',''); in
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_render_mesh.html">RenderMesh</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="class_scene.html">Scene</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_loop_renderer.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_loop_renderer.html">LoopRenderer</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5">   24</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5">prepareFrame</a>() = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_mode_8h.html">kryne-engine/enums/RenderMode.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_render_mesh.html">RenderMesh</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="class_scene.html">Scene</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="class_entity.html">Entity</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_loop_renderer.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_loop_renderer.html">LoopRenderer</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">   26</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">handleMesh</a>(<a class="code" href="class_render_mesh.html">RenderMesh</a> *renderMesh) = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a34af7166c4de7f37f79d40fcfbd99353">   28</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a34af7166c4de7f37f79d40fcfbd99353">parseScene</a>(<a class="code" href="class_scene.html">Scene</a> *scene) = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5">   28</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5">prepareFrame</a>() = 0;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">   30</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">setCamera</a>(<a class="code" href="class_camera.html">Camera</a> *camera) = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">   30</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">handleMesh</a>(<a class="code" href="class_render_mesh.html">RenderMesh</a> *renderMesh) = 0;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a0bffd994023b4596d2965a57846484e5">   32</a></span>&#160;    <span class="keyword">virtual</span> std::vector&lt;Entity *&gt; <a class="code" href="class_loop_renderer.html#a0bffd994023b4596d2965a57846484e5">parseScene</a>(<a class="code" href="class_scene.html">Scene</a> *scene) = 0;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_scene_8h.html">kryne-engine/3DObjects/Scene.h</a>&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_mesh_8h.html">kryne-engine/Rendering/RenderMesh.h</a>&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">   34</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">setCamera</a>(<a class="code" href="class_camera.html">Camera</a> *camera) = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276">   36</a></span>&#160;    [[nodiscard]] <a class="code" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> <a class="code" href="class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276">getRenderingMode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">renderMode</a>; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">   38</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">setRenderingMode</a>(<a class="code" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> mode) { this-&gt;<a class="code" href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">renderMode</a> = mode; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">   42</a></span>&#160;    <a class="code" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> <a class="code" href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">renderMode</a> = <a class="code" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88a33536bf13c4f79ef408651544f7a57d6">ForwardRendering</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_entity_8h.html">kryne-engine/Core/Entity.h</a>&gt;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_scene_8h.html">kryne-engine/3DObjects/Scene.h</a>&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_mesh_8h.html">kryne-engine/Rendering/RenderMesh.h</a>&gt;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_scene_8h_html"><div class="ttname"><a href="_scene_8h.html">Scene.h</a></div></div>
 <div class="ttc" id="aclass_loop_renderer_html_a9d5481d2ae18bd3619d3556e51b13c7e"><div class="ttname"><a href="class_loop_renderer.html#a9d5481d2ae18bd3619d3556e51b13c7e">LoopRenderer::setCamera</a></div><div class="ttdeci">virtual void setCamera(Camera *camera)=0</div></div>
 <div class="ttc" id="aclass_loop_renderer_html_a7c060e0cab35e5fbe85776950826442a"><div class="ttname"><a href="class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a">LoopRenderer::handleMesh</a></div><div class="ttdeci">virtual void handleMesh(RenderMesh *renderMesh)=0</div></div>
-<div class="ttc" id="aclass_loop_renderer_html_a34af7166c4de7f37f79d40fcfbd99353"><div class="ttname"><a href="class_loop_renderer.html#a34af7166c4de7f37f79d40fcfbd99353">LoopRenderer::parseScene</a></div><div class="ttdeci">virtual void parseScene(Scene *scene)=0</div></div>
+<div class="ttc" id="aclass_loop_renderer_html_ab38b9a3759bf130522f992bc906d4f10"><div class="ttname"><a href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">LoopRenderer::setRenderingMode</a></div><div class="ttdeci">virtual void setRenderingMode(RenderMode mode)</div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:38</div></div>
+<div class="ttc" id="a_render_mode_8h_html_ac9e546db27bb4f76f47d7e25f24abb88"><div class="ttname"><a href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a></div><div class="ttdeci">RenderMode</div><div class="ttdef"><b>Definition:</b> RenderMode.h:12</div></div>
 <div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:22</div></div>
+<div class="ttc" id="a_render_mode_8h_html_ac9e546db27bb4f76f47d7e25f24abb88a33536bf13c4f79ef408651544f7a57d6"><div class="ttname"><a href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88a33536bf13c4f79ef408651544f7a57d6">ForwardRendering</a></div><div class="ttdeci">@ ForwardRendering</div><div class="ttdoc">Forward rendering mode.</div><div class="ttdef"><b>Definition:</b> RenderMode.h:16</div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="a_render_mode_8h_html"><div class="ttname"><a href="_render_mode_8h.html">RenderMode.h</a></div></div>
+<div class="ttc" id="aclass_loop_renderer_html_a846d1a9ee557cb91d48375b5f7c4930e"><div class="ttname"><a href="class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e">LoopRenderer::renderMode</a></div><div class="ttdeci">RenderMode renderMode</div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:42</div></div>
 <div class="ttc" id="aclass_render_mesh_html"><div class="ttname"><a href="class_render_mesh.html">RenderMesh</a></div><div class="ttdef"><b>Definition:</b> RenderMesh.h:16</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:30</div></div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:17</div></div>
+<div class="ttc" id="aclass_loop_renderer_html_a6d51d9de9051be022798d291b4a01276"><div class="ttname"><a href="class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276">LoopRenderer::getRenderingMode</a></div><div class="ttdeci">RenderMode getRenderingMode() const</div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:36</div></div>
+<div class="ttc" id="aclass_loop_renderer_html_a0bffd994023b4596d2965a57846484e5"><div class="ttname"><a href="class_loop_renderer.html#a0bffd994023b4596d2965a57846484e5">LoopRenderer::parseScene</a></div><div class="ttdeci">virtual std::vector&lt; Entity * &gt; parseScene(Scene *scene)=0</div></div>
 <div class="ttc" id="a_render_mesh_8h_html"><div class="ttname"><a href="_render_mesh_8h.html">RenderMesh.h</a></div></div>
-<div class="ttc" id="aclass_loop_renderer_html"><div class="ttname"><a href="class_loop_renderer.html">LoopRenderer</a></div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:20</div></div>
+<div class="ttc" id="aclass_loop_renderer_html"><div class="ttname"><a href="class_loop_renderer.html">LoopRenderer</a></div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:24</div></div>
 <div class="ttc" id="aclass_loop_renderer_html_a0b406ec23ddf8953e17fc65f1f5b5be5"><div class="ttname"><a href="class_loop_renderer.html#a0b406ec23ddf8953e17fc65f1f5b5be5">LoopRenderer::prepareFrame</a></div><div class="ttdeci">virtual void prepareFrame()=0</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

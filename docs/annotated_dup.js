@@ -1,5 +1,6 @@
 var annotated_dup =
 [
+    [ "Math", "namespace_math.html", "namespace_math" ],
     [ "AdditionalParameters", "class_additional_parameters.html", "class_additional_parameters" ],
     [ "BaseObject", "class_base_object.html", "class_base_object" ],
     [ "BasePool", "class_base_pool.html", "class_base_pool" ],
@@ -35,6 +36,7 @@ var annotated_dup =
     [ "ModelMesh", "class_model_mesh.html", "class_model_mesh" ],
     [ "OldCamera", "class_old_camera.html", "class_old_camera" ],
     [ "OldProcess", "class_old_process.html", "class_old_process" ],
+    [ "OldRenderPass", "class_old_render_pass.html", "class_old_render_pass" ],
     [ "OpenGLContext", "class_open_g_l_context.html", "class_open_g_l_context" ],
     [ "OpenGLRenderer", "class_open_g_l_renderer.html", "class_open_g_l_renderer" ],
     [ "OrbitControlsComponent", "class_orbit_controls_component.html", "class_orbit_controls_component" ],

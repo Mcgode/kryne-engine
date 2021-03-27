@@ -4,12 +4,15 @@
  * @date 16/12/2020.
  */
 
+#include <kryne-engine/Utils/DreamImGui.hpp>
+
 #include "kryne-engine/Camera/OrbitControlsComponent.h"
 
 OrbitControlsComponent::OrbitControlsComponent(Entity *entity) :
     LogicComponent(entity)
 {
     this->setPosition(vec3(0, 0, 5));
+    this->componentName = "OrbitControlsComponent";
 }
 
 
@@ -88,4 +91,62 @@ void OrbitControlsComponent::updatePosition()
     pos *= this->distance;
     this->getTransform()->setPosition(pos + this->centerPosition);
     this->getTransform()->lookAt(this->centerPosition, vec3(0, 1, 0), true);
+}
+
+
+void OrbitControlsComponent::renderComponentDetails()
+{
+    using Utils::ImGuiLabel;
+
+    {
+        ImGui::AlignTextToFramePadding();
+        ImGui::Text("Mouse speed:");
+        ImGui::SameLine();
+
+        ImGui::SetNextItemWidth(130.f);
+        ImGui::DragFloat(ImGuiLabel("speed", this, true), &this->radiansPerMousePixel,
+                         0.0001f, 0.f, 0.1f, "%.4f units/px");
+    }
+
+    {
+        ImGui::AlignTextToFramePadding();
+        ImGui::Text("Maximum vertical angle:");
+        ImGui::SameLine();
+
+        ImGui::SetNextItemWidth(50.f);
+
+        float max_angle = glm::degrees(this->maxPhi);
+        ImGui::DragFloat(ImGuiLabel("max_angle", this, true), &max_angle,
+                         0.1f, 0.f, 89.9f, "%.1f°");
+        if (ImGui::IsItemEdited())
+        {
+            this->maxPhi = glm::radians(max_angle);
+            this->angle.y = glm::min(glm::max(angle.y, -this->maxPhi), this->maxPhi);
+            this->updatePosition();
+        }
+    }
+
+    {
+        ImGui::SetNextItemWidth(200.f);
+        vec3 position = this->getTransform()->getPosition();
+        ImGui::DragFloat3(ImGuiLabel("Local position", this), value_ptr(position), .01f);
+        if (ImGui::IsItemEdited())
+            this->setPosition(position);
+    }
+
+    {
+        ImGui::SetNextItemWidth(200.f);
+        vec3 position = this->centerPosition;
+        ImGui::DragFloat3(ImGuiLabel("Center position", this), value_ptr(position), .01f);
+        if (ImGui::IsItemEdited())
+            this->setCenterPosition(position);
+    }
+
+    {
+        ImGui::SetNextItemWidth(100.f);
+        vec3 position = this->centerPosition;
+        ImGui::DragFloat(ImGuiLabel("Distance to center", this), &this->distance, .01f, 0.01f, 1000.f);
+        if (ImGui::IsItemEdited())
+            this->updatePosition();
+    }
 }

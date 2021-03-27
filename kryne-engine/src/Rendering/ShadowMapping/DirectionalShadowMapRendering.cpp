@@ -66,9 +66,9 @@ void DirectionalShadowMapRendering::render(Window *window,
 
         auto view = this->computeMatrices();
 
-        for (HierarchicalNode *node: *rootNodes) {
-            node->draw(this, view, glm::mat4(1.0), params);
-        }
+//        for (HierarchicalNode *node: *rootNodes) {
+//            node->draw(this, view, glm::mat4(1.0), params);
+//        }
     }
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);

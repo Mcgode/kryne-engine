@@ -10,8 +10,11 @@ namespace fs = boost::filesystem;
 
 Texture2D::Texture2D(const std::string& filename, bool generateMipmap): Texture2D(0)
 {
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
     Dispatcher::instance().io()->enqueue([this, filename, generateMipmap]()
     {
+#endif
+
         int32_t width, height, nbChannels;
         void *data = stbi_load(filename.c_str(), &width, &height, &nbChannels, 0);
 
@@ -46,7 +49,10 @@ Texture2D::Texture2D(const std::string& filename, bool generateMipmap): Texture2
 
             stbi_image_free(data);
         });
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
     });
+#endif
 }
 
 shared_ptr<Texture2D> Texture2D::loadFromFileSync(const string &filename)

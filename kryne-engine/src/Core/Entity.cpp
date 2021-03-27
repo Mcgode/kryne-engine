@@ -18,3 +18,22 @@ uint32_t Entity::nextId()
     static atomic<uint32_t> counter {0};
     return ++counter;
 }
+
+
+void Entity::transformDidUpdate()
+{
+    for (const auto &component : this->components)
+    {
+        component->transformDidUpdate();
+    }
+}
+
+vector<Component *> Entity::getAllComponents()
+{
+    vector<Component *> result;
+
+    for (const auto &component : this->components)
+        result.push_back(component.get());
+
+    return result;
+}

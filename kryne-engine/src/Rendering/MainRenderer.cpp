@@ -32,8 +32,8 @@ MainRenderer::renderMain(Window *window, std::vector<HierarchicalNode *> *rootNo
     if (skyboxDrawOrder == SKYBOX_DRAW_FIRST)
         skybox->draw(projection, this->camera->getViewMatrix());
 
-    for (HierarchicalNode *node: *rootNodes)
-        node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
+//    for (HierarchicalNode *node: *rootNodes)
+//        node->draw(this, this->camera->getViewMatrix(), glm::mat4(1.0f), params);
 
     if (skyboxDrawOrder == SKYBOX_DRAW_LAST)
         skybox->draw(projection, this->camera->getViewMatrix());

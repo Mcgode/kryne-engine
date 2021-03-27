@@ -82,30 +82,127 @@ $(document).ready(function(){initNavTree('class_render_pass.html',''); initResiz
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_render_pass-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">RenderPass Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">RenderPass Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_render_pass_8h_source.html">RenderPass.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for RenderPass:</div>
+Collaboration diagram for RenderPass:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_pass__inherit__graph.svg" width="350" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_pass__coll__graph.svg" width="138" height="218"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad3fa6678a34a5bc739a3497ffaf71868"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> { <a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72">BeforeDeferred</a>, 
+<a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29">PostProcess</a>
+ }</td></tr>
+<tr class="separator:ad3fa6678a34a5bc739a3497ffaf71868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82c8808f4f1a9c97409ca45ad97c32b2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a82c8808f4f1a9c97409ca45ad97c32b2">render</a> (<a class="el" href="class_window.html">Window</a> *window, std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *rootNodes, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)=0</td></tr>
-<tr class="separator:a82c8808f4f1a9c97409ca45ad97c32b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b0fd35fb75ce3a756cd84d8207fc33e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a1b0fd35fb75ce3a756cd84d8207fc33e">drawInScene</a> (<a class="el" href="class_base_object.html">BaseObject</a> *obj, glm::mat4 view, glm::mat4 model, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)=0</td></tr>
-<tr class="separator:a1b0fd35fb75ce3a756cd84d8207fc33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b9aae87fdae2ce1163dc3d99003357"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a54b9aae87fdae2ce1163dc3d99003357">getOrder</a> () const</td></tr>
+<tr class="separator:a54b9aae87fdae2ce1163dc3d99003357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b69357d6923997a532f5fd1be47097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a39b69357d6923997a532f5fd1be47097">hasCustomCulling</a> () const</td></tr>
+<tr class="separator:a39b69357d6923997a532f5fd1be47097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c60ab6433d21b20cf7e495ecdf74658"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a1c60ab6433d21b20cf7e495ecdf74658">needsRenderGeometry</a> () const</td></tr>
+<tr class="separator:a1c60ab6433d21b20cf7e495ecdf74658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7cd03520c3bb14fc71d264feae8646b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a7cd03520c3bb14fc71d264feae8646b0">RenderPass</a> (<a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> <a class="el" href="class_render_pass.html#afb5878d4e4b0894eef4ce38ab6694127">order</a>, string <a class="el" href="class_render_pass.html#a641a93582bfd148fbb55c85be2247716">name</a>, bool <a class="el" href="class_render_pass.html#aa0ae13c3bed2b847d2cd762bc097b181">customCull</a>, bool <a class="el" href="class_render_pass.html#a8eb9d9a080a99e4f730bea92e4d7fc2e">renderGeometry</a>)</td></tr>
+<tr class="separator:a7cd03520c3bb14fc71d264feae8646b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:afb5878d4e4b0894eef4ce38ab6694127"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#afb5878d4e4b0894eef4ce38ab6694127">order</a></td></tr>
+<tr class="separator:afb5878d4e4b0894eef4ce38ab6694127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641a93582bfd148fbb55c85be2247716"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a641a93582bfd148fbb55c85be2247716">name</a></td></tr>
+<tr class="separator:a641a93582bfd148fbb55c85be2247716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ae13c3bed2b847d2cd762bc097b181"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#aa0ae13c3bed2b847d2cd762bc097b181">customCull</a></td></tr>
+<tr class="separator:aa0ae13c3bed2b847d2cd762bc097b181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb9d9a080a99e4f730bea92e4d7fc2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a8eb9d9a080a99e4f730bea92e4d7fc2e">renderGeometry</a></td></tr>
+<tr class="separator:a8eb9d9a080a99e4f730bea92e4d7fc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ad3fa6678a34a5bc739a3497ffaf71868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fa6678a34a5bc739a3497ffaf71868">&#9670;&nbsp;</a></span>Order</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">RenderPass::Order</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad3fa6678a34a5bc739a3497ffaf71868a524aa8c6c14c2e97dc31bfbe4ebfac72"></a>BeforeDeferred&#160;</td><td class="fielddoc"><p>If render mode is deferred rendering, will run this render pass before the deferred shading pass. If render pass mode is forward rendering, will run it before the other post processing passes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3fa6678a34a5bc739a3497ffaf71868a41b279b26fcfb8bf7e80a6c02c8cdd29"></a>PostProcess&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7cd03520c3bb14fc71d264feae8646b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cd03520c3bb14fc71d264feae8646b0">&#9670;&nbsp;</a></span>RenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RenderPass::RenderPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">RenderPass::Order</a>&#160;</td>
+          <td class="paramname"><em>order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>customCull</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>renderGeometry</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1b0fd35fb75ce3a756cd84d8207fc33e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b0fd35fb75ce3a756cd84d8207fc33e">&#9670;&nbsp;</a></span>drawInScene()</h2>
+<a id="a54b9aae87fdae2ce1163dc3d99003357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b9aae87fdae2ce1163dc3d99003357">&#9670;&nbsp;</a></span>getOrder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,58 +211,23 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void RenderPass::drawInScene </td>
+          <td class="memname"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> RenderPass::getOrder </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_base_object.html">BaseObject</a> *&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>view</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>model</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *&#160;</td>
-          <td class="paramname"><em>params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Draws an object in the scene for the current pass. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obj</td><td>The object to draw </td></tr>
-    <tr><td class="paramname">projection</td><td>The projection transform matrix </td></tr>
-    <tr><td class="paramname">view</td><td>The view transform matrix </td></tr>
-    <tr><td class="paramname">model</td><td>The model transform matrix </td></tr>
-    <tr><td class="paramname">params</td><td>The additional parameters to pass down to the object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implemented in <a class="el" href="class_directional_shadow_map_rendering.html#ad362ea6fa34bb45a4e8a343abf3ede84">DirectionalShadowMapRendering</a>, and <a class="el" href="class_main_renderer.html#aa9f1a22299240e8783683dbd759b1182">MainRenderer</a>.</p>
 
 </div>
 </div>
-<a id="a82c8808f4f1a9c97409ca45ad97c32b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c8808f4f1a9c97409ca45ad97c32b2">&#9670;&nbsp;</a></span>render()</h2>
+<a id="a39b69357d6923997a532f5fd1be47097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b69357d6923997a532f5fd1be47097">&#9670;&nbsp;</a></span>hasCustomCulling()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,50 +236,138 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void RenderPass::render </td>
+          <td class="memname">bool RenderPass::hasCustomCulling </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_window.html">Window</a> *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>rootNodes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *&#160;</td>
-          <td class="paramname"><em>params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The method for the rendering the current pass </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">window</td><td>The current rendering window. </td></tr>
-    <tr><td class="paramname">rootNodes</td><td>The nodes to render. </td></tr>
-    <tr><td class="paramname">params</td><td>Additional parameters to pass down during the rendering. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implemented in <a class="el" href="class_directional_shadow_map_rendering.html#a36bda96d377dcc43b1e39147f2ab5599">DirectionalShadowMapRendering</a>, and <a class="el" href="class_main_renderer.html#a7bdd84247ecd2942b26896524d84a863">MainRenderer</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="a1c60ab6433d21b20cf7e495ecdf74658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c60ab6433d21b20cf7e495ecdf74658">&#9670;&nbsp;</a></span>needsRenderGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderPass::needsRenderGeometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa0ae13c3bed2b847d2cd762bc097b181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ae13c3bed2b847d2cd762bc097b181">&#9670;&nbsp;</a></span>customCull</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderPass::customCull</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a641a93582bfd148fbb55c85be2247716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641a93582bfd148fbb55c85be2247716">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string RenderPass::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb5878d4e4b0894eef4ce38ab6694127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb5878d4e4b0894eef4ce38ab6694127">&#9670;&nbsp;</a></span>order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_render_pass.html#ad3fa6678a34a5bc739a3497ffaf71868">Order</a> RenderPass::order</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eb9d9a080a99e4f730bea92e4d7fc2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb9d9a080a99e4f730bea92e4d7fc2e">&#9670;&nbsp;</a></span>renderGeometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderPass::renderGeometry</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>kryne-engine/include/kryne-engine/Rendering/<a class="el" href="_render_pass_8h_source.html">RenderPass.h</a></li>
+<li>kryne-engine/src/Rendering/<a class="el" href="_render_pass_8cpp.html">RenderPass.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

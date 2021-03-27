@@ -143,11 +143,11 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_render_pass_8h.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_old_render_pass_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="387.49,-379.5 387.49,-420.5 509.49,-420.5 509.49,-379.5 387.49,-379.5"/>
 <text text-anchor="start" x="395.49" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="395.49" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Rendering</text>
-<text text-anchor="middle" x="448.49" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/RenderPass.h</text>
+<text text-anchor="middle" x="448.49" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/OldRenderPass.h</text>
 </a>
 </g>
 </g>
@@ -461,7 +461,7 @@
 <polygon fill="midnightblue" stroke="midnightblue" points="989.58,-470.22 979.77,-474.23 989.94,-477.21 989.58,-470.22"/>
 </g>
 <!-- Node22&#45;&gt;Node6 -->
-<g id="edge52" class="edge">
+<g id="edge49" class="edge">
 <title>Node22&#45;&gt;Node6</title>
 <path fill="none" stroke="midnightblue" d="M844.09,-460.72C837.82,-459.36 831.55,-458.09 825.49,-457 690.28,-432.68 653.2,-447.96 518.49,-421 515.64,-420.43 512.74,-419.8 509.81,-419.13"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="843.35,-464.15 853.88,-462.93 844.89,-457.32 843.35,-464.15"/>
@@ -513,7 +513,7 @@
 </g>
 </g>
 <!-- Node22&#45;&gt;Node31 -->
-<g id="edge49" class="edge">
+<g id="edge50" class="edge">
 <title>Node22&#45;&gt;Node31</title>
 <path fill="none" stroke="midnightblue" d="M875.58,-457.6C857.02,-446.31 833.68,-432.12 815.01,-420.77"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="873.91,-460.68 884.27,-462.88 877.55,-454.7 873.91,-460.68"/>
@@ -571,11 +571,11 @@
 <!-- Node25 -->
 <g id="node25" class="node">
 <title>Node25</title>
-<g id="a_node25"><a xlink:href="_basic_camera_8h.html" target="_top" xlink:title=" ">
+<g id="a_node25"><a xlink:href="_first_person_camera_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="975.49,-296 975.49,-337 1087.49,-337 1087.49,-296 975.49,-296"/>
 <text text-anchor="start" x="983.49" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="983.49" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Camera</text>
-<text text-anchor="middle" x="1031.49" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.h</text>
+<text text-anchor="middle" x="1031.49" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.h</text>
 </a>
 </g>
 </g>
@@ -588,11 +588,11 @@
 <!-- Node27 -->
 <g id="node27" class="node">
 <title>Node27</title>
-<g id="a_node27"><a xlink:href="_first_person_camera_8h.html" target="_top" xlink:title=" ">
+<g id="a_node27"><a xlink:href="_basic_camera_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1143.49,-296 1143.49,-337 1255.49,-337 1255.49,-296 1143.49,-296"/>
 <text text-anchor="start" x="1151.49" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="1151.49" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Camera</text>
-<text text-anchor="middle" x="1199.49" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.h</text>
+<text text-anchor="middle" x="1199.49" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.h</text>
 </a>
 </g>
 </g>
@@ -628,10 +628,10 @@
 <!-- Node26 -->
 <g id="node26" class="node">
 <title>Node26</title>
-<g id="a_node26"><a xlink:href="_basic_camera_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node26"><a xlink:href="_first_person_camera_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="975.99,-218 975.99,-248 1100.99,-248 1100.99,-218 975.99,-218"/>
 <text text-anchor="start" x="983.99" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Camera</text>
-<text text-anchor="middle" x="1038.49" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.cpp</text>
+<text text-anchor="middle" x="1038.49" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.cpp</text>
 </a>
 </g>
 </g>
@@ -650,10 +650,10 @@
 <!-- Node28 -->
 <g id="node28" class="node">
 <title>Node28</title>
-<g id="a_node28"><a xlink:href="_first_person_camera_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node28"><a xlink:href="_basic_camera_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1251.99,-218 1251.99,-248 1376.99,-248 1376.99,-218 1251.99,-218"/>
 <text text-anchor="start" x="1259.99" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Camera</text>
-<text text-anchor="middle" x="1314.49" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/FirstPersonCamera.cpp</text>
+<text text-anchor="middle" x="1314.49" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/BasicCamera.cpp</text>
 </a>
 </g>
 </g>
@@ -686,7 +686,7 @@
 <polygon fill="midnightblue" stroke="midnightblue" points="1366.7,-287.66 1360.15,-295.98 1370.46,-293.56 1366.7,-287.66"/>
 </g>
 <!-- Node31&#45;&gt;Node7 -->
-<g id="edge50" class="edge">
+<g id="edge51" class="edge">
 <title>Node31&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M733.41,-373.93C720.87,-365.55 708.43,-355.18 699.49,-343 663.54,-294.03 700.27,-257.92 660.49,-212 598.73,-140.71 490.5,-107.84 422.04,-93.55"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="731.74,-377.01 742.06,-379.41 735.48,-371.1 731.74,-377.01"/>
@@ -702,7 +702,7 @@
 </g>
 </g>
 <!-- Node31&#45;&gt;Node32 -->
-<g id="edge51" class="edge">
+<g id="edge52" class="edge">
 <title>Node31&#45;&gt;Node32</title>
 <path fill="none" stroke="midnightblue" d="M779.92,-369.03C778.82,-356.26 777.59,-341.97 776.71,-331.68"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="776.45,-369.61 780.8,-379.27 783.43,-369.01 776.45,-369.61"/>

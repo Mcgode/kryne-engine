@@ -25,7 +25,12 @@ public:
      *
      * @note A component should never be instanciated in a vaccum. Entity::addComponent() should be used instead.
      */
-    explicit LogicComponent(Entity *entity): Component(entity) {}
+    explicit LogicComponent(Entity *entity): Component(entity)
+    {
+        this->componentName = "LogicComponent";
+    }
+
+    void transformDidUpdate() override {}
 
 
 // -----

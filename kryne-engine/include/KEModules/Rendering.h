@@ -12,7 +12,7 @@
 #include <kryne-engine/Rendering/MainRenderer.h>
 #include <kryne-engine/Rendering/Renderer.h>
 #include <kryne-engine/Rendering/RenderingState.hpp>
-#include <kryne-engine/Rendering/RenderPass.h>
+#include <kryne-engine/Rendering/OldRenderPass.h>
 #include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Rendering/ShaderProgramCompiler.h>
 

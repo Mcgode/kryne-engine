@@ -1,45 +1,58 @@
 /**
  * @file
  * @author Max Godefroy
- * @date 10/10/2019
+ * @date 06/03/2021.
  */
 
-#ifndef INC_KRYNE_ENGINE_RENDER_PASS_H
-#define INC_KRYNE_ENGINE_RENDER_PASS_H
+#pragma once
 
 
-#include <kryne-engine/Core/Window.h>
-#include <kryne-engine/3DObjects/HierarchicalNode.h>
-#include <kryne-engine/3DObjects/BaseObject.h>
+#include <iostream>
+#include <utility>
+
+
+using namespace std;
+
 
 class RenderPass {
 
 public:
 
+    enum Order {
 
-    /**
-     * The method for the rendering the current pass
-     * @param window    The current rendering window.
-     * @param rootNodes The nodes to render.
-     * @param params    Additional parameters to pass down during the rendering.
-     */
-    virtual void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) = 0;
+        /**
+         * If render mode is deferred rendering, will run this render pass before the deferred shading pass.
+         * If render pass mode is forward rendering, will run it before the other post processing passes.
+         */
+        BeforeDeferred,
 
-    /**
-     * Draws an object in the scene for the current pass.
-     * @param obj        The object to draw
-     * @param projection The projection transform matrix
-     * @param view       The view transform matrix
-     * @param model      The model transform matrix
-     * @param params     The additional parameters to pass down to the object
-     */
-    virtual void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) = 0;
+        PostProcess,
+
+    };
+
+
+public:
+
+    [[nodiscard]] Order getOrder() const { return order; }
+
+    [[nodiscard]] bool hasCustomCulling() const { return customCull; }
+
+    [[nodiscard]] bool needsRenderGeometry() const { return renderGeometry; }
+
+protected:
+
+    RenderPass(Order order, string name, bool customCull, bool renderGeometry);
+
+protected:
+
+    Order order;
+
+    string name;
+
+    bool customCull;
+
+    bool renderGeometry;
 
 };
 
 
-#else
-
-class RenderPass;
-
-#endif //INC_KRYNE_ENGINE_RENDER_PASS_H

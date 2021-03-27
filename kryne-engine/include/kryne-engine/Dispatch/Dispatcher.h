@@ -85,7 +85,12 @@ public:
      * @brief Waits for all the tasks in the main thread and the parallel threads to finish their execution before
      *        continuing.
      */
-    inline void waitMain() const { mainThread->synchronize(parallelExecutionThreads.get()); }
+    inline void waitMain() const
+    {
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+        mainThread->synchronize(parallelExecutionThreads.get());
+#endif
+    }
 
 protected:
 
@@ -156,7 +161,11 @@ public:
     template<class F, class... Args>
     inline future<result_of_t<F(Args...)>> enqueueParallelDelayed(F&& function, Args&& ...args)
     {
+#if KRYNE_ENGINE_SINGLE_THREADED == 1
+        return enqueueDelayed(this->delayedMainQueue, function, args...);
+#else
         return enqueueDelayed(this->delayedParallelQueue, function, args...);
+#endif
     }
 
     /**
@@ -176,7 +185,11 @@ public:
     inline void waitDelayed()
     {
         this->mainThread->swapQueues(this->delayedMainQueue, false);
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
         this->parallelExecutionThreads->swapQueues(this->delayedParallelQueue, false);
+#endif
+
         this->waitMain();
     }
 

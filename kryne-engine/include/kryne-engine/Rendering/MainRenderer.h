@@ -10,10 +10,10 @@
 #include <kryne-engine/Light/LightingRegistry.h>
 #include <kryne-engine/Camera/OldCamera.h>
 #include <kryne-engine/3DObjects/Skybox.h>
-#include <kryne-engine/Rendering/RenderPass.h>
+#include <kryne-engine/Rendering/OldRenderPass.h>
 
 
-class MainRenderer : public RenderPass {
+class MainRenderer : public OldRenderPass {
 
 public:
 

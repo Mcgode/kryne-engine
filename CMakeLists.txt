@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.16)
 project(kryne_engine)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
 if (UNIX)
-    set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -ldl")
+    set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -ldl -lpthread")
 endif()
 
 
@@ -36,9 +36,13 @@ add_library(glad STATIC external-libs/glad/src/glad.c)
 include_directories(external-libs/stb_image)
 add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
 
+# Set up Dear IMGUI lib
+add_subdirectory(external-libs/imgui)
+include_directories(external-libs/imgui)
+
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES})
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI)
 
 
 # Set up boost library

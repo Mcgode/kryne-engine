@@ -8,6 +8,10 @@
 
 
 #include <kryne-engine/Rendering/LoopRenderer.h>
+#include <kryne-engine/Geometry/PlaneBufferGeometry.h>
+
+#include "OpenGLFramebuffer.h"
+#include "OpenGLScreenFramebuffer.hpp"
 
 
 class OpenGLContext;
@@ -17,21 +21,23 @@ class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(OpenGLContext *context) : context(context) {};
+    explicit OpenGLRenderer(OpenGLContext *context);
 
     void prepareFrame() override;
 
     void handleMesh(RenderMesh *renderMesh) override;
 
-    void parseScene(Scene *scene) override {};
+    vector<Entity *> parseScene(Scene *scene) override;
 
-    void setCamera(Camera *camera) override { this->mainCamera = camera; }
+    void renderToScreen() override;
+
+    void textureRender(Material *material) override;
 
 protected:
 
-    Camera *mainCamera {};
-
     OpenGLContext *context;
+
+    unique_ptr<PlaneBufferGeometry> fullscreenPlane;
 
 };
 
