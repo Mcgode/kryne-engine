@@ -30,7 +30,10 @@ void DearImGui::render(Process *process)
     ImGui::NewFrame();
 
     for (const auto &component : this->components)
-        component->renderComponent(process);
+    {
+        if (component->isEnabled())
+            component->renderComponent(process);
+    }
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -17,4 +17,12 @@ public:
 
     virtual void renderComponent(Process *process) = 0;
 
+    [[nodiscard]] bool isEnabled() const { return enabled; }
+
+    void setEnabled(bool value) { DearImGuiComponent::enabled = value; }
+
+protected:
+
+    bool enabled = true;
+
 };
