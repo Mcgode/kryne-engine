@@ -123,6 +123,8 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
     if (!entity->isEnabled())
         return;
 
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
         // No data race can happen in this state, since any entity is only called once by all parallel threads.
@@ -176,6 +178,55 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
             });
         });
     });
+
+#else
+
+    // No data race can happen in this state, since any entity is only called once by all parallel threads.
+    // As a consequence, no fancy lock operation is needed.
+    if (!entity->ranPreRenderingProcessing)
+    {
+        auto it = this->systemsByType.find(LoopStart);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        it = this->systemsByType.find(GameLogic);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        it = this->systemsByType.find(PreRendering);
+        if (it != this->systemsByType.end())
+        {
+            for (const auto& systemPair : it->second)
+                systemPair->runSystem(entity);
+        }
+
+        entity->ranPreRenderingProcessing = true;
+    }
+
+    const auto renderMeshes = entity->getComponents<RenderMesh>();
+    for (auto renderMesh : renderMeshes)
+        renderer->computeFrustumCulling(renderMesh);
+
+    for (auto renderMesh : renderMeshes)
+        renderer->handleMesh(renderMesh);
+
+    auto it = this->systemsByType.find(PostRendering);
+    if (it != this->systemsByType.end())
+    {
+        for (const auto& systemPair : it->second)
+            systemPair->runSystem(entity);
+    }
+
+    for (const auto child: entity->getTransform()->getChildren())
+        this->processEntity(child->getEntity(), renderer);
+
+#endif
 }
 
 
@@ -185,6 +236,8 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
     {
         if (!entity->isEnabled())
             continue;
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
 
         Dispatcher::instance().parallel()->enqueue([this, entity]()
         {
@@ -236,6 +289,54 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
                 }
             }
         });
+
+#else
+
+        stack<Entity *> processStack;
+
+        Transform *current = entity->getTransform();
+        do
+        {
+            processStack.push(current->getEntity());
+            current = current->getParent();
+        } while (current != nullptr);
+
+        while (!processStack.empty())
+        {
+            Entity *entityToProcess = processStack.top();
+            processStack.pop();
+
+            // No need to handle locking if running in single-threaded mode.
+
+            if (entityToProcess->ranPreRenderingProcessing)
+                continue;
+
+            auto it = this->systemsByType.find(LoopStart);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entityToProcess);
+            }
+
+            it = this->systemsByType.find(GameLogic);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entityToProcess);
+            }
+
+            it = this->systemsByType.find(PreRendering);
+            if (it != this->systemsByType.end())
+            {
+                for (const auto& systemPair : it->second)
+                    systemPair->runSystem(entityToProcess);
+            }
+
+            entityToProcess->ranPreRenderingProcessing = true;
+        }
+
+#endif
+
     }
 
     Dispatcher::instance().waitMain();
