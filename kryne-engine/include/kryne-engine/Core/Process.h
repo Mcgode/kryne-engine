@@ -10,16 +10,23 @@
 
 #include <memory>
 #include <unordered_map>
+#include <unordered_set>
 #include <iostream>
 #include <stack>
 
-#include "Entity.h"
-#include "System.h"
+#include <kryne-engine/enums/SystemTypes.h>
 #include "kryne-engine/Dispatch/Dispatcher.h"
-#include "GraphicContext/GraphicContext.h"
-#include <kryne-engine/Rendering/RenderMesh.h>
 #include <kryne-engine/Utils/UniquePtrVector.hpp>
-#include <kryne-engine/UI/UIRenderer.hpp>
+
+
+class Entity;
+class Scene;
+class System;
+class GraphicContext;
+class RenderMesh;
+class UIRenderer;
+class LoopRenderer;
+class PlayerInput;
 
 
 using namespace std;
@@ -204,6 +211,14 @@ public:
     PlayerInput *getPlayerInput();
 
 };
+
+
+
+#include "Entity.h"
+#include "System.h"
+#include "GraphicContext/GraphicContext.h"
+#include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/UI/UIRenderer.hpp>
 
 
 #endif //KRYNE_ENGINE_PROCESS_H

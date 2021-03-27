@@ -15,6 +15,7 @@ class Transform;
 
 #include <vector>
 #include <imgui.h>
+#include <string>
 
 
 using namespace std;

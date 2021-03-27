@@ -12,8 +12,10 @@
 #include <GLFW/glfw3.h>
 
 #include <kryne-engine/Rendering/RenderingState.hpp>
-#include <kryne-engine/Rendering/OpenGL/OpenGLRenderer.h>
 #include "GraphicContext.h"
+
+
+class OpenGLRenderer;
 
 
 using namespace std;
@@ -83,3 +85,6 @@ protected:
     unique_ptr<OpenGLRenderer> renderer {};
 
 };
+
+
+#include <kryne-engine/Rendering/OpenGL/OpenGLRenderer.h>
