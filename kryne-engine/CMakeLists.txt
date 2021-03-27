@@ -109,7 +109,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/UI/DearImGuiPrototype.hpp
         src/UI/DearImGuiSceneBrowser.cpp include/kryne-engine/UI/DearImGuiSceneBrowser.hpp
         include/kryne-engine/Utils/DreamImGui.hpp
-        include/kryne-engine/UI/DearImGuiComponent.hpp)
+        include/kryne-engine/UI/DearImGuiComponent.hpp include/kryne-engine/Utils/FrameTime.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
