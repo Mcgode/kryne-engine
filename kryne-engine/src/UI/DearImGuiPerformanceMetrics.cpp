@@ -15,12 +15,10 @@ float DearImGuiPerformanceMetrics::averageFrameTime(vector<float> times) const
     for (i = 1; i < this->averageSize && i < times.size(); i++)
     {
         if (times[times.size() - i] == 0.)
-        {
-            i--;
             break;
-        }
         time += times[times.size() - i];
     }
+    i--;
 
     return i ? time / i : 0.f;
 }
