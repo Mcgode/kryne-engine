@@ -285,7 +285,7 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
                 // Data racing can occur because the same entities can be called multiple times (like common parents),
                 // on potentially different threads.
                 {
-                    unique_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
+                    scoped_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
 
                     if (entityToProcess->ranPreRenderingProcessing)
                         continue;

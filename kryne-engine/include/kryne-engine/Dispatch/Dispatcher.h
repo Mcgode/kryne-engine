@@ -216,7 +216,7 @@ protected:
 
         future<returnType> result = task->get_future();
         {
-            unique_lock<mutex> lock(this->delayedMutex);
+            scoped_lock<mutex> lock(this->delayedMutex);
 
             taskQueue.emplace([task] { (*task)(); });
         }

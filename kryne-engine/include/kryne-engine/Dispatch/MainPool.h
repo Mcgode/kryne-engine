@@ -28,7 +28,7 @@ public:
 
         future<returnType> result = task->get_future();
         {
-            unique_lock<mutex> lock(*this->mainMutex);
+            scoped_lock<mutex> lock(*this->mainMutex);
 
             this->tasks.push([task] { (*task)(); });
         }
@@ -41,7 +41,7 @@ public:
     void enqueue(const function<void()>& func)
     {
         {
-            unique_lock<mutex> lock(*this->mainMutex);
+            scoped_lock<mutex> lock(*this->mainMutex);
             this->tasks.push(func);
         }
 

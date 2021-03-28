@@ -40,7 +40,7 @@ void MainPool::synchronize(SynchronizablePool *pool)
 void MainPool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
 {
     {
-        unique_lock<mutex> lock(*this->mainMutex);
+        scoped_lock<mutex> lock(*this->mainMutex);
 
         if (!allowNonEmpty && !this->tasks.empty())
             throw runtime_error("Can't swap non-empty task queue");

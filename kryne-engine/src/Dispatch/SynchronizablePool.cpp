@@ -79,7 +79,7 @@ bool SynchronizablePool::trySynchronize() const
 void SynchronizablePool::overrideSynchronizeWait(condition_variable_any *newCondition, bool notifyAll)
 {
     {
-        unique_lock<mutex> lock(*this->poolMutex);
+        scoped_lock<mutex> lock(*this->poolMutex);
         this->synchronizeWait = newCondition == nullptr ? &this->_defaultWait : newCondition;
     }
 
