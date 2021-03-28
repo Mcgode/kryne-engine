@@ -37,6 +37,13 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
         ImGui::EndTable();
     }
 
+    if (ImGui::TreeNode("Options"))
+    {
+        ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
+                       1.f, 1, this->frameTimes.size());
+        ImGui::TreePop();
+    }
+
     ImGui::End();
 }
 
