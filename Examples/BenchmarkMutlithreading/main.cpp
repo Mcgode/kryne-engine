@@ -9,7 +9,6 @@
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
 #include <kryne-engine/Material/MeshStandardMaterial.h>
-#include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include <kryne-engine/Camera/PerspectiveProjectionData.hpp>
 #include <kryne-engine/Camera/OrbitControlsComponent.h>
 #include <kryne-engine/UI/DearImGui.h>
@@ -94,8 +93,6 @@ int main()
         mode = i;
 
         ImGui::End();
-
-        ImGui::ShowDemoWindow();
     }));
 
     while (!process->getGraphicContext()->shouldStop())
