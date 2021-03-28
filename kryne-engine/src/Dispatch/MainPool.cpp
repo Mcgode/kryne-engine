@@ -35,7 +35,14 @@ void MainPool::synchronize(SynchronizablePool *pool)
             this->tasks.pop();
         }
 
-        task();
+        try
+        {
+            task();
+        }
+        catch (bad_function_call &e)
+        {
+            cerr << "Function error: " << e.what() << endl;
+        }
     }
 
     {
