@@ -75,6 +75,12 @@ Scene *Process::makeScene()
 
 void Process::runLoop()
 {
+    using std::chrono::system_clock;
+
+    this->lastFrameTimeData = this->frameTimer.resetTimer();
+
+    auto initializeFrameTime = system_clock::now();
+
     if (this->currentScene == nullptr && !this->scenes.empty())
         this->currentScene = this->scenes.begin()->get();
 
@@ -87,6 +93,7 @@ void Process::runLoop()
             activeUIRenderers.push_back(uiRenderer.get());
     }
 
+    system_clock::time_point objectsRunTime;
     if (this->currentScene != nullptr)
     {
         for (const auto entity : this->currentScene->getEntities())
@@ -97,24 +104,43 @@ void Process::runLoop()
 
         renderer->prepareFrame();
 
+        objectsRunTime = system_clock::now();
         for (const auto entity : this->currentScene->getTopLevelEntities())
             this->processEntity(entity, renderer);
     }
     else
+    {
+        objectsRunTime = system_clock::now();
         cerr << "There is no scene for the process." << endl;
+    }
 
     Dispatcher::instance().waitMain();
 
+    auto postProcessTime = system_clock::now();
+
     if (this->currentScene != nullptr)
         renderer->renderToScreen();
+
+    auto uiTime = system_clock::now();
 
     this->getPlayerInput()->setExternallyCaptured(false, false);
     for (auto uiRenderer : activeUIRenderers)
         uiRenderer->render(this);
 
+    auto delayedTime = system_clock::now();
+
     Dispatcher::instance().waitDelayed();
 
+    auto endFrameTime = system_clock::now();
+
     this->context->endFrame();
+
+    this->frameTimer.recordTime("Initialization scripting", objectsRunTime - initializeFrameTime);
+    this->frameTimer.recordTime("Objects scripting", postProcessTime - objectsRunTime);
+    this->frameTimer.recordTime("Post-processing", uiTime - postProcessTime);
+    this->frameTimer.recordTime("UI", delayedTime - uiTime);
+    this->frameTimer.recordTime("Delayed scripting", endFrameTime - delayedTime);
+    this->frameTimer.recordTime("Events polling", system_clock::now() - endFrameTime);
 }
 
 

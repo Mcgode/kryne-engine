@@ -17,6 +17,7 @@
 #include <kryne-engine/enums/SystemTypes.h>
 #include "kryne-engine/Dispatch/Dispatcher.h"
 #include <kryne-engine/Utils/UniquePtrVector.hpp>
+#include <kryne-engine/Utils/FrameTime.hpp>
 
 
 class Entity;
@@ -72,6 +73,11 @@ public:
      */
     Utils::UniquePtrVector<UIRenderer> &getUIRenderers() { return this->uiRenderers; }
 
+    /**
+     * @brief Retrieves the time data for the last frame.
+     */
+    [[nodiscard]] const Utils::FrameTime::Data &getLastFrameTimeData() const { return lastFrameTimeData; }
+
 protected:
 
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
@@ -85,6 +91,12 @@ protected:
 
     /// The current scene used in the loop
     Scene *currentScene = nullptr;
+
+    /// Tool for measuring the frame times.
+    Utils::FrameTime frameTimer;
+
+    /// The timings of the last frame.
+    Utils::FrameTime::Data lastFrameTimeData;
 
     /// The scenes for this process
     unordered_set<unique_ptr<Scene>> scenes;
