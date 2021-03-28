@@ -112,7 +112,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/UI/DearImGuiComponent.hpp
         include/kryne-engine/Utils/FrameTime.hpp
         src/UI/DearImGuiPerformanceMetrics.cpp include/kryne-engine/UI/DearImGuiPerformanceMetrics.hpp
-        )
+        include/kryne-engine/Utils/Multithreading.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
