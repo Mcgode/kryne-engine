@@ -10,16 +10,11 @@ void MainPool::synchronize(SynchronizablePool *pool)
 {
     pool->overrideSynchronizeWait(&this->waitCondition);
 
-    {
-        unique_lock<mutex> l(*this->mainMutex);
-        this->mainMutex = pool->getMutex();
-    }
-
     for (;;)
     {
         function <void()> task;
         {
-            unique_lock<mutex> lock(*this->mainMutex);
+            Utils::double_lock lock(*this->mainMutex, *pool->getMutex());
 
             bool synchronize;
             this->waitCondition.wait(lock, [this, pool, &synchronize]
@@ -35,19 +30,7 @@ void MainPool::synchronize(SynchronizablePool *pool)
             this->tasks.pop();
         }
 
-        try
-        {
-            task();
-        }
-        catch (bad_function_call &e)
-        {
-            cerr << "Function error: " << e.what() << endl;
-        }
-    }
-
-    {
-        unique_lock<mutex> l(*this->mainMutex);
-        this->mainMutex = &this->_mainMutex;
+        task();
     }
 
     pool->overrideSynchronizeWait(nullptr, true);

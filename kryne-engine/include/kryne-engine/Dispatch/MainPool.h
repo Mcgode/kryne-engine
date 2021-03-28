@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include <kryne-engine/Utils/Multithreading.hpp>
 #include "SynchronizablePool.h"
 
 
@@ -61,7 +62,7 @@ private:
 
     mutex *mainMutex;
 
-    condition_variable waitCondition;
+    condition_variable_any waitCondition;
 
 };
 

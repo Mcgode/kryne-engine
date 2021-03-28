@@ -20,7 +20,7 @@ public:
 
     [[nodiscard]] bool trySynchronize() const;
 
-    void overrideSynchronizeWait(condition_variable *newCondition, bool notifyAll = false);
+    void overrideSynchronizeWait(condition_variable_any *newCondition, bool notifyAll = false);
 
     [[nodiscard]] mutex *getMutex() const { return this->poolMutex; }
 
@@ -32,9 +32,9 @@ private:
 
     uint16_t runningThreads = 0;
 
-    condition_variable *synchronizeWait;
+    condition_variable_any *synchronizeWait;
 
-    condition_variable _defaultWait {};
+    condition_variable_any _defaultWait {};
 
 };
 
