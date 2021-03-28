@@ -17,7 +17,7 @@ Dispatcher::Dispatcher()
 
 #if KRYNE_ENGINE_SINGLE_THREADED != 1
 
-    this->parallelExecutionThreads = make_unique<SynchronizablePool>(threadCount - 1);
+    this->parallelExecutionThreads = make_unique<SynchronizablePool>(max(threadCount - 1, 1));
 
     this->ioPool = make_unique<RunnerPool>(2);
 
