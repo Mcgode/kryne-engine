@@ -89,3 +89,5 @@ add_subdirectory(Examples/SunLight)
 add_subdirectory(Examples/Sphere)
 
 add_subdirectory(Examples/Basic)
+
+add_subdirectory(Examples/BenchmarkMutlithreading)
