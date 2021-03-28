@@ -17,13 +17,11 @@ namespace Utils {
      */
     struct double_lock {
 
-        using std::mutex;
-
         /// First mutex to lock/unlock
-        mutex &m1;
+        std::mutex &m1;
 
         /// Second mutex to lock/unlock
-        mutex &m2;
+        std::mutex &m2;
 
         /**
          * @brief Initializes and locks the lock.
@@ -31,7 +29,7 @@ namespace Utils {
          * @param m1 First mutex to lock/unlock
          * @param m2 Second mutex to lock/unlock
          */
-        double_lock(mutex &m1, mutex &m2): m1(m1), m2(m2) { lock(); }
+        double_lock(std::mutex &m1, std::mutex &m2): m1(m1), m2(m2) { lock(); }
 
         /**
          * @brief unlock on delete
