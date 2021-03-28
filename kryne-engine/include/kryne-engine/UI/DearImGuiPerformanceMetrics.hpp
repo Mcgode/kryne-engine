@@ -14,19 +14,21 @@ class DearImGuiPerformanceMetrics : public DearImGuiComponent {
 
 public:
 
-    DearImGuiPerformanceMetrics(): frameTimes(vector<float>(1000)) {}
-
     void renderComponent(Process *process) override;
 
 protected:
 
-    float averageFrameTime();
+    float averageFrameTime(vector<float> times) const;
+
+    float pushTime(const string &name, float value);
 
 protected:
 
+    const static size_t BUFFER_SIZE = 1000;
+
     size_t averageSize = 30;
 
-    vector<float> frameTimes;
+    unordered_map<string, vector<float>> timesBuffers;
 
 };
 

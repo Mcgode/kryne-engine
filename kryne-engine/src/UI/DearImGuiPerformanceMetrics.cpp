@@ -6,16 +6,48 @@
 
 #include "kryne-engine/UI/DearImGuiPerformanceMetrics.hpp"
 
+
+float DearImGuiPerformanceMetrics::averageFrameTime(vector<float> times) const
+{
+    float time = 0.f;
+
+    size_t i;
+    for (i = 1; i < this->averageSize && i < times.size(); i++)
+    {
+        if (times[times.size() - i] == 0.)
+        {
+            i--;
+            break;
+        }
+        time += times[times.size() - i];
+    }
+
+    return i ? time / i : 0.f;
+}
+
+
+float DearImGuiPerformanceMetrics::pushTime(const string &name, float value)
+{
+    auto it = this->timesBuffers.find(name);
+    if (it == this->timesBuffers.end())
+        it = this->timesBuffers.emplace(name, vector<float>(BUFFER_SIZE)).first;
+
+    auto &times = it->second;
+    times.erase(times.begin());
+    times.push_back(value);
+    return this->averageFrameTime(times);
+}
+
+
 void DearImGuiPerformanceMetrics::renderComponent(Process *process)
 {
     ImGui::Begin("Performance metrics");
 
     auto data = process->getLastFrameTimeData();
-    this->frameTimes.erase(this->frameTimes.begin());
-    this->frameTimes.push_back(data.frameTime.count());
-    auto frameTime = averageFrameTime();
+    auto frameTime = this->pushTime("Frame times", data.frameTime.count());
 
-    ImGui::PlotLines("Frame times", this->frameTimes.data(), this->frameTimes.size(),
+    auto &frameTimes = this->timesBuffers.find("Frame times")->second;
+    ImGui::PlotLines("Frame times", frameTimes.data(), frameTimes.size(),
                      0, nullptr,
                      0.f, FLT_MAX,
                      ImVec2(0, 50.f));
@@ -32,7 +64,7 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
             ImGui::Text("%s", time.first.c_str());
 
             ImGui::TableSetColumnIndex(1);
-            ImGui::Text("%.2fms", time.second.count() * 1000);
+            ImGui::Text("%.2fms", this->pushTime(time.first, time.second.count()) * 1000);
         }
         ImGui::EndTable();
     }
@@ -40,27 +72,9 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
     if (ImGui::TreeNode("Options"))
     {
         ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
-                       1.f, 1, this->frameTimes.size());
+                       1.f, 1, BUFFER_SIZE);
         ImGui::TreePop();
     }
 
     ImGui::End();
-}
-
-float DearImGuiPerformanceMetrics::averageFrameTime()
-{
-    float time = 0.f;
-
-    size_t i;
-    for (i = 1; i < this->averageSize && i < this->frameTimes.size(); i++)
-    {
-        if (this->frameTimes[i] == 0.)
-        {
-            i--;
-            break;
-        }
-        time += this->frameTimes[i];
-    }
-
-    return i ? time / i : 0.f;
 }
