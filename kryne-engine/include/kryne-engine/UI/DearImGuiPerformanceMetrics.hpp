@@ -1,0 +1,35 @@
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 28/03/2021.
+ */
+
+#pragma once
+
+
+#include "DearImGuiComponent.hpp"
+
+
+class DearImGuiPerformanceMetrics : public DearImGuiComponent {
+
+public:
+
+    void renderComponent(Process *process) override;
+
+protected:
+
+    float averageFrameTime(vector<float> times) const;
+
+    float pushTime(const string &name, float value);
+
+protected:
+
+    const static size_t BUFFER_SIZE = 1000;
+
+    size_t averageSize = 30;
+
+    unordered_map<string, vector<float>> timesBuffers;
+
+};
+
+

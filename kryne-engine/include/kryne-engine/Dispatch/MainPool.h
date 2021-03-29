@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include <kryne-engine/Utils/Multithreading.hpp>
 #include "SynchronizablePool.h"
 
 
@@ -17,7 +18,7 @@ public:
     MainPool(): id(this_thread::get_id()), mainMutex(&_mainMutex) {}
 
     template<class F, class... Args>
-    future<result_of_t<F(Args...)>> enqueue(F&& function, Args&& ...args)
+    future<result_of_t<F(Args...)>> enqueueFuture(F&& function, Args&& ...args)
     {
         using returnType = result_of_t<F(Args...)>;
 
@@ -27,14 +28,24 @@ public:
 
         future<returnType> result = task->get_future();
         {
-            unique_lock<mutex> lock(*this->mainMutex);
+            scoped_lock<mutex> lock(*this->mainMutex);
 
-            tasks.emplace([task] { (*task)(); });
+            this->tasks.push([task] { (*task)(); });
         }
 
         waitCondition.notify_all();
 
         return result;
+    }
+
+    void enqueue(const function<void()>& func)
+    {
+        {
+            scoped_lock<mutex> lock(*this->mainMutex);
+            this->tasks.push(func);
+        }
+
+        this->waitCondition.notify_all();
     }
 
     void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty) override;
@@ -51,7 +62,7 @@ private:
 
     mutex *mainMutex;
 
-    condition_variable waitCondition;
+    condition_variable_any waitCondition;
 
 };
 

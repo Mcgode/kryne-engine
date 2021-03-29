@@ -20,19 +20,7 @@ public:
 
     void runSystem(Entity *entity) override;
 
-    void loopReset() override;
-
-protected:
-
-    void updateTransform(Transform *transform);
-
-protected:
-
-    unordered_set<Transform *> updatedTransforms {};
-
-    unordered_map<Transform *, vector<Transform *>> toBeUpdated {};
-
-    mutex parallelMutex {};
+    void loopReset() override {}
 
 };
 

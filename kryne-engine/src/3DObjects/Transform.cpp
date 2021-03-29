@@ -90,6 +90,7 @@ bool Transform::remove(Transform *childToRemove)
     {
         if (*it == childToRemove)
         {
+            childToRemove->parent = nullptr;
             this->children.erase(it);
             return true;
         }

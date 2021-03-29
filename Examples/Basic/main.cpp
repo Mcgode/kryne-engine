@@ -4,6 +4,7 @@
 
 #define KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
 
+#include <algorithm>
 #include <chrono>
 #include <KEModules/Rendering.h>
 #include <KEModules/Camera.h>
@@ -18,6 +19,7 @@
 #include <kryne-engine/UI/DearImGui.h>
 #include <kryne-engine/UI/DearImGuiPrototype.hpp>
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
+#include <kryne-engine/UI/DearImGuiPerformanceMetrics.hpp>
 
 
 int main()
@@ -102,6 +104,7 @@ int main()
     auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
 
     dearImGui->getComponents().emplace_back(new DearImGuiSceneBrowser());
+    dearImGui->getComponents().emplace_back(new DearImGuiPerformanceMetrics());
 
     dearImGui->getComponents().emplace_back(new DearImGuiPrototype([](Process *process)
     {

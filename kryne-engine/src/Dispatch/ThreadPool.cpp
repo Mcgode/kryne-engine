@@ -18,7 +18,7 @@ ThreadPool::ThreadPool(uint16_t threadCount, mutex *mutex, condition_variable *c
 ThreadPool::~ThreadPool()
 {
     {
-        unique_lock<mutex> lock(*this->poolMutex);
+        scoped_lock<mutex> lock(*this->poolMutex);
         this->stop = true;
     }
 
@@ -37,7 +37,7 @@ ThreadPool::~ThreadPool()
 void ThreadPool::swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty)
 {
     {
-        unique_lock<mutex> lock(*this->poolMutex);
+        scoped_lock<mutex> lock(*this->poolMutex);
 
         if (!allowNonEmpty && !this->tasks.empty())
             throw runtime_error("Can't swap non-empty task queue");
