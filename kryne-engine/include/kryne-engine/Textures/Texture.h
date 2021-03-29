@@ -56,6 +56,8 @@ public:
      */
     ~Texture();
 
+    GLuint getId() const { return id; }
+
 protected:
 
     /**
