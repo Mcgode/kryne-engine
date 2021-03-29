@@ -181,7 +181,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
             entity->ranPreRenderingProcessing = true;
         }
 
-        const auto renderMeshes = entity->getComponents<RenderMesh>();
+        const auto renderMeshes = entity->getComponents<RenderMesh>(true);
         for (auto renderMesh : renderMeshes)
             renderer->computeFrustumCulling(renderMesh);
 
@@ -235,7 +235,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
         entity->ranPreRenderingProcessing = true;
     }
 
-    const auto renderMeshes = entity->getComponents<RenderMesh>();
+    const auto renderMeshes = entity->getComponents<RenderMesh>(true);
     for (auto renderMesh : renderMeshes)
         renderer->computeFrustumCulling(renderMesh);
 
