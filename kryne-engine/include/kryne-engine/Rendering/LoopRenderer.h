@@ -167,6 +167,9 @@ protected:
     /// The frustum culling state of meshes.
     std::unordered_map<Camera *, FrustumCullingData> frustumCulled;
 
+    /// A mutex for handling concurrent frustum culling
+    mutex frustumCullingMutex;
+
 };
 
 

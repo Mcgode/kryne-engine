@@ -23,10 +23,13 @@ LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
 
 void LoopRenderer::prepareFrame()
 {
-    this->frustumCulled.clear();
+    {
+        scoped_lock<mutex> l(this->frustumCullingMutex);
+        this->frustumCulled.clear();
 
-    FrustumCullingData mainCamFCD(mainCamera);
-    this->frustumCulled.emplace(mainCamera, mainCamFCD);
+        FrustumCullingData mainCamFCD(mainCamera);
+        this->frustumCulled.emplace(mainCamera, mainCamFCD);
+    }
 
     this->framePostProcessPasses.clear();
     for (const auto &pass : this->postProcessPasses)
@@ -44,7 +47,11 @@ void LoopRenderer::computeFrustumCulling(RenderMesh *mesh)
 
     for (auto &pair : this->frustumCulled)
     {
-        pair.second.culledMeshes.emplace(mesh, !pair.second.frustum.sphereIntersects(mesh->getBoundingSphere()));
+        bool culled = !pair.second.frustum.sphereIntersects(mesh->getBoundingSphere());
+        {
+            scoped_lock<mutex> l(this->frustumCullingMutex);
+            pair.second.culledMeshes.emplace(mesh, culled);
+        }
     }
 }
 

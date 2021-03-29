@@ -80,7 +80,7 @@ int main()
             vec3(2, 0, 2),
         };
 
-        for (uint32_t i = 0; i < 2; i++)
+        for (uint32_t i = 0; i < 4; i++)
         {
             auto cube = process->makeEntity<Entity>();
             cube->addComponent<RenderMesh>(geometry, material);
