@@ -9,6 +9,9 @@ float rgb2luma(vec3 rgb)
     return dot(rgb, vec3(0.2, 0.6, 0.2));
 }
 
+// Links
+// https://gist.github.com/kosua20/0c506b81b3812ac900048059d2383126
+// https://github.com/kosua20/Rendu/blob/master/resources/common/shaders/screens/fxaa.frag
 
 // Settings for FXAA.
 #define QUALITY(q) ((q) < 5 ? 1.0 : ((q) > 5 ? ((q) < 10 ? 2.0 : ((q) < 11 ? 4.0 : 8.0)) : 1.5))
