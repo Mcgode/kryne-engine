@@ -103,6 +103,14 @@ public:
 
 protected:
 
+    // Override
+    string materialName() override { return "Standard"; }
+
+    // Override
+    void dearImGuiData() override;
+
+protected:
+
     /// The material roughness.
     float roughness = 0;
 

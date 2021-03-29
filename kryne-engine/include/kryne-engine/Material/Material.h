@@ -135,6 +135,32 @@ private:
     /// Whether this material should write to depth or not.
     bool writeDepth = true;
 
+
+// ====================
+// Dear ImGui functions
+// ====================
+
+public:
+
+    /**
+     * @brief Displays material data UI interface.
+     */
+    void displayDearImGui();
+
+protected:
+
+    /**
+     * The name for this material.
+     */
+    virtual string materialName() = 0;
+
+    /**
+     * @brief Override this function to display material data in the interface.
+     */
+    virtual void dearImGuiData() {};
+
+
+
 };
 
 

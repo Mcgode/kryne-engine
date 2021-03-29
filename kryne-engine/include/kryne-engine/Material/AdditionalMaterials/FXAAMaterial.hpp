@@ -93,6 +93,10 @@ public:
 
 protected:
 
+    string materialName() override { return "FXAA"; }
+
+protected:
+
     /// FXAA subpixel quality
     float subpixelQuality;
 
