@@ -11,11 +11,8 @@ float rgb2luma(vec3 rgb)
 
 
 // Settings for FXAA.
-#define EDGE_THRESHOLD_MIN 0.0312
-#define EDGE_THRESHOLD_MAX 0.125
 #define QUALITY(q) ((q) < 5 ? 1.0 : ((q) > 5 ? ((q) < 10 ? 2.0 : ((q) < 11 ? 4.0 : 8.0)) : 1.5))
 #define ITERATIONS 12
-#define SUBPIXEL_QUALITY 0.75
 
 void main()
 {
