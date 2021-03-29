@@ -198,19 +198,23 @@ public:
     }
 
     /**
-     * Retrieves components belonging to the provided class.
+     * @brief Retrieves components belonging to the provided class.
+     *
      * @tparam C    The component class. Used to find the components using dynamic_cast.
+     *
+     * @param  mustBeEnabled    If true, will only retrieve enabled components.
+     *
      * @return A vector of all the components.
      */
     template<class C>
-    vector<C *> getComponents() const
+    vector<C *> getComponents(bool mustBeEnabled = false) const
     {
         vector<C *> result {};
 
         for (const auto &it : this->components)
         {
             const auto component = dynamic_cast<C *>(it.get());
-            if (component)
+            if (component && (!mustBeEnabled || it->isEnabled()))
                 result.push_back(component);
         }
 
