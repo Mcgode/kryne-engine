@@ -19,9 +19,8 @@ MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options
     this->setMetalnessMap(options.metalnessMap);
 }
 
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wint-to-void-pointer-cast"
+// Cast GLuint to void * without compiler warning
+#define ImageID(id) reinterpret_cast<void *>((unsigned long long)id)
 
 
 void MeshStandardMaterial::dearImGuiData()
@@ -47,7 +46,7 @@ void MeshStandardMaterial::dearImGuiData()
             ImGui::TableNextRow(); ImGui::TableNextColumn();
             ImGui::Text("Albedo map"); ImGui::TableNextColumn();
             if (map)
-                ImGui::Image((void *)map->getId(), ImVec2(64, 64));
+                ImGui::Image(ImageID(map->getId()), ImVec2(64, 64));
             else
                 ImGui::Text("None");
         }
@@ -66,7 +65,7 @@ void MeshStandardMaterial::dearImGuiData()
             ImGui::TableNextRow(); ImGui::TableNextColumn();
             ImGui::Text("Roughness map"); ImGui::TableNextColumn();
             if (this->roughnessMap)
-                ImGui::Image((void *)this->roughnessMap->getId(), ImVec2(64, 64));
+                ImGui::Image(ImageID(this->roughnessMap->getId()), ImVec2(64, 64));
             else
                 ImGui::Text("None");
         }
@@ -85,7 +84,7 @@ void MeshStandardMaterial::dearImGuiData()
             ImGui::TableNextRow(); ImGui::TableNextColumn();
             ImGui::Text("Metalness map"); ImGui::TableNextColumn();
             if (this->metalnessMap)
-                ImGui::Image((void *)this->metalnessMap->getId(), ImVec2(64, 64));
+                ImGui::Image(ImageID(this->metalnessMap->getId()), ImVec2(64, 64));
             else
                 ImGui::Text("None");
         }
@@ -94,7 +93,7 @@ void MeshStandardMaterial::dearImGuiData()
             ImGui::TableNextRow(); ImGui::TableNextColumn();
             ImGui::Text("Normal map"); ImGui::TableNextColumn();
             if (this->normalMap)
-                ImGui::Image((void *)this->normalMap->getId(), ImVec2(64, 64));
+                ImGui::Image(ImageID(this->normalMap->getId()), ImVec2(64, 64));
             else
                 ImGui::Text("None");
         }
@@ -102,6 +101,3 @@ void MeshStandardMaterial::dearImGuiData()
         ImGui::EndTable();
     }
 }
-
-
-#pragma clang diagnostic pop
