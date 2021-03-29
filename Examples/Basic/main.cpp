@@ -14,7 +14,7 @@
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
-#include <kryne-engine/Material/AdditionalMaterials/TextureCopyMaterial.h>
+#include <kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
 #include <kryne-engine/UI/DearImGui.h>
 #include <kryne-engine/UI/DearImGuiPrototype.hpp>
@@ -97,8 +97,8 @@ int main()
     camera->setName("OrbitCamera");
     process->getGraphicContext()->getRenderer()->setCamera(camera);
 
-    const auto copyMaterial = make_shared<TextureCopyMaterial>();
-    auto pass = make_unique<ShaderPass>("CopyPass", copyMaterial);
+    const auto fxaaMaterial = make_shared<FXAAMaterial>();
+    auto pass = make_unique<ShaderPass>("FXAAPass", fxaaMaterial);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
     auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
