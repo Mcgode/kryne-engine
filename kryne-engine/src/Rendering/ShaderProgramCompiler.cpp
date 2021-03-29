@@ -4,6 +4,8 @@
  * @date 27/11/2020.
  */
 
+#include <kryne-engine/Utils/Debugging.hpp>
+
 #include "kryne-engine/Rendering/ShaderProgramCompiler.h"
 
 
@@ -55,13 +57,14 @@ void ShaderProgramCompiler::compileShader(const string &code, const GLuint &id)
 
     // Check if compile succeeded
     int  success;
-    char infoLog[512];
     glGetShaderiv(id, GL_COMPILE_STATUS, &success);
     if(success == 0)
     {
-        glGetShaderInfoLog(id, 512, nullptr, infoLog);
-        std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-        ShaderProgramCompiler::printCode(code);
+        char infoLog[2048];
+        auto codeArray = ShaderProgramCompiler::getCode(code);
+        glGetShaderInfoLog(id, 2048, nullptr, infoLog);
+        std::cout << "ERROR::SHADER::COMPILATION_FAILED" << std::endl;
+        Utils::parseAndDebugShaderInfoLog(infoLog, codeArray);
     }
 }
 
@@ -107,10 +110,11 @@ string ShaderProgramCompiler::replaceIncludes(const string &baseCode, const stri
 }
 
 
-void ShaderProgramCompiler::printCode(const string &code)
+vector<string> ShaderProgramCompiler::getCode(const string &code)
 {
     string line;
     istringstream iss(code);
+    vector<string> result;
 
     uint64_t count = 0;
     while (getline(iss, line))
@@ -124,8 +128,10 @@ void ShaderProgramCompiler::printCode(const string &code)
 
         string space;
         space.resize(lineCountMaxLength + 2 - codeLine.length(), ' ');
-        cout << space << codeLine << line << endl;
+        result.push_back(space + codeLine + line);
 
         i++;
     }
+
+    return result;
 }

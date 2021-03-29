@@ -7,29 +7,38 @@
 #pragma once
 
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <regex>
+#include <iostream>
 
 
-GLenum glCheckError_(const char *file, int line)
-{
-    GLenum errorCode;
-    while ((errorCode = glGetError()) != GL_NO_ERROR)
+using namespace std;
+
+
+namespace Utils {
+
+    void parseAndDebugShaderInfoLog(const string &infoLog, const vector<string>& code)
     {
-        std::string error;
-        switch (errorCode)
-        {
-            case GL_INVALID_ENUM:                  error = "INVALID_ENUM"; break;
-            case GL_INVALID_VALUE:                 error = "INVALID_VALUE"; break;
-            case GL_INVALID_OPERATION:             error = "INVALID_OPERATION"; break;
-//            case GL_STACK_OVERFLOW:                error = "STACK_OVERFLOW"; break;
-//            case GL_STACK_UNDERFLOW:               error = "STACK_UNDERFLOW"; break;
-            case GL_OUT_OF_MEMORY:                 error = "OUT_OF_MEMORY"; break;
-            case GL_INVALID_FRAMEBUFFER_OPERATION: error = "INVALID_FRAMEBUFFER_OPERATION"; break;
-        }
-        std::cout << error << " | " << file << " (" << line << ")" << std::endl;
-    }
-    return errorCode;
-}
+        istringstream stream(infoLog);
+        string infoLine;
 
-#define glCheckError() glCheckError_(__FILE__, __LINE__)
+        regex lineRegex("([0-9]+)\\)");
+        smatch results;
+
+        while (getline(stream, infoLine))
+        {
+            cerr << endl;
+            cerr << infoLine << endl;
+
+            if (regex_search(infoLine, results, lineRegex))
+            {
+                size_t line = stoi(results[1].str());
+                for (size_t l = max((size_t) 0, line - 2); l < min(line + 2, code.size()); l++)
+                    cerr << "    " << code[l] << endl;
+            }
+        }
+    }
+
+}

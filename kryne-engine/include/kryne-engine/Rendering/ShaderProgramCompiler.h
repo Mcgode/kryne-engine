@@ -59,7 +59,7 @@ protected:
      * Prints prettily shader code to the console.
      * @param code  The code to print.
      */
-    static void printCode(const string &code);
+    static vector<string> getCode(const string &code);
 
     /**
      * Compiles the vertex shader.

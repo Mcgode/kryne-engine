@@ -131,8 +131,9 @@ void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment)
     GLint success;
     glGetProgramiv(this->programID, GL_LINK_STATUS, &success);
     if(!success) {
-        char infoLog[512];
-        glGetProgramInfoLog(this->programID, 512, nullptr, infoLog);
+        string infoLog;
+        infoLog.resize(2048);
+        glGetProgramInfoLog(this->programID, infoLog.size(), nullptr, infoLog.data());
         std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
         exit(EXIT_FAILURE);
     }
