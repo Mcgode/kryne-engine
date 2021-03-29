@@ -23,6 +23,12 @@ public:
      */
     explicit MeshLambertMaterial(const InitParameters &options = InitParameters());
 
+protected:
+
+    string materialName() override { return "Lambert"; }
+
+    void dearImGuiData() override;
+
 };
 
 
