@@ -187,20 +187,19 @@ void DearImGuiSceneBrowser::displayComponents(Entity *entity)
 
         bool open = ImGui::CollapsingHeader(component->getComponentName().c_str());
 
-        if (!component->isEnabled())
-            ImGui::PopStyleColor();
-
+        bool enabled = component->isEnabled();
         if (open)
         {
-            {
-                bool enabled = component->isEnabled();
-                ImGui::Checkbox(ImGuiLabel("Enabled", component), &enabled);
-                component->setEnabled(enabled);
-            }
+            ImGui::Checkbox(ImGuiLabel("Enabled", component), &enabled);
 
             component->renderComponentDetails();
 
             ImGui::Separator();
         }
+
+        if (!component->isEnabled())
+            ImGui::PopStyleColor();
+
+        component->setEnabled(enabled);
     }
 }
