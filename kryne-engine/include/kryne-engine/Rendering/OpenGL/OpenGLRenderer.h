@@ -14,14 +14,11 @@
 #include "OpenGLScreenFramebuffer.hpp"
 
 
-class OpenGLContext;
-
-
 class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(OpenGLContext *context);
+    explicit OpenGLRenderer(RenderingState *renderingState);
 
     void prepareFrame() override;
 
@@ -35,13 +32,10 @@ public:
 
 protected:
 
-    OpenGLContext *context;
+    RenderingState *renderingState;
 
     unique_ptr<PlaneBufferGeometry> fullscreenPlane;
 
 };
-
-
-#include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 
 

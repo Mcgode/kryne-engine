@@ -25,12 +25,11 @@ using namespace std;
  */
 class OpenGLContext: public GraphicContext {
 
-friend class OpenGLRenderer;
-
 public:
 
     /**
-     * Tries to initialize the OpenGL context.
+     * @brief Tries to initialize the OpenGL context.
+     *
      * @param baseWidth     The main window width. Defaults to 1280.
      * @param baseHeight    The main window height. Defaults to 720.
      * @param majorVersion  The OpenGL major version. Defaults to 3.
@@ -41,29 +40,25 @@ public:
                            GLint majorVersion = 4, GLint minorVersion = 5,
                            GLint profile = GLFW_OPENGL_CORE_PROFILE);
 
-    /**
-     * @copydoc GraphicContext::shouldStop()
-     */
+    /// @copydoc GraphicContext::shouldStop()
     bool shouldStop() override;
 
-    /**
-     * @copydoc GraphicContext::stop()
-     */
+    /// @copydoc GraphicContext::stop()
     void stop() override;
 
-    /**
-     * @copydoc GraphicContext::endFrame()
-     */
+    /// @copydoc GraphicContext::endFrame()
     void endFrame() override;
 
-    /**
-     * @copydoc GraphicContext::getPlayerInput()
-     */
+    /// @copydoc GraphicContext::getPlayerInput()
     PlayerInput *getPlayerInput() override;
 
+    /// @copydoc GraphicContext::getRenderer()
     LoopRenderer *getRenderer() override;
 
-    GLFWwindow *getWindow() const { return this->mainWindow; }
+    /**
+     * Retrieves the current GLFW window.
+     */
+    [[nodiscard]] GLFWwindow *getWindow() const { return this->mainWindow; }
 
     /**
      * Terminates the OpenGL context.

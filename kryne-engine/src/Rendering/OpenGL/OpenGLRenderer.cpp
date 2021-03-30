@@ -7,11 +7,11 @@
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
-OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
+OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState):
         LoopRenderer(make_unique<OpenGLScreenFramebuffer>(1280, 720),
                      make_unique<OpenGLFramebuffer>(1280, 720),
                      make_unique<OpenGLFramebuffer>(1280, 720)),
-        context(context)
+        renderingState(renderingState)
 {
     this->writeFramebuffer->addColorAttachment();
     this->writeFramebuffer->setUpDepthLayer();
@@ -50,14 +50,14 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-    if (context->renderingState->getSide() != material->getSide())
-        context->renderingState->setSide(material->getSide());
+    if (renderingState->getSide() != material->getSide())
+        renderingState->setSide(material->getSide());
 
-    if (context->renderingState->isDepthTestEnabled() != material->isDepthTest())
-        context->renderingState->setDepthTest(material->isDepthTest());
+    if (renderingState->isDepthTestEnabled() != material->isDepthTest())
+        renderingState->setDepthTest(material->isDepthTest());
 
-    if (context->renderingState->isDepthWriteEnabled() != material->isWriteDepth())
-        context->renderingState->setDepthWrite(material->isWriteDepth());
+    if (renderingState->isDepthWriteEnabled() != material->isWriteDepth())
+        renderingState->setDepthWrite(material->isWriteDepth());
 
     // Renderer-level uniforms
     material->setUniform("projectionMatrix", camera->getProjectionMatrix());
@@ -92,7 +92,7 @@ void OpenGLRenderer::prepareFrame()
         this->writeFramebuffer->setAsRenderTarget();
 
     glClearColor(0.f, 0.f, 0.f, 0.f);
-    context->renderingState->setDepthWrite(true);
+    renderingState->setDepthWrite(true);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
@@ -125,7 +125,7 @@ void OpenGLRenderer::renderToScreen()
 void OpenGLRenderer::textureRender(Material *material)
 {
     glClearColor(0.f, 0.f, 0.f, 0.f);
-    context->renderingState->setDepthWrite(true);
+    renderingState->setDepthWrite(true);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
     material->prepareShader(this->fullscreenPlane.get());
@@ -134,9 +134,9 @@ void OpenGLRenderer::textureRender(Material *material)
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-    context->renderingState->setSide(FrontSide);
-    context->renderingState->setDepthTest(false);
-    context->renderingState->setDepthWrite(false);
+    renderingState->setSide(FrontSide);
+    renderingState->setDepthTest(false);
+    renderingState->setDepthWrite(false);
 
     // Upload uniforms
     material->getShader()->updateUniforms();

@@ -113,8 +113,8 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     cout << "Initialized OpenGL context" << endl;
 
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
-    this->renderer = make_unique<OpenGLRenderer>(this);
     this->renderingState = make_unique<RenderingState>(FrontSide, true);
+    this->renderer = make_unique<OpenGLRenderer>(this->renderingState.get());
 }
 
 
