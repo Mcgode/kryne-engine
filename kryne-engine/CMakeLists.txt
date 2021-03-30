@@ -91,7 +91,6 @@ add_library(kryne-engine STATIC
         src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
         src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
         include/kryne-engine/enums/RenderMode.h
-        src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h
         include/kryne-engine/Math/Sphere.hpp
         include/kryne-engine/Math/AxisAlignedBox.hpp
         include/kryne-engine/Math/Frustum.hpp
@@ -112,7 +111,9 @@ add_library(kryne-engine STATIC
         include/kryne-engine/UI/DearImGuiComponent.hpp
         include/kryne-engine/Utils/FrameTime.hpp
         src/UI/DearImGuiPerformanceMetrics.cpp include/kryne-engine/UI/DearImGuiPerformanceMetrics.hpp
-        include/kryne-engine/Utils/Multithreading.hpp include/kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp)
+        include/kryne-engine/Utils/Multithreading.hpp
+        include/kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp
+        )
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
