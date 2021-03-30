@@ -6,7 +6,7 @@ uniform sampler2D tDiffuse;
 
 float rgb2luma(vec3 rgb)
 {
-    return dot(rgb, vec3(0.2, 0.6, 0.2));
+    return dot(rgb, vec3(0.299, 0.587, 0.0114));
 }
 
 // Links
