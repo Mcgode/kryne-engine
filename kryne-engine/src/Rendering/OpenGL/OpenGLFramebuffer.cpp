@@ -77,3 +77,27 @@ void OpenGLFramebuffer::setUpDepthLayer()
 {
     this->depthStencilAttachment = make_unique<AttachmentData>();
 }
+
+
+void OpenGLFramebuffer::sizeUpdated()
+{
+    for (const auto &attachment : this->attachments)
+    {
+        if (attachment.texture != nullptr)
+        {
+            glBindTexture(GL_TEXTURE_2D, attachment.texture->getId());
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this->width, this->height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+        }
+    }
+
+    if (this->depthStencilAttachment != nullptr && this->depthStencilAttachment->texture != nullptr)
+    {
+        glBindTexture(GL_TEXTURE_2D, this->depthStencilAttachment->texture->getId());
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, this->width, this->height, 0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, nullptr);
+    }
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        throw runtime_error("ERROR::FRAMEBUFFER:: Framebuffer is not complete!");
+}

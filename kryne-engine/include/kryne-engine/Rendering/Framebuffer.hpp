@@ -17,6 +17,25 @@ public:
 
     Framebuffer(uint16_t width, uint16_t height) : width(width), height(height) {}
 
+    /**
+     * @brief Changes the size of this framebuffer.
+     *
+     * @param size The new size for this framebuffer.
+     */
+    void setSize(const ivec2 &size)
+    {
+        this->width = size.x;
+        this->height = size.y;
+        this->sizeUpdated();
+    }
+
+protected:
+
+    /**
+     * @brief Size update behaviour.
+     */
+    virtual void sizeUpdated() = 0;
+
 protected:
 
     uint16_t width;

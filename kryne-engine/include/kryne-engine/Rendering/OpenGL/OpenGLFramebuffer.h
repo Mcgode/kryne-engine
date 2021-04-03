@@ -25,6 +25,10 @@ public:
 
 protected:
 
+    void sizeUpdated() override;
+
+protected:
+
     GLuint fbo = 0;
 
 
