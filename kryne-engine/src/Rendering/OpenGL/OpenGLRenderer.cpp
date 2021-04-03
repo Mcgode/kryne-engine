@@ -92,6 +92,8 @@ void OpenGLRenderer::prepareFrame()
     else
         this->writeFramebuffer->setAsRenderTarget();
 
+    this->renderingState->setViewportStart(ivec2(0));
+    this->renderingState->setViewportSize(this->rendererSize);
     glClearColor(0.f, 0.f, 0.f, 0.f);
     renderingState->setDepthWrite(true);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
