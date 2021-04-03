@@ -9,43 +9,56 @@ struct PhysicalMaterial
 
 vec3 fresnelSchlick( const in float cosTheta, const in vec3 F0 )
 {
-    return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
+    // Original approximation by Christophe Schlick '94
+    // float fresnel = pow( 1.0 - cosTheta, 5.0 );
+
+    // Optimized variant (presented by Epic at SIGGRAPH '13)
+    // https://cdn2.unrealengine.com/Resources/files/2013SiggraphPresentationsNotes-26915738.pdf
+    float fresnel = exp2( ( -5.55473 * cosTheta - 6.98316 ) * cosTheta );
+
+    return F0 + (1.0 - F0) * fresnel;
 }
 
 
-float DistributionGGX( const in vec3 N, const in vec3 H, const in float roughness )
+// Microfacet Models for Refraction through Rough Surfaces - equation (33)
+// http://graphicrants.blogspot.com/2013/08/specular-brdf-reference.html
+// alpha is "roughness squared" in Disney’s reparameterization
+float DistributionGGX( const in float NdH, const in float alpha )
 {
-    float a      = roughness*roughness;
-    float a2     = a*a;
-    float NdotH  = max(dot(N, H), 0.0);
-    float NdotH2 = NdotH*NdotH;
+    float a2     = alpha * alpha;
+    float NdotH2 = NdH * NdH;
 
-    float num   = a2;
-    float denom = (NdotH2 * (a2 - 1.0) + 1.0);
-    denom = PI * denom * denom;
+    float denom = NdotH2 * (a2 - 1.0) + 1.0;
 
-    return num / denom;
+    return a2 / (PI * denom * denom);
 }
 
 
-float GeometrySchlickGGX( const in float NdotV, const in float roughness )
+// Microfacet Models for Refraction through Rough Surfaces - equation (34)
+// http://graphicrants.blogspot.com/2013/08/specular-brdf-reference.html
+// alpha is "roughness squared" in Disney’s reparameterization
+float GeometrySmithGGX( const in float NdV, const in float NdL, const in float alpha )
 {
-    float r = (roughness + 1.0);
-    float k = (r*r) / 8.0;
+    float a2 = alpha * alpha;
 
-    float num   = NdotV;
-    float denom = NdotV * (1.0 - k) + k;
+    float gl = NdL + sqrt( a2 + ( 1.0 - a2 ) * NdL * NdL );
+    float gv = NdV + sqrt( a2 + ( 1.0 - a2 ) * NdV * NdV );
 
-    return num / denom;
+    return 1.0 / (gl * gv);
 }
 
 
-float GeometrySmith( const in float NdV, const in float NdL, const in float roughness )
+// Moving Frostbite to Physically Based Rendering 3.0 - page 12, listing 2
+// https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf
+float GeometrySmithGGXCorrelated( const in float NdV, const in float NdL, const in float alpha )
 {
-    float ggx2  = GeometrySchlickGGX(NdV, roughness);
-    float ggx1  = GeometrySchlickGGX(NdL, roughness);
+    float a2 = alpha * alpha;
 
-    return ggx1 * ggx2;
+    // NdL and NdV are explicitly swapped. This is not a mistake.
+    float gl = NdV + sqrt( a2 + ( 1.0 - a2 ) * NdL * NdL );
+    float gv = NdL + sqrt( a2 + ( 1.0 - a2 ) * NdV * NdV );
+
+    return 0.5 / max( gv + gl, 0.001 );
 }
 
 
@@ -54,22 +67,23 @@ void LightDirectPhysical( const in IncidentLight light,
                           const in PhysicalMaterial material,
                           inout ReflectedLight reflectedLight )
 {
-    vec3 h = normalize(light.direction + geometry.viewDir);
+    vec3 halfDir = normalize(light.direction + geometry.viewDir);
 
+    float alpha    = material.roughness * material.roughness;
     float cosTheta = max(0, dot(geometry.normal, light.direction));
-
-    vec3 F0 = mix(vec3(0.04), material.albedo, material.metalness);
-    vec3 F  = fresnelSchlick(max(0, dot(h, geometry.viewDir)), F0);
 
     float NdV = max(0, dot(geometry.normal, geometry.viewDir));
     float NdL = max(0, dot(geometry.normal, light.direction));
+    float NdH = max(0, dot(geometry.normal, halfDir));
+    float LdH = max(0, dot(halfDir, geometry.viewDir));
 
-    float NDF = DistributionGGX(geometry.normal, h, material.roughness);
-    float G   = GeometrySmith(NdV, NdL, material.roughness);
+    vec3 F0 = mix(vec3(0.04), material.albedo, material.metalness);
+    vec3 F  = fresnelSchlick(LdH, F0);
 
-    vec3 num      = NDF * G * F;
-    float denom   = 4.0 * NdV * NdL;
-    vec3 specular = num / max(denom, 0.001);
+    float NDF = DistributionGGX(NdH, alpha);
+    float G   = GeometrySmithGGXCorrelated(NdV, NdL, alpha);
+
+    vec3 specular = NDF * G * F;
 
     vec3 kS = F;
     vec3 kD = (1 - kS) * (1 - material.metalness);
