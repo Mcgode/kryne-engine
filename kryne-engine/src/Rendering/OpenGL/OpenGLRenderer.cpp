@@ -7,10 +7,11 @@
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
-OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState):
-        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(1280, 720),
-                     make_unique<OpenGLFramebuffer>(1280, 720),
-                     make_unique<OpenGLFramebuffer>(1280, 720)),
+OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState, const ivec2 &size) :
+        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(size.x, size.y),
+                     size),
         renderingState(renderingState)
 {
     this->writeFramebuffer->addColorAttachment();

@@ -9,10 +9,12 @@
 
 LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
                            unique_ptr<Framebuffer> readFramebuffer,
-                           unique_ptr<Framebuffer> writeFramebuffer) :
+                           unique_ptr<Framebuffer> writeFramebuffer,
+                           const ivec2 &size) :
    screenFramebuffer(move(screenFramebuffer)),
    readFramebuffer(move(readFramebuffer)),
-   writeFramebuffer(move(writeFramebuffer))
+   writeFramebuffer(move(writeFramebuffer)),
+   rendererSize(size)
 {}
 
 
@@ -130,4 +132,12 @@ unique_ptr<PostProcessPass> LoopRenderer::removePass(const string &name)
     auto p = move(*it);
     this->postProcessPasses.erase(it);
     return p;
+}
+
+
+void LoopRenderer::updateRendererSize(const ivec2 &size)
+{
+    this->rendererSize = size;
+    this->writeFramebuffer->setSize(size);
+    this->readFramebuffer->setSize(size);
 }

@@ -58,7 +58,8 @@ protected:
 
     LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
                  unique_ptr<Framebuffer> readFramebuffer,
-                 unique_ptr<Framebuffer> writeFramebuffer);
+                 unique_ptr<Framebuffer> writeFramebuffer,
+                 const ivec2 &size);
 
 protected:
 
@@ -116,6 +117,13 @@ public:
      */
     unique_ptr<PostProcessPass> removePass(const string &name);
 
+    /**
+     * @brief Updates the renderer size.
+     *
+     * @param size  The new size for the renderer.
+     */
+    void updateRendererSize(const ivec2 &size);
+
 protected:
 
 //    /**
@@ -142,6 +150,9 @@ protected:
     unique_ptr<Framebuffer> readFramebuffer;
 
     unique_ptr<Framebuffer> writeFramebuffer;
+
+    /// The renderer size in pixels.
+    ivec2 rendererSize;
 
 
 // ==================
