@@ -115,6 +115,8 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
     this->renderingState = make_unique<RenderingState>(FrontSide, true);
     this->renderer = make_unique<OpenGLRenderer>(this->renderingState.get());
+
+    OpenGLContext::runningContexts().emplace(this);
 }
 
 
@@ -147,6 +149,7 @@ PlayerInput *OpenGLContext::getPlayerInput()
 OpenGLContext::~OpenGLContext()
 {
     assertIsMainThread();
+    OpenGLContext::runningContexts().erase(this);
     glfwTerminate();
 }
 

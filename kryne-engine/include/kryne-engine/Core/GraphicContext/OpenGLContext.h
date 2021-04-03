@@ -7,9 +7,11 @@
 #pragma once
 
 #include <memory>
+#include <unordered_set>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
 
 #include <kryne-engine/Rendering/RenderingState.hpp>
 #include "GraphicContext.h"
@@ -78,6 +80,21 @@ protected:
 
     /// The renderer for this context
     unique_ptr<OpenGLRenderer> renderer {};
+
+    /// The current window size
+    glm::ivec2 windowSize {};
+
+
+protected:
+
+    /**
+     * A set of all the declared OpenGLContext instances.
+     */
+    inline static unordered_set<OpenGLContext *> &runningContexts()
+    {
+        static unordered_set<OpenGLContext *> contexts;
+        return contexts;
+    }
 
 };
 
