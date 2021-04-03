@@ -60,6 +60,11 @@ public:
      */
     void setProjectionData(unique_ptr<ProjectionData> newProjectionData);
 
+    /**
+     * @brief Retrieves the current projection data
+     */
+     [[nodiscard]] ProjectionData *getProjectionData() const { return this->projectionData.get(); }
+
 protected:
 
     /// The projection data for this camera

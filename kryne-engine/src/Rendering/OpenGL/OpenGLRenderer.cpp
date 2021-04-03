@@ -104,6 +104,7 @@ vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 {
     vector<Entity *> result;
 
+    this->mainCamera->getProjectionData()->setViewportSize(this->rendererSize);
     result.push_back(this->mainCamera);
 
     return result;
