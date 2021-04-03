@@ -18,10 +18,16 @@ class RenderingState {
 
 public:
 
-    explicit RenderingState(MaterialSide baseSide, bool enableDepth = true) {
+    explicit RenderingState(const ivec2 &viewportSize,
+                            MaterialSide baseSide,
+                            bool enableDepth = true,
+                            const ivec2 &viewportStart = ivec2(0))
+    {
         setSide(baseSide);
         setDepthTest(enableDepth);
         setDepthWrite(true);
+        setViewportSize(viewportSize);
+        setViewportStart(viewportStart);
     }
 
 
@@ -85,6 +91,35 @@ public:
 private:
 
     bool depthWrite {};
+
+
+// --- Viewport size ---
+
+public:
+
+    [[nodiscard]] const ivec2 &getViewportStart() const { return viewportStart; }
+
+    void setViewportStart(const ivec2 &newStart)
+    {
+        if (!glm::all(glm::equal(newStart, this->viewportStart)))
+            glViewport(newStart.x, newStart.y, this->viewportSize.x, this->viewportSize.y);
+        RenderingState::viewportStart = newStart;
+    }
+
+    [[nodiscard]] const ivec2 &getViewportSize() const { return viewportSize; }
+
+    void setViewportSize(const ivec2 &newSize)
+    {
+        if (!glm::all(glm::equal(newSize, this->viewportStart)))
+            glViewport(this->viewportStart.x, this->viewportStart.y, newSize.x, newSize.y);
+        RenderingState::viewportSize = newSize;
+    }
+
+private:
+
+    ivec2 viewportStart {};
+
+    ivec2 viewportSize {};
 
 };
 
