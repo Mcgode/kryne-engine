@@ -96,6 +96,23 @@ protected:
         return contexts;
     }
 
+    /**
+     * @brief GLFW framebuffer size update callback.
+     *
+     * @param window    The associated GLFW window.
+     * @param width     The new framebuffer width.
+     * @param height    The new framebuffer height.
+     */
+    static void framebufferSizeCallback(GLFWwindow *window, int width, int height);
+
+    /**
+     * @brief Updates the context window size.
+     *
+     * @param width     The new window width.
+     * @param height    The new window height.
+     */
+    void updateSize(int width, int height);
+
 };
 
 

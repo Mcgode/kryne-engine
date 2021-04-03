@@ -7,9 +7,23 @@
 #include "kryne-engine/Core/GraphicContext/OpenGLContext.h"
 
 
-void framebufferSizeCallback(GLFWwindow *window, int width, int height)
+void OpenGLContext::framebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
-    glViewport(0, 0, width, height);
+    for (const auto context : OpenGLContext::runningContexts())
+    {
+        if (context->mainWindow == window)
+        {
+            context->updateSize(width, height);
+            return;
+        }
+    }
+}
+
+
+void OpenGLContext::updateSize(int width, int height)
+{
+    this->windowSize = ivec2(width, height);
+    this->renderer->updateRendererSize(this->windowSize);
 }
 
 
