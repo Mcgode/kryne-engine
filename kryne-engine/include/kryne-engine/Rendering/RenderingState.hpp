@@ -9,6 +9,8 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
+#include <glm/vector_relational.hpp>
 #include <kryne-engine/enums/MaterialSide.h>
 
 class RenderingState {
@@ -18,10 +20,10 @@ class RenderingState {
 
 public:
 
-    explicit RenderingState(const ivec2 &viewportSize,
+    explicit RenderingState(const glm::ivec2 &viewportSize,
                             MaterialSide baseSide,
                             bool enableDepth = true,
-                            const ivec2 &viewportStart = ivec2(0))
+                            const glm::ivec2 &viewportStart = glm::ivec2(0))
     {
         setSide(baseSide);
         setDepthTest(enableDepth);
@@ -97,18 +99,18 @@ private:
 
 public:
 
-    [[nodiscard]] const ivec2 &getViewportStart() const { return viewportStart; }
+    [[nodiscard]] const glm::ivec2 &getViewportStart() const { return viewportStart; }
 
-    void setViewportStart(const ivec2 &newStart)
+    void setViewportStart(const glm::ivec2 &newStart)
     {
         if (!glm::all(glm::equal(newStart, this->viewportStart)))
             glViewport(newStart.x, newStart.y, this->viewportSize.x, this->viewportSize.y);
         RenderingState::viewportStart = newStart;
     }
 
-    [[nodiscard]] const ivec2 &getViewportSize() const { return viewportSize; }
+    [[nodiscard]] const glm::ivec2 &getViewportSize() const { return viewportSize; }
 
-    void setViewportSize(const ivec2 &newSize)
+    void setViewportSize(const glm::ivec2 &newSize)
     {
         if (!glm::all(glm::equal(newSize, this->viewportStart)))
             glViewport(this->viewportStart.x, this->viewportStart.y, newSize.x, newSize.y);
@@ -117,9 +119,9 @@ public:
 
 private:
 
-    ivec2 viewportStart {};
+    glm::ivec2 viewportStart {};
 
-    ivec2 viewportSize {};
+    glm::ivec2 viewportSize {};
 
 };
 
