@@ -14,6 +14,9 @@ enum SystemTypes {
     /// Systems that support the direct game logic (like running the #LogicComponent instances).
     GameLogic,
 
+    /// Systems that must be run after the game logic, but before the pre-rendering
+    PostLogic,
+
     /// Systems that can must be run after the logic, and before the rendering.
     PreRendering,
 

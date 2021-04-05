@@ -20,7 +20,7 @@ class TransformUpdateSystem : public System {
 public:
 
     // Override constructor
-    explicit TransformUpdateSystem(Process *process): System(process, PreRendering) {}
+    explicit TransformUpdateSystem(Process *process): System(process, PostLogic) {}
 
     // Override
     void runSystem(Entity *entity) override;

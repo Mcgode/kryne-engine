@@ -173,11 +173,14 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
             for (const auto& system : this->systemsByType[GameLogic])
                 system->runSystem(entity);
 
-            for (const auto& system : this->systemsByType[PreRendering])
+            for (const auto& system : this->systemsByType[PostLogic])
                 system->runSystem(entity);
 
             entity->ranPreRenderingProcessing = true;
         }
+
+        for (const auto& system : this->systemsByType[PreRendering])
+            system->runSystem(entity);
 
         const auto renderMeshes = entity->getComponents<RenderMesh>(true);
         for (auto renderMesh : renderMeshes)
@@ -212,11 +215,14 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
         for (const auto& system : this->systemsByType[GameLogic])
             system->runSystem(entity);
 
-        for (const auto& system : this->systemsByType[PreRendering])
+        for (const auto& system : this->systemsByType[PostLogic])
             system->runSystem(entity);
 
         entity->ranPreRenderingProcessing = true;
     }
+
+    for (const auto& system : this->systemsByType[PreRendering])
+        system->runSystem(entity);
 
     const auto renderMeshes = entity->getComponents<RenderMesh>(true);
     for (auto renderMesh : renderMeshes)
@@ -272,7 +278,7 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
                     for (const auto& system : this->systemsByType[GameLogic])
                         system->runSystem(entity);
 
-                    for (const auto& system : this->systemsByType[PreRendering])
+                    for (const auto& system : this->systemsByType[PostLogic])
                         system->runSystem(entity);
 
                     entityToProcess->ranPreRenderingProcessing = true;
