@@ -113,6 +113,7 @@ add_library(kryne-engine STATIC
         src/UI/DearImGuiPerformanceMetrics.cpp include/kryne-engine/UI/DearImGuiPerformanceMetrics.hpp
         include/kryne-engine/Utils/Multithreading.hpp
         include/kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp
+        src/Light/HemisphereLight.cpp include/kryne-engine/Light/HemisphereLight.hpp
         include/kryne-engine/Light/Light.hpp
         )
 
