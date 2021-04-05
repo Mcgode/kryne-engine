@@ -109,6 +109,9 @@ void Process::runLoop()
             entity->ranPreRenderingProcessing = false;
 
         auto entities = renderer->parseScene(this->currentScene);
+        for (const auto &systemPair : this->processSystems)
+            systemPair.first->parseScene(this->currentScene, entities);
+
         this->runPriorityPreProcesses(entities);
 
         renderer->prepareFrame();
