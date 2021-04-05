@@ -15,10 +15,30 @@
  */
 class Light: public Entity {
 
+public:
+
+    enum LightType {
+
+        AmbientLight,
+
+        HemisphereLight,
+
+        DirectionalLight,
+
+        PointLight,
+
+    };
+
+    [[nodiscard]] LightType getType() const { return this->type; }
+
 protected:
 
     // Override
-    explicit Light(Process *process): Entity(process) {}
+    explicit Light(Process *process, LightType type): Entity(process), type(type) {}
+
+protected:
+
+    LightType type;
 
 };
 

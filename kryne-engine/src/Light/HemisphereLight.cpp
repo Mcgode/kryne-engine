@@ -11,7 +11,7 @@ HemisphereLight::HemisphereLight(Process *process,
                                  const vec3 &skyColor,
                                  const vec3 &groundColor,
                                  const vec3 &direction) :
-    Light(process),
+    Light(process, LightType::HemisphereLight),
     skyColor(skyColor),
     groundColor(groundColor),
     direction(direction),
