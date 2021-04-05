@@ -43,7 +43,7 @@ class Process {
 
 public:
 
-    Process(GraphicContext *context): context(context) {}
+    explicit Process(GraphicContext *context);
 
     /**
      * Instantiates a new scene.
@@ -58,7 +58,7 @@ public:
     /**
      * Returns the graphic context used for this process.
      */
-    GraphicContext *getGraphicContext() const { return this->context; }
+    [[nodiscard]] GraphicContext *getGraphicContext() const { return this->context; }
 
     /**
      * Set the value of #currentScene
@@ -173,13 +173,7 @@ public:
         const auto system = make_shared<T>(this, forward<Args>(args)...);
         this->processSystems.emplace(system.get(), system);
 
-        auto it = this->systemsByType.find(system->getType());
-        if (it == this->systemsByType.end())
-        {
-            unordered_set<System *> set;
-            it = this->systemsByType.emplace(system->getType(), set).first;
-        }
-        it->second.emplace(system.get());
+        this->systemsByType[system->getType()].push_back(system.get());
 
         return system.get();
     }
@@ -206,7 +200,7 @@ protected:
     unordered_map<System *, shared_ptr<System>> processSystems;
 
     /// A map of processes by type
-    unordered_map<SystemTypes, unordered_set<System *>> systemsByType;
+    vector<System *> systemsByType[SystemTypes::COUNT] {};
 
 
 // ===========

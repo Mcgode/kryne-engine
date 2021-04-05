@@ -7,6 +7,16 @@
 #include "kryne-engine/Core/Process.h"
 
 
+Process::Process(GraphicContext *context) : context(context)
+{
+//    for (size_t i = 0; i < SystemTypes::COUNT; i++)
+//        this->systemsByType.emplace_back();
+
+    for (auto &vec : this->systemsByType)
+        vec = vector<System *>();
+}
+
+
 weak_ptr<Entity> Process::getWeakReference(Entity *entity)
 {
     const auto it = this->processEntities.find(entity);
@@ -53,9 +63,8 @@ bool Process::detachSystem(System *system)
     {
         this->processSystems.erase(it);
 
-        const auto it2 = this->systemsByType.find(system->getType());
-        if ( it2 != this->systemsByType.end() )
-            it2->second.erase(system);
+        auto vec = this->systemsByType[system->getType()];
+        vec.erase(find(vec.begin(), vec.end(), system));
 
         return true;
     }
@@ -157,26 +166,15 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
         // As a consequence, no fancy lock operation is needed.
         if (!entity->ranPreRenderingProcessing)
         {
-            auto it = this->systemsByType.find(LoopStart);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
 
-            it = this->systemsByType.find(GameLogic);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
+            for (const auto& system : this->systemsByType[LoopStart])
+                system->runSystem(entity);
 
-            it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
+            for (const auto& system : this->systemsByType[GameLogic])
+                system->runSystem(entity);
+
+            for (const auto& system : this->systemsByType[PreRendering])
+                system->runSystem(entity);
 
             entity->ranPreRenderingProcessing = true;
         }
@@ -192,12 +190,9 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
             Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
             {
-                auto it = this->systemsByType.find(PostRendering);
-                if (it != this->systemsByType.end())
-                {
-                    for (const auto& systemPair : it->second)
-                        systemPair->runSystem(entity);
-                }
+
+                for (const auto& system : this->systemsByType[PostRendering])
+                    system->runSystem(entity);
 
                 for (const auto child: entity->getTransform()->getChildren())
                     this->processEntity(child->getEntity(), renderer);
@@ -211,26 +206,14 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
     // As a consequence, no fancy lock operation is needed.
     if (!entity->ranPreRenderingProcessing)
     {
-        auto it = this->systemsByType.find(LoopStart);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
+        for (const auto& system : this->systemsByType[LoopStart])
+            system->runSystem(entity);
 
-        it = this->systemsByType.find(GameLogic);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
+        for (const auto& system : this->systemsByType[GameLogic])
+            system->runSystem(entity);
 
-        it = this->systemsByType.find(PreRendering);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
+        for (const auto& system : this->systemsByType[PreRendering])
+            system->runSystem(entity);
 
         entity->ranPreRenderingProcessing = true;
     }
@@ -239,15 +222,8 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
     for (auto renderMesh : renderMeshes)
         renderer->computeFrustumCulling(renderMesh);
 
-    for (auto renderMesh : renderMeshes)
-        renderer->handleMesh(renderMesh);
-
-    auto it = this->systemsByType.find(PostRendering);
-    if (it != this->systemsByType.end())
-    {
-        for (const auto& systemPair : it->second)
-            systemPair->runSystem(entity);
-    }
+    for (const auto& system : this->systemsByType[PostRendering])
+        system->runSystem(entity);
 
     for (const auto child: entity->getTransform()->getChildren())
         this->processEntity(child->getEntity(), renderer);
@@ -290,26 +266,14 @@ void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
                     if (entityToProcess->ranPreRenderingProcessing)
                         continue;
 
-                    auto it = this->systemsByType.find(LoopStart);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
+                    for (const auto& system : this->systemsByType[LoopStart])
+                        system->runSystem(entity);
 
-                    it = this->systemsByType.find(GameLogic);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
+                    for (const auto& system : this->systemsByType[GameLogic])
+                        system->runSystem(entity);
 
-                    it = this->systemsByType.find(PreRendering);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
+                    for (const auto& system : this->systemsByType[PreRendering])
+                        system->runSystem(entity);
 
                     entityToProcess->ranPreRenderingProcessing = true;
                 }
