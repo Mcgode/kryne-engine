@@ -238,7 +238,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 }
 
 
-void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
+void Process::runPriorityPreProcesses(const unordered_set<Entity *> &entities) const
 {
     for (const auto entity : entities)
     {

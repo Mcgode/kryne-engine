@@ -24,7 +24,7 @@ public:
 
     void handleMesh(RenderMesh *renderMesh) override;
 
-    vector<Entity *> parseScene(Scene *scene) override;
+    std::unordered_set<Entity *> parseScene(Scene *scene) override;
 
     void renderToScreen() override;
 

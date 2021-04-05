@@ -100,12 +100,12 @@ void OpenGLRenderer::prepareFrame()
 }
 
 
-vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
+std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 {
-    vector<Entity *> result;
+    unordered_set<Entity *> result;
 
     this->mainCamera->getProjectionData()->setViewportSize(this->rendererSize);
-    result.push_back(this->mainCamera);
+    result.emplace(this->mainCamera);
 
     return result;
 }

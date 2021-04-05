@@ -8,6 +8,7 @@
 
 
 #include <vector>
+#include <unordered_set>
 #include <unordered_map>
 #include <memory>
 
@@ -39,7 +40,7 @@ public:
 
     virtual void handleMesh(RenderMesh *renderMesh) = 0;
 
-    virtual std::vector<Entity *> parseScene(Scene *scene) = 0;
+    virtual std::unordered_set<Entity *> parseScene(Scene *scene) = 0;
 
     virtual void setCamera(Camera *camera) { this->mainCamera = camera; }
 

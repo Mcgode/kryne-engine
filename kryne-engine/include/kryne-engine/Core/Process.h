@@ -82,7 +82,7 @@ protected:
 
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
 
-    void runPriorityPreProcesses(const vector<Entity *> &entities) const;
+    void runPriorityPreProcesses(const unordered_set<Entity *> &entities) const;
 
 protected:
 
