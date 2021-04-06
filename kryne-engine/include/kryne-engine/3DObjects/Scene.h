@@ -9,8 +9,10 @@
 
 class Entity;
 class Transform;
+class CubeTexture;
 
 #include <unordered_set>
+#include <memory>
 
 
 using namespace std;
@@ -48,6 +50,10 @@ public:
      */
     const unordered_set<Entity *> &getTopLevelEntities();
 
+    const shared_ptr<CubeTexture> &getSkyboxTexture() const { return skyboxTexture; }
+
+    void setSkyboxTexture(const shared_ptr<CubeTexture> &value) { Scene::skyboxTexture = value; }
+
 
 protected:
 
@@ -57,11 +63,15 @@ protected:
     /// TODO: Update it automatically
     unordered_set<Entity *> topLevelEntities {};
 
+    /// The skybox texture for the scene
+    shared_ptr<CubeTexture> skyboxTexture {};
+
 
 };
 
 
 #include <kryne-engine/Core/Entity.h>
+#include <kryne-engine/Textures/CubeTexture.h>
 
 
 #endif //INC_KRYNE_ENGINE_SCENE_H
