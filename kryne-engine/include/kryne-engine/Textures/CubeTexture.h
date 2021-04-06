@@ -18,11 +18,7 @@ public:
 
     explicit CubeTexture(GLuint id): Texture(id, GL_TEXTURE_CUBE_MAP) {};
 
-    static shared_ptr<CubeTexture> loadFilesSync(const vector<string> &filenames);
-
-protected:
-
-    explicit CubeTexture(const vector<string> &filenames);
+    static shared_ptr<CubeTexture> loadFiles(const vector<string> &filenames);
 
 };
 
