@@ -102,6 +102,9 @@ void Process::runLoop()
             activeUIRenderers.push_back(uiRenderer.get());
     }
 
+    for (const auto &systemPair : this->processSystems)
+        systemPair.first->loopReset();
+
     system_clock::time_point objectsRunTime;
     if (this->currentScene != nullptr)
     {
