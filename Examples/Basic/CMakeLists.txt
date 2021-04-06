@@ -1,5 +1,5 @@
 add_executable(Basic
-        main.cpp)
+        Basic.cpp)
 
 target_link_libraries(Basic PRIVATE kryne-engine)
 
