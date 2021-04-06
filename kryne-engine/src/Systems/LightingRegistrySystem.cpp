@@ -4,7 +4,7 @@
  * @date 05/04/2021.
  */
 
-#include "LightingRegistrySystem.hpp"
+#include "kryne-engine/Systems/LightingRegistrySystem.hpp"
 
 
 LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(process, PreRendering) {}
@@ -69,8 +69,9 @@ void LightingRegistrySystem::updateHemisphereLights(Material *material)
     {
         const auto light = this->hemisphereLights[i];
         string baseUniform = "hemisphereLights[" + to_string(i) + "].";
-        material->setUniform(baseUniform + "skyColor", light->getSkyColor());
-        material->setUniform(baseUniform + "groundColor", light->getGroundColor());
+        float intensity = light->getIntensity();
+        material->setUniform(baseUniform + "skyColor", intensity * light->getSkyColor());
+        material->setUniform(baseUniform + "groundColor", intensity * light->getGroundColor());
         material->setUniform(baseUniform + "direction", light->getWorldDirection());
     }
 }

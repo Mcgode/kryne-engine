@@ -52,7 +52,7 @@ int main()
 
     MeshStandardMaterial::StandardInitParameters params;
 
-    const auto light = process->makeEntity<HemisphereLight>(vec3(0.5, 0, 0), vec3(0.05, 0, 0), vec3(-1, 0, 0));
+    const auto light = process->makeEntity<HemisphereLight>(vec3(1, 0, 0), vec3(0.1, 0, 0), 0.5f, vec3(-1, 0, 0));
     light->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap]()
