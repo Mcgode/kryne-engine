@@ -100,6 +100,9 @@ protected:
     /// The stored uniform data
     unordered_map<string, pair<UniformTypes, GLint>> uniforms {};
 
+    /// Mutex for handling parallel read/write of uniforms
+    mutex uniformsMutex;
+
     unordered_map<GLint, GLint> activeTextures {};
 
     GLint nextTextureIndex = GL_TEXTURE0;

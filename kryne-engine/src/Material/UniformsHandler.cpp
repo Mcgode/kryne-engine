@@ -7,6 +7,8 @@
 
 void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
 {
+    scoped_lock<mutex> lock(this->uniformsMutex);
+
     auto l = this->uniforms.find(name);
     if (l != this->uniforms.end()) {
         l->second.first = value;
@@ -19,8 +21,11 @@ void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
 
 void UniformsHandler::notifyUniformLocationsNeedUpdate()
 {
+    scoped_lock<mutex> l(this->uniformsMutex);
+
     for (auto &entry : this->uniforms)
         entry.second.second = -2;
+
     this->activeTextures.clear();
     this->nextTextureIndex = GL_TEXTURE0;
 }
@@ -28,6 +33,8 @@ void UniformsHandler::notifyUniformLocationsNeedUpdate()
 
 bool UniformsHandler::removeUniform(const string &name)
 {
+    scoped_lock<mutex> l(this->uniformsMutex);
+
     auto it = this->uniforms.find(name);
 
     if (it != this->uniforms.end())
@@ -45,6 +52,8 @@ void UniformsHandler::updateUniforms()
 {
     if (*this->programId == 0)
         return;
+
+    scoped_lock<mutex> l(this->uniformsMutex);
 
     for (auto &entry : this->uniforms) {
         const auto data = entry.second;
