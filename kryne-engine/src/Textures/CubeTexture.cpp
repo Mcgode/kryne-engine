@@ -23,24 +23,45 @@ shared_ptr<CubeTexture> CubeTexture::loadFiles(const vector<string> &filenames)
                 runtime_error("No file named '" + f + "'");
         }
 
-        int32_t width[6], height[6], nbChannels[6];
+        int32_t width[6], height[6], nbChannels;
 
         uint8_t *data[6];
         for (uint64_t i = 0; i < 6; i++)
         {
-            data[i] = stbi_load(filenames[i].c_str(), &width[i], &height[i], &nbChannels[i], 0);
+            int nbc;
+            data[i] = stbi_load(filenames[i].c_str(), &width[i], &height[i], &nbc, 0);
 
             if (data[i] == nullptr)
                 throw runtime_error("Failed to load texture file '" + filenames[i] + "'");
 
-            if (i > 0 && (width[i-1] != width[i] || height[i-1] != height[i] || nbChannels[i-1] != nbChannels[i]))
+            if (i > 0 && (width[i-1] != width[i] || height[i-1] != height[i] || nbChannels != nbc))
                 throw runtime_error("Incoherent values between images");
+
+            nbChannels = nbc;
         }
 
         const auto mainFunc = [texture, width, height, nbChannels, data]()
         {
 
-            GLenum format = nbChannels[0] == 3 ? GL_RGB : GL_RGBA;
+            GLenum format;
+            switch (nbChannels)
+            {
+                case 1:
+                    format = GL_RED;
+                    break;
+                case 2:
+                    format = GL_RG;
+                    break;
+                case 3:
+                    format = GL_RGB;
+                    break;
+                case 4:
+                    format = GL_RGBA;
+                    break;
+                default:
+                    throw runtime_error("Unsupported number of channels: " + to_string(nbChannels));
+            }
+
             for (size_t i = 0; i < 6; i++)
             {
                 glTexImage2D(
