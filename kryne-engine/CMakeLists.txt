@@ -118,7 +118,7 @@ add_library(kryne-engine STATIC
         src/Systems/LightingRegistrySystem.cpp include/kryne-engine/Systems/LightingRegistrySystem.hpp
         include/kryne-engine/Light/AmbientLight.hpp
         src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.hpp
-        )
+        include/kryne-engine/Material/ShaderMaterial.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
