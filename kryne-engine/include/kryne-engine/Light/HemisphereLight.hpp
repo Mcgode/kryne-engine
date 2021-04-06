@@ -59,7 +59,7 @@ public:
     /// @brief Changes the current direction, and updates the world direction.
     void setDirection(const vec3 &newDirection)
     {
-        this->direction = newDirection;
+        this->direction = normalize(newDirection);
         this->worldDirection = this->getTransform()->getNormalMatrix() * this->direction;
     }
 
