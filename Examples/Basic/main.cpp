@@ -68,12 +68,6 @@ int main()
         material->setUniform("directionalLights[0].color", glm::vec3(1));
         material->setUniform("directionalLights[0].direction", glm::vec3(-1, -0.8, -0.5));
 
-        const float intensity = 0.2;
-        material->setDefine("MAX_HEMISPHERE_LIGHTS", "1");
-        material->setUniform("hemisphereLights[0].skyColor", intensity * glm::vec3(1));
-        material->setUniform("hemisphereLights[0].groundColor", intensity * glm::vec3(0.5));
-        material->setUniform("hemisphereLights[0].direction", glm::vec3(0, 1, 0));
-
         auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
         const auto entity = process->makeEntity<Entity>();
         entity->getTransform()->setScene(scene);

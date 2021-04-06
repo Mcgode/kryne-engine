@@ -26,6 +26,9 @@ void LightingRegistrySystem::runSystem(Entity *entity)
 
     for (const auto &renderMesh : entity->getComponents<RenderMesh>())
     {
+        if (!renderMesh->isEnabled())
+            continue;
+
         const auto material = renderMesh->getMaterial().get();
         this->updateAmbientLights(material);
         this->updateHemisphereLights(material);
@@ -37,6 +40,9 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
 {
     for (Entity *entity : scene->getEntities())
     {
+        if (!entity->isEnabled())
+            continue;
+
         const auto light = dynamic_cast<Light *>(entity);
         if (light != nullptr)
         {
