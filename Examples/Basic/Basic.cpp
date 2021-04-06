@@ -59,18 +59,19 @@ int main()
         "Resources/Textures/skybox/back.tga",
     };
     const auto skyTexture = CubeTexture::loadFiles(skyTextureFiles);
+    scene->setSkyboxTexture(skyTexture);
 
     MeshStandardMaterial::StandardInitParameters params;
 
     const auto hemisphereLight = process->makeEntity<HemisphereLight>(vec3(1),
                                                                       vec3(0.5),
-                                                                      0.2f,
+                                                                      0.75f,
                                                                       vec3(0, 1, 0));
     hemisphereLight->getTransform()->setScene(scene);
 
     const auto directionalLight = process->makeEntity<DirectionalLight>(vec3(1, 1, 1),
                                                                         1.5f,
-                                                                        vec3(-1, -0.8, -0.5));
+                                                                        vec3(-1, -1, -1));
     directionalLight->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap]()
