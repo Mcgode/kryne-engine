@@ -66,6 +66,9 @@ public:
     /// @brief Retrieves the current world direction of the light
     [[nodiscard]] const vec3 &getWorldDirection() const { return worldDirection; }
 
+    //Override
+    void renderEntityDetails() override;
+
 protected:
 
     /// The 'up' direction color

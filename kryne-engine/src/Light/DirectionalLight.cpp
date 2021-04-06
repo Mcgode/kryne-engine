@@ -64,7 +64,7 @@ void DirectionalLight::renderEntityDetails()
             ImGui::TableNextColumn();
             ImGui::Text("Direction: ");
             ImGui::TableNextColumn();
-            ImGui::DragFloat3("##intensity", value_ptr(dir), 0.01, -1, 1);
+            ImGui::DragFloat3("##direction", value_ptr(dir), 0.01, -1, 1);
 
             if (ImGui::IsItemEdited())
                 this->setDirection(dir);
