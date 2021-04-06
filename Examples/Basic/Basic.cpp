@@ -50,6 +50,16 @@ int main()
 //        cout << "IO operations should have concluded" << endl;
 //    });
 
+    vector<string> skyTextureFiles = {
+        "Resources/Textures/skybox/right.tga",
+        "Resources/Textures/skybox/left.tga",
+        "Resources/Textures/skybox/top.tga",
+        "Resources/Textures/skybox/bottom.tga",
+        "Resources/Textures/skybox/front.tga",
+        "Resources/Textures/skybox/back.tga",
+    };
+    const auto skyTexture = CubeTexture::loadFiles(skyTextureFiles);
+
     MeshStandardMaterial::StandardInitParameters params;
 
     const auto hemisphereLight = process->makeEntity<HemisphereLight>(vec3(1),
@@ -114,20 +124,8 @@ int main()
         ImGui::ShowDemoWindow();
     }));
 
-    using namespace std::chrono;
-    uint64_t start = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
-    double t;
     while (!process->getGraphicContext()->shouldStop())
     {
-        uint64_t uit = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
-        t = (uit - start);
-        t /= 1000.0;
-
-//        material->getShader()->debugPrintActiveUniforms();
-
-        auto lookPos = glm::vec3(2.*glm::cos(t), 1, 2.*glm::sin(t));
-//        mesh->lookAt(lookPos);
-
         process->runLoop();
     }
 
