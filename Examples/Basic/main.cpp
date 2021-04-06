@@ -14,6 +14,7 @@
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Systems/TransformUpdateSystem.h>
 #include <kryne-engine/Systems/GameLogicComponentsRunner.h>
+#include <kryne-engine/Systems/LightingRegistrySystem.hpp>
 #include <kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp>
 #include <kryne-engine/Rendering/Additional/ShaderPass.h>
 #include <kryne-engine/UI/DearImGui.h>
@@ -32,6 +33,7 @@ int main()
     process->setCurrentScene(scene);
     process->makeSystem<TransformUpdateSystem>();
     process->makeSystem<GameLogicComponentsRunner>();
+    process->makeSystem<LightingRegistrySystem>();
 
     const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
     const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
@@ -49,6 +51,9 @@ int main()
 //    });
 
     MeshStandardMaterial::StandardInitParameters params;
+
+    const auto light = process->makeEntity<HemisphereLight>(vec3(0.5, 0, 0), vec3(0.05, 0, 0), vec3(-1, 0, 0));
+    light->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap]()
     {
