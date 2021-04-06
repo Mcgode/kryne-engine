@@ -4,24 +4,24 @@
 
 #include "kryne-engine/Light/LightingRegistry.h"
 
-vector<DirectionalLight *> * LightingRegistry::getDirectionalLights()
+vector<OldDirectionalLight *> * LightingRegistry::getDirectionalLights()
 {
     return &this->directionalLights;
 }
 
-vector<PointLight *> * LightingRegistry::getPointLights()
+vector<OldPointLight *> * LightingRegistry::getPointLights()
 {
     return &this->pointLights;
 }
 
 
-void LightingRegistry::registerDirectionalLight(DirectionalLight *light)
+void LightingRegistry::registerDirectionalLight(OldDirectionalLight *light)
 {
     this->directionalLights.push_back(light);
 }
 
 
-void LightingRegistry::registerPointLight(PointLight *light)
+void LightingRegistry::registerPointLight(OldPointLight *light)
 {
     this->pointLights.push_back(light);
 }

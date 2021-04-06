@@ -2,9 +2,9 @@
 // Created by max on 21/05/19.
 //
 
-#include "kryne-engine/Light/PointLight.h"
+#include "kryne-engine/Light/OldPointLight.h"
 
-PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *ambientColor, glm::vec3 *specularColor)
+OldPointLight::OldPointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *ambientColor, glm::vec3 *specularColor)
 {
     this->position = position;
     this->diffuseColor = diffuseColor;
@@ -17,7 +17,7 @@ PointLight::PointLight(glm::vec3 position, glm::vec3 diffuseColor, glm::vec3 *am
 }
 
 
-void PointLight::shaderSet(Shader *shader, std::string uniformName)
+void OldPointLight::shaderSet(Shader *shader, std::string uniformName)
 {
     shader->setUniform(uniformName + ".position", position);
 
@@ -31,25 +31,25 @@ void PointLight::shaderSet(Shader *shader, std::string uniformName)
 }
 
 
-void PointLight::shaderSetArray(Shader *shader, std::string uniformArrayName, size_t index)
+void OldPointLight::shaderSetArray(Shader *shader, std::string uniformArrayName, size_t index)
 {
     shaderSet(shader, uniformArrayName + "[" + std::to_string(index) + "]");
 }
 
 
-std::vector<PointLight*> PointLight::getClosestPointLights(const std::vector<PointLight*>& pointLightList,
-                                                          glm::vec3 position,
-                                                          size_t maximumAmount)
+std::vector<OldPointLight*> OldPointLight::getClosestPointLights(const std::vector<OldPointLight*>& pointLightList,
+                                                                 glm::vec3 position,
+                                                                 size_t maximumAmount)
 {
-    std::vector<PointLight *> v;
+    std::vector<OldPointLight *> v;
 
-    for (PointLight *light : pointLightList) {
-        PointLight *l = light;
+    for (OldPointLight *light : pointLightList) {
+        OldPointLight *l = light;
         float d = glm::distance(light->position, position);
         size_t i = 0;
         while (i < v.size() && i < maximumAmount) {
             if (glm::distance(v[i]->position, position) > d) {
-                PointLight *tmp = v[i];
+                OldPointLight *tmp = v[i];
                 v[i] = l;
                 l = tmp;
             }
@@ -63,7 +63,7 @@ std::vector<PointLight*> PointLight::getClosestPointLights(const std::vector<Poi
 }
 
 
-void PointLight::setAttenuation(float constant, float linear, float quadratic)
+void OldPointLight::setAttenuation(float constant, float linear, float quadratic)
 {
     constantAttenuation = constant;
     linearAttenuation = linear;
@@ -71,7 +71,7 @@ void PointLight::setAttenuation(float constant, float linear, float quadratic)
 }
 
 
-bool PointLight::isCastingShadow() const
+bool OldPointLight::isCastingShadow() const
 {
     return castsShadow;
 }

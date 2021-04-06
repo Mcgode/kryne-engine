@@ -9,13 +9,13 @@
 
 
 #include <kryne-engine/Rendering/OldRenderPass.h>
-#include <kryne-engine/Light/DirectionalLight.h>
+#include <kryne-engine/Light/OldDirectionalLight.h>
 
 class DirectionalShadowMapRendering: public OldRenderPass {
 
 public:
 
-    explicit DirectionalShadowMapRendering(DirectionalLight *directionalLight,
+    explicit DirectionalShadowMapRendering(OldDirectionalLight *directionalLight,
                                            OldCamera *mainCamera);
 
 
@@ -36,7 +36,7 @@ public:
 
 private:
 
-    DirectionalLight *light;
+    OldDirectionalLight *light;
     OldCamera *camera;
 
     std::vector<GLuint> fbos;

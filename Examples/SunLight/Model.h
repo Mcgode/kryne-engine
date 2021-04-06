@@ -12,7 +12,7 @@ class Model: public BaseObject{
 
 public:
 
-    Model(const string &model, const string &fallbackTexture, const RenderScene *scene, DirectionalLight *light);
+    Model(const string &model, const string &fallbackTexture, const RenderScene *scene, OldDirectionalLight *light);
 
     void draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
 
@@ -22,7 +22,7 @@ private:
     Texture2D *normalMap;
 
     ShadowMapHandler *handler;
-    DirectionalLight *light;
+    OldDirectionalLight *light;
 
 };
 

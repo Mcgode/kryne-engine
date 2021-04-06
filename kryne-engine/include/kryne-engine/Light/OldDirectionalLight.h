@@ -14,7 +14,7 @@
 /**
  * A wrapper for a light that shines in a given direction, independently of the distance
  */
-class DirectionalLight {
+class OldDirectionalLight {
 
 public:
 
@@ -25,10 +25,10 @@ public:
      * @param ambientColor  The ambient color of the light, defaults to 0.1 * diffuseColor
      * @param specularColor The specular color of the light, defaults to the diffuse color
      */
-    explicit DirectionalLight(glm::vec3 direction,
-                              glm::vec3 diffuseColor = glm::vec3(1),
-                              glm::vec3 *ambientColor = nullptr,
-                              glm::vec3 *specularColor = nullptr);
+    explicit OldDirectionalLight(glm::vec3 direction,
+                                 glm::vec3 diffuseColor = glm::vec3(1),
+                                 glm::vec3 *ambientColor = nullptr,
+                                 glm::vec3 *specularColor = nullptr);
 
 
     /**

@@ -16,7 +16,7 @@
 /**
  * A wrapper for a light that shines from a provided position, with a potential attenuation
  */
-class PointLight {
+class OldPointLight {
 
 public:
 
@@ -27,10 +27,10 @@ public:
      * @param ambientColor  The ambient color of the light, defaults to 0.1 * diffuseColor
      * @param specularColor The specular color of the light, defaults to the diffuse color
      */
-    explicit PointLight(glm::vec3 position,
-                        glm::vec3 diffuseColor = glm::vec3(1),
-                        glm::vec3 *ambientColor = nullptr,
-                        glm::vec3 *specularColor = nullptr);
+    explicit OldPointLight(glm::vec3 position,
+                           glm::vec3 diffuseColor = glm::vec3(1),
+                           glm::vec3 *ambientColor = nullptr,
+                           glm::vec3 *specularColor = nullptr);
 
     /**
      * Sets the attenuation parameters
@@ -63,9 +63,9 @@ public:
      * @return A vector containing the n (with n <= maximumAmount) closest point lights to the provided position from
      *         the input vector
      */
-    static std::vector<PointLight*> getClosestPointLights(const std::vector<PointLight*>& pointLightList,
-                                                          glm::vec3 position,
-                                                          size_t maximumAmount);
+    static std::vector<OldPointLight*> getClosestPointLights(const std::vector<OldPointLight*>& pointLightList,
+                                                             glm::vec3 position,
+                                                             size_t maximumAmount);
 
 
     [[nodiscard]] bool isCastingShadow() const;

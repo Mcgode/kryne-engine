@@ -10,8 +10,8 @@ add_library(kryne-engine STATIC
         src/3DObjects/BaseObject.cpp include/kryne-engine/3DObjects/BaseObject.h
         src/3DObjects/HierarchicalNode.cpp include/kryne-engine/3DObjects/HierarchicalNode.h
         src/Camera/TrackballCamera.cpp include/kryne-engine/Camera/TrackballCamera.h
-        src/Light/PointLight.cpp include/kryne-engine/Light/PointLight.h
-        src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.h
+        src/Light/OldPointLight.cpp include/kryne-engine/Light/OldPointLight.h
+        src/Light/OldDirectionalLight.cpp include/kryne-engine/Light/OldDirectionalLight.h
         src/Core/AdditionalParameters.cpp include/kryne-engine/Core/AdditionalParameters.h
         src/Textures/Texture2D.cpp include/kryne-engine/Textures/Texture2D.h
         src/RenderTargets/PostProcess.cpp include/kryne-engine/RenderTargets/PostProcess.h

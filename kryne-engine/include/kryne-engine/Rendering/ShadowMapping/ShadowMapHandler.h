@@ -23,9 +23,9 @@ public:
                           const shared_ptr<LightingRegistry>& lightingRegistry,
                           AdditionalParameters *params);
 
-    std::vector<GLuint> getDirectionalShadowMaps(DirectionalLight *directionalLight);
+    std::vector<GLuint> getDirectionalShadowMaps(OldDirectionalLight *directionalLight);
 
-    std::vector<glm::mat4> getLightSpaceMatrices(DirectionalLight *directionalLight);
+    std::vector<glm::mat4> getLightSpaceMatrices(OldDirectionalLight *directionalLight);
 
     void updateCamera(OldCamera *newCamera);
 
@@ -33,7 +33,7 @@ private:
 
     OldCamera *mainCamera;
 
-    std::map<DirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;
+    std::map<OldDirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;
 
 };
 

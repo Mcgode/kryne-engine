@@ -2,14 +2,14 @@
 // Created by max on 21/05/19.
 //
 
-#include "kryne-engine/Light/DirectionalLight.h"
+#include "kryne-engine/Light/OldDirectionalLight.h"
 
 #include <utility>
 
-DirectionalLight::DirectionalLight(glm::vec3 direction,
-                                   glm::vec3 diffuseColor,
-                                   glm::vec3 *ambientColor,
-                                   glm::vec3 *specularColor)
+OldDirectionalLight::OldDirectionalLight(glm::vec3 direction,
+                                         glm::vec3 diffuseColor,
+                                         glm::vec3 *ambientColor,
+                                         glm::vec3 *specularColor)
 {
     this->direction = glm::normalize(direction);
     this->diffuseColor = diffuseColor;
@@ -18,7 +18,7 @@ DirectionalLight::DirectionalLight(glm::vec3 direction,
 }
 
 
-void DirectionalLight::shaderSet(Shader *shader, std::string uniformName)
+void OldDirectionalLight::shaderSet(Shader *shader, std::string uniformName)
 {
     shader->setUniform(uniformName + ".enabled", 1);
 
@@ -30,31 +30,31 @@ void DirectionalLight::shaderSet(Shader *shader, std::string uniformName)
 }
 
 
-const glm::vec3 &DirectionalLight::getDirection() const
+const glm::vec3 &OldDirectionalLight::getDirection() const
 {
     return direction;
 }
 
 
-bool DirectionalLight::isCastingShadow() const
+bool OldDirectionalLight::isCastingShadow() const
 {
     return castsShadow;
 }
 
 
-uint16_t DirectionalLight::getShadowResolution() const
+uint16_t OldDirectionalLight::getShadowResolution() const
 {
     return shadowResolution;
 }
 
 
-std::vector<double> DirectionalLight::getShadowCastRadii() const
+std::vector<double> OldDirectionalLight::getShadowCastRadii() const
 {
     return shadowCastRadii;
 }
 
 
-void DirectionalLight::setCastsShadow(uint16_t resolution, double radius)
+void OldDirectionalLight::setCastsShadow(uint16_t resolution, double radius)
 {
     this->castsShadow = true;
     this->shadowResolution = resolution;
@@ -62,7 +62,7 @@ void DirectionalLight::setCastsShadow(uint16_t resolution, double radius)
 }
 
 
-void DirectionalLight::setCastsShadowCascaded(uint16_t resolution, std::vector<double> radii)
+void OldDirectionalLight::setCastsShadowCascaded(uint16_t resolution, std::vector<double> radii)
 {
     this->castsShadow = true;
     this->shadowResolution = resolution;
