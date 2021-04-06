@@ -28,7 +28,9 @@ public:
         Light(process, LightType::AmbientLight),
         color(color),
         intensity(intensity)
-    {}
+    {
+        this->name = "AmbientLight";
+    }
 
     /// @brief Retrieves the light color.
     [[nodiscard]] const vec3 &getColor() const { return color; }

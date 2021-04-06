@@ -17,7 +17,10 @@ HemisphereLight::HemisphereLight(Process *process,
     groundColor(groundColor),
     intensity(intensity),
     direction(normalize(direction)),
-    worldDirection(normalize(direction)) {}
+    worldDirection(normalize(direction))
+{
+    this->name = "HemisphereLight";
+}
 
 
 void HemisphereLight::transformDidUpdate()

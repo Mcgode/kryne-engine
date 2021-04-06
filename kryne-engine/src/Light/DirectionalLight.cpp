@@ -15,7 +15,9 @@ DirectionalLight::DirectionalLight(Process *process,
           intensity(intensity),
           direction(normalize(direction)),
           worldDirection(normalize(direction))
-{}
+{
+    this->name = "DirectionalLight";
+}
 
 
 void DirectionalLight::transformDidUpdate()
