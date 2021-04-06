@@ -89,7 +89,7 @@ Texture2D *ModelMesh::getTexture(aiMaterial *material, aiTextureType type, const
         if (location != loadedTextures->end())
             return location->second;
 
-        auto texture = Texture2D::loadFromFileSync(directory + "/" + location->first).get();
+        auto texture = Texture2D::loadFromFile(directory + "/" + location->first).get();
         loadedTextures->insert(pair<string, Texture2D *>(fileName, texture));
         return texture;
     }

@@ -18,7 +18,7 @@ public:
 
     explicit Texture2D(GLuint id): Texture(id, GL_TEXTURE_2D) {};
 
-    static shared_ptr<Texture2D> loadFromFileSync(const string &filename);
+    static shared_ptr<Texture2D> loadFromFile(const string &filename);
 
 protected:
 

@@ -35,9 +35,9 @@ int main()
     process->makeSystem<GameLogicComponentsRunner>();
     process->makeSystem<LightingRegistrySystem>();
 
-    const auto map = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
-    const auto normalMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
-    const auto roughnessMap = Texture2D::loadFromFileSync("Resources/Textures/cobblestone/cobblestone_floor_rough.jpg");
+    const auto map = Texture2D::loadFromFile("Resources/Textures/cobblestone/cobblestone_floor_diff.jpg");
+    const auto normalMap = Texture2D::loadFromFile("Resources/Textures/cobblestone/cobblestone_floor_norm.jpg");
+    const auto roughnessMap = Texture2D::loadFromFile("Resources/Textures/cobblestone/cobblestone_floor_rough.jpg");
 
     // Uncomment to test multi-threaded texture loading
 //    shared_ptr<Texture2D> maps[50];
