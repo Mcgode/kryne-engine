@@ -116,7 +116,7 @@ add_library(kryne-engine STATIC
         src/Light/HemisphereLight.cpp include/kryne-engine/Light/HemisphereLight.hpp
         include/kryne-engine/Light/Light.hpp
         src/Systems/LightingRegistrySystem.cpp include/kryne-engine/Systems/LightingRegistrySystem.hpp
-        )
+        include/kryne-engine/Light/AmbientLight.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
