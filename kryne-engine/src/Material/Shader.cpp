@@ -140,11 +140,14 @@ void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment)
 }
 
 
-string Shader::makeDefinesCode() const
+string Shader::makeDefinesCode()
 {
     string code;
-    for (const auto &pair : this->defines) {
-        code += "#define " + pair.first + " " + pair.second + "\n";
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+
+        for (const auto &pair : this->defines)
+            code += "#define " + pair.first + " " + pair.second + "\n";
     }
     return code;
 }
@@ -197,4 +200,37 @@ void Shader::debugPrintActiveUniforms() const
 
         printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
     }
+}
+
+
+void Shader::setDefine(const string &defineName, const string &defineValue)
+{
+    bool changed;
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+        const auto emplaceResult = this->defines.emplace(defineName, defineValue);
+
+        changed = emplaceResult.second || emplaceResult.first->second != defineValue;
+
+        if (!emplaceResult.second && changed)
+            emplaceResult.first->second = defineValue;
+    }
+
+    if (changed)
+        this->needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
+}
+
+
+bool Shader::removeDefine(const string &defineName)
+{
+    bool erased;
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+        erased = this->defines.erase(defineName) > 0;
+    }
+
+    if (erased)
+        this->needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
+
+    return erased;
 }
