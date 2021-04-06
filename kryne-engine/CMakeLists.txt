@@ -115,7 +115,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp
         src/Light/HemisphereLight.cpp include/kryne-engine/Light/HemisphereLight.hpp
         include/kryne-engine/Light/Light.hpp
-        )
+        include/kryne-engine/Systems/LightingRegistrySystem.cpp include/kryne-engine/Systems/LightingRegistrySystem.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
