@@ -44,6 +44,33 @@ public:
     /// @brief Changes the light intensity.
     void setIntensity(float value) { AmbientLight::intensity = value; }
 
+    // Override
+    void renderEntityDetails() override
+    {
+        Entity::renderEntityDetails();
+
+        if (ImGui::BeginTable("DirectionalLightParams", 2))
+        {
+            ImGui::TableSetupColumn("##labels", ImGuiTableColumnFlags_WidthFixed);
+            ImGui::TableSetupColumn("##values", ImGuiTableColumnFlags_WidthStretch);
+
+            {
+                auto col = this->color;
+
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::Text("Color:");
+                ImGui::TableNextColumn();
+                ImGui::ColorEdit3("##color", value_ptr(col), ImGuiColorEditFlags_NoInputs);
+
+                if (ImGui::IsItemEdited())
+                    this->setColor(col);
+            }
+
+            ImGui::EndTable();
+        }
+    }
+
 protected:
 
     /// The light color
