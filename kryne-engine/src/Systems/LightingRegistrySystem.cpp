@@ -68,10 +68,9 @@ void LightingRegistrySystem::updateHemisphereLights(Material *material)
     for (size_t i = 0; i < this->hemisphereLights.size(); i++)
     {
         const auto light = this->hemisphereLights[i];
-        string baseUniform = "hemisphereLights[" + to_string(i) + "].";
         float intensity = light->getIntensity();
-        material->setUniform(baseUniform + "skyColor", intensity * light->getSkyColor());
-        material->setUniform(baseUniform + "groundColor", intensity * light->getGroundColor());
-        material->setUniform(baseUniform + "direction", light->getWorldDirection());
+        material->setUniform("hemisphereLights[" + to_string(i) + "].skyColor", intensity * light->getSkyColor());
+        material->setUniform("hemisphereLights[" + to_string(i) + "].groundColor", intensity * light->getGroundColor());
+        material->setUniform("hemisphereLights[" + to_string(i) + "].direction", light->getWorldDirection());
     }
 }
