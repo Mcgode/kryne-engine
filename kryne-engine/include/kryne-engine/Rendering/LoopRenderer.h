@@ -30,33 +30,81 @@ using namespace std;
 
 
 /**
- * A renderer that will be run in the game loop.
+ * @brief A renderer that will be run in the game loop.
  */
 class LoopRenderer {
 
 public:
 
+    /**
+     * @brief A method that will be called at the start of every frame.
+     *
+     * @details
+     * Ideal for resetting internal data.
+     */
     virtual void prepareFrame();
 
+    /**
+     * @brief Handles the provided mesh.
+     *
+     * @param renderMesh The mesh to handle.
+     */
     virtual void handleMesh(RenderMesh *renderMesh) = 0;
 
+    /**
+     * @brief Parses the scene to render in the search of essential data for this frame.
+     *
+     * @param scene     The current scene that is going to be rendered.
+     *
+     * @return A set containing all the meshes that need to have their game logic processed first
+     */
     virtual std::unordered_set<Entity *> parseScene(Scene *scene) = 0;
 
+    /**
+     * @brief Sets the main camera for rendering the scene.
+     *
+     * @details
+     * This camera will be used only on the next frame, to prevent camera change mid-frame.
+     *
+     * @param camera    The new main camera.
+     */
     virtual void setCamera(Camera *camera) { this->mainCamera = camera; }
 
+    /**
+     * @brief Retrieves the current rendering mode
+     */
     [[nodiscard]] RenderMode getRenderingMode() const { return this->renderMode; }
 
+    /**
+     * @brief Changes the current rendering mode.
+     */
     virtual void setRenderingMode(RenderMode mode) { this->renderMode = mode; }
 
     /**
-     * @brief Runs all the processes for finishing the render and displaying it to the screen.
+     * @brief Handles the post processing and the rendering to screen.
      */
-    virtual void renderToScreen() = 0;
+    virtual void handlePostProcessing() = 0;
 
+    /**
+     * @brief Renders a fullscreen texture.
+     *
+     * @details
+     * Used in particular for postprocessing passes.
+     *
+     * @param material
+     */
     virtual void textureRender(Material *material) = 0;
 
 protected:
 
+    /**
+     * @brief Initializes the base renderer
+     *
+     * @param screenFramebuffer     The framebuffer corresponding to the displayed window.
+     * @param readFramebuffer       The framebuffer color data will be read from.
+     * @param writeFramebuffer      The framebuffer color data will be written to.
+     * @param size                  The current window size, in pixels.
+     */
     LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
                  unique_ptr<Framebuffer> readFramebuffer,
                  unique_ptr<Framebuffer> writeFramebuffer,
@@ -64,10 +112,13 @@ protected:
 
 protected:
 
+    /// The current rendering mode.
     RenderMode renderMode = ForwardRendering;
 
+    /// The main camera for this frame.
     Camera *mainCamera {};
 
+    /// The framebuffer corresponding to the displayed window.
     unique_ptr<Framebuffer> screenFramebuffer;
 
 
@@ -127,14 +178,6 @@ public:
 
 protected:
 
-//    /**
-//     * @brief Removes a post process pass from #postProcessPasses.
-//     *
-//     * @param it The reverse iterator pointing to the post process pass to remove.
-//     * @return A unique pointer owning the removed post process pass.
-//     */
-//    unique_ptr<PostProcessPass> removePostProcessPass(vector<unique_ptr<PostProcessPass>>::reverse_iterator it);
-
     /**
      * @brief Swaps the write and read framebuffers.
      */
@@ -148,8 +191,10 @@ protected:
     /// The post process passes to use for this frame.
     vector<PostProcessPass *> framePostProcessPasses {};
 
+    /// The framebuffer color data will be read from.
     unique_ptr<Framebuffer> readFramebuffer;
 
+    /// The framebuffer color data will be written to.
     unique_ptr<Framebuffer> writeFramebuffer;
 
     /// The renderer size in pixels.
@@ -162,6 +207,11 @@ protected:
 
 public:
 
+    /**
+     * @brief Computes the frustum culling of a given mesh for all the cameras.
+     *
+     * @param mesh  The mesh to test the frustum culling on.
+     */
     void computeFrustumCulling(RenderMesh *mesh);
 
 protected:

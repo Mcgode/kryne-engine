@@ -111,7 +111,7 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 }
 
 
-void OpenGLRenderer::renderToScreen()
+void OpenGLRenderer::handlePostProcessing()
 {
     assertIsMainThread();
 

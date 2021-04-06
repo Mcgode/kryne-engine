@@ -26,7 +26,7 @@ public:
 
     std::unordered_set<Entity *> parseScene(Scene *scene) override;
 
-    void renderToScreen() override;
+    void handlePostProcessing() override;
 
     void textureRender(Material *material) override;
 
