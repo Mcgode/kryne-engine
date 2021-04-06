@@ -14,6 +14,7 @@ void LightingRegistrySystem::loopReset()
 {
     this->ambientLights.clear();
     this->hemisphereLights.clear();
+    this->directionalLights.clear();
 
     this->shouldRun = this->getAttachedProcess()->getGraphicContext()->getRenderer()->getRenderingMode() == ForwardRendering;
 }
@@ -32,6 +33,7 @@ void LightingRegistrySystem::runSystem(Entity *entity)
         const auto material = renderMesh->getMaterial().get();
         this->updateAmbientLights(material);
         this->updateHemisphereLights(material);
+        this->updateDirectionalLights(material);
     }
 }
 
@@ -57,6 +59,7 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
                     this->ambientLights.push_back(dynamic_cast<AmbientLight *>(light));
                     break;
                 case Light::DirectionalLight:
+                    this->directionalLights.push_back(dynamic_cast<DirectionalLight *>(light));
                     break;
                 case Light::PointLight:
                     break;
@@ -98,5 +101,23 @@ void LightingRegistrySystem::updateHemisphereLights(Material *material)
         material->setUniform("hemisphereLights[" + to_string(i) + "].skyColor", intensity * light->getSkyColor());
         material->setUniform("hemisphereLights[" + to_string(i) + "].groundColor", intensity * light->getGroundColor());
         material->setUniform("hemisphereLights[" + to_string(i) + "].direction", light->getWorldDirection());
+    }
+}
+
+
+void LightingRegistrySystem::updateDirectionalLights(Material *material)
+{
+    const auto size = this->directionalLights.size();
+    if (size)
+        material->setDefine("MAX_DIRECTIONAL_LIGHTS", to_string(size));
+    else
+        material->removeDefine("MAX_DIRECTIONAL_LIGHTS");
+
+    for (size_t i = 0; i < this->directionalLights.size(); i++)
+    {
+        const auto light = this->directionalLights[i];
+        float intensity = light->getIntensity();
+        material->setUniform("directionalLights[" + to_string(i) + "].color", intensity * light->getColor());
+        material->setUniform("directionalLights[" + to_string(i) + "].direction", light->getWorldDirection());
     }
 }

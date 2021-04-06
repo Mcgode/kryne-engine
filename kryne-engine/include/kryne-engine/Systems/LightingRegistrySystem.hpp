@@ -11,6 +11,7 @@
 
 #include <kryne-engine/Light/AmbientLight.hpp>
 #include <kryne-engine/Light/HemisphereLight.hpp>
+#include <kryne-engine/Light/DirectionalLight.hpp>
 
 
 /**
@@ -37,6 +38,8 @@ protected:
 
     void updateHemisphereLights(Material *material);
 
+    void updateDirectionalLights(Material *material);
+
 protected:
 
     bool shouldRun = false;
@@ -44,6 +47,8 @@ protected:
     vector<AmbientLight *> ambientLights;
 
     vector<HemisphereLight *> hemisphereLights;
+
+    vector<DirectionalLight *> directionalLights;
 
 };
 

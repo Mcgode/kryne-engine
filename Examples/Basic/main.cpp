@@ -52,8 +52,16 @@ int main()
 
     MeshStandardMaterial::StandardInitParameters params;
 
-    const auto light = process->makeEntity<HemisphereLight>(vec3(1, 0, 0), vec3(0.1, 0, 0), 0.5f, vec3(-1, 0, 0));
-    light->getTransform()->setScene(scene);
+    const auto hemisphereLight = process->makeEntity<HemisphereLight>(vec3(1),
+                                                                      vec3(0.5),
+                                                                      0.2f,
+                                                                      vec3(0, 1, 0));
+    hemisphereLight->getTransform()->setScene(scene);
+
+    const auto directionalLight = process->makeEntity<DirectionalLight>(vec3(1, 1, 1),
+                                                                        1.5f,
+                                                                        vec3(-1, -0.8, -0.5));
+    directionalLight->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap]()
     {
@@ -63,10 +71,6 @@ int main()
         params.metalness = 0.0;
         auto material = make_shared<MeshStandardMaterial>(params);
         material->setSide(FrontSide);
-
-        material->setDefine("MAX_DIRECTIONAL_LIGHTS", "1");
-        material->setUniform("directionalLights[0].color", glm::vec3(1));
-        material->setUniform("directionalLights[0].direction", glm::vec3(-1, -0.8, -0.5));
 
         auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
         const auto entity = process->makeEntity<Entity>();
