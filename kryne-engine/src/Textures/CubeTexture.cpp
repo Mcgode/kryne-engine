@@ -43,6 +43,11 @@ shared_ptr<CubeTexture> CubeTexture::loadFiles(const vector<string> &filenames)
         const auto mainFunc = [texture, width, height, nbChannels, data]()
         {
 
+            glGenTextures(1, &texture->id);
+
+            // Bind texture and set filtering
+            texture->setFiltering(GL_LINEAR, GL_LINEAR);
+
             GLenum format;
             switch (nbChannels)
             {
@@ -70,11 +75,6 @@ shared_ptr<CubeTexture> CubeTexture::loadFiles(const vector<string> &filenames)
                 );
                 stbi_image_free(data[i]);
             }
-
-            glGenTextures(1, &texture->id);
-
-            // Bind texture and set filtering
-            texture->setFiltering(GL_LINEAR, GL_LINEAR);
 
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
