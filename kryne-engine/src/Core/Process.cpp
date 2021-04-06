@@ -135,7 +135,7 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
-        renderer->finishSceneRendering();
+        renderer->finishSceneRendering(this->currentScene);
         renderer->handlePostProcessing();
     }
 

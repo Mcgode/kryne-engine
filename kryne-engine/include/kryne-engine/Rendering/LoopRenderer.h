@@ -83,7 +83,7 @@ public:
     /**
      * @brief Finishes the scene rendering, in prevision of the post-processing.
      */
-    virtual void finishSceneRendering() = 0;
+    virtual void finishSceneRendering(Scene *scene) = 0;
 
     /**
      * @brief Handles the post processing and the rendering to screen.
