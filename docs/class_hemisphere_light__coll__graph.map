@@ -1,0 +1,10 @@
+<map id="HemisphereLight" name="HemisphereLight">
+<area shape="rect" id="node1" title="An ambient light which color depends on the direction." alt="" coords="88,351,207,377"/>
+<area shape="rect" id="node2" href="$class_light.html" title="An entity that will provide light to the scene." alt="" coords="122,275,173,301"/>
+<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="119,199,175,225"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="29,109,109,136"/>
+<area shape="rect" id="node5" title="STL class." alt="" coords="5,5,132,47"/>
+<area shape="rect" id="node6" title=" " alt="" coords="133,109,322,136"/>
+<area shape="rect" id="node7" href="$class_transform.html" title=" " alt="" coords="305,13,384,39"/>
+<area shape="rect" id="node8" title=" " alt="" coords="347,109,519,136"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="FXAAMaterial::FXAAMaterial" name="FXAAMaterial::FXAAMaterial">
+<area shape="rect" id="node1" title="Initializes a FXAA shader material." alt="" coords="5,56,193,83"/>
+<area shape="rect" id="node2" href="$class_f_x_a_a_material.html#a56d33df1e0854b272ceef8ed58ace1a5" title="Sets the FXAA edge threshold value." alt="" coords="252,5,465,32"/>
+<area shape="rect" id="node4" href="$class_f_x_a_a_material.html#aa7a066a9ae425592dd20461b385b7901" title="Sets the FXAA edge threshold min value." alt="" coords="241,56,476,83"/>
+<area shape="rect" id="node5" href="$class_f_x_a_a_material.html#a09d7f6286f1f4cf3ea0dfbf762e021d0" title="Sets the FXAA subpixel quality value." alt="" coords="270,107,447,149"/>
+<area shape="rect" id="node3" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="524,56,655,83"/>
+</map>

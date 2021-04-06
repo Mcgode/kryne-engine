@@ -1,4 +1,4 @@
 <map id="Component::getComponents" name="Component::getComponents">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,192,32"/>
-<area shape="rect" id="node2" href="$class_entity.html#a3451b5a0c02ea5d16d8cb0763858bc2b" title=" " alt="" coords="240,5,395,32"/>
+<area shape="rect" id="node1" title="Retrieves components belonging to the provided class." alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class." alt="" coords="240,5,395,32"/>
 </map>

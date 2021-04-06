@@ -2,6 +2,8 @@ var class_mesh_standard_material =
 [
     [ "StandardInitParameters", "struct_mesh_standard_material_1_1_standard_init_parameters.html", "struct_mesh_standard_material_1_1_standard_init_parameters" ],
     [ "MeshStandardMaterial", "class_mesh_standard_material.html#a9de63a3433894b7332469b32b21ea066", null ],
+    [ "dearImGuiData", "class_mesh_standard_material.html#a21510f3425d8419f50f8ab845ba9a863", null ],
+    [ "materialName", "class_mesh_standard_material.html#afc81cc97d58bff1250e210f2d757c1c8", null ],
     [ "setMetalness", "class_mesh_standard_material.html#aebc2b1cf8e2210eb2d167e3f944aedbb", null ],
     [ "setMetalnessMap", "class_mesh_standard_material.html#ae0d76a93163489ee5bffd9361f72d731", null ],
     [ "setNormalMap", "class_mesh_standard_material.html#abc482b5a12e2ea68f2a63b44260724ec", null ],

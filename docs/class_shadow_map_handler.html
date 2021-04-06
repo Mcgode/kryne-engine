@@ -97,10 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0a42e1cbf0ce219e38c2be3cf9fe562b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39151dc2a0fc09dea5332bc6a5801fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a39151dc2a0fc09dea5332bc6a5801fe3">renderShadowMaps</a> (<a class="el" href="class_window.html">Window</a> *window, std::vector&lt; <a class="el" href="class_hierarchical_node.html">HierarchicalNode</a> * &gt; *rootNodes, const shared_ptr&lt; <a class="el" href="class_lighting_registry.html">LightingRegistry</a> &gt; &amp;lightingRegistry, <a class="el" href="class_additional_parameters.html">AdditionalParameters</a> *params)</td></tr>
 <tr class="separator:a39151dc2a0fc09dea5332bc6a5801fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c34abd0197752a503545db2e93f57c2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a0c34abd0197752a503545db2e93f57c2">getDirectionalShadowMaps</a> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
-<tr class="separator:a0c34abd0197752a503545db2e93f57c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2139b487e8d96e0e5a0f80c08e94677"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#aa2139b487e8d96e0e5a0f80c08e94677">getLightSpaceMatrices</a> (<a class="el" href="class_directional_light.html">DirectionalLight</a> *directionalLight)</td></tr>
-<tr class="separator:aa2139b487e8d96e0e5a0f80c08e94677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe24a77613d263b9c6df26ebdeeac359"><td class="memItemLeft" align="right" valign="top">std::vector&lt; GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#abe24a77613d263b9c6df26ebdeeac359">getDirectionalShadowMaps</a> (<a class="el" href="class_old_directional_light.html">OldDirectionalLight</a> *directionalLight)</td></tr>
+<tr class="separator:abe24a77613d263b9c6df26ebdeeac359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b92729cf52bd07b8ff7a93e73700a2f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a9b92729cf52bd07b8ff7a93e73700a2f">getLightSpaceMatrices</a> (<a class="el" href="class_old_directional_light.html">OldDirectionalLight</a> *directionalLight)</td></tr>
+<tr class="separator:a9b92729cf52bd07b8ff7a93e73700a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c8de5c6bac0602fb4641470f6bb3e1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shadow_map_handler.html#a7c8de5c6bac0602fb4641470f6bb3e1f">updateCamera</a> (<a class="el" href="class_old_camera.html">OldCamera</a> *newCamera)</td></tr>
 <tr class="separator:a7c8de5c6bac0602fb4641470f6bb3e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -132,8 +132,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0c34abd0197752a503545db2e93f57c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c34abd0197752a503545db2e93f57c2">&#9670;&nbsp;</a></span>getDirectionalShadowMaps()</h2>
+<a id="abe24a77613d263b9c6df26ebdeeac359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe24a77613d263b9c6df26ebdeeac359">&#9670;&nbsp;</a></span>getDirectionalShadowMaps()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::vector&lt; GLuint &gt; ShadowMapHandler::getDirectionalShadowMaps </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_directional_light.html">DirectionalLight</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_old_directional_light.html">OldDirectionalLight</a> *&#160;</td>
           <td class="paramname"><em>directionalLight</em></td><td>)</td>
           <td></td>
         </tr>
@@ -150,8 +150,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa2139b487e8d96e0e5a0f80c08e94677"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2139b487e8d96e0e5a0f80c08e94677">&#9670;&nbsp;</a></span>getLightSpaceMatrices()</h2>
+<a id="a9b92729cf52bd07b8ff7a93e73700a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b92729cf52bd07b8ff7a93e73700a2f">&#9670;&nbsp;</a></span>getLightSpaceMatrices()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +159,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::vector&lt; glm::mat4 &gt; ShadowMapHandler::getLightSpaceMatrices </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_directional_light.html">DirectionalLight</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_old_directional_light.html">OldDirectionalLight</a> *&#160;</td>
           <td class="paramname"><em>directionalLight</em></td><td>)</td>
           <td></td>
         </tr>

@@ -1,6 +1,6 @@
 <map id="BufferGeometry::setAttribute" name="BufferGeometry::setAttribute">
 <area shape="rect" id="node1" title="Sets the value of a buffer attribute." alt="" coords="5,130,192,157"/>
-<area shape="rect" id="node2" href="$class_buffer_geometry.html#ac1e72a3d8ab4af731fd2e8afb58f8152" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="240,5,464,47"/>
+<area shape="rect" id="node2" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="240,5,464,47"/>
 <area shape="rect" id="node3" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title=" " alt="" coords="261,71,443,98"/>
 <area shape="rect" id="node4" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title=" " alt="" coords="261,123,443,164"/>
 <area shape="rect" id="node5" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="512,159,740,186"/>

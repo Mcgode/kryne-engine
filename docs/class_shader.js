@@ -13,7 +13,7 @@ var class_shader =
     [ "getVertexShader", "class_shader.html#a8beb925ecccca417ef349bdfb79635d5", null ],
     [ "linkProgram", "class_shader.html#aa61bf5a5591777aea02d22ad173c3e96", null ],
     [ "loadShaderFromFile", "class_shader.html#ad6b977ab2afc45fe10382616ac4f899c", null ],
-    [ "makeDefinesCode", "class_shader.html#a0c7f6034531e85b8581b71a24e183232", null ],
+    [ "makeDefinesCode", "class_shader.html#ae6f6f9cf2f5b54b8bd39fac9a7368709", null ],
     [ "notifyUniformLocationsNeedUpdate", "class_shader.html#aba3a4c3871308ae17fadb917b85e54a9", null ],
     [ "removeDefine", "class_shader.html#a14cbf6a53594238fd33c1b051f319270", null ],
     [ "removeUniform", "class_shader.html#a39cc44566da583a305e1251a06b7bd38", null ],

@@ -6,7 +6,7 @@
 <area shape="rect" id="node20" href="$_window_8h.html" title=" " alt="" coords="2157,623,2345,650"/>
 <area shape="rect" id="node42" href="$_vertex_array_8h.html" title=" " alt="" coords="1045,705,1215,747"/>
 <area shape="rect" id="node3" title=" " alt="" coords="2056,802,2103,829"/>
-<area shape="rect" id="node4" title=" " alt="" coords="1295,981,1349,1007"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1251,981,1305,1007"/>
 <area shape="rect" id="node5" title=" " alt="" coords="2230,802,2273,829"/>
 <area shape="rect" id="node7" title=" " alt="" coords="919,802,975,829"/>
 <area shape="rect" id="node8" title=" " alt="" coords="189,802,247,829"/>
@@ -24,15 +24,15 @@
 <area shape="rect" id="node21" title=" " alt="" coords="2421,713,2525,739"/>
 <area shape="rect" id="node22" title=" " alt="" coords="1915,713,1980,739"/>
 <area shape="rect" id="node23" title=" " alt="" coords="2549,713,2609,739"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1374,981,1446,1007"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1330,981,1402,1007"/>
 <area shape="rect" id="node26" href="$_main_renderer_8h.html" title=" " alt="" coords="1516,348,1675,389"/>
-<area shape="rect" id="node27" href="$_lighting_registry_8h.html" title=" " alt="" coords="1141,437,1271,479"/>
+<area shape="rect" id="node27" href="$_lighting_registry_8h.html" title=" " alt="" coords="993,437,1123,479"/>
 <area shape="rect" id="node49" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="1843,259,2094,300"/>
-<area shape="rect" id="node40" href="$_skybox_8h.html" title=" " alt="" coords="597,616,759,657"/>
+<area shape="rect" id="node40" href="$_skybox_8h.html" title=" " alt="" coords="579,616,740,657"/>
 <area shape="rect" id="node44" href="$_old_render_pass_8h.html" title=" " alt="" coords="1721,437,1880,479"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1171,534,1241,561"/>
-<area shape="rect" id="node29" href="$_directional_light_8h.html" title=" " alt="" coords="898,623,1021,650"/>
-<area shape="rect" id="node38" href="$_point_light_8h.html" title=" " alt="" coords="783,623,874,650"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1023,534,1093,561"/>
+<area shape="rect" id="node29" href="$_old_directional_light_8h.html" title=" " alt="" coords="899,623,1041,650"/>
+<area shape="rect" id="node38" href="$_old_point_light_8h.html" title=" " alt="" coords="764,623,875,650"/>
 <area shape="rect" id="node30" href="$_shader_8h.html" title=" " alt="" coords="1290,705,1437,747"/>
 <area shape="rect" id="node31" title=" " alt="" coords="1306,802,1375,829"/>
 <area shape="rect" id="node32" href="$_dispatcher_8h.html" title=" " alt="" coords="1073,973,1224,1015"/>

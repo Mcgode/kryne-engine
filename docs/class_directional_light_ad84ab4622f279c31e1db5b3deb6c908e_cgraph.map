@@ -1,0 +1,8 @@
+<map id="DirectionalLight::renderEntityDetails" name="DirectionalLight::renderEntityDetails">
+<area shape="rect" id="node1" title="Renders custom GUI for entity details." alt="" coords="5,49,160,90"/>
+<area shape="rect" id="node2" href="$class_entity.html#a005c667fb89e01614ef68afd1de6483b" title="Renders custom GUI for entity details." alt="" coords="215,5,389,32"/>
+<area shape="rect" id="node3" href="$class_directional_light.html#aa543164e264a1f8e71a13924b83c136e" title="Changes the current light color." alt="" coords="219,56,385,83"/>
+<area shape="rect" id="node4" href="$class_directional_light.html#a708c6f30af1987e8196028a2dbc8b0c6" title="Changes the current light local direction, and updates the world direction accordingly." alt="" coords="208,107,396,133"/>
+<area shape="rect" id="node5" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title=" " alt="" coords="444,81,627,108"/>
+<area shape="rect" id="node6" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="466,132,605,159"/>
+</map>

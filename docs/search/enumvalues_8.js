@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['skybox_5fdraw_5ffirst_1447',['SKYBOX_DRAW_FIRST',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31ba4719ac1f39138650d758b7a453e452e5',1,'SkyboxDrawOrder.h']]],
-  ['skybox_5fdraw_5flast_1448',['SKYBOX_DRAW_LAST',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31bab97c62f0802160fe3b3bcc183c13d8f6',1,'SkyboxDrawOrder.h']]],
-  ['skybox_5fno_5fdraw_1449',['SKYBOX_NO_DRAW',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31babd85028bc4085db7d45f221580a09b1d',1,'SkyboxDrawOrder.h']]]
+  ['near_1892',['Near',['../struct_math_1_1_frustum.html#af29fd506e13050375cb37f4c7742fda8a2dc9958345319dfa615087f324be60d9',1,'Math::Frustum']]],
+  ['no_5fshadow_1893',['NO_SHADOW',['../enums_2_base_object_8h.html#ac0f5017bd97449fa761e87e240568170a1987bc725e987c2cedfa22650a4efe23',1,'BaseObject.h']]]
 ];

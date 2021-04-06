@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_mesh_lambert_material.html','');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_mesh_lambert_material-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MeshLambertMaterial Class Reference</div>  </div>
@@ -147,9 +148,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a895211010246aa1ee74a7808190b5b0b inherit pub_methods_class_material"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db1d2d3f143144d0e2f11037e2a5355 inherit pub_methods_class_material"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">setWriteDepth</a> (bool writeToDepth)</td></tr>
 <tr class="separator:a5db1d2d3f143144d0e2f11037e2a5355 inherit pub_methods_class_material"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93edcb8dd567cc08a857f08ff99c46d8 inherit pub_methods_class_material"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a93edcb8dd567cc08a857f08ff99c46d8">displayDearImGui</a> ()</td></tr>
+<tr class="memdesc:a93edcb8dd567cc08a857f08ff99c46d8 inherit pub_methods_class_material"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays material data UI interface.  <a href="class_material.html#a93edcb8dd567cc08a857f08ff99c46d8">More...</a><br /></td></tr>
+<tr class="separator:a93edcb8dd567cc08a857f08ff99c46d8 inherit pub_methods_class_material"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8be3384952e9cfe8f02fb3609b6db86c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_lambert_material.html#a8be3384952e9cfe8f02fb3609b6db86c">materialName</a> () override</td></tr>
+<tr class="separator:a8be3384952e9cfe8f02fb3609b6db86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7d2ccd413ce83fb2987bce3f5b5aad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_lambert_material.html#a3d7d2ccd413ce83fb2987bce3f5b5aad">dearImGuiData</a> () override</td></tr>
+<tr class="memdesc:a3d7d2ccd413ce83fb2987bce3f5b5aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override this function to display material data in the interface.  <a href="class_mesh_lambert_material.html#a3d7d2ccd413ce83fb2987bce3f5b5aad">More...</a><br /></td></tr>
+<tr class="separator:a3d7d2ccd413ce83fb2987bce3f5b5aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_mesh_material_common"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_mesh_material_common')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_mesh_material_common.html">MeshMaterialCommon</a></td></tr>
 <tr class="memitem:a25b44c3f558cb3abe65e57e5d3153012 inherit pro_methods_class_mesh_material_common"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_material_common.html#a25b44c3f558cb3abe65e57e5d3153012">MeshMaterialCommon</a> (unique_ptr&lt; <a class="el" href="class_shader.html">Shader</a> &gt; <a class="el" href="class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11">shader</a>)</td></tr>
 <tr class="separator:a25b44c3f558cb3abe65e57e5d3153012 inherit pro_methods_class_mesh_material_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +172,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ab6bd42f38bc0a1d0ebc8e413d47b7575 inherit pro_methods_class_mesh_material_common"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ab6bd42f38bc0a1d0ebc8e413d47b7575 inherit pro_methods_class_mesh_material_common"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_mesh_material_common.html#ab6bd42f38bc0a1d0ebc8e413d47b7575">setMaterialOptionalProperty</a> (optional&lt; T &gt; &amp;property, const optional&lt; T &gt; &amp;newValue, const string &amp;uniformName, const string &amp;define)</td></tr>
 <tr class="separator:ab6bd42f38bc0a1d0ebc8e413d47b7575 inherit pro_methods_class_mesh_material_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_mesh_material_common"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_mesh_material_common')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_mesh_material_common.html">MeshMaterialCommon</a></td></tr>
 <tr class="memitem:a8ac3401a9b6662bcac97af13c8576257 inherit pro_attribs_class_mesh_material_common"><td class="memItemLeft" align="right" valign="top">vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_material_common.html#a8ac3401a9b6662bcac97af13c8576257">color</a> {}</td></tr>
 <tr class="memdesc:a8ac3401a9b6662bcac97af13c8576257 inherit pro_attribs_class_mesh_material_common"><td class="mdescLeft">&#160;</td><td class="mdescRight">The diffuse color of the material.  <a href="class_mesh_material_common.html#a8ac3401a9b6662bcac97af13c8576257">More...</a><br /></td></tr>
@@ -213,6 +225,69 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_lambert_material_a49729143ae8baadcec002bc9ebd7991a_cgraph.svg" width="566" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3d7d2ccd413ce83fb2987bce3f5b5aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7d2ccd413ce83fb2987bce3f5b5aad">&#9670;&nbsp;</a></span>dearImGuiData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MeshLambertMaterial::dearImGuiData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Override this function to display material data in the interface. </p>
+
+<p>Reimplemented from <a class="el" href="class_material.html#a56d712f7823f8d41938148457f03a741">Material</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_lambert_material_a3d7d2ccd413ce83fb2987bce3f5b5aad_cgraph.svg" width="358" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8be3384952e9cfe8f02fb3609b6db86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be3384952e9cfe8f02fb3609b6db86c">&#9670;&nbsp;</a></span>materialName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string MeshLambertMaterial::materialName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The name for this material. </p>
+
+<p>Implements <a class="el" href="class_material.html#a5a9c026494ee8680fcbfd4382a0c2947">Material</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_mesh_material_common_1_1_init_parameters.html" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node2" href="$struct_mesh_standard_material_1_1_standard_init_parameters.html" title=" " alt="" coords="205,5,372,47"/>
+<area shape="rect" id="node1" href="$class_material.html" title=" " alt="" coords="5,56,73,83"/>
+<area shape="rect" id="node2" href="$class_f_x_a_a_material.html" title="A FXAA shader material, for use in post process." alt="" coords="147,5,248,32"/>
+<area shape="rect" id="node3" href="$class_mesh_material_common.html" title=" " alt="" coords="121,56,273,83"/>
+<area shape="rect" id="node6" href="$class_texture_copy_material.html" title=" " alt="" coords="127,107,268,133"/>
+<area shape="rect" id="node4" href="$class_mesh_lambert_material.html" title=" " alt="" coords="324,31,471,57"/>
+<area shape="rect" id="node5" href="$class_mesh_standard_material.html" title=" " alt="" coords="321,81,473,108"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="Math::Sphere::fromMatrix" name="Math::Sphere::fromMatrix">
+<area shape="rect" id="node1" title="Transforms the sphere by applying the provided matrix into a new Sphere." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="node2" href="$struct_math_1_1_sphere.html#a7d589fb9d765b368afcca083cb07728a" title="Initializes a new Sphere." alt="" coords="223,5,372,32"/>
+</map>

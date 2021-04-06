@@ -108,23 +108,26 @@ $(document).ready(function(){initNavTree('_projection_data_8hpp_source.html','')
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> inverseProjectionMatrix;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_projection_data.html#a72f21f4879165d821e2b06c467f6c426">   43</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_projection_data.html#a72f21f4879165d821e2b06c467f6c426">updateProjectionMatrix</a>() = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_projection_data.html#ad049ca6387d2c93cbd1e582fae2f01d3">   43</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_projection_data.html#ad049ca6387d2c93cbd1e582fae2f01d3">setViewportSize</a>(<span class="keyword">const</span> ivec2 size) {}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">   46</a></span>&#160;    mat4 projectionMatrix {};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">   49</a></span>&#160;    mat4 inverseProjectionMatrix{};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_PROJECTIONDATA_HPP</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_projection_data.html#a72f21f4879165d821e2b06c467f6c426">   50</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_projection_data.html#a72f21f4879165d821e2b06c467f6c426">updateProjectionMatrix</a>() = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">   53</a></span>&#160;    mat4 projectionMatrix {};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">   56</a></span>&#160;    mat4 inverseProjectionMatrix{};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_PROJECTIONDATA_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_projection_data_html"><div class="ttname"><a href="class_projection_data.html">ProjectionData</a></div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:19</div></div>
 <div class="ttc" id="aclass_projection_data_html_a81cad5915d286a7dc5aabd781a5340bc"><div class="ttname"><a href="class_projection_data.html#a81cad5915d286a7dc5aabd781a5340bc">ProjectionData::getProjectionMatrix</a></div><div class="ttdeci">const mat4 &amp; getProjectionMatrix() const</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:26</div></div>
 <div class="ttc" id="aclass_projection_data_html_a5f326ee8a4a4a6c0f14db89a633dc940"><div class="ttname"><a href="class_projection_data.html#a5f326ee8a4a4a6c0f14db89a633dc940">ProjectionData::getInverseProjectionMatrix</a></div><div class="ttdeci">const mat4 &amp; getInverseProjectionMatrix() const</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:34</div></div>
 <div class="ttc" id="aclass_projection_data_html_a72f21f4879165d821e2b06c467f6c426"><div class="ttname"><a href="class_projection_data.html#a72f21f4879165d821e2b06c467f6c426">ProjectionData::updateProjectionMatrix</a></div><div class="ttdeci">virtual void updateProjectionMatrix()=0</div></div>
+<div class="ttc" id="aclass_projection_data_html_ad049ca6387d2c93cbd1e582fae2f01d3"><div class="ttname"><a href="class_projection_data.html#ad049ca6387d2c93cbd1e582fae2f01d3">ProjectionData::setViewportSize</a></div><div class="ttdeci">virtual void setViewportSize(const ivec2 size)</div><div class="ttdoc">A function for updating the projection data related to viewport size.</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:43</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

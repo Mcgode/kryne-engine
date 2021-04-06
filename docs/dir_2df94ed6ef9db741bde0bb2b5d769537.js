@@ -1,5 +1,6 @@
 var dir_2df94ed6ef9db741bde0bb2b5d769537 =
 [
+    [ "AdditionalMaterials", "dir_e2c64c2b7762f9c9f3fc1e64b9a937bc.html", "dir_e2c64c2b7762f9c9f3fc1e64b9a937bc" ],
     [ "Material.h", "kryne-engine_2_material_2_material_8h.html", [
       [ "Material", "class_material.html", "class_material" ]
     ] ],

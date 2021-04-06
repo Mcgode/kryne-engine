@@ -136,6 +136,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a228f6e5c8e3432021c0195922d246823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1689bbddb2f00b80740f0a592f727b07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_input.html#a1689bbddb2f00b80740f0a592f727b07">onKeyRelease</a> (const string &amp;keyName, const shared_ptr&lt; function&lt; void()&gt;&gt; &amp;callback)</td></tr>
 <tr class="separator:a1689bbddb2f00b80740f0a592f727b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e4616d315342f398eb1c6f8bde8d46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_input.html#af4e4616d315342f398eb1c6f8bde8d46">setExternallyCaptured</a> (bool mouse, bool keyboard)</td></tr>
+<tr class="memdesc:af4e4616d315342f398eb1c6f8bde8d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updated the captured status of the mouse and the keyboard.  <a href="class_player_input.html#af4e4616d315342f398eb1c6f8bde8d46">More...</a><br /></td></tr>
+<tr class="separator:af4e4616d315342f398eb1c6f8bde8d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -205,6 +208,12 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6abc53f244ff81e8178a1493e33e1c55"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; <a class="el" href="struct_player_input_1_1_key_map_item.html">KeyMapItem</a>, <a class="el" href="class_player_input.html#af3a5e4b5c9f8055f0e74f8bcc042d99b">CallbackList</a>, <a class="el" href="struct_player_input_1_1_key_map_item_1_1_hasher.html">KeyMapItem::Hasher</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_input.html#a6abc53f244ff81e8178a1493e33e1c55">keyReleaseCallbacks</a> {}</td></tr>
 <tr class="memdesc:a6abc53f244ff81e8178a1493e33e1c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the callbacks associated to the releasing of <a class="el" href="class_player_input.html#a7280cf363dc52f6c6c92cc4d24b1e151" title="The keymap for this input handler.">PlayerInput::keyMap</a> items.  <a href="class_player_input.html#a6abc53f244ff81e8178a1493e33e1c55">More...</a><br /></td></tr>
 <tr class="separator:a6abc53f244ff81e8178a1493e33e1c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24819a97fd8b04c4713fb4b7163b524a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_input.html#a24819a97fd8b04c4713fb4b7163b524a">mouseIsCaptured</a> = false</td></tr>
+<tr class="memdesc:a24819a97fd8b04c4713fb4b7163b524a"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to true, the mouse is captured by an external source (like Dear ImGui) and events should be ignored.  <a href="class_player_input.html#a24819a97fd8b04c4713fb4b7163b524a">More...</a><br /></td></tr>
+<tr class="separator:a24819a97fd8b04c4713fb4b7163b524a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c9a69d26f77046c24af492f4b8b467"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_input.html#ac7c9a69d26f77046c24af492f4b8b467">keyboardIsCaptured</a> = false</td></tr>
+<tr class="memdesc:ac7c9a69d26f77046c24af492f4b8b467"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to true, the keyboard is captured by an external source (like Dear ImGui) and events should be ignored.  <a href="class_player_input.html#ac7c9a69d26f77046c24af492f4b8b467">More...</a><br /></td></tr>
+<tr class="separator:ac7c9a69d26f77046c24af492f4b8b467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af3a5e4b5c9f8055f0e74f8bcc042d99b"></a>
@@ -933,6 +942,51 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="af4e4616d315342f398eb1c6f8bde8d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e4616d315342f398eb1c6f8bde8d46">&#9670;&nbsp;</a></span>setExternallyCaptured()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerInput::setExternallyCaptured </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>mouse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keyboard</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updated the captured status of the mouse and the keyboard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mouse</td><td>Mouse captured state. See <a class="el" href="class_player_input.html#a24819a97fd8b04c4713fb4b7163b524a" title="When set to true, the mouse is captured by an external source (like Dear ImGui) and events should be ...">mouseIsCaptured</a>. </td></tr>
+    <tr><td class="paramname">keyboard</td><td>Keyboard captured state. See <a class="el" href="class_player_input.html#ac7c9a69d26f77046c24af492f4b8b467" title="When set to true, the keyboard is captured by an external source (like Dear ImGui) and events should ...">keyboardIsCaptured</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac4b822917a8be991362091d2da7883e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4b822917a8be991362091d2da7883e8">&#9670;&nbsp;</a></span>tryMakeInput()</h2>
 
@@ -1035,6 +1089,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The string of text that was input during the frame. </p>
+
+</div>
+</div>
+<a id="ac7c9a69d26f77046c24af492f4b8b467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c9a69d26f77046c24af492f4b8b467">&#9670;&nbsp;</a></span>keyboardIsCaptured</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerInput::keyboardIsCaptured = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When set to true, the keyboard is captured by an external source (like Dear ImGui) and events should be ignored. </p>
 
 </div>
 </div>
@@ -1155,6 +1233,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>A rapid access hashmap to get all the <a class="el" href="class_player_input.html#a7280cf363dc52f6c6c92cc4d24b1e151" title="The keymap for this input handler.">PlayerInput::keyMap</a> elements corresponding to a key value. </p>
+
+</div>
+</div>
+<a id="a24819a97fd8b04c4713fb4b7163b524a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24819a97fd8b04c4713fb4b7163b524a">&#9670;&nbsp;</a></span>mouseIsCaptured</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerInput::mouseIsCaptured = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When set to true, the mouse is captured by an external source (like Dear ImGui) and events should be ignored. </p>
 
 </div>
 </div>

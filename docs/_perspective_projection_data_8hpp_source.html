@@ -144,40 +144,47 @@ $(document).ready(function(){initNavTree('_perspective_projection_data_8hpp_sour
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        updateProjectionMatrix();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> updateProjectionMatrix()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        this-&gt;<a class="code" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">projectionMatrix</a> = perspective(this-&gt;fieldOfView, this-&gt;aspectRatio, this-&gt;nearPlane, this-&gt;farPlane);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        this-&gt;<a class="code" href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">inverseProjectionMatrix</a> = inverse(this-&gt;<a class="code" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">projectionMatrix</a>);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">float</span> aspectRatio;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">float</span> fieldOfView;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">float</span> nearPlane;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_perspective_projection_data.html#a0de8c0bcf303bd034f97ebb3d4c9e9f3">  104</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_perspective_projection_data.html#a0de8c0bcf303bd034f97ebb3d4c9e9f3">setViewportSize</a>(<span class="keyword">const</span> ivec2 size)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        this-&gt;<a class="code" href="class_perspective_projection_data.html#a6fa30d37329780780b1ea2769d65d055">setAspectRatio</a>((<span class="keywordtype">float</span>) size.x / size.y);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> updateProjectionMatrix()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        this-&gt;<a class="code" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">projectionMatrix</a> = perspective(this-&gt;fieldOfView, this-&gt;aspectRatio, this-&gt;nearPlane, this-&gt;farPlane);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        this-&gt;<a class="code" href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">inverseProjectionMatrix</a> = inverse(this-&gt;<a class="code" href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">projectionMatrix</a>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">float</span> farPlane;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">float</span> aspectRatio;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">float</span> fieldOfView;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_PERSPECTIVEPROJECTIONDATA_HPP</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">float</span> nearPlane;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">float</span> farPlane;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_PERSPECTIVEPROJECTIONDATA_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_perspective_projection_data_html_a10f968d3c4f68af831c54614f2077c1d"><div class="ttname"><a href="class_perspective_projection_data.html#a10f968d3c4f68af831c54614f2077c1d">PerspectiveProjectionData::getAspectRatio</a></div><div class="ttdeci">float getAspectRatio() const</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:42</div></div>
 <div class="ttc" id="aclass_projection_data_html"><div class="ttname"><a href="class_projection_data.html">ProjectionData</a></div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:19</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html"><div class="ttname"><a href="class_perspective_projection_data.html">PerspectiveProjectionData</a></div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:16</div></div>
-<div class="ttc" id="aclass_projection_data_html_ab7decbfd6f24b7b2b671b7f70a5ca09c"><div class="ttname"><a href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">ProjectionData::projectionMatrix</a></div><div class="ttdeci">mat4 projectionMatrix</div><div class="ttdoc">The projection matrix calculated from the data.</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:46</div></div>
+<div class="ttc" id="aclass_projection_data_html_ab7decbfd6f24b7b2b671b7f70a5ca09c"><div class="ttname"><a href="class_projection_data.html#ab7decbfd6f24b7b2b671b7f70a5ca09c">ProjectionData::projectionMatrix</a></div><div class="ttdeci">mat4 projectionMatrix</div><div class="ttdoc">The projection matrix calculated from the data.</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:53</div></div>
 <div class="ttc" id="a_projection_data_8hpp_html"><div class="ttname"><a href="_projection_data_8hpp.html">ProjectionData.hpp</a></div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_ab525e9651921d3497e9659751a91e7c2"><div class="ttname"><a href="class_perspective_projection_data.html#ab525e9651921d3497e9659751a91e7c2">PerspectiveProjectionData::getFieldOfView</a></div><div class="ttdeci">float getFieldOfView() const</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:58</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_a03a66e8a05ee9d4cd6c786e82810f07d"><div class="ttname"><a href="class_perspective_projection_data.html#a03a66e8a05ee9d4cd6c786e82810f07d">PerspectiveProjectionData::setFieldOfView</a></div><div class="ttdeci">void setFieldOfView(float newFieldOfView)</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:66</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_acdf3396f6d6aed68068d820ca83a8446"><div class="ttname"><a href="class_perspective_projection_data.html#acdf3396f6d6aed68068d820ca83a8446">PerspectiveProjectionData::getNearPlane</a></div><div class="ttdeci">float getNearPlane() const</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:74</div></div>
+<div class="ttc" id="aclass_perspective_projection_data_html_a0de8c0bcf303bd034f97ebb3d4c9e9f3"><div class="ttname"><a href="class_perspective_projection_data.html#a0de8c0bcf303bd034f97ebb3d4c9e9f3">PerspectiveProjectionData::setViewportSize</a></div><div class="ttdeci">void setViewportSize(const ivec2 size) override</div><div class="ttdoc">A function for updating the projection data related to viewport size.</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:104</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_aded21ef3140afbeb16acdfbe72091431"><div class="ttname"><a href="class_perspective_projection_data.html#aded21ef3140afbeb16acdfbe72091431">PerspectiveProjectionData::PerspectiveProjectionData</a></div><div class="ttdeci">PerspectiveProjectionData(float aspectRatio, float fieldOfView=glm::pi&lt; float &gt;()/2., float nearPlane=0.01f, float farPlane=100.0f)</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:27</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_a6d85254124997b8e9afadc1aa017e847"><div class="ttname"><a href="class_perspective_projection_data.html#a6d85254124997b8e9afadc1aa017e847">PerspectiveProjectionData::setFarPlane</a></div><div class="ttdeci">void setFarPlane(float newFarPlane)</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:98</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_a6fa30d37329780780b1ea2769d65d055"><div class="ttname"><a href="class_perspective_projection_data.html#a6fa30d37329780780b1ea2769d65d055">PerspectiveProjectionData::setAspectRatio</a></div><div class="ttdeci">void setAspectRatio(float newAspectRatio)</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:50</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_a7dc093ea0bb6034f072553ff69a22a95"><div class="ttname"><a href="class_perspective_projection_data.html#a7dc093ea0bb6034f072553ff69a22a95">PerspectiveProjectionData::setNearPlane</a></div><div class="ttdeci">void setNearPlane(float newNearPlane)</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:82</div></div>
 <div class="ttc" id="aclass_perspective_projection_data_html_a909fbbb669a2df9ca689a4dbc22d5fd2"><div class="ttname"><a href="class_perspective_projection_data.html#a909fbbb669a2df9ca689a4dbc22d5fd2">PerspectiveProjectionData::getFarPlane</a></div><div class="ttdeci">float getFarPlane() const</div><div class="ttdef"><b>Definition:</b> PerspectiveProjectionData.hpp:90</div></div>
-<div class="ttc" id="aclass_projection_data_html_adae0e9ec7b7c3e711e958e114b5a0eb6"><div class="ttname"><a href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">ProjectionData::inverseProjectionMatrix</a></div><div class="ttdeci">mat4 inverseProjectionMatrix</div><div class="ttdoc">The inverse projection matrix calculated from the data.</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:49</div></div>
+<div class="ttc" id="aclass_projection_data_html_adae0e9ec7b7c3e711e958e114b5a0eb6"><div class="ttname"><a href="class_projection_data.html#adae0e9ec7b7c3e711e958e114b5a0eb6">ProjectionData::inverseProjectionMatrix</a></div><div class="ttdeci">mat4 inverseProjectionMatrix</div><div class="ttdoc">The inverse projection matrix calculated from the data.</div><div class="ttdef"><b>Definition:</b> ProjectionData.hpp:56</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

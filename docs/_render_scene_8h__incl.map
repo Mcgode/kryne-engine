@@ -1,9 +1,9 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Rendering/RenderScene.h" name="kryne&#45;engine/include/kryne&#45;engine/Rendering/RenderScene.h">
-<area shape="rect" id="node1" title=" " alt="" coords="1130,5,1293,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1038,5,1201,61"/>
 <area shape="rect" id="node2" href="$_window_8h.html" title=" " alt="" coords="2048,474,2236,501"/>
-<area shape="rect" id="node20" href="$_main_renderer_8h.html" title=" " alt="" coords="858,199,1016,240"/>
-<area shape="rect" id="node21" href="$_lighting_registry_8h.html" title=" " alt="" coords="872,288,1002,329"/>
-<area shape="rect" id="node49" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="1153,109,1404,151"/>
+<area shape="rect" id="node20" href="$_main_renderer_8h.html" title=" " alt="" coords="855,199,1014,240"/>
+<area shape="rect" id="node21" href="$_lighting_registry_8h.html" title=" " alt="" coords="869,288,1000,329"/>
+<area shape="rect" id="node49" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="1150,109,1401,151"/>
 <area shape="rect" id="node3" title=" " alt="" coords="1096,742,1152,769"/>
 <area shape="rect" id="node4" title=" " alt="" coords="2293,563,2397,590"/>
 <area shape="rect" id="node5" title=" " alt="" coords="1976,563,2042,590"/>
@@ -22,11 +22,11 @@
 <area shape="rect" id="node18" title=" " alt="" coords="1176,742,1290,769"/>
 <area shape="rect" id="node19" title=" " alt="" coords="1800,742,1991,769"/>
 <area shape="rect" id="node37" href="$_skybox_8h.html" title=" " alt="" coords="550,467,711,508"/>
-<area shape="rect" id="node44" href="$_old_render_pass_8h.html" title=" " alt="" coords="1563,288,1722,329"/>
-<area shape="rect" id="node22" title=" " alt="" coords="902,385,972,411"/>
-<area shape="rect" id="node23" href="$_directional_light_8h.html" title=" " alt="" coords="948,474,1070,501"/>
-<area shape="rect" id="node35" href="$_point_light_8h.html" title=" " alt="" coords="820,474,910,501"/>
-<area shape="rect" id="node24" href="$_shader_8h.html" title=" " alt="" coords="800,556,946,597"/>
+<area shape="rect" id="node44" href="$_old_render_pass_8h.html" title=" " alt="" coords="1552,288,1711,329"/>
+<area shape="rect" id="node22" title=" " alt="" coords="900,385,969,411"/>
+<area shape="rect" id="node23" href="$_old_directional_light_8h.html" title=" " alt="" coords="938,474,1080,501"/>
+<area shape="rect" id="node35" href="$_old_point_light_8h.html" title=" " alt="" coords="803,474,914,501"/>
+<area shape="rect" id="node24" href="$_shader_8h.html" title=" " alt="" coords="796,556,942,597"/>
 <area shape="rect" id="node25" title=" " alt="" coords="730,653,800,679"/>
 <area shape="rect" id="node26" href="$_dispatcher_8h.html" title=" " alt="" coords="670,824,820,865"/>
 <area shape="rect" id="node30" href="$_uniforms_handler_8h.html" title=" " alt="" coords="874,653,1002,679"/>
@@ -37,16 +37,16 @@
 <area shape="rect" id="node31" title=" " alt="" coords="531,742,642,769"/>
 <area shape="rect" id="node32" href="$_texture_8h.html" title=" " alt="" coords="819,735,970,776"/>
 <area shape="rect" id="node33" title=" " alt="" coords="845,831,944,858"/>
-<area shape="rect" id="node36" title=" " alt="" coords="701,563,776,590"/>
+<area shape="rect" id="node36" title=" " alt="" coords="697,563,772,590"/>
 <area shape="rect" id="node38" href="$_cube_texture_8h.html" title=" " alt="" coords="555,645,706,687"/>
 <area shape="rect" id="node39" href="$_vertex_array_8h.html" title=" " alt="" coords="1422,645,1591,687"/>
 <area shape="rect" id="node40" href="$_geometric_shapes_8h.html" title=" " alt="" coords="154,645,344,687"/>
 <area shape="rect" id="node43" href="$_skybox_draw_order_8h.html" title=" " alt="" coords="244,556,387,597"/>
 <area shape="rect" id="node41" title=" " alt="" coords="245,742,304,769"/>
 <area shape="rect" id="node42" href="$_cube_vertex_data_8h.html" title=" " alt="" coords="62,735,220,776"/>
-<area shape="rect" id="node45" href="$_hierarchical_node_8h.html" title=" " alt="" coords="1622,377,1783,419"/>
-<area shape="rect" id="node46" href="$3_d_objects_2_base_object_8h.html" title=" " alt="" coords="1551,467,1712,508"/>
+<area shape="rect" id="node45" href="$_hierarchical_node_8h.html" title=" " alt="" coords="1611,377,1772,419"/>
+<area shape="rect" id="node46" href="$3_d_objects_2_base_object_8h.html" title=" " alt="" coords="1584,467,1746,508"/>
 <area shape="rect" id="node47" title=" " alt="" coords="1472,563,1586,590"/>
 <area shape="rect" id="node48" href="$enums_2_base_object_8h.html" title=" " alt="" coords="1610,556,1749,597"/>
-<area shape="rect" id="node50" href="$_directional_shadow_map_rendering_8h.html" title=" " alt="" coords="1092,206,1315,233"/>
+<area shape="rect" id="node50" href="$_directional_shadow_map_rendering_8h.html" title=" " alt="" coords="1090,206,1312,233"/>
 </map>

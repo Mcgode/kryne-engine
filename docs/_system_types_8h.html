@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_system_types_8h.html',''); initResiza
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_system_types_8h__dep__incl.svg" width="2211" height="1048"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_system_types_8h__dep__incl.svg" width="3588" height="751"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -98,10 +98,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a9e738ffabc116b9cfcd1354df8d35277"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277">SystemTypes</a> { <a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277ae564da802c76b7e4026669cf678e074e">LoopStart</a>, 
+<tr class="memitem:a9e738ffabc116b9cfcd1354df8d35277"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277">SystemTypes</a> { <br />
+&#160;&#160;<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277ae564da802c76b7e4026669cf678e074e">LoopStart</a> = 0, 
 <a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277af0c75d556026827aac4693b9c1fd99af">GameLogic</a>, 
+<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277ab7a9a9222fd96af573a65a68a2dd35ae">PostLogic</a>, 
 <a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277ae8ea069f368a45bd1870585f8e8372d8">PreRendering</a>, 
-<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277a08767b52f66424608da8814567c6c823">PostRendering</a>
+<br />
+&#160;&#160;<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277a08767b52f66424608da8814567c6c823">PostRendering</a>, 
+<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277a2addb49878f50c95dc669e5fdbd130a2">COUNT</a>
+<br />
  }</td></tr>
 <tr class="separator:a9e738ffabc116b9cfcd1354df8d35277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -125,9 +130,13 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a9e738ffabc116b9cfcd1354df8d35277af0c75d556026827aac4693b9c1fd99af"></a>GameLogic&#160;</td><td class="fielddoc"><p>Systems that support the direct game logic (like running the <a class="el" href="class_logic_component.html">LogicComponent</a> instances). </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a9e738ffabc116b9cfcd1354df8d35277ab7a9a9222fd96af573a65a68a2dd35ae"></a>PostLogic&#160;</td><td class="fielddoc"><p>Systems that must be run after the game logic, but before the pre-rendering. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a9e738ffabc116b9cfcd1354df8d35277ae8ea069f368a45bd1870585f8e8372d8"></a>PreRendering&#160;</td><td class="fielddoc"><p>Systems that can must be run after the logic, and before the rendering. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9e738ffabc116b9cfcd1354df8d35277a08767b52f66424608da8814567c6c823"></a>PostRendering&#160;</td><td class="fielddoc"><p>Systems that will be run after the rendering, at the end of the loop. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9e738ffabc116b9cfcd1354df8d35277a2addb49878f50c95dc669e5fdbd130a2"></a>COUNT&#160;</td><td class="fielddoc"><p>The number of enum entries. </p>
 </td></tr>
 </table>
 

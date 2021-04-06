@@ -1,0 +1,5 @@
+<map id="AmbientLight" name="AmbientLight">
+<area shape="rect" id="node1" title="A light that provides an ambient, indirect diffuse lighting." alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node2" href="$class_light.html" title="An entity that will provide light to the scene." alt="" coords="29,80,80,107"/>
+<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="27,5,83,32"/>
+</map>

@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Runs the system.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-14 0,-44 152,-44 152,-14 0,-14"/>
 <text text-anchor="start" x="8" y="-32" font-family="Helvetica,sans-Serif" font-size="10.00">GameLogicComponentsRunner</text>
 <text text-anchor="middle" x="76" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">::runSystem</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="class_entity.html#a3451b5a0c02ea5d16d8cb0763858bc2b" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" target="_top" xlink:title="Retrieves components belonging to the provided class.">
 <polygon fill="white" stroke="black" points="188,-38.5 188,-57.5 304,-57.5 304,-38.5 188,-38.5"/>
 <text text-anchor="middle" x="246" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">Entity::getComponents</text>
 </a>

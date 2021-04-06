@@ -98,15 +98,23 @@ $(document).ready(function(){initNavTree('_mesh_lambert_material_8h_source.html'
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_mesh_lambert_material.html#a49729143ae8baadcec002bc9ebd7991a">MeshLambertMaterial</a>(<span class="keyword">const</span> <a class="code" href="struct_mesh_material_common_1_1_init_parameters.html">InitParameters</a> &amp;options = <a class="code" href="struct_mesh_material_common_1_1_init_parameters.html">InitParameters</a>());</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif //KRYNE_ENGINE_MESHLAMBERTMATERIAL_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_mesh_lambert_material.html#a8be3384952e9cfe8f02fb3609b6db86c">   28</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_mesh_lambert_material.html#a8be3384952e9cfe8f02fb3609b6db86c">materialName</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Lambert&quot;</span>; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_lambert_material.html#a3d7d2ccd413ce83fb2987bce3f5b5aad">dearImGuiData</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif //KRYNE_ENGINE_MESHLAMBERTMATERIAL_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_mesh_lambert_material_html"><div class="ttname"><a href="class_mesh_lambert_material.html">MeshLambertMaterial</a></div><div class="ttdef"><b>Definition:</b> MeshLambertMaterial.h:16</div></div>
 <div class="ttc" id="astruct_mesh_material_common_1_1_init_parameters_html"><div class="ttname"><a href="struct_mesh_material_common_1_1_init_parameters.html">MeshMaterialCommon::InitParameters</a></div><div class="ttdef"><b>Definition:</b> MeshMaterialCommon.h:31</div></div>
-<div class="ttc" id="aclass_mesh_lambert_material_html_a49729143ae8baadcec002bc9ebd7991a"><div class="ttname"><a href="class_mesh_lambert_material.html#a49729143ae8baadcec002bc9ebd7991a">MeshLambertMaterial::MeshLambertMaterial</a></div><div class="ttdeci">MeshLambertMaterial(const InitParameters &amp;options=InitParameters())</div><div class="ttdef"><b>Definition:</b> MeshLambertMaterial.cpp:10</div></div>
+<div class="ttc" id="aclass_mesh_lambert_material_html_a49729143ae8baadcec002bc9ebd7991a"><div class="ttname"><a href="class_mesh_lambert_material.html#a49729143ae8baadcec002bc9ebd7991a">MeshLambertMaterial::MeshLambertMaterial</a></div><div class="ttdeci">MeshLambertMaterial(const InitParameters &amp;options=InitParameters())</div><div class="ttdef"><b>Definition:</b> MeshLambertMaterial.cpp:12</div></div>
+<div class="ttc" id="aclass_mesh_lambert_material_html_a8be3384952e9cfe8f02fb3609b6db86c"><div class="ttname"><a href="class_mesh_lambert_material.html#a8be3384952e9cfe8f02fb3609b6db86c">MeshLambertMaterial::materialName</a></div><div class="ttdeci">string materialName() override</div><div class="ttdef"><b>Definition:</b> MeshLambertMaterial.h:28</div></div>
+<div class="ttc" id="aclass_mesh_lambert_material_html_a3d7d2ccd413ce83fb2987bce3f5b5aad"><div class="ttname"><a href="class_mesh_lambert_material.html#a3d7d2ccd413ce83fb2987bce3f5b5aad">MeshLambertMaterial::dearImGuiData</a></div><div class="ttdeci">void dearImGuiData() override</div><div class="ttdoc">Override this function to display material data in the interface.</div><div class="ttdef"><b>Definition:</b> MeshLambertMaterial.cpp:20</div></div>
 <div class="ttc" id="a_mesh_material_common_8h_html"><div class="ttname"><a href="_mesh_material_common_8h.html">MeshMaterialCommon.h</a></div></div>
 <div class="ttc" id="aclass_mesh_material_common_html"><div class="ttname"><a href="class_mesh_material_common.html">MeshMaterialCommon</a></div><div class="ttdef"><b>Definition:</b> MeshMaterialCommon.h:24</div></div>
 <!-- start footer part -->

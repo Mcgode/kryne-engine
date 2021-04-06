@@ -1,11 +1,14 @@
 var class_material =
 [
     [ "Material", "class_material.html#a38391efabd8dabb8f3e18e84eda8105b", null ],
+    [ "dearImGuiData", "class_material.html#a56d712f7823f8d41938148457f03a741", null ],
+    [ "displayDearImGui", "class_material.html#a93edcb8dd567cc08a857f08ff99c46d8", null ],
     [ "getPrimitiveType", "class_material.html#af4d74b55f8be6fead4bbd3ee29a529df", null ],
     [ "getShader", "class_material.html#abc049ba673705c33f97a1effb16e8407", null ],
     [ "getSide", "class_material.html#a6a0744388287b0d1831904d77f7d8764", null ],
     [ "isDepthTest", "class_material.html#a6a918f09c4360477f74356110126df8e", null ],
     [ "isWriteDepth", "class_material.html#a895211010246aa1ee74a7808190b5b0b", null ],
+    [ "materialName", "class_material.html#a5a9c026494ee8680fcbfd4382a0c2947", null ],
     [ "prepareShader", "class_material.html#a67459e974f4150ebd7c617c11a418e82", null ],
     [ "removeDefine", "class_material.html#a053e033e624bc01399fb6491f663a7d3", null ],
     [ "removeUniform", "class_material.html#a7de9a9344f8b329de2c2be89e67c52b2", null ],

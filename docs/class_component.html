@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('class_component.html',''); initResizab
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_component-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Component Class Reference</div>  </div>
+<div class="title">Component Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -100,7 +100,7 @@ Inheritance diagram for Component:</div>
 <div class="dynheader">
 Collaboration diagram for Component:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_component__coll__graph.svg" width="398" height="306"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_component__coll__graph.svg" width="524" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -109,8 +109,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13fba4e303a201b7ff21557fdb5c34c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa777424c254b15caa24221ce98e2f99b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#aa777424c254b15caa24221ce98e2f99b">getEntity</a> () const</td></tr>
 <tr class="separator:aa777424c254b15caa24221ce98e2f99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affba543625bd1bfe024385462680f65f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#affba543625bd1bfe024385462680f65f">transformDidUpdate</a> ()=0</td></tr>
+<tr class="memdesc:affba543625bd1bfe024385462680f65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function triggered every time the entity's transform is updated.  <a href="class_component.html#affba543625bd1bfe024385462680f65f">More...</a><br /></td></tr>
+<tr class="separator:affba543625bd1bfe024385462680f65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad82d7393e339c1b19cc17a0d55b5674d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ad82d7393e339c1b19cc17a0d55b5674d">~Component</a> ()=default</td></tr>
 <tr class="separator:ad82d7393e339c1b19cc17a0d55b5674d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1570458d53959bef5a9717b9cc57be"><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#afb1570458d53959bef5a9717b9cc57be">getComponentName</a> () const</td></tr>
+<tr class="separator:afb1570458d53959bef5a9717b9cc57be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4821c472d81623387cb255fcf71ff052"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a4821c472d81623387cb255fcf71ff052">renderComponentDetails</a> ()</td></tr>
+<tr class="memdesc:a4821c472d81623387cb255fcf71ff052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders custom GUI for component details.  <a href="class_component.html#a4821c472d81623387cb255fcf71ff052">More...</a><br /></td></tr>
+<tr class="separator:a4821c472d81623387cb255fcf71ff052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553dae3822f2c4a41808f64e27715878"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a553dae3822f2c4a41808f64e27715878">isEnabled</a> () const</td></tr>
+<tr class="separator:a553dae3822f2c4a41808f64e27715878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5848aa0b85bd784f7502c80fec01fd63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a5848aa0b85bd784f7502c80fec01fd63">setEnabled</a> (bool newValue)</td></tr>
+<tr class="memdesc:a5848aa0b85bd784f7502c80fec01fd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables/disables the component.  <a href="class_component.html#a5848aa0b85bd784f7502c80fec01fd63">More...</a><br /></td></tr>
+<tr class="separator:a5848aa0b85bd784f7502c80fec01fd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -125,6 +138,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a1248f2438d120f025da66a59f38d7a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9490a7db267c92b8b69bf5cea74ac1c1"><td class="memTemplParams" colspan="2">template&lt;class C &gt; </td></tr>
 <tr class="memitem:a9490a7db267c92b8b69bf5cea74ac1c1"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; C * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_component.html#a9490a7db267c92b8b69bf5cea74ac1c1">getComponents</a> () const</td></tr>
+<tr class="memdesc:a9490a7db267c92b8b69bf5cea74ac1c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves components belonging to the provided class.  <a href="class_component.html#a9490a7db267c92b8b69bf5cea74ac1c1">More...</a><br /></td></tr>
 <tr class="separator:a9490a7db267c92b8b69bf5cea74ac1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -132,6 +146,11 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6b8976f485dbb8c272f9e8e827a82fa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a6b8976f485dbb8c272f9e8e827a82fa9">associatedEntity</a></td></tr>
 <tr class="memdesc:a6b8976f485dbb8c272f9e8e827a82fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entity this component is attached to.  <a href="class_component.html#a6b8976f485dbb8c272f9e8e827a82fa9">More...</a><br /></td></tr>
 <tr class="separator:a6b8976f485dbb8c272f9e8e827a82fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f41dd3d0aa778f2e9a05bb756779a4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a20f41dd3d0aa778f2e9a05bb756779a4">componentName</a> = &quot;Component&quot;</td></tr>
+<tr class="separator:a20f41dd3d0aa778f2e9a05bb756779a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa65bb278f1e9256d34d6ea008e654ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#afa65bb278f1e9256d34d6ea008e654ab">enabled</a> = true</td></tr>
+<tr class="memdesc:afa65bb278f1e9256d34d6ea008e654ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabled status of the component.  <a href="class_component.html#afa65bb278f1e9256d34d6ea008e654ab">More...</a><br /></td></tr>
+<tr class="separator:afa65bb278f1e9256d34d6ea008e654ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a13fba4e303a201b7ff21557fdb5c34c3"></a>
@@ -280,6 +299,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="afb1570458d53959bef5a9717b9cc57be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb1570458d53959bef5a9717b9cc57be">&#9670;&nbsp;</a></span>getComponentName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; Component::getComponentName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9490a7db267c92b8b69bf5cea74ac1c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9490a7db267c92b8b69bf5cea74ac1c1">&#9670;&nbsp;</a></span>getComponents()</h2>
 
@@ -302,10 +346,16 @@ template&lt;class C &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p></p>
-<p>Retrieves components belonging to the provided class. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Retrieves components belonging to the provided class. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">C</td><td>The component class. Used to find the components using dynamic_cast. </td></tr>
+    <tr><td class="paramname">C</td><td>The component class. Used to find the components using dynamic_cast.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mustBeEnabled</td><td>If true, will only retrieve enabled components.</td></tr>
   </table>
   </dd>
 </dl>
@@ -376,6 +426,125 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a553dae3822f2c4a41808f64e27715878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553dae3822f2c4a41808f64e27715878">&#9670;&nbsp;</a></span>isEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Component::isEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the value of <a class="el" href="class_component.html#afa65bb278f1e9256d34d6ea008e654ab" title="Enabled status of the component.">enabled</a> </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a4821c472d81623387cb255fcf71ff052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4821c472d81623387cb255fcf71ff052">&#9670;&nbsp;</a></span>renderComponentDetails()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::renderComponentDetails </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renders custom GUI for component details. </p>
+
+<p>Reimplemented in <a class="el" href="class_render_mesh.html#aad195beaaa98315f2fe8753da9490bf8">RenderMesh</a>, and <a class="el" href="class_orbit_controls_component.html#a9b80045cb8c7f589e05bbbd0760827fb">OrbitControlsComponent</a>.</p>
+
+</div>
+</div>
+<a id="a5848aa0b85bd784f7502c80fec01fd63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5848aa0b85bd784f7502c80fec01fd63">&#9670;&nbsp;</a></span>setEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component::setEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>newValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enables/disables the component. </p>
+<p>When disabled, a component won't be updated or rendered.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newValue</td><td>Set to <code>true</code> to enable, <code>false</code> to disable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="affba543625bd1bfe024385462680f65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affba543625bd1bfe024385462680f65f">&#9670;&nbsp;</a></span>transformDidUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::transformDidUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function triggered every time the entity's transform is updated. </p>
+
+<p>Implemented in <a class="el" href="class_render_mesh.html#aad2225e02a735d6819845a8df806a01f">RenderMesh</a>, and <a class="el" href="class_logic_component.html#aac85ba7ffc9ddce788d7220a1deaed61">LogicComponent</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a6b8976f485dbb8c272f9e8e827a82fa9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b8976f485dbb8c272f9e8e827a82fa9">&#9670;&nbsp;</a></span>associatedEntity</h2>
@@ -398,6 +567,52 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The entity this component is attached to. </p>
+
+</div>
+</div>
+<a id="a20f41dd3d0aa778f2e9a05bb756779a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20f41dd3d0aa778f2e9a05bb756779a4">&#9670;&nbsp;</a></span>componentName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Component::componentName = &quot;Component&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa65bb278f1e9256d34d6ea008e654ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa65bb278f1e9256d34d6ea008e654ab">&#9670;&nbsp;</a></span>enabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Component::enabled = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enabled status of the component. </p>
 
 </div>
 </div>

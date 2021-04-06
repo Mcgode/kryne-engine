@@ -99,7 +99,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="class_lighting_registry.html#a7da40f5f1cfa2ed0711d976604562f4c" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="class_lighting_registry.html#a7683ed9b4d48add7f7e47108d27962d4" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="337,-49.5 337,-79.5 489,-79.5 489,-49.5 337,-49.5"/>
 <text text-anchor="start" x="345" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">LightingRegistry::getDirectional</text>
 <text text-anchor="middle" x="413" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Lights</text>
@@ -115,7 +115,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="class_lighting_registry.html#a22b55085ec9bd213822ec6e449c2ea3a" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="class_lighting_registry.html#a00b685915b8f9b46fc48209e8135fd45" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="349,-0.5 349,-30.5 477,-30.5 477,-0.5 349,-0.5"/>
 <text text-anchor="start" x="357" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">LightingRegistry::getPoint</text>
 <text text-anchor="middle" x="413" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Lights</text>
@@ -131,7 +131,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="class_main_renderer.html#a508a80df1c58c0820c8f18ced3a0558d" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="class_main_renderer.html#a943e7030e2bc68771f98c59338be5256" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="347.5,-187 347.5,-206 478.5,-206 478.5,-187 347.5,-187"/>
 <text text-anchor="middle" x="413" y="-194" font-family="Helvetica,sans-Serif" font-size="10.00">MainRenderer::renderMain</text>
 </a>

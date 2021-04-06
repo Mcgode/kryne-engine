@@ -1,9 +1,9 @@
 <map id="RenderScene::setSkybox" name="RenderScene::setSkybox">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,176,57"/>
-<area shape="rect" id="node2" href="$class_main_renderer.html#af9f29fe27421266481a2a89c7447e1d0" title=" " alt="" coords="224,31,396,57"/>
-<area shape="rect" id="node3" href="$class_directional_light.html#a620fc95395f452e6718eca660c3f66f6" title=" " alt="" coords="444,5,632,32"/>
-<area shape="rect" id="node4" href="$class_skybox.html#a328818f63faa949bb8b4249046391cea" title=" " alt="" coords="453,56,623,83"/>
-<area shape="rect" id="node5" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="685,5,808,32"/>
-<area shape="rect" id="node6" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="680,56,813,83"/>
-<area shape="rect" id="node7" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="701,107,793,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,42,176,69"/>
+<area shape="rect" id="node2" href="$class_main_renderer.html#a9bd9f1d6460d035a0f607f78995ea07a" title=" " alt="" coords="224,42,396,69"/>
+<area shape="rect" id="node3" href="$class_old_directional_light.html#a5163eb18818b2f54a757ee2def3e7ac4" title=" " alt="" coords="464,5,595,47"/>
+<area shape="rect" id="node4" href="$class_skybox.html#a328818f63faa949bb8b4249046391cea" title=" " alt="" coords="444,71,615,98"/>
+<area shape="rect" id="node5" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="668,21,791,47"/>
+<area shape="rect" id="node6" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="663,71,796,98"/>
+<area shape="rect" id="node7" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="683,122,775,149"/>
 </map>

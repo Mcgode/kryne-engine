@@ -11,5 +11,6 @@ var class_uniforms_handler =
     [ "activeTextures", "class_uniforms_handler.html#a72f823544e90618f0d872e6e2b274494", null ],
     [ "nextTextureIndex", "class_uniforms_handler.html#a88b13b7a6ecc0eef9c4c92a911c332d3", null ],
     [ "programId", "class_uniforms_handler.html#a71191be620b712383fc60468469ddf8d", null ],
-    [ "uniforms", "class_uniforms_handler.html#a34482777f3ca197e5920af98db887549", null ]
+    [ "uniforms", "class_uniforms_handler.html#a34482777f3ca197e5920af98db887549", null ],
+    [ "uniformsMutex", "class_uniforms_handler.html#afc76baece0eb616f69a7e29eb3933173", null ]
 ];

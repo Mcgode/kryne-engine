@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e10b842280ec0c697274fb88fd16878"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_math_1_1_sphere.html">Sphere</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1_sphere.html#a1e10b842280ec0c697274fb88fd16878">fromMatrix</a> (const mat4 &amp;m) const</td></tr>
 <tr class="memdesc:a1e10b842280ec0c697274fb88fd16878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the sphere by applying the provided matrix into a new <a class="el" href="struct_math_1_1_sphere.html" title="A structure for handling a mathematical sphere object.">Sphere</a>.  <a href="struct_math_1_1_sphere.html#a1e10b842280ec0c697274fb88fd16878">More...</a><br /></td></tr>
 <tr class="separator:a1e10b842280ec0c697274fb88fd16878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a69aec042ed437b845c280c454e6999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1_sphere.html#a1a69aec042ed437b845c280c454e6999">fromBox</a> (const <a class="el" href="struct_math_1_1_axis_aligned_box.html">AxisAlignedBox</a> &amp;box)</td></tr>
+<tr class="memdesc:a1a69aec042ed437b845c280c454e6999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the sphere parameters to bound the provided box.  <a href="struct_math_1_1_sphere.html#a1a69aec042ed437b845c280c454e6999">More...</a><br /></td></tr>
+<tr class="separator:a1a69aec042ed437b845c280c454e6999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -199,6 +202,40 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1a69aec042ed437b845c280c454e6999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a69aec042ed437b845c280c454e6999">&#9670;&nbsp;</a></span>fromBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Math::Sphere::fromBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_math_1_1_axis_aligned_box.html">AxisAlignedBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the sphere parameters to bound the provided box. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box</td><td>An axis aligned box, which will be bounded by the sphere. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1e10b842280ec0c697274fb88fd16878"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e10b842280ec0c697274fb88fd16878">&#9670;&nbsp;</a></span>fromMatrix()</h2>
 
@@ -231,6 +268,11 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="struct_math_1_1_sphere.html" title="A structure for handling a mathematical sphere object.">Sphere</a> structure instance, with its attributes updated. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_math_1_1_sphere_a1e10b842280ec0c697274fb88fd16878_cgraph.svg" width="378" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
