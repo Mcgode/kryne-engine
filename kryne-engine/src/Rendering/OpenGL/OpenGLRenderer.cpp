@@ -4,6 +4,8 @@
  * @date 06/02/2021.
  */
 
+#include <kryne-engine/Material/ShaderMaterial.hpp>
+#include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
@@ -21,6 +23,14 @@ OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState, const ivec2 &size
     this->readFramebuffer->setUpDepthLayer();
 
     this->fullscreenPlane = make_unique<PlaneBufferGeometry>(2.f, 2.f);
+
+    auto shader = make_unique<Shader>("Engine/Skybox");
+    this->skyboxMeshData.material = make_shared<ShaderMaterial>(move(shader));
+    auto geometry = make_shared<BoxBufferGeometry>();
+    geometry->removeAttribute("normal");
+    geometry->removeAttribute("uv");
+    geometry->removeAttribute("tangent");
+    this->skyboxMeshData.geometry = geometry;
 }
 
 
@@ -115,7 +125,22 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
 {
     assertIsMainThread();
 
-    // TODO : render skybox
+    auto skyTexture = scene->getSkyboxTexture();
+    if (skyTexture != nullptr)
+    {
+        this->skyboxMeshData.material->setUniform("skybox", skyTexture);
+        this->skyboxMeshData.material->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
+        this->skyboxMeshData.material->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
+
+        glDepthFunc(GL_LEQUAL);
+        this->renderingState->setSide(BackSide);
+
+        this->skyboxMeshData.material->prepareShader(this->skyboxMeshData.geometry.get());
+        this->skyboxMeshData.material->getShader()->updateUniforms();
+        this->skyboxMeshData.geometry->draw(GL_TRIANGLES);
+
+        glDepthFunc(GL_LESS);
+    }
 }
 
 
