@@ -24,6 +24,7 @@ class Scene;
 class Entity;
 class PostProcessPass;
 class Material;
+class BufferGeometry;
 
 
 using namespace std;
@@ -236,6 +237,24 @@ protected:
 
     /// A mutex for handling concurrent frustum culling
     mutex frustumCullingMutex;
+
+
+// ==================
+// Skybox
+// ==================
+
+protected:
+
+    struct SkyboxMeshData {
+
+        shared_ptr<Material> material;
+
+        shared_ptr<BufferGeometry> geometry;
+
+    };
+
+    /// The mesh data for drawing a skybox
+    SkyboxMeshData skyboxMeshData;
 
 };
 
