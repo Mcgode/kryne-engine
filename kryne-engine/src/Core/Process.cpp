@@ -134,7 +134,10 @@ void Process::runLoop()
     auto postProcessTime = system_clock::now();
 
     if (this->currentScene != nullptr)
+    {
+        renderer->finishSceneRendering();
         renderer->handlePostProcessing();
+    }
 
     auto uiTime = system_clock::now();
 

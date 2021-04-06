@@ -111,6 +111,14 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 }
 
 
+void OpenGLRenderer::finishSceneRendering()
+{
+    assertIsMainThread();
+
+    // TODO : render skybox
+}
+
+
 void OpenGLRenderer::handlePostProcessing()
 {
     assertIsMainThread();
