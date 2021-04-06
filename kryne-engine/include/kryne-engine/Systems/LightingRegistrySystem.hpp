@@ -9,6 +9,7 @@
 
 #include <kryne-engine/Core/System.h>
 
+#include <kryne-engine/Light/AmbientLight.hpp>
 #include <kryne-engine/Light/HemisphereLight.hpp>
 
 
@@ -32,11 +33,15 @@ public:
 
 protected:
 
+    void updateAmbientLights(Material *material);
+
     void updateHemisphereLights(Material *material);
 
 protected:
 
     bool shouldRun = false;
+
+    vector<AmbientLight *> ambientLights;
 
     vector<HemisphereLight *> hemisphereLights;
 

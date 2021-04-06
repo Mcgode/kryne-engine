@@ -12,6 +12,7 @@ LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(proces
 
 void LightingRegistrySystem::loopReset()
 {
+    this->ambientLights.clear();
     this->hemisphereLights.clear();
 
     this->shouldRun = this->getAttachedProcess()->getGraphicContext()->getRenderer()->getRenderingMode() == ForwardRendering;
@@ -26,6 +27,7 @@ void LightingRegistrySystem::runSystem(Entity *entity)
     for (const auto &renderMesh : entity->getComponents<RenderMesh>())
     {
         const auto material = renderMesh->getMaterial().get();
+        this->updateAmbientLights(material);
         this->updateHemisphereLights(material);
     }
 }
@@ -46,6 +48,7 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
                     this->hemisphereLights.push_back(dynamic_cast<HemisphereLight *>(light));
                     break;
                 case Light::AmbientLight:
+                    this->ambientLights.push_back(dynamic_cast<AmbientLight *>(light));
                     break;
                 case Light::DirectionalLight:
                     break;
@@ -53,6 +56,23 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
                     break;
             }
         }
+    }
+}
+
+
+void LightingRegistrySystem::updateAmbientLights(Material *material)
+{
+    const auto size = this->ambientLights.size();
+    if (size)
+        material->setDefine("MAX_AMBIENT_LIGHTS", to_string(size));
+    else
+        material->removeDefine("MAX_AMBIENT_LIGHTS");
+
+    for (size_t i = 0; i < this->ambientLights.size(); i++)
+    {
+        const auto light = this->ambientLights[i];
+        float intensity = light->getIntensity();
+        material->setUniform("ambientLights[" + to_string(i) + "].color", intensity * light->getColor());
     }
 }
 
