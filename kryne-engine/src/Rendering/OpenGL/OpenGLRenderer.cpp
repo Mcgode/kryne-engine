@@ -25,12 +25,7 @@ OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState, const ivec2 &size
     this->fullscreenPlane = make_unique<PlaneBufferGeometry>(2.f, 2.f);
 
     auto shader = make_unique<Shader>("Engine/Skybox");
-    this->skyboxMeshData.material = make_shared<ShaderMaterial>(move(shader));
-    auto geometry = make_shared<BoxBufferGeometry>();
-    geometry->removeAttribute("normal");
-    geometry->removeAttribute("uv");
-    geometry->removeAttribute("tangent");
-    this->skyboxMeshData.geometry = geometry;
+    this->skyboxMaterial = make_shared<ShaderMaterial>(move(shader));
 }
 
 
@@ -128,16 +123,16 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
     const auto& envMap = scene->getSkyboxEnvMap();
     if (**envMap != nullptr)
     {
-        this->skyboxMeshData.material->setUniform("skybox", **envMap);
-        this->skyboxMeshData.material->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
-        this->skyboxMeshData.material->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
+        this->skyboxMaterial->setUniform("skybox", **envMap);
+        this->skyboxMaterial->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
+        this->skyboxMaterial->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
 
         glDepthFunc(GL_LEQUAL);
         this->renderingState->setSide(BackSide);
 
-        this->skyboxMeshData.material->prepareShader(this->skyboxMeshData.geometry.get());
-        this->skyboxMeshData.material->getShader()->updateUniforms();
-        this->skyboxMeshData.geometry->draw(GL_TRIANGLES);
+        this->skyboxMaterial->prepareShader(this->cubeGeometry.get());
+        this->skyboxMaterial->getShader()->updateUniforms();
+        this->cubeGeometry->draw(GL_TRIANGLES);
 
         glDepthFunc(GL_LESS);
     }

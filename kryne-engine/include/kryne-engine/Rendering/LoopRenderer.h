@@ -24,7 +24,8 @@ class Scene;
 class Entity;
 class PostProcessPass;
 class Material;
-class BufferGeometry;
+class ShaderMaterial;
+class BoxBufferGeometry;
 
 
 using namespace std;
@@ -97,7 +98,7 @@ public:
      * @details
      * Used in particular for postprocessing passes.
      *
-     * @param material
+     * @param material The material for rendering this texture
      */
     virtual void textureRender(Material *material) = 0;
 
@@ -240,21 +241,16 @@ protected:
 
 
 // ==================
-// Skybox
+// Cube rendering
 // ==================
 
 protected:
 
-    struct SkyboxMeshData {
-
-        shared_ptr<Material> material;
-
-        shared_ptr<BufferGeometry> geometry;
-
-    };
+    /// The cube geometry used for cube maps rendering.
+    shared_ptr<BoxBufferGeometry> cubeGeometry;
 
     /// The mesh data for drawing a skybox
-    SkyboxMeshData skyboxMeshData;
+    shared_ptr<ShaderMaterial> skyboxMaterial;
 
 };
 
@@ -264,3 +260,5 @@ protected:
 #include <kryne-engine/Camera/Camera.h>
 #include <kryne-engine/3DObjects/Scene.h>
 #include <kryne-engine/Rendering/RenderMesh.h>
+#include <kryne-engine/Geometry/BoxBufferGeometry.h>
+#include <kryne-engine/Material/ShaderMaterial.hpp>

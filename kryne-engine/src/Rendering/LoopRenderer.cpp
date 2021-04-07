@@ -15,7 +15,13 @@ LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
    readFramebuffer(move(readFramebuffer)),
    writeFramebuffer(move(writeFramebuffer)),
    rendererSize(size)
-{}
+{
+    auto geometry = make_shared<BoxBufferGeometry>();
+    geometry->removeAttribute("normal");
+    geometry->removeAttribute("uv");
+    geometry->removeAttribute("tangent");
+    this->cubeGeometry = geometry;
+}
 
 
 LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
