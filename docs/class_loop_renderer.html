@@ -104,12 +104,15 @@ Inheritance diagram for LoopRenderer:</div>
 <div class="dynheader">
 Collaboration diagram for LoopRenderer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_loop_renderer__coll__graph.svg" width="3144" height="702"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_loop_renderer__coll__graph.svg" width="3251" height="747"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_loop_renderer_1_1_frustum_culling_data.html">FrustumCullingData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_loop_renderer_1_1_skybox_mesh_data.html">SkyboxMeshData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -132,9 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab38b9a3759bf130522f992bc906d4f10"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">setRenderingMode</a> (<a class="el" href="_render_mode_8h.html#ac9e546db27bb4f76f47d7e25f24abb88">RenderMode</a> mode)</td></tr>
 <tr class="memdesc:ab38b9a3759bf130522f992bc906d4f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current rendering mode.  <a href="class_loop_renderer.html#ab38b9a3759bf130522f992bc906d4f10">More...</a><br /></td></tr>
 <tr class="separator:ab38b9a3759bf130522f992bc906d4f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68235b2765c3bf26e7c8c8fc51e0a76a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a68235b2765c3bf26e7c8c8fc51e0a76a">finishSceneRendering</a> ()=0</td></tr>
-<tr class="memdesc:a68235b2765c3bf26e7c8c8fc51e0a76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finishes the scene rendering, in prevision of the post-processing.  <a href="class_loop_renderer.html#a68235b2765c3bf26e7c8c8fc51e0a76a">More...</a><br /></td></tr>
-<tr class="separator:a68235b2765c3bf26e7c8c8fc51e0a76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae51c5eea1e451652112e47c6edd13aa8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#ae51c5eea1e451652112e47c6edd13aa8">finishSceneRendering</a> (<a class="el" href="class_scene.html">Scene</a> *scene)=0</td></tr>
+<tr class="memdesc:ae51c5eea1e451652112e47c6edd13aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finishes the scene rendering, in prevision of the post-processing.  <a href="class_loop_renderer.html#ae51c5eea1e451652112e47c6edd13aa8">More...</a><br /></td></tr>
+<tr class="separator:ae51c5eea1e451652112e47c6edd13aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e7efd3b7089122b1feb2d5b3332585d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a6e7efd3b7089122b1feb2d5b3332585d">handlePostProcessing</a> ()=0</td></tr>
 <tr class="memdesc:a6e7efd3b7089122b1feb2d5b3332585d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the post processing and the rendering to screen.  <a href="class_loop_renderer.html#a6e7efd3b7089122b1feb2d5b3332585d">More...</a><br /></td></tr>
 <tr class="separator:a6e7efd3b7089122b1feb2d5b3332585d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,6 +204,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a93b4eb24e35e20beac33554e5415db77"><td class="memItemLeft" align="right" valign="top">mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#a93b4eb24e35e20beac33554e5415db77">frustumCullingMutex</a></td></tr>
 <tr class="memdesc:a93b4eb24e35e20beac33554e5415db77"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutex for handling concurrent frustum culling.  <a href="class_loop_renderer.html#a93b4eb24e35e20beac33554e5415db77">More...</a><br /></td></tr>
 <tr class="separator:a93b4eb24e35e20beac33554e5415db77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49d79ac92b90b3e3c5f35874ba8df0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_loop_renderer_1_1_skybox_mesh_data.html">SkyboxMeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loop_renderer.html#aa49d79ac92b90b3e3c5f35874ba8df0e">skyboxMeshData</a></td></tr>
+<tr class="memdesc:aa49d79ac92b90b3e3c5f35874ba8df0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mesh data for drawing a skybox.  <a href="class_loop_renderer.html#aa49d79ac92b90b3e3c5f35874ba8df0e">More...</a><br /></td></tr>
+<tr class="separator:aa49d79ac92b90b3e3c5f35874ba8df0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A renderer that will be run in the game loop. </p>
@@ -415,8 +421,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a68235b2765c3bf26e7c8c8fc51e0a76a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68235b2765c3bf26e7c8c8fc51e0a76a">&#9670;&nbsp;</a></span>finishSceneRendering()</h2>
+<a id="ae51c5eea1e451652112e47c6edd13aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51c5eea1e451652112e47c6edd13aa8">&#9670;&nbsp;</a></span>finishSceneRendering()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,7 +433,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">virtual void LoopRenderer::finishSceneRendering </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
+          <td class="paramname"><em>scene</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -440,7 +447,7 @@ Here is the call graph for this function:</div>
 
 <p>Finishes the scene rendering, in prevision of the post-processing. </p>
 
-<p>Implemented in <a class="el" href="class_open_g_l_renderer.html#a60c2b638b4defea2f7ea0364aa4eac6f">OpenGLRenderer</a>.</p>
+<p>Implemented in <a class="el" href="class_open_g_l_renderer.html#a0cf382fbbc0ba72caa63893541f54273">OpenGLRenderer</a>.</p>
 
 </div>
 </div>
@@ -1002,6 +1009,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The framebuffer corresponding to the displayed window. </p>
+
+</div>
+</div>
+<a id="aa49d79ac92b90b3e3c5f35874ba8df0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49d79ac92b90b3e3c5f35874ba8df0e">&#9670;&nbsp;</a></span>skyboxMeshData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_loop_renderer_1_1_skybox_mesh_data.html">SkyboxMeshData</a> LoopRenderer::skyboxMeshData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The mesh data for drawing a skybox. </p>
 
 </div>
 </div>

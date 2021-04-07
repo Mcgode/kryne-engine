@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_math_1_1_axis_aligned_box.html" title="A structure representing an axis&#45;aligned 3D box." alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node1" href="$class_material.html" title=" " alt="" coords="5,81,73,108"/>
+<area shape="rect" id="node2" href="$class_f_x_a_a_material.html" title="A FXAA shader material, for use in post process." alt="" coords="147,5,248,32"/>
+<area shape="rect" id="node3" href="$class_mesh_material_common.html" title=" " alt="" coords="121,56,273,83"/>
+<area shape="rect" id="node6" href="$class_shader_material.html" title="A wrapper material for directly using shaders." alt="" coords="143,107,252,133"/>
+<area shape="rect" id="node7" href="$class_texture_copy_material.html" title=" " alt="" coords="127,157,268,184"/>
+<area shape="rect" id="node4" href="$class_mesh_lambert_material.html" title=" " alt="" coords="324,31,471,57"/>
+<area shape="rect" id="node5" href="$class_mesh_standard_material.html" title=" " alt="" coords="321,81,473,108"/>
 </map>

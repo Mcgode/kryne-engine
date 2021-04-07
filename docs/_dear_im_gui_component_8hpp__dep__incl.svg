@@ -5,133 +5,133 @@
  -->
 <!-- Title: kryne&#45;engine/include/kryne&#45;engine/UI/DearImGuiComponent.hpp Pages: 1 -->
 <svg width="759pt" height="184pt"
- viewBox="0.00 0.00 758.50 184.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 759.00 184.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 180)">
 <title>kryne&#45;engine/include/kryne&#45;engine/UI/DearImGuiComponent.hpp</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-180 754.5,-180 754.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-180 755,-180 755,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="304.5,-145.5 304.5,-175.5 508.5,-175.5 508.5,-145.5 304.5,-145.5"/>
-<text text-anchor="start" x="312.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="406.5" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiComponent.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="262,-145.5 262,-175.5 466,-175.5 466,-145.5 262,-145.5"/>
+<text text-anchor="start" x="270" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="364" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiComponent.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_dear_im_gui_performance_metrics_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="0,-67.5 0,-108.5 191,-108.5 191,-67.5 0,-67.5"/>
-<text text-anchor="start" x="8" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="8" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPerformance</text>
-<text text-anchor="middle" x="95.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Metrics.hpp</text>
+<g id="a_node2"><a xlink:href="_dear_im_gui_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="0,-73 0,-103 144,-103 144,-73 0,-73"/>
+<text text-anchor="start" x="8" y="-91" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="72" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGui.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M334.87,-143.26C289.23,-132.92 229.84,-119.45 181.63,-108.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="334.16,-146.69 344.68,-145.49 335.71,-139.86 334.16,-146.69"/>
+<path fill="none" stroke="midnightblue" d="M294.92,-143.1C253.7,-133.28 200.34,-120.51 153,-109 145.12,-107.08 136.81,-105.05 128.64,-103.04"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="294.32,-146.55 304.85,-145.46 295.94,-139.74 294.32,-146.55"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_dear_im_gui_prototype_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="209,-73 209,-103 406,-103 406,-73 209,-73"/>
-<text text-anchor="start" x="217" y="-91" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="307.5" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPrototype.hpp</text>
+<g id="a_node4"><a xlink:href="_dear_im_gui_performance_metrics_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="162.5,-67.5 162.5,-108.5 353.5,-108.5 353.5,-67.5 162.5,-67.5"/>
+<text text-anchor="start" x="170.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="170.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPerformance</text>
+<text text-anchor="middle" x="258" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Metrics.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M378.32,-139.43C361.97,-127.79 341.8,-113.42 327.17,-103"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="376.29,-142.28 386.47,-145.23 380.35,-136.58 376.29,-142.28"/>
+<path fill="none" stroke="midnightblue" d="M334.16,-139.65C319.6,-129.97 302.12,-118.35 287.59,-108.68"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="332.54,-142.78 342.8,-145.4 336.42,-136.95 332.54,-142.78"/>
 </g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="_dear_im_gui_scene_browser_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="424.5,-67.5 424.5,-108.5 588.5,-108.5 588.5,-67.5 424.5,-67.5"/>
-<text text-anchor="start" x="432.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="432.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiScene</text>
-<text text-anchor="middle" x="506.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Browser.hpp</text>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="_dear_im_gui_prototype_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="371.5,-73 371.5,-103 568.5,-103 568.5,-73 371.5,-73"/>
+<text text-anchor="start" x="379.5" y="-91" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="470" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPrototype.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M435.28,-139.21C448.94,-129.58 465.19,-118.12 478.71,-108.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="432.89,-136.61 426.74,-145.23 436.93,-142.33 432.89,-136.61"/>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node1&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M393.92,-139.6C411.42,-127.96 433.11,-113.54 448.84,-103.07"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="391.58,-136.95 385.2,-145.4 395.46,-142.78 391.58,-136.95"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="_dear_im_gui_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="606.5,-73 606.5,-103 750.5,-103 750.5,-73 606.5,-73"/>
-<text text-anchor="start" x="614.5" y="-91" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="678.5" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGui.h</text>
+<g id="a_node7"><a xlink:href="_dear_im_gui_scene_browser_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="587,-67.5 587,-108.5 751,-108.5 751,-67.5 587,-67.5"/>
+<text text-anchor="start" x="595" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="595" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiScene</text>
+<text text-anchor="middle" x="669" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Browser.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M470.28,-142.97C516.99,-130.86 579.71,-114.6 624.07,-103.11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="469.37,-139.59 460.56,-145.49 471.12,-146.37 469.37,-139.59"/>
+<path fill="none" stroke="midnightblue" d="M434.4,-143.23C479.87,-132.72 539.21,-119 586.83,-107.99"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="433.58,-139.82 424.62,-145.49 435.15,-146.65 433.58,-139.82"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_dear_im_gui_performance_metrics_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="10,-0.5 10,-30.5 181,-30.5 181,-0.5 10,-0.5"/>
-<text text-anchor="start" x="18" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
-<text text-anchor="middle" x="95.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGuiPerformanceMetrics.cpp</text>
+<g id="a_node3"><a xlink:href="_dear_im_gui_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="21.5,-0.5 21.5,-30.5 122.5,-30.5 122.5,-0.5 21.5,-0.5"/>
+<text text-anchor="start" x="29.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
+<text text-anchor="middle" x="72" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGui.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M95.5,-57.08C95.5,-48.01 95.5,-38.45 95.5,-30.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="92,-57.36 95.5,-67.36 99,-57.36 92,-57.36"/>
+<path fill="none" stroke="midnightblue" d="M72,-62.73C72,-52.07 72,-39.91 72,-30.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="68.5,-62.73 72,-72.73 75.5,-62.73 68.5,-62.73"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="_dear_im_gui_scene_browser_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="433,-0.5 433,-30.5 580,-30.5 580,-0.5 433,-0.5"/>
-<text text-anchor="start" x="441" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
-<text text-anchor="middle" x="506.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGuiSceneBrowser.cpp</text>
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="_dear_im_gui_performance_metrics_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="172.5,-0.5 172.5,-30.5 343.5,-30.5 343.5,-0.5 172.5,-0.5"/>
+<text text-anchor="start" x="180.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
+<text text-anchor="middle" x="258" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGuiPerformanceMetrics.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M506.5,-57.08C506.5,-48.01 506.5,-38.45 506.5,-30.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="503,-57.36 506.5,-67.36 510,-57.36 503,-57.36"/>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M258,-57.08C258,-48.01 258,-38.45 258,-30.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="254.5,-57.36 258,-67.36 261.5,-57.36 254.5,-57.36"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="_dear_im_gui_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="628,-0.5 628,-30.5 729,-30.5 729,-0.5 628,-0.5"/>
-<text text-anchor="start" x="636" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
-<text text-anchor="middle" x="678.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGui.cpp</text>
+<g id="a_node8"><a xlink:href="_dear_im_gui_scene_browser_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="595.5,-0.5 595.5,-30.5 742.5,-30.5 742.5,-0.5 595.5,-0.5"/>
+<text text-anchor="start" x="603.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/UI</text>
+<text text-anchor="middle" x="669" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/DearImGuiSceneBrowser.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M678.5,-62.73C678.5,-52.07 678.5,-39.91 678.5,-30.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="675,-62.73 678.5,-72.73 682,-62.73 675,-62.73"/>
+<path fill="none" stroke="midnightblue" d="M669,-57.08C669,-48.01 669,-38.45 669,-30.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="665.5,-57.36 669,-67.36 672.5,-57.36 665.5,-57.36"/>
 </g>
 </g>
 </svg>

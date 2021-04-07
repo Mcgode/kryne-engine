@@ -20,6 +20,8 @@ var NAVTREEINDEX1 =
 "_shader_chunk_8cpp.html#a6c8de73bb604d91743c7f6f356eb171e":[2,0,0,1,7,6,0],
 "_shader_chunk_8h.html":[2,0,0,0,1,9,6],
 "_shader_chunk_8h_source.html":[2,0,0,0,1,9,6],
+"_shader_material_8hpp.html":[2,0,0,0,1,9,7],
+"_shader_material_8hpp_source.html":[2,0,0,0,1,9,7],
 "_shader_pass_8cpp.html":[2,0,0,1,8,0,0],
 "_shader_pass_8h.html":[2,0,0,0,1,11,0,0],
 "_shader_pass_8h_source.html":[2,0,0,0,1,11,0,0],
@@ -93,8 +95,8 @@ var NAVTREEINDEX1 =
 "_u_i_renderer_8hpp.html":[2,0,0,0,1,15,5],
 "_u_i_renderer_8hpp_source.html":[2,0,0,0,1,15,5],
 "_uniforms_handler_8cpp.html":[2,0,0,1,7,7],
-"_uniforms_handler_8h.html":[2,0,0,0,1,9,7],
-"_uniforms_handler_8h_source.html":[2,0,0,0,1,9,7],
+"_uniforms_handler_8h.html":[2,0,0,0,1,9,8],
+"_uniforms_handler_8h_source.html":[2,0,0,0,1,9,8],
 "_unique_ptr_vector_8hpp.html":[2,0,0,0,1,16,5],
 "_unique_ptr_vector_8hpp_source.html":[2,0,0,0,1,16,5],
 "_vector_mapping_8hpp.html":[2,0,0,0,1,16,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "class_dear_im_gui_scene_browser.html#a61106db0eb3d1883ff4bbb57c4eb1d3e":[1,0,17,0],
 "class_dear_im_gui_scene_browser.html#a802cc5b2c42180f9c741414c99cd3e5f":[1,0,17,3],
 "class_dear_im_gui_scene_browser.html#a9511f3e25fc445a740c448fce3f6ae2d":[1,0,17,2],
-"class_dear_im_gui_scene_browser.html#aa5151ce709cb81bef8e37dde47ab3f0c":[1,0,17,5],
-"class_dear_im_gui_scene_browser.html#ad36df6e65e2916852becb9f9148fa1d0":[1,0,17,4],
-"class_dear_im_gui_scene_browser.html#af42dd87032bea80ae421760c50b42924":[1,0,17,6]
+"class_dear_im_gui_scene_browser.html#aa5151ce709cb81bef8e37dde47ab3f0c":[1,0,17,5]
 };

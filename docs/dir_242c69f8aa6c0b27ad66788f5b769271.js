@@ -8,7 +8,8 @@ var dir_242c69f8aa6c0b27ad66788f5b769271 =
     ] ],
     [ "LoopRenderer.h", "_loop_renderer_8h.html", [
       [ "LoopRenderer", "class_loop_renderer.html", "class_loop_renderer" ],
-      [ "FrustumCullingData", "struct_loop_renderer_1_1_frustum_culling_data.html", "struct_loop_renderer_1_1_frustum_culling_data" ]
+      [ "FrustumCullingData", "struct_loop_renderer_1_1_frustum_culling_data.html", "struct_loop_renderer_1_1_frustum_culling_data" ],
+      [ "SkyboxMeshData", "struct_loop_renderer_1_1_skybox_mesh_data.html", "struct_loop_renderer_1_1_skybox_mesh_data" ]
     ] ],
     [ "MainRenderer.h", "_main_renderer_8h.html", [
       [ "MainRenderer", "class_main_renderer.html", "class_main_renderer" ]

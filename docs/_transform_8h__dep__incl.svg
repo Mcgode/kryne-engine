@@ -102,7 +102,7 @@
 </g>
 </g>
 <!-- Node3&#45;&gt;Node5 -->
-<g id="edge62" class="edge">
+<g id="edge63" class="edge">
 <title>Node3&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M1157.64,-519.61C1173.62,-510.98 1191.9,-500 1207,-488 1226.94,-472.15 1223.7,-458.32 1246,-446 1255.84,-440.56 1386.08,-417.15 1470.49,-402.37"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1155.75,-516.65 1148.53,-524.41 1159.01,-522.84 1155.75,-516.65"/>
@@ -118,7 +118,7 @@
 </g>
 </g>
 <!-- Node3&#45;&gt;Node6 -->
-<g id="edge63" class="edge">
+<g id="edge62" class="edge">
 <title>Node3&#45;&gt;Node6</title>
 <path fill="none" stroke="midnightblue" d="M1196.63,-522.79C1389.19,-485.04 1873,-392.15 1873,-390 1873,-390 1873,-390 1873,-310 1873,-264.7 1878.86,-242.09 1845,-212 1811.52,-182.25 1693.86,-169.91 1615.34,-164.87"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1195.71,-519.4 1186.57,-524.77 1197.06,-526.27 1195.71,-519.4"/>
@@ -177,16 +177,16 @@
 <g id="node43" class="node">
 <title>Node54</title>
 <g id="a_node43"><a xlink:href="_light_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2002,-452 2002,-482 2144,-482 2144,-452 2002,-452"/>
-<text text-anchor="start" x="2010" y="-470" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="2073" y="-459" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Light.hpp</text>
+<polygon fill="white" stroke="black" points="2007,-452 2007,-482 2149,-482 2149,-452 2007,-452"/>
+<text text-anchor="start" x="2015" y="-470" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="2078" y="-459" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Light.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node54 -->
 <g id="edge64" class="edge">
 <title>Node3&#45;&gt;Node54</title>
-<path fill="none" stroke="midnightblue" d="M1197.17,-523.84C1510.48,-486.91 1593.55,-514.4 1905,-488 1936.9,-485.3 1972.09,-481.27 2001.99,-477.53"/>
+<path fill="none" stroke="midnightblue" d="M1197.17,-523.84C1510.48,-486.9 1593.51,-513.88 1905,-488 1938.6,-485.21 1975.75,-481.06 2006.98,-477.26"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1196.4,-520.41 1186.88,-525.07 1197.22,-527.36 1196.4,-520.41"/>
 </g>
 <!-- Node60 -->
@@ -288,24 +288,7 @@
 <!-- Node19 -->
 <g id="node16" class="node">
 <title>Node19</title>
-<g id="a_node16"><a xlink:href="_lighting_registry_system_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2075,-290.5 2075,-331.5 2217,-331.5 2217,-290.5 2075,-290.5"/>
-<text text-anchor="start" x="2083" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="2083" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Systems</text>
-<text text-anchor="middle" x="2146" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">/LightingRegistrySystem.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node5&#45;&gt;Node19 -->
-<g id="edge21" class="edge">
-<title>Node5&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M1624.14,-382.11C1726.46,-374.09 1906.44,-357.71 2059,-332 2064.2,-331.12 2069.55,-330.13 2074.92,-329.06"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1623.57,-378.65 1613.87,-382.91 1624.11,-385.63 1623.57,-378.65"/>
-</g>
-<!-- Node21 -->
-<g id="node18" class="node">
-<title>Node21</title>
-<g id="a_node18"><a xlink:href="_transform_update_system_8h.html" target="_top" xlink:title=" ">
+<g id="a_node16"><a xlink:href="_transform_update_system_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1709.5,-290.5 1709.5,-331.5 1844.5,-331.5 1844.5,-290.5 1709.5,-290.5"/>
 <text text-anchor="start" x="1717.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
 <text text-anchor="start" x="1717.5" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Systems</text>
@@ -313,11 +296,28 @@
 </a>
 </g>
 </g>
+<!-- Node5&#45;&gt;Node19 -->
+<g id="edge21" class="edge">
+<title>Node5&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M1595.23,-370.79C1631.32,-359.11 1679.1,-343.66 1716.61,-331.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1593.81,-367.56 1585.38,-373.97 1595.97,-374.22 1593.81,-367.56"/>
+</g>
+<!-- Node21 -->
+<g id="node18" class="node">
+<title>Node21</title>
+<g id="a_node18"><a xlink:href="_lighting_registry_system_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2080,-290.5 2080,-331.5 2222,-331.5 2222,-290.5 2080,-290.5"/>
+<text text-anchor="start" x="2088" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="2088" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Systems</text>
+<text text-anchor="middle" x="2151" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">/LightingRegistrySystem.hpp</text>
+</a>
+</g>
+</g>
 <!-- Node5&#45;&gt;Node21 -->
 <g id="edge23" class="edge">
 <title>Node5&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M1595.23,-370.79C1631.32,-359.11 1679.1,-343.66 1716.61,-331.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1593.81,-367.56 1585.38,-373.97 1595.97,-374.22 1593.81,-367.56"/>
+<path fill="none" stroke="midnightblue" d="M1623.85,-382.08C1726.62,-373.99 1908.12,-357.49 2062,-332 2067.78,-331.04 2073.75,-329.94 2079.73,-328.76"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1623.54,-378.59 1613.85,-382.86 1624.09,-385.57 1623.54,-378.59"/>
 </g>
 <!-- Node23 -->
 <g id="node20" class="node">
@@ -351,127 +351,127 @@
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="_dear_im_gui_component_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1241,-78.5 1241,-108.5 1445,-108.5 1445,-78.5 1241,-78.5"/>
-<text text-anchor="start" x="1249" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="1343" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiComponent.hpp</text>
+<polygon fill="white" stroke="black" points="1540,-78.5 1540,-108.5 1744,-108.5 1744,-78.5 1540,-78.5"/>
+<text text-anchor="start" x="1548" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="1642" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiComponent.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge10" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M1489.12,-142.23C1456.93,-131.71 1416.33,-118.45 1386.1,-108.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1488.23,-145.62 1498.82,-145.4 1490.4,-138.96 1488.23,-145.62"/>
+<path fill="none" stroke="midnightblue" d="M1572.41,-139.73C1587.88,-129.68 1606.33,-117.68 1620.34,-108.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1570.18,-137.01 1563.7,-145.4 1573.99,-142.88 1570.18,-137.01"/>
 </g>
 <!-- Node15 -->
 <g id="node12" class="node">
 <title>Node15</title>
 <g id="a_node12"><a xlink:href="_u_i_renderer_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1463.5,-78.5 1463.5,-108.5 1620.5,-108.5 1620.5,-78.5 1463.5,-78.5"/>
-<text text-anchor="start" x="1471.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="1542" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/UIRenderer.hpp</text>
+<polygon fill="white" stroke="black" points="1364.5,-78.5 1364.5,-108.5 1521.5,-108.5 1521.5,-78.5 1364.5,-78.5"/>
+<text text-anchor="start" x="1372.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="1443" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/UIRenderer.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node15 -->
 <g id="edge15" class="edge">
 <title>Node6&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M1535.45,-135.4C1535.01,-126.37 1535.3,-116.41 1536.33,-108.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1531.97,-135.74 1536.32,-145.4 1538.94,-135.13 1531.97,-135.74"/>
+<path fill="none" stroke="midnightblue" d="M1506.08,-140.02C1489.84,-129.9 1471.56,-117.77 1458.76,-108.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1504.49,-143.14 1514.84,-145.4 1508.15,-137.18 1504.49,-143.14"/>
 </g>
 <!-- Node16 -->
 <g id="node13" class="node">
 <title>Node16</title>
 <g id="a_node13"><a xlink:href="_process_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1639,-78.5 1639,-108.5 1751,-108.5 1751,-78.5 1639,-78.5"/>
-<text text-anchor="start" x="1647" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Core</text>
-<text text-anchor="middle" x="1695" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Process.cpp</text>
+<polygon fill="white" stroke="black" points="1762,-78.5 1762,-108.5 1874,-108.5 1874,-78.5 1762,-78.5"/>
+<text text-anchor="start" x="1770" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Core</text>
+<text text-anchor="middle" x="1818" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Process.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node16 -->
 <g id="edge18" class="edge">
 <title>Node6&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M1584.59,-141.41C1609.02,-131.03 1639.22,-118.2 1661.87,-108.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1583.03,-138.26 1575.2,-145.4 1585.77,-144.71 1583.03,-138.26"/>
+<path fill="none" stroke="midnightblue" d="M1611.55,-143.12C1658.04,-132.17 1718.42,-117.95 1761.85,-107.72"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1610.48,-139.78 1601.55,-145.48 1612.08,-146.59 1610.48,-139.78"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="_dear_im_gui_performance_metrics_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="red" points="1260.5,-0.5 1260.5,-41.5 1451.5,-41.5 1451.5,-0.5 1260.5,-0.5"/>
-<text text-anchor="start" x="1268.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="1268.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPerformance</text>
-<text text-anchor="middle" x="1356" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Metrics.hpp</text>
+<g id="a_node8"><a xlink:href="_dear_im_gui_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="red" points="1371,-6 1371,-36 1515,-36 1515,-6 1371,-6"/>
+<text text-anchor="start" x="1379" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="1443" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGui.h</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node8 -->
 <g id="edge11" class="edge">
 <title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M1347.47,-68.27C1349.07,-59.56 1350.86,-49.85 1352.39,-41.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1344,-67.76 1345.63,-78.23 1350.89,-69.03 1344,-67.76"/>
+<path fill="none" stroke="midnightblue" d="M1592.5,-74.96C1558.62,-62.96 1514.29,-47.26 1482.72,-36.07"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1591.61,-78.36 1602.21,-78.4 1593.95,-71.76 1591.61,-78.36"/>
 </g>
 <!-- Node10 -->
 <g id="node9" class="node">
 <title>Node10</title>
-<g id="a_node9"><a xlink:href="_dear_im_gui_prototype_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="862.5,-6 862.5,-36 1059.5,-36 1059.5,-6 862.5,-6"/>
-<text text-anchor="start" x="870.5" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="961" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPrototype.hpp</text>
+<g id="a_node9"><a xlink:href="_dear_im_gui_performance_metrics_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="red" points="1931.5,-0.5 1931.5,-41.5 2122.5,-41.5 2122.5,-0.5 1931.5,-0.5"/>
+<text text-anchor="start" x="1939.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="1939.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPerformance</text>
+<text text-anchor="middle" x="2027" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Metrics.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node10 -->
 <g id="edge12" class="edge">
 <title>Node7&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M1256.94,-76.66C1202.96,-66.72 1131.91,-53.62 1069,-42 1058.59,-40.08 1047.62,-38.05 1036.82,-36.05"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1256.35,-80.11 1266.82,-78.48 1257.61,-73.22 1256.35,-80.11"/>
+<path fill="none" stroke="midnightblue" d="M1731.16,-76.65C1786.19,-66.81 1858.22,-53.83 1922,-42 1925.1,-41.42 1928.25,-40.84 1931.44,-40.24"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1730.32,-73.24 1721.09,-78.45 1731.55,-80.13 1730.32,-73.24"/>
 </g>
-<!-- Node11 -->
+<!-- Node12 -->
 <g id="node10" class="node">
-<title>Node11</title>
-<g id="a_node10"><a xlink:href="_dear_im_gui_scene_browser_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="red" points="1078,-0.5 1078,-41.5 1242,-41.5 1242,-0.5 1078,-0.5"/>
-<text text-anchor="start" x="1086" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="1086" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiScene</text>
-<text text-anchor="middle" x="1160" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Browser.hpp</text>
+<title>Node12</title>
+<g id="a_node10"><a xlink:href="_dear_im_gui_prototype_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="1533.5,-6 1533.5,-36 1730.5,-36 1730.5,-6 1533.5,-6"/>
+<text text-anchor="start" x="1541.5" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="1632" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiPrototype.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node11 -->
+<!-- Node7&#45;&gt;Node12 -->
 <g id="edge13" class="edge">
-<title>Node7&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M1297.05,-74.8C1270.78,-64.68 1237.77,-51.96 1210.74,-41.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1295.82,-78.07 1306.41,-78.4 1298.33,-71.54 1295.82,-78.07"/>
+<title>Node7&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M1638.56,-68.23C1637.05,-57.57 1635.32,-45.41 1634.02,-36.25"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1635.11,-68.82 1639.98,-78.23 1642.04,-67.84 1635.11,-68.82"/>
 </g>
 <!-- Node13 -->
 <g id="node11" class="node">
 <title>Node13</title>
-<g id="a_node11"><a xlink:href="_dear_im_gui_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="red" points="1470,-6 1470,-36 1614,-36 1614,-6 1470,-6"/>
-<text text-anchor="start" x="1478" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="1542" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGui.h</text>
+<g id="a_node11"><a xlink:href="_dear_im_gui_scene_browser_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="red" points="1749,-0.5 1749,-41.5 1913,-41.5 1913,-0.5 1749,-0.5"/>
+<text text-anchor="start" x="1757" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="1757" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/UI/DearImGuiScene</text>
+<text text-anchor="middle" x="1831" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Browser.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node13 -->
 <g id="edge14" class="edge">
 <title>Node7&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M1392.5,-74.96C1426.38,-62.96 1470.71,-47.26 1502.28,-36.07"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1391.05,-71.76 1382.79,-78.4 1393.39,-78.36 1391.05,-71.76"/>
+<path fill="none" stroke="midnightblue" d="M1689.45,-74.8C1716.59,-64.68 1750.68,-51.96 1778.6,-41.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1687.94,-71.63 1679.79,-78.4 1690.39,-78.19 1687.94,-71.63"/>
 </g>
 <!-- Node15&#45;&gt;Node6 -->
 <g id="edge16" class="edge">
 <title>Node15&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M1548.54,-118.57C1548.99,-127.6 1548.71,-137.56 1547.68,-145.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1552.03,-118.24 1547.67,-108.58 1545.05,-118.84 1552.03,-118.24"/>
+<path fill="none" stroke="midnightblue" d="M1478.87,-113.95C1495.1,-124.07 1513.39,-136.2 1526.2,-145.4"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1480.47,-110.83 1470.11,-108.58 1476.8,-116.79 1480.47,-110.83"/>
 </g>
-<!-- Node15&#45;&gt;Node13 -->
+<!-- Node15&#45;&gt;Node8 -->
 <g id="edge17" class="edge">
-<title>Node15&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M1542,-68.23C1542,-57.57 1542,-45.41 1542,-36.25"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1538.5,-68.23 1542,-78.23 1545.5,-68.23 1538.5,-68.23"/>
+<title>Node15&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M1443,-68.23C1443,-57.57 1443,-45.41 1443,-36.25"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1439.5,-68.23 1443,-78.23 1446.5,-68.23 1439.5,-68.23"/>
 </g>
 <!-- Node18 -->
 <g id="node15" class="node">
@@ -492,34 +492,34 @@
 <!-- Node20 -->
 <g id="node17" class="node">
 <title>Node20</title>
-<g id="a_node17"><a xlink:href="_lighting_registry_system_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2075,-218 2075,-248 2217,-248 2217,-218 2075,-218"/>
-<text text-anchor="start" x="2083" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Systems</text>
-<text text-anchor="middle" x="2146" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/LightingRegistrySystem.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node19&#45;&gt;Node20 -->
-<g id="edge22" class="edge">
-<title>Node19&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M2146,-280.28C2146,-269.25 2146,-257.25 2146,-248.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2142.5,-280.43 2146,-290.43 2149.5,-280.43 2142.5,-280.43"/>
-</g>
-<!-- Node22 -->
-<g id="node19" class="node">
-<title>Node22</title>
-<g id="a_node19"><a xlink:href="_transform_update_system_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node17"><a xlink:href="_transform_update_system_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1699,-218 1699,-248 1845,-248 1845,-218 1699,-218"/>
 <text text-anchor="start" x="1707" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Systems</text>
 <text text-anchor="middle" x="1772" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/TransformUpdateSystem.cpp</text>
 </a>
 </g>
 </g>
+<!-- Node19&#45;&gt;Node20 -->
+<g id="edge22" class="edge">
+<title>Node19&#45;&gt;Node20</title>
+<path fill="none" stroke="midnightblue" d="M1775.04,-280.28C1774.32,-269.25 1773.53,-257.25 1772.94,-248.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1771.56,-280.68 1775.71,-290.43 1778.55,-280.22 1771.56,-280.68"/>
+</g>
+<!-- Node22 -->
+<g id="node19" class="node">
+<title>Node22</title>
+<g id="a_node19"><a xlink:href="_lighting_registry_system_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2080,-218 2080,-248 2222,-248 2222,-218 2080,-218"/>
+<text text-anchor="start" x="2088" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Systems</text>
+<text text-anchor="middle" x="2151" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">/LightingRegistrySystem.cpp</text>
+</a>
+</g>
+</g>
 <!-- Node21&#45;&gt;Node22 -->
 <g id="edge24" class="edge">
 <title>Node21&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M1775.04,-280.28C1774.32,-269.25 1773.53,-257.25 1772.94,-248.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1771.56,-280.68 1775.71,-290.43 1778.55,-280.22 1771.56,-280.68"/>
+<path fill="none" stroke="midnightblue" d="M2151,-280.28C2151,-269.25 2151,-257.25 2151,-248.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2147.5,-280.43 2151,-290.43 2154.5,-280.43 2147.5,-280.43"/>
 </g>
 <!-- Node25 -->
 <g id="node22" class="node">
@@ -806,7 +806,7 @@
 <polygon fill="midnightblue" stroke="midnightblue" points="935.79,-358.79 940.2,-368.43 942.77,-358.15 935.79,-358.79"/>
 </g>
 <!-- Node50&#45;&gt;Node3 -->
-<g id="edge55" class="edge">
+<g id="edge59" class="edge">
 <title>Node50&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M1125.45,-492.24C1126.05,-502.91 1125.75,-515.06 1124.55,-524.23"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1128.93,-491.89 1124.55,-482.25 1121.96,-492.52 1128.93,-491.89"/>
@@ -828,7 +828,7 @@
 </g>
 </g>
 <!-- Node50&#45;&gt;Node51 -->
-<g id="edge56" class="edge">
+<g id="edge55" class="edge">
 <title>Node50&#45;&gt;Node51</title>
 <path fill="none" stroke="midnightblue" d="M1138.82,-444.17C1150.48,-431.33 1164.88,-415.47 1175.08,-404.23"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1136.11,-441.95 1131.98,-451.7 1141.29,-446.65 1136.11,-441.95"/>
@@ -850,13 +850,13 @@
 <polygon fill="midnightblue" stroke="midnightblue" points="1170.62,-445.55 1162.19,-451.97 1172.78,-452.21 1170.62,-445.55"/>
 </g>
 <!-- Node51&#45;&gt;Node17 -->
-<g id="edge58" class="edge">
+<g id="edge57" class="edge">
 <title>Node51&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M1241.23,-370.79C1277.32,-359.11 1325.1,-343.66 1362.61,-331.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1239.81,-367.56 1231.38,-373.97 1241.97,-374.22 1239.81,-367.56"/>
 </g>
 <!-- Node51&#45;&gt;Node45 -->
-<g id="edge57" class="edge">
+<g id="edge56" class="edge">
 <title>Node51&#45;&gt;Node45</title>
 <path fill="none" stroke="midnightblue" d="M1169.98,-365.91C1161.15,-355.09 1150.61,-342.16 1142.05,-331.68"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1167.3,-368.17 1176.34,-373.7 1172.73,-363.74 1167.3,-368.17"/>
@@ -872,7 +872,7 @@
 </g>
 </g>
 <!-- Node51&#45;&gt;Node52 -->
-<g id="edge59" class="edge">
+<g id="edge58" class="edge">
 <title>Node51&#45;&gt;Node52</title>
 <path fill="none" stroke="midnightblue" d="M1210.31,-366.53C1223.73,-353.63 1240.42,-337.57 1252.21,-326.23"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1207.64,-364.25 1202.86,-373.7 1212.49,-369.29 1207.64,-364.25"/>
@@ -880,103 +880,103 @@
 <!-- Node55 -->
 <g id="node44" class="node">
 <title>Node55</title>
-<g id="a_node44"><a xlink:href="_ambient_light_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2085,-368.5 2085,-409.5 2223,-409.5 2223,-368.5 2085,-368.5"/>
-<text text-anchor="start" x="2093" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="2093" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Ambient</text>
-<text text-anchor="middle" x="2154" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
+<g id="a_node44"><a xlink:href="_directional_light_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2247,-368.5 2247,-409.5 2395,-409.5 2395,-368.5 2247,-368.5"/>
+<text text-anchor="start" x="2255" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="2255" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Directional</text>
+<text text-anchor="middle" x="2321" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node54&#45;&gt;Node55 -->
 <g id="edge65" class="edge">
 <title>Node54&#45;&gt;Node55</title>
-<path fill="none" stroke="midnightblue" d="M2095.53,-444.86C2107.26,-433.85 2121.53,-420.47 2133.03,-409.68"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2093.13,-442.31 2088.24,-451.7 2097.92,-447.41 2093.13,-442.31"/>
+<path fill="none" stroke="midnightblue" d="M2132.56,-448.94C2169.94,-437.25 2219.6,-421.71 2258.56,-409.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2131.35,-445.65 2122.85,-451.97 2133.44,-452.33 2131.35,-445.65"/>
 </g>
-<!-- Node56 -->
-<g id="node45" class="node">
-<title>Node56</title>
-<g id="a_node45"><a xlink:href="_directional_light_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1919,-368.5 1919,-409.5 2067,-409.5 2067,-368.5 1919,-368.5"/>
-<text text-anchor="start" x="1927" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="1927" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Directional</text>
-<text text-anchor="middle" x="1993" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
+<!-- Node57 -->
+<g id="node46" class="node">
+<title>Node57</title>
+<g id="a_node46"><a xlink:href="_ambient_light_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2091,-368.5 2091,-409.5 2229,-409.5 2229,-368.5 2091,-368.5"/>
+<text text-anchor="start" x="2099" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="2099" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Ambient</text>
+<text text-anchor="middle" x="2160" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node54&#45;&gt;Node56 -->
-<g id="edge67" class="edge">
-<title>Node54&#45;&gt;Node56</title>
-<path fill="none" stroke="midnightblue" d="M2050.42,-444.55C2038.89,-433.6 2024.97,-420.37 2013.72,-409.68"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2048.29,-447.35 2057.95,-451.7 2053.11,-442.28 2048.29,-447.35"/>
+<!-- Node54&#45;&gt;Node57 -->
+<g id="edge68" class="edge">
+<title>Node54&#45;&gt;Node57</title>
+<path fill="none" stroke="midnightblue" d="M2100.81,-444.86C2112.69,-433.85 2127.12,-420.47 2138.77,-409.68"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2098.38,-442.34 2093.42,-451.7 2103.14,-447.47 2098.38,-442.34"/>
 </g>
 <!-- Node58 -->
 <g id="node47" class="node">
 <title>Node58</title>
 <g id="a_node47"><a xlink:href="_hemisphere_light_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2241,-368.5 2241,-409.5 2395,-409.5 2395,-368.5 2241,-368.5"/>
-<text text-anchor="start" x="2249" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="2249" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Hemisphere</text>
-<text text-anchor="middle" x="2318" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
+<polygon fill="white" stroke="black" points="1919,-368.5 1919,-409.5 2073,-409.5 2073,-368.5 1919,-368.5"/>
+<text text-anchor="start" x="1927" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="1927" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Light/Hemisphere</text>
+<text text-anchor="middle" x="1996" y="-375.5" font-family="Helvetica,sans-Serif" font-size="10.00">Light.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node54&#45;&gt;Node58 -->
 <g id="edge70" class="edge">
 <title>Node54&#45;&gt;Node58</title>
-<path fill="none" stroke="midnightblue" d="M2128.01,-448.94C2165.69,-437.25 2215.76,-421.71 2255.04,-409.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2126.74,-445.67 2118.22,-451.97 2128.81,-452.35 2126.74,-445.67"/>
+<path fill="none" stroke="midnightblue" d="M2055.19,-444.86C2043.31,-433.85 2028.88,-420.47 2017.23,-409.68"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2052.86,-447.47 2062.58,-451.7 2057.62,-442.34 2052.86,-447.47"/>
 </g>
-<!-- Node55&#45;&gt;Node19 -->
+<!-- Node55&#45;&gt;Node21 -->
 <g id="edge66" class="edge">
-<title>Node55&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M2150.87,-358.3C2149.93,-349.3 2148.91,-339.65 2148.05,-331.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2147.41,-358.85 2151.94,-368.43 2154.37,-358.12 2147.41,-358.85"/>
+<title>Node55&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M2268.05,-364.33C2244.46,-353.78 2217.02,-341.51 2194.63,-331.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2266.66,-367.54 2277.22,-368.43 2269.52,-361.15 2266.66,-367.54"/>
 </g>
-<!-- Node56&#45;&gt;Node19 -->
-<g id="edge68" class="edge">
-<title>Node56&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M2041.5,-363.91C2062.54,-353.46 2086.85,-341.38 2106.73,-331.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2039.8,-360.84 2032.4,-368.43 2042.91,-367.11 2039.8,-360.84"/>
-</g>
-<!-- Node57 -->
-<g id="node46" class="node">
-<title>Node57</title>
-<g id="a_node46"><a xlink:href="_directional_light_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1936.5,-296 1936.5,-326 2049.5,-326 2049.5,-296 1936.5,-296"/>
-<text text-anchor="start" x="1944.5" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Light</text>
-<text text-anchor="middle" x="1993" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/DirectionalLight.cpp</text>
+<!-- Node56 -->
+<g id="node45" class="node">
+<title>Node56</title>
+<g id="a_node45"><a xlink:href="_directional_light_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2264.5,-296 2264.5,-326 2377.5,-326 2377.5,-296 2264.5,-296"/>
+<text text-anchor="start" x="2272.5" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Light</text>
+<text text-anchor="middle" x="2321" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/DirectionalLight.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node56&#45;&gt;Node57 -->
-<g id="edge69" class="edge">
-<title>Node56&#45;&gt;Node57</title>
-<path fill="none" stroke="midnightblue" d="M1993,-358.28C1993,-347.25 1993,-335.25 1993,-326.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1989.5,-358.43 1993,-368.43 1996.5,-358.43 1989.5,-358.43"/>
+<!-- Node55&#45;&gt;Node56 -->
+<g id="edge67" class="edge">
+<title>Node55&#45;&gt;Node56</title>
+<path fill="none" stroke="midnightblue" d="M2321,-358.28C2321,-347.25 2321,-335.25 2321,-326.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2317.5,-358.43 2321,-368.43 2324.5,-358.43 2317.5,-358.43"/>
 </g>
-<!-- Node58&#45;&gt;Node19 -->
+<!-- Node57&#45;&gt;Node21 -->
+<g id="edge69" class="edge">
+<title>Node57&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M2156.48,-358.3C2155.42,-349.3 2154.27,-339.65 2153.31,-331.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2153.03,-358.91 2157.68,-368.43 2159.98,-358.09 2153.03,-358.91"/>
+</g>
+<!-- Node58&#45;&gt;Node21 -->
 <g id="edge71" class="edge">
-<title>Node58&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M2264.43,-364.33C2240.56,-353.78 2212.79,-341.51 2190.14,-331.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2263.14,-367.59 2273.71,-368.43 2265.97,-361.19 2263.14,-367.59"/>
+<title>Node58&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M2045.13,-363.91C2066.45,-353.46 2091.08,-341.38 2111.22,-331.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2043.35,-360.88 2035.92,-368.43 2046.44,-367.17 2043.35,-360.88"/>
 </g>
 <!-- Node59 -->
 <g id="node48" class="node">
 <title>Node59</title>
 <g id="a_node48"><a xlink:href="_hemisphere_light_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2261.5,-296 2261.5,-326 2374.5,-326 2374.5,-296 2261.5,-296"/>
-<text text-anchor="start" x="2269.5" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Light</text>
-<text text-anchor="middle" x="2318" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/HemisphereLight.cpp</text>
+<polygon fill="white" stroke="black" points="1939.5,-296 1939.5,-326 2052.5,-326 2052.5,-296 1939.5,-296"/>
+<text text-anchor="start" x="1947.5" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Light</text>
+<text text-anchor="middle" x="1996" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">/HemisphereLight.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node58&#45;&gt;Node59 -->
 <g id="edge72" class="edge">
 <title>Node58&#45;&gt;Node59</title>
-<path fill="none" stroke="midnightblue" d="M2318,-358.28C2318,-347.25 2318,-335.25 2318,-326.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2314.5,-358.43 2318,-368.43 2321.5,-358.43 2314.5,-358.43"/>
+<path fill="none" stroke="midnightblue" d="M1996,-358.28C1996,-347.25 1996,-335.25 1996,-326.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1992.5,-358.43 1996,-368.43 1999.5,-358.43 1992.5,-358.43"/>
 </g>
 </g>
 </svg>

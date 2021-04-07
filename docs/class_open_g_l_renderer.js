@@ -1,7 +1,7 @@
 var class_open_g_l_renderer =
 [
     [ "OpenGLRenderer", "class_open_g_l_renderer.html#ab1a666e102b6a5b267d62d949c97c086", null ],
-    [ "finishSceneRendering", "class_open_g_l_renderer.html#a60c2b638b4defea2f7ea0364aa4eac6f", null ],
+    [ "finishSceneRendering", "class_open_g_l_renderer.html#a0cf382fbbc0ba72caa63893541f54273", null ],
     [ "handleMesh", "class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d", null ],
     [ "handlePostProcessing", "class_open_g_l_renderer.html#a75fe295875e858702fe391003302624d", null ],
     [ "parseScene", "class_open_g_l_renderer.html#a5b7618fa76bb0b543c67d4b95a0de5d7", null ],

@@ -1,0 +1,8 @@
+<map id="OpenGLRenderer::finishSceneRendering" name="OpenGLRenderer::finishSceneRendering">
+<area shape="rect" id="node1" title="Finishes the scene rendering, in prevision of the post&#45;processing." alt="" coords="5,74,203,115"/>
+<area shape="rect" id="node2" href="$class_camera.html#afa63fa057ff14d083a1fc909c714a193" title=" " alt="" coords="251,5,437,32"/>
+<area shape="rect" id="node3" href="$class_scene.html#aab3246c47f8fbc8a462b3a72da3abc5c" title=" " alt="" coords="258,56,430,83"/>
+<area shape="rect" id="node4" href="$class_camera.html#ac41a74ed5e232d5506808006b31982e1" title=" " alt="" coords="265,107,423,133"/>
+<area shape="rect" id="node5" href="$class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce" title=" " alt="" coords="263,157,425,184"/>
+<area shape="rect" id="node6" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title=" " alt="" coords="485,157,684,184"/>
+</map>

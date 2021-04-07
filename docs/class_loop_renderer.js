@@ -1,12 +1,13 @@
 var class_loop_renderer =
 [
     [ "FrustumCullingData", "struct_loop_renderer_1_1_frustum_culling_data.html", "struct_loop_renderer_1_1_frustum_culling_data" ],
+    [ "SkyboxMeshData", "struct_loop_renderer_1_1_skybox_mesh_data.html", "struct_loop_renderer_1_1_skybox_mesh_data" ],
     [ "LoopRenderer", "class_loop_renderer.html#a56969b73bc8f6be0f42104455036e539", null ],
     [ "addPass", "class_loop_renderer.html#ae5eee4b673376644f4ef794781277825", null ],
     [ "addPassAfter", "class_loop_renderer.html#ab814829cc491710ddf47c1417ddc95ff", null ],
     [ "addPassBefore", "class_loop_renderer.html#ac40ce17e2b692f35ebce9e80f2467f71", null ],
     [ "computeFrustumCulling", "class_loop_renderer.html#af9bd2cd59bfd15bf6e2bb4f075ce04b5", null ],
-    [ "finishSceneRendering", "class_loop_renderer.html#a68235b2765c3bf26e7c8c8fc51e0a76a", null ],
+    [ "finishSceneRendering", "class_loop_renderer.html#ae51c5eea1e451652112e47c6edd13aa8", null ],
     [ "getRenderingMode", "class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276", null ],
     [ "handleMesh", "class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a", null ],
     [ "handlePostProcessing", "class_loop_renderer.html#a6e7efd3b7089122b1feb2d5b3332585d", null ],
@@ -27,5 +28,6 @@ var class_loop_renderer =
     [ "rendererSize", "class_loop_renderer.html#ac4de898a918a23c1b0bb80af0d14870c", null ],
     [ "renderMode", "class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e", null ],
     [ "screenFramebuffer", "class_loop_renderer.html#a1c0a87bfc8e59b9295521036ca4a658e", null ],
+    [ "skyboxMeshData", "class_loop_renderer.html#aa49d79ac92b90b3e3c5f35874ba8df0e", null ],
     [ "writeFramebuffer", "class_loop_renderer.html#af0ff50b0c23f86bb58244eb7594a25ec", null ]
 ];

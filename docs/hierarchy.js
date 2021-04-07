@@ -71,6 +71,7 @@ var hierarchy =
         [ "MeshLambertMaterial", "class_mesh_lambert_material.html", null ],
         [ "MeshStandardMaterial", "class_mesh_standard_material.html", null ]
       ] ],
+      [ "ShaderMaterial", "class_shader_material.html", null ],
       [ "TextureCopyMaterial", "class_texture_copy_material.html", null ]
     ] ],
     [ "ModelLoader", "class_model_loader.html", null ],
@@ -105,6 +106,7 @@ var hierarchy =
     [ "ShaderProgramCompiler", "class_shader_program_compiler.html", null ],
     [ "ShadowMapHandler", "class_shadow_map_handler.html", null ],
     [ "Skybox", "class_skybox.html", null ],
+    [ "LoopRenderer::SkyboxMeshData", "struct_loop_renderer_1_1_skybox_mesh_data.html", null ],
     [ "Math::Sphere", "struct_math_1_1_sphere.html", null ],
     [ "System", "class_system.html", [
       [ "GameLogicComponentsRunner", "class_game_logic_components_runner.html", null ],

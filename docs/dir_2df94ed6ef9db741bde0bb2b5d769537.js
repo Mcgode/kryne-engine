@@ -19,6 +19,9 @@ var dir_2df94ed6ef9db741bde0bb2b5d769537 =
     [ "ShaderChunk.h", "_shader_chunk_8h.html", [
       [ "ShaderChunk", "class_shader_chunk.html", "class_shader_chunk" ]
     ] ],
+    [ "ShaderMaterial.hpp", "_shader_material_8hpp.html", [
+      [ "ShaderMaterial", "class_shader_material.html", "class_shader_material" ]
+    ] ],
     [ "UniformsHandler.h", "_uniforms_handler_8h.html", [
       [ "UniformsHandler", "class_uniforms_handler.html", "class_uniforms_handler" ]
     ] ]

@@ -94,7 +94,8 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Scene:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="524" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="690" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -107,6 +108,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5e62816b2e2c566c8f1bc151688c2c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc38c7adbfb5701834ffb53e09cbb7f"><td class="memItemLeft" align="right" valign="top">const unordered_set&lt; <a class="el" href="class_entity.html">Entity</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aebc38c7adbfb5701834ffb53e09cbb7f">getTopLevelEntities</a> ()</td></tr>
 <tr class="separator:aebc38c7adbfb5701834ffb53e09cbb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3246c47f8fbc8a462b3a72da3abc5c"><td class="memItemLeft" align="right" valign="top">const shared_ptr&lt; <a class="el" href="class_cube_texture.html">CubeTexture</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aab3246c47f8fbc8a462b3a72da3abc5c">getSkyboxTexture</a> () const</td></tr>
+<tr class="separator:aab3246c47f8fbc8a462b3a72da3abc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae970a913c367fbbeeb0d7889968c19b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aae970a913c367fbbeeb0d7889968c19b">setSkyboxTexture</a> (const shared_ptr&lt; <a class="el" href="class_cube_texture.html">CubeTexture</a> &gt; &amp;value)</td></tr>
+<tr class="separator:aae970a913c367fbbeeb0d7889968c19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -116,6 +121,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a0ed213f52f32ab40314fceab2be381e4"><td class="memItemLeft" align="right" valign="top">unordered_set&lt; <a class="el" href="class_entity.html">Entity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a0ed213f52f32ab40314fceab2be381e4">topLevelEntities</a> {}</td></tr>
 <tr class="memdesc:a0ed213f52f32ab40314fceab2be381e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: Update it automatically.  <a href="class_scene.html#a0ed213f52f32ab40314fceab2be381e4">More...</a><br /></td></tr>
 <tr class="separator:a0ed213f52f32ab40314fceab2be381e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73cf58d48ca2ceb387f43943ed664ff5"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_cube_texture.html">CubeTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5">skyboxTexture</a> {}</td></tr>
+<tr class="memdesc:a73cf58d48ca2ceb387f43943ed664ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The skybox texture for the scene.  <a href="class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5">More...</a><br /></td></tr>
+<tr class="separator:a73cf58d48ca2ceb387f43943ed664ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object for regrouping entities into a single scene </p>
@@ -175,6 +183,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aab3246c47f8fbc8a462b3a72da3abc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3246c47f8fbc8a462b3a72da3abc5c">&#9670;&nbsp;</a></span>getSkyboxTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const shared_ptr&lt;<a class="el" href="class_cube_texture.html">CubeTexture</a>&gt;&amp; Scene::getSkyboxTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aebc38c7adbfb5701834ffb53e09cbb7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebc38c7adbfb5701834ffb53e09cbb7f">&#9670;&nbsp;</a></span>getTopLevelEntities()</h2>
 
@@ -217,6 +250,32 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aae970a913c367fbbeeb0d7889968c19b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae970a913c367fbbeeb0d7889968c19b">&#9670;&nbsp;</a></span>setSkyboxTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::setSkyboxTexture </td>
+          <td>(</td>
+          <td class="paramtype">const shared_ptr&lt; <a class="el" href="class_cube_texture.html">CubeTexture</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aaba8c79f7d2d3041a5b475a28747a1ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaba8c79f7d2d3041a5b475a28747a1ee">&#9670;&nbsp;</a></span>sceneEntities</h2>
@@ -239,6 +298,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>A flat set of entities. </p>
+
+</div>
+</div>
+<a id="a73cf58d48ca2ceb387f43943ed664ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73cf58d48ca2ceb387f43943ed664ff5">&#9670;&nbsp;</a></span>skyboxTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;<a class="el" href="class_cube_texture.html">CubeTexture</a>&gt; Scene::skyboxTexture {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The skybox texture for the scene. </p>
 
 </div>
 </div>
