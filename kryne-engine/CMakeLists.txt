@@ -119,6 +119,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Light/AmbientLight.hpp
         src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.hpp
         include/kryne-engine/Material/ShaderMaterial.hpp
+        src/Rendering/Additional/PMREMGenerator.cpp include/kryne-engine/Rendering/Additional/PMREMGenerator.hpp
         src/Textures/EnvironmentMap.cpp include/kryne-engine/Textures/EnvironmentMap.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
