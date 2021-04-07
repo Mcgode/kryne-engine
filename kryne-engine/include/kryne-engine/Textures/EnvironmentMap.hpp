@@ -48,6 +48,10 @@ public:
      */
     CubeTexture *operator->() { return this->environmentMap.get(); }
 
+    [[nodiscard]] bool isIblReady() const { return iblReady; }
+
+    void setIBL(const shared_ptr<CubeTexture> &newEnvMap);
+
 protected:
 
     /// The underlying cube texture
