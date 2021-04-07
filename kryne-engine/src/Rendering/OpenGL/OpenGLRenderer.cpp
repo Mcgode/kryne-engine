@@ -123,6 +123,9 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
     const auto& envMap = scene->getSkyboxEnvMap();
     if (**envMap != nullptr)
     {
+        if (!envMap->isIblReady())
+            this->pmremGenerator->processMap(envMap);
+
         this->skyboxMaterial->setUniform("skybox", **envMap);
         this->skyboxMaterial->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
         this->skyboxMaterial->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
@@ -142,6 +145,8 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
 void OpenGLRenderer::handlePostProcessing()
 {
     assertIsMainThread();
+
+    this->pmremGenerator->runProcessing(this);
 
     for (size_t i = 0; i < this->framePostProcessPasses.size(); i++)
     {
