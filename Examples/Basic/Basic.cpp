@@ -58,8 +58,8 @@ int main()
         "Resources/Textures/skybox/front.tga",
         "Resources/Textures/skybox/back.tga",
     };
-    const auto skyTexture = CubeTexture::loadFiles(skyTextureFiles);
-    scene->setSkyboxTexture(skyTexture);
+    const auto skyTexture = EnvironmentMap::loadFiles(skyTextureFiles);
+    scene->setSkyboxEnvMap(skyTexture);
 
     MeshStandardMaterial::StandardInitParameters params;
 

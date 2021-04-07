@@ -125,10 +125,10 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
 {
     assertIsMainThread();
 
-    auto skyTexture = scene->getSkyboxTexture();
-    if (skyTexture != nullptr)
+    const auto& envMap = scene->getSkyboxEnvMap();
+    if (**envMap != nullptr)
     {
-        this->skyboxMeshData.material->setUniform("skybox", skyTexture);
+        this->skyboxMeshData.material->setUniform("skybox", **envMap);
         this->skyboxMeshData.material->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
         this->skyboxMeshData.material->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
 
