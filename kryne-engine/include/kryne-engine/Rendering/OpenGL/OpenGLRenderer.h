@@ -38,6 +38,9 @@ public:
     // Override
     void textureRender(Material *material) override;
 
+    // Override
+    void renderCubeTexture(Material *material, CubeTexture *cubeMap, const ivec2 &mapSize) override;
+
 protected:
 
     /// The current OpenGL rendering state.

@@ -6,6 +6,7 @@
 
 #include <kryne-engine/Material/ShaderMaterial.hpp>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
+#include <kryne-engine/Constants/CubeRenderMatrices.hpp>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
@@ -177,4 +178,32 @@ void OpenGLRenderer::textureRender(Material *material)
 
     // Reset shader use, just in case
     material->resetUse();
+}
+
+
+void OpenGLRenderer::renderCubeTexture(Material *material, CubeTexture *cubeMap, const ivec2 &mapSize)
+{
+    const auto vpp = this->renderingState->getViewportStart();
+    const auto vps = this->renderingState->getViewportSize();
+
+    this->renderingState->setViewport(ivec2(0), mapSize);
+
+    this->renderingState->setSide(BackSide);
+    this->renderingState->setDepthTest(material->isDepthTest());
+    this->renderingState->setDepthWrite(material->isWriteDepth());
+
+    material->setUniform("projectionMatrix", Constants::cubeRenderProjectionMatrix);
+
+    for (int i = 0; i < 6; ++i)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, cubeMap->getId(), 0);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        material->setUniform("viewMatrix", Constants::cubeRenderViewMatrices[i]);
+        material->prepareShader(this->cubeGeometry.get());
+        material->getShader()->updateUniforms();
+        this->cubeGeometry->draw();
+    }
+
+    this->renderingState->setViewport(vpp, vps);
 }

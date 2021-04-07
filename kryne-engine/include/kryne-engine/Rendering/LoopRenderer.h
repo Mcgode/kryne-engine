@@ -26,6 +26,8 @@ class PostProcessPass;
 class Material;
 class ShaderMaterial;
 class BoxBufferGeometry;
+class CubeTexture;
+class PMREMGenerator;
 
 
 using namespace std;
@@ -243,6 +245,15 @@ protected:
 // ==================
 // Cube rendering
 // ==================
+
+public:
+
+    /**
+     * @brief Renders the provided material to a cube.
+     *
+     * @param material  The material used for rendering the texture.
+     */
+    virtual void renderCubeTexture(Material *material, CubeTexture *cubeMap, const ivec2 &mapSize) = 0;
 
 protected:
 
