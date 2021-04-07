@@ -10,6 +10,7 @@
 #include <deque>
 #include <algorithm>
 #include <kryne-engine/Textures/EnvironmentMap.hpp>
+#include <kryne-engine/Rendering/LoopRenderer.h>
 
 
 /**
@@ -18,6 +19,8 @@
 class PMREMGenerator {
 
 public:
+
+    void runProcessing(LoopRenderer *renderer);
 
     /**
      * @brief Adds an environment map to the processing queue.
