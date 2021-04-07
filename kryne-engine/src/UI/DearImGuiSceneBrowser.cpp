@@ -24,16 +24,17 @@ void DearImGuiSceneBrowser::renderComponent(Process *process)
         ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), ImGuiCond_Appearing);
         ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
 
-        ImGui::Begin("Scene browser");
-
-        ImGui::GetStyle().WindowRounding = 5.0f;
-
-        ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
-        if (ImGui::TreeNode(ImGuiLabel("Scene", scene)))
+        if (ImGui::Begin("Scene browser"))
         {
-            for (const auto e : scene->getTopLevelEntities())
-                this->displaySceneEntity(e);
-            ImGui::TreePop();
+            ImGui::GetStyle().WindowRounding = 5.0f;
+
+            ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
+            if (ImGui::TreeNode(ImGuiLabel("Scene", scene)))
+            {
+                for (const auto e : scene->getTopLevelEntities())
+                    this->displaySceneEntity(e);
+                ImGui::TreePop();
+            }
         }
 
         ImGui::End();
@@ -48,11 +49,12 @@ void DearImGuiSceneBrowser::renderComponent(Process *process)
         ImGui::SetNextWindowPos(ImVec2(x, 0.f), ImGuiCond_Appearing);
         ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
 
-        ImGui::Begin("Details");
-
-        displayEntityInfo(this->selectedEntity);
-        displayTransform(this->selectedEntity->getTransform());
-        displayComponents(this->selectedEntity);
+        if (ImGui::Begin("Details"))
+        {
+            displayEntityInfo(this->selectedEntity);
+            displayTransform(this->selectedEntity->getTransform());
+            displayComponents(this->selectedEntity);
+        }
 
         ImGui::End();
     }
