@@ -56,7 +56,7 @@ void UniformsHandler::updateUniforms()
     scoped_lock<mutex> l(this->uniformsMutex);
 
     for (auto &entry : this->uniforms) {
-        const auto data = entry.second;
+        auto &data = entry.second;
 
         if (data.second < -1) {
             entry.second.second = glGetUniformLocation(*this->programId, entry.first.c_str());
