@@ -39,39 +39,40 @@ float DearImGuiPerformanceMetrics::pushTime(const string &name, float value)
 
 void DearImGuiPerformanceMetrics::renderComponent(Process *process)
 {
-    ImGui::Begin("Performance metrics");
-
-    auto data = process->getLastFrameTimeData();
-    auto frameTime = this->pushTime("Frame times", data.frameTime.count());
-
-    auto &frameTimes = this->timesBuffers.find("Frame times")->second;
-    ImGui::PlotLines("Frame times", frameTimes.data(), frameTimes.size(),
-                     0, nullptr,
-                     0.f, FLT_MAX,
-                     ImVec2(0, 50.f));
-    ImGui::Text("Average frame time: %.2fms", frameTime * 1000);
-    ImGui::Text("Average FPS: %.1f", frameTime == 0.f ? 0.f : 1. / frameTime);
-
-    if (ImGui::BeginTable("TimingsTable", 2))
+    if (ImGui::Begin("Performance metrics"))
     {
-        for (const auto &time : data.recordedTimes)
+        auto data = process->getLastFrameTimeData();
+        auto frameTime = this->pushTime("Frame times", data.frameTime.count());
+
+        auto &frameTimes = this->timesBuffers.find("Frame times")->second;
+        ImGui::PlotLines("Frame times", frameTimes.data(), frameTimes.size(),
+                         0, nullptr,
+                         0.f, FLT_MAX,
+                         ImVec2(0, 50.f));
+        ImGui::Text("Average frame time: %.2fms", frameTime * 1000);
+        ImGui::Text("Average FPS: %.1f", frameTime == 0.f ? 0.f : 1. / frameTime);
+
+        if (ImGui::BeginTable("TimingsTable", 2))
         {
-            ImGui::TableNextRow();
+            for (const auto &time : data.recordedTimes)
+            {
+                ImGui::TableNextRow();
 
-            ImGui::TableSetColumnIndex(0);
-            ImGui::Text("%s", time.first.c_str());
+                ImGui::TableSetColumnIndex(0);
+                ImGui::Text("%s", time.first.c_str());
 
-            ImGui::TableSetColumnIndex(1);
-            ImGui::Text("%.2fms", this->pushTime(time.first, time.second.count()) * 1000);
+                ImGui::TableSetColumnIndex(1);
+                ImGui::Text("%.2fms", this->pushTime(time.first, time.second.count()) * 1000);
+            }
+            ImGui::EndTable();
         }
-        ImGui::EndTable();
-    }
 
-    if (ImGui::TreeNode("Options"))
-    {
-        ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
-                       1.f, 1, BUFFER_SIZE);
-        ImGui::TreePop();
+        if (ImGui::TreeNode("Options"))
+        {
+            ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
+                           1.f, 1, BUFFER_SIZE);
+            ImGui::TreePop();
+        }
     }
 
     ImGui::End();

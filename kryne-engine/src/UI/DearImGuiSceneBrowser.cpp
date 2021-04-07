@@ -24,9 +24,9 @@ void DearImGuiSceneBrowser::renderComponent(Process *process)
         ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), ImGuiCond_Appearing);
         ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight), ImGuiCond_Appearing);
 
+        ImGui::GetStyle().WindowRounding = 5.0f;
         if (ImGui::Begin("Scene browser"))
         {
-            ImGui::GetStyle().WindowRounding = 5.0f;
 
             ImGui::SetNextTreeNodeOpen(true, ImGuiCond_Appearing);
             if (ImGui::TreeNode(ImGuiLabel("Scene", scene)))
