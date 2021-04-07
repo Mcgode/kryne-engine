@@ -112,9 +112,18 @@ public:
 
     void setViewportSize(const glm::ivec2 &newSize)
     {
-        if (!glm::all(glm::equal(newSize, this->viewportStart)))
+        if (!glm::all(glm::equal(newSize, this->viewportSize)))
             glViewport(this->viewportStart.x, this->viewportStart.y, newSize.x, newSize.y);
         RenderingState::viewportSize = newSize;
+    }
+
+    void setViewport(const glm::ivec2 &start, const glm::ivec2 &size)
+    {
+        if (!glm::all(glm::equal(size, this->viewportSize)) || !glm::all(glm::equal(start, this->viewportStart)))
+            glViewport(start.x, start.y, size.x, size.y);
+
+        this->viewportStart = start;
+        this->viewportSize = size;
     }
 
 private:
