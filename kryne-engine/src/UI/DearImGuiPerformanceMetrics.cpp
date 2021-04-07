@@ -44,15 +44,29 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
         auto data = process->getLastFrameTimeData();
         auto frameTime = this->pushTime("Frame times", data.frameTime.count());
 
-        auto &frameTimes = this->timesBuffers.find("Frame times")->second;
-        ImGui::PlotLines("Frame times", frameTimes.data(), frameTimes.size(),
-                         0, nullptr,
-                         0.f, FLT_MAX,
-                         ImVec2(0, 50.f));
-        ImGui::Text("Average frame time: %.2fms", frameTime * 1000);
+        if (ImGui::TreeNode(this, "Average frame time: %.2fms", frameTime * 1000))
+        {
+            auto &frameTimes = this->timesBuffers.find("Frame times")->second;
+            int width = (int) (this->previousPlotWidth - 2 * ImGui::GetStyle().FramePadding.x),
+                    size = (int) frameTimes.size();
+            ImGui::SetNextItemWidth(-0.1);
+            ImGui::PlotLines("##Frame times", frameTimes.data() + std::max(0, size - width),
+                             std::min(size, width),
+                             0, nullptr,
+                             0.f, frameTime * 2,
+                             ImVec2(0, 50));
+            this->previousPlotWidth = ImGui::GetItemRectSize().x;
+
+            ImGui::TreePop();
+        }
+
+        ImGui::Indent();
+
         ImGui::Text("Average FPS: %.1f", frameTime == 0.f ? 0.f : 1. / frameTime);
 
-        if (ImGui::BeginTable("TimingsTable", 2))
+        ImGui::Dummy(ImVec2(0, 10));
+
+        if (ImGui::BeginTable("TimingsTable", 2, ImGuiTableFlags_Borders))
         {
             for (const auto &time : data.recordedTimes)
             {
@@ -66,6 +80,10 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
             }
             ImGui::EndTable();
         }
+
+        ImGui::Unindent();
+
+        ImGui::Dummy(ImVec2(0, 10));
 
         if (ImGui::TreeNode("Options"))
         {

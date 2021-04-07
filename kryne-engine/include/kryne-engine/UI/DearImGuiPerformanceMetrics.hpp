@@ -18,7 +18,7 @@ public:
 
 protected:
 
-    float averageFrameTime(vector<float> times) const;
+    [[nodiscard]] float averageFrameTime(vector<float> times) const;
 
     float pushTime(const string &name, float value);
 
@@ -29,6 +29,9 @@ protected:
     size_t averageSize = 30;
 
     unordered_map<string, vector<float>> timesBuffers;
+
+    /// The width of the plot widget in the previous frame
+    float previousPlotWidth;
 
 };
 
