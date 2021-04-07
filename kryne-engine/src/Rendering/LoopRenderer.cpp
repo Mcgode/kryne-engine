@@ -21,6 +21,8 @@ LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
     geometry->removeAttribute("uv");
     geometry->removeAttribute("tangent");
     this->cubeGeometry = geometry;
+
+    this->pmremGenerator = make_unique<PMREMGenerator>();
 }
 
 

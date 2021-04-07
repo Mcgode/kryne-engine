@@ -263,6 +263,8 @@ protected:
     /// The mesh data for drawing a skybox
     shared_ptr<ShaderMaterial> skyboxMaterial;
 
+    unique_ptr<PMREMGenerator> pmremGenerator;
+
 };
 
 
@@ -273,3 +275,4 @@ protected:
 #include <kryne-engine/Rendering/RenderMesh.h>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include <kryne-engine/Material/ShaderMaterial.hpp>
+#include <kryne-engine/Rendering/Additional/PMREMGenerator.hpp>
