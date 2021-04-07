@@ -22,10 +22,10 @@ public:
      *
      * @param shader The shader for this material.
      */
-    ShaderMaterial(unique_ptr<Shader> shader) : Material(move(shader)) {}
+    explicit ShaderMaterial(unique_ptr<Shader> shader) : Material(move(shader)) {}
 
     /// @brief Retrieves this material's name
-    const string &getName() const { return name; }
+    [[nodiscard]] const string &getName() const { return name; }
 
     /// @brief Changes this material's name
     void setName(const string &value) { ShaderMaterial::name = value; }
