@@ -15,6 +15,8 @@
  */
 class EnvironmentMap {
 
+    friend class PMREMGenerator;
+
 public:
 
     /**
@@ -48,9 +50,11 @@ public:
      */
     CubeTexture *operator->() { return this->environmentMap.get(); }
 
+    /// @brief Retrieves whether this environment map is IBL-ready
     [[nodiscard]] bool isIblReady() const { return iblReady; }
 
-    void setIBL(const shared_ptr<CubeTexture> &newEnvMap);
+    /// @brief Retrieves the IBL cubeMap for this environment map.
+    [[nodiscard]] const shared_ptr<CubeTexture> &getIblEnvMap() const { return iblEnvMap; }
 
 protected:
 
@@ -59,6 +63,9 @@ protected:
 
     /// If true, the environment map was prefiltered.
     bool iblReady = false;
+
+    /// The IBL envmap
+    shared_ptr<CubeTexture> iblEnvMap;
 
 };
 
