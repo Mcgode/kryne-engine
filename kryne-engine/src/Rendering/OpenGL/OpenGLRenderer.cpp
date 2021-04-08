@@ -122,7 +122,7 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
     assertIsMainThread();
 
     const auto& envMap = scene->getSkyboxEnvMap();
-    if (**envMap != nullptr)
+    if (envMap != nullptr && **envMap != nullptr)
     {
         if (!envMap->isIblReady())
             this->pmremGenerator->processMap(envMap);
