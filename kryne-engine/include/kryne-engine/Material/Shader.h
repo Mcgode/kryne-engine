@@ -135,6 +135,10 @@ private:
 
     GLuint programID;
 
+    GLuint previousVertex = 0;
+
+    GLuint previousFragment = 0;
+
     uint8_t needsUpdate = 0b00;
 
     string vertexShader;

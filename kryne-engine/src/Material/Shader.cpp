@@ -122,8 +122,13 @@ void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment)
         this->programID = glCreateProgram();
 
     // Attaching shaders to program
-    glAttachShader(this->programID, vertex);
-    glAttachShader(this->programID, fragment);
+    if (this->previousVertex != vertex)
+        glAttachShader(this->programID, vertex);
+    this->previousVertex = vertex;
+
+    if (this->previousFragment != fragment)
+        glAttachShader(this->programID, fragment);
+    this->previousFragment = fragment;
 
     // Linking program
     glLinkProgram(this->programID);
