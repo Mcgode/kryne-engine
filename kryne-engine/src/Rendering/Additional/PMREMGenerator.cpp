@@ -68,14 +68,8 @@ void PMREMGenerator::runProcessing(LoopRenderer *renderer)
     irradianceMaterial->setDepthTest(false);
     irradianceMaterial->setWriteDepth(false);
 
-    GLuint captureFBO;
-    glGenFramebuffers(1, &captureFBO);
-
-    glBindFramebuffer(GL_FRAMEBUFFER, captureFBO);
-
-    renderer->renderCubeTexture(irradianceMaterial.get(), irradianceCubeTexture.get(), ivec2(32));
-
-    glDeleteFramebuffers(1, &captureFBO);
+    this->framebuffer->setAsRenderTarget();
+    renderer->renderCubeTexture(this->framebuffer.get(), irradianceMaterial.get(), irradianceCubeTexture.get());
 
     map->setIBL(irradianceCubeTexture);
 }

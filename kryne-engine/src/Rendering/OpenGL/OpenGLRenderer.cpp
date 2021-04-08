@@ -187,12 +187,12 @@ void OpenGLRenderer::textureRender(Material *material)
 }
 
 
-void OpenGLRenderer::renderCubeTexture(Material *material, CubeTexture *cubeMap, const ivec2 &mapSize)
+void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap)
 {
     const auto vpp = this->renderingState->getViewportStart();
     const auto vps = this->renderingState->getViewportSize();
 
-    this->renderingState->setViewport(ivec2(0), mapSize);
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
 
     this->renderingState->setSide(BackSide);
     this->renderingState->setDepthTest(material->isDepthTest());

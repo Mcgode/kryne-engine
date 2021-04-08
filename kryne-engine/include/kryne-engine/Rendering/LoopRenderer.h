@@ -254,9 +254,11 @@ public:
     /**
      * @brief Renders the provided material to a cube.
      *
-     * @param material  The material used for rendering the texture.
+     * @param framebuffer   The framebuffer used for this rendering. It is assumed to be bound beforehand.
+     * @param material      The material used for rendering the texture.
+     * @param cubeTexture   The texture which is rendered to.
      */
-    virtual void renderCubeTexture(Material *material, CubeTexture *cubeMap, const ivec2 &mapSize) = 0;
+    virtual void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap) = 0;
 
 protected:
 
