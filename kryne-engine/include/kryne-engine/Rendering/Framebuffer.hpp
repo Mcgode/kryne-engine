@@ -29,6 +29,8 @@ public:
         this->sizeUpdated();
     }
 
+    [[nodiscard]] ivec2 getSize() const { return ivec2(this->width, this->height); }
+
 protected:
 
     /**
