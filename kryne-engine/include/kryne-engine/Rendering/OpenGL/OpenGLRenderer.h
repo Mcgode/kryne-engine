@@ -39,7 +39,7 @@ public:
     void textureRender(Material *material) override;
 
     // Override
-    void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap) override;
+    void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel) override;
 
 protected:
 

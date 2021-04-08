@@ -187,7 +187,7 @@ void OpenGLRenderer::textureRender(Material *material)
 }
 
 
-void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap)
+void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel)
 {
     const auto vpp = this->renderingState->getViewportStart();
     const auto vps = this->renderingState->getViewportSize();
@@ -202,7 +202,8 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
 
     for (int i = 0; i < 6; ++i)
     {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, cubeMap->getId(), 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                               cubeMap->getId(), mipLevel);
         glClear(GL_COLOR_BUFFER_BIT);
 
         material->setUniform("viewMatrix", Constants::cubeRenderViewMatrices[i]);

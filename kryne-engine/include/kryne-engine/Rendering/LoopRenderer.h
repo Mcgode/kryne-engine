@@ -257,8 +257,9 @@ public:
      * @param framebuffer   The framebuffer used for this rendering. It is assumed to be bound beforehand.
      * @param material      The material used for rendering the texture.
      * @param cubeTexture   The texture which is rendered to.
+     * @param mipLevel      The mip map level for this texture.
      */
-    virtual void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap) = 0;
+    virtual void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel) = 0;
 
 protected:
 
