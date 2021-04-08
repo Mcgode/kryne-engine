@@ -13,6 +13,8 @@ void Material::prepareShader(const BufferGeometry *geometry)
         this->shader->notifyUniformLocationsNeedUpdate();
     this->compiler->checkShaderCompile(this->shader.get(), geometry);
     this->shader->use();
+    this->beforeUpload(geometry);
+    this->shader->updateUniforms();
 }
 
 
