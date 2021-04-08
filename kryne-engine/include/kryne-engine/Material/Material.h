@@ -52,14 +52,31 @@ protected:
 
 public:
 
+    /**
+     * @brief Prepares the shader before rendering.
+     *
+     * @details
+     * Will use shader, prepare upload and upload uniforms.
+     *
+     * @param geometry  The buffer geometry that'll be used alongside this shader.
+     */
     void prepareShader(const BufferGeometry *geometry);
 
 protected:
 
+    /**
+     * @brief Method called just before uploading the uniforms.
+     *
+     * @details
+     * Override it to run before-rendering routines.
+     *
+     * @param geometry  The geometry that'll be used during the render.
+     */
     virtual void beforeUpload(const BufferGeometry *geometry) {};
 
 protected:
 
+    /// The compiler for the shader.
     unique_ptr<ShaderProgramCompiler> compiler = make_unique<ShaderProgramCompiler>();
 
 
