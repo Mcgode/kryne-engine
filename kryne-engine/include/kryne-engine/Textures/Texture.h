@@ -52,6 +52,15 @@ public:
     void setFiltering(GLint minFilter, GLint magFilter);
 
     /**
+     * @brief Generates mip maps for this texture
+     */
+    void generateMipMaps() const
+    {
+        this->bindTexture();
+        glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+    }
+
+    /**
      * Delete texture from GL context
      */
     ~Texture();
