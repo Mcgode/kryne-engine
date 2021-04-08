@@ -58,8 +58,8 @@ int main()
         "Resources/Textures/skybox/front.tga",
         "Resources/Textures/skybox/back.tga",
     };
-    const auto skyTexture = EnvironmentMap::loadFiles(skyTextureFiles);
-    scene->setSkyboxEnvMap(skyTexture);
+    const auto skyEnvMap = EnvironmentMap::loadFiles(skyTextureFiles);
+    scene->setSkyboxEnvMap(skyEnvMap);
 
     MeshStandardMaterial::StandardInitParameters params;
 
@@ -67,14 +67,14 @@ int main()
                                                                       vec3(0.5),
                                                                       0.75f,
                                                                       vec3(0, 1, 0));
-    hemisphereLight->getTransform()->setScene(scene);
+//    hemisphereLight->getTransform()->setScene(scene);
 
     const auto directionalLight = process->makeEntity<DirectionalLight>(vec3(1, 1, 1),
                                                                         1.5f,
                                                                         vec3(-1, -1, -1));
     directionalLight->getTransform()->setScene(scene);
 
-    Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap]()
+    Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap, &skyEnvMap]()
     {
         params.map = map;
         params.normalMap = normalMap;
@@ -82,6 +82,7 @@ int main()
         params.metalness = 0.0;
         auto material = make_shared<MeshStandardMaterial>(params);
         material->setSide(FrontSide);
+        material->setEnvMap(skyEnvMap);
 
         auto geometry = dynamic_pointer_cast<BufferGeometry>(make_shared<BoxBufferGeometry>());
         const auto entity = process->makeEntity<Entity>();
