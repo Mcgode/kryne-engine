@@ -59,14 +59,33 @@ public:
 
 protected:
 
+    /**
+     * @brief Initializes the processing of the provided environment map
+     * @param map
+     */
+    static void initializeProcess(const shared_ptr<EnvironmentMap> &map);
+
+protected:
+
     /// The queue of maps to process.
     deque<shared_ptr<EnvironmentMap>> mapsToProcess {};
 
-    /// The mutex for ensuring thread-safe queue operations
+    /// The mutex for ensuring thread-safe queue operations.
     mutex dequeMutex {};
 
-    /// The framebuffer used for computing PMREMs
+    /// The framebuffer used for computing PMREMs.
     unique_ptr<Framebuffer> framebuffer;
+
+    /// The current LOD being processed.
+    uint8_t currentLOD = 0;
+
+protected:
+
+    /// The maximum power of two for the IBL cubemaps
+    static const uint8_t LOD_MAX = 8;
+
+    /// The minimum power of two for the IBL cubemaps
+    static const uint8_t LOD_MIN = 4;
 
 };
 
