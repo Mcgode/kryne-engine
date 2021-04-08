@@ -14,7 +14,7 @@ class WorkComponent : public LogicComponent {
 
 public:
 
-    WorkComponent(Entity *entity);
+    explicit WorkComponent(Entity *entity);
 
     void onUpdate() override;
 

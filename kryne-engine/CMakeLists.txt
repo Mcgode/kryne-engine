@@ -126,3 +126,7 @@ add_library(kryne-engine STATIC
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_link_libraries(kryne-engine ${LIBS})
+
+
+duplicateLibrary(kryne-engine kryne-engine-st)
+target_compile_definitions(kryne-engine-st PUBLIC KRYNE_ENGINE_SINGLE_THREADED=1)

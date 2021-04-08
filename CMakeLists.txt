@@ -93,7 +93,7 @@ function(duplicateLibrary LIBRARY NEW_LIB_NAME)
             ${sourceFiles}
             )
 
-    target_include_directories(${NEW_LIB_NAME} PRIVATE
+    target_include_directories(${NEW_LIB_NAME} PUBLIC
             ${includeDirs}
             )
 
@@ -102,7 +102,6 @@ function(duplicateLibrary LIBRARY NEW_LIB_NAME)
             )
     target_link_libraries(${NEW_LIB_NAME} PRIVATE
             ${linkLibs}
-            originalLibraryForward
             )
 
     if (compileOptions)
@@ -131,4 +130,4 @@ add_subdirectory(Examples/Sphere)
 
 add_subdirectory(Examples/Basic)
 
-add_subdirectory(Examples/BenchmarkMultithreading)
+add_subdirectory(Examples/BenchmarkThreading)
