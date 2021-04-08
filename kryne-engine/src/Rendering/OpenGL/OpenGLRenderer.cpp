@@ -52,8 +52,6 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     const auto& geometry = renderMesh->getGeometry();
     const auto transform = renderMesh->getEntity()->getTransform();
 
-    material->prepareShader(geometry.get());
-
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
@@ -78,7 +76,7 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     renderMesh->onBeforeRender(camera);
 
     // Upload uniforms
-    material->getShader()->updateUniforms();
+    material->prepareShader(geometry.get());
 
     // Finally draw the object
     geometry->draw(material->getPrimitiveType());
@@ -135,7 +133,6 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
         this->renderingState->setSide(BackSide);
 
         this->skyboxMaterial->prepareShader(this->cubeGeometry.get());
-        this->skyboxMaterial->getShader()->updateUniforms();
         this->cubeGeometry->draw(GL_TRIANGLES);
 
         glDepthFunc(GL_LESS);
@@ -166,8 +163,6 @@ void OpenGLRenderer::textureRender(Material *material)
     renderingState->setDepthWrite(true);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-    material->prepareShader(this->fullscreenPlane.get());
-
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
@@ -177,7 +172,7 @@ void OpenGLRenderer::textureRender(Material *material)
     renderingState->setDepthWrite(false);
 
     // Upload uniforms
-    material->getShader()->updateUniforms();
+    material->prepareShader(this->fullscreenPlane.get());
 
     // Finally draw the object
     this->fullscreenPlane->draw(material->getPrimitiveType());
@@ -208,7 +203,6 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
 
         material->setUniform("viewMatrix", Constants::cubeRenderViewMatrices[i]);
         material->prepareShader(this->cubeGeometry.get());
-        material->getShader()->updateUniforms();
         this->cubeGeometry->draw();
     }
 
