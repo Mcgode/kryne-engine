@@ -18,6 +18,10 @@ public:
 
     explicit CubeTexture(GLuint id): Texture(id, GL_TEXTURE_CUBE_MAP) {};
 
+    CubeTexture(const ivec2 &size, Formats format, InternalSizes internalSize, DataTypes dataType);
+
+    void setWrap(GLenum wrapType);
+
     static shared_ptr<CubeTexture> loadFiles(const vector<string> &filenames);
 
 };
