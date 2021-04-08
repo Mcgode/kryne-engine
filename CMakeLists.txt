@@ -60,11 +60,9 @@ message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 set(LIBS ${LIBS} ${Boost_LIBRARIES})
 
 
-# Set up Kryne Engine library
-add_subdirectory(kryne-engine)
+# Helper functions
 
-
-function(COPYASSETDIR TARGET ASSET)
+function(copyAssetDir TARGET ASSET)
 
     if(${UNIX})
         set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR}/${ASSET})
@@ -77,9 +75,13 @@ function(COPYASSETDIR TARGET ASSET)
             COMMAND ${SYMLINK_COMMAND})
 endfunction()
 
-function(COPYASSETS TARGET)
+function(copyAssets TARGET)
     copyAssetDir(${TARGET} "Resources")
 endfunction()
+
+
+# Set up Kryne Engine library
+add_subdirectory(kryne-engine)
 
 
 # Setting up executables
@@ -90,4 +92,4 @@ add_subdirectory(Examples/Sphere)
 
 add_subdirectory(Examples/Basic)
 
-add_subdirectory(Examples/BenchmarkMutlithreading)
+add_subdirectory(Examples/BenchmarkMultithreading)
