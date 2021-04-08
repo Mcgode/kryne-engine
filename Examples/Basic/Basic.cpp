@@ -21,6 +21,7 @@
 #include <kryne-engine/UI/DearImGuiPrototype.hpp>
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 #include <kryne-engine/UI/DearImGuiPerformanceMetrics.hpp>
+#include <kryne-engine/Geometry/TorusKnotBufferGeometry.hpp>
 
 
 int main()
@@ -72,7 +73,7 @@ int main()
     const auto directionalLight = process->makeEntity<DirectionalLight>(vec3(1, 1, 1),
                                                                         1.5f,
                                                                         vec3(-1, -1, -1));
-    directionalLight->getTransform()->setScene(scene);
+//    directionalLight->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap, &skyEnvMap]()
     {
@@ -105,6 +106,17 @@ int main()
             cube->setName("Cube" + to_string(i));
         }
     });
+
+    MeshStandardMaterial::StandardInitParameters params2;
+    params2.metalness = 0.5;
+    params2.roughness = 0.5;
+    const auto torusMaterial = make_shared<MeshStandardMaterial>(params2);
+    torusMaterial->setEnvMap(skyEnvMap);
+    const auto torusGeometry = make_shared<TorusKnotBufferGeometry>(1, .4, 256, 32);
+    const auto torusKnot = process->makeEntity<Entity>();
+    torusKnot->setName("TorusKnot");
+    torusKnot->getTransform()->setScene(scene);
+    torusKnot->addComponent<RenderMesh>(torusGeometry, torusMaterial);
 
     const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
     camera->addComponent<OrbitControlsComponent>();
