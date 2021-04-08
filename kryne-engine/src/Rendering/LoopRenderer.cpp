@@ -7,7 +7,8 @@
 #include "kryne-engine/Rendering/LoopRenderer.h"
 
 
-LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+LoopRenderer::LoopRenderer(GraphicContext *context,
+                           unique_ptr<Framebuffer> screenFramebuffer,
                            unique_ptr<Framebuffer> readFramebuffer,
                            unique_ptr<Framebuffer> writeFramebuffer,
                            const ivec2 &size) :
@@ -22,7 +23,7 @@ LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
     geometry->removeAttribute("tangent");
     this->cubeGeometry = geometry;
 
-    this->pmremGenerator = make_unique<PMREMGenerator>();
+    this->pmremGenerator = make_unique<PMREMGenerator>(context);
 }
 
 

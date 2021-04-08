@@ -18,6 +18,7 @@
 #include "Framebuffer.hpp"
 
 
+class GraphicContext;
 class RenderMesh;
 class Camera;
 class Scene;
@@ -109,12 +110,14 @@ protected:
     /**
      * @brief Initializes the base renderer
      *
+     * @param context               The graphical context for this renderer.
      * @param screenFramebuffer     The framebuffer corresponding to the displayed window.
      * @param readFramebuffer       The framebuffer color data will be read from.
      * @param writeFramebuffer      The framebuffer color data will be written to.
      * @param size                  The current window size, in pixels.
      */
-    LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+    LoopRenderer(GraphicContext *context,
+                 unique_ptr<Framebuffer> screenFramebuffer,
                  unique_ptr<Framebuffer> readFramebuffer,
                  unique_ptr<Framebuffer> writeFramebuffer,
                  const ivec2 &size);

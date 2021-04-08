@@ -18,7 +18,7 @@ class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(RenderingState *renderingState, const ivec2 &size);
+    explicit OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size);
 
     // Override
     void prepareFrame() override;

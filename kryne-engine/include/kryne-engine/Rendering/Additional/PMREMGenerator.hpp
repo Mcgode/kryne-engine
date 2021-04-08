@@ -20,6 +20,18 @@ class PMREMGenerator {
 
 public:
 
+    /**
+     * @brief Initializes the PMREM generator
+     *
+     * @param context   The graphical context of this generator. Used to instantiate the required framebuffer.
+     */
+    explicit PMREMGenerator(GraphicContext *context);
+
+    /**
+     * @brief Allows the generator to continue processing env maps.
+     *
+     * @param renderer  The renderer use for computing the filtered maps.
+     */
     void runProcessing(LoopRenderer *renderer);
 
     /**
@@ -52,6 +64,9 @@ protected:
 
     /// The mutex for ensuring thread-safe queue operations
     mutex dequeMutex {};
+
+    /// The framebuffer used for computing PMREMs
+    unique_ptr<Framebuffer> framebuffer;
 
 };
 

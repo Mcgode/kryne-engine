@@ -10,8 +10,9 @@
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
-OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState, const ivec2 &size) :
-        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
+OpenGLRenderer::OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size) :
+        LoopRenderer(context,
+                     make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
                      make_unique<OpenGLFramebuffer>(size.x, size.y),
                      make_unique<OpenGLFramebuffer>(size.x, size.y),
                      size),

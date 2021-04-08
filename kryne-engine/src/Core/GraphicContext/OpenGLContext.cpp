@@ -130,7 +130,7 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
     this->windowSize = ivec2(baseWidth, baseHeight);
     this->renderingState = make_unique<RenderingState>(this->windowSize, FrontSide, true);
-    this->renderer = make_unique<OpenGLRenderer>(this->renderingState.get(), this->windowSize);
+    this->renderer = make_unique<OpenGLRenderer>(this, this->renderingState.get(), this->windowSize);
 
     OpenGLContext::runningContexts().emplace(this);
 }

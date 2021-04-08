@@ -6,6 +6,13 @@
 
 #include "kryne-engine/Rendering/Additional/PMREMGenerator.hpp"
 
+
+PMREMGenerator::PMREMGenerator(GraphicContext *context)
+{
+    this->framebuffer = context->makeFramebuffer(ivec2(32));
+}
+
+
 bool PMREMGenerator::isProcessing(const shared_ptr<EnvironmentMap> &map)
 {
     scoped_lock<mutex> l(this->dequeMutex);
