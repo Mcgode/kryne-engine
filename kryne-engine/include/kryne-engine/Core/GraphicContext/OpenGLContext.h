@@ -67,6 +67,9 @@ public:
      */
     virtual ~OpenGLContext();
 
+    // Override
+    unique_ptr<Framebuffer> makeFramebuffer(const ivec2 &size) override;
+
 protected:
 
     /// The OpenGL main window.

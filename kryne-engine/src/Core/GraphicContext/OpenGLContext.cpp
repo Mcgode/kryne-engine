@@ -4,6 +4,7 @@
  * @date 31/01/2021.
  */
 
+#include <kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h>
 #include "kryne-engine/Core/GraphicContext/OpenGLContext.h"
 
 
@@ -172,4 +173,10 @@ OpenGLContext::~OpenGLContext()
 LoopRenderer *OpenGLContext::getRenderer()
 {
     return reinterpret_cast<LoopRenderer *>(this->renderer.get());
+}
+
+
+unique_ptr<Framebuffer> OpenGLContext::makeFramebuffer(const ivec2 &size)
+{
+    return make_unique<OpenGLFramebuffer>(size.x, size.y);
 }
