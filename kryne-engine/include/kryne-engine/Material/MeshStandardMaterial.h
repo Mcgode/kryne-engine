@@ -7,7 +7,10 @@
 #ifndef KRYNE_ENGINE_MESHSTANDARDMATERIAL_H
 #define KRYNE_ENGINE_MESHSTANDARDMATERIAL_H
 
+
+#include <kryne-engine/Textures/EnvironmentMap.hpp>
 #include "MeshMaterialCommon.h"
+
 
 /**
  * A material class with default PBR properties.
@@ -101,7 +104,33 @@ public:
         this->setMaterialOptionalProperty(this->metalnessMap, newMap, "metalnessMap", "USE_METALNESS_MAP");
     }
 
+    /// @brief Retrieves whether the envmap should be the same as the scene skybox.
+    [[nodiscard]] bool isUseSkyboxEnvmap() const { return useSkyboxEnvmap; }
+
+    /// @brief Changes whether the envmap should be the same as the scene skybox.
+    void setUseSkyboxEnvmap(bool value) { MeshStandardMaterial::useSkyboxEnvmap = value; }
+
+    /// @brief Retrieves the current environment map
+    [[nodiscard]] const shared_ptr<EnvironmentMap> &getEnvMap() const { return envMap; }
+
+    /// @brief Changes the current environment map
+    void setEnvMap(const shared_ptr<EnvironmentMap> &map)
+    {
+        this->envMap = map;
+        this->setMaterialOptionalProperty(this->iblEnvMap, map != nullptr ? map->getIblEnvMap() : nullptr,
+                                          "environmentMap", "USE_ENVMAP");
+    }
+
+    /// @brief Changes the current environment map intensity.
+    void setEnvMapIntensity(float intensity)
+    {
+        this->setMaterialBasicProperty(this->envMapIntensity, intensity, "envMapIntensity");
+    }
+
 protected:
+
+    // Override
+    void beforeUpload(const BufferGeometry *geometry) override;
 
     // Override
     string materialName() override { return "Standard"; }
@@ -125,6 +154,18 @@ protected:
 
     /// The material metalness map.
     shared_ptr<Texture> metalnessMap;
+
+    /// Set to true to use the scene skybox as envmap.
+    bool useSkyboxEnvmap = true;
+
+    /// The IBL cubemap
+    shared_ptr<Texture> iblEnvMap;
+
+    /// The environment map for this material
+    shared_ptr<EnvironmentMap> envMap;
+
+    /// The intensity of the environment map.
+    float envMapIntensity;
 
 };
 

@@ -17,6 +17,8 @@ MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options
     this->setNormalMap(options.normalMap);
     this->setRoughnessMap(options.roughnessMap);
     this->setMetalnessMap(options.metalnessMap);
+
+    this->setEnvMapIntensity(1);
 }
 
 // Cast GLuint to void * without compiler warning
@@ -100,4 +102,12 @@ void MeshStandardMaterial::dearImGuiData()
 
         ImGui::EndTable();
     }
+}
+
+
+void MeshStandardMaterial::beforeUpload(const BufferGeometry *geometry)
+{
+    if (this->envMap != nullptr && this->envMap->getIblEnvMap() != this->iblEnvMap)
+        this->setMaterialOptionalProperty(this->iblEnvMap, this->envMap->getIblEnvMap(),
+                                          "envMap", "USE_ENVMAP");
 }
