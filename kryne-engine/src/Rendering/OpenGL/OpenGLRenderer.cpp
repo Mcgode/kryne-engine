@@ -6,11 +6,13 @@
 
 #include <kryne-engine/Material/ShaderMaterial.hpp>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
+#include <kryne-engine/Constants/CubeRenderMatrices.hpp>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
-OpenGLRenderer::OpenGLRenderer(RenderingState *renderingState, const ivec2 &size) :
-        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
+OpenGLRenderer::OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size) :
+        LoopRenderer(context,
+                     make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
                      make_unique<OpenGLFramebuffer>(size.x, size.y),
                      make_unique<OpenGLFramebuffer>(size.x, size.y),
                      size),
@@ -120,8 +122,11 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
     assertIsMainThread();
 
     const auto& envMap = scene->getSkyboxEnvMap();
-    if (**envMap != nullptr)
+    if (envMap != nullptr && **envMap != nullptr)
     {
+        if (!envMap->isIblReady())
+            this->pmremGenerator->processMap(envMap);
+
         this->skyboxMaterial->setUniform("skybox", **envMap);
         this->skyboxMaterial->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
         this->skyboxMaterial->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
@@ -141,6 +146,8 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
 void OpenGLRenderer::handlePostProcessing()
 {
     assertIsMainThread();
+
+    this->pmremGenerator->runProcessing(this);
 
     for (size_t i = 0; i < this->framePostProcessPasses.size(); i++)
     {
@@ -177,4 +184,32 @@ void OpenGLRenderer::textureRender(Material *material)
 
     // Reset shader use, just in case
     material->resetUse();
+}
+
+
+void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap)
+{
+    const auto vpp = this->renderingState->getViewportStart();
+    const auto vps = this->renderingState->getViewportSize();
+
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+
+    this->renderingState->setSide(BackSide);
+    this->renderingState->setDepthTest(material->isDepthTest());
+    this->renderingState->setDepthWrite(material->isWriteDepth());
+
+    material->setUniform("projectionMatrix", Constants::cubeRenderProjectionMatrix);
+
+    for (int i = 0; i < 6; ++i)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, cubeMap->getId(), 0);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        material->setUniform("viewMatrix", Constants::cubeRenderViewMatrices[i]);
+        material->prepareShader(this->cubeGeometry.get());
+        material->getShader()->updateUniforms();
+        this->cubeGeometry->draw();
+    }
+
+    this->renderingState->setViewport(vpp, vps);
 }

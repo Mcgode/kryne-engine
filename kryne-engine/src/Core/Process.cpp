@@ -316,26 +316,14 @@ void Process::runPriorityPreProcesses(const unordered_set<Entity *> &entities) c
             if (entityToProcess->ranPreRenderingProcessing)
                 continue;
 
-            auto it = this->systemsByType.find(LoopStart);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
+            for (const auto& system : this->systemsByType[LoopStart])
+                system->runSystem(entity);
 
-            it = this->systemsByType.find(GameLogic);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
+            for (const auto& system : this->systemsByType[GameLogic])
+                system->runSystem(entity);
 
-            it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
+            for (const auto& system : this->systemsByType[PostLogic])
+                system->runSystem(entity);
 
             entityToProcess->ranPreRenderingProcessing = true;
         }

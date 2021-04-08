@@ -43,4 +43,9 @@ public:
      */
     virtual LoopRenderer *getRenderer() = 0;
 
+    /**
+     * @brief Instantiates a framebuffer for this context
+     */
+    virtual unique_ptr<Framebuffer> makeFramebuffer(const ivec2 &size) = 0;
+
 };

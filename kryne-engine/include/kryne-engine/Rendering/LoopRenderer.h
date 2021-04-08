@@ -18,6 +18,7 @@
 #include "Framebuffer.hpp"
 
 
+class GraphicContext;
 class RenderMesh;
 class Camera;
 class Scene;
@@ -26,6 +27,8 @@ class PostProcessPass;
 class Material;
 class ShaderMaterial;
 class BoxBufferGeometry;
+class CubeTexture;
+class PMREMGenerator;
 
 
 using namespace std;
@@ -107,12 +110,14 @@ protected:
     /**
      * @brief Initializes the base renderer
      *
+     * @param context               The graphical context for this renderer.
      * @param screenFramebuffer     The framebuffer corresponding to the displayed window.
      * @param readFramebuffer       The framebuffer color data will be read from.
      * @param writeFramebuffer      The framebuffer color data will be written to.
      * @param size                  The current window size, in pixels.
      */
-    LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+    LoopRenderer(GraphicContext *context,
+                 unique_ptr<Framebuffer> screenFramebuffer,
                  unique_ptr<Framebuffer> readFramebuffer,
                  unique_ptr<Framebuffer> writeFramebuffer,
                  const ivec2 &size);
@@ -244,6 +249,17 @@ protected:
 // Cube rendering
 // ==================
 
+public:
+
+    /**
+     * @brief Renders the provided material to a cube.
+     *
+     * @param framebuffer   The framebuffer used for this rendering. It is assumed to be bound beforehand.
+     * @param material      The material used for rendering the texture.
+     * @param cubeTexture   The texture which is rendered to.
+     */
+    virtual void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap) = 0;
+
 protected:
 
     /// The cube geometry used for cube maps rendering.
@@ -251,6 +267,8 @@ protected:
 
     /// The mesh data for drawing a skybox
     shared_ptr<ShaderMaterial> skyboxMaterial;
+
+    unique_ptr<PMREMGenerator> pmremGenerator;
 
 };
 
@@ -262,3 +280,4 @@ protected:
 #include <kryne-engine/Rendering/RenderMesh.h>
 #include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include <kryne-engine/Material/ShaderMaterial.hpp>
+#include <kryne-engine/Rendering/Additional/PMREMGenerator.hpp>

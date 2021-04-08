@@ -81,6 +81,32 @@ protected:
     /// True if mip maps have already been generated.
     bool mipMapped = false;
 
+public:
+
+    /// The different composition formats for the texture.
+    enum class Formats : int {
+        RED = 0,
+        RG,
+        RGB,
+        RGBA,
+        DEPTH,
+        DEPTH_STENCIL,
+    };
+
+    enum class InternalSizes: int {
+        Fit = 0,
+        Byte,
+        HalfFloat,
+        Float,
+    };
+
+    enum class DataTypes: int {
+        UnsignedByte = 0,
+        Byte,
+        HalfFloat,
+        Float,
+    };
+
 };
 
 

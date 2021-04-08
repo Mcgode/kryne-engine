@@ -15,7 +15,7 @@
 namespace Constants {
 
     /// The projection matrix used for cube texture rendering.
-    const glm::mat4 cubeRenderProjectionMatrix = glm::perspective(glm::half_pi<float>(), 1, 0.1, 10);
+    const glm::mat4 cubeRenderProjectionMatrix = glm::perspective(glm::half_pi<float>(), 1.f, 0.1f, 10.f);
 
     /// The view matrices array used for cube texture rendering.
     const glm::mat4 cubeRenderViewMatrices[] =

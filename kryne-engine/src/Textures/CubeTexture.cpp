@@ -2,6 +2,7 @@
 // Created by max on 02/08/2019.
 //
 
+#include <kryne-engine/Constants/OpenGLTexture.hpp>
 #include "kryne-engine/Textures/CubeTexture.h"
 
 
@@ -88,4 +89,32 @@ shared_ptr<CubeTexture> CubeTexture::loadFiles(const vector<string> &filenames)
     Dispatcher::instance().io()->enqueue(func);
 
     return texture;
+}
+
+CubeTexture::CubeTexture(const ivec2 &size,
+                         Texture::Formats format,
+                         Texture::InternalSizes internalSize,
+                         Texture::DataTypes dataType) : CubeTexture(0)
+
+{
+    glGenTextures(1, &this->id);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, this->id);
+    for (unsigned int i = 0; i < 6; ++i)
+    {
+        glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0,
+                     Constants::openGLInternalFormat(format, internalSize),
+                     size.x, size.y, 0,
+                     Constants::openGLFormat(format), Constants::openGLDataType(dataType),
+                     nullptr);
+    }
+
+}
+
+
+void CubeTexture::setWrap(GLenum wrapType)
+{
+    this->bindTexture();
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, wrapType);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, wrapType);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, wrapType);
 }

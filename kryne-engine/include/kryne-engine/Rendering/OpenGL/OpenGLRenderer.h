@@ -18,7 +18,7 @@ class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(RenderingState *renderingState, const ivec2 &size);
+    explicit OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size);
 
     // Override
     void prepareFrame() override;
@@ -37,6 +37,9 @@ public:
 
     // Override
     void textureRender(Material *material) override;
+
+    // Override
+    void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap) override;
 
 protected:
 

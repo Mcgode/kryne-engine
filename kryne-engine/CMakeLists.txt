@@ -120,8 +120,13 @@ add_library(kryne-engine STATIC
         src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.hpp
         include/kryne-engine/Material/ShaderMaterial.hpp
         src/Rendering/Additional/PMREMGenerator.cpp include/kryne-engine/Rendering/Additional/PMREMGenerator.hpp
-        src/Textures/EnvironmentMap.cpp include/kryne-engine/Textures/EnvironmentMap.hpp include/kryne-engine/Constants/CubeRenderMatrices.hpp)
+        src/Textures/EnvironmentMap.cpp include/kryne-engine/Textures/EnvironmentMap.hpp
+        include/kryne-engine/Constants/CubeRenderMatrices.hpp include/kryne-engine/Constants/OpenGLTexture.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_link_libraries(kryne-engine ${LIBS})
+
+
+duplicateLibrary(kryne-engine kryne-engine-st)
+target_compile_definitions(kryne-engine-st PUBLIC KRYNE_ENGINE_SINGLE_THREADED=1)
