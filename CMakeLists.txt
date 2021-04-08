@@ -60,8 +60,9 @@ message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 set(LIBS ${LIBS} ${Boost_LIBRARIES})
 
 
-# Helper functions
+## Helper functions
 
+# Links a directory to a symbolic link in the target binary directory
 function(copyAssetDir TARGET ASSET)
 
     if(${UNIX})
@@ -75,8 +76,46 @@ function(copyAssetDir TARGET ASSET)
             COMMAND ${SYMLINK_COMMAND})
 endfunction()
 
+# Links the assets for a provided target
 function(copyAssets TARGET)
     copyAssetDir(${TARGET} "Resources")
+endfunction()
+
+# Duplicate a library
+function(duplicateLibrary LIBRARY NEW_LIB_NAME)
+    get_target_property(sourceFiles ${LIBRARY} SOURCES)
+    get_target_property(linkLibs ${LIBRARY} LINK_LIBRARIES)
+    get_target_property(includeDirs ${LIBRARY} INCLUDE_DIRECTORIES)
+    get_target_property(compileDefinitions ${LIBRARY} COMPILE_DEFINITIONS)
+    get_target_property(compileOptions ${LIBRARY} COMPILE_OPTIONS)
+
+    add_library(${NEW_LIB_NAME} STATIC
+            ${sourceFiles}
+            )
+
+    target_include_directories(${NEW_LIB_NAME} PRIVATE
+            ${includeDirs}
+            )
+
+    list(REMOVE_ITEM linkLibs
+            originalLibrary
+            )
+    target_link_libraries(${NEW_LIB_NAME} PRIVATE
+            ${linkLibs}
+            originalLibraryForward
+            )
+
+    if (compileOptions)
+        target_compile_options(${NEW_LIB_NAME} PRIVATE
+                ${compileOptions}
+                )
+    endif()
+
+    if (compileDefinitions)
+        target_compile_definitions(${NEW_LIB_NAME} PRIVATE
+                ${compileDefinitions}
+                )
+    endif()
 endfunction()
 
 
