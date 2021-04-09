@@ -1,15 +1,15 @@
 
 
-vec3 fresnelSchlick( const in float cosTheta, const in vec3 F0 )
+vec3 fresnelSchlick( const in float NdV, const in vec3 specularColor )
 {
     // Original approximation by Christophe Schlick '94
     // float fresnel = pow( 1.0 - cosTheta, 5.0 );
 
     // Optimized variant (presented by Epic at SIGGRAPH '13)
     // https://cdn2.unrealengine.com/Resources/files/2013SiggraphPresentationsNotes-26915738.pdf
-    float fresnel = exp2( ( -5.55473 * cosTheta - 6.98316 ) * cosTheta );
+    float fresnel = exp2( ( -5.55473 * NdV - 6.98316 ) * NdV );
 
-    return F0 + (1.0 - F0) * fresnel;
+    return specularColor + (1.0 - specularColor) * fresnel;
 }
 
 
@@ -99,9 +99,9 @@ vec2 integrateSpecularBRDF(const in float dotNV, const in float roughness)
 }
 
 
-vec3 ApplyGGXSpecularBRDF(const in vec3 N, const in vec3 V, const in vec3 specularColor, const in float roughness)
+vec3 ApplyGGXSpecularBRDF(const in vec3 normal, const in vec3 viewDir, const in vec3 specularColor, const in float roughness)
 {
-    float NdV = clamp(dot(N, V), 0, 1);
+    float NdV = clamp(dot(normal, viewDir), 0, 1);
     vec2 brdf = integrateSpecularBRDF(NdV, roughness);
     return specularColor * brdf.x + brdf.y;
 }
