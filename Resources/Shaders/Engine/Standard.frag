@@ -48,9 +48,8 @@ void main() {
     #ifdef USE_ENVMAP
 
         vec3 envMapIrradiance = GetEnvMapIndirectIrradiance(envMap, envMapIntensity, geometry.normal);
-        ApplyIndirectDiffuseLight(envMapIrradiance, geometry, material, reflectedLight);
-
         vec3 envMapRadiance = GetEnvMapIndirectRadiance(envMap, envMapIntensity, geometry.viewDir, geometry.normal, material.roughness);
+
         ApplyIndirectSpecularLight(envMapRadiance, envMapIrradiance, geometry, material, reflectedLight);
 
     #endif

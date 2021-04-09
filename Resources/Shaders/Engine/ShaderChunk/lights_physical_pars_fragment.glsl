@@ -36,7 +36,18 @@ void LightIndirectSpecularPhysical(const in vec3 radiance,
                                    const in PhysicalMaterial material,
                                    inout ReflectedLight reflectedLight)
 {
-    reflectedLight.indirectSpecular += radiance * ApplyGGXSpecularBRDF(geometry.normal, geometry.viewDir, material.specularColor, material.roughness);
+    vec3 singleScattering = vec3( 0.0 );
+    vec3 multiScattering = vec3( 0.0 );
+    vec3 cosineWeightedIrradiance = irradiance / PI;
+
+    BRDFSpecularMultiscatteringEnvironment(geometry, material.specularColor, material.roughness, singleScattering, multiScattering);
+
+    vec3 diffuse = material.diffuseColor * (1 - (multiScattering + singleScattering));
+
+    reflectedLight.indirectSpecular += radiance * singleScattering;
+    reflectedLight.indirectSpecular += multiScattering * cosineWeightedIrradiance;
+
+    reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
 }
 
 
