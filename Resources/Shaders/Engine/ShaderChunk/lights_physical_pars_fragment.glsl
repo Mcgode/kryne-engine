@@ -36,7 +36,7 @@ void LightIndirectSpecularPhysical(const in vec3 radiance,
                                    const in PhysicalMaterial material,
                                    inout ReflectedLight reflectedLight)
 {
-    reflectedLight.indirectSpecular += ApplyGGXSpecularBRDF(geometry.normal, geometry.viewDir, material.specularColor, material.roughness);
+    reflectedLight.indirectSpecular += radiance * ApplyGGXSpecularBRDF(geometry.normal, geometry.viewDir, material.specularColor, material.roughness);
 }
 
 
