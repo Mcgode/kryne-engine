@@ -4,6 +4,7 @@
  * @date 28/03/2021.
  */
 
+#include <functional>
 #include "WorkComponent.hpp"
 
 
@@ -14,15 +15,13 @@ void WorkComponent::onUpdate()
 {
     LogicComponent::onUpdate();
 
-    fibonacci(20);
-}
+#ifndef NDEBUG
+    const size_t N = 1000;
+#else
+    const size_t N = 10000;
+#endif
 
-uint64_t WorkComponent::fibonacci(uint64_t n)
-{
-    if (n <= 0)
-        return 0;
-    else if (n == 1)
-        return 1;
-    else
-        return  fibonacci(n - 2) + fibonacci(n - 1);
+    uint64_t h = 0;
+    for (auto i = 0; i < N; i++)
+        h = std::hash<uint64_t>{}(h);
 }

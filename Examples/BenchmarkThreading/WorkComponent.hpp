@@ -18,10 +18,6 @@ public:
 
     void onUpdate() override;
 
-protected:
-
-    static uint64_t fibonacci(uint64_t n);
-
 };
 
 
