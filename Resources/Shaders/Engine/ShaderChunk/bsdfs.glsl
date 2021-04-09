@@ -13,6 +13,16 @@ vec3 fresnelSchlick( const in float NdV, const in vec3 specularColor )
 }
 
 
+vec3 RoughFresnelSchlick( const in float NdV, const in vec3 specularColor, const float roughness )
+{
+    // See fresnelSchlick()
+    float fresnel = exp2( ( -5.55473 * NdV - 6.98316 ) * NdV );
+    vec3 Fr = max(vec3(1 - roughness), specularColor) - specularColor;
+
+    return specularColor + Fr * fresnel;
+}
+
+
 // Microfacet Models for Refraction through Rough Surfaces - equation (33)
 // http://graphicrants.blogspot.com/2013/08/specular-brdf-reference.html
 // alpha is "roughness squared" in Disney’s reparameterization
@@ -104,4 +114,28 @@ vec3 ApplyGGXSpecularBRDF(const in vec3 normal, const in vec3 viewDir, const in 
     float NdV = clamp(dot(normal, viewDir), 0, 1);
     vec2 brdf = integrateSpecularBRDF(NdV, roughness);
     return specularColor * brdf.x + brdf.y;
+}
+
+
+// Fdez-Agüera's "Multiple-Scattering Microfacet Model for Real-Time Image Based Lighting"
+// Approximates multiscattering in order to preserve energy.
+// http://www.jcgt.org/published/0008/01/03/
+void BRDFSpecularMultiscatteringEnvironment(const in GeometryData geometry, const in vec3 specularColor,
+                                            const in float roughness,
+                                            inout vec3 singleScatter, inout vec3 multiScatter)
+{
+    float NdV = clamp(dot(geometry.normal, geometry.viewDir), 0, 1);
+
+    vec3 F = RoughFresnelSchlick(NdV, specularColor, roughness);
+    vec2 brdf = integrateSpecularBRDF(NdV, roughness);
+    vec3 FssEss = F * brdf.x + brdf.y;
+
+    float Ess = brdf.x + brdf.y;
+    float Ems = 1.0 - Ess;
+
+    vec3 Favg = specularColor + ( 1.0 - specularColor ) * 0.047619; // 1/21
+    vec3 Fms = FssEss * Favg / ( 1.0 - Ems * Favg );
+
+    singleScatter += FssEss;
+    multiScatter += Fms * Ems;
 }
