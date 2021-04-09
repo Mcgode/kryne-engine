@@ -71,7 +71,6 @@ void PMREMGenerator::runProcessing(LoopRenderer *renderer)
     if (this->currentLOD < LOD_MIN)
     {
         map->iblReady = true;
-        map->environmentMap = map->iblEnvMap;
         scoped_lock<mutex> l(this->dequeMutex);
         this->mapsToProcess.pop_front();
     }
