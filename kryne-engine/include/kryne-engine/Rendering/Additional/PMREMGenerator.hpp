@@ -63,7 +63,7 @@ protected:
      * @brief Initializes the processing of the provided environment map
      * @param map
      */
-    static void initializeProcess(const shared_ptr<EnvironmentMap> &map);
+    void initializeProcess(const shared_ptr<EnvironmentMap> &map);
 
 protected:
 
@@ -78,6 +78,16 @@ protected:
 
     /// The current LOD being processed.
     uint8_t currentLOD = 0;
+
+#if KRYNE_ENGINE_USE_DEDICATED_IRRADIANCE_CONVOLUTION == 1
+
+    /// The shader used for irradiance convolution shader
+    unique_ptr<ShaderMaterial> irradianceConvolutionShader;
+
+#endif
+
+    /// The shader for computing the pre-filtered intermediate maps
+    unique_ptr<ShaderMaterial> preFilteringShader;
 
 protected:
 

@@ -50,15 +50,33 @@ void PMREMGenerator::runProcessing(LoopRenderer *renderer)
         PMREMGenerator::initializeProcess(map);
     }
 
-    auto shader = make_unique<Shader>("Engine/EnvMapPreFiltering");
-    auto material = make_unique<ShaderMaterial>(move(shader));
+
+#if KRYNE_ENGINE_USE_DEDICATED_IRRADIANCE_CONVOLUTION == 1
+
+    auto &material = this->currentLOD == LOD_MIN ? this->irradianceConvolutionShader : this->preFilteringShader;
+
+#else
+
+    auto &material = this->preFilteringShader;
+
+#endif
 
     material->setUniform("envMap", **map);
+
+#if KRYNE_ENGINE_USE_DEDICATED_IRRADIANCE_CONVOLUTION == 1
+
+    if (this->currentLOD > LOD_MIN)
+    {
+        float roughness = 1.f - (float) (this->currentLOD - LOD_MIN) / (LOD_MAX - LOD_MIN);
+        material->setUniform("roughness", roughness);
+    }
+
+#else
+
     float roughness = 1.f - (float) (this->currentLOD - LOD_MIN) / (LOD_MAX - LOD_MIN);
     material->setUniform("roughness", roughness);
-    material->setSide(BackSide);
-    material->setDepthTest(false);
-    material->setWriteDepth(false);
+
+#endif
 
     this->framebuffer->setSize(ivec2(pow(2, this->currentLOD)));
     this->framebuffer->setAsRenderTarget();
@@ -74,29 +92,6 @@ void PMREMGenerator::runProcessing(LoopRenderer *renderer)
         scoped_lock<mutex> l(this->dequeMutex);
         this->mapsToProcess.pop_front();
     }
-
-//    auto irradianceCubeTexture = make_shared<CubeTexture>(
-//            ivec2(32),
-//            Texture::Formats::RGB,
-//            Texture::InternalSizes::HalfFloat,
-//            Texture::DataTypes::Float
-//    );
-//
-//    irradianceCubeTexture->setWrap(GL_CLAMP_TO_EDGE);
-//    irradianceCubeTexture->setFiltering(GL_LINEAR, GL_LINEAR);
-//
-//    auto irradianceShader = make_unique<Shader>("Engine/IrradianceConvolution");
-//    auto irradianceMaterial = make_unique<ShaderMaterial>(move(irradianceShader));
-//
-//    irradianceMaterial->setUniform("envMap", **map);
-//    irradianceMaterial->setSide(BackSide);
-//    irradianceMaterial->setDepthTest(false);
-//    irradianceMaterial->setWriteDepth(false);
-//
-//    this->framebuffer->setAsRenderTarget();
-//    renderer->renderCubeTexture(this->framebuffer.get(), irradianceMaterial.get(), irradianceCubeTexture.get());
-//
-//    map->setIBL(irradianceCubeTexture);
 }
 
 
@@ -114,4 +109,28 @@ void PMREMGenerator::initializeProcess(const shared_ptr<EnvironmentMap> &map)
     map->iblEnvMap->setWrap(GL_CLAMP_TO_EDGE);
     map->iblEnvMap->setFiltering(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     map->iblEnvMap->generateMipMaps();
+
+#if KRYNE_ENGINE_USE_DEDICATED_IRRADIANCE_CONVOLUTION == 1
+
+    if (this->irradianceConvolutionShader == nullptr)
+    {
+        auto shader = make_unique<Shader>("Engine/IrradianceConvolution");
+        this->irradianceConvolutionShader = make_unique<ShaderMaterial>(move(shader));
+
+        this->irradianceConvolutionShader->setSide(BackSide);
+        this->irradianceConvolutionShader->setDepthTest(false);
+        this->irradianceConvolutionShader->setWriteDepth(false);
+    }
+
+#endif
+
+    if (this->preFilteringShader == nullptr)
+    {
+        auto shader = make_unique<Shader>("Engine/EnvMapPreFiltering");
+        this->preFilteringShader = make_unique<ShaderMaterial>(move(shader));
+
+        this->preFilteringShader->setSide(BackSide);
+        this->preFilteringShader->setDepthTest(false);
+        this->preFilteringShader->setWriteDepth(false);
+    }
 }
