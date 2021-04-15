@@ -112,7 +112,7 @@ int main()
     params2.roughness = 0.5;
     const auto torusMaterial = make_shared<MeshStandardMaterial>(params2);
     torusMaterial->setEnvMap(skyEnvMap);
-    const auto torusGeometry = make_shared<TorusKnotBufferGeometry>(1, .4, 256, 32);
+    const auto torusGeometry = make_shared<TorusKnotBufferGeometry>(1.f, .4f, 256, 32);
     const auto torusKnot = process->makeEntity<Entity>();
     torusKnot->setName("TorusKnot");
     torusKnot->getTransform()->setScene(scene);
