@@ -44,6 +44,9 @@ public:
     // Override
     void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel) override;
 
+    //Override
+    void quadRender(Material *material, const ivec2 &start, const ivec2 &size) override;
+
 protected:
 
     /// The current OpenGL rendering state.

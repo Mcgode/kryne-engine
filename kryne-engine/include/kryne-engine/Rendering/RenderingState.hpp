@@ -30,6 +30,7 @@ public:
         setDepthWrite(true);
         setViewportSize(viewportSize);
         setViewportStart(viewportStart);
+        setScissor(false);
     }
 
 

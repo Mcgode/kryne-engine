@@ -105,6 +105,15 @@ public:
      */
     virtual void textureRender(Material *material) = 0;
 
+    /***
+     * @brief Renders a quad on a part of the screen
+     *
+     * @param material  The material for rendering this quad
+     * @param start     The quad upper corner position
+     * @param size      The quad size
+     */
+    virtual void quadRender(Material *material, const ivec2 &start, const ivec2 &size) = 0;
+
 protected:
 
     /**

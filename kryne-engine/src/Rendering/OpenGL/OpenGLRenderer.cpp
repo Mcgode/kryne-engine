@@ -222,3 +222,27 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
 
     this->renderingState->setViewport(vpp, vps);
 }
+
+
+void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const ivec2 &size)
+{
+    // TODO : Better way to get screen size
+    vec2 relativeSize = vec2(size) / vec2(this->renderingState->getViewportSize());
+    vec2 relativePosition = vec2(start) / vec2(this->renderingState->getViewportSize());
+    relativePosition = relativePosition * 2.f - 1.f;
+
+    auto matrix = translate(scale(mat4(), vec3(relativeSize, 1)), vec3(relativePosition, 0));
+    material->setUniform("matrix", matrix);
+
+    this->renderingState->setScissorValues(start, size);
+    this->renderingState->setScissor(true);
+
+    this->renderingState->setDepthWrite(material->isWriteDepth());
+    this->renderingState->setDepthTest(material->isDepthTest());
+    this->renderingState->setSide(FrontSide);
+
+    material->prepareShader(this->fullscreenPlane.get());
+    this->fullscreenPlane->draw();
+
+    this->renderingState->setScissor(false);
+}
