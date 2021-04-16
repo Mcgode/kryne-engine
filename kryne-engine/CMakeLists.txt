@@ -121,7 +121,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Material/ShaderMaterial.hpp
         src/Rendering/Additional/PMREMGenerator.cpp include/kryne-engine/Rendering/Additional/PMREMGenerator.hpp
         src/Textures/EnvironmentMap.cpp include/kryne-engine/Textures/EnvironmentMap.hpp
-        include/kryne-engine/Constants/CubeRenderMatrices.hpp include/kryne-engine/Constants/OpenGLTexture.hpp src/Geometry/TorusKnotBufferGeometry.cpp include/kryne-engine/Geometry/TorusKnotBufferGeometry.hpp)
+        include/kryne-engine/Constants/CubeRenderMatrices.hpp include/kryne-engine/Constants/OpenGLTexture.hpp src/Geometry/TorusKnotBufferGeometry.cpp include/kryne-engine/Geometry/TorusKnotBufferGeometry.hpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.cpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
