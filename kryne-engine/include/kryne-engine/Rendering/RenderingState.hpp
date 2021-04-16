@@ -38,25 +38,41 @@ public:
 
 public:
 
-    [[nodiscard]] MaterialSide getSide() const {
-        return side;
+    /// @brief Retrieves the current rendered side
+    [[nodiscard]] MaterialSide getSide() const { return side; }
+
+    /// @brief Updates the current rendered state
+    void setSide(MaterialSide newBaseSide, bool force = false)
+    {
+        if (force || this->side != newBaseSide)
+            RenderingState::updateToSide(newBaseSide);
+
+        this->side = newBaseSide;
     }
 
-    void setSide(MaterialSide newBaseSide) {
-        RenderingState::side = newBaseSide;
-        RenderingState::updateToSide(newBaseSide);
-    }
+protected:
 
-    static void updateToSide(MaterialSide side) {
-        if (side < DoubleSide) {
+    /**
+     * @brief Updates OpenGL face culling state
+     *
+     * @param side  The side to display
+     */
+    static void updateToSide(MaterialSide side)
+    {
+        if (side < DoubleSide)
+        {
             glEnable(GL_CULL_FACE);
             glCullFace(side == FrontSide ? GL_BACK : GL_FRONT);
-        } else
+        }
+        else
+        {
             glDisable(GL_CULL_FACE);
+        }
     }
 
 private:
 
+    /// The side that is currently displayed
     MaterialSide side {};
 
 
@@ -64,17 +80,26 @@ private:
 
 public:
 
-    [[nodiscard]] bool isDepthTestEnabled() const {
-        return depthTest;
-    }
+    /// @brief Retrieves whether depth test is enabled
+    [[nodiscard]] bool isDepthTestEnabled() const { return depthTest; }
 
-    void setDepthTest(bool enableDepth) {
-        RenderingState::depthTest = enableDepth;
-        if (enableDepth) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
+    /// @brief Updates whether depth test is enabled
+    void setDepthTest(bool enableDepth, bool force = false)
+    {
+        if (force || this->depthTest != enableDepth)
+        {
+            if (enableDepth)
+                glEnable(GL_DEPTH_TEST);
+            else
+                glDisable(GL_DEPTH_TEST);
+        }
+
+        this->depthTest = enableDepth;
     }
 
 private:
 
+    /// true if depth will be tested
     bool depthTest {};
 
 
@@ -82,17 +107,21 @@ private:
 
 public:
 
-    [[nodiscard]] bool isDepthWriteEnabled() const {
-        return depthWrite;
-    }
+    /// @brief Retrieves whether depth will be written
+    [[nodiscard]] bool isDepthWriteEnabled() const { return depthWrite; }
 
-    void setDepthWrite(bool writeToDepth) {
-        RenderingState::depthWrite = writeToDepth;
-        glDepthMask(writeToDepth ? GL_TRUE : GL_FALSE);
+    /// @brief Updates whether depth will be written
+    void setDepthWrite(bool writeToDepth, bool force = false)
+    {
+        if (force || writeToDepth != this->depthWrite)
+            glDepthMask(writeToDepth ? GL_TRUE : GL_FALSE);
+
+        this->depthWrite = writeToDepth;
     }
 
 private:
 
+    /// Set to true to enable depth writing
     bool depthWrite {};
 
 
@@ -100,25 +129,30 @@ private:
 
 public:
 
+    /// @brief Retrieves the viewport upper corner
     [[nodiscard]] const glm::ivec2 &getViewportStart() const { return viewportStart; }
 
-    void setViewportStart(const glm::ivec2 &newStart)
+    /// @brief Updates the viewport upper corner
+    void setViewportStart(const glm::ivec2 &newStart, bool force = false)
     {
-        if (!glm::all(glm::equal(newStart, this->viewportStart)))
+        if (force || !glm::all(glm::equal(newStart, this->viewportStart)))
             glViewport(newStart.x, newStart.y, this->viewportSize.x, this->viewportSize.y);
         RenderingState::viewportStart = newStart;
     }
 
+    /// @brief Retrieves the viewport rect size
     [[nodiscard]] const glm::ivec2 &getViewportSize() const { return viewportSize; }
 
-    void setViewportSize(const glm::ivec2 &newSize)
+    /// @brief Updates the viewport rect size
+    void setViewportSize(const glm::ivec2 &newSize, bool force = false)
     {
-        if (!glm::all(glm::equal(newSize, this->viewportSize)))
+        if (force || !glm::all(glm::equal(newSize, this->viewportSize)))
             glViewport(this->viewportStart.x, this->viewportStart.y, newSize.x, newSize.y);
         RenderingState::viewportSize = newSize;
     }
 
-    void setViewport(const glm::ivec2 &start, const glm::ivec2 &size)
+    /// @brief Updates the viewport rectangle
+    void setViewport(const glm::ivec2 &start, const glm::ivec2 &size, bool force = false)
     {
         if (!glm::all(glm::equal(size, this->viewportSize)) || !glm::all(glm::equal(start, this->viewportStart)))
             glViewport(start.x, start.y, size.x, size.y);
@@ -129,8 +163,10 @@ public:
 
 private:
 
+    /// The viewport rectangle start
     glm::ivec2 viewportStart {};
 
+    /// The viewport rectangle size
     glm::ivec2 viewportSize {};
 
 
@@ -142,9 +178,9 @@ public:
     [[nodiscard]] const glm::ivec2 &getScissorStart() const { return scissorStart; }
 
     /// @brief Updates scissor rectangle start
-    void setScissorStart(const glm::ivec2 &newStart)
+    void setScissorStart(const glm::ivec2 &newStart, bool force = false)
     {
-        if (!glm::all(glm::equal(newStart, this->scissorStart)))
+        if (force || !glm::all(glm::equal(newStart, this->scissorStart)))
             glScissor(newStart.x, newStart.y, this->scissorSize.x, this->scissorSize.y);
         RenderingState::scissorStart = newStart;
     }
@@ -153,17 +189,17 @@ public:
     [[nodiscard]] const glm::ivec2 &getScissorSize() const { return scissorSize; }
 
     /// @brief Updates scissor rectangle size
-    void setScissorSize(const glm::ivec2 &newSize)
+    void setScissorSize(const glm::ivec2 &newSize, bool force = false)
     {
-        if (!glm::all(glm::equal(newSize, this->scissorSize)))
+        if (force || !glm::all(glm::equal(newSize, this->scissorSize)))
             glScissor(this->scissorStart.x, this->scissorStart.y, newSize.x, newSize.y);
         RenderingState::scissorSize = newSize;
     }
 
     /// @brief Updates scissor rectangle
-    void setScissorValues(const glm::ivec2 &start, const glm::ivec2 &size)
+    void setScissorValues(const glm::ivec2 &start, const glm::ivec2 &size, bool force = false)
     {
-        if (!glm::all(glm::equal(size, this->scissorSize)) || !glm::all(glm::equal(start, this->scissorStart)))
+        if (force || !glm::all(glm::equal(size, this->scissorSize)) || !glm::all(glm::equal(start, this->scissorStart)))
             glScissor(start.x, start.y, size.x, size.y);
 
         this->scissorStart = start;
@@ -171,9 +207,9 @@ public:
     }
 
     /// @brief Toggles the scissoring test, and will update GL accordingly.
-    void setScissor(bool value)
+    void setScissor(bool value, bool force = false)
     {
-        if (value != scissorEnable)
+        if (force || value != scissorEnable)
         {
             if (value)
                 glEnable(GL_SCISSOR_TEST);
