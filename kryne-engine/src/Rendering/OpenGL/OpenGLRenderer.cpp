@@ -64,14 +64,9 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 
     this->defaultStateReset();
 
-    if (renderingState->getSide() != material->getSide())
-        renderingState->setSide(material->getSide());
-
-    if (renderingState->isDepthTestEnabled() != material->isDepthTest())
-        renderingState->setDepthTest(material->isDepthTest());
-
-    if (renderingState->isDepthWriteEnabled() != material->isWriteDepth())
-        renderingState->setDepthWrite(material->isWriteDepth());
+    renderingState->setSide(material->getSide());
+    renderingState->setDepthTest(material->isDepthTest());
+    renderingState->setDepthWrite(material->isWriteDepth());
 
     // Renderer-level uniforms
     material->setUniform("projectionMatrix", camera->getProjectionMatrix());
@@ -107,7 +102,12 @@ void OpenGLRenderer::prepareFrame()
 
     this->renderingState->setViewport(ivec2(0), this->rendererSize);
     glClearColor(0.f, 0.f, 0.f, 0.f);
-    renderingState->setDepthWrite(true);
+
+    renderingState->setSide(FrontSide, true);
+    renderingState->setDepthTest(true, true);
+    renderingState->setDepthWrite(true, true);
+    renderingState->setScissor(false, true);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
