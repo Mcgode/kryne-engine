@@ -160,7 +160,7 @@ public:
     }
 
     /// @brief Updates scissor rectangle
-    void setScissor(const glm::ivec2 &start, const glm::ivec2 &size)
+    void setScissorValues(const glm::ivec2 &start, const glm::ivec2 &size)
     {
         if (!glm::all(glm::equal(size, this->scissorSize)) || !glm::all(glm::equal(start, this->scissorStart)))
             glScissor(start.x, start.y, size.x, size.y);
