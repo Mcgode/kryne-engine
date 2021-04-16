@@ -54,7 +54,7 @@ void RenderMesh::renderComponentDetails()
     if (material != nullptr)
     {
         ImGui::Indent();
-        material->displayDearImGui();
+        material->displayDearImGui(this->getEntity()->getProcess());
         ImGui::Unindent();
     }
 

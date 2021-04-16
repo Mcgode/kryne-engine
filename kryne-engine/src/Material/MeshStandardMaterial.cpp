@@ -25,7 +25,7 @@ MeshStandardMaterial::MeshStandardMaterial(const StandardInitParameters &options
 #define ImageID(id) reinterpret_cast<void *>((unsigned long long)id)
 
 
-void MeshStandardMaterial::dearImGuiData()
+void MeshStandardMaterial::dearImGuiData(Process *process)
 {
     if (ImGui::BeginTable("MaterialTable", 2, ImGuiTableFlags_BordersInnerH))
     {

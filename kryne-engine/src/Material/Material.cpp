@@ -18,15 +18,15 @@ void Material::prepareShader(const BufferGeometry *geometry)
 }
 
 
-void Material::displayDearImGui()
+void Material::displayDearImGui(Process *process)
 {
     auto name = this->materialName();
 
-    if (name.size() > 0)
+    if (!name.empty())
         name = "Material (" + name + ")";
     else
         name = "Material";
 
     if (ImGui::CollapsingHeader(name.c_str()))
-        this->dearImGuiData();
+        this->dearImGuiData(process);
 }

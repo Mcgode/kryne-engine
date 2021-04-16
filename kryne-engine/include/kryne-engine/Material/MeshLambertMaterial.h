@@ -27,7 +27,7 @@ protected:
 
     string materialName() override { return "Lambert"; }
 
-    void dearImGuiData() override;
+    void dearImGuiData(Process *process) override;
 
 };
 

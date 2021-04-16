@@ -17,7 +17,7 @@ MeshLambertMaterial::MeshLambertMaterial(const InitParameters &options):
 
 #define ImageID(id) reinterpret_cast<void *>((unsigned long long)id)
 
-void MeshLambertMaterial::dearImGuiData()
+void MeshLambertMaterial::dearImGuiData(Process *process)
 {
     if (ImGui::BeginTable("MaterialTable", 2, ImGuiTableFlags_BordersInnerH))
     {

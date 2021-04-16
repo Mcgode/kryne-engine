@@ -10,6 +10,9 @@
 #include <kryne-engine/enums/MaterialSide.h>
 #include <kryne-engine/Rendering/ShaderProgramCompiler.h>
 
+class Process;
+
+
 using namespace std;
 
 
@@ -166,7 +169,7 @@ public:
     /**
      * @brief Displays material data UI interface.
      */
-    void displayDearImGui();
+    void displayDearImGui(Process *process);
 
 protected:
 
@@ -178,11 +181,11 @@ protected:
     /**
      * @brief Override this function to display material data in the interface.
      */
-    virtual void dearImGuiData() {};
-
-
+    virtual void dearImGuiData(Process *process) {};
 
 };
+
+#include <kryne-engine/Core/Process.h>
 
 
 #endif //INC_KRYNE_ENGINE_MATERIAL_H

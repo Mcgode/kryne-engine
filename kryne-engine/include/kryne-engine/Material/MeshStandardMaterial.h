@@ -136,7 +136,7 @@ protected:
     string materialName() override { return "Standard"; }
 
     // Override
-    void dearImGuiData() override;
+    void dearImGuiData(Process *process) override;
 
 protected:
 
