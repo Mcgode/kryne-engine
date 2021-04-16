@@ -5,6 +5,7 @@
  */
 
 #include <imgui.h>
+#include <kryne-engine/Utils/DearImGui/CubeMapWidget.hpp>
 
 #include "kryne-engine/Material/MeshStandardMaterial.h"
 
@@ -96,6 +97,25 @@ void MeshStandardMaterial::dearImGuiData(Process *process)
             ImGui::Text("Normal map"); ImGui::TableNextColumn();
             if (this->normalMap)
                 ImGui::Image(ImageID(this->normalMap->getId()), ImVec2(64, 64));
+            else
+                ImGui::Text("None");
+        }
+
+        {
+            ImGui::TableNextRow(); ImGui::TableNextColumn();
+            ImGui::Text("Environment map"); ImGui::TableNextColumn();
+            if (this->envMap && this->envMap->getIblEnvMap())
+            {
+                float sigma = glm::pi<float>() * roughness * roughness / ( 1 + roughness );
+                KEImGui::CubeMapImageUnwrapped(process->getGraphicContext()->getRenderer(),
+                                               this->envMap->getIblEnvMap(),
+                                               ImVec2(96, 72),
+                                               glm::clamp(4.f + log2(sigma), 0.f, 4.f));
+            }
+            else if (this->envMap)
+                KEImGui::CubeMapImageUnwrapped(process->getGraphicContext()->getRenderer(),
+                                               **this->envMap,
+                                               ImVec2(96, 72));
             else
                 ImGui::Text("None");
         }
