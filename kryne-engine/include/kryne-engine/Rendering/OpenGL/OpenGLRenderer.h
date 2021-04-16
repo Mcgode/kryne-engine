@@ -20,6 +20,9 @@ public:
 
     explicit OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size);
 
+    /// @brief Resets special states that are usually disabled
+    void defaultStateReset();
+
     // Override
     void prepareFrame() override;
 

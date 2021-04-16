@@ -31,6 +31,12 @@ OpenGLRenderer::OpenGLRenderer(GraphicContext *context, RenderingState *renderin
 }
 
 
+void OpenGLRenderer::defaultStateReset()
+{
+    this->renderingState->setScissor(false);
+}
+
+
 void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
 {
     const auto camera = this->mainCamera;
@@ -55,6 +61,8 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
+
+    this->defaultStateReset();
 
     if (renderingState->getSide() != material->getSide())
         renderingState->setSide(material->getSide());
@@ -125,6 +133,8 @@ void OpenGLRenderer::finishSceneRendering(Scene *scene)
         if (!envMap->isIblReady())
             this->pmremGenerator->processMap(envMap);
 
+        this->defaultStateReset();
+
         this->skyboxMaterial->setUniform("skybox", **envMap);
         this->skyboxMaterial->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
         this->skyboxMaterial->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
@@ -163,6 +173,8 @@ void OpenGLRenderer::textureRender(Material *material)
     renderingState->setDepthWrite(true);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
+    this->defaultStateReset();
+
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
@@ -188,6 +200,8 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
     const auto vps = this->renderingState->getViewportSize();
 
     this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+
+    this->defaultStateReset();
 
     this->renderingState->setSide(BackSide);
     this->renderingState->setDepthTest(material->isDepthTest());
