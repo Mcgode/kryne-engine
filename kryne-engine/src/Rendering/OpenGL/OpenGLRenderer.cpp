@@ -227,22 +227,22 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
 void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const ivec2 &size)
 {
     // TODO : Better way to get screen size
-    vec2 relativeSize = vec2(size) / vec2(this->renderingState->getViewportSize());
-    vec2 relativePosition = vec2(start) / vec2(this->renderingState->getViewportSize());
+    auto displaySize = vec2(this->renderingState->getViewportSize());
+    vec2 relativeSize = vec2(size) / displaySize;
+    vec2 relativePosition = vec2(start) / (displaySize - vec2(1));
+    relativePosition += relativeSize / 2.f;
     relativePosition = relativePosition * 2.f - 1.f;
+    relativePosition.y *= -1;
 
-    auto matrix = translate(scale(mat4(), vec3(relativeSize, 1)), vec3(relativePosition, 0));
+    auto scaleMatrix = scale(mat4(1), vec3(relativeSize, 1));
+    auto translateMatrix = translate(mat4(1), vec3(relativePosition, 0));
+    auto matrix = translateMatrix * scaleMatrix;
     material->setUniform("matrix", matrix);
-
-    this->renderingState->setScissorValues(start, size);
-    this->renderingState->setScissor(true);
 
     this->renderingState->setDepthWrite(material->isWriteDepth());
     this->renderingState->setDepthTest(material->isDepthTest());
-    this->renderingState->setSide(FrontSide);
+    this->renderingState->setSide(DoubleSide);
 
     material->prepareShader(this->fullscreenPlane.get());
     this->fullscreenPlane->draw();
-
-    this->renderingState->setScissor(false);
 }
