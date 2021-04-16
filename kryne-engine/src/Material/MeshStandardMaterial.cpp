@@ -109,7 +109,7 @@ void MeshStandardMaterial::dearImGuiData(Process *process)
                 float sigma = glm::pi<float>() * roughness * roughness / ( 1 + roughness );
                 KEImGui::CubeMapImageUnwrapped(process->getGraphicContext()->getRenderer(),
                                                this->envMap->getIblEnvMap(),
-                                               ImVec2(96, 72),
+                                               ImVec2(128, 96),
                                                glm::clamp(4.f + log2(sigma), 0.f, 4.f));
             }
             else if (this->envMap)
