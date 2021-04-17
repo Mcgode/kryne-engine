@@ -10,7 +10,7 @@
 #include <string>
 #include <utility>
 
-
+#include <kryne-engine/Core/Process.h>
 #include "LoopRenderer.h"
 
 
@@ -21,19 +21,21 @@ public:
     /**
      * @brief Method called at the start of the frame. Use it to parse the scene.
      *
+     * @param renderer  The process renderer.
      * @param scene     The scene that will be rendered.
      *
      * @returns A list of cameras that will be used for computing frustum culling. Can be empty.
      */
-    virtual vector<Camera *> prepareFrame(Scene *scene) = 0;
+    virtual vector<Camera *> prepareFrame(LoopRenderer *renderer, Scene *scene) = 0;
 
     /**
      * @breif Method called to run this process
      *
+     * @param renderer          The process renderer.
      * @param meshes            The list of render meshes for the scene.
      * @param frustumCullingMap The frustum culling map.
      */
-    virtual void render(const std::vector<RenderMesh *> &meshes,
+    virtual void render(LoopRenderer *renderer, const std::vector<RenderMesh *> &meshes,
                         const std::unordered_map<Camera *, LoopRenderer::FrustumCullingData> &frustumCullingMap) = 0;
 
     /// @brief Retrieves the process name
