@@ -164,6 +164,49 @@ void Process::runLoop()
 
 struct ProcessCommon
 {
+    static inline void PriorityPreProcess(Entity *entity, const vector<System *> *systemsByType)
+    {
+        stack<Entity *> processStack;
+
+        Transform *current = entity->getTransform();
+        do
+        {
+            processStack.push(current->getEntity());
+            current = current->getParent();
+        } while (current != nullptr);
+
+        while (!processStack.empty())
+        {
+            Entity *entityToProcess = processStack.top();
+            processStack.pop();
+
+            {
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
+                // Lock entity processing, to solve potential data racing issues.
+                // Data racing can occur because the same entities can be called multiple times (like common parents),
+                // on potentially different threads.
+                scoped_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
+
+#endif
+
+                if (entityToProcess->ranPreRenderingProcessing)
+                    continue;
+
+                for (const auto& system : systemsByType[LoopStart])
+                    system->runSystem(entity);
+
+                for (const auto& system : systemsByType[GameLogic])
+                    system->runSystem(entity);
+
+                for (const auto& system : systemsByType[PostLogic])
+                    system->runSystem(entity);
+
+                entityToProcess->ranPreRenderingProcessing = true;
+            }
+        }
+    }
 
 
     static inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
@@ -195,6 +238,32 @@ struct ProcessCommon
         return renderMeshes;
     }
 
+};
+
+
+void Process::runPriorityPreProcesses(const unordered_set<Entity *> &entities) const
+{
+    for (const auto entity : entities)
+    {
+        if (!entity->isEnabled())
+            continue;
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
+        Dispatcher::instance().parallel()->enqueue([this, entity]()
+        {
+            ProcessCommon::PriorityPreProcess(entity, this->systemsByType);
+        });
+
+#else
+
+        ProcessCommon::PriorityPreProcess(entity, this->systemsByType);
+
+#endif
+
+    }
+
+    Dispatcher::instance().waitMain();
 }
 
 
@@ -239,95 +308,6 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
         this->processEntity(child->getEntity(), renderer);
 
 #endif
-}
-
-
-void Process::runPriorityPreProcesses(const unordered_set<Entity *> &entities) const
-{
-    for (const auto entity : entities)
-    {
-        if (!entity->isEnabled())
-            continue;
-
-#if KRYNE_ENGINE_SINGLE_THREADED != 1
-
-        Dispatcher::instance().parallel()->enqueue([this, entity]()
-        {
-            stack<Entity *> processStack;
-
-            Transform *current = entity->getTransform();
-            do
-            {
-                processStack.push(current->getEntity());
-                current = current->getParent();
-            } while (current != nullptr);
-
-            while (!processStack.empty())
-            {
-                Entity *entityToProcess = processStack.top();
-                processStack.pop();
-
-                // Lock entity processing, to solve potential data racing issues.
-                // Data racing can occur because the same entities can be called multiple times (like common parents),
-                // on potentially different threads.
-                {
-                    scoped_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
-
-                    if (entityToProcess->ranPreRenderingProcessing)
-                        continue;
-
-                    for (const auto& system : this->systemsByType[LoopStart])
-                        system->runSystem(entity);
-
-                    for (const auto& system : this->systemsByType[GameLogic])
-                        system->runSystem(entity);
-
-                    for (const auto& system : this->systemsByType[PostLogic])
-                        system->runSystem(entity);
-
-                    entityToProcess->ranPreRenderingProcessing = true;
-                }
-            }
-        });
-
-#else
-
-        stack<Entity *> processStack;
-
-        Transform *current = entity->getTransform();
-        do
-        {
-            processStack.push(current->getEntity());
-            current = current->getParent();
-        } while (current != nullptr);
-
-        while (!processStack.empty())
-        {
-            Entity *entityToProcess = processStack.top();
-            processStack.pop();
-
-            // No need to handle locking if running in single-threaded mode.
-
-            if (entityToProcess->ranPreRenderingProcessing)
-                continue;
-
-            for (const auto& system : this->systemsByType[LoopStart])
-                system->runSystem(entity);
-
-            for (const auto& system : this->systemsByType[GameLogic])
-                system->runSystem(entity);
-
-            for (const auto& system : this->systemsByType[PostLogic])
-                system->runSystem(entity);
-
-            entityToProcess->ranPreRenderingProcessing = true;
-        }
-
-#endif
-
-    }
-
-    Dispatcher::instance().waitMain();
 }
 
 
