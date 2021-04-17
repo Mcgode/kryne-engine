@@ -17,3 +17,10 @@ void ShadowMappingProcess::render(LoopRenderer *renderer,
 {
 
 }
+
+
+ShadowMappingProcess::~ShadowMappingProcess()
+{
+    if (this->system)
+        this->system->shadowProcess = nullptr;
+}

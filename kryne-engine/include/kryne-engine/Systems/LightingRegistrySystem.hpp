@@ -34,6 +34,8 @@ public:
 
     void parseScene(Scene *scene, unordered_set<Entity *> &priorityEntities) override;
 
+    virtual ~LightingRegistrySystem();
+
 protected:
 
     void updateAmbientLights(Material *material);
@@ -53,6 +55,9 @@ protected:
     vector<DirectionalLight *> directionalLights;
 
     ShadowMappingProcess *shadowProcess;
+
+
+friend ShadowMappingProcess;
 
 };
 

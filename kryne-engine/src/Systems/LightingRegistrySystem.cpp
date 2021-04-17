@@ -127,3 +127,10 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
         material->setUniform("directionalLights[" + to_string(i) + "].direction", light->getWorldDirection());
     }
 }
+
+
+LightingRegistrySystem::~LightingRegistrySystem()
+{
+    if (this->shadowProcess != nullptr)
+        this->shadowProcess->system = nullptr;
+}

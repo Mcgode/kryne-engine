@@ -33,6 +33,8 @@ public:
                 const std::vector<RenderMesh *> &meshes,
                 const std::unordered_map<Camera *, LoopRenderer::FrustumCullingData> &frustumCullingMap) override;
 
+    virtual ~ShadowMappingProcess();
+
 protected:
 
     /// The lighting system this process is coupled with
