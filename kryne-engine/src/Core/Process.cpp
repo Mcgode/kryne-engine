@@ -162,7 +162,7 @@ void Process::runLoop()
 }
 
 
-namespace
+namespace ProcessCommon
 {
 
     inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
@@ -207,7 +207,8 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        auto renderMeshes = PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing, this->systemsByType);
+        auto renderMeshes = ProcessCommon::PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing,
+                                                                this->systemsByType);
 
         Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
         {
@@ -228,7 +229,8 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
 #else
 
-    auto meshes = PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing, this->systemsByType);
+    auto meshes = ProcessCommon::PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing,
+                                                      this->systemsByType);
     for (const auto mesh : meshes)
         renderer->handleMesh(mesh);
 
