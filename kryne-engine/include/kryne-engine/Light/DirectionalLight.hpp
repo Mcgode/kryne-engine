@@ -8,6 +8,7 @@
 
 
 #include "Light.hpp"
+#include <kryne-engine/Rendering/Framebuffer.hpp>
 
 
 /**
@@ -74,6 +75,45 @@ protected:
 
     /// The world-space direction of the light.
     vec3 worldDirection;
+
+
+// =====================
+// Shadows
+// =====================
+
+friend class ShadowMappingProcess;
+
+public:
+
+    /// @brief Retrieves whether this light should cast shadows or not.
+    [[nodiscard]] bool isCastShadow() const { return castShadow; }
+
+    /// @brief Updates whether this light should cast shadows or not.
+    void setCastShadow(bool val) { DirectionalLight::castShadow = val; }
+
+protected:
+
+    /// @brief A struct for storing the relevant shadow map data
+    struct ShadowMapData {
+
+        /// The camera for the shadow map
+        unique_ptr<Camera> shadowCamera;
+
+        /// The shadow map framebuffer
+        unique_ptr<Framebuffer> shadowFramebuffer;
+
+        /// The far distance after which the shadows shouldn't be computed.
+        float maxCameraDistance;
+
+    };
+
+protected:
+
+    /// Toggle whether this light should cast shadows or not.
+    bool castShadow = false;
+
+    /// The shadow map data of the light.
+    unique_ptr<ShadowMapData> shadowMapData {};
 
 };
 
