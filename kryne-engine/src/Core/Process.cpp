@@ -244,7 +244,7 @@ struct ProcessCommon
 
         auto renderMeshes = entity->getComponents<RenderMesh>(true);
         for (auto renderMesh : renderMeshes)
-            renderer->handleMesh(renderMesh);
+            renderer->registerMesh(renderMesh);
 
         return renderMeshes;
     }
