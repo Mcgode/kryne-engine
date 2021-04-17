@@ -316,10 +316,13 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
         {
             auto renderMeshes = ProcessCommon::PreRenderingFunction(currentEntity, renderer, this->systemsByType);
 
-            Dispatcher::instance().main()->enqueue([renderer, renderMeshes]() {
-                for (auto renderMesh : renderMeshes)
-                    renderer->handleMesh(renderMesh);
-            });
+            if (!renderMeshes.empty())
+            {
+                Dispatcher::instance().main()->enqueue([renderer, renderMeshes]() {
+                    for (auto renderMesh : renderMeshes)
+                        renderer->handleMesh(renderMesh);
+                });
+            }
 
             const auto children = currentEntity->getTransform()->getChildren();
 
