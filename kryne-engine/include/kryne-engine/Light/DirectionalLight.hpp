@@ -81,6 +81,7 @@ protected:
 // Shadows
 // =====================
 
+friend class LightingRegistrySystem;
 friend class ShadowMappingProcess;
 
 public:
