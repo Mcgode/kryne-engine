@@ -162,12 +162,14 @@ void Process::runLoop()
 
     this->context->endFrame();
 
-    this->frameTimer.recordTime("Initialization scripting", objectsRunTime - initializeFrameTime);
-    this->frameTimer.recordTime("Objects scripting", startRenderingTime - objectsRunTime + postProcessingTime - postRenderScriptingTime);
-    this->frameTimer.recordTime("Rendering", uiTime - postProcessingTime + postRenderScriptingTime - startRenderingTime);
-    this->frameTimer.recordTime("UI", delayedTime - uiTime);
-    this->frameTimer.recordTime("Delayed scripting", endFrameTime - delayedTime);
-    this->frameTimer.recordTime("Events polling", system_clock::now() - endFrameTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Initialization", objectsRunTime - initializeFrameTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Pre-rendering", startRenderingTime - objectsRunTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Post-rendering", postProcessingTime - postRenderScriptingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::Rendering, "Main", postRenderScriptingTime - startRenderingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::Rendering, "Post-processing", uiTime - postProcessingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::UI, delayedTime - uiTime);
+    this->frameTimer.recordTime(Utils::FrameTime::AsyncScripting, endFrameTime - delayedTime);
+    this->frameTimer.recordTime(Utils::FrameTime::EventPolling, system_clock::now() - endFrameTime);
 }
 
 

@@ -22,6 +22,8 @@ protected:
 
     float pushTime(const string &name, float value);
 
+    static string getPartString(Utils::FrameTime::Parts part);
+
 protected:
 
     const static size_t BUFFER_SIZE = 1000;

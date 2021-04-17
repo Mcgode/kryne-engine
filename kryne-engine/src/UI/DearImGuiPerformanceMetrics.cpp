@@ -66,17 +66,51 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
 
         ImGui::Dummy(ImVec2(0, 10));
 
-        if (ImGui::BeginTable("TimingsTable", 2, ImGuiTableFlags_Borders))
+        using Utils::FrameTime;
+
+        auto flags = ImGuiTableFlags_Borders | ImGuiTableFlags_Resizable | ImGuiTableFlags_RowBg | ImGuiTableFlags_NoBordersInBody;
+        if (ImGui::BeginTable("TimingsTable", 2, flags))
         {
-            for (const auto &time : data.recordedTimes)
+            ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_NoHide);
+            ImGui::TableSetupColumn("Duration", ImGuiTableColumnFlags_WidthFixed, ImGui::CalcTextSize("000.00ms").x);
+            ImGui::TableHeadersRow();
+
+            for (auto i = 0; i < FrameTime::Parts::COUNT; i++)
             {
+                string name = DearImGuiPerformanceMetrics::getPartString(FrameTime::Parts(i));
+                auto d = data.recordedTimes[i];
+
                 ImGui::TableNextRow();
 
-                ImGui::TableSetColumnIndex(0);
-                ImGui::Text("%s", time.first.c_str());
+                bool open = false;
+                ImGui::TableNextColumn();
 
-                ImGui::TableSetColumnIndex(1);
-                ImGui::Text("%.2fms", this->pushTime(time.first, time.second.count()) * 1000);
+                if (d.recordedTimes.empty())
+                    ImGui::TreeNodeEx(name.c_str(), ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_SpanFullWidth);
+                else
+                    open = ImGui::TreeNodeEx(name.c_str(), ImGuiTreeNodeFlags_SpanFullWidth);
+
+                ImGui::TableNextColumn();
+                ImGui::Text("%.2fms", this->pushTime(name, d.time.count()) * 1000);
+
+                if (open)
+                {
+                    ImGui::Indent();
+
+                    for (const auto& p : d.recordedTimes)
+                    {
+                        ImGui::TableNextRow();
+
+                        ImGui::TableSetColumnIndex(0);
+                        ImGui::Text("%s", p.first.c_str());
+
+                        ImGui::TableSetColumnIndex(1);
+                        ImGui::Text("%.2fms", this->pushTime(p.first, p.second.count()) * 1000);
+                    }
+
+                    ImGui::Unindent();
+                    ImGui::TreePop();
+                }
             }
             ImGui::EndTable();
         }
@@ -94,4 +128,24 @@ void DearImGuiPerformanceMetrics::renderComponent(Process *process)
     }
 
     ImGui::End();
+}
+
+
+string DearImGuiPerformanceMetrics::getPartString(Utils::FrameTime::Parts part)
+{
+    switch (part)
+    {
+        case Utils::FrameTime::ObjectsScripting:
+            return "Scripting";
+        case Utils::FrameTime::Rendering:
+            return "Rendering";
+        case Utils::FrameTime::UI:
+            return "UI";
+        case Utils::FrameTime::AsyncScripting:
+            return "Enqueued tasks";
+        case Utils::FrameTime::EventPolling:
+            return "Events polling";
+        default:
+            return "error";
+    }
 }
