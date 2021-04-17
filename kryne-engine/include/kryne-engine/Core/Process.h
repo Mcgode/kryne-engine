@@ -41,6 +41,9 @@ using namespace std;
 class Process {
 
 
+    friend struct ProcessCommon;
+
+
 public:
 
     explicit Process(GraphicContext *context);
@@ -81,6 +84,8 @@ public:
 protected:
 
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
+
+    void handlePostRender(Entity *entity) const;
 
     void runPriorityPreProcesses(const unordered_set<Entity *> &entities) const;
 

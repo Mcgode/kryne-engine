@@ -136,6 +136,14 @@ void Process::runLoop()
     if (this->currentScene != nullptr)
     {
         renderer->finishSceneRendering(this->currentScene);
+
+        if (!this->systemsByType[PostRendering].empty())
+        {
+            for (const auto entity : this->currentScene->getTopLevelEntities())
+                this->handlePostRender(entity);
+            Dispatcher::instance().waitMain();
+        }
+
         renderer->handlePostProcessing();
     }
 
@@ -238,6 +246,29 @@ struct ProcessCommon
         return renderMeshes;
     }
 
+
+    static inline void PostRenderingFunction(Entity *entity, const Process *process)
+    {
+        Entity *currentEntity = entity;
+
+        while (currentEntity != nullptr)
+        {
+            for (const auto &system : process->systemsByType[PostRendering])
+                system->runSystem(currentEntity);
+
+            const auto children = currentEntity->getTransform()->getChildren();
+
+            if (children.empty())
+                currentEntity = nullptr;
+            else
+            {
+                currentEntity = children[0]->getEntity();
+                for (auto i = 1; i < children.size(); i++)
+                    process->handlePostRender(children[i]->getEntity());
+            }
+        }
+    }
+
 };
 
 
@@ -285,10 +316,6 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
             Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
             {
-
-                for (const auto& system : this->systemsByType[PostRendering])
-                    system->runSystem(entity);
-
                 for (const auto child: entity->getTransform()->getChildren())
                     this->processEntity(child->getEntity(), renderer);
             });
@@ -301,11 +328,25 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
     for (const auto mesh : meshes)
         renderer->handleMesh(mesh);
 
-    for (const auto& system : this->systemsByType[PostRendering])
-        system->runSystem(entity);
-
     for (const auto child: entity->getTransform()->getChildren())
         this->processEntity(child->getEntity(), renderer);
+
+#endif
+}
+
+
+void Process::handlePostRender(Entity *entity) const
+{
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
+    Dispatcher::instance().parallel()->enqueue([entity, this]()
+    {
+        ProcessCommon::PostRenderingFunction(entity, this);
+    });
+
+#else
+
+    ProcessCommon::PostRenderingFunction(entity, this);
 
 #endif
 }
