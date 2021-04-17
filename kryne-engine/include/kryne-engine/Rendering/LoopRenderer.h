@@ -72,6 +72,9 @@ public:
      */
     virtual void setCamera(Camera *camera) { this->mainCamera = camera; }
 
+    /// @brief Retrieves the current main camera
+    [[nodiscard]] Camera *getMainCamera() const { return this->mainCamera; }
+
     /**
      * @brief Retrieves the current rendering mode
      */
