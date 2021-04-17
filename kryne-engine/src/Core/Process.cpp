@@ -137,7 +137,7 @@ void Process::runLoop()
 
     if (this->currentScene != nullptr)
     {
-        renderer->finishSceneRendering(this->currentScene);
+        renderer->renderScene(this->currentScene);
 
         postRenderScriptingTime = system_clock::now();
 

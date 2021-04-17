@@ -123,7 +123,7 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 }
 
 
-void OpenGLRenderer::finishSceneRendering(Scene *scene)
+void OpenGLRenderer::renderScene(Scene *scene)
 {
     assertIsMainThread();
 

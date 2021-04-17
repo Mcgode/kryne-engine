@@ -33,7 +33,7 @@ public:
     std::unordered_set<Entity *> parseScene(Scene *scene) override;
 
     // Override
-    void finishSceneRendering(Scene *scene) override;
+    void renderScene(Scene *scene) override;
 
     // Override
     void handlePostProcessing() override;
