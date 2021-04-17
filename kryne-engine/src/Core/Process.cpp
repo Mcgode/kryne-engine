@@ -162,6 +162,42 @@ void Process::runLoop()
 }
 
 
+namespace
+{
+
+    inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
+                                                     bool &ranPreRenderingProcessing,
+                                                     const vector<System *> *systemsByType)
+    {
+        // No data race can happen in this state, since any entity is only called once by all parallel threads.
+        // As a consequence, no fancy lock operation is needed.
+        if (!ranPreRenderingProcessing)
+        {
+            for (const auto& system : systemsByType[LoopStart])
+                system->runSystem(entity);
+
+            for (const auto& system : systemsByType[GameLogic])
+                system->runSystem(entity);
+
+            for (const auto& system : systemsByType[PostLogic])
+                system->runSystem(entity);
+
+            ranPreRenderingProcessing = true;
+        }
+
+        for (const auto& system : systemsByType[PreRendering])
+            system->runSystem(entity);
+
+        auto renderMeshes = entity->getComponents<RenderMesh>(true);
+        for (auto renderMesh : renderMeshes)
+            renderer->computeFrustumCulling(renderMesh);
+
+        return renderMeshes;
+    }
+
+}
+
+
 void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 {
     if (!entity->isEnabled())
@@ -171,29 +207,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        // No data race can happen in this state, since any entity is only called once by all parallel threads.
-        // As a consequence, no fancy lock operation is needed.
-        if (!entity->ranPreRenderingProcessing)
-        {
-
-            for (const auto& system : this->systemsByType[LoopStart])
-                system->runSystem(entity);
-
-            for (const auto& system : this->systemsByType[GameLogic])
-                system->runSystem(entity);
-
-            for (const auto& system : this->systemsByType[PostLogic])
-                system->runSystem(entity);
-
-            entity->ranPreRenderingProcessing = true;
-        }
-
-        for (const auto& system : this->systemsByType[PreRendering])
-            system->runSystem(entity);
-
-        const auto renderMeshes = entity->getComponents<RenderMesh>(true);
-        for (auto renderMesh : renderMeshes)
-            renderer->computeFrustumCulling(renderMesh);
+        auto renderMeshes = PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing, this->systemsByType);
 
         Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
         {
@@ -214,28 +228,9 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
 #else
 
-    // No data race can happen in this state, since any entity is only called once by all parallel threads.
-    // As a consequence, no fancy lock operation is needed.
-    if (!entity->ranPreRenderingProcessing)
-    {
-        for (const auto& system : this->systemsByType[LoopStart])
-            system->runSystem(entity);
-
-        for (const auto& system : this->systemsByType[GameLogic])
-            system->runSystem(entity);
-
-        for (const auto& system : this->systemsByType[PostLogic])
-            system->runSystem(entity);
-
-        entity->ranPreRenderingProcessing = true;
-    }
-
-    for (const auto& system : this->systemsByType[PreRendering])
-        system->runSystem(entity);
-
-    const auto renderMeshes = entity->getComponents<RenderMesh>(true);
-    for (auto renderMesh : renderMeshes)
-        renderer->computeFrustumCulling(renderMesh);
+    auto meshes = PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing, this->systemsByType);
+    for (const auto mesh : meshes)
+        renderer->handleMesh(mesh);
 
     for (const auto& system : this->systemsByType[PostRendering])
         system->runSystem(entity);
