@@ -108,6 +108,8 @@ void Process::runLoop()
     system_clock::time_point objectsRunTime;
     if (this->currentScene != nullptr)
     {
+        renderer->prepareFrame();
+
         for (const auto entity : this->currentScene->getEntities())
             entity->ranPreRenderingProcessing = false;
 
@@ -116,8 +118,6 @@ void Process::runLoop()
             systemPair.first->parseScene(this->currentScene, entities);
 
         this->runPriorityPreProcesses(entities);
-
-        renderer->prepareFrame();
 
         objectsRunTime = system_clock::now();
         for (const auto entity : this->currentScene->getTopLevelEntities())
