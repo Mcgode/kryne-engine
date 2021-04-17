@@ -15,7 +15,8 @@ LoopRenderer::LoopRenderer(GraphicContext *context,
    screenFramebuffer(move(screenFramebuffer)),
    readFramebuffer(move(readFramebuffer)),
    writeFramebuffer(move(writeFramebuffer)),
-   rendererSize(size)
+   rendererSize(size),
+   context(context)
 {
     auto geometry = make_shared<BoxBufferGeometry>();
     geometry->removeAttribute("normal");
@@ -23,7 +24,7 @@ LoopRenderer::LoopRenderer(GraphicContext *context,
     geometry->removeAttribute("tangent");
     this->cubeGeometry = geometry;
 
-    this->pmremGenerator = make_unique<PMREMGenerator>(context);
+    this->pmremGenerator = make_unique<PMREMGenerator>(this->context);
 }
 
 

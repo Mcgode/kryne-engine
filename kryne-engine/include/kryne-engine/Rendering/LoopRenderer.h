@@ -42,6 +42,9 @@ class LoopRenderer {
 
 public:
 
+    /// @brief Retrieves the current graphical context
+    [[nodiscard]] GraphicContext *getContext() const { return this->context; }
+
     /**
      * @brief A method that will be called at the start of every frame.
      *
@@ -132,6 +135,9 @@ protected:
                  const ivec2 &size);
 
 protected:
+
+    /// The graphical context of the renderer
+    GraphicContext *context;
 
     /// The current rendering mode.
     RenderMode renderMode = ForwardRendering;
