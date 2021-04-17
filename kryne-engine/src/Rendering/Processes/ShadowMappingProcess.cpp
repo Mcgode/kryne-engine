@@ -6,7 +6,7 @@
 
 #include "kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp"
 
-vector<Camera *> ShadowMappingProcess::prepareFrame(LoopRenderer *renderer, Scene *scene)
+vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer, Scene *scene)
 {
     swap(this->currentCDL, this->castingDirLights);
     this->castingDirLights.clear();

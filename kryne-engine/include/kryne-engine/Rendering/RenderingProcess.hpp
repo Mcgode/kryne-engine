@@ -26,7 +26,7 @@ public:
      *
      * @returns A list of cameras that will be used for computing frustum culling. Can be empty.
      */
-    virtual vector<Camera *> prepareFrame(LoopRenderer *renderer, Scene *scene) = 0;
+    virtual vector<Camera *> prepareFrame(const LoopRenderer *renderer, Scene *scene) = 0;
 
     /**
      * @breif Method called to run this process
