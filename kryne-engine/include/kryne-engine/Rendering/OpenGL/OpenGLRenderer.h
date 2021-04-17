@@ -27,9 +27,6 @@ public:
     void prepareFrame() override;
 
     // Override
-    void handleMesh(RenderMesh *renderMesh) override {}
-
-    // Override
     std::unordered_set<Entity *> parseScene(Scene *scene) override;
 
     // Override

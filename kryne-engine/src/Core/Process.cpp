@@ -220,7 +220,7 @@ struct ProcessCommon
     }
 
 
-    static inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
+    static inline void PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
                                                             const vector<System *> *systemsByType)
     {
         // No data race can happen in this state, since any entity is only called once by all parallel threads.
@@ -245,8 +245,6 @@ struct ProcessCommon
         auto renderMeshes = entity->getComponents<RenderMesh>(true);
         for (auto renderMesh : renderMeshes)
             renderer->registerMesh(renderMesh);
-
-        return renderMeshes;
     }
 
 
@@ -314,15 +312,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
         while (currentEntity != nullptr)
         {
-            auto renderMeshes = ProcessCommon::PreRenderingFunction(currentEntity, renderer, this->systemsByType);
-
-            if (!renderMeshes.empty())
-            {
-                Dispatcher::instance().main()->enqueue([renderer, renderMeshes]() {
-                    for (auto renderMesh : renderMeshes)
-                        renderer->handleMesh(renderMesh);
-                });
-            }
+            ProcessCommon::PreRenderingFunction(currentEntity, renderer, this->systemsByType);
 
             const auto children = currentEntity->getTransform()->getChildren();
 

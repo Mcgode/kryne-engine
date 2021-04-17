@@ -53,13 +53,6 @@ public:
     void registerMesh(RenderMesh *mesh);
 
     /**
-     * @brief Handles the provided mesh.
-     *
-     * @param renderMesh The mesh to handle.
-     */
-    virtual void handleMesh(RenderMesh *renderMesh) = 0;
-
-    /**
      * @brief Parses the scene to render in the search of essential data for this frame.
      *
      * @param scene     The current scene that is going to be rendered.
