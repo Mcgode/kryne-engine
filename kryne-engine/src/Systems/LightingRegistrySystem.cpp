@@ -7,7 +7,13 @@
 #include "kryne-engine/Systems/LightingRegistrySystem.hpp"
 
 
-LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(process, PreRendering) {}
+LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(process, PreRendering)
+{
+    auto renderer = process->getGraphicContext()->getRenderer();
+    auto smProcess = make_unique<ShadowMappingProcess>(this);
+    this->shadowProcess = smProcess.get();
+    renderer->addProcess(move(smProcess));
+}
 
 
 void LightingRegistrySystem::loopReset()
