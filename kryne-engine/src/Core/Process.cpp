@@ -131,11 +131,15 @@ void Process::runLoop()
 
     Dispatcher::instance().waitMain();
 
-    auto postProcessTime = system_clock::now();
+    auto startRenderingTime = system_clock::now();
+    auto postRenderScriptingTime = startRenderingTime;
+    auto postProcessingTime = startRenderingTime;
 
     if (this->currentScene != nullptr)
     {
         renderer->finishSceneRendering(this->currentScene);
+
+        postRenderScriptingTime = system_clock::now();
 
         if (!this->systemsByType[PostRendering].empty())
         {
@@ -143,6 +147,8 @@ void Process::runLoop()
                 this->handlePostRender(entity);
             Dispatcher::instance().waitMain();
         }
+
+        postProcessingTime = system_clock::now();
 
         renderer->handlePostProcessing();
     }
@@ -162,8 +168,8 @@ void Process::runLoop()
     this->context->endFrame();
 
     this->frameTimer.recordTime("Initialization scripting", objectsRunTime - initializeFrameTime);
-    this->frameTimer.recordTime("Objects scripting", postProcessTime - objectsRunTime);
-    this->frameTimer.recordTime("Post-processing", uiTime - postProcessTime);
+    this->frameTimer.recordTime("Objects scripting", startRenderingTime - objectsRunTime + postProcessingTime - postRenderScriptingTime);
+    this->frameTimer.recordTime("Rendering", uiTime - postProcessingTime + postRenderScriptingTime - startRenderingTime);
     this->frameTimer.recordTime("UI", delayedTime - uiTime);
     this->frameTimer.recordTime("Delayed scripting", endFrameTime - delayedTime);
     this->frameTimer.recordTime("Events polling", system_clock::now() - endFrameTime);
