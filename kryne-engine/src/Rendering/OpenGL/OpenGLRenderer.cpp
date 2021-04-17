@@ -37,7 +37,7 @@ void OpenGLRenderer::defaultStateReset()
 }
 
 
-void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
+void OpenGLRenderer::renderMesh(RenderMesh *renderMesh)
 {
     const auto camera = this->mainCamera;
 
@@ -126,6 +126,11 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 void OpenGLRenderer::renderScene(Scene *scene)
 {
     assertIsMainThread();
+
+    for (const auto &mesh : this->meshesForFrame)
+    {
+        this->renderMesh(mesh);
+    }
 
     const auto& envMap = scene->getSkyboxEnvMap();
     if (envMap != nullptr && **envMap != nullptr)

@@ -27,7 +27,7 @@ public:
     void prepareFrame() override;
 
     // Override
-    void handleMesh(RenderMesh *renderMesh) override;
+    void handleMesh(RenderMesh *renderMesh) override {}
 
     // Override
     std::unordered_set<Entity *> parseScene(Scene *scene) override;
@@ -46,6 +46,15 @@ public:
 
     //Override
     void quadRender(Material *material, const ivec2 &start, const ivec2 &size) override;
+
+protected:
+
+    /**
+     * @brief Renders a mesh to the framebuffer.
+     *
+     * @param renderMesh The mesh to render.
+     */
+    void renderMesh(RenderMesh *renderMesh);
 
 protected:
 
