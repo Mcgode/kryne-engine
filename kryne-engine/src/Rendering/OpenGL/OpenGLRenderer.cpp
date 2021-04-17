@@ -231,8 +231,7 @@ void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *mater
 
 void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const ivec2 &size)
 {
-    // TODO : Better way to get screen size
-    auto displaySize = vec2(this->renderingState->getViewportSize());
+    auto displaySize = vec2(this->renderingState->getCurrentFramebuffer()->getSize());
     vec2 relativeSize = vec2(size) / displaySize;
     vec2 relativePosition = vec2(start) / (displaySize - vec2(1));
     relativePosition += relativeSize / 2.f;
