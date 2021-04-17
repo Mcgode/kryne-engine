@@ -83,10 +83,24 @@ public:
 
 protected:
 
+    /**
+     * @brief Processes a provided entity, executing all pertinent systems before rendering.
+     *
+     * @param entity    The entity to process.
+     * @param renderer  The renderer used for displaying the entity render meshes.
+     */
     void processEntity(Entity *entity, LoopRenderer *renderer) const;
 
-    void handlePostRender(Entity *entity) const;
+    /**
+     * @brief Processes the post-rendering systems for all entities.
+     */
+    void handlePostRender() const;
 
+    /**
+     * @brief Processes all logic systems for priority components
+     *
+     * @param entities  The priority entities that need pre-processing.
+     */
     void runPriorityPreProcesses(const unordered_set<Entity *> &entities) const;
 
 protected:

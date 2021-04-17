@@ -141,12 +141,7 @@ void Process::runLoop()
 
         postRenderScriptingTime = system_clock::now();
 
-        if (!this->systemsByType[PostRendering].empty())
-        {
-            for (const auto entity : this->currentScene->getTopLevelEntities())
-                this->handlePostRender(entity);
-            Dispatcher::instance().waitMain();
-        }
+        this->handlePostRender();
 
         postProcessingTime = system_clock::now();
 
@@ -270,7 +265,7 @@ struct ProcessCommon
             {
                 currentEntity = children[0]->getEntity();
                 for (auto i = 1; i < children.size(); i++)
-                    process->handlePostRender(children[i]->getEntity());
+                    process->handlePostRender();
             }
         }
     }
@@ -351,20 +346,29 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 }
 
 
-void Process::handlePostRender(Entity *entity) const
+void Process::handlePostRender() const
 {
+    if (this->systemsByType[PostRendering].empty())
+        return;
+
+    for (const auto entity : this->currentScene->getTopLevelEntities())
+    {
+
 #if KRYNE_ENGINE_SINGLE_THREADED != 1
 
-    Dispatcher::instance().parallel()->enqueue([entity, this]()
-    {
-        ProcessCommon::PostRenderingFunction(entity, this);
-    });
+        Dispatcher::instance().parallel()->enqueue([entity, this]() {
+            ProcessCommon::PostRenderingFunction(entity, this);
+        });
 
 #else
 
-    ProcessCommon::PostRenderingFunction(entity, this);
+        ProcessCommon::PostRenderingFunction(entity, this);
 
 #endif
+
+    }
+
+    Dispatcher::instance().waitMain();
 }
 
 
