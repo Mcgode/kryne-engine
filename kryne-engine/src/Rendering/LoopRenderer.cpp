@@ -166,3 +166,48 @@ void LoopRenderer::updateRendererSize(const ivec2 &size)
     this->writeFramebuffer->setSize(size);
     this->readFramebuffer->setSize(size);
 }
+
+
+void LoopRenderer::addProcess(unique_ptr<RenderingProcess> process)
+{
+    this->processes.insert(this->processes.end(), move(process));
+}
+
+
+bool LoopRenderer::addProcessAfter(unique_ptr<RenderingProcess> process, const string &name)
+{
+    auto it = this->processes.begin();
+
+    for (; it != this->processes.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+    }
+
+    if (it == this->processes.end())
+        return false;
+
+    it++;
+    this->processes.insert(it, move(process));
+    return true;
+}
+
+
+bool LoopRenderer::addProcessBefore(unique_ptr<RenderingProcess> process, const string &name)
+{
+    auto it = this->processes.begin();
+    auto before = it;
+
+    for (; it != this->processes.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+        before = it;
+    }
+
+    if (it == this->processes.end())
+        return false;
+
+    this->processes.insert(it, move(process));
+    return true;
+}

@@ -29,6 +29,7 @@ class ShaderMaterial;
 class BoxBufferGeometry;
 class CubeTexture;
 class PMREMGenerator;
+class RenderingProcess;
 
 
 using namespace std;
@@ -237,7 +238,7 @@ protected:
      */
     void computeFrustumCulling(RenderMesh *mesh);
 
-protected:
+public:
 
     struct FrustumCullingData {
 
@@ -248,6 +249,8 @@ protected:
         explicit FrustumCullingData(Camera *camera);
 
     };
+
+protected:
 
     /// The frustum culling state of meshes.
     std::unordered_map<Camera *, FrustumCullingData> frustumCulled;
@@ -282,10 +285,55 @@ protected:
 
     unique_ptr<PMREMGenerator> pmremGenerator;
 
+
+// ==================
+// Rendering processes
+// ==================
+
+public:
+
+    /**
+     * @brief Inserts a rendering process to be run before the final frame render.
+     *
+     * @param process   The process to insert
+     */
+    void addProcess(unique_ptr<RenderingProcess> process);
+
+    /**
+     * @brief Inserts a rendering process after another one.
+     *
+     * @details
+     * The method will fail if it can't find the other process.
+     *
+     * @param process   The process to insert.
+     * @param name      The name of the process to insert before.
+     *
+     * @return true if insertion was successful, false otherwise.
+     */
+    bool addProcessAfter(unique_ptr<RenderingProcess> process, const string &name);
+
+    /**
+     * @brief Inserts a rendering process before another one.
+     *
+     * @details
+     * The method will fail if it can't find the other process.
+     *
+     * @param process   The process to insert.
+     * @param name      The name of the process to insert before.
+     *
+     * @return true if insertion was successful, false otherwise.
+     */
+    bool addProcessBefore(unique_ptr<RenderingProcess> process, const string &name);
+
+protected:
+
+    Utils::UniquePtrVector<RenderingProcess> processes {};
+
 };
 
 
 #include "PostProcessPass.h"
+#include "RenderingProcess.hpp"
 #include <kryne-engine/Core/Entity.h>
 #include <kryne-engine/Camera/Camera.h>
 #include <kryne-engine/3DObjects/Scene.h>
