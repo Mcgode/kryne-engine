@@ -178,13 +178,27 @@ struct ProcessCommon
     static inline void PriorityPreProcess(Entity *entity, const vector<System *> *systemsByType)
     {
         stack<Entity *> processStack;
+        queue<Transform *> tmpQueue;
 
-        Transform *current = entity->getTransform();
+        tmpQueue.push(entity->getTransform());
+
         do
         {
-            processStack.push(current->getEntity());
-            current = current->getParent();
-        } while (current != nullptr);
+            Transform *current = tmpQueue.front();
+            tmpQueue.pop();
+
+            do
+            {
+                processStack.push(current->getEntity());
+
+                if (current->getEntity()->preprocessingRequirement != nullptr)
+                    tmpQueue.push(current->getEntity()->preprocessingRequirement->getTransform());
+
+                current = current->getParent();
+            }
+            while (current != nullptr);
+        }
+        while (!tmpQueue.empty());
 
         while (!processStack.empty())
         {
