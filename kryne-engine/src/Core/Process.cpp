@@ -307,19 +307,29 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        auto renderMeshes = ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
+        Entity *currentEntity = entity;
 
-        Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
+        while (currentEntity != nullptr)
         {
-            for (auto renderMesh : renderMeshes)
-                renderer->handleMesh(renderMesh);
+            auto renderMeshes = ProcessCommon::PreRenderingFunction(currentEntity, renderer, this->systemsByType);
 
-            Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
-            {
-                for (const auto child: entity->getTransform()->getChildren())
-                    this->processEntity(child->getEntity(), renderer);
+            Dispatcher::instance().main()->enqueue([renderer, renderMeshes]() {
+                for (auto renderMesh : renderMeshes)
+                    renderer->handleMesh(renderMesh);
             });
-        });
+
+            const auto children = currentEntity->getTransform()->getChildren();
+
+            if (children.empty())
+                currentEntity = nullptr;
+            else
+            {
+                currentEntity = children[0]->getEntity();
+                for (auto i = 1; i < children.size(); i++)
+                    this->processEntity(children[i]->getEntity(), renderer);
+            }
+        }
+
     });
 
 #else
