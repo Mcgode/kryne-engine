@@ -237,6 +237,7 @@ private:
 
 friend class Process;
 friend class Scene;
+friend struct ProcessCommon;
 
 private:
 

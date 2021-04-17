@@ -162,16 +162,16 @@ void Process::runLoop()
 }
 
 
-namespace ProcessCommon
+struct ProcessCommon
 {
 
-    inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
-                                                     bool &ranPreRenderingProcessing,
-                                                     const vector<System *> *systemsByType)
+
+    static inline vector<RenderMesh *> PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
+                                                            const vector<System *> *systemsByType)
     {
         // No data race can happen in this state, since any entity is only called once by all parallel threads.
         // As a consequence, no fancy lock operation is needed.
-        if (!ranPreRenderingProcessing)
+        if (!entity->ranPreRenderingProcessing)
         {
             for (const auto& system : systemsByType[LoopStart])
                 system->runSystem(entity);
@@ -182,7 +182,7 @@ namespace ProcessCommon
             for (const auto& system : systemsByType[PostLogic])
                 system->runSystem(entity);
 
-            ranPreRenderingProcessing = true;
+            entity->ranPreRenderingProcessing = true;
         }
 
         for (const auto& system : systemsByType[PreRendering])
@@ -207,8 +207,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        auto renderMeshes = ProcessCommon::PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing,
-                                                                this->systemsByType);
+        auto renderMeshes = ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
 
         Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
         {
@@ -229,8 +228,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
 #else
 
-    auto meshes = ProcessCommon::PreRenderingFunction(entity, renderer, entity->ranPreRenderingProcessing,
-                                                      this->systemsByType);
+    auto meshes = ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
     for (const auto mesh : meshes)
         renderer->handleMesh(mesh);
 
