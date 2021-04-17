@@ -41,6 +41,21 @@ protected:
     LightingRegistrySystem *system;
 
 
+// =================
+// Lighting system interactions
+// =================
+
+friend LightingRegistrySystem;
+
+protected:
+
+    /// The lights to process next frame
+    vector<DirectionalLight *> castingDirLights {};
+
+    /// The lights to process this frame
+    vector<DirectionalLight *> currentCDL {};
+
+
 };
 
 

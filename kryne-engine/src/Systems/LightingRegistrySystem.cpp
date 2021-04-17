@@ -61,12 +61,22 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
                 case Light::HemisphereLight:
                     this->hemisphereLights.push_back(dynamic_cast<HemisphereLight *>(light));
                     break;
+
                 case Light::AmbientLight:
                     this->ambientLights.push_back(dynamic_cast<AmbientLight *>(light));
                     break;
+
                 case Light::DirectionalLight:
-                    this->directionalLights.push_back(dynamic_cast<DirectionalLight *>(light));
+                    {
+                        auto dirLight = dynamic_cast<DirectionalLight *>(light);
+
+                        if (dirLight->castShadow)
+                            this->shadowProcess->castingDirLights.push_back(dirLight);
+
+                        this->directionalLights.push_back(dirLight);
+                    }
                     break;
+
                 case Light::PointLight:
                     break;
             }

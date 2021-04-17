@@ -8,6 +8,9 @@
 
 vector<Camera *> ShadowMappingProcess::prepareFrame(LoopRenderer *renderer, Scene *scene)
 {
+    swap(this->currentCDL, this->castingDirLights);
+    this->castingDirLights.clear();
+
     return vector<Camera *>();
 }
 
