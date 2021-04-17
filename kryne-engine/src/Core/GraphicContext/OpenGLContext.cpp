@@ -178,5 +178,5 @@ LoopRenderer *OpenGLContext::getRenderer()
 
 unique_ptr<Framebuffer> OpenGLContext::makeFramebuffer(const ivec2 &size)
 {
-    return make_unique<OpenGLFramebuffer>(size.x, size.y);
+    return make_unique<OpenGLFramebuffer>(this->renderingState.get(), size.x, size.y);
 }

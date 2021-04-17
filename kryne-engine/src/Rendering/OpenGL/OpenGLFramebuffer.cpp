@@ -70,6 +70,8 @@ void OpenGLFramebuffer::setAsRenderTarget()
         if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             throw runtime_error("ERROR::FRAMEBUFFER:: Framebuffer is not complete!");
     }
+
+    this->state->setCurrentFramebuffer(this);
 }
 
 

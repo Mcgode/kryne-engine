@@ -230,6 +230,22 @@ private:
     /// The scissoring rectangle size
     glm::ivec2 scissorSize {};
 
+
+// --- Framebuffer ---
+
+public:
+
+    /// @brief Retrieves the current framebuffer.
+    [[nodiscard]] Framebuffer *getCurrentFramebuffer() const { return currentFramebuffer; }
+
+    /// @brief Updates the current framebuffer.
+    void setCurrentFramebuffer(Framebuffer *fb) { RenderingState::currentFramebuffer = fb; }
+
+protected:
+
+    /// The framebuffer that is currently being used.
+    Framebuffer *currentFramebuffer;
+
 };
 
 

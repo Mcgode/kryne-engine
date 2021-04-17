@@ -17,19 +17,26 @@ class OpenGLFramebuffer: public virtual Framebuffer {
 
 public:
 
-    OpenGLFramebuffer(uint16_t width, uint16_t height) : Framebuffer(width, height) {}
+    OpenGLFramebuffer(RenderingState *state, uint16_t width, uint16_t height) : Framebuffer(width, height), state(state) {}
 
+    // Override
     shared_ptr<Texture> retrieveColor(uint8_t index) override;
 
+    // Override
     void setAsRenderTarget() override;
 
 protected:
 
+    // Override
     void sizeUpdated() override;
 
 protected:
 
+    /// The FBO index
     GLuint fbo = 0;
+
+    /// The OpenGL state tracker
+    RenderingState *state;
 
 
 public:

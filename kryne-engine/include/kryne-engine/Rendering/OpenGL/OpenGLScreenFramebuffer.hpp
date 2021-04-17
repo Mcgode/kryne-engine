@@ -13,7 +13,7 @@ class OpenGLScreenFramebuffer : public Framebuffer {
 
 public:
 
-    OpenGLScreenFramebuffer(uint16_t width, uint16_t height) : Framebuffer(width, height) {}
+    OpenGLScreenFramebuffer(RenderingState *state, uint16_t width, uint16_t height) : Framebuffer(width, height), state(state) {}
 
     // Override
     void setAsRenderTarget() override
@@ -21,6 +21,8 @@ public:
         assertIsMainThread();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+        state->setCurrentFramebuffer(this);
     }
 
     // Override
@@ -36,5 +38,9 @@ protected:
 
     // Override
     void sizeUpdated() override {}
+
+protected:
+
+    RenderingState *state;
 
 };

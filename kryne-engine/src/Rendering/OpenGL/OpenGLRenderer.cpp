@@ -12,9 +12,9 @@
 
 OpenGLRenderer::OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size) :
         LoopRenderer(context,
-                     make_unique<OpenGLScreenFramebuffer>(size.x, size.y),
-                     make_unique<OpenGLFramebuffer>(size.x, size.y),
-                     make_unique<OpenGLFramebuffer>(size.x, size.y),
+                     make_unique<OpenGLScreenFramebuffer>(renderingState, size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(renderingState, size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(renderingState, size.x, size.y),
                      size),
         renderingState(renderingState)
 {
