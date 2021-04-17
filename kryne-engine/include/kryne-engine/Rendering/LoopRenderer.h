@@ -49,6 +49,9 @@ public:
      */
     virtual void prepareFrame();
 
+
+    void registerMesh(RenderMesh *mesh);
+
     /**
      * @brief Handles the provided mesh.
      *
@@ -142,6 +145,12 @@ protected:
     /// The framebuffer corresponding to the displayed window.
     unique_ptr<Framebuffer> screenFramebuffer;
 
+    /// The meshes to render this frame
+    vector<RenderMesh *> meshesForFrame;
+
+    /// A mutex for handling concurrent write of #meshesForFrame
+    mutex meshesMutex;
+
 
 // ================
 // Post processing
@@ -226,7 +235,7 @@ protected:
 // Frustum culling
 // ==================
 
-public:
+protected:
 
     /**
      * @brief Computes the frustum culling of a given mesh for all the cameras.

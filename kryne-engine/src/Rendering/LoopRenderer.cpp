@@ -35,6 +35,11 @@ LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
 void LoopRenderer::prepareFrame()
 {
     {
+        scoped_lock<mutex> l(this->meshesMutex);
+        this->meshesForFrame.clear();
+    }
+
+    {
         scoped_lock<mutex> l(this->frustumCullingMutex);
         this->frustumCulled.clear();
 
@@ -48,6 +53,17 @@ void LoopRenderer::prepareFrame()
         if (pass->isEnabled())
             this->framePostProcessPasses.push_back(pass.get());
     }
+}
+
+
+void LoopRenderer::registerMesh(RenderMesh *mesh)
+{
+    {
+        scoped_lock<mutex> l(this->meshesMutex);
+        this->meshesForFrame.push_back(mesh);
+    }
+
+    this->computeFrustumCulling(mesh);
 }
 
 
