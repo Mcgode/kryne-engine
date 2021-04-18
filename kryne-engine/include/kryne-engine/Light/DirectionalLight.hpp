@@ -103,8 +103,10 @@ protected:
         /// The shadow map framebuffer
         unique_ptr<Framebuffer> shadowFramebuffer;
 
-        /// The far distance after which the shadows shouldn't be computed.
-        float maxCameraDistance;
+        ShadowMapData(unique_ptr<Camera> shadowCamera,
+                      unique_ptr<Framebuffer> shadowFramebuffer) :
+                          shadowCamera(move(shadowCamera)),
+                          shadowFramebuffer(move(shadowFramebuffer)) {}
 
     };
 
@@ -112,6 +114,12 @@ protected:
 
     /// Toggle whether this light should cast shadows or not.
     bool castShadow = false;
+
+    /// The far distance after which the shadows shouldn't be computed.
+    float maxShadowDistance = 1e3;
+
+    /// The minimum depth of the shadow frustum.
+    float minShadowDepth = 1e3;
 
     /// The shadow map data of the light.
     unique_ptr<ShadowMapData> shadowMapData {};
