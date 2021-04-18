@@ -83,6 +83,7 @@ protected:
 
 friend class LightingRegistrySystem;
 friend class ShadowMappingProcess;
+friend class DirectionalLightShadowCameraComponent;
 
 public:
 
