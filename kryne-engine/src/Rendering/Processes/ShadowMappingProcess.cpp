@@ -19,6 +19,7 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
         if (light->shadowMapData == nullptr)
         {
             auto camera = make_unique<Camera>(nullptr, make_unique<OrthographicProjectionData>());
+            camera->addComponent<DirectionalLightShadowCameraComponent>();
             auto framebuffer = renderer->getContext()->makeFramebuffer(ivec2(2048));
             light->shadowMapData = make_unique<DirectionalLight::ShadowMapData>(move(camera), move(framebuffer));
         }
