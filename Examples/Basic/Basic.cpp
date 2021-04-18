@@ -71,9 +71,10 @@ int main()
 //    hemisphereLight->getTransform()->setScene(scene);
 
     const auto directionalLight = process->makeEntity<DirectionalLight>(vec3(1, 1, 1),
-                                                                        1.5f,
+                                                                        0.75f,
                                                                         vec3(-1, -1, -1));
-//    directionalLight->getTransform()->setScene(scene);
+    directionalLight->setCastShadow(true);
+    directionalLight->getTransform()->setScene(scene);
 
     Dispatcher::instance().enqueueParallelDelayed([&process, &params, &scene, map, normalMap, roughnessMap, &skyEnvMap]()
     {
@@ -118,7 +119,7 @@ int main()
     torusKnot->getTransform()->setScene(scene);
     torusKnot->addComponent<RenderMesh>(torusGeometry, torusMaterial);
 
-    const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f));
+    const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f, 3.1415 * 0.5, 0.1f, 20.f));
     camera->addComponent<OrbitControlsComponent>();
     camera->getTransform()->setScene(scene);
     camera->setName("OrbitCamera");
