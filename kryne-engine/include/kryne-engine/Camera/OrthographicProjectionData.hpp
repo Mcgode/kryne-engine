@@ -14,9 +14,17 @@ class OrthographicProjectionData : public ProjectionData {
 
 public:
 
-    OrthographicProjectionData(float depth, float width, float height, const vec3 &offset) : depth(depth), width(width),
-                                                                                             height(height),
-                                                                                             offset(offset) {}
+    explicit OrthographicProjectionData(float depth = 0,
+                                        float width = 0,
+                                        float height = 0,
+                                        const vec3 &offset = vec3(0)) :
+                                            depth(depth),
+                                            width(width),
+                                            height(height),
+                                            offset(offset)
+    {
+        OrthographicProjectionData::updateProjectionMatrix();
+    }
 
     /// @brief Retrieves the projection depth
     [[nodiscard]] float getDepth() const { return depth; }
@@ -96,16 +104,16 @@ protected:
 protected:
 
     /// The depth of the frustum. Used to compute far/near components.
-    float depth;
+    float depth = 0;
 
     /// The width of the frustum. Used to compute right/left components.
-    float width;
+    float width = 0;
 
     /// The height of the frustum. Used to compute top/bottom components.
-    float height;
+    float height = 0;
 
     /// The offset position of the frustum. This position corresponds to the center of the near plane.
-    vec3 offset;
+    vec3 offset = vec3(0);
 
 };
 
