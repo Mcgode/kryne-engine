@@ -41,7 +41,7 @@ void DirectionalLightShadowCameraComponent::onUpdate()
         vec3(-1,  1, -1),
         vec3( 1,  1, -1),
         vec3(-1, -1,  1),
-        vec3( 1,  1,  1),
+        vec3( 1, -1,  1),
         vec3(-1,  1,  1),
         vec3( 1,  1,  1),
     };
