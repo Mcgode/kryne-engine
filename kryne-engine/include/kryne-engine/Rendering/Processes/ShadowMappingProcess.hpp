@@ -28,7 +28,7 @@ public:
     ShadowMappingProcess(LightingRegistrySystem *system) : RenderingProcess("Shadow mapping"), system(system) {}
 
     // Override
-    vector<Camera *> prepareFrame(const LoopRenderer *renderer, Scene *scene) override;
+    vector<Camera *> prepareFrame(const LoopRenderer *renderer) override;
 
     // Override
     void render(LoopRenderer *renderer,
