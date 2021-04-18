@@ -14,6 +14,7 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
     // Main camera call should be safe.
     const auto mainCamera = renderer->getMainCamera();
 
+    auto cameras = vector<Camera *>();
     for (const auto &light : this->currentCDL)
     {
         if (light->shadowMapData == nullptr)
@@ -27,9 +28,11 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
         auto &camera = light->shadowMapData->shadowCamera;
         camera->getTransform()->unsafeSetParent(light->getTransform());
         camera->unsafeSetPreprocessingRequirement(mainCamera);
+
+        cameras.push_back(camera.get());
     }
 
-    return vector<Camera *>();
+    return cameras;
 }
 
 void ShadowMappingProcess::render(LoopRenderer *renderer,
