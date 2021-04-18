@@ -117,7 +117,12 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
     unordered_set<Entity *> result;
 
     this->mainCamera->getProjectionData()->setViewportSize(this->rendererSize);
-    result.emplace(this->mainCamera);
+
+    {
+        scoped_lock<mutex> l(this->frustumCullingMutex);
+        for (const auto &pair : this->frustumCulled)
+            result.emplace(pair.first);
+    }
 
     return result;
 }
@@ -126,6 +131,11 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 void OpenGLRenderer::renderScene(Scene *scene)
 {
     assertIsMainThread();
+
+    for (const auto &process : this->processes)
+    {
+        process->render(this, this->meshesForFrame, this->frustumCulled);
+    }
 
     for (const auto &mesh : this->meshesForFrame)
     {
