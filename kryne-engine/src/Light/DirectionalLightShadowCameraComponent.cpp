@@ -27,7 +27,7 @@ void DirectionalLightShadowCameraComponent::onUpdate()
     if (projectionData == nullptr)
         return;
 
-    this->getTransform()->lookAt(parent->direction);
+    this->getTransform()->lookAt(parent->direction, vec3(0, 1, 0), true);
     auto rotationMatrix = glm::toMat4(this->getTransform()->getQuaternion());
 
     auto localMatrix = inverse(parent->getTransform()->getWorldMatrix() * rotationMatrix);
