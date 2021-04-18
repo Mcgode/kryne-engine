@@ -161,6 +161,18 @@ private:
 
 
 // ====================
+// Special mode materials
+// ====================
+
+public:
+
+    /**
+     * @brief Retrieves a depth material corresponding to this material.
+     */
+    virtual Material *getDepthMaterial() = 0;
+
+
+// ====================
 // Dear ImGui functions
 // ====================
 

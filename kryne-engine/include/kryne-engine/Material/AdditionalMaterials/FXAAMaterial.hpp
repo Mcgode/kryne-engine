@@ -91,6 +91,9 @@ public:
         FXAAMaterial::edgeThreshold = value;
     }
 
+    // Override
+    Material *getDepthMaterial() override { return nullptr; }
+
 protected:
 
     string materialName() override { return "FXAA"; }
