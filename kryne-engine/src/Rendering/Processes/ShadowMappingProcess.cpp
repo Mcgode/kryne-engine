@@ -27,6 +27,7 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
 
         auto &camera = light->shadowMapData->shadowCamera;
         camera->getTransform()->unsafeSetParent(light->getTransform());
+        camera->getComponent<DirectionalLightShadowCameraComponent>()->setMainCamera(mainCamera);
         camera->unsafeSetPreprocessingRequirement(mainCamera);
 
         cameras.push_back(camera.get());
