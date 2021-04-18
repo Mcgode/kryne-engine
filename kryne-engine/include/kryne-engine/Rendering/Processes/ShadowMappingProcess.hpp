@@ -9,6 +9,7 @@
 
 #include <kryne-engine/Rendering/RenderingProcess.hpp>
 #include <kryne-engine/Systems/LightingRegistrySystem.hpp>
+#include <kryne-engine/Camera/OrthographicProjectionData.hpp>
 
 
 /**
