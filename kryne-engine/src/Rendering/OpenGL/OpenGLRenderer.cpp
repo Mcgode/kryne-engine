@@ -37,10 +37,8 @@ void OpenGLRenderer::defaultStateReset()
 }
 
 
-void OpenGLRenderer::renderMesh(RenderMesh *renderMesh)
+void OpenGLRenderer::renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial)
 {
-    const auto camera = this->mainCamera;
-
     if (camera == nullptr) return;
 
     if (renderMesh->isFrustumCull())
@@ -54,7 +52,7 @@ void OpenGLRenderer::renderMesh(RenderMesh *renderMesh)
             return;
     }
 
-    const auto& material = renderMesh->getMaterial();
+    const auto material = overrideMaterial != nullptr ? overrideMaterial : renderMesh->getMaterial().get();
     const auto& geometry = renderMesh->getGeometry();
     const auto transform = renderMesh->getEntity()->getTransform();
 
@@ -139,7 +137,7 @@ void OpenGLRenderer::renderScene(Scene *scene)
 
     for (const auto &mesh : this->meshesForFrame)
     {
-        this->renderMesh(mesh);
+        this->renderMesh(mesh, this->mainCamera, nullptr);
     }
 
     const auto& envMap = scene->getSkyboxEnvMap();

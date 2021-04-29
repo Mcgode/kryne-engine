@@ -94,6 +94,15 @@ public:
     virtual void renderScene(Scene *scene) = 0;
 
     /**
+     * @brief Renders a mesh to the framebuffer.
+     *
+     * @param renderMesh        The mesh to render.
+     * @param overrideMaterial  Pass this material to override the default mesh material. Set to nullptr to ignore
+     *                          this feature.
+     */
+    virtual void renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial) = 0;
+
+    /**
      * @brief Handles the post processing and the rendering to screen.
      */
     virtual void handlePostProcessing() = 0;
