@@ -47,6 +47,12 @@ public:
     //Override
     void quadRender(Material *material, const ivec2 &start, const ivec2 &size) override;
 
+    // Override
+    void setTargetFramebuffer(Framebuffer *framebuffer) override;
+
+    // Override
+    void clearBuffer(bool color, bool depth, bool stencil) override;
+
 protected:
 
     /// The current OpenGL rendering state.

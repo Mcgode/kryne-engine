@@ -258,3 +258,37 @@ void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const iv
     material->prepareShader(this->fullscreenPlane.get());
     this->fullscreenPlane->draw();
 }
+
+
+void OpenGLRenderer::setTargetFramebuffer(Framebuffer *framebuffer)
+{
+    if (this->renderingState->getCurrentFramebuffer() == framebuffer)
+        return;
+
+    framebuffer->setAsRenderTarget();
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+}
+
+
+void OpenGLRenderer::clearBuffer(bool color, bool depth, bool stencil)
+{
+    GLint bits = 0;
+
+    if (color)
+    {
+        bits |= GL_COLOR_BUFFER_BIT;
+    }
+
+    if (depth)
+    {
+        this->renderingState->setDepthWrite(true);
+        bits |= GL_DEPTH_BUFFER_BIT;
+    }
+
+    if (stencil)
+    {
+        bits |= GL_STENCIL_BUFFER_BIT;
+    }
+
+    glClear(bits);
+}

@@ -244,6 +244,29 @@ protected:
 
 
 // ==================
+// Framebuffer
+// ==================
+
+public:
+
+    /**
+     * @brief Sets the provided framebuffer as the new render target.
+     *
+     * @param framebuffer The framebuffer to write to
+     */
+    virtual void setTargetFramebuffer(Framebuffer *framebuffer) = 0;
+
+    /**
+     * @brief Clears the current framebuffer
+     *
+     * @param color     Set to true to clear color
+     * @param depth     Set to true to clear depth
+     * @param stencil   Set to true to clear stencil
+     */
+    virtual void clearBuffer(bool color, bool depth, bool stencil) = 0;
+
+
+// ==================
 // Frustum culling
 // ==================
 
