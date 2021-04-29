@@ -82,6 +82,9 @@ public:
 
         this->offset = vec3(min.x + diff.x / 2, min.y + diff.y / 2, min.z);
 
+        cout << "Width: " << width << ", height: " << height << ", depth: " << depth << ", offset: ("
+        << offset.x << ", " << offset.y << ", " << offset.z << ")" << endl;
+
         this->updateProjectionMatrix();
     }
 
@@ -92,7 +95,7 @@ public:
      */
     [[nodiscard]] vec2 getTexelSize(const vec2 &resolution) const
     {
-        return resolution / vec2(width, height);
+        return vec2(width, height) / resolution;
     }
 
 protected:
