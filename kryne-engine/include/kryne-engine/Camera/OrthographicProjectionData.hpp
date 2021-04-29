@@ -82,9 +82,6 @@ public:
 
         this->offset = vec3(min.x + diff.x / 2, min.y + diff.y / 2, min.z);
 
-        cout << "Width: " << width << ", height: " << height << ", depth: " << depth << ", offset: ("
-        << offset.x << ", " << offset.y << ", " << offset.z << ")" << endl;
-
         this->updateProjectionMatrix();
     }
 
