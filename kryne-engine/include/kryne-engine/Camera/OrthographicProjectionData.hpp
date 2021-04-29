@@ -85,6 +85,16 @@ public:
         this->updateProjectionMatrix();
     }
 
+    /**
+     * @brief Computes the texel size of the camera for a given resolution
+     *
+     * @param resolution The resolution to compute the texel size for
+     */
+    [[nodiscard]] vec2 getTexelSize(const vec2 &resolution) const
+    {
+        return resolution / vec2(width, height);
+    }
+
 protected:
 
     // Override

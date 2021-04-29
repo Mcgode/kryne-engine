@@ -84,4 +84,9 @@ void DirectionalLightShadowCameraComponent::onUpdate()
     vec3 maxOrtho = orthoSphere.center + orthoSphere.radius;
 
     projectionData->setFrustum(minOrtho, maxOrtho);
+
+    const auto texelSize = projectionData->getTexelSize(vec2(parent->shadowMapData->shadowFramebuffer->getSize()));
+    const auto offset = projectionData->getOffset();
+    auto roundedOffset = glm::round(vec2(offset) / texelSize) * texelSize;
+    projectionData->setOffset(vec3(roundedOffset, offset.z));
 }
