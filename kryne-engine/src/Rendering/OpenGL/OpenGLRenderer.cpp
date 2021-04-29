@@ -93,10 +93,9 @@ void OpenGLRenderer::prepareFrame()
 
     LoopRenderer::prepareFrame();
 
-    if (this->framePostProcessPasses.empty())
-        this->screenFramebuffer->setAsRenderTarget();
-    else
-        this->writeFramebuffer->setAsRenderTarget();
+    this->setTargetFramebuffer(this->framePostProcessPasses.empty() ?
+                                                this->screenFramebuffer.get() :
+                                                this->writeFramebuffer.get());
 
     this->renderingState->setViewport(ivec2(0), this->rendererSize);
     glClearColor(0.f, 0.f, 0.f, 0.f);
@@ -135,6 +134,7 @@ void OpenGLRenderer::renderScene(Scene *scene)
         process->render(this, this->meshesForFrame, this->frustumCulled);
     }
 
+    this->setTargetFramebuffer(this->writeFramebuffer.get());
     for (const auto &mesh : this->meshesForFrame)
     {
         this->renderMesh(mesh, this->mainCamera, nullptr);
