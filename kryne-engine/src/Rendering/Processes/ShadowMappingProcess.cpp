@@ -22,6 +22,7 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
             auto camera = make_unique<Camera>(light->getProcess(), make_unique<OrthographicProjectionData>());
             camera->addComponent<DirectionalLightShadowCameraComponent>();
             auto framebuffer = renderer->getContext()->makeFramebuffer(ivec2(2048));
+            framebuffer->setUpDepthLayer();
             light->shadowMapData = make_unique<DirectionalLight::ShadowMapData>(move(camera), move(framebuffer));
         }
 
@@ -46,6 +47,13 @@ void ShadowMappingProcess::render(LoopRenderer *renderer,
     {
         if (light->shadowMapData)
         {
+            const auto &shadowData = light->shadowMapData;
+            renderer->setTargetFramebuffer(shadowData->shadowFramebuffer.get());
+            renderer->clearBuffer(false, true, false);
+            for (const auto &mesh: meshes)
+                renderer->renderMesh(mesh, shadowData->shadowCamera.get(), mesh->getMaterial()->getDepthMaterial());
+
+            // Reset data
             light->shadowMapData->shadowCamera->getTransform()->unsafeSetParent(nullptr);
             light->shadowMapData->shadowCamera->unsafeSetPreprocessingRequirement(nullptr);
         }
