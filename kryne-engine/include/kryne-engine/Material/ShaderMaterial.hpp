@@ -78,7 +78,7 @@ public:
      */
     static ShaderMaterial &defaultDepthMaterial()
     {
-        static ShaderMaterial mat(make_unique<Shader>("Depth"));
+        static ShaderMaterial mat(make_unique<Shader>("Engine/Depth"));
         return mat;
     }
 
