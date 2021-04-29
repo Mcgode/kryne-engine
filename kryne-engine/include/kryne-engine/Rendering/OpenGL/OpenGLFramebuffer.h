@@ -22,10 +22,10 @@ public:
     // Override
     shared_ptr<Texture> retrieveColor(uint8_t index) override;
 
+protected:
+
     // Override
     void setAsRenderTarget() override;
-
-protected:
 
     // Override
     void sizeUpdated() override;
