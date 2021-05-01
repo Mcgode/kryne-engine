@@ -145,15 +145,23 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
             for (auto j = 0; j < light->cascadedShadowMaps; j++)
             {
                 const auto &data = light->shadowMapData[j];
+                if (data == nullptr)
+                    break;
+
                 const auto &cam  = data->shadowCamera;
-                material->setUniform("shadowMapsData[" + to_string(shadowIndex) + "].lightMatrix", cam->getProjectionMatrix() * cam->getViewMatrix());
-                material->setUniform("shadowMapsData[" + to_string(shadowIndex) + "].shadowMap", data->shadowFramebuffer->retrieveDepth());
+                material->setUniform("directionalShadowMatrices", cam->getProjectionMatrix() * cam->getViewMatrix(), shadowIndex);
+                material->setUniform("directionalShadowMaps", data->shadowFramebuffer->retrieveDepth(), shadowIndex);
                 indexes[j] = ++shadowIndex;
             }
         }
 
         material->setUniform("directionalLights[" + to_string(i) + "].shadowMapIndexes", indexes);
     }
+
+    if (shadowIndex == 0)
+        material->removeDefine("MAX_DIRECTIONAL_SHADOW_MAPS");
+    else
+        material->setDefine("MAX_DIRECTIONAL_SHADOW_MAPS", to_string(shadowIndex));
 }
 
 
