@@ -9,6 +9,8 @@ in GeometryData vGeometry;
 #include <bsdfs>
 #include <physical_material_pars_fragment>
 
+#include <shadow_pars_fragment>
+
 #include <lights_pars_begin>
 #include <lights_physical_pars_fragment>
 #include <normal_pars_fragment>
