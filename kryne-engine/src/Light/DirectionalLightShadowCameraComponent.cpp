@@ -42,28 +42,35 @@ void DirectionalLightShadowCameraComponent::onUpdate()
     auto localMatrix = inverse(parent->getTransform()->getWorldMatrix() * rotationMatrix);
     auto worldMatrix = inverse(this->mainCamera->getProjectionMatrix() * this->mainCamera->getViewMatrix());
 
-    float z = 1;
+    const auto m = mainCamera->getInverseProjectionMatrix();
+    auto v1 = m * vec4(0, 0, -1, 1),
+         v2 = m * vec4(0, 0,  1, 1);
+    auto p1 = vec3(v1) / v1.w,
+         p2 = vec3(v2) / v2.w;
+    float baseDepth = glm::distance(p1, p2);
+    float depth = baseDepth;
     if (parent->maxShadowDistance > 0.f)
-    {
-        auto m = mainCamera->getInverseProjectionMatrix();
-        auto v1 = m * vec4(0, 0, -1, 1),
-             v2 = m * vec4(0, 0,  1, 1);
-        auto p1 = vec3(v1) / v1.w,
-             p2 = vec3(v2) / v2.w;
-        float depth = glm::distance(p1, p2);
-        float a = glm::min(parent->maxShadowDistance, depth) / depth;
-        z = glm::mix(-1.f, 1.f, a);
-    }
+        depth = glm::min(depth, parent->maxShadowDistance);
+
+    const float total = (float) (1 << parent->cascadedShadowMaps) - 1;
+    const float a = (float) (1 << this->index) - 1,
+                b = (float) (1 << (this->index + 1)) - 1;
+    const auto da = glm::mix(p1, p2, depth / baseDepth * a / total),
+               db = glm::mix(p1, p2, depth / baseDepth * b / total);
+    auto va = mainCamera->getProjectionMatrix() * vec4(da, 1),
+         vb = mainCamera->getProjectionMatrix() * vec4(db, 1);
+    const float za = va.z / va.w,
+                zb = vb.z / vb.w;
 
     vec3 frustumLocalPoints[] = {
-        vec3(-1, -1, -1),
-        vec3( 1, -1, -1),
-        vec3(-1,  1, -1),
-        vec3( 1,  1, -1),
-        vec3(-1, -1,  z),
-        vec3( 1, -1,  z),
-        vec3(-1,  1,  z),
-        vec3( 1,  1,  z),
+        vec3(-1, -1, za),
+        vec3( 1, -1, za),
+        vec3(-1,  1, za),
+        vec3( 1,  1, za),
+        vec3(-1, -1, zb),
+        vec3( 1, -1, zb),
+        vec3(-1,  1, zb),
+        vec3( 1,  1, zb),
     };
 
     vec3 frustumCenter(0);
