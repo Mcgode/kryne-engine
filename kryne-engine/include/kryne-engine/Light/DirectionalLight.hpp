@@ -93,6 +93,18 @@ public:
     /// @brief Updates whether this light should cast shadows or not.
     void setCastShadow(bool val) { DirectionalLight::castShadow = val; }
 
+    /// @brief Retrieves the camera frustum far distance after which the shadows shouldn't be computed.
+    [[nodiscard]] float getMaxShadowDistance() const { return maxShadowDistance; }
+
+    /// @brief Updates the camera frustum far distance after which the shadows shouldn't be computed.
+    void setMaxShadowDistance(float value) { DirectionalLight::maxShadowDistance = value; }
+
+    /// @brief Retrieves the minimum depth of the shadow frustum.
+    [[nodiscard]] float getMinShadowDepth() const { return minShadowDepth; }
+
+    /// @brief Updates the minimum depth of the shadow frustum.
+    void setMinShadowDepth(float value) { DirectionalLight::minShadowDepth = value; }
+
 protected:
 
     /// @brief A struct for storing the relevant shadow map data
@@ -120,7 +132,7 @@ protected:
     float maxShadowDistance = 1e3;
 
     /// The minimum depth of the shadow frustum.
-    float minShadowDepth = 1e3;
+    float minShadowDepth = 1e2;
 
     /// The shadow map data of the light.
     unique_ptr<ShadowMapData> shadowMapData {};
