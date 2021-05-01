@@ -103,3 +103,11 @@ void OpenGLFramebuffer::sizeUpdated()
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
         throw runtime_error("ERROR::FRAMEBUFFER:: Framebuffer is not complete!");
 }
+
+
+shared_ptr<Texture> OpenGLFramebuffer::retrieveDepth()
+{
+    if (this->depthStencilAttachment != nullptr)
+        return this->depthStencilAttachment->texture;
+    return nullptr;
+}

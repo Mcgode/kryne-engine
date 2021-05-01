@@ -64,4 +64,6 @@ public:
 
     virtual shared_ptr<Texture> retrieveColor(uint8_t index) = 0;
 
+    virtual shared_ptr<Texture> retrieveDepth() = 0;
+
 };

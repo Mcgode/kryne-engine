@@ -24,6 +24,9 @@ public:
     // Override
     shared_ptr<Texture> retrieveColor(uint8_t index) override { return nullptr; }
 
+    // Override
+    shared_ptr<Texture> retrieveDepth() override { return nullptr; }
+
 protected:
 
     // Override
