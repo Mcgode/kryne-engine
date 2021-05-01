@@ -98,46 +98,53 @@ $(document).ready(function(){initNavTree('_logic_component_8h_source.html',''); 
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_logic_component.html#aac1e60efe7882ad424134ca8a880a10d">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_logic_component.html#aac1e60efe7882ad424134ca8a880a10d">LogicComponent</a>(<a class="code" href="class_entity.html">Entity</a> *entity): <a class="code" href="class_component.html">Component</a>(entity) {}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// -----</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// Component lifecycle</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// -----</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_logic_component.html#aac1e60efe7882ad424134ca8a880a10d">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_logic_component.html#aac1e60efe7882ad424134ca8a880a10d">LogicComponent</a>(<a class="code" href="class_entity.html">Entity</a> *entity): <a class="code" href="class_component.html">Component</a>(entity)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        this-&gt;<a class="code" href="class_component.html#a20f41dd3d0aa778f2e9a05bb756779a4">componentName</a> = <span class="stringliteral">&quot;LogicComponent&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_logic_component.html#aac85ba7ffc9ddce788d7220a1deaed61">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#aac85ba7ffc9ddce788d7220a1deaed61">transformDidUpdate</a>()<span class="keyword"> override </span>{}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a0af83d7d14cb3774ab5598f1e9bf8859">onBegin</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">   47</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">hasBegun</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;begun; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// -----</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// Component lifecycle</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// -----</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a0af83d7d14cb3774ab5598f1e9bf8859">onBegin</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">   53</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">onAttach</a>() {};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">   58</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">onUpdate</a>() {};</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">   52</a></span>&#160;    [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">hasBegun</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;begun; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">   58</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">onAttach</a>() {};</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_logic_component.html#a3e987ce219516a5d3003727907738166">   65</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a3e987ce219516a5d3003727907738166">onDetach</a>() {};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> begun = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">   63</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">onUpdate</a>() {};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_logic_component.html#a3e987ce219516a5d3003727907738166">   70</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logic_component.html#a3e987ce219516a5d3003727907738166">onDetach</a>() {};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif //KRYNE_ENGINE_LOGICCOMPONENT_H</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> begun = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif //KRYNE_ENGINE_LOGICCOMPONENT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_logic_component_html_ae8eeaf54dc346f96314a8196f37b5a89"><div class="ttname"><a href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">LogicComponent::onUpdate</a></div><div class="ttdeci">virtual void onUpdate()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:58</div></div>
+<div class="ttc" id="aclass_logic_component_html_ae8eeaf54dc346f96314a8196f37b5a89"><div class="ttname"><a href="class_logic_component.html#ae8eeaf54dc346f96314a8196f37b5a89">LogicComponent::onUpdate</a></div><div class="ttdeci">virtual void onUpdate()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:63</div></div>
 <div class="ttc" id="a_component_8h_html"><div class="ttname"><a href="_component_8h.html">Component.h</a></div></div>
-<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdef"><b>Definition:</b> Component.h:22</div></div>
-<div class="ttc" id="aclass_logic_component_html_a3e987ce219516a5d3003727907738166"><div class="ttname"><a href="class_logic_component.html#a3e987ce219516a5d3003727907738166">LogicComponent::onDetach</a></div><div class="ttdeci">virtual void onDetach()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:65</div></div>
+<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdef"><b>Definition:</b> Component.h:24</div></div>
+<div class="ttc" id="aclass_logic_component_html_a3e987ce219516a5d3003727907738166"><div class="ttname"><a href="class_logic_component.html#a3e987ce219516a5d3003727907738166">LogicComponent::onDetach</a></div><div class="ttdeci">virtual void onDetach()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:70</div></div>
 <div class="ttc" id="aclass_logic_component_html_a0af83d7d14cb3774ab5598f1e9bf8859"><div class="ttname"><a href="class_logic_component.html#a0af83d7d14cb3774ab5598f1e9bf8859">LogicComponent::onBegin</a></div><div class="ttdeci">virtual void onBegin()</div><div class="ttdef"><b>Definition:</b> LogicComponent.cpp:10</div></div>
+<div class="ttc" id="aclass_logic_component_html_aac85ba7ffc9ddce788d7220a1deaed61"><div class="ttname"><a href="class_logic_component.html#aac85ba7ffc9ddce788d7220a1deaed61">LogicComponent::transformDidUpdate</a></div><div class="ttdeci">void transformDidUpdate() override</div><div class="ttdoc">A function triggered every time the entity's transform is updated.</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:33</div></div>
 <div class="ttc" id="aclass_logic_component_html"><div class="ttname"><a href="class_logic_component.html">LogicComponent</a></div><div class="ttdef"><b>Definition:</b> LogicComponent.h:17</div></div>
 <div class="ttc" id="aclass_logic_component_html_aac1e60efe7882ad424134ca8a880a10d"><div class="ttname"><a href="class_logic_component.html#aac1e60efe7882ad424134ca8a880a10d">LogicComponent::LogicComponent</a></div><div class="ttdeci">LogicComponent(Entity *entity)</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:28</div></div>
-<div class="ttc" id="aclass_logic_component_html_a3d4f001b9d688f7e3b649be6a38e489b"><div class="ttname"><a href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">LogicComponent::onAttach</a></div><div class="ttdeci">virtual void onAttach()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:53</div></div>
-<div class="ttc" id="aclass_logic_component_html_ac15a96dfc9c549da3a33bf88195af0e1"><div class="ttname"><a href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">LogicComponent::hasBegun</a></div><div class="ttdeci">bool hasBegun() const</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:47</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:30</div></div>
+<div class="ttc" id="aclass_component_html_a20f41dd3d0aa778f2e9a05bb756779a4"><div class="ttname"><a href="class_component.html#a20f41dd3d0aa778f2e9a05bb756779a4">Component::componentName</a></div><div class="ttdeci">string componentName</div><div class="ttdef"><b>Definition:</b> Component.h:65</div></div>
+<div class="ttc" id="aclass_logic_component_html_a3d4f001b9d688f7e3b649be6a38e489b"><div class="ttname"><a href="class_logic_component.html#a3d4f001b9d688f7e3b649be6a38e489b">LogicComponent::onAttach</a></div><div class="ttdeci">virtual void onAttach()</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:58</div></div>
+<div class="ttc" id="aclass_logic_component_html_ac15a96dfc9c549da3a33bf88195af0e1"><div class="ttname"><a href="class_logic_component.html#ac15a96dfc9c549da3a33bf88195af0e1">LogicComponent::hasBegun</a></div><div class="ttdeci">bool hasBegun() const</div><div class="ttdef"><b>Definition:</b> LogicComponent.h:52</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:31</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

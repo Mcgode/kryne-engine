@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['traversecallback_1425',['TraverseCallback',['../class_transform.html#a463c1606c4de26aa06c0b5ac52df3480',1,'Transform']]]
+  ['iteratortype_1876',['IteratorType',['../struct_utils_1_1_unique_ptr_vector.html#ace8cdfca58c719d146e731e0f4fcfbda',1,'Utils::UniquePtrVector']]]
 ];

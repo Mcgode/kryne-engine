@@ -4,14 +4,19 @@
  * @date 06/02/2021.
  */
 
+#include <kryne-engine/Material/ShaderMaterial.hpp>
+#include <kryne-engine/Geometry/BoxBufferGeometry.h>
+#include <kryne-engine/Constants/CubeRenderMatrices.hpp>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
 
-OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
-        LoopRenderer(make_unique<OpenGLScreenFramebuffer>(1280, 720),
-                     make_unique<OpenGLFramebuffer>(1280, 720),
-                     make_unique<OpenGLFramebuffer>(1280, 720)),
-        context(context)
+OpenGLRenderer::OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size) :
+        LoopRenderer(context,
+                     make_unique<OpenGLScreenFramebuffer>(renderingState, size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(renderingState, size.x, size.y),
+                     make_unique<OpenGLFramebuffer>(renderingState, size.x, size.y),
+                     size),
+        renderingState(renderingState)
 {
     this->writeFramebuffer->addColorAttachment();
     this->writeFramebuffer->setUpDepthLayer();
@@ -20,13 +25,20 @@ OpenGLRenderer::OpenGLRenderer(OpenGLContext *context):
     this->readFramebuffer->setUpDepthLayer();
 
     this->fullscreenPlane = make_unique<PlaneBufferGeometry>(2.f, 2.f);
+
+    auto shader = make_unique<Shader>("Engine/Skybox");
+    this->skyboxMaterial = make_shared<ShaderMaterial>(move(shader));
 }
 
 
-void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
+void OpenGLRenderer::defaultStateReset()
 {
-    const auto camera = this->mainCamera;
+    this->renderingState->setScissor(false);
+}
 
+
+void OpenGLRenderer::renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial)
+{
     if (camera == nullptr) return;
 
     if (renderMesh->isFrustumCull())
@@ -40,24 +52,19 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
             return;
     }
 
-    const auto& material = renderMesh->getMaterial();
+    const auto material = overrideMaterial != nullptr ? overrideMaterial : renderMesh->getMaterial().get();
     const auto& geometry = renderMesh->getGeometry();
     const auto transform = renderMesh->getEntity()->getTransform();
-
-    material->prepareShader(geometry.get());
 
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-    if (context->renderingState->getSide() != material->getSide())
-        context->renderingState->setSide(material->getSide());
+    this->defaultStateReset();
 
-    if (context->renderingState->isDepthTestEnabled() != material->isDepthTest())
-        context->renderingState->setDepthTest(material->isDepthTest());
-
-    if (context->renderingState->isDepthWriteEnabled() != material->isWriteDepth())
-        context->renderingState->setDepthWrite(material->isWriteDepth());
+    renderingState->setSide(material->getSide());
+    renderingState->setDepthTest(material->isDepthTest());
+    renderingState->setDepthWrite(material->isWriteDepth());
 
     // Renderer-level uniforms
     material->setUniform("projectionMatrix", camera->getProjectionMatrix());
@@ -70,7 +77,7 @@ void OpenGLRenderer::handleMesh(RenderMesh *renderMesh)
     renderMesh->onBeforeRender(camera);
 
     // Upload uniforms
-    material->getShader()->updateUniforms();
+    material->prepareShader(geometry.get());
 
     // Finally draw the object
     geometry->draw(material->getPrimitiveType());
@@ -86,30 +93,81 @@ void OpenGLRenderer::prepareFrame()
 
     LoopRenderer::prepareFrame();
 
-    if (this->framePostProcessPasses.empty())
-        this->screenFramebuffer->setAsRenderTarget();
-    else
-        this->writeFramebuffer->setAsRenderTarget();
+    this->setTargetFramebuffer(this->framePostProcessPasses.empty() ?
+                                                this->screenFramebuffer.get() :
+                                                this->writeFramebuffer.get());
 
+    this->renderingState->setViewport(ivec2(0), this->rendererSize);
     glClearColor(0.f, 0.f, 0.f, 0.f);
-    context->renderingState->setDepthWrite(true);
+
+    renderingState->setSide(FrontSide, true);
+    renderingState->setDepthTest(true, true);
+    renderingState->setDepthWrite(true, true);
+    renderingState->setScissor(false, true);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
 
-vector<Entity *> OpenGLRenderer::parseScene(Scene *scene)
+std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
 {
-    vector<Entity *> result;
+    unordered_set<Entity *> result;
 
-    result.push_back(this->mainCamera);
+    this->mainCamera->getProjectionData()->setViewportSize(this->rendererSize);
+
+    {
+        scoped_lock<mutex> l(this->frustumCullingMutex);
+        for (const auto &pair : this->frustumCulled)
+            result.emplace(pair.first);
+    }
 
     return result;
 }
 
 
-void OpenGLRenderer::renderToScreen()
+void OpenGLRenderer::renderScene(Scene *scene)
 {
     assertIsMainThread();
+
+    for (const auto &process : this->processes)
+    {
+        process->render(this, this->meshesForFrame, this->frustumCulled);
+    }
+
+    this->setTargetFramebuffer(this->writeFramebuffer.get());
+    for (const auto &mesh : this->meshesForFrame)
+    {
+        this->renderMesh(mesh, this->mainCamera, nullptr);
+    }
+
+    const auto& envMap = scene->getSkyboxEnvMap();
+    if (envMap != nullptr && **envMap != nullptr)
+    {
+        if (!envMap->isIblReady())
+            this->pmremGenerator->processMap(envMap);
+
+        this->defaultStateReset();
+
+        this->skyboxMaterial->setUniform("skybox", **envMap);
+        this->skyboxMaterial->setUniform("projectionMatrix", this->mainCamera->getProjectionMatrix());
+        this->skyboxMaterial->setUniform("viewMatrix", mat4(mat3(this->mainCamera->getViewMatrix())));
+
+        glDepthFunc(GL_LEQUAL);
+        this->renderingState->setSide(BackSide);
+
+        this->skyboxMaterial->prepareShader(this->cubeGeometry.get());
+        this->cubeGeometry->draw(GL_TRIANGLES);
+
+        glDepthFunc(GL_LESS);
+    }
+}
+
+
+void OpenGLRenderer::handlePostProcessing()
+{
+    assertIsMainThread();
+
+    this->pmremGenerator->runProcessing(this);
 
     for (size_t i = 0; i < this->framePostProcessPasses.size(); i++)
     {
@@ -124,26 +182,109 @@ void OpenGLRenderer::renderToScreen()
 
 void OpenGLRenderer::textureRender(Material *material)
 {
-    glClearColor(0.f, 0.f, 0.f, 0.f);
-    context->renderingState->setDepthWrite(true);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
-    material->prepareShader(this->fullscreenPlane.get());
+    this->defaultStateReset();
 
     // Only update external rendering state once, before drawing any object.
     // Since each object can have a different required state in this regard, it needs to be checked every single time.
     // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-    context->renderingState->setSide(FrontSide);
-    context->renderingState->setDepthTest(false);
-    context->renderingState->setDepthWrite(false);
+    renderingState->setSide(FrontSide);
+    renderingState->setDepthTest(false);
+    renderingState->setDepthWrite(false);
 
     // Upload uniforms
-    material->getShader()->updateUniforms();
+    material->prepareShader(this->fullscreenPlane.get());
 
     // Finally draw the object
     this->fullscreenPlane->draw(material->getPrimitiveType());
 
     // Reset shader use, just in case
     material->resetUse();
+}
+
+
+void OpenGLRenderer::renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel)
+{
+    const auto vpp = this->renderingState->getViewportStart();
+    const auto vps = this->renderingState->getViewportSize();
+
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+
+    this->defaultStateReset();
+
+    this->renderingState->setSide(BackSide);
+    this->renderingState->setDepthTest(material->isDepthTest());
+    this->renderingState->setDepthWrite(material->isWriteDepth());
+
+    material->setUniform("projectionMatrix", Constants::cubeRenderProjectionMatrix);
+
+    for (int i = 0; i < 6; ++i)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                               cubeMap->getId(), mipLevel);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        material->setUniform("viewMatrix", Constants::cubeRenderViewMatrices[i]);
+        material->prepareShader(this->cubeGeometry.get());
+        this->cubeGeometry->draw();
+    }
+
+    this->renderingState->setViewport(vpp, vps);
+}
+
+
+void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const ivec2 &size)
+{
+    auto displaySize = vec2(this->renderingState->getCurrentFramebuffer()->getSize());
+    vec2 relativeSize = vec2(size) / displaySize;
+    vec2 relativePosition = vec2(start) / (displaySize - vec2(1));
+    relativePosition += relativeSize / 2.f;
+    relativePosition = relativePosition * 2.f - 1.f;
+    relativePosition.y *= -1;
+
+    auto scaleMatrix = scale(mat4(1), vec3(relativeSize, 1));
+    auto translateMatrix = translate(mat4(1), vec3(relativePosition, 0));
+    auto matrix = translateMatrix * scaleMatrix;
+    material->setUniform("matrix", matrix);
+
+    this->renderingState->setDepthWrite(material->isWriteDepth());
+    this->renderingState->setDepthTest(material->isDepthTest());
+    this->renderingState->setSide(DoubleSide);
+
+    material->prepareShader(this->fullscreenPlane.get());
+    this->fullscreenPlane->draw();
+}
+
+
+void OpenGLRenderer::setTargetFramebuffer(Framebuffer *framebuffer)
+{
+    if (this->renderingState->getCurrentFramebuffer() == framebuffer)
+        return;
+
+    framebuffer->setAsRenderTarget();
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+}
+
+
+void OpenGLRenderer::clearBuffer(bool color, bool depth, bool stencil)
+{
+    GLint bits = 0;
+
+    if (color)
+    {
+        bits |= GL_COLOR_BUFFER_BIT;
+    }
+
+    if (depth)
+    {
+        this->renderingState->setDepthWrite(true);
+        bits |= GL_DEPTH_BUFFER_BIT;
+    }
+
+    if (stencil)
+    {
+        bits |= GL_STENCIL_BUFFER_BIT;
+    }
+
+    glClear(bits);
 }

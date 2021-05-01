@@ -14,7 +14,7 @@ MainRenderer::MainRenderer(OldCamera *camera, unsigned int width, unsigned int h
 
 void
 MainRenderer::renderMain(Window *window, std::vector<HierarchicalNode *> *rootNodes,
-                         DirectionalLight *directionalLight, std::vector<PointLight *> *pointLights,
+                         OldDirectionalLight *directionalLight, std::vector<OldPointLight *> *pointLights,
                          AdditionalParameters *params)
 {
     glViewport(0, 0, window->getWidth(), window->getHeight());
@@ -51,9 +51,9 @@ void MainRenderer::drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model,
         } else
             obj->getShader()->setUniform("directionalLight.enabled", 0);
 
-        auto v = PointLight::getClosestPointLights(*pointLights,
-                                                   glm::vec3(glm::vec4(0, 0, 0, 1) * model),
-                                                   obj->getMaximumSupportedPointLights());
+        auto v = OldPointLight::getClosestPointLights(*pointLights,
+                                                      glm::vec3(glm::vec4(0, 0, 0, 1) * model),
+                                                      obj->getMaximumSupportedPointLights());
         for (int i = 0; i < v.size(); i++)
             v[i]->shaderSetArray(obj->getShader(), "pointLights", i);
         obj->getShader()->setUniform("amountOfPointLights", (int32_t) v.size());
@@ -71,7 +71,7 @@ OldCamera *MainRenderer::getCamera() const
 }
 
 
-void MainRenderer::setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder, DirectionalLight *directionalLight)
+void MainRenderer::setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder, OldDirectionalLight *directionalLight)
 {
     this->skybox = skybox;
     this->skyboxDrawOrder = drawOrder;

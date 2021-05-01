@@ -13,10 +13,10 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="190.5,-145.5 190.5,-186.5 315.5,-186.5 315.5,-145.5 190.5,-145.5"/>
-<text text-anchor="start" x="198.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="198.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
-<text text-anchor="middle" x="253" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshMaterialCommon.h</text>
+<polygon fill="#bfbfbf" stroke="black" points="193.5,-145.5 193.5,-186.5 318.5,-186.5 318.5,-145.5 193.5,-145.5"/>
+<text text-anchor="start" x="201.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="201.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
+<text text-anchor="middle" x="256" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshMaterialCommon.h</text>
 </a>
 </g>
 </g>
@@ -24,51 +24,51 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="_k_e_modules_2_material_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="150,-0.5 150,-30.5 266,-30.5 266,-0.5 150,-0.5"/>
-<text text-anchor="start" x="158" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="middle" x="208" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/KEModules/Material.h</text>
+<polygon fill="white" stroke="black" points="154,-0.5 154,-30.5 270,-30.5 270,-0.5 154,-0.5"/>
+<text text-anchor="start" x="162" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="middle" x="212" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/KEModules/Material.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M238.11,-136.27C234.08,-127.67 230,-118.1 227,-109 218.06,-81.91 212.5,-48.91 209.85,-30.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="235.07,-138.03 242.58,-145.5 241.37,-134.97 235.07,-138.03"/>
+<path fill="none" stroke="midnightblue" d="M241.72,-136.22C237.84,-127.62 233.91,-118.06 231,-109 222.26,-81.84 216.63,-48.87 213.91,-30.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="238.62,-137.87 246.02,-145.45 244.97,-134.91 238.62,-137.87"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_mesh_lambert_material_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="58,-67.5 58,-108.5 180,-108.5 180,-67.5 58,-67.5"/>
-<text text-anchor="start" x="66" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="66" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
-<text text-anchor="middle" x="119" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshLambertMaterial.h</text>
+<g id="a_node3"><a xlink:href="_mesh_standard_material_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="58.5,-67.5 58.5,-108.5 183.5,-108.5 183.5,-67.5 58.5,-67.5"/>
+<text text-anchor="start" x="66.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="66.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
+<text text-anchor="middle" x="121" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshStandardMaterial.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M209.78,-140.49C191.52,-130.13 170.57,-118.25 153.39,-108.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="208.07,-143.54 218.49,-145.43 211.52,-137.45 208.07,-143.54"/>
+<path fill="none" stroke="midnightblue" d="M212.45,-140.49C194.07,-130.13 172.95,-118.25 155.65,-108.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="210.8,-143.57 221.23,-145.43 214.24,-137.47 210.8,-143.57"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_mesh_standard_material_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="236.5,-67.5 236.5,-108.5 361.5,-108.5 361.5,-67.5 236.5,-67.5"/>
-<text text-anchor="start" x="244.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
-<text text-anchor="start" x="244.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
-<text text-anchor="middle" x="299" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshStandardMaterial.h</text>
+<g id="a_node5"><a xlink:href="_mesh_lambert_material_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="240,-67.5 240,-108.5 362,-108.5 362,-67.5 240,-67.5"/>
+<text text-anchor="start" x="248" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/include</text>
+<text text-anchor="start" x="248" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/kryne&#45;engine/Material</text>
+<text text-anchor="middle" x="301" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshLambertMaterial.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M270.09,-136.76C275.79,-127.35 281.99,-117.1 287.19,-108.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="267.03,-135.06 264.85,-145.43 273.02,-138.69 267.03,-135.06"/>
+<path fill="none" stroke="midnightblue" d="M272.72,-136.76C278.29,-127.35 284.36,-117.1 289.45,-108.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="269.67,-135.04 267.59,-145.43 275.7,-138.61 269.67,-135.04"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
@@ -83,52 +83,52 @@
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge8" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M312.6,-141.77C344.99,-129.15 384,-113.94 411.81,-103.11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="311.26,-138.54 303.22,-145.43 313.81,-145.06 311.26,-138.54"/>
+<path fill="none" stroke="midnightblue" d="M315.09,-141.61C346.91,-129.02 385.1,-113.9 412.36,-103.11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="313.45,-138.49 305.44,-145.43 316.03,-145 313.45,-138.49"/>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M151.65,-61.14C164.65,-50.84 179.1,-39.39 190.11,-30.67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="149.46,-58.41 143.79,-67.36 153.8,-63.9 149.46,-58.41"/>
+<path fill="none" stroke="midnightblue" d="M154.39,-61.14C167.67,-50.84 182.45,-39.39 193.71,-30.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="152.11,-58.47 146.35,-67.36 156.4,-64 152.11,-58.47"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_mesh_lambert_material_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="0,-0.5 0,-30.5 132,-30.5 132,-0.5 0,-0.5"/>
+<g id="a_node4"><a xlink:href="_mesh_standard_material_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="0,-0.5 0,-30.5 136,-30.5 136,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Material</text>
-<text text-anchor="middle" x="66" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshLambertMaterial.cpp</text>
+<text text-anchor="middle" x="68" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshStandardMaterial.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge4" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M98.06,-59.14C90.79,-49.47 82.93,-39.02 76.82,-30.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="95.43,-61.47 104.24,-67.36 101.03,-57.27 95.43,-61.47"/>
+<path fill="none" stroke="midnightblue" d="M100.06,-59.14C92.79,-49.47 84.93,-39.02 78.82,-30.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="97.43,-61.47 106.24,-67.36 103.03,-57.27 97.43,-61.47"/>
 </g>
 <!-- Node5&#45;&gt;Node2 -->
 <g id="edge6" class="edge">
 <title>Node5&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M265.61,-61.14C252.33,-50.84 237.55,-39.39 226.29,-30.67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="263.6,-64 273.65,-67.36 267.89,-58.47 263.6,-64"/>
+<path fill="none" stroke="midnightblue" d="M268.35,-61.14C255.35,-50.84 240.9,-39.39 229.89,-30.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="266.2,-63.9 276.21,-67.36 270.54,-58.41 266.2,-63.9"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_mesh_standard_material_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="284,-0.5 284,-30.5 420,-30.5 420,-0.5 284,-0.5"/>
-<text text-anchor="start" x="292" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Material</text>
-<text text-anchor="middle" x="352" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshStandardMaterial.cpp</text>
+<g id="a_node6"><a xlink:href="_mesh_lambert_material_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="288,-0.5 288,-30.5 420,-30.5 420,-0.5 288,-0.5"/>
+<text text-anchor="start" x="296" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">kryne&#45;engine/src/Material</text>
+<text text-anchor="middle" x="354" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MeshLambertMaterial.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge7" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M319.94,-59.14C327.21,-49.47 335.07,-39.02 341.18,-30.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="316.97,-57.27 313.76,-67.36 322.57,-61.47 316.97,-57.27"/>
+<path fill="none" stroke="midnightblue" d="M321.94,-59.14C329.21,-49.47 337.07,-39.02 343.18,-30.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="318.97,-57.27 315.76,-67.36 324.57,-61.47 318.97,-57.27"/>
 </g>
 </g>
 </svg>

@@ -14,34 +14,53 @@
 #include "OpenGLScreenFramebuffer.hpp"
 
 
-class OpenGLContext;
-
-
 class OpenGLRenderer: public LoopRenderer {
 
 public:
 
-    explicit OpenGLRenderer(OpenGLContext *context);
+    explicit OpenGLRenderer(GraphicContext *context, RenderingState *renderingState, const ivec2 &size);
 
+    /// @brief Resets special states that are usually disabled
+    void defaultStateReset();
+
+    // Override
     void prepareFrame() override;
 
-    void handleMesh(RenderMesh *renderMesh) override;
+    // Override
+    std::unordered_set<Entity *> parseScene(Scene *scene) override;
 
-    vector<Entity *> parseScene(Scene *scene) override;
+    // Override
+    void renderScene(Scene *scene) override;
 
-    void renderToScreen() override;
+    // Override
+    void handlePostProcessing() override;
 
+    // Override
     void textureRender(Material *material) override;
+
+    // Override
+    void renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial) override;
+
+    // Override
+    void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel) override;
+
+    //Override
+    void quadRender(Material *material, const ivec2 &start, const ivec2 &size) override;
+
+    // Override
+    void setTargetFramebuffer(Framebuffer *framebuffer) override;
+
+    // Override
+    void clearBuffer(bool color, bool depth, bool stencil) override;
 
 protected:
 
-    OpenGLContext *context;
+    /// The current OpenGL rendering state.
+    RenderingState *renderingState;
 
+    /// The fullscreen plane use for rendering fullscreen textures.
     unique_ptr<PlaneBufferGeometry> fullscreenPlane;
 
 };
-
-
-#include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 
 

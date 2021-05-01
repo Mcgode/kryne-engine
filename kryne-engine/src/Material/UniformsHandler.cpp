@@ -7,11 +7,15 @@
 
 void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
 {
+    scoped_lock<mutex> lock(this->uniformsMutex);
+
     auto l = this->uniforms.find(name);
     if (l != this->uniforms.end()) {
         l->second.first = value;
     } else {
-        GLint location = (*this->programId != 0) ? glGetUniformLocation(*this->programId, name.c_str()) : -2;
+        GLint location = (*this->programId != 0 && Dispatcher::instance().main()->isCurrentThread()) ?
+                glGetUniformLocation(*this->programId, name.c_str()) :
+                -2;
         this->uniforms.emplace(name, make_pair(value, location));
     }
 }
@@ -19,8 +23,11 @@ void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
 
 void UniformsHandler::notifyUniformLocationsNeedUpdate()
 {
+    scoped_lock<mutex> l(this->uniformsMutex);
+
     for (auto &entry : this->uniforms)
         entry.second.second = -2;
+
     this->activeTextures.clear();
     this->nextTextureIndex = GL_TEXTURE0;
 }
@@ -28,6 +35,8 @@ void UniformsHandler::notifyUniformLocationsNeedUpdate()
 
 bool UniformsHandler::removeUniform(const string &name)
 {
+    scoped_lock<mutex> l(this->uniformsMutex);
+
     auto it = this->uniforms.find(name);
 
     if (it != this->uniforms.end())
@@ -46,8 +55,10 @@ void UniformsHandler::updateUniforms()
     if (*this->programId == 0)
         return;
 
+    scoped_lock<mutex> l(this->uniformsMutex);
+
     for (auto &entry : this->uniforms) {
-        const auto data = entry.second;
+        auto &data = entry.second;
 
         if (data.second < -1) {
             entry.second.second = glGetUniformLocation(*this->programId, entry.first.c_str());
@@ -78,7 +89,8 @@ void UniformsHandler::setTexture(const shared_ptr<Texture> &texture, GLint locat
     }
 
     glActiveTexture(activeTexture);
-    texture->bindTexture();
+    if (texture != nullptr)
+        texture->bindTexture();
     glUniform1i(location, activeTexture - GL_TEXTURE0);
 
 }

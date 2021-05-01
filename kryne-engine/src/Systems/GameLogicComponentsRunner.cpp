@@ -11,7 +11,7 @@ void GameLogicComponentsRunner::runSystem(Entity *entity)
     if (!entity->isEnabled())
         return;
 
-    for (const auto logicComponent : entity->getComponents<LogicComponent>())
+    for (const auto logicComponent : entity->getComponents<LogicComponent>(true))
     {
         if (!logicComponent->hasBegun())
             logicComponent->onBegin();

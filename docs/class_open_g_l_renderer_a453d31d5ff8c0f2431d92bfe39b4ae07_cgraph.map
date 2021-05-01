@@ -1,0 +1,7 @@
+<map id="OpenGLRenderer::prepareFrame" name="OpenGLRenderer::prepareFrame">
+<area shape="rect" id="node1" title="A method that will be called at the start of every frame." alt="" coords="5,93,216,120"/>
+<area shape="rect" id="node2" href="$class_loop_renderer.html#a105ea2c47bfd742eaeb7c0aba0e57388" title="A method that will be called at the start of every frame." alt="" coords="275,5,466,32"/>
+<area shape="rect" id="node3" href="$class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319" title=" " alt="" coords="285,57,456,98"/>
+<area shape="rect" id="node4" href="$class_rendering_state.html#aaf7f2db75f5670be4a4548819017e1b0" title=" " alt="" coords="264,123,477,149"/>
+<area shape="rect" id="node5" href="$class_rendering_state.html#aa8f6e2859a74c170b692f20686673e08" title=" " alt="" coords="277,174,464,215"/>
+</map>

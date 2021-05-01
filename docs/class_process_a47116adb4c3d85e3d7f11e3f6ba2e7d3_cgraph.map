@@ -1,25 +1,30 @@
 <map id="Process::runLoop" name="Process::runLoop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,233,129,260"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,309,129,336"/>
 <area shape="rect" id="node2" href="$class_graphic_context.html#a74eae76a491ec993e5d65019d50626e3" title=" " alt="" coords="197,5,376,32"/>
 <area shape="rect" id="node3" href="$class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e" title=" " alt="" coords="222,56,351,83"/>
-<area shape="rect" id="node4" href="$class_graphic_context.html#ad894031ecb6889fe7e3c9b0019303a99" title=" " alt="" coords="191,107,382,133"/>
-<area shape="rect" id="node5" href="$class_scene.html#aebc38c7adbfb5701834ffb53e09cbb7f" title=" " alt="" coords="197,157,376,184"/>
-<area shape="rect" id="node6" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="463,208,605,235"/>
-<area shape="rect" id="node7" href="$class_loop_renderer.html#a0bffd994023b4596d2965a57846484e5" title=" " alt="" coords="197,360,376,387"/>
-<area shape="rect" id="node8" href="$class_process.html#adacaacc98cf833d280668358d9e93355" title=" " alt="" coords="207,309,366,336"/>
-<area shape="rect" id="node17" href="$class_process.html#a5ad258d342f4df82ca40e2fdd518dfb2" title=" " alt="" coords="177,208,396,235"/>
-<area shape="rect" id="node20" href="$class_dispatcher.html#a7fc98ec9f5619056a275aefa34d7cdbb" title="Executes and waits for all the delayed tasks." alt="" coords="205,512,368,539"/>
-<area shape="rect" id="node23" href="$class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3" title="Waits for all the tasks in the main thread and the parallel threads to finish their execution before ..." alt="" coords="215,563,358,589"/>
-<area shape="rect" id="node9" href="$class_main_pool.html#ad39482392e579e95034085591498d3ee" title=" " alt="" coords="467,461,601,488"/>
-<area shape="rect" id="node10" href="$class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648" title=" " alt="" coords="462,157,606,184"/>
-<area shape="rect" id="node11" href="$class_transform.html#aa88751206dca7860f5c17977c8c10aa0" title=" " alt="" coords="458,512,610,539"/>
-<area shape="rect" id="node12" href="$class_entity.html#a3451b5a0c02ea5d16d8cb0763858bc2b" title=" " alt="" coords="457,563,611,589"/>
-<area shape="rect" id="node13" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="465,309,603,336"/>
-<area shape="rect" id="node14" href="$class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a" title=" " alt="" coords="444,360,624,387"/>
-<area shape="rect" id="node15" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="474,411,594,437"/>
-<area shape="rect" id="node16" href="$class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool." alt="" coords="467,259,601,285"/>
-<area shape="rect" id="node18" href="$class_transform.html#a0a654c8900d2b9070ef4e6425b4feb80" title=" " alt="" coords="465,107,603,133"/>
-<area shape="rect" id="node19" href="$class_transform.html#a3f3e94df3318611f14af0aebb759db9d" title=" " alt="" coords="463,56,605,83"/>
-<area shape="rect" id="node21" href="$class_main_pool.html#a0afe5289e8d5dc17ac029c7d0b01bb6c" title=" " alt="" coords="455,664,613,691"/>
-<area shape="rect" id="node22" href="$class_thread_pool.html#aac24b600c476f86bf7f11bb4b5a3e214" title=" " alt="" coords="449,613,619,640"/>
+<area shape="rect" id="node4" href="$class_process.html#a9cf1f727b76b1a153cb48e393f7b22a9" title=" " alt="" coords="206,107,367,133"/>
+<area shape="rect" id="node6" href="$class_graphic_context.html#ad894031ecb6889fe7e3c9b0019303a99" title=" " alt="" coords="191,157,382,184"/>
+<area shape="rect" id="node7" href="$class_scene.html#aebc38c7adbfb5701834ffb53e09cbb7f" title=" " alt="" coords="197,208,376,235"/>
+<area shape="rect" id="node8" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="477,259,619,285"/>
+<area shape="rect" id="node9" href="$class_process.html#adacaacc98cf833d280668358d9e93355" title=" " alt="" coords="207,360,366,387"/>
+<area shape="rect" id="node19" href="$class_utils_1_1_frame_time.html#a3620deb1a5b7aa7be3e2081c00a3de55" title=" " alt="" coords="190,411,383,437"/>
+<area shape="rect" id="node20" href="$class_utils_1_1_frame_time.html#a4588b767eabe16c3fbf0b5f51c94f996" title=" " alt="" coords="191,461,382,488"/>
+<area shape="rect" id="node21" href="$class_process.html#a3bdd429bdc80852dc391de1cfb093b0b" title=" " alt="" coords="177,259,396,285"/>
+<area shape="rect" id="node24" href="$class_player_input.html#af4e4616d315342f398eb1c6f8bde8d46" title="Updated the captured status of the mouse and the keyboard." alt="" coords="201,513,372,554"/>
+<area shape="rect" id="node25" href="$class_dispatcher.html#a7fc98ec9f5619056a275aefa34d7cdbb" title="Executes and waits for all the delayed tasks." alt="" coords="205,604,368,631"/>
+<area shape="rect" id="node28" href="$class_dispatcher.html#a047690da9f4ddd3bc4027e0eb918f5f3" title="Waits for all the tasks in the main thread and the parallel threads to finish their execution before ..." alt="" coords="215,655,358,681"/>
+<area shape="rect" id="node5" href="$class_graphic_context.html#ac278515e446567d94be0a215d4e3d5bc" title=" " alt="" coords="461,41,635,82"/>
+<area shape="rect" id="node10" href="$class_loop_renderer.html#af9bd2cd59bfd15bf6e2bb4f075ce04b5" title="Computes the frustum culling of a given mesh for all the cameras." alt="" coords="444,563,652,605"/>
+<area shape="rect" id="node13" href="$class_main_pool.html#aeb209cd3fcffce1010bbc4afc1da4541" title=" " alt="" coords="481,360,615,387"/>
+<area shape="rect" id="node14" href="$class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648" title=" " alt="" coords="476,208,620,235"/>
+<area shape="rect" id="node15" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class." alt="" coords="471,411,625,437"/>
+<area shape="rect" id="node16" href="$class_entity.html#a2a0f7811f8c3f8726be1549e1c4acba4" title=" " alt="" coords="487,461,609,488"/>
+<area shape="rect" id="node17" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="488,512,608,539"/>
+<area shape="rect" id="node18" href="$class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool." alt="" coords="481,309,615,336"/>
+<area shape="rect" id="node11" href="$class_render_mesh.html#a949951ca582028c336327b81c1830981" title="Retrieves the current bounding sphere." alt="" coords="700,545,916,572"/>
+<area shape="rect" id="node12" href="$class_render_mesh.html#ac0549be61198984044a2b35b516b2720" title="Retrieves whether this mesh should be frustum culled or not." alt="" coords="717,596,899,623"/>
+<area shape="rect" id="node22" href="$class_transform.html#a0a654c8900d2b9070ef4e6425b4feb80" title=" " alt="" coords="479,157,617,184"/>
+<area shape="rect" id="node23" href="$class_transform.html#a3f3e94df3318611f14af0aebb759db9d" title=" " alt="" coords="477,107,619,133"/>
+<area shape="rect" id="node26" href="$class_main_pool.html#a0afe5289e8d5dc17ac029c7d0b01bb6c" title=" " alt="" coords="469,680,627,707"/>
+<area shape="rect" id="node27" href="$class_thread_pool.html#aac24b600c476f86bf7f11bb4b5a3e214" title=" " alt="" coords="463,629,633,656"/>
 </map>

@@ -4,12 +4,27 @@
  * @date 31/01/2021.
  */
 
+#include <kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h>
 #include "kryne-engine/Core/GraphicContext/OpenGLContext.h"
 
 
-void framebufferSizeCallback(GLFWwindow *window, int width, int height)
+void OpenGLContext::framebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
-    glViewport(0, 0, width, height);
+    for (const auto context : OpenGLContext::runningContexts())
+    {
+        if (context->mainWindow == window)
+        {
+            context->updateSize(width, height);
+            return;
+        }
+    }
+}
+
+
+void OpenGLContext::updateSize(int width, int height)
+{
+    this->windowSize = ivec2(width, height);
+    this->renderer->updateRendererSize(this->windowSize);
 }
 
 
@@ -113,8 +128,11 @@ OpenGLContext::OpenGLContext(GLuint baseWidth, GLuint baseHeight, GLint majorVer
     cout << "Initialized OpenGL context" << endl;
 
     this->input = PlayerInput::tryMakeInput(this->mainWindow);
-    this->renderer = make_unique<OpenGLRenderer>(this);
-    this->renderingState = make_unique<RenderingState>(FrontSide, true);
+    this->windowSize = ivec2(baseWidth, baseHeight);
+    this->renderingState = make_unique<RenderingState>(this->windowSize, FrontSide, true);
+    this->renderer = make_unique<OpenGLRenderer>(this, this->renderingState.get(), this->windowSize);
+
+    OpenGLContext::runningContexts().emplace(this);
 }
 
 
@@ -147,6 +165,7 @@ PlayerInput *OpenGLContext::getPlayerInput()
 OpenGLContext::~OpenGLContext()
 {
     assertIsMainThread();
+    OpenGLContext::runningContexts().erase(this);
     glfwTerminate();
 }
 
@@ -154,4 +173,10 @@ OpenGLContext::~OpenGLContext()
 LoopRenderer *OpenGLContext::getRenderer()
 {
     return reinterpret_cast<LoopRenderer *>(this->renderer.get());
+}
+
+
+unique_ptr<Framebuffer> OpenGLContext::makeFramebuffer(const ivec2 &size)
+{
+    return make_unique<OpenGLFramebuffer>(this->renderingState.get(), size.x, size.y);
 }

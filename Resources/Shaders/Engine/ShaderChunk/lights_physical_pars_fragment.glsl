@@ -4,49 +4,9 @@ struct PhysicalMaterial
     vec3 albedo;
     float roughness;
     float metalness;
+    vec3 diffuseColor;
+    vec3 specularColor;
 };
-
-
-vec3 fresnelSchlick( const in float cosTheta, const in vec3 F0 )
-{
-    return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
-}
-
-
-float DistributionGGX( const in vec3 N, const in vec3 H, const in float roughness )
-{
-    float a      = roughness*roughness;
-    float a2     = a*a;
-    float NdotH  = max(dot(N, H), 0.0);
-    float NdotH2 = NdotH*NdotH;
-
-    float num   = a2;
-    float denom = (NdotH2 * (a2 - 1.0) + 1.0);
-    denom = PI * denom * denom;
-
-    return num / denom;
-}
-
-
-float GeometrySchlickGGX( const in float NdotV, const in float roughness )
-{
-    float r = (roughness + 1.0);
-    float k = (r*r) / 8.0;
-
-    float num   = NdotV;
-    float denom = NdotV * (1.0 - k) + k;
-
-    return num / denom;
-}
-
-
-float GeometrySmith( const in float NdV, const in float NdL, const in float roughness )
-{
-    float ggx2  = GeometrySchlickGGX(NdV, roughness);
-    float ggx1  = GeometrySchlickGGX(NdL, roughness);
-
-    return ggx1 * ggx2;
-}
 
 
 void LightDirectPhysical( const in IncidentLight light,
@@ -54,28 +14,10 @@ void LightDirectPhysical( const in IncidentLight light,
                           const in PhysicalMaterial material,
                           inout ReflectedLight reflectedLight )
 {
-    vec3 h = normalize(light.direction + geometry.viewDir);
+    vec3 irradiance = max(0, dot(geometry.normal, light.direction)) * light.color;
 
-    float cosTheta = max(0, dot(geometry.normal, light.direction));
-
-    vec3 F0 = mix(vec3(0.04), material.albedo, material.metalness);
-    vec3 F  = fresnelSchlick(max(0, dot(h, geometry.viewDir)), F0);
-
-    float NdV = max(0, dot(geometry.normal, geometry.viewDir));
-    float NdL = max(0, dot(geometry.normal, light.direction));
-
-    float NDF = DistributionGGX(geometry.normal, h, material.roughness);
-    float G   = GeometrySmith(NdV, NdL, material.roughness);
-
-    vec3 num      = NDF * G * F;
-    float denom   = 4.0 * NdV * NdL;
-    vec3 specular = num / max(denom, 0.001);
-
-    vec3 kS = F;
-    vec3 kD = (1 - kS) * (1 - material.metalness);
-
-    reflectedLight.directDiffuse  += kD * material.albedo * light.color * cosTheta;
-    reflectedLight.directSpecular += specular * light.color * cosTheta;
+    reflectedLight.directDiffuse  += irradiance * material.diffuseColor;
+    reflectedLight.directSpecular += irradiance * BRDFSpecularGGX(light.direction, geometry.viewDir, geometry.normal, material.specularColor, material.roughness);
 }
 
 
@@ -84,9 +26,31 @@ void LightIndirectDiffusePhysical( const in vec3 irradiance,
                                    const in PhysicalMaterial material,
                                    inout ReflectedLight reflectedLight  )
 {
-    reflectedLight.indirectDiffuse += irradiance * material.albedo / PI;
+    reflectedLight.indirectDiffuse += irradiance * material.diffuseColor / PI;
+}
+
+
+void LightIndirectSpecularPhysical(const in vec3 radiance,
+                                   const in vec3 irradiance,
+                                   const in GeometryData geometry,
+                                   const in PhysicalMaterial material,
+                                   inout ReflectedLight reflectedLight)
+{
+    vec3 singleScattering = vec3( 0.0 );
+    vec3 multiScattering = vec3( 0.0 );
+    vec3 cosineWeightedIrradiance = irradiance / PI;
+
+    BRDFSpecularMultiscatteringEnvironment(geometry, material.specularColor, material.roughness, singleScattering, multiScattering);
+
+    vec3 diffuse = material.diffuseColor * (1 - (multiScattering + singleScattering));
+
+    reflectedLight.indirectSpecular += radiance * singleScattering;
+    reflectedLight.indirectSpecular += multiScattering * cosineWeightedIrradiance;
+
+    reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
 }
 
 
 #define ApplyDirectLight            LightDirectPhysical
 #define ApplyIndirectDiffuseLight   LightIndirectDiffusePhysical
+#define ApplyIndirectSpecularLight  LightIndirectSpecularPhysical

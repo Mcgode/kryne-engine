@@ -7,6 +7,16 @@
 #include "kryne-engine/Core/Process.h"
 
 
+Process::Process(GraphicContext *context) : context(context)
+{
+//    for (size_t i = 0; i < SystemTypes::COUNT; i++)
+//        this->systemsByType.emplace_back();
+
+    for (auto &vec : this->systemsByType)
+        vec = vector<System *>();
+}
+
+
 weak_ptr<Entity> Process::getWeakReference(Entity *entity)
 {
     const auto it = this->processEntities.find(entity);
@@ -53,9 +63,8 @@ bool Process::detachSystem(System *system)
     {
         this->processSystems.erase(it);
 
-        const auto it2 = this->systemsByType.find(system->getType());
-        if ( it2 != this->systemsByType.end() )
-            it2->second.erase(system);
+        auto vec = this->systemsByType[system->getType()];
+        vec.erase(find(vec.begin(), vec.end(), system));
 
         return true;
     }
@@ -93,16 +102,22 @@ void Process::runLoop()
             activeUIRenderers.push_back(uiRenderer.get());
     }
 
+    for (const auto &systemPair : this->processSystems)
+        systemPair.first->loopReset();
+
     system_clock::time_point objectsRunTime;
     if (this->currentScene != nullptr)
     {
+        renderer->prepareFrame();
+
         for (const auto entity : this->currentScene->getEntities())
             entity->ranPreRenderingProcessing = false;
 
         auto entities = renderer->parseScene(this->currentScene);
-        this->runPriorityPreProcesses(entities);
+        for (const auto &systemPair : this->processSystems)
+            systemPair.first->parseScene(this->currentScene, entities);
 
-        renderer->prepareFrame();
+        this->runPriorityPreProcesses(entities);
 
         objectsRunTime = system_clock::now();
         for (const auto entity : this->currentScene->getTopLevelEntities())
@@ -116,10 +131,22 @@ void Process::runLoop()
 
     Dispatcher::instance().waitMain();
 
-    auto postProcessTime = system_clock::now();
+    auto startRenderingTime = system_clock::now();
+    auto postRenderScriptingTime = startRenderingTime;
+    auto postProcessingTime = startRenderingTime;
 
     if (this->currentScene != nullptr)
-        renderer->renderToScreen();
+    {
+        renderer->renderScene(this->currentScene);
+
+        postRenderScriptingTime = system_clock::now();
+
+        this->handlePostRender();
+
+        postProcessingTime = system_clock::now();
+
+        renderer->handlePostProcessing();
+    }
 
     auto uiTime = system_clock::now();
 
@@ -135,12 +162,154 @@ void Process::runLoop()
 
     this->context->endFrame();
 
-    this->frameTimer.recordTime("Initialization scripting", objectsRunTime - initializeFrameTime);
-    this->frameTimer.recordTime("Objects scripting", postProcessTime - objectsRunTime);
-    this->frameTimer.recordTime("Post-processing", uiTime - postProcessTime);
-    this->frameTimer.recordTime("UI", delayedTime - uiTime);
-    this->frameTimer.recordTime("Delayed scripting", endFrameTime - delayedTime);
-    this->frameTimer.recordTime("Events polling", system_clock::now() - endFrameTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Initialization", objectsRunTime - initializeFrameTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Pre-rendering", startRenderingTime - objectsRunTime);
+    this->frameTimer.recordTime(Utils::FrameTime::ObjectsScripting, "Post-rendering", postProcessingTime - postRenderScriptingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::Rendering, "Main", postRenderScriptingTime - startRenderingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::Rendering, "Post-processing", uiTime - postProcessingTime);
+    this->frameTimer.recordTime(Utils::FrameTime::UI, delayedTime - uiTime);
+    this->frameTimer.recordTime(Utils::FrameTime::AsyncScripting, endFrameTime - delayedTime);
+    this->frameTimer.recordTime(Utils::FrameTime::EventPolling, system_clock::now() - endFrameTime);
+}
+
+
+struct ProcessCommon
+{
+    static inline void PriorityPreProcess(Entity *entity, const vector<System *> *systemsByType)
+    {
+        stack<Entity *> processStack;
+        queue<Transform *> tmpQueue;
+
+        tmpQueue.push(entity->getTransform());
+
+        do
+        {
+            Transform *current = tmpQueue.front();
+            tmpQueue.pop();
+
+            do
+            {
+                processStack.push(current->getEntity());
+
+                if (current->getEntity()->preprocessingRequirement != nullptr)
+                    tmpQueue.push(current->getEntity()->preprocessingRequirement->getTransform());
+
+                current = current->getParent();
+            }
+            while (current != nullptr);
+        }
+        while (!tmpQueue.empty());
+
+        while (!processStack.empty())
+        {
+            Entity *entityToProcess = processStack.top();
+            processStack.pop();
+
+            {
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
+                // Lock entity processing, to solve potential data racing issues.
+                // Data racing can occur because the same entities can be called multiple times (like common parents),
+                // on potentially different threads.
+                scoped_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
+
+#endif
+
+                if (entityToProcess->ranPreRenderingProcessing)
+                    continue;
+
+                for (const auto& system : systemsByType[LoopStart])
+                    system->runSystem(entity);
+
+                for (const auto& system : systemsByType[GameLogic])
+                    system->runSystem(entity);
+
+                for (const auto& system : systemsByType[PostLogic])
+                    system->runSystem(entity);
+
+                entityToProcess->ranPreRenderingProcessing = true;
+            }
+        }
+    }
+
+
+    static inline void PreRenderingFunction(Entity *entity, LoopRenderer *renderer,
+                                                            const vector<System *> *systemsByType)
+    {
+        // No data race can happen in this state, since any entity is only called once by all parallel threads.
+        // As a consequence, no fancy lock operation is needed.
+        if (!entity->ranPreRenderingProcessing)
+        {
+            for (const auto& system : systemsByType[LoopStart])
+                system->runSystem(entity);
+
+            for (const auto& system : systemsByType[GameLogic])
+                system->runSystem(entity);
+
+            for (const auto& system : systemsByType[PostLogic])
+                system->runSystem(entity);
+
+            entity->ranPreRenderingProcessing = true;
+        }
+
+        for (const auto& system : systemsByType[PreRendering])
+            system->runSystem(entity);
+
+        auto renderMeshes = entity->getComponents<RenderMesh>(true);
+        for (auto renderMesh : renderMeshes)
+            renderer->registerMesh(renderMesh);
+    }
+
+
+    static inline void PostRenderingFunction(Entity *entity, const Process *process)
+    {
+        Entity *currentEntity = entity;
+
+        while (currentEntity != nullptr)
+        {
+            for (const auto &system : process->systemsByType[PostRendering])
+                system->runSystem(currentEntity);
+
+            const auto children = currentEntity->getTransform()->getChildren();
+
+            if (children.empty())
+                currentEntity = nullptr;
+            else
+            {
+                currentEntity = children[0]->getEntity();
+                for (auto i = 1; i < children.size(); i++)
+                    process->handlePostRender();
+            }
+        }
+    }
+
+};
+
+
+void Process::runPriorityPreProcesses(const unordered_set<Entity *> &entities) const
+{
+    for (const auto entity : entities)
+    {
+        if (!entity->isEnabled())
+            continue;
+
+#if KRYNE_ENGINE_SINGLE_THREADED != 1
+
+        Dispatcher::instance().parallel()->enqueue([this, entity]()
+        {
+            ProcessCommon::PriorityPreProcess(entity, this->systemsByType);
+        });
+
+#else
+
+        ProcessCommon::PriorityPreProcess(entity, this->systemsByType);
+
+#endif
+
+    }
+
+    Dispatcher::instance().waitMain();
 }
 
 
@@ -153,101 +322,31 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
     Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
     {
-        // No data race can happen in this state, since any entity is only called once by all parallel threads.
-        // As a consequence, no fancy lock operation is needed.
-        if (!entity->ranPreRenderingProcessing)
+        Entity *currentEntity = entity;
+
+        while (currentEntity != nullptr)
         {
-            auto it = this->systemsByType.find(LoopStart);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
+            ProcessCommon::PreRenderingFunction(currentEntity, renderer, this->systemsByType);
 
-            it = this->systemsByType.find(GameLogic);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
-            }
+            const auto children = currentEntity->getTransform()->getChildren();
 
-            it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
+            if (children.empty())
+                currentEntity = nullptr;
+            else
             {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entity);
+                currentEntity = children[0]->getEntity();
+                for (auto i = 1; i < children.size(); i++)
+                    this->processEntity(children[i]->getEntity(), renderer);
             }
-
-            entity->ranPreRenderingProcessing = true;
         }
 
-        const auto renderMeshes = entity->getComponents<RenderMesh>();
-        for (auto renderMesh : renderMeshes)
-            renderer->computeFrustumCulling(renderMesh);
-
-        Dispatcher::instance().main()->enqueue([this, entity, renderer, renderMeshes]()
-        {
-            for (auto renderMesh : renderMeshes)
-                renderer->handleMesh(renderMesh);
-
-            Dispatcher::instance().parallel()->enqueue([this, entity, renderer]()
-            {
-                auto it = this->systemsByType.find(PostRendering);
-                if (it != this->systemsByType.end())
-                {
-                    for (const auto& systemPair : it->second)
-                        systemPair->runSystem(entity);
-                }
-
-                for (const auto child: entity->getTransform()->getChildren())
-                    this->processEntity(child->getEntity(), renderer);
-            });
-        });
     });
 
 #else
 
-    // No data race can happen in this state, since any entity is only called once by all parallel threads.
-    // As a consequence, no fancy lock operation is needed.
-    if (!entity->ranPreRenderingProcessing)
-    {
-        auto it = this->systemsByType.find(LoopStart);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
-
-        it = this->systemsByType.find(GameLogic);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
-
-        it = this->systemsByType.find(PreRendering);
-        if (it != this->systemsByType.end())
-        {
-            for (const auto& systemPair : it->second)
-                systemPair->runSystem(entity);
-        }
-
-        entity->ranPreRenderingProcessing = true;
-    }
-
-    const auto renderMeshes = entity->getComponents<RenderMesh>();
-    for (auto renderMesh : renderMeshes)
-        renderer->computeFrustumCulling(renderMesh);
-
-    for (auto renderMesh : renderMeshes)
-        renderer->handleMesh(renderMesh);
-
-    auto it = this->systemsByType.find(PostRendering);
-    if (it != this->systemsByType.end())
-    {
-        for (const auto& systemPair : it->second)
-            systemPair->runSystem(entity);
-    }
+    auto meshes = ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
+    for (const auto mesh : meshes)
+        renderer->handleMesh(mesh);
 
     for (const auto child: entity->getTransform()->getChildren())
         this->processEntity(child->getEntity(), renderer);
@@ -256,110 +355,23 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 }
 
 
-void Process::runPriorityPreProcesses(const vector<Entity *> &entities) const
+void Process::handlePostRender() const
 {
-    for (const auto entity : entities)
+    if (this->systemsByType[PostRendering].empty())
+        return;
+
+    for (const auto entity : this->currentScene->getTopLevelEntities())
     {
-        if (!entity->isEnabled())
-            continue;
 
 #if KRYNE_ENGINE_SINGLE_THREADED != 1
 
-        Dispatcher::instance().parallel()->enqueue([this, entity]()
-        {
-            stack<Entity *> processStack;
-
-            Transform *current = entity->getTransform();
-            do
-            {
-                processStack.push(current->getEntity());
-                current = current->getParent();
-            } while (current != nullptr);
-
-            while (!processStack.empty())
-            {
-                Entity *entityToProcess = processStack.top();
-                processStack.pop();
-
-                // Lock entity processing, to solve potential data racing issues.
-                // Data racing can occur because the same entities can be called multiple times (like common parents),
-                // on potentially different threads.
-                {
-                    scoped_lock<mutex> lock(entityToProcess->preRenderingProcessingMutex);
-
-                    if (entityToProcess->ranPreRenderingProcessing)
-                        continue;
-
-                    auto it = this->systemsByType.find(LoopStart);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
-
-                    it = this->systemsByType.find(GameLogic);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
-
-                    it = this->systemsByType.find(PreRendering);
-                    if (it != this->systemsByType.end())
-                    {
-                        for (const auto& systemPair : it->second)
-                            systemPair->runSystem(entityToProcess);
-                    }
-
-                    entityToProcess->ranPreRenderingProcessing = true;
-                }
-            }
+        Dispatcher::instance().parallel()->enqueue([entity, this]() {
+            ProcessCommon::PostRenderingFunction(entity, this);
         });
 
 #else
 
-        stack<Entity *> processStack;
-
-        Transform *current = entity->getTransform();
-        do
-        {
-            processStack.push(current->getEntity());
-            current = current->getParent();
-        } while (current != nullptr);
-
-        while (!processStack.empty())
-        {
-            Entity *entityToProcess = processStack.top();
-            processStack.pop();
-
-            // No need to handle locking if running in single-threaded mode.
-
-            if (entityToProcess->ranPreRenderingProcessing)
-                continue;
-
-            auto it = this->systemsByType.find(LoopStart);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
-
-            it = this->systemsByType.find(GameLogic);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
-
-            it = this->systemsByType.find(PreRendering);
-            if (it != this->systemsByType.end())
-            {
-                for (const auto& systemPair : it->second)
-                    systemPair->runSystem(entityToProcess);
-            }
-
-            entityToProcess->ranPreRenderingProcessing = true;
-        }
+        ProcessCommon::PostRenderingFunction(entity, this);
 
 #endif
 

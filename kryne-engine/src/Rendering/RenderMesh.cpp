@@ -51,6 +51,11 @@ void RenderMesh::renderComponentDetails()
         ImGui::TextDisabled("No geometry attached");
     }
 
-    // TODO: Material UI
+    if (material != nullptr)
+    {
+        ImGui::Indent();
+        material->displayDearImGui(this->getEntity()->getProcess());
+        ImGui::Unindent();
+    }
 
 }

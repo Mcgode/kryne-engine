@@ -36,7 +36,7 @@ int main(int argc, const char **argv)
     auto skybox = new Skybox("skybox", ".tga");
     pScene->setSkybox(skybox, SKYBOX_DRAW_FIRST);
 
-    auto *dirLight = new DirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
+    auto *dirLight = new OldDirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
     dirLight->setCastsShadowCascaded(1024, vector<double> { 2., 8., 32. });
     pScene->setDirectionalLight(dirLight);
 //    auto data = ModelLoader::loadModel("TorusKnot.obj");

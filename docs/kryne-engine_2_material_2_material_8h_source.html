@@ -175,18 +175,37 @@ $(document).ready(function(){initNavTree('kryne-engine_2_material_2_material_8h_
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">bool</span> writeDepth = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;};</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_MATERIAL_H</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">// ====================</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">// Dear ImGui functions</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">// ====================</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> displayDearImGui();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="class_material.html#a5a9c026494ee8680fcbfd4382a0c2947">  155</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="class_material.html#a5a9c026494ee8680fcbfd4382a0c2947">materialName</a>() = 0;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="class_material.html#a56d712f7823f8d41938148457f03a741">  160</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_material.html#a56d712f7823f8d41938148457f03a741">dearImGuiData</a>() {};</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_MATERIAL_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_material_html_a895211010246aa1ee74a7808190b5b0b"><div class="ttname"><a href="class_material.html#a895211010246aa1ee74a7808190b5b0b">Material::isWriteDepth</a></div><div class="ttdeci">bool isWriteDepth() const</div><div class="ttdef"><b>Definition:</b> Material.h:112</div></div>
 <div class="ttc" id="a_material_side_8h_html_a48a16246aa30572345771e9de71915b5"><div class="ttname"><a href="_material_side_8h.html#a48a16246aa30572345771e9de71915b5">MaterialSide</a></div><div class="ttdeci">MaterialSide</div><div class="ttdef"><b>Definition:</b> MaterialSide.h:10</div></div>
 <div class="ttc" id="aclass_buffer_geometry_html"><div class="ttname"><a href="class_buffer_geometry.html">BufferGeometry</a></div><div class="ttdef"><b>Definition:</b> BufferGeometry.h:31</div></div>
+<div class="ttc" id="aclass_material_html_a5a9c026494ee8680fcbfd4382a0c2947"><div class="ttname"><a href="class_material.html#a5a9c026494ee8680fcbfd4382a0c2947">Material::materialName</a></div><div class="ttdeci">virtual string materialName()=0</div></div>
 <div class="ttc" id="aclass_material_html_a7de9a9344f8b329de2c2be89e67c52b2"><div class="ttname"><a href="class_material.html#a7de9a9344f8b329de2c2be89e67c52b2">Material::removeUniform</a></div><div class="ttdeci">bool removeUniform(const string &amp;name) const</div><div class="ttdef"><b>Definition:</b> Material.h:46</div></div>
 <div class="ttc" id="aclass_material_html_a5db1d2d3f143144d0e2f11037e2a5355"><div class="ttname"><a href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">Material::setWriteDepth</a></div><div class="ttdeci">void setWriteDepth(bool writeToDepth)</div><div class="ttdef"><b>Definition:</b> Material.h:120</div></div>
 <div class="ttc" id="aclass_material_html_ac45b3bca8ac971b87cb4d1eaa9067d11"><div class="ttname"><a href="class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11">Material::shader</a></div><div class="ttdeci">unique_ptr&lt; Shader &gt; shader</div><div class="ttdef"><b>Definition:</b> Material.h:50</div></div>
+<div class="ttc" id="aclass_material_html_a56d712f7823f8d41938148457f03a741"><div class="ttname"><a href="class_material.html#a56d712f7823f8d41938148457f03a741">Material::dearImGuiData</a></div><div class="ttdeci">virtual void dearImGuiData()</div><div class="ttdoc">Override this function to display material data in the interface.</div><div class="ttdef"><b>Definition:</b> Material.h:160</div></div>
 <div class="ttc" id="aclass_material_html_af4d74b55f8be6fead4bbd3ee29a529df"><div class="ttname"><a href="class_material.html#af4d74b55f8be6fead4bbd3ee29a529df">Material::getPrimitiveType</a></div><div class="ttdeci">GLenum getPrimitiveType() const</div><div class="ttdef"><b>Definition:</b> Material.h:67</div></div>
 <div class="ttc" id="a_material_side_8h_html"><div class="ttname"><a href="_material_side_8h.html">MaterialSide.h</a></div></div>
 <div class="ttc" id="aclass_material_html_af2edef1ab4b4cfb8520be2b28af0f88f"><div class="ttname"><a href="class_material.html#af2edef1ab4b4cfb8520be2b28af0f88f">Material::setDepthTest</a></div><div class="ttdeci">void setDepthTest(bool enableDepthTest)</div><div class="ttdef"><b>Definition:</b> Material.h:105</div></div>

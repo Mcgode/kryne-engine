@@ -3,6 +3,7 @@
     struct DirectionalLight {
         vec3 color;
         vec3 direction;
+        uvec4 shadowMapIndexes;
     };
 
     uniform DirectionalLight directionalLights[MAX_DIRECTIONAL_LIGHTS];
@@ -22,7 +23,17 @@
                                   const in GeometryData geometry,
                                   out IncidentLight lightData ) {
 
-        lightData.color = directionalLight.color;
+        #ifdef USE_DIRECTIONAL_SHADOW_MAPS
+
+            float shadow = getDirectionalShadow( directionalLight.shadowMapIndexes, geometry );
+
+        #else
+
+            float shadow = 1;
+
+        #endif
+
+        lightData.color = shadow * directionalLight.color;
         lightData.direction = -directionalLight.direction;
 
     }

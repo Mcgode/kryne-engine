@@ -10,6 +10,9 @@
 #include <kryne-engine/enums/MaterialSide.h>
 #include <kryne-engine/Rendering/ShaderProgramCompiler.h>
 
+class Process;
+
+
 using namespace std;
 
 
@@ -34,7 +37,7 @@ public:
     void setDefine(const string &defineName, const string &defineValue) const { this->shader->setDefine(defineName, defineValue); }
 
     //! @copydoc Shader::removeDefine()
-    inline bool removeDefine(const string &defineName) const { return this->shader->removeDefine(defineName); }
+    bool removeDefine(const string &defineName) { return this->shader->removeDefine(defineName); }
 
     //! @copydoc UniformsHandler::setUniform(const string &, const UniformsHandler::UniformTypes &)
     void setUniform(const string &name, const UniformsHandler::UniformTypes &value) const { Material::shader->setUniform(name, value); }
@@ -52,10 +55,31 @@ protected:
 
 public:
 
+    /**
+     * @brief Prepares the shader before rendering.
+     *
+     * @details
+     * Will use shader, prepare upload and upload uniforms.
+     *
+     * @param geometry  The buffer geometry that'll be used alongside this shader.
+     */
     void prepareShader(const BufferGeometry *geometry);
 
 protected:
 
+    /**
+     * @brief Method called just before uploading the uniforms.
+     *
+     * @details
+     * Override it to run before-rendering routines.
+     *
+     * @param geometry  The geometry that'll be used during the render.
+     */
+    virtual void beforeUpload(const BufferGeometry *geometry) {};
+
+protected:
+
+    /// The compiler for the shader.
     unique_ptr<ShaderProgramCompiler> compiler = make_unique<ShaderProgramCompiler>();
 
 
@@ -135,7 +159,45 @@ private:
     /// Whether this material should write to depth or not.
     bool writeDepth = true;
 
+
+// ====================
+// Special mode materials
+// ====================
+
+public:
+
+    /**
+     * @brief Retrieves a depth material corresponding to this material.
+     */
+    virtual Material *getDepthMaterial() = 0;
+
+
+// ====================
+// Dear ImGui functions
+// ====================
+
+public:
+
+    /**
+     * @brief Displays material data UI interface.
+     */
+    void displayDearImGui(Process *process);
+
+protected:
+
+    /**
+     * The name for this material.
+     */
+    virtual string materialName() = 0;
+
+    /**
+     * @brief Override this function to display material data in the interface.
+     */
+    virtual void dearImGuiData(Process *process) {};
+
 };
+
+#include <kryne-engine/Core/Process.h>
 
 
 #endif //INC_KRYNE_ENGINE_MATERIAL_H

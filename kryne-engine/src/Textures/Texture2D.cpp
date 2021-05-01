@@ -55,7 +55,7 @@ Texture2D::Texture2D(const std::string& filename, bool generateMipmap): Texture2
 #endif
 }
 
-shared_ptr<Texture2D> Texture2D::loadFromFileSync(const string &filename)
+shared_ptr<Texture2D> Texture2D::loadFromFile(const string &filename)
 {
     const auto path = fs::path(filename);
     if (fs::exists(path) && fs::is_regular_file(path))

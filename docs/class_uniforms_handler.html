@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_uniforms_handler.html',''); init
 <div class="dynheader">
 Collaboration diagram for UniformsHandler:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniforms_handler__coll__graph.svg" width="792" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniforms_handler__coll__graph.svg" width="794" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -133,6 +133,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a34482777f3ca197e5920af98db887549"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; string, pair&lt; <a class="el" href="class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf">UniformTypes</a>, GLint &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a34482777f3ca197e5920af98db887549">uniforms</a> {}</td></tr>
 <tr class="memdesc:a34482777f3ca197e5920af98db887549"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stored uniform data.  <a href="class_uniforms_handler.html#a34482777f3ca197e5920af98db887549">More...</a><br /></td></tr>
 <tr class="separator:a34482777f3ca197e5920af98db887549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc76baece0eb616f69a7e29eb3933173"><td class="memItemLeft" align="right" valign="top">mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#afc76baece0eb616f69a7e29eb3933173">uniformsMutex</a></td></tr>
+<tr class="memdesc:afc76baece0eb616f69a7e29eb3933173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for handling parallel read/write of uniforms.  <a href="class_uniforms_handler.html#afc76baece0eb616f69a7e29eb3933173">More...</a><br /></td></tr>
+<tr class="separator:afc76baece0eb616f69a7e29eb3933173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f823544e90618f0d872e6e2b274494"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; GLint, GLint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a72f823544e90618f0d872e6e2b274494">activeTextures</a> {}</td></tr>
 <tr class="separator:a72f823544e90618f0d872e6e2b274494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b13b7a6ecc0eef9c4c92a911c332d3"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniforms_handler.html#a88b13b7a6ecc0eef9c4c92a911c332d3">nextTextureIndex</a> = GL_TEXTURE0</td></tr>
@@ -467,6 +470,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The stored uniform data. </p>
+
+</div>
+</div>
+<a id="afc76baece0eb616f69a7e29eb3933173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc76baece0eb616f69a7e29eb3933173">&#9670;&nbsp;</a></span>uniformsMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mutex UniformsHandler::uniformsMutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mutex for handling parallel read/write of uniforms. </p>
 
 </div>
 </div>

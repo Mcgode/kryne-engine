@@ -91,47 +91,61 @@ $(document).ready(function(){initNavTree('_scene_8h_source.html',''); initResiza
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="class_entity.html">Entity</a>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="class_transform.html">Transform</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_cube_texture.html">CubeTexture</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_scene.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene.html">Scene</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_scene.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene.html">Scene</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">   31</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> unordered_set&lt;Entity *&gt; &amp;<a class="code" href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">getEntities</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sceneEntities; }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> add(<a class="code" href="class_transform.html">Transform</a> *transform);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> remove(<a class="code" href="class_transform.html">Transform</a> *transform);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> unordered_set&lt;Entity *&gt; &amp;getTopLevelEntities();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_scene.html#aaba8c79f7d2d3041a5b475a28747a1ee">   55</a></span>&#160;    unordered_set&lt;Entity *&gt; sceneEntities {};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">   33</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> unordered_set&lt;Entity *&gt; &amp;<a class="code" href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">getEntities</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sceneEntities; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> add(<a class="code" href="class_transform.html">Transform</a> *transform);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> remove(<a class="code" href="class_transform.html">Transform</a> *transform);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> unordered_set&lt;Entity *&gt; &amp;getTopLevelEntities();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_scene.html#aab3246c47f8fbc8a462b3a72da3abc5c">   53</a></span>&#160;    <span class="keyword">const</span> shared_ptr&lt;CubeTexture&gt; &amp;<a class="code" href="class_scene.html#aab3246c47f8fbc8a462b3a72da3abc5c">getSkyboxTexture</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> skyboxTexture; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_scene.html#aae970a913c367fbbeeb0d7889968c19b">   55</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_scene.html#aae970a913c367fbbeeb0d7889968c19b">setSkyboxTexture</a>(<span class="keyword">const</span> shared_ptr&lt;CubeTexture&gt; &amp;value) { <a class="code" href="class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5">Scene::skyboxTexture</a> = value; }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_scene.html#a0ed213f52f32ab40314fceab2be381e4">   58</a></span>&#160;    unordered_set&lt;Entity *&gt; topLevelEntities {};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_scene.html#aaba8c79f7d2d3041a5b475a28747a1ee">   61</a></span>&#160;    unordered_set&lt;Entity *&gt; sceneEntities {};</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_entity_8h.html">kryne-engine/Core/Entity.h</a>&gt;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_scene.html#a0ed213f52f32ab40314fceab2be381e4">   64</a></span>&#160;    unordered_set&lt;Entity *&gt; topLevelEntities {};</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_SCENE_H</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5">   67</a></span>&#160;    shared_ptr&lt;CubeTexture&gt; skyboxTexture {};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_entity_8h.html">kryne-engine/Core/Entity.h</a>&gt;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_cube_texture_8h.html">kryne-engine/Textures/CubeTexture.h</a>&gt;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_SCENE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_scene_html_a1f3f8038aea8d2b6d444db7a9c796c5e"><div class="ttname"><a href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">Scene::getEntities</a></div><div class="ttdeci">const unordered_set&lt; Entity * &gt; &amp; getEntities() const</div><div class="ttdef"><b>Definition:</b> Scene.h:31</div></div>
-<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:22</div></div>
+<div class="ttc" id="a_cube_texture_8h_html"><div class="ttname"><a href="_cube_texture_8h.html">CubeTexture.h</a></div></div>
+<div class="ttc" id="aclass_scene_html_a1f3f8038aea8d2b6d444db7a9c796c5e"><div class="ttname"><a href="class_scene.html#a1f3f8038aea8d2b6d444db7a9c796c5e">Scene::getEntities</a></div><div class="ttdeci">const unordered_set&lt; Entity * &gt; &amp; getEntities() const</div><div class="ttdef"><b>Definition:</b> Scene.h:33</div></div>
+<div class="ttc" id="aclass_scene_html_aab3246c47f8fbc8a462b3a72da3abc5c"><div class="ttname"><a href="class_scene.html#aab3246c47f8fbc8a462b3a72da3abc5c">Scene::getSkyboxTexture</a></div><div class="ttdeci">const shared_ptr&lt; CubeTexture &gt; &amp; getSkyboxTexture() const</div><div class="ttdef"><b>Definition:</b> Scene.h:53</div></div>
+<div class="ttc" id="aclass_scene_html_aae970a913c367fbbeeb0d7889968c19b"><div class="ttname"><a href="class_scene.html#aae970a913c367fbbeeb0d7889968c19b">Scene::setSkyboxTexture</a></div><div class="ttdeci">void setSkyboxTexture(const shared_ptr&lt; CubeTexture &gt; &amp;value)</div><div class="ttdef"><b>Definition:</b> Scene.h:55</div></div>
+<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:24</div></div>
 <div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:30</div></div>
+<div class="ttc" id="aclass_cube_texture_html"><div class="ttname"><a href="class_cube_texture.html">CubeTexture</a></div><div class="ttdef"><b>Definition:</b> CubeTexture.h:15</div></div>
+<div class="ttc" id="aclass_scene_html_a73cf58d48ca2ceb387f43943ed664ff5"><div class="ttname"><a href="class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5">Scene::skyboxTexture</a></div><div class="ttdeci">shared_ptr&lt; CubeTexture &gt; skyboxTexture</div><div class="ttdoc">The skybox texture for the scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:67</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:31</div></div>
 <div class="ttc" id="aclass_transform_html"><div class="ttname"><a href="class_transform.html">Transform</a></div><div class="ttdef"><b>Definition:</b> Transform.h:39</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

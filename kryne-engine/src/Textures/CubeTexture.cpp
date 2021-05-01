@@ -2,63 +2,119 @@
 // Created by max on 02/08/2019.
 //
 
+#include <kryne-engine/Constants/OpenGLTexture.hpp>
 #include "kryne-engine/Textures/CubeTexture.h"
 
-CubeTexture::CubeTexture(const vector<string> &filenames) :
-    Texture(0, GL_TEXTURE_CUBE_MAP)
-{
-    int32_t width, height, nbChannels;
-    int32_t pw, ph, pnc;
-    glGenTextures(1, &id);
-    this->setFiltering(GL_LINEAR, GL_LINEAR);
 
-    uint8_t *data;
-    for (uint64_t i = 0; i < filenames.size(); i++)
-    {
-        data = stbi_load(filenames[i].c_str(), &width, &height, &nbChannels, 0);
-
-        if (data == nullptr)
-        {
-            cerr << "Failed to load texture file '" << filenames[i] << "'" << endl;
-            throw EXIT_FAILURE;
-        }
-
-        if (i > 0 && (pw != width || ph != height || nbChannels != pnc))
-        {
-            cerr << "Incoherent values between images" << endl;
-            throw EXIT_FAILURE;
-        }
-
-        GLenum format = nbChannels == 3 ? GL_RGB : GL_RGBA;
-        glTexImage2D(
-                GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
-                0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data
-        );
-
-        pw = width;
-        ph = height;
-        pnc = nbChannels;
-    }
-
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-}
-
-
-shared_ptr<CubeTexture> CubeTexture::loadFilesSync(const vector<string> &filenames)
+shared_ptr<CubeTexture> CubeTexture::loadFiles(const vector<string> &filenames)
 {
     using namespace boost::filesystem;
 
-    for (const auto &f: filenames)
-    {
-        const auto p = path(f);
-        if (!exists(p) || !is_regular_file(p))
+    auto texture = make_shared<CubeTexture>(0);
+
+    const auto func = [texture, filenames]() {
+
+        if (filenames.size() < 6)
+            throw runtime_error("Not enough filenames were provided");
+
+        for (const auto &f: filenames)
         {
-            cerr << "No file named '" << f << "'" << endl;
-            throw EXIT_FAILURE;
+            const auto p = path(f);
+            if (!exists(p) || !is_regular_file(p))
+                runtime_error("No file named '" + f + "'");
         }
+
+        int32_t width[6], height[6], nbChannels;
+
+        uint8_t *data[6];
+        for (uint64_t i = 0; i < 6; i++)
+        {
+            int nbc;
+            data[i] = stbi_load(filenames[i].c_str(), &width[i], &height[i], &nbc, 0);
+
+            if (data[i] == nullptr)
+                throw runtime_error("Failed to load texture file '" + filenames[i] + "'");
+
+            if (i > 0 && (width[i-1] != width[i] || height[i-1] != height[i] || nbChannels != nbc))
+                throw runtime_error("Incoherent values between images");
+
+            nbChannels = nbc;
+        }
+
+        const auto mainFunc = [texture, width, height, nbChannels, data]()
+        {
+
+            glGenTextures(1, &texture->id);
+
+            // Bind texture and set filtering
+            texture->setFiltering(GL_LINEAR, GL_LINEAR);
+
+            GLenum format;
+            switch (nbChannels)
+            {
+                case 1:
+                    format = GL_RED;
+                    break;
+                case 2:
+                    format = GL_RG;
+                    break;
+                case 3:
+                    format = GL_RGB;
+                    break;
+                case 4:
+                    format = GL_RGBA;
+                    break;
+                default:
+                    throw runtime_error("Unsupported number of channels: " + to_string(nbChannels));
+            }
+
+            for (size_t i = 0; i < 6; i++)
+            {
+                glTexImage2D(
+                        GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                        0, format, width[i], height[i], 0, format, GL_UNSIGNED_BYTE, data[i]
+                );
+                stbi_image_free(data[i]);
+            }
+
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        };
+
+        Dispatcher::instance().enqueueMainDelayed(mainFunc);
+
+    };
+
+    Dispatcher::instance().io()->enqueue(func);
+
+    return texture;
+}
+
+CubeTexture::CubeTexture(const ivec2 &size,
+                         Texture::Formats format,
+                         Texture::InternalSizes internalSize,
+                         Texture::DataTypes dataType) : CubeTexture(0)
+
+{
+    glGenTextures(1, &this->id);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, this->id);
+    for (unsigned int i = 0; i < 6; ++i)
+    {
+        glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0,
+                     Constants::openGLInternalFormat(format, internalSize),
+                     size.x, size.y, 0,
+                     Constants::openGLFormat(format), Constants::openGLDataType(dataType),
+                     nullptr);
     }
 
-    return shared_ptr<CubeTexture>(new CubeTexture(filenames));
+}
+
+
+void CubeTexture::setWrap(GLenum wrapType)
+{
+    this->bindTexture();
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, wrapType);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, wrapType);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, wrapType);
 }

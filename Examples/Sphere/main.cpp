@@ -19,10 +19,10 @@ int main(int argc, const char **argv)
 
     auto *sh = new Shader("Sphere/Lighting");
 
-    auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1), glm::vec3(0));
+    auto *dirLight = new OldDirectionalLight(glm::vec3(0, -1, -1), glm::vec3(0));
     pScene->setDirectionalLight(dirLight);
 
-    auto *pl = new PointLight(glm::vec3(1.5, 1.8, 1.3), glm::vec3(1.0));
+    auto *pl = new OldPointLight(glm::vec3(1.5, 1.8, 1.3), glm::vec3(1.0));
     pScene->addPointLight(pl);
 
     auto *obj = new SphereNormalMapping("bricks");

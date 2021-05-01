@@ -4,7 +4,7 @@
 
 #include "kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h"
 
-DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *directionalLight,
+DirectionalShadowMapRendering::DirectionalShadowMapRendering(OldDirectionalLight *directionalLight,
                                                              OldCamera *mainCamera)
 {
     this->light = directionalLight;

@@ -1,0 +1,5 @@
+<map id="AmbientLight::renderEntityDetails" name="AmbientLight::renderEntityDetails">
+<area shape="rect" id="node1" title="Renders custom GUI for entity details." alt="" coords="5,23,181,65"/>
+<area shape="rect" id="node2" href="$class_entity.html#a005c667fb89e01614ef68afd1de6483b" title="Renders custom GUI for entity details." alt="" coords="229,5,404,32"/>
+<area shape="rect" id="node3" href="$class_ambient_light.html#ad9706f19b31c8cd51b7d520da968f0e3" title="Changes the light color." alt="" coords="239,56,394,83"/>
+</map>

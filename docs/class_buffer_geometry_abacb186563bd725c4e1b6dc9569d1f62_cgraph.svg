@@ -21,10 +21,10 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="class_buffer_geometry.html#ac1e72a3d8ab4af731fd2e8afb58f8152" target="_top" xlink:title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute.">
+<g id="a_node2"><a xlink:href="class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" target="_top" xlink:title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute.">
 <polygon fill="white" stroke="black" points="176,-165 176,-195 344,-195 344,-165 176,-165"/>
 <text text-anchor="start" x="184" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">BufferGeometry::computeBounding</text>
-<text text-anchor="middle" x="260" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Sphere</text>
+<text text-anchor="middle" x="260" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Volumes</text>
 </a>
 </g>
 </g>

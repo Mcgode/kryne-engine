@@ -52,9 +52,20 @@ public:
     void setFiltering(GLint minFilter, GLint magFilter);
 
     /**
+     * @brief Generates mip maps for this texture
+     */
+    void generateMipMaps() const
+    {
+        this->bindTexture();
+        glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+    }
+
+    /**
      * Delete texture from GL context
      */
     ~Texture();
+
+    GLuint getId() const { return id; }
 
 protected:
 
@@ -78,6 +89,32 @@ protected:
 
     /// True if mip maps have already been generated.
     bool mipMapped = false;
+
+public:
+
+    /// The different composition formats for the texture.
+    enum class Formats : int {
+        RED = 0,
+        RG,
+        RGB,
+        RGBA,
+        DEPTH,
+        DEPTH_STENCIL,
+    };
+
+    enum class InternalSizes: int {
+        Fit = 0,
+        Byte,
+        HalfFloat,
+        Float,
+    };
+
+    enum class DataTypes: int {
+        UnsignedByte = 0,
+        Byte,
+        HalfFloat,
+        Float,
+    };
 
 };
 

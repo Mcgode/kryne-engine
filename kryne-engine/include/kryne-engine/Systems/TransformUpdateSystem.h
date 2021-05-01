@@ -12,15 +12,24 @@
 #include <kryne-engine/Core/System.h>
 
 
+/**
+ * @brief A system for updating entity transforms
+ */
 class TransformUpdateSystem : public System {
 
 public:
 
-    explicit TransformUpdateSystem(Process *process): System(process, PreRendering) {}
+    // Override constructor
+    explicit TransformUpdateSystem(Process *process): System(process, PostLogic) {}
 
+    // Override
     void runSystem(Entity *entity) override;
 
+    // Override
     void loopReset() override {}
+
+    // Override
+    void parseScene(Scene *scene, unordered_set<Entity *> &priorityEntities) override {}
 
 };
 

@@ -1,10 +1,11 @@
 <map id="Camera" name="Camera">
-<area shape="rect" id="node1" title=" " alt="" coords="263,288,329,315"/>
-<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="147,191,203,218"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,95,195,121"/>
-<area shape="rect" id="node4" href="$class_transform.html" title=" " alt="" coords="178,5,257,32"/>
-<area shape="rect" id="node5" title=" " alt="" coords="219,95,391,121"/>
-<area shape="rect" id="node6" href="$class_i_camera.html" title=" " alt="" coords="261,191,331,218"/>
-<area shape="rect" id="node7" title=" " alt="" coords="372,184,551,225"/>
-<area shape="rect" id="node8" href="$class_projection_data.html" title=" " alt="" coords="416,95,523,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="263,303,330,329"/>
+<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="199,206,255,233"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="29,109,109,136"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="5,5,132,47"/>
+<area shape="rect" id="node5" title=" " alt="" coords="133,109,322,136"/>
+<area shape="rect" id="node6" href="$class_transform.html" title=" " alt="" coords="305,13,384,39"/>
+<area shape="rect" id="node7" title=" " alt="" coords="347,109,519,136"/>
+<area shape="rect" id="node8" title=" " alt="" coords="393,199,571,240"/>
+<area shape="rect" id="node9" href="$class_projection_data.html" title=" " alt="" coords="543,109,650,136"/>
 </map>

@@ -39,40 +39,113 @@ float DearImGuiPerformanceMetrics::pushTime(const string &name, float value)
 
 void DearImGuiPerformanceMetrics::renderComponent(Process *process)
 {
-    ImGui::Begin("Performance metrics");
-
-    auto data = process->getLastFrameTimeData();
-    auto frameTime = this->pushTime("Frame times", data.frameTime.count());
-
-    auto &frameTimes = this->timesBuffers.find("Frame times")->second;
-    ImGui::PlotLines("Frame times", frameTimes.data(), frameTimes.size(),
-                     0, nullptr,
-                     0.f, FLT_MAX,
-                     ImVec2(0, 50.f));
-    ImGui::Text("Average frame time: %.2fms", frameTime * 1000);
-    ImGui::Text("Average FPS: %.1f", frameTime == 0.f ? 0.f : 1. / frameTime);
-
-    if (ImGui::BeginTable("TimingsTable", 2))
+    if (ImGui::Begin("Performance metrics"))
     {
-        for (const auto &time : data.recordedTimes)
+        auto data = process->getLastFrameTimeData();
+        auto frameTime = this->pushTime("Frame times", data.frameTime.count());
+
+        if (ImGui::TreeNode(this, "Average frame time: %.2fms", frameTime * 1000))
         {
-            ImGui::TableNextRow();
+            auto &frameTimes = this->timesBuffers.find("Frame times")->second;
+            int width = (int) (this->previousPlotWidth - 2 * ImGui::GetStyle().FramePadding.x),
+                    size = (int) frameTimes.size();
+            ImGui::SetNextItemWidth(-0.1);
+            ImGui::PlotLines("##Frame times", frameTimes.data() + std::max(0, size - width),
+                             std::min(size, width),
+                             0, nullptr,
+                             0.f, frameTime * 2,
+                             ImVec2(0, 50));
+            this->previousPlotWidth = ImGui::GetItemRectSize().x;
 
-            ImGui::TableSetColumnIndex(0);
-            ImGui::Text("%s", time.first.c_str());
-
-            ImGui::TableSetColumnIndex(1);
-            ImGui::Text("%.2fms", this->pushTime(time.first, time.second.count()) * 1000);
+            ImGui::TreePop();
         }
-        ImGui::EndTable();
-    }
 
-    if (ImGui::TreeNode("Options"))
-    {
-        ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
-                       1.f, 1, BUFFER_SIZE);
-        ImGui::TreePop();
+        ImGui::Indent();
+
+        ImGui::Text("Average FPS: %.1f", frameTime == 0.f ? 0.f : 1. / frameTime);
+
+        ImGui::Dummy(ImVec2(0, 10));
+
+        using Utils::FrameTime;
+
+        auto flags = ImGuiTableFlags_Borders | ImGuiTableFlags_Resizable | ImGuiTableFlags_RowBg | ImGuiTableFlags_NoBordersInBody;
+        if (ImGui::BeginTable("TimingsTable", 2, flags))
+        {
+            ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_NoHide);
+            ImGui::TableSetupColumn("Duration", ImGuiTableColumnFlags_WidthFixed, ImGui::CalcTextSize("000.00ms").x);
+            ImGui::TableHeadersRow();
+
+            for (auto i = 0; i < FrameTime::Parts::COUNT; i++)
+            {
+                string name = DearImGuiPerformanceMetrics::getPartString(FrameTime::Parts(i));
+                auto d = data.recordedTimes[i];
+
+                ImGui::TableNextRow();
+
+                bool open = false;
+                ImGui::TableNextColumn();
+
+                if (d.recordedTimes.empty())
+                    ImGui::TreeNodeEx(name.c_str(), ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_SpanFullWidth);
+                else
+                    open = ImGui::TreeNodeEx(name.c_str(), ImGuiTreeNodeFlags_SpanFullWidth);
+
+                ImGui::TableNextColumn();
+                ImGui::Text("%.2fms", this->pushTime(name, d.time.count()) * 1000);
+
+                if (open)
+                {
+                    ImGui::Indent();
+
+                    for (const auto& p : d.recordedTimes)
+                    {
+                        ImGui::TableNextRow();
+
+                        ImGui::TableSetColumnIndex(0);
+                        ImGui::Text("%s", p.first.c_str());
+
+                        ImGui::TableSetColumnIndex(1);
+                        ImGui::Text("%.2fms", this->pushTime(p.first, p.second.count()) * 1000);
+                    }
+
+                    ImGui::Unindent();
+                    ImGui::TreePop();
+                }
+            }
+            ImGui::EndTable();
+        }
+
+        ImGui::Unindent();
+
+        ImGui::Dummy(ImVec2(0, 10));
+
+        if (ImGui::TreeNode("Options"))
+        {
+            ImGui::DragInt("Averaging count", reinterpret_cast<int *>(&this->averageSize),
+                           1.f, 1, BUFFER_SIZE);
+            ImGui::TreePop();
+        }
     }
 
     ImGui::End();
+}
+
+
+string DearImGuiPerformanceMetrics::getPartString(Utils::FrameTime::Parts part)
+{
+    switch (part)
+    {
+        case Utils::FrameTime::ObjectsScripting:
+            return "Scripting";
+        case Utils::FrameTime::Rendering:
+            return "Rendering";
+        case Utils::FrameTime::UI:
+            return "UI";
+        case Utils::FrameTime::AsyncScripting:
+            return "Enqueued tasks";
+        case Utils::FrameTime::EventPolling:
+            return "Events polling";
+        default:
+            return "error";
+    }
 }

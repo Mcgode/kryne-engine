@@ -95,7 +95,8 @@ $(document).ready(function(){initNavTree('class_process.html',''); initResizable
 <div class="dynheader">
 Collaboration diagram for Process:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_process__coll__graph.svg" width="1884" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_process__coll__graph.svg" width="2103" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -110,6 +111,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a628287fb8fb45eaf3b88174cd0593a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53ee2472f9194356dd239b121c5b12be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a53ee2472f9194356dd239b121c5b12be">setCurrentScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
 <tr class="separator:a53ee2472f9194356dd239b121c5b12be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4f3d8a2f1305cf35dc56d2a3099269"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a1a4f3d8a2f1305cf35dc56d2a3099269">getCurrentScene</a> () const</td></tr>
+<tr class="separator:a1a4f3d8a2f1305cf35dc56d2a3099269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5e3d8f1d77cc47be3f863684b3d5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_utils_1_1_unique_ptr_vector.html">Utils::UniquePtrVector</a>&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a9a5e3d8f1d77cc47be3f863684b3d5dc">getUIRenderers</a> ()</td></tr>
+<tr class="separator:a9a5e3d8f1d77cc47be3f863684b3d5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583550c52f0929e8924fb7324ecc79b6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_utils_1_1_frame_time_1_1_data.html">Utils::FrameTime::Data</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a583550c52f0929e8924fb7324ecc79b6">getLastFrameTimeData</a> () const</td></tr>
+<tr class="memdesc:a583550c52f0929e8924fb7324ecc79b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the time data for the last frame.  <a href="class_process.html#a583550c52f0929e8924fb7324ecc79b6">More...</a><br /></td></tr>
+<tr class="separator:a583550c52f0929e8924fb7324ecc79b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be5e93e24446128c545f1f5f353b2c6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
 <tr class="memitem:a2be5e93e24446128c545f1f5f353b2c6"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_process.html#a2be5e93e24446128c545f1f5f353b2c6">makeEntity</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a2be5e93e24446128c545f1f5f353b2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,8 +139,8 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:adacaacc98cf833d280668358d9e93355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#adacaacc98cf833d280668358d9e93355">processEntity</a> (<a class="el" href="class_entity.html">Entity</a> *entity, <a class="el" href="class_loop_renderer.html">LoopRenderer</a> *renderer) const</td></tr>
 <tr class="separator:adacaacc98cf833d280668358d9e93355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ad258d342f4df82ca40e2fdd518dfb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a5ad258d342f4df82ca40e2fdd518dfb2">runPriorityPreProcesses</a> (const vector&lt; <a class="el" href="class_entity.html">Entity</a> * &gt; &amp;entities) const</td></tr>
-<tr class="separator:a5ad258d342f4df82ca40e2fdd518dfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bdd429bdc80852dc391de1cfb093b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a3bdd429bdc80852dc391de1cfb093b0b">runPriorityPreProcesses</a> (const unordered_set&lt; <a class="el" href="class_entity.html">Entity</a> * &gt; &amp;entities) const</td></tr>
+<tr class="separator:a3bdd429bdc80852dc391de1cfb093b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -142,18 +150,27 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ab27fb4af9a9e8e933389d9c939d0b818"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#ab27fb4af9a9e8e933389d9c939d0b818">currentScene</a> = nullptr</td></tr>
 <tr class="memdesc:ab27fb4af9a9e8e933389d9c939d0b818"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current scene used in the loop.  <a href="class_process.html#ab27fb4af9a9e8e933389d9c939d0b818">More...</a><br /></td></tr>
 <tr class="separator:ab27fb4af9a9e8e933389d9c939d0b818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f7c59a881c6078e3da2b6f4027c7ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_utils_1_1_frame_time.html">Utils::FrameTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#aa1f7c59a881c6078e3da2b6f4027c7ad">frameTimer</a></td></tr>
+<tr class="memdesc:aa1f7c59a881c6078e3da2b6f4027c7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tool for measuring the frame times.  <a href="class_process.html#aa1f7c59a881c6078e3da2b6f4027c7ad">More...</a><br /></td></tr>
+<tr class="separator:aa1f7c59a881c6078e3da2b6f4027c7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf05b417b2ada46dee55f9bc7eb8b2bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_utils_1_1_frame_time_1_1_data.html">Utils::FrameTime::Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#adf05b417b2ada46dee55f9bc7eb8b2bd">lastFrameTimeData</a></td></tr>
+<tr class="memdesc:adf05b417b2ada46dee55f9bc7eb8b2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The timings of the last frame.  <a href="class_process.html#adf05b417b2ada46dee55f9bc7eb8b2bd">More...</a><br /></td></tr>
+<tr class="separator:adf05b417b2ada46dee55f9bc7eb8b2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac079c31d4acbae0b08bdda7537b1aa17"><td class="memItemLeft" align="right" valign="top">unordered_set&lt; unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#ac079c31d4acbae0b08bdda7537b1aa17">scenes</a></td></tr>
 <tr class="memdesc:ac079c31d4acbae0b08bdda7537b1aa17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scenes for this process.  <a href="class_process.html#ac079c31d4acbae0b08bdda7537b1aa17">More...</a><br /></td></tr>
 <tr class="separator:ac079c31d4acbae0b08bdda7537b1aa17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12666cfef0f78004f5745f88e47f9fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_utils_1_1_unique_ptr_vector.html">Utils::UniquePtrVector</a>&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#ae12666cfef0f78004f5745f88e47f9fd">uiRenderers</a></td></tr>
+<tr class="memdesc:ae12666cfef0f78004f5745f88e47f9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of UI renderers.  <a href="class_process.html#ae12666cfef0f78004f5745f88e47f9fd">More...</a><br /></td></tr>
+<tr class="separator:ae12666cfef0f78004f5745f88e47f9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a657576c9987ac399306df445b420066b"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; <a class="el" href="class_entity.html">Entity</a> *, shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a657576c9987ac399306df445b420066b">processEntities</a></td></tr>
 <tr class="memdesc:a657576c9987ac399306df445b420066b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The set of entities attached to this process, mapping the pointer to its corresponding shared pointer.  <a href="class_process.html#a657576c9987ac399306df445b420066b">More...</a><br /></td></tr>
 <tr class="separator:a657576c9987ac399306df445b420066b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd19c6f6981334011b39b93465455129"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; <a class="el" href="class_system.html">System</a> *, shared_ptr&lt; <a class="el" href="class_system.html">System</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#acd19c6f6981334011b39b93465455129">processSystems</a></td></tr>
 <tr class="memdesc:acd19c6f6981334011b39b93465455129"><td class="mdescLeft">&#160;</td><td class="mdescRight">The set of systems attached to this process, mapping the pointer to its corresponding shared pointer.  <a href="class_process.html#acd19c6f6981334011b39b93465455129">More...</a><br /></td></tr>
 <tr class="separator:acd19c6f6981334011b39b93465455129"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a736aefad38f5876dec14c253c31ea814"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; <a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277">SystemTypes</a>, unordered_set&lt; <a class="el" href="class_system.html">System</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a736aefad38f5876dec14c253c31ea814">systemsByType</a></td></tr>
-<tr class="memdesc:a736aefad38f5876dec14c253c31ea814"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of processes by type.  <a href="class_process.html#a736aefad38f5876dec14c253c31ea814">More...</a><br /></td></tr>
-<tr class="separator:a736aefad38f5876dec14c253c31ea814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3c5f6b79e839e96e3e2455fddf6b92"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_system.html">System</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process.html#a9e3c5f6b79e839e96e3e2455fddf6b92">systemsByType</a> [<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277a2addb49878f50c95dc669e5fdbd130a2">SystemTypes::COUNT</a>] {}</td></tr>
+<tr class="memdesc:a9e3c5f6b79e839e96e3e2455fddf6b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of processes by type.  <a href="class_process.html#a9e3c5f6b79e839e96e3e2455fddf6b92">More...</a><br /></td></tr>
+<tr class="separator:a9e3c5f6b79e839e96e3e2455fddf6b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a173dd9b2c5d6460fe7968c420e756fc2"></a>
@@ -175,7 +192,7 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -238,6 +255,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a1a4f3d8a2f1305cf35dc56d2a3099269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4f3d8a2f1305cf35dc56d2a3099269">&#9670;&nbsp;</a></span>getCurrentScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scene.html">Scene</a>* Process::getCurrentScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a628287fb8fb45eaf3b88174cd0593a6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a628287fb8fb45eaf3b88174cd0593a6d">&#9670;&nbsp;</a></span>getGraphicContext()</h2>
 
@@ -264,6 +306,33 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a583550c52f0929e8924fb7324ecc79b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583550c52f0929e8924fb7324ecc79b6">&#9670;&nbsp;</a></span>getLastFrameTimeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_utils_1_1_frame_time_1_1_data.html">Utils::FrameTime::Data</a>&amp; Process::getLastFrameTimeData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the time data for the last frame. </p>
+
+</div>
+</div>
 <a id="a9cf1f727b76b1a153cb48e393f7b22a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cf1f727b76b1a153cb48e393f7b22a9">&#9670;&nbsp;</a></span>getPlayerInput()</h2>
 
@@ -284,6 +353,32 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_process_a9cf1f727b76b1a153cb48e393f7b22a9_cgraph.svg" width="395" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a9a5e3d8f1d77cc47be3f863684b3d5dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5e3d8f1d77cc47be3f863684b3d5dc">&#9670;&nbsp;</a></span>getUIRenderers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_utils_1_1_unique_ptr_vector.html">Utils::UniquePtrVector</a>&lt;<a class="el" href="class_u_i_renderer.html">UIRenderer</a>&gt;&amp; Process::getUIRenderers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the <a class="el" href="class_u_i_renderer.html">UIRenderer</a> list. </p>
 
 </div>
 </div>
@@ -475,7 +570,7 @@ template&lt;typename T , typename... Args&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_adacaacc98cf833d280668358d9e93355_cgraph.svg" width="398" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_adacaacc98cf833d280668358d9e93355_cgraph.svg" width="690" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -498,13 +593,13 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_a47116adb4c3d85e3d7f11e3f6ba2e7d3_cgraph.svg" width="630" height="696"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_a47116adb4c3d85e3d7f11e3f6ba2e7d3_cgraph.svg" width="922" height="712"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a5ad258d342f4df82ca40e2fdd518dfb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ad258d342f4df82ca40e2fdd518dfb2">&#9670;&nbsp;</a></span>runPriorityPreProcesses()</h2>
+<a id="a3bdd429bdc80852dc391de1cfb093b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bdd429bdc80852dc391de1cfb093b0b">&#9670;&nbsp;</a></span>runPriorityPreProcesses()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -515,7 +610,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void Process::runPriorityPreProcesses </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; <a class="el" href="class_entity.html">Entity</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">const unordered_set&lt; <a class="el" href="class_entity.html">Entity</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>entities</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -529,7 +624,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_a5ad258d342f4df82ca40e2fdd518dfb2_cgraph.svg" width="422" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_process_a3bdd429bdc80852dc391de1cfb093b0b_cgraph.svg" width="422" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -615,6 +710,54 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aa1f7c59a881c6078e3da2b6f4027c7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f7c59a881c6078e3da2b6f4027c7ad">&#9670;&nbsp;</a></span>frameTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_utils_1_1_frame_time.html">Utils::FrameTime</a> Process::frameTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tool for measuring the frame times. </p>
+
+</div>
+</div>
+<a id="adf05b417b2ada46dee55f9bc7eb8b2bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf05b417b2ada46dee55f9bc7eb8b2bd">&#9670;&nbsp;</a></span>lastFrameTimeData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_utils_1_1_frame_time_1_1_data.html">Utils::FrameTime::Data</a> Process::lastFrameTimeData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The timings of the last frame. </p>
+
+</div>
+</div>
 <a id="a657576c9987ac399306df445b420066b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a657576c9987ac399306df445b420066b">&#9670;&nbsp;</a></span>processEntities</h2>
 
@@ -687,8 +830,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a736aefad38f5876dec14c253c31ea814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a736aefad38f5876dec14c253c31ea814">&#9670;&nbsp;</a></span>systemsByType</h2>
+<a id="a9e3c5f6b79e839e96e3e2455fddf6b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3c5f6b79e839e96e3e2455fddf6b92">&#9670;&nbsp;</a></span>systemsByType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -697,7 +840,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unordered_map&lt;<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277">SystemTypes</a>, unordered_set&lt;<a class="el" href="class_system.html">System</a> *&gt; &gt; Process::systemsByType</td>
+          <td class="memname">vector&lt;<a class="el" href="class_system.html">System</a> *&gt; Process::systemsByType[<a class="el" href="_system_types_8h.html#a9e738ffabc116b9cfcd1354df8d35277a2addb49878f50c95dc669e5fdbd130a2">SystemTypes::COUNT</a>] {}</td>
         </tr>
       </table>
   </td>
@@ -708,6 +851,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>A map of processes by type. </p>
+
+</div>
+</div>
+<a id="ae12666cfef0f78004f5745f88e47f9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12666cfef0f78004f5745f88e47f9fd">&#9670;&nbsp;</a></span>uiRenderers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_utils_1_1_unique_ptr_vector.html">Utils::UniquePtrVector</a>&lt;<a class="el" href="class_u_i_renderer.html">UIRenderer</a>&gt; Process::uiRenderers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of UI renderers. </p>
 
 </div>
 </div>

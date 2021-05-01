@@ -1,0 +1,5 @@
+<map id="DirectionalLight::setDirection" name="DirectionalLight::setDirection">
+<area shape="rect" id="node1" title="Changes the current light local direction, and updates the world direction accordingly." alt="" coords="5,31,193,57"/>
+<area shape="rect" id="node2" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title=" " alt="" coords="241,5,424,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="263,56,402,83"/>
+</map>

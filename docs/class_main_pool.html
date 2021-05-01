@@ -105,9 +105,11 @@ Collaboration diagram for MainPool:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afce2bdbb82e4f0c4a8a4a89a566c1a53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#afce2bdbb82e4f0c4a8a4a89a566c1a53">MainPool</a> ()</td></tr>
 <tr class="separator:afce2bdbb82e4f0c4a8a4a89a566c1a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad39482392e579e95034085591498d3ee"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
-<tr class="memitem:ad39482392e579e95034085591498d3ee"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_main_pool.html#ad39482392e579e95034085591498d3ee">enqueue</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
-<tr class="separator:ad39482392e579e95034085591498d3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa17038cece0581aba905f20e7e419a3"><td class="memTemplParams" colspan="2">template&lt;class F , class... Args&gt; </td></tr>
+<tr class="memitem:afa17038cece0581aba905f20e7e419a3"><td class="memTemplItemLeft" align="right" valign="top">future&lt; result_of_t&lt; F(Args...)&gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_main_pool.html#afa17038cece0581aba905f20e7e419a3">enqueueFuture</a> (F &amp;&amp;function, Args &amp;&amp;...args)</td></tr>
+<tr class="separator:afa17038cece0581aba905f20e7e419a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb209cd3fcffce1010bbc4afc1da4541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#aeb209cd3fcffce1010bbc4afc1da4541">enqueue</a> (const function&lt; void()&gt; &amp;func)</td></tr>
+<tr class="separator:aeb209cd3fcffce1010bbc4afc1da4541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0afe5289e8d5dc17ac029c7d0b01bb6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#a0afe5289e8d5dc17ac029c7d0b01bb6c">swapQueues</a> (queue&lt; function&lt; void()&gt;&gt; &amp;swapQueue, bool allowNonEmpty) override</td></tr>
 <tr class="separator:a0afe5289e8d5dc17ac029c7d0b01bb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cb31a9c0f093c0623dbdb471dc822a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_pool.html#a5cb31a9c0f093c0623dbdb471dc822a4">synchronize</a> (<a class="el" href="class_synchronizable_pool.html">SynchronizablePool</a> *pool)</td></tr>
@@ -148,8 +150,34 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad39482392e579e95034085591498d3ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad39482392e579e95034085591498d3ee">&#9670;&nbsp;</a></span>enqueue()</h2>
+<a id="aeb209cd3fcffce1010bbc4afc1da4541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb209cd3fcffce1010bbc4afc1da4541">&#9670;&nbsp;</a></span>enqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainPool::enqueue </td>
+          <td>(</td>
+          <td class="paramtype">const function&lt; void()&gt; &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa17038cece0581aba905f20e7e419a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa17038cece0581aba905f20e7e419a3">&#9670;&nbsp;</a></span>enqueueFuture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +188,7 @@ template&lt;class F , class... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; MainPool::enqueue </td>
+          <td class="memname">future&lt;result_of_t&lt;F(Args...)&gt; &gt; MainPool::enqueueFuture </td>
           <td>(</td>
           <td class="paramtype">F &amp;&amp;&#160;</td>
           <td class="paramname"><em>function</em>, </td>

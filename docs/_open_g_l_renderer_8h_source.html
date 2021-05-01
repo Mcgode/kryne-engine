@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>KryneEngine: kryne-engine/include/kryne-engine/Rendering/Renderers/OpenGLRenderer.h Source File</title>
+<title>KryneEngine: kryne-engine/include/kryne-engine/Rendering/OpenGL/OpenGLRenderer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,58 +90,70 @@ $(document).ready(function(){initNavTree('_open_g_l_renderer_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_loop_renderer_8h.html">kryne-engine/Rendering/LoopRenderer.h</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_plane_buffer_geometry_8h.html">kryne-engine/Geometry/PlaneBufferGeometry.h</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_open_g_l_context.html">OpenGLContext</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_framebuffer_8h.html">OpenGLFramebuffer.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_screen_framebuffer_8hpp.html">OpenGLScreenFramebuffer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_open_g_l_renderer.html">OpenGLRenderer</a>: <span class="keyword">public</span> <a class="code" href="class_loop_renderer.html">LoopRenderer</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#aae16733c7c8d6eabc3bc7994622b4c50">   20</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_open_g_l_renderer.html#aae16733c7c8d6eabc3bc7994622b4c50">OpenGLRenderer</a>(<a class="code" href="class_open_g_l_context.html">OpenGLContext</a> *<a class="code" href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">context</a>) : <a class="code" href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">context</a>(<a class="code" href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">context</a>) {};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a453d31d5ff8c0f2431d92bfe39b4ae07">prepareFrame</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d">handleMesh</a>(<a class="code" href="class_render_mesh.html">RenderMesh</a> *renderMesh) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_open_g_l_renderer.html">OpenGLRenderer</a>: <span class="keyword">public</span> <a class="code" href="class_loop_renderer.html">LoopRenderer</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_open_g_l_renderer.html#ab1a666e102b6a5b267d62d949c97c086">OpenGLRenderer</a>(<a class="code" href="class_rendering_state.html">RenderingState</a> *<a class="code" href="class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca">renderingState</a>, <span class="keyword">const</span> ivec2 &amp;size);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a453d31d5ff8c0f2431d92bfe39b4ae07">prepareFrame</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    vector&lt;Entity *&gt; <a class="code" href="class_open_g_l_renderer.html#affb404bd0e0f848c51cfe52d80592b4a">parseScene</a>(<a class="code" href="class_scene.html">Scene</a> *scene) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#a37367a2f72f93dfdfe32ae7ef24ba1a9">   28</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a37367a2f72f93dfdfe32ae7ef24ba1a9">setCamera</a>(<a class="code" href="class_camera.html">Camera</a> *camera)<span class="keyword"> override </span>{ this-&gt;<a class="code" href="class_open_g_l_renderer.html#a3e700e0620b3d919dfd93e08d132084d">mainCamera</a> = camera; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d">handleMesh</a>(<a class="code" href="class_render_mesh.html">RenderMesh</a> *renderMesh) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::unordered_set&lt;Entity *&gt; <a class="code" href="class_open_g_l_renderer.html#a5b7618fa76bb0b543c67d4b95a0de5d7">parseScene</a>(<a class="code" href="class_scene.html">Scene</a> *scene) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#a3e700e0620b3d919dfd93e08d132084d">   32</a></span>&#160;    <a class="code" href="class_camera.html">Camera</a> *<a class="code" href="class_open_g_l_renderer.html#a3e700e0620b3d919dfd93e08d132084d">mainCamera</a> {};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">   34</a></span>&#160;    <a class="code" href="class_open_g_l_context.html">OpenGLContext</a> *<a class="code" href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">context</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a0cf382fbbc0ba72caa63893541f54273">finishSceneRendering</a>(<a class="code" href="class_scene.html">Scene</a> *scene) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a75fe295875e858702fe391003302624d">handlePostProcessing</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_open_g_l_context_8h.html">kryne-engine/Core/GraphicContext/OpenGLContext.h</a>&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Override</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_open_g_l_renderer.html#a9a2ad92ebc67408ee1c5aaaab387d929">textureRender</a>(<a class="code" href="class_material.html">Material</a> *material) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca">   44</a></span>&#160;    <a class="code" href="class_rendering_state.html">RenderingState</a> *<a class="code" href="class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca">renderingState</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_open_g_l_renderer.html#a07c871e8ed860df6afb9d05eef0f3d07">   47</a></span>&#160;    unique_ptr&lt;PlaneBufferGeometry&gt; <a class="code" href="class_open_g_l_renderer.html#a07c871e8ed860df6afb9d05eef0f3d07">fullscreenPlane</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_open_g_l_renderer_html_a453d31d5ff8c0f2431d92bfe39b4ae07"><div class="ttname"><a href="class_open_g_l_renderer.html#a453d31d5ff8c0f2431d92bfe39b4ae07">OpenGLRenderer::prepareFrame</a></div><div class="ttdeci">void prepareFrame() override</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:58</div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_affb404bd0e0f848c51cfe52d80592b4a"><div class="ttname"><a href="class_open_g_l_renderer.html#affb404bd0e0f848c51cfe52d80592b4a">OpenGLRenderer::parseScene</a></div><div class="ttdeci">vector&lt; Entity * &gt; parseScene(Scene *scene) override</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:66</div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_a6d414b0119b1202e44318bc7a76b4f0d"><div class="ttname"><a href="class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d">OpenGLRenderer::handleMesh</a></div><div class="ttdeci">void handleMesh(RenderMesh *renderMesh) override</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:12</div></div>
-<div class="ttc" id="aclass_open_g_l_context_html"><div class="ttname"><a href="class_open_g_l_context.html">OpenGLContext</a></div><div class="ttdef"><b>Definition:</b> OpenGLContext.h:24</div></div>
-<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:22</div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_a3e700e0620b3d919dfd93e08d132084d"><div class="ttname"><a href="class_open_g_l_renderer.html#a3e700e0620b3d919dfd93e08d132084d">OpenGLRenderer::mainCamera</a></div><div class="ttdeci">Camera * mainCamera</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:32</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a453d31d5ff8c0f2431d92bfe39b4ae07"><div class="ttname"><a href="class_open_g_l_renderer.html#a453d31d5ff8c0f2431d92bfe39b4ae07">OpenGLRenderer::prepareFrame</a></div><div class="ttdeci">void prepareFrame() override</div><div class="ttdoc">A method that will be called at the start of every frame.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:94</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a9a2ad92ebc67408ee1c5aaaab387d929"><div class="ttname"><a href="class_open_g_l_renderer.html#a9a2ad92ebc67408ee1c5aaaab387d929">OpenGLRenderer::textureRender</a></div><div class="ttdeci">void textureRender(Material *material) override</div><div class="ttdoc">Renders a fullscreen texture.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:162</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a6d414b0119b1202e44318bc7a76b4f0d"><div class="ttname"><a href="class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d">OpenGLRenderer::handleMesh</a></div><div class="ttdeci">void handleMesh(RenderMesh *renderMesh) override</div><div class="ttdoc">Handles the provided mesh.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:37</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a0cf382fbbc0ba72caa63893541f54273"><div class="ttname"><a href="class_open_g_l_renderer.html#a0cf382fbbc0ba72caa63893541f54273">OpenGLRenderer::finishSceneRendering</a></div><div class="ttdeci">void finishSceneRendering(Scene *scene) override</div><div class="ttdoc">Finishes the scene rendering, in prevision of the post-processing.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:124</div></div>
+<div class="ttc" id="a_plane_buffer_geometry_8h_html"><div class="ttname"><a href="_plane_buffer_geometry_8h.html">PlaneBufferGeometry.h</a></div></div>
+<div class="ttc" id="a_open_g_l_framebuffer_8h_html"><div class="ttname"><a href="_open_g_l_framebuffer_8h.html">OpenGLFramebuffer.h</a></div></div>
+<div class="ttc" id="aclass_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> Material.h:16</div></div>
+<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.h:24</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a52de03f78b154da4a13edd3c850da5ca"><div class="ttname"><a href="class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca">OpenGLRenderer::renderingState</a></div><div class="ttdeci">RenderingState * renderingState</div><div class="ttdoc">The current OpenGL rendering state.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:44</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a5b7618fa76bb0b543c67d4b95a0de5d7"><div class="ttname"><a href="class_open_g_l_renderer.html#a5b7618fa76bb0b543c67d4b95a0de5d7">OpenGLRenderer::parseScene</a></div><div class="ttdeci">std::unordered_set&lt; Entity * &gt; parseScene(Scene *scene) override</div><div class="ttdoc">Parses the scene to render in the search of essential data for this frame.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:113</div></div>
 <div class="ttc" id="aclass_render_mesh_html"><div class="ttname"><a href="class_render_mesh.html">RenderMesh</a></div><div class="ttdef"><b>Definition:</b> RenderMesh.h:16</div></div>
-<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:17</div></div>
-<div class="ttc" id="a_open_g_l_context_8h_html"><div class="ttname"><a href="_open_g_l_context_8h.html">OpenGLContext.h</a></div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_aae16733c7c8d6eabc3bc7994622b4c50"><div class="ttname"><a href="class_open_g_l_renderer.html#aae16733c7c8d6eabc3bc7994622b4c50">OpenGLRenderer::OpenGLRenderer</a></div><div class="ttdeci">OpenGLRenderer(OpenGLContext *context)</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:20</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a75fe295875e858702fe391003302624d"><div class="ttname"><a href="class_open_g_l_renderer.html#a75fe295875e858702fe391003302624d">OpenGLRenderer::handlePostProcessing</a></div><div class="ttdeci">void handlePostProcessing() override</div><div class="ttdoc">Handles the post processing and the rendering to screen.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:147</div></div>
 <div class="ttc" id="a_loop_renderer_8h_html"><div class="ttname"><a href="_loop_renderer_8h.html">LoopRenderer.h</a></div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html"><div class="ttname"><a href="class_open_g_l_renderer.html">OpenGLRenderer</a></div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:16</div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_a37367a2f72f93dfdfe32ae7ef24ba1a9"><div class="ttname"><a href="class_open_g_l_renderer.html#a37367a2f72f93dfdfe32ae7ef24ba1a9">OpenGLRenderer::setCamera</a></div><div class="ttdeci">void setCamera(Camera *camera) override</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:28</div></div>
-<div class="ttc" id="aclass_open_g_l_renderer_html_a0c1ad57c62f89dcba3e0ff56206c0d9a"><div class="ttname"><a href="class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a">OpenGLRenderer::context</a></div><div class="ttdeci">OpenGLContext * context</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:34</div></div>
-<div class="ttc" id="aclass_loop_renderer_html"><div class="ttname"><a href="class_loop_renderer.html">LoopRenderer</a></div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:24</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_ab1a666e102b6a5b267d62d949c97c086"><div class="ttname"><a href="class_open_g_l_renderer.html#ab1a666e102b6a5b267d62d949c97c086">OpenGLRenderer::OpenGLRenderer</a></div><div class="ttdeci">OpenGLRenderer(RenderingState *renderingState, const ivec2 &amp;size)</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.cpp:12</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html"><div class="ttname"><a href="class_open_g_l_renderer.html">OpenGLRenderer</a></div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:17</div></div>
+<div class="ttc" id="aclass_open_g_l_renderer_html_a07c871e8ed860df6afb9d05eef0f3d07"><div class="ttname"><a href="class_open_g_l_renderer.html#a07c871e8ed860df6afb9d05eef0f3d07">OpenGLRenderer::fullscreenPlane</a></div><div class="ttdeci">unique_ptr&lt; PlaneBufferGeometry &gt; fullscreenPlane</div><div class="ttdoc">The fullscreen plane use for rendering fullscreen textures.</div><div class="ttdef"><b>Definition:</b> OpenGLRenderer.h:47</div></div>
+<div class="ttc" id="aclass_rendering_state_html"><div class="ttname"><a href="class_rendering_state.html">RenderingState</a></div><div class="ttdef"><b>Definition:</b> RenderingState.hpp:16</div></div>
+<div class="ttc" id="aclass_loop_renderer_html"><div class="ttname"><a href="class_loop_renderer.html">LoopRenderer</a></div><div class="ttdoc">A renderer that will be run in the game loop.</div><div class="ttdef"><b>Definition:</b> LoopRenderer.h:36</div></div>
+<div class="ttc" id="a_open_g_l_screen_framebuffer_8hpp_html"><div class="ttname"><a href="_open_g_l_screen_framebuffer_8hpp.html">OpenGLScreenFramebuffer.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_0cd0f52426aabb843978d64903b548c1.html">kryne-engine</a></li><li class="navelem"><a class="el" href="dir_6fe37ccbf5e97356f3116a77abbef924.html">include</a></li><li class="navelem"><a class="el" href="dir_6f1e06805bf6fd443f4521a944e15946.html">kryne-engine</a></li><li class="navelem"><a class="el" href="dir_242c69f8aa6c0b27ad66788f5b769271.html">Rendering</a></li><li class="navelem"><a class="el" href="dir_9f5d199527dba43a9d22b9ea22b1b878.html">Renderers</a></li><li class="navelem"><a class="el" href="_open_g_l_renderer_8h.html">OpenGLRenderer.h</a></li>
+    <li class="navelem"><a class="el" href="dir_0cd0f52426aabb843978d64903b548c1.html">kryne-engine</a></li><li class="navelem"><a class="el" href="dir_6fe37ccbf5e97356f3116a77abbef924.html">include</a></li><li class="navelem"><a class="el" href="dir_6f1e06805bf6fd443f4521a944e15946.html">kryne-engine</a></li><li class="navelem"><a class="el" href="dir_242c69f8aa6c0b27ad66788f5b769271.html">Rendering</a></li><li class="navelem"><a class="el" href="dir_c8c9939fa0f23e4314a6700b3a473357.html">OpenGL</a></li><li class="navelem"><a class="el" href="_open_g_l_renderer_8h.html">OpenGLRenderer.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

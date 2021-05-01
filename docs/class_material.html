@@ -83,10 +83,11 @@ $(document).ready(function(){initNavTree('class_material.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_material-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Material Class Reference</div>  </div>
+<div class="title">Material Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -94,7 +95,8 @@ $(document).ready(function(){initNavTree('class_material.html',''); initResizabl
 <div class="dynheader">
 Inheritance diagram for Material:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_material__inherit__graph.svg" width="334" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material__inherit__graph.svg" width="587" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Material:</div>
@@ -140,6 +142,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a895211010246aa1ee74a7808190b5b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db1d2d3f143144d0e2f11037e2a5355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a5db1d2d3f143144d0e2f11037e2a5355">setWriteDepth</a> (bool writeToDepth)</td></tr>
 <tr class="separator:a5db1d2d3f143144d0e2f11037e2a5355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93edcb8dd567cc08a857f08ff99c46d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a93edcb8dd567cc08a857f08ff99c46d8">displayDearImGui</a> ()</td></tr>
+<tr class="memdesc:a93edcb8dd567cc08a857f08ff99c46d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays material data UI interface.  <a href="class_material.html#a93edcb8dd567cc08a857f08ff99c46d8">More...</a><br /></td></tr>
+<tr class="separator:a93edcb8dd567cc08a857f08ff99c46d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5a9c026494ee8680fcbfd4382a0c2947"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a5a9c026494ee8680fcbfd4382a0c2947">materialName</a> ()=0</td></tr>
+<tr class="separator:a5a9c026494ee8680fcbfd4382a0c2947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d712f7823f8d41938148457f03a741"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a56d712f7823f8d41938148457f03a741">dearImGuiData</a> ()</td></tr>
+<tr class="memdesc:a56d712f7823f8d41938148457f03a741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override this function to display material data in the interface.  <a href="class_material.html#a56d712f7823f8d41938148457f03a741">More...</a><br /></td></tr>
+<tr class="separator:a56d712f7823f8d41938148457f03a741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -182,6 +195,59 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a56d712f7823f8d41938148457f03a741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d712f7823f8d41938148457f03a741">&#9670;&nbsp;</a></span>dearImGuiData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Material::dearImGuiData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Override this function to display material data in the interface. </p>
+
+<p>Reimplemented in <a class="el" href="class_mesh_standard_material.html#a21510f3425d8419f50f8ab845ba9a863">MeshStandardMaterial</a>, and <a class="el" href="class_mesh_lambert_material.html#a3d7d2ccd413ce83fb2987bce3f5b5aad">MeshLambertMaterial</a>.</p>
+
+</div>
+</div>
+<a id="a93edcb8dd567cc08a857f08ff99c46d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93edcb8dd567cc08a857f08ff99c46d8">&#9670;&nbsp;</a></span>displayDearImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::displayDearImGui </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays material data UI interface. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_a93edcb8dd567cc08a857f08ff99c46d8_cgraph.svg" width="400" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="af4d74b55f8be6fead4bbd3ee29a529df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4d74b55f8be6fead4bbd3ee29a529df">&#9670;&nbsp;</a></span>getPrimitiveType()</h2>
 
@@ -308,6 +374,34 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns whether or not this material writes to depth while drawing. </p>
+
+</div>
+</div>
+<a id="a5a9c026494ee8680fcbfd4382a0c2947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a9c026494ee8680fcbfd4382a0c2947">&#9670;&nbsp;</a></span>materialName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string Material::materialName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The name for this material. </p>
+
+<p>Implemented in <a class="el" href="class_shader_material.html#af9487e1d8c87662341fdc01d79aad223">ShaderMaterial</a>, <a class="el" href="class_mesh_standard_material.html#afc81cc97d58bff1250e210f2d757c1c8">MeshStandardMaterial</a>, <a class="el" href="class_mesh_lambert_material.html#a8be3384952e9cfe8f02fb3609b6db86c">MeshLambertMaterial</a>, and <a class="el" href="class_f_x_a_a_material.html#a241b1195d5e217f5f14cbca0533f16eb">FXAAMaterial</a>.</p>
 
 </div>
 </div>

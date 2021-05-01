@@ -7,9 +7,11 @@
 #pragma once
 
 #include <memory>
+#include <unordered_set>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
 
 #include <kryne-engine/Rendering/RenderingState.hpp>
 #include "GraphicContext.h"
@@ -25,12 +27,11 @@ using namespace std;
  */
 class OpenGLContext: public GraphicContext {
 
-friend class OpenGLRenderer;
-
 public:
 
     /**
-     * Tries to initialize the OpenGL context.
+     * @brief Tries to initialize the OpenGL context.
+     *
      * @param baseWidth     The main window width. Defaults to 1280.
      * @param baseHeight    The main window height. Defaults to 720.
      * @param majorVersion  The OpenGL major version. Defaults to 3.
@@ -41,34 +42,33 @@ public:
                            GLint majorVersion = 4, GLint minorVersion = 5,
                            GLint profile = GLFW_OPENGL_CORE_PROFILE);
 
-    /**
-     * @copydoc GraphicContext::shouldStop()
-     */
+    /// @copydoc GraphicContext::shouldStop()
     bool shouldStop() override;
 
-    /**
-     * @copydoc GraphicContext::stop()
-     */
+    /// @copydoc GraphicContext::stop()
     void stop() override;
 
-    /**
-     * @copydoc GraphicContext::endFrame()
-     */
+    /// @copydoc GraphicContext::endFrame()
     void endFrame() override;
 
-    /**
-     * @copydoc GraphicContext::getPlayerInput()
-     */
+    /// @copydoc GraphicContext::getPlayerInput()
     PlayerInput *getPlayerInput() override;
 
+    /// @copydoc GraphicContext::getRenderer()
     LoopRenderer *getRenderer() override;
 
-    GLFWwindow *getWindow() const { return this->mainWindow; }
+    /**
+     * Retrieves the current GLFW window.
+     */
+    [[nodiscard]] GLFWwindow *getWindow() const { return this->mainWindow; }
 
     /**
      * Terminates the OpenGL context.
      */
     virtual ~OpenGLContext();
+
+    // Override
+    unique_ptr<Framebuffer> makeFramebuffer(const ivec2 &size) override;
 
 protected:
 
@@ -83,6 +83,38 @@ protected:
 
     /// The renderer for this context
     unique_ptr<OpenGLRenderer> renderer {};
+
+    /// The current window size
+    glm::ivec2 windowSize {};
+
+
+protected:
+
+    /**
+     * A set of all the declared OpenGLContext instances.
+     */
+    inline static unordered_set<OpenGLContext *> &runningContexts()
+    {
+        static unordered_set<OpenGLContext *> contexts;
+        return contexts;
+    }
+
+    /**
+     * @brief GLFW framebuffer size update callback.
+     *
+     * @param window    The associated GLFW window.
+     * @param width     The new framebuffer width.
+     * @param height    The new framebuffer height.
+     */
+    static void framebufferSizeCallback(GLFWwindow *window, int width, int height);
+
+    /**
+     * @brief Updates the context window size.
+     *
+     * @param width     The new window width.
+     * @param height    The new window height.
+     */
+    void updateSize(int width, int height);
 
 };
 

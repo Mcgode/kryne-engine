@@ -7,7 +7,7 @@
 Renderer::Renderer(uint16_t width, uint16_t height) :
         associatedWindow(make_unique<Window>(width, height)),
         playerInput(PlayerInput::tryMakeInput(associatedWindow->getGlfwWindow())),
-        renderingState(FrontSide, true)
+        renderingState(ivec2(0), FrontSide, true)
 {}
 
 

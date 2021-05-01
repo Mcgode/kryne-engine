@@ -1,8 +1,13 @@
 <map id="Scene" name="Scene">
-<area shape="rect" id="node1" title=" " alt="" coords="71,392,129,419"/>
-<area shape="rect" id="node2" title=" " alt="" coords="35,273,165,315"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="72,184,128,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,95,195,121"/>
-<area shape="rect" id="node5" href="$class_transform.html" title=" " alt="" coords="178,5,257,32"/>
-<area shape="rect" id="node6" title=" " alt="" coords="219,95,391,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="175,407,234,433"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,295,212,322"/>
+<area shape="rect" id="node3" href="$class_cube_texture.html" title=" " alt="" coords="61,199,156,225"/>
+<area shape="rect" id="node4" href="$class_texture.html" title=" " alt="" coords="76,109,141,136"/>
+<area shape="rect" id="node5" title=" " alt="" coords="237,288,367,329"/>
+<area shape="rect" id="node6" href="$class_entity.html" title=" " alt="" coords="274,199,330,225"/>
+<area shape="rect" id="node7" title="STL class." alt="" coords="194,109,274,136"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="171,5,297,47"/>
+<area shape="rect" id="node9" title=" " alt="" coords="298,109,487,136"/>
+<area shape="rect" id="node10" href="$class_transform.html" title=" " alt="" coords="471,13,549,39"/>
+<area shape="rect" id="node11" title=" " alt="" coords="512,109,684,136"/>
 </map>

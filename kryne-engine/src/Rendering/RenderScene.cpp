@@ -54,7 +54,7 @@ OldCamera *RenderScene::getCamera() const {
 }
 
 
-void RenderScene::setDirectionalLight(DirectionalLight *light)
+void RenderScene::setDirectionalLight(OldDirectionalLight *light)
 {
     assert(light != nullptr);
     this->lightingRegistry->registerDirectionalLight(light);
@@ -64,7 +64,7 @@ void RenderScene::setDirectionalLight(DirectionalLight *light)
 }
 
 
-void RenderScene::addPointLight(PointLight *light)
+void RenderScene::addPointLight(OldPointLight *light)
 {
     assert(light != nullptr);
     lightingRegistry->registerPointLight(light);

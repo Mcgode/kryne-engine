@@ -8,5 +8,6 @@ var class_perspective_projection_data =
     [ "setAspectRatio", "class_perspective_projection_data.html#a6fa30d37329780780b1ea2769d65d055", null ],
     [ "setFarPlane", "class_perspective_projection_data.html#a6d85254124997b8e9afadc1aa017e847", null ],
     [ "setFieldOfView", "class_perspective_projection_data.html#a03a66e8a05ee9d4cd6c786e82810f07d", null ],
-    [ "setNearPlane", "class_perspective_projection_data.html#a7dc093ea0bb6034f072553ff69a22a95", null ]
+    [ "setNearPlane", "class_perspective_projection_data.html#a7dc093ea0bb6034f072553ff69a22a95", null ],
+    [ "setViewportSize", "class_perspective_projection_data.html#a0de8c0bcf303bd034f97ebb3d4c9e9f3", null ]
 ];

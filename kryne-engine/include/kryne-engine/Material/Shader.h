@@ -135,6 +135,10 @@ private:
 
     GLuint programID;
 
+    GLuint previousVertex = 0;
+
+    GLuint previousFragment = 0;
+
     uint8_t needsUpdate = 0b00;
 
     string vertexShader;
@@ -151,9 +155,7 @@ public:
     /**
      * Retrieves the current list of defines for this shader
      */
-    [[nodiscard]] const unordered_map<string, string> &getDefines() const {
-        return defines;
-    }
+    [[nodiscard]] const unordered_map<string, string> &getDefines() const { return defines; }
 
     /**
      * Sets a define constant value for the shader.
@@ -161,32 +163,27 @@ public:
      * @param defineValue   The value of the constant as a string. Can be empty, in case you just want to define an
      *                      empty constant to use #ifdef and the like.
      */
-    void setDefine(const string &defineName, const string &defineValue) {
-        const auto emplaceResult = Shader::defines.emplace(defineName, defineValue);
-        if (!emplaceResult.second)
-            emplaceResult.first->second = defineValue;
-        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
-    }
+    void setDefine(const string &defineName, const string &defineValue);
 
     /**
      * Removes a define constant from the list
      * @param defineName    The name of the constant to remove
      * @returns true if an element was erased, false otherwise.
      */
-    bool removeDefine(const string &defineName) {
-        Shader::needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
-        return Shader::defines.erase(defineName) > 0;
-    }
+    bool removeDefine(const string &defineName);
 
     /**
      * Generates the code for the defines
      */
-    string makeDefinesCode() const;
+    [[nodiscard]] string makeDefinesCode();
 
 private:
 
     /// The storage for the defines
     unordered_map<string, string> defines;
+
+    /// A mutex for define writing
+    mutex mapMutex;
 
 
 public:

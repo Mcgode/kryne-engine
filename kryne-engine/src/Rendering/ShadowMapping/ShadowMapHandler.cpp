@@ -17,7 +17,7 @@ void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<Hierarchical
         if (directionalLight->isCastingShadow())
         {
             if (directionalShadowMaps.find(directionalLight) == directionalShadowMaps.end())
-                directionalShadowMaps.insert(std::pair<DirectionalLight *, DirectionalShadowMapRendering *>(
+                directionalShadowMaps.insert(std::pair<OldDirectionalLight *, DirectionalShadowMapRendering *>(
                         directionalLight, new DirectionalShadowMapRendering(directionalLight, this->mainCamera)));
 
             directionalShadowMaps.find(directionalLight)->second->render(window, rootNodes, params);
@@ -32,7 +32,7 @@ void ShadowMapHandler::renderShadowMaps(Window *window, std::vector<Hierarchical
 }
 
 
-std::vector<GLuint> ShadowMapHandler::getDirectionalShadowMaps(DirectionalLight *directionalLight)
+std::vector<GLuint> ShadowMapHandler::getDirectionalShadowMaps(OldDirectionalLight *directionalLight)
 {
     auto pair = directionalShadowMaps.find(directionalLight);
     if (pair == directionalShadowMaps.end())
@@ -41,7 +41,7 @@ std::vector<GLuint> ShadowMapHandler::getDirectionalShadowMaps(DirectionalLight 
         return pair->second->getShadowMaps();
 }
 
-std::vector<glm::mat4> ShadowMapHandler::getLightSpaceMatrices(DirectionalLight *directionalLight)
+std::vector<glm::mat4> ShadowMapHandler::getLightSpaceMatrices(OldDirectionalLight *directionalLight)
 {
     auto pair = directionalShadowMaps.find(directionalLight);
     if (pair == directionalShadowMaps.end())

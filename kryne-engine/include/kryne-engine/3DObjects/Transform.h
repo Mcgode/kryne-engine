@@ -116,6 +116,29 @@ public:
     [[nodiscard]] Transform *getParent() const { return parent; }
 
     /**
+     * @brief Sets the transform parent in an unsafe way.
+     *
+     * @details
+     * Simply sets the #parent property without any of the other complex operations. <br>
+     * The current transform will have a parent pointing to another transform, but the inverse is false. This transform
+     * won't be registered as a child, and won't be associated to any scene. <br>
+     * Use this operation if you really now what you're doing.
+     *
+     * For an example, see the transform handling of light cameras in ShadowMapProcess and LightingRegistrySystem.
+     *
+     * @warning
+     * Since this transform is not registered as a child, #parent may point to an invalidated address. As such, it needs
+     * to be updated regularly , and reset when appropriate.
+     *
+     * @param newParent The pointer to the parent transform.
+     */
+    inline void unsafeSetParent(Transform *newParent)
+    {
+        this->removeFromParent();
+        this->parent = newParent;
+    };
+
+    /**
      *
      * @param callback
      */

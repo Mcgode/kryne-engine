@@ -100,6 +100,12 @@ public:
         updateProjectionMatrix();
     }
 
+    // Override
+    void setViewportSize(const ivec2 size) override
+    {
+        this->setAspectRatio((float) size.x / size.y);
+    }
+
 private:
 
     void updateProjectionMatrix() override {

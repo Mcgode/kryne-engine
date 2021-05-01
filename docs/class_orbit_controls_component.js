@@ -2,6 +2,7 @@ var class_orbit_controls_component =
 [
     [ "OrbitControlsComponent", "class_orbit_controls_component.html#adfc80f4e131076981f58094e95262eb3", null ],
     [ "onUpdate", "class_orbit_controls_component.html#ac63d4a4bec582b9b23b757cdda4693ff", null ],
+    [ "renderComponentDetails", "class_orbit_controls_component.html#a9b80045cb8c7f589e05bbbd0760827fb", null ],
     [ "setCenterPosition", "class_orbit_controls_component.html#aa87d7904483e91ed6b11eaca2486d7ad", null ],
     [ "setPosition", "class_orbit_controls_component.html#ac8611a683dbd195df68c64940d622d57", null ],
     [ "updatePosition", "class_orbit_controls_component.html#aedf4dc7f005ffee67f71660dc0652354", null ],

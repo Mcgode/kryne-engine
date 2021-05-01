@@ -11,15 +11,24 @@
 #include <kryne-engine/Core/LogicComponent.h>
 
 
+/**
+ * @brief A system for running #LogicComponent instances in the scene
+ */
 class GameLogicComponentsRunner: public System {
 
 public:
 
+    // Override
     explicit GameLogicComponentsRunner(Process *process): System(process, GameLogic) {}
 
+    // Override
     void runSystem(Entity *entity) override;
 
+    // Override
     void loopReset() override;
+
+    // Override
+    void parseScene(Scene *scene, unordered_set<Entity *> &priorityEntities) override {}
 
 };
 

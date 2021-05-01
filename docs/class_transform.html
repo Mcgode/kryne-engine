@@ -144,6 +144,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8fc15bb898c9c1186b0b8bf5340d4d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5791c2b5044fe3db559579c21feaec8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#af5791c2b5044fe3db559579c21feaec8">setQuaternion</a> (const glm::quat &amp;quat)</td></tr>
 <tr class="separator:af5791c2b5044fe3db559579c21feaec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74518b8c0011e0d0dda7c1a44e8e718f"><td class="memItemLeft" align="right" valign="top">const vec3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#a74518b8c0011e0d0dda7c1a44e8e718f">getEuler</a> () const</td></tr>
+<tr class="separator:a74518b8c0011e0d0dda7c1a44e8e718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf35904518695abdb70bcff76c242cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#acf35904518695abdb70bcff76c242cf2">setEuler</a> (const vec3 &amp;newEuler)</td></tr>
+<tr class="separator:acf35904518695abdb70bcff76c242cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0449982f81ee2fdaba5b261cf00bd914"><td class="memItemLeft" align="right" valign="top">const glm::vec3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#a0449982f81ee2fdaba5b261cf00bd914">getScale</a> () const</td></tr>
 <tr class="separator:a0449982f81ee2fdaba5b261cf00bd914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a740087fd447ef53f10c1bebe6cd5a010"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#a740087fd447ef53f10c1bebe6cd5a010">setScale</a> (const glm::vec3 &amp;s)</td></tr>
@@ -190,6 +194,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a08d4916d513228933ca722369c315beb"><td class="memItemLeft" align="right" valign="top">glm::quat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#a08d4916d513228933ca722369c315beb">quaternion</a> {}</td></tr>
 <tr class="memdesc:a08d4916d513228933ca722369c315beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local rotation quaternion.  <a href="class_transform.html#a08d4916d513228933ca722369c315beb">More...</a><br /></td></tr>
 <tr class="separator:a08d4916d513228933ca722369c315beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92bdd2bcffa90e64f631facfb6c112c"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#ac92bdd2bcffa90e64f631facfb6c112c">euler</a> {}</td></tr>
+<tr class="memdesc:ac92bdd2bcffa90e64f631facfb6c112c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local rotation euler angles.  <a href="class_transform.html#ac92bdd2bcffa90e64f631facfb6c112c">More...</a><br /></td></tr>
+<tr class="separator:ac92bdd2bcffa90e64f631facfb6c112c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf6ab53778448fd2f2d8a367c14e7f95"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform.html#acf6ab53778448fd2f2d8a367c14e7f95">scale</a> {}</td></tr>
 <tr class="memdesc:acf6ab53778448fd2f2d8a367c14e7f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local object scale.  <a href="class_transform.html#acf6ab53778448fd2f2d8a367c14e7f95">More...</a><br /></td></tr>
 <tr class="separator:acf6ab53778448fd2f2d8a367c14e7f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,6 +388,32 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>Returns the entity this transform is attached to </p><dl class="section return"><dt>Returns</dt><dd>A raw pointer to the attached entity. </dd></dl>
+
+</div>
+</div>
+<a id="a74518b8c0011e0d0dda7c1a44e8e718f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74518b8c0011e0d0dda7c1a44e8e718f">&#9670;&nbsp;</a></span>getEuler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vec3&amp; Transform::getEuler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieve the current object euler angles </p>
 
 </div>
 </div>
@@ -659,6 +692,38 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>Removes this object from its parent, if it has one. </p>
+
+</div>
+</div>
+<a id="acf35904518695abdb70bcff76c242cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf35904518695abdb70bcff76c242cf2">&#9670;&nbsp;</a></span>setEuler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transform::setEuler </td>
+          <td>(</td>
+          <td class="paramtype">const vec3 &amp;&#160;</td>
+          <td class="paramname"><em>newEuler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Change the object rotation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newEuler</td><td>The new euler angles value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -973,6 +1038,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The object children. </p>
+
+</div>
+</div>
+<a id="ac92bdd2bcffa90e64f631facfb6c112c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac92bdd2bcffa90e64f631facfb6c112c">&#9670;&nbsp;</a></span>euler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Transform::euler {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The local rotation euler angles. </p>
 
 </div>
 </div>

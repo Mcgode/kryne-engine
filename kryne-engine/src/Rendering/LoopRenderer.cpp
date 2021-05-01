@@ -7,13 +7,25 @@
 #include "kryne-engine/Rendering/LoopRenderer.h"
 
 
-LoopRenderer::LoopRenderer(unique_ptr<Framebuffer> screenFramebuffer,
+LoopRenderer::LoopRenderer(GraphicContext *context,
+                           unique_ptr<Framebuffer> screenFramebuffer,
                            unique_ptr<Framebuffer> readFramebuffer,
-                           unique_ptr<Framebuffer> writeFramebuffer) :
+                           unique_ptr<Framebuffer> writeFramebuffer,
+                           const ivec2 &size) :
    screenFramebuffer(move(screenFramebuffer)),
    readFramebuffer(move(readFramebuffer)),
-   writeFramebuffer(move(writeFramebuffer))
-{}
+   writeFramebuffer(move(writeFramebuffer)),
+   rendererSize(size),
+   context(context)
+{
+    auto geometry = make_shared<BoxBufferGeometry>();
+    geometry->removeAttribute("normal");
+    geometry->removeAttribute("uv");
+    geometry->removeAttribute("tangent");
+    this->cubeGeometry = geometry;
+
+    this->pmremGenerator = make_unique<PMREMGenerator>(this->context);
+}
 
 
 LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
@@ -24,11 +36,26 @@ LoopRenderer::FrustumCullingData::FrustumCullingData(Camera *camera) :
 void LoopRenderer::prepareFrame()
 {
     {
+        scoped_lock<mutex> l(this->meshesMutex);
+        this->meshesForFrame.clear();
+    }
+
+    {
         scoped_lock<mutex> l(this->frustumCullingMutex);
         this->frustumCulled.clear();
 
         FrustumCullingData mainCamFCD(mainCamera);
         this->frustumCulled.emplace(mainCamera, mainCamFCD);
+
+        for (const auto &process : this->processes)
+        {
+            auto cameras = process->prepareFrame(this);
+            for (const auto &camera : cameras)
+            {
+                FrustumCullingData camFCD(camera);
+                this->frustumCulled.emplace(camera, camFCD);
+            }
+        }
     }
 
     this->framePostProcessPasses.clear();
@@ -37,6 +64,17 @@ void LoopRenderer::prepareFrame()
         if (pass->isEnabled())
             this->framePostProcessPasses.push_back(pass.get());
     }
+}
+
+
+void LoopRenderer::registerMesh(RenderMesh *mesh)
+{
+    {
+        scoped_lock<mutex> l(this->meshesMutex);
+        this->meshesForFrame.push_back(mesh);
+    }
+
+    this->computeFrustumCulling(mesh);
 }
 
 
@@ -130,4 +168,57 @@ unique_ptr<PostProcessPass> LoopRenderer::removePass(const string &name)
     auto p = move(*it);
     this->postProcessPasses.erase(it);
     return p;
+}
+
+
+void LoopRenderer::updateRendererSize(const ivec2 &size)
+{
+    this->rendererSize = size;
+    this->writeFramebuffer->setSize(size);
+    this->readFramebuffer->setSize(size);
+}
+
+
+void LoopRenderer::addProcess(unique_ptr<RenderingProcess> process)
+{
+    this->processes.insert(this->processes.end(), move(process));
+}
+
+
+bool LoopRenderer::addProcessAfter(unique_ptr<RenderingProcess> process, const string &name)
+{
+    auto it = this->processes.begin();
+
+    for (; it != this->processes.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+    }
+
+    if (it == this->processes.end())
+        return false;
+
+    it++;
+    this->processes.insert(it, move(process));
+    return true;
+}
+
+
+bool LoopRenderer::addProcessBefore(unique_ptr<RenderingProcess> process, const string &name)
+{
+    auto it = this->processes.begin();
+    auto before = it;
+
+    for (; it != this->processes.end(); it++)
+    {
+        if ((*it)->getName() == name)
+            break;
+        before = it;
+    }
+
+    if (it == this->processes.end())
+        return false;
+
+    this->processes.insert(it, move(process));
+    return true;
 }

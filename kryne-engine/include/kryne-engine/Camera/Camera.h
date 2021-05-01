@@ -9,12 +9,13 @@
 
 
 #include <memory>
+#include <glm/mat4x4.hpp>
+
 #include <kryne-engine/Core/Entity.h>
+#include "ProjectionData.hpp"
 
-#include "ICamera.hpp"
 
-
-class Camera : public Entity, virtual public ICamera {
+class Camera : public Entity {
 
 public:
 
@@ -58,6 +59,11 @@ public:
      * @param newProjectionData
      */
     void setProjectionData(unique_ptr<ProjectionData> newProjectionData);
+
+    /**
+     * @brief Retrieves the current projection data
+     */
+     [[nodiscard]] ProjectionData *getProjectionData() const { return this->projectionData.get(); }
 
 protected:
 

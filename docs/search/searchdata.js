@@ -5,12 +5,12 @@ var indexSectionsWithContent =
   2: "cmu",
   3: "3abcdefghilmoprstuvw",
   4: "abcdefghiklmnoprstuvw~",
-  5: "abcdefgiklmnopqrstuvw",
-  6: "ctu",
-  7: "bimors",
-  8: "bdfghlnpst",
-  9: "ops",
-  10: "abcdgkps"
+  5: "abcdefghiklmnpqrstuvw",
+  6: "cituv",
+  7: "bilmprs",
+  8: "abcdfghlnprstv",
+  9: "ps",
+  10: "abcdgikps"
 };
 
 var indexSectionNames =

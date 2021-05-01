@@ -10,8 +10,8 @@ add_library(kryne-engine STATIC
         src/3DObjects/BaseObject.cpp include/kryne-engine/3DObjects/BaseObject.h
         src/3DObjects/HierarchicalNode.cpp include/kryne-engine/3DObjects/HierarchicalNode.h
         src/Camera/TrackballCamera.cpp include/kryne-engine/Camera/TrackballCamera.h
-        src/Light/PointLight.cpp include/kryne-engine/Light/PointLight.h
-        src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.h
+        src/Light/OldPointLight.cpp include/kryne-engine/Light/OldPointLight.h
+        src/Light/OldDirectionalLight.cpp include/kryne-engine/Light/OldDirectionalLight.h
         src/Core/AdditionalParameters.cpp include/kryne-engine/Core/AdditionalParameters.h
         src/Textures/Texture2D.cpp include/kryne-engine/Textures/Texture2D.h
         src/RenderTargets/PostProcess.cpp include/kryne-engine/RenderTargets/PostProcess.h
@@ -91,7 +91,6 @@ add_library(kryne-engine STATIC
         src/Dispatch/MainPool.cpp include/kryne-engine/Dispatch/MainPool.h
         src/Dispatch/BasePool.cpp include/kryne-engine/Dispatch/BasePool.h
         include/kryne-engine/enums/RenderMode.h
-        src/Rendering/RenderPass.cpp include/kryne-engine/Rendering/RenderPass.h
         include/kryne-engine/Math/Sphere.hpp
         include/kryne-engine/Math/AxisAlignedBox.hpp
         include/kryne-engine/Math/Frustum.hpp
@@ -112,8 +111,28 @@ add_library(kryne-engine STATIC
         include/kryne-engine/UI/DearImGuiComponent.hpp
         include/kryne-engine/Utils/FrameTime.hpp
         src/UI/DearImGuiPerformanceMetrics.cpp include/kryne-engine/UI/DearImGuiPerformanceMetrics.hpp
-        include/kryne-engine/Utils/Multithreading.hpp)
+        include/kryne-engine/Utils/Multithreading.hpp
+        include/kryne-engine/Material/AdditionalMaterials/FXAAMaterial.hpp
+        src/Light/HemisphereLight.cpp include/kryne-engine/Light/HemisphereLight.hpp
+        include/kryne-engine/Light/Light.hpp
+        src/Systems/LightingRegistrySystem.cpp include/kryne-engine/Systems/LightingRegistrySystem.hpp
+        include/kryne-engine/Light/AmbientLight.hpp
+        src/Light/DirectionalLight.cpp include/kryne-engine/Light/DirectionalLight.hpp
+        include/kryne-engine/Material/ShaderMaterial.hpp
+        src/Rendering/Additional/PMREMGenerator.cpp include/kryne-engine/Rendering/Additional/PMREMGenerator.hpp
+        src/Textures/EnvironmentMap.cpp include/kryne-engine/Textures/EnvironmentMap.hpp
+        include/kryne-engine/Constants/CubeRenderMatrices.hpp
+        include/kryne-engine/Constants/OpenGLTexture.hpp
+        src/Geometry/TorusKnotBufferGeometry.cpp include/kryne-engine/Geometry/TorusKnotBufferGeometry.hpp
+        include/kryne-engine/Utils/DearImGui/CubeMapWidget.cpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.hpp
+        include/kryne-engine/Rendering/RenderingProcess.hpp
+        src/Rendering/Processes/ShadowMappingProcess.cpp include/kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp
+        include/kryne-engine/Camera/OrthographicProjectionData.hpp src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_link_libraries(kryne-engine ${LIBS})
+
+
+duplicateLibrary(kryne-engine kryne-engine-st)
+target_compile_definitions(kryne-engine-st PUBLIC KRYNE_ENGINE_SINGLE_THREADED=1)

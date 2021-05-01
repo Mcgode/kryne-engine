@@ -50,13 +50,13 @@ public:
      * Sets the directional light of the scene
      * @param light The directional light for the scene
      */
-    void setDirectionalLight(DirectionalLight *light);
+    void setDirectionalLight(OldDirectionalLight *light);
 
     /**
      * Adds a point light to scene
      * @param light The point light that you want to be added to the scene
      */
-    void addPointLight(PointLight *light);
+    void addPointLight(OldPointLight *light);
 
     OldCamera *getCamera() const;
 

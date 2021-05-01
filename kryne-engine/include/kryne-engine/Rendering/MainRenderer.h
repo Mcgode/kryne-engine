@@ -32,8 +32,8 @@ public:
      * @param pointLights       The point lights for the scene
      * @param params            Additional parameters to pass down during the rendering.
      */
-    void renderMain(Window *window, std::vector<HierarchicalNode *> *rootNodes, DirectionalLight *directionalLight,
-                    std::vector<PointLight *> *pointLights, AdditionalParameters *params);
+    void renderMain(Window *window, std::vector<HierarchicalNode *> *rootNodes, OldDirectionalLight *directionalLight,
+                    std::vector<OldPointLight *> *pointLights, AdditionalParameters *params);
 
 
     void drawInScene(BaseObject *obj, glm::mat4 view, glm::mat4 model, AdditionalParameters *params) override;
@@ -46,7 +46,7 @@ public:
     OldCamera *updateCamera(OldCamera *newCamera);
 
 
-    void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder, DirectionalLight *directionalLight);
+    void setSkybox(Skybox *skybox, SkyboxDrawOrder drawOrder, OldDirectionalLight *directionalLight);
 
 
     [[nodiscard]] OldCamera *getCamera() const;
@@ -67,10 +67,10 @@ private:
     glm::mat4 projection{};
 
     /// The directional light for the scene
-    DirectionalLight *directionalLight{};
+    OldDirectionalLight *directionalLight{};
 
     /// The point lights of the scene
-    std::vector<PointLight *> *pointLights;
+    std::vector<OldPointLight *> *pointLights;
 
     Skybox *skybox = nullptr;
     SkyboxDrawOrder skyboxDrawOrder = SKYBOX_NO_DRAW;

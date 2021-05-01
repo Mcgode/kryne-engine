@@ -9,8 +9,10 @@
 
 class Entity;
 class Transform;
+class EnvironmentMap;
 
 #include <unordered_set>
+#include <memory>
 
 
 using namespace std;
@@ -48,6 +50,12 @@ public:
      */
     const unordered_set<Entity *> &getTopLevelEntities();
 
+    /// @brief Retrieves the skybox envmap
+    [[nodiscard]] const shared_ptr<EnvironmentMap> &getSkyboxEnvMap() const { return skyboxEnvMap; }
+
+    /// @brief Changes the skybox envmap
+    void setSkyboxEnvMap(const shared_ptr<EnvironmentMap> &value) { Scene::skyboxEnvMap = value; }
+
 
 protected:
 
@@ -57,11 +65,15 @@ protected:
     /// TODO: Update it automatically
     unordered_set<Entity *> topLevelEntities {};
 
+    /// The skybox environment map for the scene
+    shared_ptr<EnvironmentMap> skyboxEnvMap {};
+
 
 };
 
 
 #include <kryne-engine/Core/Entity.h>
+#include <kryne-engine/Textures/EnvironmentMap.hpp>
 
 
 #endif //INC_KRYNE_ENGINE_SCENE_H

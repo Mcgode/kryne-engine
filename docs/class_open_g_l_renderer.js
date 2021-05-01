@@ -1,10 +1,12 @@
 var class_open_g_l_renderer =
 [
-    [ "OpenGLRenderer", "class_open_g_l_renderer.html#aae16733c7c8d6eabc3bc7994622b4c50", null ],
+    [ "OpenGLRenderer", "class_open_g_l_renderer.html#ab1a666e102b6a5b267d62d949c97c086", null ],
+    [ "finishSceneRendering", "class_open_g_l_renderer.html#a0cf382fbbc0ba72caa63893541f54273", null ],
     [ "handleMesh", "class_open_g_l_renderer.html#a6d414b0119b1202e44318bc7a76b4f0d", null ],
-    [ "parseScene", "class_open_g_l_renderer.html#affb404bd0e0f848c51cfe52d80592b4a", null ],
+    [ "handlePostProcessing", "class_open_g_l_renderer.html#a75fe295875e858702fe391003302624d", null ],
+    [ "parseScene", "class_open_g_l_renderer.html#a5b7618fa76bb0b543c67d4b95a0de5d7", null ],
     [ "prepareFrame", "class_open_g_l_renderer.html#a453d31d5ff8c0f2431d92bfe39b4ae07", null ],
-    [ "setCamera", "class_open_g_l_renderer.html#a37367a2f72f93dfdfe32ae7ef24ba1a9", null ],
-    [ "context", "class_open_g_l_renderer.html#a0c1ad57c62f89dcba3e0ff56206c0d9a", null ],
-    [ "mainCamera", "class_open_g_l_renderer.html#a3e700e0620b3d919dfd93e08d132084d", null ]
+    [ "textureRender", "class_open_g_l_renderer.html#a9a2ad92ebc67408ee1c5aaaab387d929", null ],
+    [ "fullscreenPlane", "class_open_g_l_renderer.html#a07c871e8ed860df6afb9d05eef0f3d07", null ],
+    [ "renderingState", "class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca", null ]
 ];

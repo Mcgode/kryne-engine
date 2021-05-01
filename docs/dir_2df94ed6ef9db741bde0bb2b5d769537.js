@@ -1,5 +1,6 @@
 var dir_2df94ed6ef9db741bde0bb2b5d769537 =
 [
+    [ "AdditionalMaterials", "dir_e2c64c2b7762f9c9f3fc1e64b9a937bc.html", "dir_e2c64c2b7762f9c9f3fc1e64b9a937bc" ],
     [ "Material.h", "kryne-engine_2_material_2_material_8h.html", [
       [ "Material", "class_material.html", "class_material" ]
     ] ],
@@ -17,6 +18,9 @@ var dir_2df94ed6ef9db741bde0bb2b5d769537 =
     [ "Shader.h", "_shader_8h.html", "_shader_8h" ],
     [ "ShaderChunk.h", "_shader_chunk_8h.html", [
       [ "ShaderChunk", "class_shader_chunk.html", "class_shader_chunk" ]
+    ] ],
+    [ "ShaderMaterial.hpp", "_shader_material_8hpp.html", [
+      [ "ShaderMaterial", "class_shader_material.html", "class_shader_material" ]
     ] ],
     [ "UniformsHandler.h", "_uniforms_handler_8h.html", [
       [ "UniformsHandler", "class_uniforms_handler.html", "class_uniforms_handler" ]

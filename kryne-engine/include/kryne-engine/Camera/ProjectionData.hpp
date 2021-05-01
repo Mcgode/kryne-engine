@@ -35,6 +35,13 @@ public:
         return inverseProjectionMatrix;
     }
 
+    /**
+     * @brief A function for updating the projection data related to viewport size
+     *
+     * @param size  The viewport size.
+     */
+    virtual void setViewportSize(const ivec2 size) {}
+
 protected:
 
     /**

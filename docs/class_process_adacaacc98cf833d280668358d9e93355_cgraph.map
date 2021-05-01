@@ -1,12 +1,13 @@
 <map id="Process::processEntity" name="Process::processEntity">
-<area shape="rect" id="node1" title=" " alt="" coords="5,208,164,235"/>
-<area shape="rect" id="node2" href="$class_main_pool.html#ad39482392e579e95034085591498d3ee" title=" " alt="" coords="235,5,369,32"/>
-<area shape="rect" id="node3" href="$class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648" title=" " alt="" coords="230,56,374,83"/>
-<area shape="rect" id="node4" href="$class_transform.html#aa88751206dca7860f5c17977c8c10aa0" title=" " alt="" coords="226,107,378,133"/>
-<area shape="rect" id="node5" href="$class_entity.html#a3451b5a0c02ea5d16d8cb0763858bc2b" title=" " alt="" coords="225,157,379,184"/>
-<area shape="rect" id="node6" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="233,208,371,235"/>
-<area shape="rect" id="node7" href="$class_loop_renderer.html#a7c060e0cab35e5fbe85776950826442a" title=" " alt="" coords="212,259,392,285"/>
-<area shape="rect" id="node8" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="231,309,373,336"/>
-<area shape="rect" id="node9" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="242,360,362,387"/>
-<area shape="rect" id="node10" href="$class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool." alt="" coords="235,411,369,437"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,216,164,243"/>
+<area shape="rect" id="node2" href="$class_loop_renderer.html#af9bd2cd59bfd15bf6e2bb4f075ce04b5" title="Computes the frustum culling of a given mesh for all the cameras." alt="" coords="212,23,420,65"/>
+<area shape="rect" id="node5" href="$class_main_pool.html#aeb209cd3fcffce1010bbc4afc1da4541" title=" " alt="" coords="249,89,383,116"/>
+<area shape="rect" id="node6" href="$class_thread_pool.html#a6b5fece9b1a36b36f98e304b840c2648" title=" " alt="" coords="244,140,388,167"/>
+<area shape="rect" id="node7" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class." alt="" coords="239,191,393,217"/>
+<area shape="rect" id="node8" href="$class_dispatcher.html#a72977dbd43a8cf501c05d915858d39ba" title=" " alt="" coords="245,241,387,268"/>
+<area shape="rect" id="node9" href="$class_entity.html#a2a0f7811f8c3f8726be1549e1c4acba4" title=" " alt="" coords="255,292,377,319"/>
+<area shape="rect" id="node10" href="$class_dispatcher.html#a289257d29e2583f5ef40b7b5c4fdae8b" title="Retrieves the main thread pool." alt="" coords="256,343,376,369"/>
+<area shape="rect" id="node11" href="$class_dispatcher.html#acf9ae07e5cac994e98b814e0526ba481" title="Retrieves the parallel threads pool." alt="" coords="249,393,383,420"/>
+<area shape="rect" id="node3" href="$class_render_mesh.html#a949951ca582028c336327b81c1830981" title="Retrieves the current bounding sphere." alt="" coords="468,5,684,32"/>
+<area shape="rect" id="node4" href="$class_render_mesh.html#ac0549be61198984044a2b35b516b2720" title="Retrieves whether this mesh should be frustum culled or not." alt="" coords="485,56,667,83"/>
 </map>

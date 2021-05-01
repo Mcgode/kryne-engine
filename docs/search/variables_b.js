@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['name_1361',['name',['../struct_player_input_1_1_key_map_item.html#a97f6b9c8ef46a06b3c47339867d5ca4f',1,'PlayerInput::KeyMapItem::name()'],['../class_render_pass.html#a641a93582bfd148fbb55c85be2247716',1,'RenderPass::name()']]],
-  ['needslink_1362',['needsLink',['../struct_buffer_geometry_1_1_attribute_data.html#a5a5f2a6e4cdc9d782f3fe05fc3daaf0a',1,'BufferGeometry::AttributeData']]],
-  ['nextindex_1363',['nextIndex',['../class_final_post_process.html#a8ed5222e11705d2e996e41827789b944',1,'FinalPostProcess']]],
-  ['nextlocation_1364',['nextLocation',['../class_buffer_geometry.html#ac27c1b257219a106b54855438c2f5c22',1,'BufferGeometry']]],
-  ['nexttextureindex_1365',['nextTextureIndex',['../class_uniforms_handler.html#a88b13b7a6ecc0eef9c4c92a911c332d3',1,'UniformsHandler']]],
-  ['normalmap_1366',['normalMap',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a8a871c164db62126bd113f7cae25e3d2',1,'MeshStandardMaterial::StandardInitParameters::normalMap()'],['../class_mesh_standard_material.html#a1a91b0a1e97a3753100db4914425e664',1,'MeshStandardMaterial::normalMap()']]],
-  ['normalmatrix_1367',['normalMatrix',['../class_transform.html#af41c24d3c56c88deafc29ae8d3c7926a',1,'Transform']]]
+  ['m1_1774',['m1',['../struct_utils_1_1double__lock.html#a794a7aee6f7a879e193548eaebc269e2',1,'Utils::double_lock']]],
+  ['m2_1775',['m2',['../struct_utils_1_1double__lock.html#a00c9932c2fc372d9b50259e79e4895ca',1,'Utils::double_lock']]],
+  ['maincamera_1776',['mainCamera',['../class_loop_renderer.html#a374a39436e9cb70321884899ff2b4cb0',1,'LoopRenderer']]],
+  ['mainthread_1777',['mainThread',['../class_dispatcher.html#a6dd9a1df1d7f99f948de969f7dd8dd20',1,'Dispatcher']]],
+  ['mainwindow_1778',['mainWindow',['../class_open_g_l_context.html#ad37117fc68a0f360d4e9a11cfdf59564',1,'OpenGLContext']]],
+  ['map_1779',['map',['../struct_mesh_material_common_1_1_init_parameters.html#a0f40d38515c8fb4874bb19e1f2b01b1b',1,'MeshMaterialCommon::InitParameters::map()'],['../class_mesh_material_common.html#a9eefe4004bb0eb4b54b902dd97aa184f',1,'MeshMaterialCommon::map()']]],
+  ['material_1780',['material',['../class_mesh.html#a7c8e6df04c4f9f074d6aedc864f86a8b',1,'Mesh::material()'],['../class_shader_pass.html#ac14929b176d046fc23d84c97eddf5744',1,'ShaderPass::material()'],['../struct_loop_renderer_1_1_skybox_mesh_data.html#afd0de7a8a05116cbbee2f1b218a67919',1,'LoopRenderer::SkyboxMeshData::material()'],['../class_render_mesh.html#a7d16422991e89cf999faee6ca0f8eed4',1,'RenderMesh::material()']]],
+  ['matrixworld_1781',['matrixWorld',['../class_transform.html#aeb29cbb513913de3dfc02fcb4c0bd5ae',1,'Transform']]],
+  ['matrixworldneedsupdate_1782',['matrixWorldNeedsUpdate',['../class_transform.html#a347524f48febd58f0e151c35224d45e3',1,'Transform']]],
+  ['max_1783',['max',['../struct_math_1_1_axis_aligned_box.html#ae37b85c99afb08f0d510eb414e3f6232',1,'Math::AxisAlignedBox']]],
+  ['maximumsupportedpointlights_1784',['maximumSupportedPointLights',['../class_base_object.html#af92fd7ee8255ccfdf08f057e4ce97315',1,'BaseObject']]],
+  ['maxphi_1785',['maxPhi',['../class_orbit_controls_component.html#ac46867b48a914f2c6e49e3e314c502dc',1,'OrbitControlsComponent']]],
+  ['metalness_1786',['metalness',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a5514b7eb493a2afbf9b5bd06fdd0b6af',1,'MeshStandardMaterial::StandardInitParameters::metalness()'],['../class_mesh_standard_material.html#a793ed448b41a2b86f57519416b896444',1,'MeshStandardMaterial::metalness()']]],
+  ['metalnessmap_1787',['metalnessMap',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a7e77c330ecc6a212e01ed09dedf7b6db',1,'MeshStandardMaterial::StandardInitParameters::metalnessMap()'],['../class_mesh_standard_material.html#a55fbbb097e32eb13ab4278732ea44982',1,'MeshStandardMaterial::metalnessMap()']]],
+  ['min_1788',['min',['../struct_math_1_1_axis_aligned_box.html#af4d570f1db75e19b359983b2cae279b1',1,'Math::AxisAlignedBox']]],
+  ['mipmapped_1789',['mipMapped',['../class_texture.html#ae696750f7fe9f0ae88dec7ed5bcec4cf',1,'Texture']]],
+  ['mod_1790',['mod',['../struct_player_input_1_1_key_data.html#ae3178ca1e1fd6ca80ee70380ec136c33',1,'PlayerInput::KeyData']]],
+  ['mouseiscaptured_1791',['mouseIsCaptured',['../class_player_input.html#a24819a97fd8b04c4713fb4b7163b524a',1,'PlayerInput']]]
 ];

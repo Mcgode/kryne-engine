@@ -198,19 +198,23 @@ public:
     }
 
     /**
-     * Retrieves components belonging to the provided class.
+     * @brief Retrieves components belonging to the provided class.
+     *
      * @tparam C    The component class. Used to find the components using dynamic_cast.
+     *
+     * @param  mustBeEnabled    If true, will only retrieve enabled components.
+     *
      * @return A vector of all the components.
      */
     template<class C>
-    vector<C *> getComponents() const
+    vector<C *> getComponents(bool mustBeEnabled = false) const
     {
         vector<C *> result {};
 
         for (const auto &it : this->components)
         {
             const auto component = dynamic_cast<C *>(it.get());
-            if (component)
+            if (component && (!mustBeEnabled || it->isEnabled()))
                 result.push_back(component);
         }
 
@@ -227,18 +231,41 @@ private:
 
 
 // -----
-// Components
+// Pre-processing
 // -----
 
 
 friend class Process;
 friend class Scene;
+friend struct ProcessCommon;
+
+
+public:
+
+    /**
+     * @brief Sets an entity that needs to be preprocessed before preprocessing this entity in an unsafe way.
+     *
+     * @details
+     * This property will ensure that the provided entity will be pre-processed before the current entity. <br>
+     * To be used in moderation, as it might increase execution time or lead to deadlock situations.
+     *
+     * @warning
+     * You need to update this manually, and reset the value when needed, to avoid segmentation faults. <br>
+     * You should also be very careful with its use. If not, you might create a dependency cycle and get locked in an
+     * infinite loop.
+     *
+     * @param e     The entity that needs to have already been preprocessed.
+     */
+    void unsafeSetPreprocessingRequirement(Entity *e) { this->preprocessingRequirement = e; }
 
 private:
 
     mutex preRenderingProcessingMutex {};
 
     bool ranPreRenderingProcessing = false;
+
+    /// An entity that needs to have already been preprocessed.
+    Entity *preprocessingRequirement = nullptr;
 
 };
 

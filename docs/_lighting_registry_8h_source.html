@@ -90,37 +90,37 @@ $(document).ready(function(){initNavTree('_lighting_registry_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_directional_light_8h.html">DirectionalLight.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_point_light_8h.html">PointLight.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_old_directional_light_8h.html">OldDirectionalLight.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_old_point_light_8h.html">OldPointLight.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_lighting_registry.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_lighting_registry.html">LightingRegistry</a> {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    vector&lt;DirectionalLight *&gt; * getDirectionalLights();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    vector&lt;OldDirectionalLight *&gt; * getDirectionalLights();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    vector&lt;PointLight*&gt; * getPointLights();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    vector&lt;OldPointLight*&gt; * getPointLights();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> registerDirectionalLight(<a class="code" href="class_directional_light.html">DirectionalLight</a> *light);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> registerDirectionalLight(<a class="code" href="class_old_directional_light.html">OldDirectionalLight</a> *light);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> registerPointLight(<a class="code" href="class_point_light.html">PointLight</a> *light);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> registerPointLight(<a class="code" href="class_old_point_light.html">OldPointLight</a> *light);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    vector&lt;DirectionalLight *&gt; directionalLights {};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    vector&lt;OldDirectionalLight *&gt; directionalLights {};</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    vector&lt;PointLight *&gt; pointLights {};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    vector&lt;OldPointLight *&gt; pointLights {};</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif //INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="a_old_point_light_8h_html"><div class="ttname"><a href="_old_point_light_8h.html">OldPointLight.h</a></div></div>
 <div class="ttc" id="aclass_lighting_registry_html"><div class="ttname"><a href="class_lighting_registry.html">LightingRegistry</a></div><div class="ttdef"><b>Definition:</b> LightingRegistry.h:16</div></div>
-<div class="ttc" id="aclass_directional_light_html"><div class="ttname"><a href="class_directional_light.html">DirectionalLight</a></div><div class="ttdef"><b>Definition:</b> DirectionalLight.h:17</div></div>
-<div class="ttc" id="aclass_point_light_html"><div class="ttname"><a href="class_point_light.html">PointLight</a></div><div class="ttdef"><b>Definition:</b> PointLight.h:19</div></div>
-<div class="ttc" id="a_point_light_8h_html"><div class="ttname"><a href="_point_light_8h.html">PointLight.h</a></div></div>
-<div class="ttc" id="a_directional_light_8h_html"><div class="ttname"><a href="_directional_light_8h.html">DirectionalLight.h</a></div></div>
+<div class="ttc" id="aclass_old_directional_light_html"><div class="ttname"><a href="class_old_directional_light.html">OldDirectionalLight</a></div><div class="ttdef"><b>Definition:</b> OldDirectionalLight.h:17</div></div>
+<div class="ttc" id="aclass_old_point_light_html"><div class="ttname"><a href="class_old_point_light.html">OldPointLight</a></div><div class="ttdef"><b>Definition:</b> OldPointLight.h:19</div></div>
+<div class="ttc" id="a_old_directional_light_8h_html"><div class="ttname"><a href="_old_directional_light_8h.html">OldDirectionalLight.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -6,7 +6,7 @@
 #include <kryne-engine/Rendering/RenderScene.h>
 #include "Floor.h"
 
-Floor::Floor(const std::string &textureName, RenderScene *scene, DirectionalLight *light)
+Floor::Floor(const std::string &textureName, RenderScene *scene, OldDirectionalLight *light)
 {
     this->shader = new Shader("Quad/ShadowMap");
 

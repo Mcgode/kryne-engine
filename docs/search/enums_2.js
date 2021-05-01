@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['materialside_1429',['MaterialSide',['../_material_side_8h.html#a48a16246aa30572345771e9de71915b5',1,'MaterialSide.h']]]
+  ['lighttype_1882',['LightType',['../class_light.html#a661d9480e01af8b1612860b9630ef5f8',1,'Light']]]
 ];
