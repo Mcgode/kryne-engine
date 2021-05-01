@@ -135,6 +135,13 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
         float intensity = light->getIntensity();
         material->setUniform("directionalLights[" + to_string(i) + "].color", intensity * light->getColor());
         material->setUniform("directionalLights[" + to_string(i) + "].direction", light->getWorldDirection());
+
+        if (light->shadowMapData != nullptr)
+        {
+            const auto &cam = light->shadowMapData->shadowCamera;
+            material->setUniform("directionalLights[" + to_string(i) + "].lightMatrix", cam->getProjectionMatrix() * cam->getViewMatrix());
+            material->setUniform("directionalLights[" + to_string(i) + "].shadowMap", light->shadowMapData->shadowFramebuffer->retrieveDepth());
+        }
     }
 }
 
