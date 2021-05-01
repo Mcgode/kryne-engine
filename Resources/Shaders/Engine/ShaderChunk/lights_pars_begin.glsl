@@ -3,6 +3,8 @@
     struct DirectionalLight {
         vec3 color;
         vec3 direction;
+        mat4 lightMatrix;
+        sampler2D shadowMap;
     };
 
     uniform DirectionalLight directionalLights[MAX_DIRECTIONAL_LIGHTS];
@@ -22,7 +24,12 @@
                                   const in GeometryData geometry,
                                   out IncidentLight lightData ) {
 
-        lightData.color = directionalLight.color;
+        vec4 shadowCoords = directionalLight.lightMatrix * vec4(geometry.position, 1);
+        shadowCoords /= shadowCoords.w;
+        shadowCoords = 0.5 * shadowCoords + 0.5;
+        float shadowDepth = texture(directionalLight.shadowMap, shadowCoords.xy).r;
+
+        lightData.color = shadowCoords.z < shadowDepth + 0.01 ? directionalLight.color : vec3(0);
         lightData.direction = -directionalLight.direction;
 
     }
