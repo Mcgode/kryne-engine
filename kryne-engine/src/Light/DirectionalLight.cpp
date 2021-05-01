@@ -70,6 +70,61 @@ void DirectionalLight::renderEntityDetails()
                 this->setDirection(dir);
         }
 
+        {
+            bool cs = this->castShadow;
+
+            ImGui::TableNextRow();
+            ImGui::TableNextColumn();
+            ImGui::Text("Cast shadow: ");
+            ImGui::TableNextColumn();
+            ImGui::Checkbox("##castShadow", &cs);
+
+            if (cs != this->castShadow)
+                this->setCastShadow(cs);
+        }
+
+        if (this->castShadow)
+        {
+            {
+                float maxDist = this->maxShadowDistance;
+
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::Text("Max shadow distance: ");
+                ImGui::TableNextColumn();
+                ImGui::DragFloat("##maxDist", &maxDist, 0.1, 0, 1000, "%.1f");
+
+                if (ImGui::IsItemEdited())
+                    this->setMaxShadowDistance(maxDist);
+            }
+
+            {
+                float minDepth = this->minShadowDepth;
+
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::Text("Min shadow depth: ");
+                ImGui::TableNextColumn();
+                ImGui::DragFloat("##minDepth", &minDepth, 0.1, 0, 1000, "%.1f");
+
+                if (ImGui::IsItemEdited())
+                    this->setMinShadowDepth(minDepth);
+            }
+
+            {
+                int csm = this->cascadedShadowMaps;
+
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::Text("Shadow cascades: ");
+                ImGui::TableNextColumn();
+                ImGui::DragInt("##csm", &csm, 0.01, 0, 4);
+
+                if (ImGui::IsItemEdited())
+                    this->setCascadedShadowMaps(csm);
+            }
+        }
+
         ImGui::EndTable();
     }
 }
