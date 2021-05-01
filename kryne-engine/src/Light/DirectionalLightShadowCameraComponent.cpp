@@ -38,8 +38,7 @@ void DirectionalLightShadowCameraComponent::onUpdate()
     auto worldMatrix = inverse(this->mainCamera->getProjectionMatrix() * this->mainCamera->getViewMatrix());
 
     float z = 1;
-    parent->maxShadowDistance = 15.f;
-    if (parent->maxShadowDistance != 0.f)
+    if (parent->maxShadowDistance > 0.f)
     {
         auto m = mainCamera->getInverseProjectionMatrix();
         auto v1 = m * vec4(0, 0, -1, 1),
