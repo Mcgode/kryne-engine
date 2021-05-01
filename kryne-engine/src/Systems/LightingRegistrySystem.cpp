@@ -129,6 +129,8 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
     else
         material->removeDefine("MAX_DIRECTIONAL_LIGHTS");
 
+    uint8 shadowIndex = 0;
+
     for (size_t i = 0; i < this->directionalLights.size(); i++)
     {
         const auto light = this->directionalLights[i];
@@ -136,12 +138,21 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
         material->setUniform("directionalLights[" + to_string(i) + "].color", intensity * light->getColor());
         material->setUniform("directionalLights[" + to_string(i) + "].direction", light->getWorldDirection());
 
-        if (light->shadowMapData != nullptr)
+        glm::uvec4 indexes(0);
+
+        if ( light->castShadow )
         {
-            const auto &cam = light->shadowMapData->shadowCamera;
-            material->setUniform("directionalLights[" + to_string(i) + "].lightMatrix", cam->getProjectionMatrix() * cam->getViewMatrix());
-            material->setUniform("directionalLights[" + to_string(i) + "].shadowMap", light->shadowMapData->shadowFramebuffer->retrieveDepth());
+            for (auto j = 0; j < light->cascadedShadowMaps; j++)
+            {
+                const auto &data = light->shadowMapData[j];
+                const auto &cam  = data->shadowCamera;
+                material->setUniform("shadowMapsData[" + to_string(shadowIndex) + "].lightMatrix", cam->getProjectionMatrix() * cam->getViewMatrix());
+                material->setUniform("shadowMapsData[" + to_string(shadowIndex) + "].shadowMap", data->shadowFramebuffer->retrieveDepth());
+                indexes[j] = ++shadowIndex;
+            }
         }
+
+        material->setUniform("directionalLights[" + to_string(i) + "].shadowMapIndexes", indexes);
     }
 }
 
