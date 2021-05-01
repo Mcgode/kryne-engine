@@ -16,16 +16,6 @@ public:
     OpenGLScreenFramebuffer(RenderingState *state, uint16_t width, uint16_t height) : Framebuffer(width, height), state(state) {}
 
     // Override
-    void setAsRenderTarget() override
-    {
-        assertIsMainThread();
-
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-        state->setCurrentFramebuffer(this);
-    }
-
-    // Override
     void addColorAttachment() override {}
 
     // Override
@@ -34,7 +24,20 @@ public:
     // Override
     shared_ptr<Texture> retrieveColor(uint8_t index) override { return nullptr; }
 
+    // Override
+    shared_ptr<Texture> retrieveDepth() override { return nullptr; }
+
 protected:
+
+    // Override
+    void setAsRenderTarget() override
+    {
+        assertIsMainThread();
+
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+        state->setCurrentFramebuffer(this);
+    }
 
     // Override
     void sizeUpdated() override {}

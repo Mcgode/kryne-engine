@@ -13,7 +13,9 @@ void UniformsHandler::setUniform(const string &name, const UniformTypes &value)
     if (l != this->uniforms.end()) {
         l->second.first = value;
     } else {
-        GLint location = (*this->programId != 0) ? glGetUniformLocation(*this->programId, name.c_str()) : -2;
+        GLint location = (*this->programId != 0 && Dispatcher::instance().main()->isCurrentThread()) ?
+                glGetUniformLocation(*this->programId, name.c_str()) :
+                -2;
         this->uniforms.emplace(name, make_pair(value, location));
     }
 }
@@ -87,7 +89,8 @@ void UniformsHandler::setTexture(const shared_ptr<Texture> &texture, GLint locat
     }
 
     glActiveTexture(activeTexture);
-    texture->bindTexture();
+    if (texture != nullptr)
+        texture->bindTexture();
     glUniform1i(location, activeTexture - GL_TEXTURE0);
 
 }

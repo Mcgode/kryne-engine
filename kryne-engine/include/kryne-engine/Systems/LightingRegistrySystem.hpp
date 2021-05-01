@@ -13,6 +13,8 @@
 #include <kryne-engine/Light/HemisphereLight.hpp>
 #include <kryne-engine/Light/DirectionalLight.hpp>
 
+#include <kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp>
+
 
 /**
  * @brief A system charged with registering all the lights of the scene, and applying them in forward rendering.
@@ -32,6 +34,8 @@ public:
 
     void parseScene(Scene *scene, unordered_set<Entity *> &priorityEntities) override;
 
+    virtual ~LightingRegistrySystem();
+
 protected:
 
     void updateAmbientLights(Material *material);
@@ -49,6 +53,11 @@ protected:
     vector<HemisphereLight *> hemisphereLights;
 
     vector<DirectionalLight *> directionalLights;
+
+    ShadowMappingProcess *shadowProcess;
+
+
+friend ShadowMappingProcess;
 
 };
 

@@ -42,6 +42,9 @@ class LoopRenderer {
 
 public:
 
+    /// @brief Retrieves the current graphical context
+    [[nodiscard]] GraphicContext *getContext() const { return this->context; }
+
     /**
      * @brief A method that will be called at the start of every frame.
      *
@@ -72,6 +75,9 @@ public:
      */
     virtual void setCamera(Camera *camera) { this->mainCamera = camera; }
 
+    /// @brief Retrieves the current main camera
+    [[nodiscard]] Camera *getMainCamera() const { return this->mainCamera; }
+
     /**
      * @brief Retrieves the current rendering mode
      */
@@ -86,6 +92,15 @@ public:
      * @brief Finishes the scene rendering, in prevision of the post-processing.
      */
     virtual void renderScene(Scene *scene) = 0;
+
+    /**
+     * @brief Renders a mesh to the framebuffer.
+     *
+     * @param renderMesh        The mesh to render.
+     * @param overrideMaterial  Pass this material to override the default mesh material. Set to nullptr to ignore
+     *                          this feature.
+     */
+    virtual void renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial) = 0;
 
     /**
      * @brief Handles the post processing and the rendering to screen.
@@ -129,6 +144,9 @@ protected:
                  const ivec2 &size);
 
 protected:
+
+    /// The graphical context of the renderer
+    GraphicContext *context;
 
     /// The current rendering mode.
     RenderMode renderMode = ForwardRendering;
@@ -223,6 +241,29 @@ protected:
 
     /// The renderer size in pixels.
     ivec2 rendererSize;
+
+
+// ==================
+// Framebuffer
+// ==================
+
+public:
+
+    /**
+     * @brief Sets the provided framebuffer as the new render target.
+     *
+     * @param framebuffer The framebuffer to write to
+     */
+    virtual void setTargetFramebuffer(Framebuffer *framebuffer) = 0;
+
+    /**
+     * @brief Clears the current framebuffer
+     *
+     * @param color     Set to true to clear color
+     * @param depth     Set to true to clear depth
+     * @param stencil   Set to true to clear stencil
+     */
+    virtual void clearBuffer(bool color, bool depth, bool stencil) = 0;
 
 
 // ==================

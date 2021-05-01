@@ -22,11 +22,10 @@ public:
      * @brief Method called at the start of the frame. Use it to parse the scene.
      *
      * @param renderer  The process renderer.
-     * @param scene     The scene that will be rendered.
      *
      * @returns A list of cameras that will be used for computing frustum culling. Can be empty.
      */
-    virtual vector<Camera *> prepareFrame(LoopRenderer *renderer, Scene *scene) = 0;
+    virtual vector<Camera *> prepareFrame(const LoopRenderer *renderer) = 0;
 
     /**
      * @breif Method called to run this process

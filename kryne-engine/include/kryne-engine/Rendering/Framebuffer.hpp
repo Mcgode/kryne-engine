@@ -29,7 +29,10 @@ public:
         this->sizeUpdated();
     }
 
+    /// @brief Retrieves the framebuffer size
     [[nodiscard]] ivec2 getSize() const { return ivec2(this->width, this->height); }
+
+    virtual ~Framebuffer() = default;
 
 protected:
 
@@ -45,8 +48,13 @@ protected:
     uint16_t height;
 
 
-public:
+protected:
 
+    friend class OpenGLRenderer;
+
+    /**
+     * @brief Sets the framebuffer as the current render target
+     */
     virtual void setAsRenderTarget() = 0;
 
 
@@ -57,5 +65,7 @@ public:
     virtual void setUpDepthLayer() = 0;
 
     virtual shared_ptr<Texture> retrieveColor(uint8_t index) = 0;
+
+    virtual shared_ptr<Texture> retrieveDepth() = 0;
 
 };

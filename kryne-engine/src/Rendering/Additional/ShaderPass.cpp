@@ -16,6 +16,7 @@ void ShaderPass::processPass(LoopRenderer *renderer, Framebuffer *readBuffer, Fr
 {
     this->material->setUniform("tDiffuse", readBuffer->retrieveColor(0));
 
-    writeBuffer->setAsRenderTarget();
+    renderer->setTargetFramebuffer(writeBuffer);
+    renderer->clearBuffer(true, true, true);
     renderer->textureRender(this->material.get());
 }

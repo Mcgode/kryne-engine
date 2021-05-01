@@ -37,10 +37,8 @@ void OpenGLRenderer::defaultStateReset()
 }
 
 
-void OpenGLRenderer::renderMesh(RenderMesh *renderMesh)
+void OpenGLRenderer::renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial)
 {
-    const auto camera = this->mainCamera;
-
     if (camera == nullptr) return;
 
     if (renderMesh->isFrustumCull())
@@ -54,7 +52,7 @@ void OpenGLRenderer::renderMesh(RenderMesh *renderMesh)
             return;
     }
 
-    const auto& material = renderMesh->getMaterial();
+    const auto material = overrideMaterial != nullptr ? overrideMaterial : renderMesh->getMaterial().get();
     const auto& geometry = renderMesh->getGeometry();
     const auto transform = renderMesh->getEntity()->getTransform();
 
@@ -95,10 +93,9 @@ void OpenGLRenderer::prepareFrame()
 
     LoopRenderer::prepareFrame();
 
-    if (this->framePostProcessPasses.empty())
-        this->screenFramebuffer->setAsRenderTarget();
-    else
-        this->writeFramebuffer->setAsRenderTarget();
+    this->setTargetFramebuffer(this->framePostProcessPasses.empty() ?
+                                                this->screenFramebuffer.get() :
+                                                this->writeFramebuffer.get());
 
     this->renderingState->setViewport(ivec2(0), this->rendererSize);
     glClearColor(0.f, 0.f, 0.f, 0.f);
@@ -117,7 +114,12 @@ std::unordered_set<Entity *> OpenGLRenderer::parseScene(Scene *scene)
     unordered_set<Entity *> result;
 
     this->mainCamera->getProjectionData()->setViewportSize(this->rendererSize);
-    result.emplace(this->mainCamera);
+
+    {
+        scoped_lock<mutex> l(this->frustumCullingMutex);
+        for (const auto &pair : this->frustumCulled)
+            result.emplace(pair.first);
+    }
 
     return result;
 }
@@ -127,9 +129,15 @@ void OpenGLRenderer::renderScene(Scene *scene)
 {
     assertIsMainThread();
 
+    for (const auto &process : this->processes)
+    {
+        process->render(this, this->meshesForFrame, this->frustumCulled);
+    }
+
+    this->setTargetFramebuffer(this->writeFramebuffer.get());
     for (const auto &mesh : this->meshesForFrame)
     {
-        this->renderMesh(mesh);
+        this->renderMesh(mesh, this->mainCamera, nullptr);
     }
 
     const auto& envMap = scene->getSkyboxEnvMap();
@@ -174,10 +182,6 @@ void OpenGLRenderer::handlePostProcessing()
 
 void OpenGLRenderer::textureRender(Material *material)
 {
-    glClearColor(0.f, 0.f, 0.f, 0.f);
-    renderingState->setDepthWrite(true);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
     this->defaultStateReset();
 
     // Only update external rendering state once, before drawing any object.
@@ -249,4 +253,38 @@ void OpenGLRenderer::quadRender(Material *material, const ivec2 &start, const iv
 
     material->prepareShader(this->fullscreenPlane.get());
     this->fullscreenPlane->draw();
+}
+
+
+void OpenGLRenderer::setTargetFramebuffer(Framebuffer *framebuffer)
+{
+    if (this->renderingState->getCurrentFramebuffer() == framebuffer)
+        return;
+
+    framebuffer->setAsRenderTarget();
+    this->renderingState->setViewport(ivec2(0), framebuffer->getSize());
+}
+
+
+void OpenGLRenderer::clearBuffer(bool color, bool depth, bool stencil)
+{
+    GLint bits = 0;
+
+    if (color)
+    {
+        bits |= GL_COLOR_BUFFER_BIT;
+    }
+
+    if (depth)
+    {
+        this->renderingState->setDepthWrite(true);
+        bits |= GL_DEPTH_BUFFER_BIT;
+    }
+
+    if (stencil)
+    {
+        bits |= GL_STENCIL_BUFFER_BIT;
+    }
+
+    glClear(bits);
 }

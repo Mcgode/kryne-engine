@@ -48,11 +48,18 @@ public:
      * A boost variant for handling the different support uniform value types
      */
     typedef boost::variant<
-            int32_t,
             float,
             glm::vec2,
             glm::vec3,
             glm::vec4,
+            glm::int32,
+            glm::ivec2,
+            glm::ivec3,
+            glm::ivec4,
+            glm::uint32,
+            glm::uvec2,
+            glm::uvec3,
+            glm::uvec4,
             glm::mat3,
             glm::mat4,
             shared_ptr<Texture>> UniformTypes;
@@ -116,11 +123,7 @@ private:
 
     public:
 
-        UniformsSetter(UniformsHandler *handler): handler(handler) {}
-
-        void operator() (const int32_t &data, const GLint &location) {
-            glUniform1i(location, data);
-        }
+        explicit UniformsSetter(UniformsHandler *handler): handler(handler) {}
 
         void operator() (const float &data, const GLint &location) {
             glUniform1f(location, data);
@@ -136,6 +139,38 @@ private:
 
         void operator() (const glm::vec4 &data, const GLint &location) {
             glUniform4f(location, data.x, data.y, data.z, data.w);
+        }
+
+        void operator() (const glm::int32 &data, const GLint &location) {
+            glUniform1i(location, data);
+        }
+
+        void operator() (const glm::ivec2 &data, const GLint &location) {
+            glUniform2i(location, data.x, data.y);
+        }
+
+        void operator() (const glm::ivec3 &data, const GLint &location) {
+            glUniform3i(location, data.x, data.y, data.z);
+        }
+
+        void operator() (const glm::ivec4 &data, const GLint &location) {
+            glUniform4i(location, data.x, data.y, data.z, data.w);
+        }
+
+        void operator() (const glm::uint32 &data, const GLint &location) {
+            glUniform1ui(location, data);
+        }
+
+        void operator() (const glm::uvec2 &data, const GLint &location) {
+            glUniform2ui(location, data.x, data.y);
+        }
+
+        void operator() (const glm::uvec3 &data, const GLint &location) {
+            glUniform3ui(location, data.x, data.y, data.z);
+        }
+
+        void operator() (const glm::uvec4 &data, const GLint &location) {
+            glUniform4ui(location, data.x, data.y, data.z, data.w);
         }
 
         void operator() (const glm::mat3 &data, const GLint &location) {

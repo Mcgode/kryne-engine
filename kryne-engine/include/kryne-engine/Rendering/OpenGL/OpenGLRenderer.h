@@ -39,19 +39,19 @@ public:
     void textureRender(Material *material) override;
 
     // Override
+    void renderMesh(RenderMesh *renderMesh, Camera *camera, Material *overrideMaterial) override;
+
+    // Override
     void renderCubeTexture(Framebuffer *framebuffer, Material *material, CubeTexture *cubeMap, int mipLevel) override;
 
     //Override
     void quadRender(Material *material, const ivec2 &start, const ivec2 &size) override;
 
-protected:
+    // Override
+    void setTargetFramebuffer(Framebuffer *framebuffer) override;
 
-    /**
-     * @brief Renders a mesh to the framebuffer.
-     *
-     * @param renderMesh The mesh to render.
-     */
-    void renderMesh(RenderMesh *renderMesh);
+    // Override
+    void clearBuffer(bool color, bool depth, bool stencil) override;
 
 protected:
 

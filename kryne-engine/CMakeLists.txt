@@ -126,7 +126,8 @@ add_library(kryne-engine STATIC
         src/Geometry/TorusKnotBufferGeometry.cpp include/kryne-engine/Geometry/TorusKnotBufferGeometry.hpp
         include/kryne-engine/Utils/DearImGui/CubeMapWidget.cpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.hpp
         include/kryne-engine/Rendering/RenderingProcess.hpp
-        )
+        src/Rendering/Processes/ShadowMappingProcess.cpp include/kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp
+        include/kryne-engine/Camera/OrthographicProjectionData.hpp src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp)
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

@@ -22,10 +22,12 @@ public:
     // Override
     shared_ptr<Texture> retrieveColor(uint8_t index) override;
 
-    // Override
-    void setAsRenderTarget() override;
+    shared_ptr<Texture> retrieveDepth() override;
 
 protected:
+
+    // Override
+    void setAsRenderTarget() override;
 
     // Override
     void sizeUpdated() override;

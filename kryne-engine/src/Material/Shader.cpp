@@ -186,6 +186,8 @@ void Shader::debugPrintActiveAttributes() const
 
 void Shader::debugPrintActiveUniforms() const
 {
+    assertIsMainThread();
+
     GLint i;
     GLint count;
 

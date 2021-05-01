@@ -40,6 +40,48 @@ protected:
     /// The name of this material
     string name = "ShaderMaterial";
 
+
+// ====================
+// Depth
+// ====================
+
+public:
+
+    // Override
+    Material *getDepthMaterial() override
+    {
+        return this->customDepthMat == nullptr ?
+            &ShaderMaterial::defaultDepthMaterial() :
+            this->customDepthMat.get();
+    }
+
+    /// @brief Retrieves the custom depth material of this material
+    [[nodiscard]] Material *getCustomDepthMaterial() { return this->customDepthMat.get(); }
+
+    /// @brief Updates the custom depth material of this material
+    void setCustomDepthMaterial(unique_ptr<Material> material) { this->customDepthMat = move(material); }
+
+protected:
+
+    /// A custom depth material for this material.
+    unique_ptr<Material> customDepthMat = nullptr;
+
+
+// ====================
+// Default materials
+// ====================
+
+public:
+
+    /**
+     * @brief A default depth material.
+     */
+    static ShaderMaterial &defaultDepthMaterial()
+    {
+        static ShaderMaterial mat(make_unique<Shader>("Engine/Depth"));
+        return mat;
+    }
+
 };
 
 

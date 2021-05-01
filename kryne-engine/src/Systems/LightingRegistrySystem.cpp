@@ -7,7 +7,13 @@
 #include "kryne-engine/Systems/LightingRegistrySystem.hpp"
 
 
-LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(process, PreRendering) {}
+LightingRegistrySystem::LightingRegistrySystem(Process *process) : System(process, PreRendering)
+{
+    auto renderer = process->getGraphicContext()->getRenderer();
+    auto smProcess = make_unique<ShadowMappingProcess>(this);
+    this->shadowProcess = smProcess.get();
+    renderer->addProcess(move(smProcess));
+}
 
 
 void LightingRegistrySystem::loopReset()
@@ -55,12 +61,22 @@ void LightingRegistrySystem::parseScene(Scene *scene, unordered_set<Entity *> &p
                 case Light::HemisphereLight:
                     this->hemisphereLights.push_back(dynamic_cast<HemisphereLight *>(light));
                     break;
+
                 case Light::AmbientLight:
                     this->ambientLights.push_back(dynamic_cast<AmbientLight *>(light));
                     break;
+
                 case Light::DirectionalLight:
-                    this->directionalLights.push_back(dynamic_cast<DirectionalLight *>(light));
+                    {
+                        auto dirLight = dynamic_cast<DirectionalLight *>(light);
+
+                        if (dirLight->castShadow)
+                            this->shadowProcess->castingDirLights.push_back(dirLight);
+
+                        this->directionalLights.push_back(dirLight);
+                    }
                     break;
+
                 case Light::PointLight:
                     break;
             }
@@ -113,11 +129,44 @@ void LightingRegistrySystem::updateDirectionalLights(Material *material)
     else
         material->removeDefine("MAX_DIRECTIONAL_LIGHTS");
 
+    uint8 shadowIndex = 0;
+
     for (size_t i = 0; i < this->directionalLights.size(); i++)
     {
         const auto light = this->directionalLights[i];
         float intensity = light->getIntensity();
         material->setUniform("directionalLights[" + to_string(i) + "].color", intensity * light->getColor());
         material->setUniform("directionalLights[" + to_string(i) + "].direction", light->getWorldDirection());
+
+        glm::uvec4 indexes(0);
+
+        if ( light->castShadow )
+        {
+            for (auto j = 0; j < light->cascadedShadowMaps; j++)
+            {
+                const auto &data = light->shadowMapData[j];
+                if (data == nullptr)
+                    break;
+
+                const auto &cam  = data->shadowCamera;
+                material->setUniform("directionalShadowMatrices", cam->getProjectionMatrix() * cam->getViewMatrix(), shadowIndex);
+                material->setUniform("directionalShadowMaps", data->shadowFramebuffer->retrieveDepth(), shadowIndex);
+                indexes[j] = ++shadowIndex;
+            }
+        }
+
+        material->setUniform("directionalLights[" + to_string(i) + "].shadowMapIndexes", indexes);
     }
+
+    if (shadowIndex == 0)
+        material->removeDefine("MAX_DIRECTIONAL_SHADOW_MAPS");
+    else
+        material->setDefine("MAX_DIRECTIONAL_SHADOW_MAPS", to_string(shadowIndex));
+}
+
+
+LightingRegistrySystem::~LightingRegistrySystem()
+{
+    if (this->shadowProcess != nullptr)
+        this->shadowProcess->system = nullptr;
 }

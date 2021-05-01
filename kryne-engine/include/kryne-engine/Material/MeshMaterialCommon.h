@@ -146,6 +146,11 @@ protected:
     /// The diffuse map of the material
     shared_ptr<Texture> map {};
 
+public:
+
+    // Override
+    Material *getDepthMaterial() override { return &ShaderMaterial::defaultDepthMaterial(); }
+
 };
 
 

@@ -79,7 +79,7 @@ void PMREMGenerator::runProcessing(LoopRenderer *renderer)
 #endif
 
     this->framebuffer->setSize(ivec2(pow(2, this->currentLOD)));
-    this->framebuffer->setAsRenderTarget();
+    renderer->setTargetFramebuffer(this->framebuffer.get());
     renderer->renderCubeTexture(this->framebuffer.get(), material.get(),
                                 map->iblEnvMap.get(), LOD_MAX - this->currentLOD);
 
