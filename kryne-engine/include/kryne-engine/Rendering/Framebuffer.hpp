@@ -32,6 +32,8 @@ public:
     /// @brief Retrieves the framebuffer size
     [[nodiscard]] ivec2 getSize() const { return ivec2(this->width, this->height); }
 
+    virtual ~Framebuffer() = default;
+
 protected:
 
     /**
