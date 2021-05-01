@@ -114,12 +114,13 @@ int main()
     const auto torusMaterial = make_shared<MeshStandardMaterial>(params2);
     torusMaterial->setEnvMap(skyEnvMap);
     const auto torusGeometry = make_shared<TorusKnotBufferGeometry>(1.f, .4f, 256, 32);
+    torusGeometry->computeTangents();
     const auto torusKnot = process->makeEntity<Entity>();
     torusKnot->setName("TorusKnot");
     torusKnot->getTransform()->setScene(scene);
     torusKnot->addComponent<RenderMesh>(torusGeometry, torusMaterial);
 
-    const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f, 3.1415 * 0.5, 0.1f, 20.f));
+    const auto camera = process->makeEntity<Camera>(make_unique<PerspectiveProjectionData>(16.f / 9.f, 3.1415f * 0.5f, 0.1f, 10.f));
     camera->addComponent<OrbitControlsComponent>();
     camera->getTransform()->setScene(scene);
     camera->setName("OrbitCamera");
