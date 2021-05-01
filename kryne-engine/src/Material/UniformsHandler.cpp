@@ -89,7 +89,8 @@ void UniformsHandler::setTexture(const shared_ptr<Texture> &texture, GLint locat
     }
 
     glActiveTexture(activeTexture);
-    texture->bindTexture();
+    if (texture != nullptr)
+        texture->bindTexture();
     glUniform1i(location, activeTexture - GL_TEXTURE0);
 
 }
