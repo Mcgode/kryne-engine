@@ -9,7 +9,8 @@
 #include "kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp"
 
 
-DirectionalLightShadowCameraComponent::DirectionalLightShadowCameraComponent(Entity *entity) : LogicComponent(entity)
+DirectionalLightShadowCameraComponent::DirectionalLightShadowCameraComponent(Entity *entity, uint8 index)
+        : LogicComponent(entity), index(index)
 {
     if (dynamic_cast<Camera *>(entity) == nullptr)
         throw runtime_error("The attached entity should be a Camera");
@@ -29,6 +30,10 @@ void DirectionalLightShadowCameraComponent::onUpdate()
 
     auto projectionData = dynamic_cast<OrthographicProjectionData *>(this->camera()->getProjectionData());
     if (projectionData == nullptr)
+        return;
+
+    const auto &data = parent->shadowMapData[this->index];
+    if (data == nullptr)
         return;
 
     this->getTransform()->lookAt(parent->direction, vec3(0, 1, 0), true);
@@ -84,7 +89,7 @@ void DirectionalLightShadowCameraComponent::onUpdate()
 
     projectionData->setFrustum(minOrtho, maxOrtho);
 
-    const auto texelSize = projectionData->getTexelSize(vec2(parent->shadowMapData->shadowFramebuffer->getSize()));
+    const auto texelSize = projectionData->getTexelSize(vec2(data->shadowFramebuffer->getSize()));
     const auto offset = projectionData->getOffset();
     auto roundedOffset = glm::round(vec2(offset) / texelSize) * texelSize;
     projectionData->setOffset(vec3(roundedOffset, offset.z));

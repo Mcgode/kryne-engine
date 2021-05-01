@@ -16,7 +16,7 @@ class DirectionalLightShadowCameraComponent : public LogicComponent {
 
 public:
 
-    explicit DirectionalLightShadowCameraComponent(Entity *entity);
+    explicit DirectionalLightShadowCameraComponent(Entity *entity, uint8 index);
 
     void onUpdate() override;
 
@@ -27,6 +27,8 @@ protected:
     [[nodiscard]] inline Camera *camera() const { return (Camera *)this->associatedEntity; }
 
 protected:
+
+    uint8 index;
 
     Camera *mainCamera = nullptr;
 

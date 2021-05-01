@@ -17,21 +17,24 @@ vector<Camera *> ShadowMappingProcess::prepareFrame(const LoopRenderer *renderer
     auto cameras = vector<Camera *>();
     for (const auto &light : this->currentCDL)
     {
-        if (light->shadowMapData == nullptr)
+        for (auto i = 0; i < light->cascadedShadowMaps; i++)
         {
-            auto camera = make_unique<Camera>(light->getProcess(), make_unique<OrthographicProjectionData>());
-            camera->addComponent<DirectionalLightShadowCameraComponent>();
-            auto framebuffer = renderer->getContext()->makeFramebuffer(ivec2(2048));
-            framebuffer->setUpDepthLayer();
-            light->shadowMapData = make_unique<DirectionalLight::ShadowMapData>(move(camera), move(framebuffer));
+            if (light->shadowMapData[i] == nullptr)
+            {
+                auto camera = make_unique<Camera>(light->getProcess(), make_unique<OrthographicProjectionData>());
+                camera->addComponent<DirectionalLightShadowCameraComponent>(i);
+                auto framebuffer = renderer->getContext()->makeFramebuffer(ivec2(2048));
+                framebuffer->setUpDepthLayer();
+                light->shadowMapData[i] = make_unique<DirectionalLight::ShadowMapData>(move(camera), move(framebuffer));
+            }
+
+            auto &camera = light->shadowMapData[i]->shadowCamera;
+            camera->getTransform()->unsafeSetParent(light->getTransform());
+            camera->getComponent<DirectionalLightShadowCameraComponent>()->setMainCamera(mainCamera);
+            camera->unsafeSetPreprocessingRequirement(mainCamera);
+
+            cameras.push_back(camera.get());
         }
-
-        auto &camera = light->shadowMapData->shadowCamera;
-        camera->getTransform()->unsafeSetParent(light->getTransform());
-        camera->getComponent<DirectionalLightShadowCameraComponent>()->setMainCamera(mainCamera);
-        camera->unsafeSetPreprocessingRequirement(mainCamera);
-
-        cameras.push_back(camera.get());
     }
 
     return cameras;
@@ -45,17 +48,20 @@ void ShadowMappingProcess::render(LoopRenderer *renderer,
     // We do it at this point, because we're still sure that all the lights still exist.
     for (const auto &light : this->currentCDL)
     {
-        if (light->shadowMapData)
+        for (auto i = 0; i < light->cascadedShadowMaps; i++)
         {
-            const auto &shadowData = light->shadowMapData;
-            renderer->setTargetFramebuffer(shadowData->shadowFramebuffer.get());
-            renderer->clearBuffer(false, true, false);
-            for (const auto &mesh: meshes)
-                renderer->renderMesh(mesh, shadowData->shadowCamera.get(), mesh->getMaterial()->getDepthMaterial());
+            if (light->shadowMapData[i] != nullptr)
+            {
+                const auto &shadowData = light->shadowMapData[i];
+                renderer->setTargetFramebuffer(shadowData->shadowFramebuffer.get());
+                renderer->clearBuffer(false, true, false);
+                for (const auto &mesh: meshes)
+                    renderer->renderMesh(mesh, shadowData->shadowCamera.get(), mesh->getMaterial()->getDepthMaterial());
 
-            // Reset data
-            light->shadowMapData->shadowCamera->getTransform()->unsafeSetParent(nullptr);
-            light->shadowMapData->shadowCamera->unsafeSetPreprocessingRequirement(nullptr);
+                // Reset data
+                shadowData->shadowCamera->getTransform()->unsafeSetParent(nullptr);
+                shadowData->shadowCamera->unsafeSetPreprocessingRequirement(nullptr);
+            }
         }
     }
 }
