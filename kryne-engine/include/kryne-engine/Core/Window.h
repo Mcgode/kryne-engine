@@ -1,9 +1,11 @@
-//
-// Created by max on 20/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 20/04/19
+ */
 
-#ifndef INC_3D_DEMOS_WINDOW_H
-#define INC_3D_DEMOS_WINDOW_H
+#ifndef INC_KRYNE_ENGINE_WINDOW_H
+#define INC_KRYNE_ENGINE_WINDOW_H
 
 #include <vector>
 #include <unordered_set>
@@ -15,8 +17,8 @@
 #include <GLFW/glfw3.h>
 #include "AdditionalParameters.h"
 
-class Camera;
-#include <kryne-engine/Camera/Camera.h>
+class OldCamera;
+#include <kryne-engine/Camera/OldCamera.h>
 
 
 /**
@@ -47,7 +49,7 @@ public:
 
     void setMouseCursor(int value);
 
-    void setCurrentCamera(Camera *camera);
+    void setCurrentCamera(OldCamera *camera);
 
     ~Window();
 
@@ -68,4 +70,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_WINDOW_H
+#endif //INC_KRYNE_ENGINE_WINDOW_H

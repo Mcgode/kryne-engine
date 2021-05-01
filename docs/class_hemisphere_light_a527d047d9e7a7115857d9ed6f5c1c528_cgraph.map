@@ -1,0 +1,9 @@
+<map id="HemisphereLight::renderEntityDetails" name="HemisphereLight::renderEntityDetails">
+<area shape="rect" id="node1" title="Renders custom GUI for entity details." alt="" coords="5,78,203,119"/>
+<area shape="rect" id="node2" href="$class_entity.html#a005c667fb89e01614ef68afd1de6483b" title="Renders custom GUI for entity details." alt="" coords="263,5,437,32"/>
+<area shape="rect" id="node3" href="$class_hemisphere_light.html#a3b656c5c6331cf8e4918bab1542e9eb2" title="Changes the current direction, and updates the world direction." alt="" coords="252,56,448,83"/>
+<area shape="rect" id="node6" href="$class_hemisphere_light.html#a5180b146b1946680d35dd50bcef41f18" title="Changes the ground color." alt="" coords="257,107,443,149"/>
+<area shape="rect" id="node7" href="$class_hemisphere_light.html#a15b6f2d32b576b327d15aa1de6341dfd" title="Changes the ground color." alt="" coords="251,173,449,200"/>
+<area shape="rect" id="node4" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title=" " alt="" coords="497,31,680,57"/>
+<area shape="rect" id="node5" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="519,81,658,108"/>
+</map>

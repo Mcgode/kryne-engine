@@ -1,9 +1,11 @@
-//
-// Created by max on 03/08/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 03/08/2019
+ */
 
-#ifndef INC_3D_DEMOS_BASE_OBJECT_ENUM_H
-#define INC_3D_DEMOS_BASE_OBJECT_ENUM_H
+#ifndef INC_KRYNE_ENGINE_BASE_OBJECT_ENUM_H
+#define INC_KRYNE_ENGINE_BASE_OBJECT_ENUM_H
 
 typedef enum {
     NO_SHADOW = 0,
@@ -11,4 +13,4 @@ typedef enum {
     TRANSPARENT_SHADOW = 2,
 } BaseObjectShadowType;
 
-#endif //INC_3D_DEMOS_BASE_OBJECT_ENUM_H
+#endif //INC_KRYNE_ENGINE_BASE_OBJECT_ENUM_H

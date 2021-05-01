@@ -8,21 +8,23 @@ with the end goal of being able to have a basic game run on it.
 
 ## Current Status
 
-Most of the basic common structure of the code is done.
-I've put the Sphere project on hold, and I'm working on the SunLight 
-project.
+The code structure and the pipeline are currently having an overhaul.
 
 More specifically, right now, I'm working on:
-- Switch to using smart pointers in the project (because modern C++)
-- Set up a shader chunk model which will allow for better dynamic shaders
+- ~~Switch to using smart pointers.~~ Done.
+- ~~Switch to a ECS structure.~~ Done.
+- ~~Use multi-threading.~~ Done.
+- Reimplement previous features to the new pipeline.
+- Improve current pipeline, by adding features mostly.
 
-## Individual projects
+
+## Examples
+
+Examples are smaller projects I'm using to experiment with graphics.
 
 More projects might be coming down the road, and some may currently be 
 on hold. Please refer to the current status section for more information
 on which projects are currently being worked on.
-
-Click on the screenshots to view more details on a specific project.
 
 ### [Sphere](Examples/Sphere/README.md)
 

@@ -1,0 +1,4 @@
+<map id="OpenGLRenderer::handlePostProcessing" name="OpenGLRenderer::handlePostProcessing">
+<area shape="rect" id="node1" title="Handles the post processing and the rendering to screen." alt="" coords="5,5,200,47"/>
+<area shape="rect" id="node2" href="$class_loop_renderer.html#a13cfc5cf61a909c4d96e968f20161713" title="Swaps the write and read framebuffers." alt="" coords="248,13,428,39"/>
+</map>

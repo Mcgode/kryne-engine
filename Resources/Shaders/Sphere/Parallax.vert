@@ -1,4 +1,4 @@
-#version 330 core
+
 
 #define MAX_AMOUNT_OF_POINT_LIGHTS 4
 struct PointLight {
@@ -28,9 +28,9 @@ layout (location = 1) in vec3 inputNormal;
 layout (location = 2) in vec2 inputTextureCoordinates;
 layout (location = 3) in vec3 inputTangent;
 
-uniform mat4 projection;
-uniform mat4 view;
-uniform mat4 model;
+uniform mat4 projectionMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 modelMatrix;
 uniform mat3 normalMat;
 uniform vec3 cameraPosition;
 uniform DirectionalLight directionalLight;
@@ -47,7 +47,7 @@ out VS_OUT {
 } vs_out;
 
 void main() {
-    vs_out.worldPosition = (model * vec4(inputPosition, 1)).xyz;
+    vs_out.worldPosition = (modelMatrix * vec4(inputPosition, 1)).xyz;
 
     vec3 N = normalize(normalMat * inputNormal);
     vec3 T = normalize(normalMat * inputTangent);
@@ -67,5 +67,5 @@ void main() {
         vs_out.pointLightsPositions[i] = TBN * pointLights[i].position;
     }
 
-	gl_Position = projection * view * model * vec4(inputPosition, 1.0);
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(inputPosition, 1.0);
 }

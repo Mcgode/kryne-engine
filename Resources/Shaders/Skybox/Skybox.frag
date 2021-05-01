@@ -1,4 +1,4 @@
-#version 330 core
+
 
 uniform samplerCube cubemap;
 uniform vec3 sunDirection;

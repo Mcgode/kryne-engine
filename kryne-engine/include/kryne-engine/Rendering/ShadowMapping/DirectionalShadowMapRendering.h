@@ -1,20 +1,22 @@
-//
-// Created by max on 11/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 11/10/2019
+ */
 
-#ifndef INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H
-#define INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H
+#ifndef INC_KRYNE_ENGINE_DIRECTIONAL_SHADOW_MAP_RENDERING_H
+#define INC_KRYNE_ENGINE_DIRECTIONAL_SHADOW_MAP_RENDERING_H
 
 
-#include <kryne-engine/Rendering/RenderPass.h>
-#include <kryne-engine/Light/DirectionalLight.h>
+#include <kryne-engine/Rendering/OldRenderPass.h>
+#include <kryne-engine/Light/OldDirectionalLight.h>
 
-class DirectionalShadowMapRendering: public RenderPass {
+class DirectionalShadowMapRendering: public OldRenderPass {
 
 public:
 
-    explicit DirectionalShadowMapRendering(DirectionalLight *directionalLight,
-                                           Camera *mainCamera);
+    explicit DirectionalShadowMapRendering(OldDirectionalLight *directionalLight,
+                                           OldCamera *mainCamera);
 
 
     void render(Window *window, std::vector<HierarchicalNode *> *rootNodes, AdditionalParameters *params) override;
@@ -29,13 +31,13 @@ public:
     [[nodiscard]] std::vector<glm::mat4> getLightSpaceMatrices();
 
 
-    void updateCamera(Camera *newCamera);
+    void updateCamera(OldCamera *newCamera);
 
 
 private:
 
-    DirectionalLight *light;
-    Camera *camera;
+    OldDirectionalLight *light;
+    OldCamera *camera;
 
     std::vector<GLuint> fbos;
     std::vector<GLuint> shadowMaps;
@@ -51,4 +53,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_DIRECTIONAL_SHADOW_MAP_RENDERING_H
+#endif //INC_KRYNE_ENGINE_DIRECTIONAL_SHADOW_MAP_RENDERING_H

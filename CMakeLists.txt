@@ -1,101 +1,133 @@
-cmake_minimum_required(VERSION 3.14)
-project(3D_demos)
+cmake_minimum_required(VERSION 3.16)
+project(kryne_engine)
 
 set(CMAKE_CXX_STANDARD 17)
 
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
-#Setting up GLFW
-set(OpenGL_GL_PREFERENCE GLVND)
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(external-libs/GLFW)
+if (UNIX)
+    set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -ldl -lpthread")
+endif()
 
 
-add_subdirectory(external-libs/glm-0.9.9.5)
-include_directories(external-libs/glm-0.9.9.5)
+# Set up GLFW3
+find_package(GLFW3 REQUIRED)
+message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
+include_directories(${GLFW3_INCLUDE_DIR})
 
 
-set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-add_subdirectory(external-libs/assimp)
-set(ASSIMP_INCLUDES external-libs/assimp/include ${PROJECT_BINARY_DIR}/assimp/include)
-include_directories(${ASSIMP_INCLUDES})
-message(STATUS ${PROJECT_BINARY_DIR}/assimp/include/assimp)
+# Set up GLM
+find_package(GLM REQUIRED)
+message(STATUS "Found GLM in ${GLM_INCLUDE_DIR}")
+include_directories(${GLM_INCLUDE_DIR})
 
 
-#Adding GLAD library
+# Set up assimp
+find_package(ASSIMP REQUIRED)
+message(STATUS "Found assimp in ${ASSIMP_INCLUDE_DIR}")
+include_directories(${ASSIMP_INCLUDE_DIR})
+
+
+# Set up GLAD library
 include_directories(external-libs/glad/include)
-add_library(glad external-libs/glad/src/glad.c external-libs/assimp/include/assimp/config.h)
+add_library(glad STATIC external-libs/glad/src/glad.c)
+
+# Set up stb_image library
+include_directories(external-libs/stb_image)
+add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
+
+# Set up Dear IMGUI lib
+add_subdirectory(external-libs/imgui)
+include_directories(external-libs/imgui)
 
 
-find_package(Boost REQUIRED COMPONENTS system filesystem)
+#Set up the used libs
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI)
+
+
+# Set up boost library
+
+if(WIN32)
+    # Required, or else CMake won't find boost components
+    set (Boost_USE_STATIC_LIBS 1)
+endif()
+
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
 
-
-# Set up common library
-include_directories("kryne-engine/include")
-add_library(kryne-engine
-        kryne-engine/src/Material/Shader.cpp kryne-engine/include/kryne-engine/Material/Shader.h
-        kryne-engine/src/Rendering/Scene.cpp kryne-engine/include/kryne-engine/Rendering/Scene.h
-        kryne-engine/src/Core/VertexArray.cpp kryne-engine/include/kryne-engine/Core/VertexArray.h
-        kryne-engine/src/Core/Window.cpp kryne-engine/include/kryne-engine/Core/Window.h
-        kryne-engine/include/kryne-engine/Camera/Camera.h
-        kryne-engine/src/Camera/BasicCamera.cpp kryne-engine/include/kryne-engine/Camera/BasicCamera.h
-        kryne-engine/src/Core/GeometricShapes.cpp kryne-engine/include/kryne-engine/Core/GeometricShapes.h
-        kryne-engine/src/3DObjects/BaseObject.cpp kryne-engine/include/kryne-engine/3DObjects/BaseObject.h
-        kryne-engine/src/3DObjects/HierarchicalNode.cpp kryne-engine/include/kryne-engine/3DObjects/HierarchicalNode.h
-        kryne-engine/src/Camera/TrackballCamera.cpp kryne-engine/include/kryne-engine/Camera/TrackballCamera.h
-        kryne-engine/src/Light/PointLight.cpp kryne-engine/include/kryne-engine/Light/PointLight.h
-        kryne-engine/src/Light/DirectionalLight.cpp kryne-engine/include/kryne-engine/Light/DirectionalLight.h
-        kryne-engine/src/Core/AdditionalParameters.cpp kryne-engine/include/kryne-engine/Core/AdditionalParameters.h
-        kryne-engine/src/Textures/stb_image.cpp kryne-engine/include/kryne-engine/Textures/stb_image.h
-        kryne-engine/src/Textures/Texture2D.cpp kryne-engine/include/kryne-engine/Textures/Texture2D.h
-        kryne-engine/src/RenderTargets/PostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/PostProcess.h
-        kryne-engine/src/RenderTargets/FinalPostProcess.cpp kryne-engine/include/kryne-engine/RenderTargets/FinalPostProcess.h
-        kryne-engine/src/Camera/FirstPersonCamera.cpp kryne-engine/include/kryne-engine/Camera/FirstPersonCamera.h
-        kryne-engine/src/3DObjects/Model/ModelLoader.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelLoader.h
-        kryne-engine/src/3DObjects/Model/ModelMesh.cpp kryne-engine/include/kryne-engine/3DObjects/Model/ModelMesh.h
-        kryne-engine/src/3DObjects/Skybox.cpp kryne-engine/include/kryne-engine/3DObjects/Skybox.h
-        kryne-engine/src/Textures/TextureCubeMap.cpp kryne-engine/include/kryne-engine/Textures/TextureCubeMap.h
-        kryne-engine/include/kryne-engine/Constants/CubeVertexData.h
-        kryne-engine/include/kryne-engine/enums/SkyboxDrawOrder.h
-        kryne-engine/include/kryne-engine/enums/BaseObject.h
-        kryne-engine/src/Rendering/MainRenderer.cpp kryne-engine/include/kryne-engine/Rendering/MainRenderer.h
-        kryne-engine/include/kryne-engine/Rendering/RenderPass.h
-        kryne-engine/src/Rendering/ShadowMapping/ShadowMapHandler.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/ShadowMapHandler.h
-        kryne-engine/src/Rendering/ShadowMapping/DirectionalShadowMapRendering.cpp kryne-engine/include/kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h
-        kryne-engine/src/Core/Process.cpp kryne-engine/include/kryne-engine/Core/Process.h kryne-engine/src/Light/LightingRegistry.cpp kryne-engine/include/kryne-engine/Light/LightingRegistry.h)
-target_link_libraries(kryne-engine glad glfw assimp glm ${Boost_LIBRARIES})
+set(LIBS ${LIBS} ${Boost_LIBRARIES})
 
 
-function(COPYASSETDIR TARGET ASSET)
+## Helper functions
+
+# Links a directory to a symbolic link in the target binary directory
+function(copyAssetDir TARGET ASSET)
+
+    if(${UNIX})
+        set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR}/${ASSET})
+    elseif(${WIN32})
+        set(SYMLINK_COMMAND mklink /d ${CMAKE_CURRENT_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
+    endif()
+
     add_custom_command(
             TARGET ${TARGET} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/${ASSET}/
-            $<TARGET_FILE_DIR:${TARGET}>/${ASSET})
+            COMMAND ${SYMLINK_COMMAND})
 endfunction()
 
-function(COPYASSETS TARGET)
+# Links the assets for a provided target
+function(copyAssets TARGET)
     copyAssetDir(${TARGET} "Resources")
 endfunction()
+
+# Duplicate a library
+function(duplicateLibrary LIBRARY NEW_LIB_NAME)
+    get_target_property(sourceFiles ${LIBRARY} SOURCES)
+    get_target_property(linkLibs ${LIBRARY} LINK_LIBRARIES)
+    get_target_property(includeDirs ${LIBRARY} INCLUDE_DIRECTORIES)
+    get_target_property(compileDefinitions ${LIBRARY} COMPILE_DEFINITIONS)
+    get_target_property(compileOptions ${LIBRARY} COMPILE_OPTIONS)
+
+    add_library(${NEW_LIB_NAME} STATIC
+            ${sourceFiles}
+            )
+
+    target_include_directories(${NEW_LIB_NAME} PUBLIC
+            ${includeDirs}
+            )
+
+    list(REMOVE_ITEM linkLibs
+            originalLibrary
+            )
+    target_link_libraries(${NEW_LIB_NAME} PRIVATE
+            ${linkLibs}
+            )
+
+    if (compileOptions)
+        target_compile_options(${NEW_LIB_NAME} PRIVATE
+                ${compileOptions}
+                )
+    endif()
+
+    if (compileDefinitions)
+        target_compile_definitions(${NEW_LIB_NAME} PRIVATE
+                ${compileDefinitions}
+                )
+    endif()
+endfunction()
+
+
+# Set up Kryne Engine library
+add_subdirectory(kryne-engine)
 
 
 # Setting up executables
 
-add_executable(SunLight Examples/SunLight/main.cpp
-        Examples/SunLight/Floor.cpp Examples/SunLight/Floor.h
-        Examples/SunLight/Model.cpp Examples/SunLight/Model.h
-        Examples/SunLight/StainedGlass.cpp Examples/SunLight/StainedGlass.h)
-target_link_libraries(SunLight kryne-engine)
-copyAssets(SunLight)
+add_subdirectory(Examples/SunLight)
 
-add_executable(Sphere Examples/Sphere/main.cpp
-        Examples/Sphere/SphereNormalMapping.cpp Examples/Sphere/SphereNormalMapping.h
-        Examples/Sphere/SphereBasic.cpp Examples/Sphere/SphereBasic.h
-        Examples/Sphere/SphereTexture.cpp Examples/Sphere/SphereTexture.h
-        Examples/Sphere/SphereParallax.cpp Examples/Sphere/SphereParallax.h)
-target_link_libraries(Sphere kryne-engine)
-copyAssets(Sphere)
+add_subdirectory(Examples/Sphere)
+
+add_subdirectory(Examples/Basic)
+
+add_subdirectory(Examples/BenchmarkThreading)

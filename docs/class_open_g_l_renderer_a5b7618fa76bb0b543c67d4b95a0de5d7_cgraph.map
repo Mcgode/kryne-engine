@@ -1,0 +1,5 @@
+<map id="OpenGLRenderer::parseScene" name="OpenGLRenderer::parseScene">
+<area shape="rect" id="node1" title="Parses the scene to render in the search of essential data for this frame." alt="" coords="5,31,204,57"/>
+<area shape="rect" id="node2" href="$class_camera.html#a5b96f61398d8d920647e009bfebff241" title="Retrieves the current projection data." alt="" coords="267,5,446,32"/>
+<area shape="rect" id="node3" href="$class_projection_data.html#ad049ca6387d2c93cbd1e582fae2f01d3" title="A function for updating the projection data related to viewport size." alt="" coords="252,56,461,83"/>
+</map>

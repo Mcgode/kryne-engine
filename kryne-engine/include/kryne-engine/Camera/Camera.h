@@ -1,71 +1,79 @@
-//
-// Created by max on 20/04/19.
-//
-
-#ifndef INC_3D_DEMOS_CAMERA_H
-#define INC_3D_DEMOS_CAMERA_H
-
-#include <vector>
-#include <stdarg.h>
-#include <stdlib.h>
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include <glm/vec3.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
-class Window;
-#include <kryne-engine/Core/Window.h>
-
-
 /**
- * An abstract class for representing a camera
+ * @file
+ * @author Max Godefroy
+ * @date 22/11/2020
  */
-class Camera {
+
+#ifndef INC_KRYNE_ENGINE_CAMERA_H
+#define INC_KRYNE_ENGINE_CAMERA_H
+
+
+#include <memory>
+#include <glm/mat4x4.hpp>
+
+#include <kryne-engine/Core/Entity.h>
+#include "ProjectionData.hpp"
+
+
+class Camera : public Entity {
 
 public:
 
     /**
-     * Retrieves the view matrix for this camera
-     * @return The view matrix for this camera.
+     * Initializes the camera entity. Using Process::makeEntity() is recommended
+     * @param process           The process to attach this camera entity to.
+     * @param projectionData    The projection data for this camera
      */
-    virtual glm::mat4 getViewMatrix() = 0;
+    explicit Camera(Process *process, unique_ptr<ProjectionData> projectionData) :
+        Entity(process),
+        projectionData(std::move(projectionData))
+    {
+        this->name = "Camera";
+    }
+
+    /// @copydoc Entity::transformDidUpdate
+    void transformDidUpdate() override;
+
+public:
 
     /**
-     * Retrieves the current position of the camera
-     * @return The current position of the camera
+     * Retrieves the projection matrix of the camera.
+     * @return A const reference to the projection matrix
      */
-    virtual glm::vec3 getCurrentPosition() = 0;
+    inline const mat4 &getProjectionMatrix() { return projectionData->getProjectionMatrix(); }
 
     /**
-     * Handles a key press input from the user
-     * @param window    The render window object
-     * @param key       The key pressed by the user
+     * Retrieves the inverse of the projection matrix of the camera.
+     * @return A const reference to the projection matrix inverse
      */
-    virtual void onKeyInput(Window *window, GLint key) = 0;
+    inline const mat4 &getInverseProjectionMatrix() { return projectionData->getInverseProjectionMatrix(); }
 
     /**
-     * Handles a scroll input from the user
-     * @param window    The render window object
-     * @param value     The scroll intensity from the user
+     * Retrieves the view matrix of the camera.
+     * @return A const reference to the view matrix.
      */
-    virtual void onScrollInput(Window *window, float value) = 0;
+    [[nodiscard]] inline const mat4 &getViewMatrix() const { return viewMatrix; }
 
     /**
-     * Handles mouse movements from the user
-     * @param window    The render window object
-     * @param xInput    The new x position of the mouse
-     * @param yInput    The new y position of the mouse
+     * Overrides the projection data for this camera
+     * @param newProjectionData
      */
-    virtual void onMouseMovementInput(Window *window, double xInput, double yInput) = 0;
+    void setProjectionData(unique_ptr<ProjectionData> newProjectionData);
 
-    virtual void frameUpdate(Window *window) = 0;
+    /**
+     * @brief Retrieves the current projection data
+     */
+     [[nodiscard]] ProjectionData *getProjectionData() const { return this->projectionData.get(); }
 
-    virtual ~Camera() = default;
+protected:
+
+    /// The projection data for this camera
+    unique_ptr<ProjectionData> projectionData;
+
+    /// The view matrix of this camera
+    mat4 viewMatrix {};
 
 };
 
 
-#endif //INC_3D_DEMOS_CAMERA_H
+#endif //INC_KRYNE_ENGINE_CAMERA_H

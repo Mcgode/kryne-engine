@@ -22,10 +22,10 @@ void BaseObject::setShader(Shader *shader)
 
 void BaseObject::draw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
 {
-    shader->setMat4("projection", projection);
-    shader->setMat4("view", view);
-    shader->setMat4("model", model);
-    shader->setMat3("normalMat", glm::inverse(glm::transpose(glm::mat3(model))));
+    shader->setUniform("projectionMatrix", projection);
+    shader->setUniform("viewMatrix", view);
+    shader->setUniform("modelMatrix", model);
+    shader->setUniform("normalMat", glm::inverse(glm::transpose(glm::mat3(model))));
     vertexArray->execute();
 }
 
@@ -55,9 +55,9 @@ BaseObjectShadowType BaseObject::getShadowCasting() const
 
 void BaseObject::shapeDraw(glm::mat4 projection, glm::mat4 view, glm::mat4 model, AdditionalParameters *params)
 {
-    shader->setMat4("projection", projection);
-    shader->setMat4("view", view);
-    shader->setMat4("model", model);
-    shader->setMat3("normalMat", glm::inverse(glm::transpose(glm::mat3(model))));
+    shader->setUniform("projectionMatrix", projection);
+    shader->setUniform("viewMatrix", view);
+    shader->setUniform("modelMatrix", model);
+    shader->setUniform("normalMat", glm::inverse(glm::transpose(glm::mat3(model))));
     vertexArray->execute();
 }

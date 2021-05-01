@@ -1,9 +1,11 @@
-//
-// Created by max on 20/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 20/04/19
+ */
 
-#ifndef INC_3D_DEMOS_BASICCAMERA_H
-#define INC_3D_DEMOS_BASICCAMERA_H
+#ifndef INC_KRYNE_ENGINE_BASICCAMERA_H
+#define INC_KRYNE_ENGINE_BASICCAMERA_H
 
 #include <vector>
 #include <stdarg.h>
@@ -16,13 +18,13 @@
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "Camera.h"
+#include "OldCamera.h"
 
 
 /**
  * A class representing a basic camera
  */
-class BasicCamera : public Camera {
+class BasicCamera : public OldCamera {
 
 public:
 
@@ -55,4 +57,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_BASICCAMERA_H
+#endif //INC_KRYNE_ENGINE_BASICCAMERA_H

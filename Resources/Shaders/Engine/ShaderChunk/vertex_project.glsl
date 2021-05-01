@@ -1,0 +1,1 @@
+gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(transformed, 1.0);

@@ -11,48 +11,35 @@
 #endif
 
 
-Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename)
+Shader::Shader()
+{
+    // Initialise program
+    this->programID = 0;
+
+    this->needsUpdate = SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
+
+    this->uniformsHandler = make_unique<UniformsHandler>(&this->programID);
+
+    maxIndex = 0;
+}
+
+
+Shader::Shader(const char *vertexShaderFilename, const char *fragmentShaderFilename): Shader()
 {
     // Recovering and compiling both shaders
-    unsigned int vertex = createShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename),
-            fragment = createShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename);
-
-    // Initialising program
-    ID = glCreateProgram();
-
-    // Attaching shaders to program
-    glAttachShader(ID, vertex);
-    glAttachShader(ID, fragment);
-
-    // Linking program
-    glLinkProgram(ID);
-
-    GLint success;
-    glGetProgramiv(ID, GL_LINK_STATUS, &success);
-    if(!success) {
-        char infoLog[512];
-        glGetProgramInfoLog(ID, 512, nullptr, infoLog);
-        std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
-    // Deleting shaders
-    glDeleteShader(vertex);
-    glDeleteShader(fragment);
+    loadShaderFromFile(GL_VERTEX_SHADER, vertexShaderFilename, &this->vertexShader);
+    loadShaderFromFile(GL_FRAGMENT_SHADER, fragmentShaderFilename, &this->fragmentShader);
 }
 
 
 Shader::~Shader()
 {
-    glDeleteProgram(ID);
+    glDeleteProgram(this->programID);
 }
 
 
-unsigned int Shader::createShaderFromFile(GLenum type, const char *filename)
+void Shader::loadShaderFromFile(GLenum type, const char *filename, std::string *shaderCode)
 {
-    // Initialising shader from type
-    unsigned int shader = glCreateShader(type);
-
     // Loading extension from shader type
     std::string extension;
     switch (type) {
@@ -79,77 +66,26 @@ unsigned int Shader::createShaderFromFile(GLenum type, const char *filename)
     }
 
     // Parsing source code into a string
-    std::string sourceCode;
-    file.seekg(0, std::ios::end); // Setting cursor position to file end
-    sourceCode.resize(file.tellg()); // Getting value of last position from the current cursor position and setting the string size accordingly
-    file.seekg(0, std::ios::beg); // Resetting the cursor position to the beginning
-    file.read(&sourceCode[0], sourceCode.size()); // Copying whole file to string
-    file.close();
-    const GLchar* sourceCodeString = sourceCode.c_str();
-
-    // Compiling shader
-    glShaderSource(shader, 1, &sourceCodeString, nullptr);
-    glCompileShader(shader);
-
-    // Check if compile succeeded
-    int  success;
-    char infoLog[512];
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if(success == 0)
-    {
-        glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-        std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+    string line;
+    while (Utils::safeGetLine(file, line)) {
+        if (!shaderCode->empty())
+            shaderCode->push_back('\n');
+        *shaderCode += line;
     }
-
-    maxIndex = 0;
-
-    return shader;
+    file.close();
 }
 
 
 void Shader::use()
 {
-    glUseProgram(ID);
-}
-
-
-void Shader::setBool(const std::string &name, bool value) const
-{
-    glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+    this->needsUpdate = 0;
+    glUseProgram(this->programID);
 }
 
 
 void Shader::setInt(const std::string &name, int value) const
 {
-    glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
-}
-
-
-void Shader::setFloat(const std::string &name, float value) const
-{
-    glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
-}
-
-
-void Shader::setVec3(const std::string &name, float x, float y, float z) const
-{
-    glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
-}
-
-
-void Shader::setVec4(const std::string &name, float x, float y, float z, float w) const
-{
-    glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
-}
-
-
-void Shader::setMat4(const std::string &name, glm::mat4 mat) const
-{
-    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
-}
-
-void Shader::setVec3(const std::string &name, glm::vec3 vec) {
-    setVec3(name, vec.x, vec.y, vec.z);
+    glUniform1i(glGetUniformLocation(programID, name.c_str()), value);
 }
 
 
@@ -159,24 +95,6 @@ void Shader::setVec3(const std::string &name, glm::vec3 vec) {
 void Shader::resetUse()
 {
     glUseProgram(0);
-}
-
-
-void Shader::setMat3(const std::string &name, glm::mat3 mat) const
-{
-    glUniformMatrix3fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
-}
-
-
-void Shader::setVec2(const std::string &name, glm::vec2 vec) const
-{
-    glUniform2f(glGetUniformLocation(ID, name.c_str()), vec.x, vec.y);
-}
-
-
-void Shader::setVec4(const std::string &name, glm::vec4 vec)
-{
-    setVec4(name, vec.x, vec.y, vec.z, vec.w);
 }
 
 
@@ -193,4 +111,133 @@ void Shader::setTexture(const std::string &name)
         glActiveTexture(GL_TEXTURE0 + pair->second);
         setInt(name, pair->second);
     }
+}
+
+
+void Shader::linkProgram(const GLuint &vertex, const GLuint &fragment)
+{
+    assertIsMainThread();
+
+    if (this->programID == 0)
+        this->programID = glCreateProgram();
+
+    // Attaching shaders to program
+    if (this->previousVertex != vertex)
+        glAttachShader(this->programID, vertex);
+    this->previousVertex = vertex;
+
+    if (this->previousFragment != fragment)
+        glAttachShader(this->programID, fragment);
+    this->previousFragment = fragment;
+
+    // Linking program
+    glLinkProgram(this->programID);
+
+    GLint success;
+    glGetProgramiv(this->programID, GL_LINK_STATUS, &success);
+    if(!success) {
+        string infoLog;
+        infoLog.resize(2048);
+        glGetProgramInfoLog(this->programID, infoLog.size(), nullptr, infoLog.data());
+        std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+
+string Shader::makeDefinesCode()
+{
+    string code;
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+
+        for (const auto &pair : this->defines)
+            code += "#define " + pair.first + " " + pair.second + "\n";
+    }
+    return code;
+}
+
+
+void Shader::debugPrintActiveAttributes() const
+{
+    GLint i;
+    GLint count;
+
+    GLint size; // size of the variable
+    GLenum type; // type of the variable (float, vec3 or mat4, etc)
+
+    const GLsizei bufSize = 64; // maximum name length
+    GLchar name[bufSize]; // variable name in GLSL
+    GLsizei length;
+
+    glGetProgramiv(this->programID, GL_ACTIVE_ATTRIBUTES, &count);
+    printf("Active Attributes: %d\n", count);
+
+    for (i = 0; i < count; i++)
+    {
+        glGetActiveAttrib(this->programID, (GLuint)i, bufSize, &length, &size, &type, name);
+
+        printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
+    }
+
+    printf("Done");
+}
+
+
+void Shader::debugPrintActiveUniforms() const
+{
+    assertIsMainThread();
+
+    GLint i;
+    GLint count;
+
+    GLint size; // size of the variable
+    GLenum type; // type of the variable (float, vec3 or mat4, etc)
+
+    const GLsizei bufSize = 64; // maximum name length
+    GLchar name[bufSize]; // variable name in GLSL
+    GLsizei length;
+
+    glGetProgramiv(this->programID, GL_ACTIVE_UNIFORMS, &count);
+    printf("Active Uniforms: %d\n", count);
+
+    for (i = 0; i < count; i++)
+    {
+        glGetActiveUniform(this->programID, (GLuint)i, bufSize, &length, &size, &type, name);
+
+        printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
+    }
+}
+
+
+void Shader::setDefine(const string &defineName, const string &defineValue)
+{
+    bool changed;
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+        const auto emplaceResult = this->defines.emplace(defineName, defineValue);
+
+        changed = emplaceResult.second || emplaceResult.first->second != defineValue;
+
+        if (!emplaceResult.second && changed)
+            emplaceResult.first->second = defineValue;
+    }
+
+    if (changed)
+        this->needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
+}
+
+
+bool Shader::removeDefine(const string &defineName)
+{
+    bool erased;
+    {
+        scoped_lock<mutex> l(this->mapMutex);
+        erased = this->defines.erase(defineName) > 0;
+    }
+
+    if (erased)
+        this->needsUpdate |= SHADER_VERTEX_NEEDS_UPDATE | SHADER_FRAGMENT_NEEDS_UPDATE;
+
+    return erased;
 }

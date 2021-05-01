@@ -1,0 +1,25 @@
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 21/12/2020.
+ */
+
+#ifndef KRYNE_ENGINE_KRYNEENGINE_
+#define KRYNE_ENGINE_KRYNEENGINE_
+
+#include "KEModules/3DObjects.h"
+#include "KEModules/Camera.h"
+#include "KEModules/Constants.h"
+#include "KEModules/Core.h"
+#include "KEModules/enums.h"
+#include "KEModules/Geometry.h"
+#include "KEModules/Input.h"
+#include "KEModules/Light.h"
+#include "KEModules/Material.h"
+#include "KEModules/Math.h"
+#include "KEModules/Rendering.h"
+#include "KEModules/RenderTargets.h"
+#include "KEModules/Textures.h"
+#include "KEModules/Utils.h"
+
+#endif //KRYNE_ENGINE_KRYNEENGINE_

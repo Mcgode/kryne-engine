@@ -1,9 +1,11 @@
-//
-// Created by max on 26/07/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 26/07/2019
+ */
 
-#ifndef INC_3D_DEMOS_FINAL_POST_PROCESS_H
-#define INC_3D_DEMOS_FINAL_POST_PROCESS_H
+#ifndef INC_KRYNE_ENGINE_FINAL_POST_PROCESS_H
+#define INC_KRYNE_ENGINE_FINAL_POST_PROCESS_H
 
 #include <map>
 
@@ -48,4 +50,4 @@ protected:
 };
 
 
-#endif //INC_3D_DEMOS_FINAL_POST_PROCESS_H
+#endif //INC_KRYNE_ENGINE_FINAL_POST_PROCESS_H

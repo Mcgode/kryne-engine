@@ -1,12 +1,14 @@
-//
-// Created by max on 22/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/04/19
+ */
 
-#ifndef INC_3D_DEMOS_HIERARCHICALNODE_H
-#define INC_3D_DEMOS_HIERARCHICALNODE_H
+#ifndef INC_KRYNE_ENGINE_HIERARCHICALNODE_H
+#define INC_KRYNE_ENGINE_HIERARCHICALNODE_H
 
 #include <cstdarg>
-#include <kryne-engine/Rendering/RenderPass.h>
+#include <kryne-engine/Rendering/OldRenderPass.h>
 
 #include "kryne-engine/3DObjects/BaseObject.h"
 #include "kryne-engine/Core/AdditionalParameters.h"
@@ -53,7 +55,7 @@ public:
      * @param model      The combined model transform matrix of the scene and the node successive parents.
      * @param params     The additional params to pass down the rendering pipeline.
      */
-    void draw(RenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
+//    void draw(OldRenderPass *renderer, glm::mat4 view, glm::mat4 model, AdditionalParameters *params);
 
     ~HierarchicalNode();
 
@@ -74,4 +76,4 @@ private:
 
 class HierarchicalNode;
 
-#endif //INC_3D_DEMOS_HIERARCHICALNODE_H
+#endif //INC_KRYNE_ENGINE_HIERARCHICALNODE_H

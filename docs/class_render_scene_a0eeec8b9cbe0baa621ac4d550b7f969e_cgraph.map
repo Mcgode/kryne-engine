@@ -1,0 +1,9 @@
+<map id="RenderScene::setDirectionalLight" name="RenderScene::setDirectionalLight">
+<area shape="rect" id="node1" title=" " alt="" coords="5,49,192,90"/>
+<area shape="rect" id="node2" href="$class_directional_light.html#a620fc95395f452e6718eca660c3f66f6" title=" " alt="" coords="240,5,428,32"/>
+<area shape="rect" id="node3" href="$class_main_renderer.html#a7584fa123e4918d2b91d7dcd540dbe70" title=" " alt="" coords="248,56,420,83"/>
+<area shape="rect" id="node4" href="$class_skybox.html#a328818f63faa949bb8b4249046391cea" title=" " alt="" coords="249,107,419,133"/>
+<area shape="rect" id="node5" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="481,56,604,83"/>
+<area shape="rect" id="node6" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="476,107,609,133"/>
+<area shape="rect" id="node7" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="497,157,589,184"/>
+</map>

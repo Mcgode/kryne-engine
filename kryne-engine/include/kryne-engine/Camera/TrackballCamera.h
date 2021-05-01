@@ -1,20 +1,22 @@
-//
-// Created by max on 21/05/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 21/05/19
+ */
 
-#ifndef INC_3D_DEMOS_TRACKBALLCAMERA_H
-#define INC_3D_DEMOS_TRACKBALLCAMERA_H
+#ifndef INC_KRYNE_ENGINE_TRACKBALLCAMERA_H
+#define INC_KRYNE_ENGINE_TRACKBALLCAMERA_H
 
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/constants.hpp>
-#include "Camera.h"
+#include "OldCamera.h"
 
 
 /**
  * A trackball camera, a camera allowing the user to rotate the camera around a given point, zoom in and out of this
  * point and move this point in the plane orthogonal to the current camera direction
  */
-class TrackballCamera: public Camera {
+class TrackballCamera: public OldCamera {
 
 public:
     /**
@@ -63,4 +65,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_TRACKBALLCAMERA_H
+#endif //INC_KRYNE_ENGINE_TRACKBALLCAMERA_H

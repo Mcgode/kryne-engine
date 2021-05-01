@@ -1,0 +1,5 @@
+<map id="OrbitCamera" name="OrbitCamera">
+<area shape="rect" id="node1" title="A camera that allows for orbit controls around a center position." alt="" coords="5,155,100,181"/>
+<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="19,80,86,107"/>
+<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="25,5,81,32"/>
+</map>

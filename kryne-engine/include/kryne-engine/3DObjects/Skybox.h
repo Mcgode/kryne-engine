@@ -1,14 +1,16 @@
-//
-// Created by max on 02/08/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 02/08/2019
+ */
 
-#ifndef INC_3D_DEMOS_SKYBOX_H
-#define INC_3D_DEMOS_SKYBOX_H
+#ifndef INC_KRYNE_ENGINE_SKYBOX_H
+#define INC_KRYNE_ENGINE_SKYBOX_H
 
 #include <string>
 
 #include <kryne-engine/Material/Shader.h>
-#include <kryne-engine/Textures/TextureCubeMap.h>
+#include <kryne-engine/Textures/CubeTexture.h>
 #include <kryne-engine/Core/VertexArray.h>
 #include <kryne-engine/Core/GeometricShapes.h>
 #include <kryne-engine/enums/SkyboxDrawOrder.h>
@@ -27,9 +29,9 @@ private:
 
     VertexArray *vertexArray{};
     Shader *shader{};
-    TextureCubeMap *cubemap{};
+    CubeTexture *cubemap{};
 
 };
 
 
-#endif //INC_3D_DEMOS_SKYBOX_H
+#endif //INC_KRYNE_ENGINE_SKYBOX_H

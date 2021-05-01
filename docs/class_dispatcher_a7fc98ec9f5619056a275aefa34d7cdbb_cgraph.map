@@ -1,0 +1,5 @@
+<map id="Dispatcher::waitDelayed" name="Dispatcher::waitDelayed">
+<area shape="rect" id="node1" title="Executes and waits for all the delayed tasks." alt="" coords="5,31,168,57"/>
+<area shape="rect" id="node2" href="$class_main_pool.html#a0afe5289e8d5dc17ac029c7d0b01bb6c" title=" " alt="" coords="222,5,381,32"/>
+<area shape="rect" id="node3" href="$class_thread_pool.html#aac24b600c476f86bf7f11bb4b5a3e214" title=" " alt="" coords="216,56,387,83"/>
+</map>

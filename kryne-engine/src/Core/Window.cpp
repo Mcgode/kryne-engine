@@ -6,7 +6,7 @@
 
 
 Window *current_window;
-Camera *currentCamera = nullptr;
+OldCamera *currentCamera = nullptr;
 
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
@@ -38,7 +38,7 @@ Window::Window(uint32_t width, uint32_t height)
     window = glfwCreateWindow(this->width, this->height, "GL window", nullptr, nullptr);
 
     if (window == nullptr) {
-        std::cerr << "Could not initialize window" << std::endl;
+        std::cerr << "Could not initializeCommon window" << std::endl;
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
@@ -47,7 +47,7 @@ Window::Window(uint32_t width, uint32_t height)
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
+        std::cerr << "Failed to initializeCommon GLAD" << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -120,7 +120,7 @@ void Window::setMouseCursor(int value)
 }
 
 
-void Window::setCurrentCamera(Camera *camera)
+void Window::setCurrentCamera(OldCamera *camera)
 {
     currentCamera = camera;
 }

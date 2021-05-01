@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/TrackballCamera.h>
 #include <kryne-engine/Core/GeometricShapes.h>
-#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/OldProcess.h>
 #include "SphereParallax.h"
 
 using namespace std;
@@ -14,15 +14,15 @@ using namespace std;
 
 int main(int argc, const char **argv)
 {
-    auto process = new Process(new TrackballCamera(glm::vec3(0, 0, 0)));
+    auto process = new OldProcess(new TrackballCamera(glm::vec3(0, 0, 0)));
     auto *pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");
 
-    auto *dirLight = new DirectionalLight(glm::vec3(0, -1, -1), glm::vec3(0));
+    auto *dirLight = new OldDirectionalLight(glm::vec3(0, -1, -1), glm::vec3(0));
     pScene->setDirectionalLight(dirLight);
 
-    auto *pl = new PointLight(glm::vec3(1.5, 1.8, 1.3), glm::vec3(1.0));
+    auto *pl = new OldPointLight(glm::vec3(1.5, 1.8, 1.3), glm::vec3(1.0));
     pScene->addPointLight(pl);
 
     auto *obj = new SphereNormalMapping("bricks");

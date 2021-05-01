@@ -1,19 +1,23 @@
-//
-// Created by max on 26/07/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 26/07/2019
+ */
 
-#ifndef INC_3D_DEMOS_FIRST_PERSON_CAMERA_H
-#define INC_3D_DEMOS_FIRST_PERSON_CAMERA_H
+#ifndef INC_KRYNE_ENGINE_FIRST_PERSON_CAMERA_H
+#define INC_KRYNE_ENGINE_FIRST_PERSON_CAMERA_H
 
 #include <chrono>
 #include <algorithm>
 #define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
+
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/euler_angles.hpp>
 
-#include "Camera.h"
+#include "OldCamera.h"
 
-class FirstPersonCamera : public Camera {
+class FirstPersonCamera : public OldCamera {
 
 public:
 
@@ -45,4 +49,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_FIRST_PERSON_CAMERA_H
+#endif //INC_KRYNE_ENGINE_FIRST_PERSON_CAMERA_H

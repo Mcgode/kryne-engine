@@ -1,9 +1,11 @@
-//
-// Created by max on 26/07/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 26/07/2019
+ */
 
-#ifndef INC_3D_DEMOS_MODEL_LOADER_H
-#define INC_3D_DEMOS_MODEL_LOADER_H
+#ifndef INC_KRYNE_ENGINE_MODEL_LOADER_H
+#define INC_KRYNE_ENGINE_MODEL_LOADER_H
 
 #include <vector>
 #include <map>
@@ -27,4 +29,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_MODEL_LOADER_H
+#endif //INC_KRYNE_ENGINE_MODEL_LOADER_H

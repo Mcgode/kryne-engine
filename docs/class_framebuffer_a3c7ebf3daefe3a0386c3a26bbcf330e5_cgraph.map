@@ -1,0 +1,4 @@
+<map id="Framebuffer::setSize" name="Framebuffer::setSize">
+<area shape="rect" id="node1" title="Changes the size of this framebuffer." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$class_framebuffer.html#a64889dc4d414478d4702154feb2d054a" title="Size update behaviour." alt="" coords="196,5,367,32"/>
+</map>

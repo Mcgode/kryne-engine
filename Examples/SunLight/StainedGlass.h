@@ -2,8 +2,8 @@
 // Created by max on 02/08/2019.
 //
 
-#ifndef INC_3D_DEMOS_STAINEDGLASS_H
-#define INC_3D_DEMOS_STAINEDGLASS_H
+#ifndef INC_KRYNE_ENGINE_STAINEDGLASS_H
+#define INC_KRYNE_ENGINE_STAINEDGLASS_H
 
 
 #include <kryne-engine/3DObjects/BaseObject.h>
@@ -23,4 +23,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_STAINEDGLASS_H
+#endif //INC_KRYNE_ENGINE_STAINEDGLASS_H

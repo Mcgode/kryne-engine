@@ -4,8 +4,8 @@
 
 #include "kryne-engine/Rendering/ShadowMapping/DirectionalShadowMapRendering.h"
 
-DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *directionalLight,
-                                                             Camera *mainCamera)
+DirectionalShadowMapRendering::DirectionalShadowMapRendering(OldDirectionalLight *directionalLight,
+                                                             OldCamera *mainCamera)
 {
     this->light = directionalLight;
     auto radii = directionalLight->getShadowCastRadii();
@@ -50,7 +50,7 @@ DirectionalShadowMapRendering::DirectionalShadowMapRendering(DirectionalLight *d
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    this->shadowMapShader = new Shader("engine/shadowMap");
+    this->shadowMapShader = new Shader("Engine/shadowMap");
 }
 
 
@@ -66,9 +66,9 @@ void DirectionalShadowMapRendering::render(Window *window,
 
         auto view = this->computeMatrices();
 
-        for (HierarchicalNode *node: *rootNodes) {
-            node->draw(this, view, glm::mat4(1.0), params);
-        }
+//        for (HierarchicalNode *node: *rootNodes) {
+//            node->draw(this, view, glm::mat4(1.0), params);
+//        }
     }
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -84,7 +84,7 @@ void DirectionalShadowMapRendering::drawInScene(BaseObject *obj, glm::mat4 view,
 
         obj->getShader()->use();
 
-        this->shadowMapShader->setMat4("lightSpaceMatrix", this->projection * view);
+        this->shadowMapShader->setUniform("lightSpaceMatrix", this->projection * view);
 
         obj->shapeDraw(glm::mat4(this->projection), view, model, params);
 
@@ -129,7 +129,7 @@ glm::mat4 DirectionalShadowMapRendering::computeMatrices()
 }
 
 
-void DirectionalShadowMapRendering::updateCamera(Camera *newCamera)
+void DirectionalShadowMapRendering::updateCamera(OldCamera *newCamera)
 {
     this->camera = newCamera;
 }

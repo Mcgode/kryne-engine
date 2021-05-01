@@ -1,0 +1,5 @@
+<map id="OrbitCamera::setCenterPosition" name="OrbitCamera::setCenterPosition">
+<area shape="rect" id="node1" title="Changes the value of centerPosition and updates the camera position accordingly." alt="" coords="5,5,212,32"/>
+<area shape="rect" id="node2" href="$class_orbit_camera.html#aa1a54b3e3d8a69b681159f2b05c57878" title="Updates OrbitCamera::position according to the orbit values." alt="" coords="260,5,449,32"/>
+<area shape="rect" id="node3" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title="Change the object position." alt="" coords="497,5,649,32"/>
+</map>

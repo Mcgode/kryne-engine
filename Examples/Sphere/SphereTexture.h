@@ -2,8 +2,8 @@
 // Created by max on 09/06/19.
 //
 
-#ifndef INC_3D_DEMOS_SPHERETEXTURE_H
-#define INC_3D_DEMOS_SPHERETEXTURE_H
+#ifndef INC_KRYNE_ENGINE_SPHERETEXTURE_H
+#define INC_KRYNE_ENGINE_SPHERETEXTURE_H
 
 
 #include "SphereBasic.h"
@@ -25,4 +25,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_SPHERETEXTURE_H
+#endif //INC_KRYNE_ENGINE_SPHERETEXTURE_H

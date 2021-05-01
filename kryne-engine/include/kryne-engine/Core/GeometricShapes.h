@@ -1,9 +1,11 @@
-//
-// Created by max on 22/04/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/04/19
+ */
 
-#ifndef INC_3D_DEMOS_GEOMETRICSHAPES_H
-#define INC_3D_DEMOS_GEOMETRICSHAPES_H
+#ifndef INC_KRYNE_ENGINE_GEOMETRICSHAPES_H
+#define INC_KRYNE_ENGINE_GEOMETRICSHAPES_H
 
 #include <vector>
 #include <cmath>
@@ -87,4 +89,4 @@ void generateCubeShape(
         std::vector<vec2> *textureCoordinates = nullptr,
         std::vector<vec3> *tangents = nullptr);
 
-#endif //INC_3D_DEMOS_GEOMETRICSHAPES_H
+#endif //INC_KRYNE_ENGINE_GEOMETRICSHAPES_H

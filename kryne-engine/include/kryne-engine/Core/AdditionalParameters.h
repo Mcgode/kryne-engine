@@ -1,9 +1,11 @@
-//
-// Created by max on 21/05/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 21/05/19
+ */
 
-#ifndef INC_3D_DEMOS_ADDITIONALPARAMETERS_H
-#define INC_3D_DEMOS_ADDITIONALPARAMETERS_H
+#ifndef INC_KRYNE_ENGINE_ADDITIONALPARAMETERS_H
+#define INC_KRYNE_ENGINE_ADDITIONALPARAMETERS_H
 
 #include <map>
 #include <string>
@@ -36,4 +38,4 @@ private:
 };
 
 
-#endif //INC_3D_DEMOS_ADDITIONALPARAMETERS_H
+#endif //INC_KRYNE_ENGINE_ADDITIONALPARAMETERS_H

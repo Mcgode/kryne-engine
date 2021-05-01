@@ -1,0 +1,4 @@
+<map id="Utils::double_lock::~double_lock" name="Utils::double_lock::~double_lock">
+<area shape="rect" id="node1" title="unlock on delete" alt="" coords="5,5,131,47"/>
+<area shape="rect" id="node2" href="$struct_utils_1_1double__lock.html#a062ddb4de932fd6d61200a7e0cc6f699" title="Unlocks both mutexes." alt="" coords="179,5,304,47"/>
+</map>

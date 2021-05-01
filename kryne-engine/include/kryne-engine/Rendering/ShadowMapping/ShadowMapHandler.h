@@ -1,9 +1,11 @@
-//
-// Created by max on 11/10/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 11/10/2019
+ */
 
-#ifndef INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
-#define INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
+#ifndef INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H
+#define INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H
 
 #include <kryne-engine/Core/Window.h>
 #include <kryne-engine/3DObjects/HierarchicalNode.h>
@@ -15,25 +17,25 @@ class ShadowMapHandler {
 
 public:
 
-    explicit ShadowMapHandler(Camera *mainCamera);
+    explicit ShadowMapHandler(OldCamera *mainCamera);
 
     void renderShadowMaps(Window *window, std::vector<HierarchicalNode *> *rootNodes,
                           const shared_ptr<LightingRegistry>& lightingRegistry,
                           AdditionalParameters *params);
 
-    std::vector<GLuint> getDirectionalShadowMaps(DirectionalLight *directionalLight);
+    std::vector<GLuint> getDirectionalShadowMaps(OldDirectionalLight *directionalLight);
 
-    std::vector<glm::mat4> getLightSpaceMatrices(DirectionalLight *directionalLight);
+    std::vector<glm::mat4> getLightSpaceMatrices(OldDirectionalLight *directionalLight);
 
-    void updateCamera(Camera *newCamera);
+    void updateCamera(OldCamera *newCamera);
 
 private:
 
-    Camera *mainCamera;
+    OldCamera *mainCamera;
 
-    std::map<DirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;
+    std::map<OldDirectionalLight *, DirectionalShadowMapRendering *> directionalShadowMaps;
 
 };
 
 
-#endif //INC_3D_DEMOS_SHADOW_MAP_HANDLER_H
+#endif //INC_KRYNE_ENGINE_SHADOW_MAP_HANDLER_H

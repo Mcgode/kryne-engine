@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include <kryne-engine/Rendering/Scene.h>
+#include <kryne-engine/Rendering/RenderScene.h>
 #include <kryne-engine/Camera/FirstPersonCamera.h>
 #include <kryne-engine/3DObjects/Model/ModelLoader.h>
-#include <kryne-engine/Core/Process.h>
+#include <kryne-engine/Core/OldProcess.h>
 #include "kryne-engine/Material/Shader.h"
 #include "Floor.h"
 #include "Model.h"
@@ -28,7 +28,7 @@ void error_callback(int error_code, const char error[])
 
 int main(int argc, const char **argv)
 {
-    auto process = new Process(new FirstPersonCamera(2.5f, 0.25f));
+    auto process = new OldProcess(new FirstPersonCamera(2.5f, 0.25f));
     auto pScene = process->getScene();
 
     auto *sh = new Shader("Sphere/Lighting");
@@ -36,7 +36,7 @@ int main(int argc, const char **argv)
     auto skybox = new Skybox("skybox", ".tga");
     pScene->setSkybox(skybox, SKYBOX_DRAW_FIRST);
 
-    auto *dirLight = new DirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
+    auto *dirLight = new OldDirectionalLight(glm::vec3(-1, -2.4, -1.3), glm::vec3(1));
     dirLight->setCastsShadowCascaded(1024, vector<double> { 2., 8., 32. });
     pScene->setDirectionalLight(dirLight);
 //    auto data = ModelLoader::loadModel("TorusKnot.obj");

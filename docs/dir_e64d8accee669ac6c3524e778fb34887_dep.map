@@ -1,0 +1,31 @@
+<map id="kryne&#45;engine/src" name="kryne&#45;engine/src">
+<area shape="rect" id="node2" href="dir_b74527dd2d49091317248ecc2a492738.html" title="3DObjects" alt="" coords="1244,63,1327,111"/>
+<area shape="rect" id="node15" href="dir_6fe37ccbf5e97356f3116a77abbef924.html" title="include" alt="" coords="659,159,731,207"/>
+<area shape="rect" id="edge13-headlabel" href="dir_000028_000001.html" title="9" alt="" coords="745,182,753,196"/>
+<area shape="rect" id="node3" href="dir_b93db4966c5d010c3ed0894974e7f210.html" title="Camera" alt="" coords="1148,63,1220,111"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000030_000001.html" title="6" alt="" coords="745,181,753,195"/>
+<area shape="rect" id="node4" href="dir_92cbc7589014e9a79f24556415023b95.html" title="Core" alt="" coords="1052,63,1124,111"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000031_000001.html" title="11" alt="" coords="742,179,757,193"/>
+<area shape="rect" id="node5" href="dir_c26ed977d6d98b056d278d39fba82949.html" title="Dispatch" alt="" coords="954,63,1027,111"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000033_000001.html" title="6" alt="" coords="745,180,753,195"/>
+<area shape="rect" id="node6" href="dir_3391013c5bcc9f682b8a49c140fcf924.html" title="Geometry" alt="" coords="851,63,930,111"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000034_000001.html" title="4" alt="" coords="747,169,755,184"/>
+<area shape="rect" id="node7" href="dir_1f199a757349aa63e13d1341c40df77b.html" title="Input" alt="" coords="755,63,827,111"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000035_000001.html" title="1" alt="" coords="733,145,741,159"/>
+<area shape="rect" id="node8" href="dir_0b70d3ad23cb9015fe8eee151686e712.html" title="Light" alt="" coords="659,63,731,111"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000036_000001.html" title="5" alt="" coords="699,133,707,148"/>
+<area shape="rect" id="node9" href="dir_de161436e9bf4de9e89567cd109ce04b.html" title="Material" alt="" coords="563,63,635,111"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000037_000001.html" title="8" alt="" coords="660,132,668,147"/>
+<area shape="rect" id="node10" href="dir_8b929e06e38a05ae31148eaa49097c9f.html" title="Rendering" alt="" coords="459,63,539,111"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000039_000001.html" title="16" alt="" coords="636,153,650,167"/>
+<area shape="rect" id="node11" href="dir_1c45a02320653894bd8d2b22a856dda1.html" title="RenderTargets" alt="" coords="328,63,435,111"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000043_000001.html" title="3" alt="" coords="637,161,645,176"/>
+<area shape="rect" id="node12" href="dir_7e333f6cf0ad7bd04ee9a1acc721a393.html" title="Systems" alt="" coords="229,63,304,111"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000044_000001.html" title="3" alt="" coords="637,162,645,177"/>
+<area shape="rect" id="node13" href="dir_b1dcf60ba8e478127530acf114ec2bf5.html" title="Textures" alt="" coords="133,63,205,111"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000045_000001.html" title="3" alt="" coords="637,164,645,179"/>
+<area shape="rect" id="node14" href="dir_65623b015cd5536ca413df9fe275c609.html" title="UI" alt="" coords="37,63,109,111"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000046_000001.html" title="4" alt="" coords="637,165,645,180"/>
+<area shape="rect" id="clust2" href="dir_e64d8accee669ac6c3524e778fb34887.html" alt="" coords="27,52,1433,121"/>
+<area shape="rect" id="clust1" href="dir_0cd0f52426aabb843978d64903b548c1.html" title="kryne&#45;engine" alt="" coords="16,16,1444,132"/>
+</map>

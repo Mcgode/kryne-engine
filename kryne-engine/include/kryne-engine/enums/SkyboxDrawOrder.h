@@ -1,9 +1,11 @@
-//
-// Created by max on 03/08/2019.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 03/08/2019
+ */
 
-#ifndef INC_3D_DEMOS_SKYBOX_DRAW_ORDER_H
-#define INC_3D_DEMOS_SKYBOX_DRAW_ORDER_H
+#ifndef INC_KRYNE_ENGINE_SKYBOX_DRAW_ORDER_H
+#define INC_KRYNE_ENGINE_SKYBOX_DRAW_ORDER_H
 
 typedef enum {
     SKYBOX_NO_DRAW,
@@ -11,4 +13,4 @@ typedef enum {
     SKYBOX_DRAW_LAST
 } SkyboxDrawOrder;
 
-#endif //INC_3D_DEMOS_SKYBOX_DRAW_ORDER_H
+#endif //INC_KRYNE_ENGINE_SKYBOX_DRAW_ORDER_H

@@ -1,32 +1,34 @@
-//
-// Created by max on 6/1/20.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 6/1/20
+ */
 
-#ifndef INC_3D_DEMOS_LIGHTINGREGISTRY_H
-#define INC_3D_DEMOS_LIGHTINGREGISTRY_H
+#ifndef INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H
+#define INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H
 
 #include <memory>
-#include "DirectionalLight.h"
-#include "PointLight.h"
+#include "OldDirectionalLight.h"
+#include "OldPointLight.h"
 
 using namespace std;
 
 class LightingRegistry {
 
 public:
-    vector<DirectionalLight *> * getDirectionalLights();
+    vector<OldDirectionalLight *> * getDirectionalLights();
 
-    vector<PointLight*> * getPointLights();
+    vector<OldPointLight*> * getPointLights();
 
-    void registerDirectionalLight(DirectionalLight *light);
+    void registerDirectionalLight(OldDirectionalLight *light);
 
-    void registerPointLight(PointLight *light);
+    void registerPointLight(OldPointLight *light);
 
 private:
-    vector<DirectionalLight *> directionalLights {};
+    vector<OldDirectionalLight *> directionalLights {};
 
-    vector<PointLight *> pointLights {};
+    vector<OldPointLight *> pointLights {};
 };
 
 
-#endif //INC_3D_DEMOS_LIGHTINGREGISTRY_H
+#endif //INC_KRYNE_ENGINE_LIGHTINGREGISTRY_H

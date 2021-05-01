@@ -1,0 +1,17 @@
+<map id="kryne&#45;engine/include/kryne&#45;engine/Light/PointLight.h" name="kryne&#45;engine/include/kryne&#45;engine/Light/PointLight.h">
+<area shape="rect" id="node1" title=" " alt="" coords="200,5,405,47"/>
+<area shape="rect" id="node2" href="$_light_8h.html" title=" " alt="" coords="5,206,147,247"/>
+<area shape="rect" id="node3" href="$_lighting_registry_8h.html" title=" " alt="" coords="212,95,393,151"/>
+<area shape="rect" id="node15" href="$_point_light_8cpp.html" title=" " alt="" coords="418,102,569,143"/>
+<area shape="rect" id="node4" href="$_main_renderer_8h.html" title=" " alt="" coords="672,199,835,255"/>
+<area shape="rect" id="node6" href="$_render_scene_8h.html" title=" " alt="" coords="212,303,375,359"/>
+<area shape="rect" id="node12" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="397,199,648,255"/>
+<area shape="rect" id="node14" href="$_lighting_registry_8cpp.html" title=" " alt="" coords="171,206,322,247"/>
+<area shape="rect" id="node5" href="$_rendering_8h.html" title=" " alt="" coords="619,407,786,448"/>
+<area shape="rect" id="node11" href="$_main_renderer_8cpp.html" title=" " alt="" coords="791,310,971,351"/>
+<area shape="rect" id="node7" href="$_old_process_8h.html" title=" " alt="" coords="283,407,498,448"/>
+<area shape="rect" id="node10" href="$_render_scene_8cpp.html" title=" " alt="" coords="79,407,259,448"/>
+<area shape="rect" id="node8" href="$_core_8h.html" title=" " alt="" coords="236,496,377,537"/>
+<area shape="rect" id="node9" href="$_old_process_8cpp.html" title=" " alt="" coords="401,496,551,537"/>
+<area shape="rect" id="node13" href="$_shadow_map_handler_8cpp.html" title=" " alt="" coords="399,310,665,351"/>
+</map>

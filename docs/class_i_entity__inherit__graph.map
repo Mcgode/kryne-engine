@@ -1,0 +1,5 @@
+<map id="IEntity" name="IEntity">
+<area shape="rect" id="node1" title=" " alt="" coords="9,5,68,32"/>
+<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="11,80,67,107"/>
+<area shape="rect" id="node3" href="$class_camera.html" title=" " alt="" coords="5,155,72,181"/>
+</map>

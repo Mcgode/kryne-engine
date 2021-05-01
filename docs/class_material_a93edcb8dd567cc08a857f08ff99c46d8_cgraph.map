@@ -1,0 +1,5 @@
+<map id="Material::displayDearImGui" name="Material::displayDearImGui">
+<area shape="rect" id="node1" title="Displays material data UI interface." alt="" coords="5,31,184,57"/>
+<area shape="rect" id="node2" href="$class_material.html#a56d712f7823f8d41938148457f03a741" title="Override this function to display material data in the interface." alt="" coords="232,5,395,32"/>
+<area shape="rect" id="node3" href="$class_material.html#a5a9c026494ee8680fcbfd4382a0c2947" title=" " alt="" coords="235,56,391,83"/>
+</map>

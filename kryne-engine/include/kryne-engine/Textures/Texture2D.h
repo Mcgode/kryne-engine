@@ -1,47 +1,30 @@
-//
-// Created by max on 22/05/19.
-//
+/**
+ * @file
+ * @author Max Godefroy
+ * @date 22/05/19
+ */
 
-#ifndef INC_3D_DEMOS_TEXTURE2D_H
-#define INC_3D_DEMOS_TEXTURE2D_H
+#ifndef INC_KRYNE_ENGINE_TEXTURE2D_H
+#define INC_KRYNE_ENGINE_TEXTURE2D_H
 
-#include <kryne-engine/Textures/stb_image.h>
-#include <string>
-#include <iostream>
-#include <boost/filesystem.hpp>
+#include "Texture.h"
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include "kryne-engine/Material/Shader.h"
 
-class Texture2D {
+using namespace std;
+
+class Texture2D: public Texture {
 
 public:
-    explicit Texture2D(const std::string& filename, bool generateMipMap = false);
 
-    explicit Texture2D(Texture2D *texture);
+    explicit Texture2D(GLuint id): Texture(id, GL_TEXTURE_2D) {};
 
-    static void
-    textureSet(int textureID, Shader *shader, const std::string &uniformName, GLenum textureType = GL_TEXTURE_2D);
-
-    static Texture2D *getTexture(const std::string &directoryName, const std::string &filenameSuffix = "diff");
-
-    virtual void setTexture(Shader *shader, const std::string &uniformName);
-
-    virtual ~Texture2D();
+    static shared_ptr<Texture2D> loadFromFile(const string &filename);
 
 protected:
 
-    Texture2D();
-
-    int width{};
-    int height{};
-    int nbChannels{};
-
-    GLuint textureId{};
-    bool originalTexture = true;
+    explicit Texture2D(const std::string& filename, bool generateMipMap = false);
 
 };
 
 
-#endif //INC_3D_DEMOS_TEXTURE2D_H
+#endif //INC_KRYNE_ENGINE_TEXTURE2D_H
