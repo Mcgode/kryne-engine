@@ -8,17 +8,12 @@ with the end goal of being able to have a basic game run on it.
 
 ## Current Status
 
-The code structure and the pipeline are currently having an overhaul.
+The code was recently updated and refactored to use an ECS architecture and behave more like a game 
+engine.
 
-More specifically, right now, I'm working on:
-- ~~Switch to using smart pointers.~~ Done.
-- ~~Switch to a ECS structure.~~ Done.
-- ~~Use multi-threading.~~ Done.
-- Reimplement previous features to the new pipeline.
-- Improve current pipeline, by adding features mostly.
+Right now, I'm working on adding Vulkan rendering to the engine along OpenGL.
 
-
-## Examples
+## Old examples (update needed)
 
 Examples are smaller projects I'm using to experiment with graphics.
 
