@@ -83,6 +83,8 @@ private:
 
     VkPipelineLayout pipelineLayout;
 
+    VkPipeline graphicsPipeline;
+
 };
 
 
