@@ -51,6 +51,8 @@ private:
 
     void createFramebuffers();
 
+    void createCommandPool();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -88,6 +90,8 @@ private:
     VkPipeline graphicsPipeline;
 
     std::vector<VkFramebuffer> swapChainFramebuffers;
+
+    VkCommandPool commandPool;
 
 };
 
