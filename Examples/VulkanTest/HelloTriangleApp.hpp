@@ -43,6 +43,8 @@ private:
 
     void createSwapChain();
 
+    void setUpImageViews();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -70,6 +72,8 @@ private:
     VkFormat swapChainImageFormat;
 
     VkExtent2D swapChainExtent;
+
+    std::vector<VkImageView> swapChainImageViews;
 
 };
 

@@ -198,6 +198,7 @@ void HelloTriangleApp::initVulkan()
     this->pickPhysicalDevice();
     this->initLogicalDevice();
     this->createSwapChain();
+    this->setUpImageViews();
 }
 
 
@@ -212,6 +213,9 @@ void HelloTriangleApp::mainLoop()
 
 void HelloTriangleApp::cleanup()
 {
+    for (const auto &imgView : this->swapChainImageViews)
+        vkDestroyImageView(this->device, imgView, nullptr);
+
     vkDestroySwapchainKHR(this->device, this->swapChain, nullptr);
 
     vkDestroyDevice(this->device, nullptr);
@@ -469,4 +473,39 @@ void HelloTriangleApp::createSwapChain()
     this->swapChainExtent = extent;
     this->swapChainImageFormat = surfaceFormat.format;
 
+}
+
+
+void HelloTriangleApp::setUpImageViews()
+{
+    this->swapChainImageViews.resize(this->swapChainImages.size());
+
+    for (auto i = 0; i < this->swapChainImages.size(); i++)
+    {
+        VkImageViewCreateInfo createInfo{};
+        createInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+        createInfo.image = this->swapChainImages[i];
+
+        createInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+        createInfo.format = this->swapChainImageFormat;
+
+        createInfo.components.r = VK_COMPONENT_SWIZZLE_IDENTITY;
+        createInfo.components.g = VK_COMPONENT_SWIZZLE_IDENTITY;
+        createInfo.components.b = VK_COMPONENT_SWIZZLE_IDENTITY;
+        createInfo.components.a = VK_COMPONENT_SWIZZLE_IDENTITY;
+
+        // Color target
+        createInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+
+        // No mip map level
+        createInfo.subresourceRange.baseMipLevel = 0;
+        createInfo.subresourceRange.levelCount = 1;
+
+        // No array layer
+        createInfo.subresourceRange.baseArrayLayer = 0;
+        createInfo.subresourceRange.layerCount = 1;
+
+        if (vkCreateImageView(this->device, &createInfo, nullptr, &this->swapChainImageViews[i]) != VK_SUCCESS)
+            throw std::runtime_error("Unable to initialize image view");
+    }
 }
