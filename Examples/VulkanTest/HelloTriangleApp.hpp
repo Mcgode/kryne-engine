@@ -53,6 +53,8 @@ private:
 
     void createCommandPool();
 
+    void createCommandBuffers();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -92,6 +94,8 @@ private:
     std::vector<VkFramebuffer> swapChainFramebuffers;
 
     VkCommandPool commandPool;
+
+    std::vector<VkCommandBuffer> commandBuffers;
 
 };
 

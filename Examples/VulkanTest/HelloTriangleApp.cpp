@@ -237,6 +237,7 @@ void HelloTriangleApp::initVulkan()
     this->createGraphicsPipeline();
     this->createFramebuffers();
     this->createCommandPool();
+    this->createCommandBuffers();
 }
 
 
@@ -251,6 +252,8 @@ void HelloTriangleApp::mainLoop()
 
 void HelloTriangleApp::cleanup()
 {
+    vkFreeCommandBuffers(this->device, this->commandPool, this->commandBuffers.size(), this->commandBuffers.data());
+
     vkDestroyCommandPool(this->device, this->commandPool, nullptr);
 
     for (const auto &fb : this->swapChainFramebuffers)
@@ -767,4 +770,53 @@ void HelloTriangleApp::createCommandPool()
 
     if (vkCreateCommandPool(this->device, &poolInfo, nullptr, &this->commandPool) != VK_SUCCESS)
         throw std::runtime_error("Unable to create command pool");
+}
+
+
+void HelloTriangleApp::createCommandBuffers()
+{
+    commandBuffers.resize(swapChainFramebuffers.size());
+
+    VkCommandBufferAllocateInfo allocInfo{};
+    allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+    allocInfo.commandPool = this->commandPool;
+    allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+    allocInfo.commandBufferCount = this->commandBuffers.size();
+
+    if (vkAllocateCommandBuffers(this->device, &allocInfo, this->commandBuffers.data()) != VK_SUCCESS)
+        throw std::runtime_error("Unable to allocate command buffers!");
+
+    for (size_t i = 0; i < this->commandBuffers.size(); i++)
+    {
+        VkCommandBufferBeginInfo beginInfo{};
+        beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+        beginInfo.flags = 0; // Optional
+        beginInfo.pInheritanceInfo = nullptr; // Optional
+
+        if (vkBeginCommandBuffer(this->commandBuffers[i], &beginInfo) != VK_SUCCESS)
+            throw std::runtime_error("Unable to begin recording command buffer!");
+
+        VkRenderPassBeginInfo renderPassInfo{};
+        renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+        renderPassInfo.renderPass = this->renderPass;
+        renderPassInfo.framebuffer = this->swapChainFramebuffers[i];
+
+        renderPassInfo.renderArea.offset = {0, 0};
+        renderPassInfo.renderArea.extent = this->swapChainExtent;
+
+        VkClearValue clearColor = {0.0f, 0.0f, 0.0f, 1.0f};
+        renderPassInfo.clearValueCount = 1;
+        renderPassInfo.pClearValues = &clearColor;
+
+        vkCmdBeginRenderPass(this->commandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
+
+        vkCmdBindPipeline(this->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, this->graphicsPipeline);
+
+        vkCmdDraw(this->commandBuffers[i], 3, 1, 0, 0);
+
+        vkCmdEndRenderPass(this->commandBuffers[i]);
+
+        if (vkEndCommandBuffer(this->commandBuffers[i]) != VK_SUCCESS)
+            throw std::runtime_error("Unable to record command buffer");
+    }
 }
