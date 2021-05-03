@@ -36,6 +36,8 @@ private:
 
     void pickPhysicalDevice();
 
+    void initLogicalDevice();
+
     void createSurface();
 
 private:

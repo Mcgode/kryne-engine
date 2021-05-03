@@ -5,6 +5,7 @@
  */
 
 
+#include <cstring>
 #include "DebuggingUtils.hpp"
 #include "Queue.hpp"
 
@@ -16,6 +17,10 @@ const std::vector<const char*> validationLayers = {
         "VK_LAYER_KHRONOS_validation"
 };
 
+const std::vector<const char*> deviceExtensions = {
+        VK_KHR_SWAPCHAIN_EXTENSION_NAME
+};
+
 #ifdef NDEBUG
 const bool enableValidationLayers = false;
 #else
@@ -25,6 +30,23 @@ const bool enableValidationLayers = true;
 
 namespace {
 
+    bool checkDeviceExtensionSupport(VkPhysicalDevice device)
+    {
+        uint32_t extensionCount;
+        vkEnumerateDeviceExtensionProperties(device, nullptr, &extensionCount, nullptr);
+
+        std::vector<VkExtensionProperties> availableExtensions(extensionCount);
+        vkEnumerateDeviceExtensionProperties(device, nullptr, &extensionCount, availableExtensions.data());
+
+        std::set<std::string> requiredExtensions(deviceExtensions.begin(), deviceExtensions.end());
+
+        for (const auto& extension : availableExtensions)
+            requiredExtensions.erase(extension.extensionName);
+
+        return requiredExtensions.empty();
+    }
+
+
     bool isDeviceSuitable(VkPhysicalDevice device, VkSurfaceKHR surface)
     {
         VkPhysicalDeviceProperties deviceProperties;
@@ -33,11 +55,14 @@ namespace {
         VkPhysicalDeviceFeatures deviceFeatures;
         vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
 
+        bool extensionSupported = checkDeviceExtensionSupport(device);
+
         auto indices = VulkanHelpers::findQueueFamilies(device, surface);
 
         return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
                deviceFeatures.geometryShader &&
-               indices.isComplete();
+               indices.isComplete() &&
+               extensionSupported;
     }
 
 
@@ -78,6 +103,7 @@ void HelloTriangleApp::initVulkan()
     this->setupDebugMessenger();
     this->createSurface();
     this->pickPhysicalDevice();
+    this->initLogicalDevice();
 }
 
 
@@ -219,7 +245,11 @@ void HelloTriangleApp::pickPhysicalDevice()
 
     if (this->physicalDevice == VK_NULL_HANDLE)
         throw std::runtime_error("No suitable VK device");
+}
 
+
+void HelloTriangleApp::initLogicalDevice()
+{
     auto indices = VulkanHelpers::findQueueFamilies(this->physicalDevice, this->surface);
 
     std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
@@ -248,6 +278,9 @@ void HelloTriangleApp::pickPhysicalDevice()
     createInfo.pEnabledFeatures = &deviceFeatures;
 
     createInfo.enabledExtensionCount = 0;
+
+    createInfo.enabledExtensionCount = deviceExtensions.size();
+    createInfo.ppEnabledExtensionNames = deviceExtensions.data();
 
     if (enableValidationLayers) {
         createInfo.enabledLayerCount = validationLayers.size();
