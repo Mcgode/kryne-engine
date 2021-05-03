@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 
 class HelloTriangleApp {
@@ -40,6 +41,8 @@ private:
 
     void createSurface();
 
+    void createSwapChain();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -59,6 +62,14 @@ private:
     VkSurfaceKHR surface;
 
     VkQueue presentQueue;
+
+    VkSwapchainKHR swapChain;
+
+    std::vector<VkImage> swapChainImages;
+
+    VkFormat swapChainImageFormat;
+
+    VkExtent2D swapChainExtent;
 
 };
 

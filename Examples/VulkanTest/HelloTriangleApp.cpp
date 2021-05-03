@@ -106,6 +106,29 @@ namespace {
     }
 
 
+    VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities, GLFWwindow *window)
+    {
+        if (capabilities.currentExtent.width != std::numeric_limits<uint32_t>::max())
+            return capabilities.currentExtent;
+
+        else
+        {
+            int width, height;
+            glfwGetFramebufferSize(window, &width, &height);
+
+            VkExtent2D actualExtent = {
+                    static_cast<uint32_t>(width),
+                    static_cast<uint32_t>(height)
+            };
+
+            actualExtent.width = std::max(capabilities.minImageExtent.width, std::min(capabilities.maxImageExtent.width, actualExtent.width));
+            actualExtent.height = std::max(capabilities.minImageExtent.height, std::min(capabilities.maxImageExtent.height, actualExtent.height));
+
+            return actualExtent;
+        }
+    }
+
+
     bool isDeviceSuitable(VkPhysicalDevice device, VkSurfaceKHR surface)
     {
         VkPhysicalDeviceProperties deviceProperties;
@@ -174,6 +197,7 @@ void HelloTriangleApp::initVulkan()
     this->createSurface();
     this->pickPhysicalDevice();
     this->initLogicalDevice();
+    this->createSwapChain();
 }
 
 
@@ -188,6 +212,8 @@ void HelloTriangleApp::mainLoop()
 
 void HelloTriangleApp::cleanup()
 {
+    vkDestroySwapchainKHR(this->device, this->swapChain, nullptr);
+
     vkDestroyDevice(this->device, nullptr);
 
     vkDestroySurfaceKHR(this->instance, this->surface, nullptr);
@@ -382,4 +408,65 @@ void HelloTriangleApp::createSurface()
 {
     if (glfwCreateWindowSurface(this->instance, this->window, nullptr, &this->surface) != VK_SUCCESS)
         throw std::runtime_error("Unable to create window surface");
+}
+
+
+void HelloTriangleApp::createSwapChain()
+{
+    auto details = querySwapChainDetails(this->physicalDevice, this->surface);
+
+    auto surfaceFormat = chooseSwapSurfaceFormat(details.formats);
+    auto presentMode = chooseSwapPresentMode(details.presentModes);
+    auto extent = chooseSwapExtent(details.capabilities, this->window);
+
+    uint32_t imageCount = details.capabilities.minImageCount + 1;
+
+    if (details.capabilities.maxImageCount > 0 && imageCount > details.capabilities.maxImageCount)
+        imageCount = details.capabilities.maxImageCount;
+
+    VkSwapchainCreateInfoKHR createInfo{};
+    createInfo.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
+    createInfo.surface = this->surface;
+
+    createInfo.minImageCount = imageCount;
+    createInfo.imageFormat = surfaceFormat.format;
+    createInfo.imageColorSpace = surfaceFormat.colorSpace;
+    createInfo.imageExtent = extent;
+    createInfo.imageArrayLayers = 1;
+    createInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+
+    auto indices = VulkanHelpers::findQueueFamilies(this->physicalDevice, this->surface);
+    uint32_t queueFamilyIndices[] = {indices.graphicsFamily.value(), indices.presentFamily.value()};
+
+    if (indices.graphicsFamily != indices.presentFamily)
+    {
+        createInfo.imageSharingMode = VK_SHARING_MODE_CONCURRENT;
+        createInfo.queueFamilyIndexCount = 2;
+        createInfo.pQueueFamilyIndices = queueFamilyIndices;
+    }
+    else
+    {
+        createInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
+        createInfo.queueFamilyIndexCount = 0; // Optional
+        createInfo.pQueueFamilyIndices = nullptr; // Optional
+    }
+
+    createInfo.preTransform = details.capabilities.currentTransform;
+    createInfo.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
+
+    createInfo.presentMode = presentMode;
+    createInfo.clipped = true;
+
+    createInfo.oldSwapchain = VK_NULL_HANDLE;
+
+    if (vkCreateSwapchainKHR(this->device, &createInfo, nullptr, &this->swapChain) != VK_SUCCESS)
+        throw std::runtime_error("Unable to create swap chain");
+
+    vkGetSwapchainImagesKHR(device, swapChain, &imageCount, nullptr);
+    swapChainImages.resize(imageCount);
+    vkGetSwapchainImagesKHR(device, swapChain, &imageCount, swapChainImages.data());
+
+    this->swapChainExtent = extent;
+    this->swapChainImageFormat = surfaceFormat.format;
+
 }
