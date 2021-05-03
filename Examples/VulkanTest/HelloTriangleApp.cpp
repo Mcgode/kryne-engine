@@ -47,6 +47,65 @@ namespace {
     }
 
 
+    struct SwapChainSupportDetails {
+
+        VkSurfaceCapabilitiesKHR capabilities;
+
+        std::vector<VkSurfaceFormatKHR> formats;
+
+        std::vector<VkPresentModeKHR> presentModes;
+
+    };
+
+    SwapChainSupportDetails querySwapChainDetails(VkPhysicalDevice device, VkSurfaceKHR surface)
+    {
+        SwapChainSupportDetails details;
+
+        vkGetPhysicalDeviceSurfaceCapabilitiesKHR(device, surface, &details.capabilities);
+
+        uint32_t formatsCount = 0;
+        vkGetPhysicalDeviceSurfaceFormatsKHR(device, surface, &formatsCount, nullptr);
+
+        if (formatsCount != 0) {
+            details.formats.resize(formatsCount);
+            vkGetPhysicalDeviceSurfaceFormatsKHR(device, surface, &formatsCount, details.formats.data());
+        }
+
+        uint32_t presentModeCount;
+        vkGetPhysicalDeviceSurfacePresentModesKHR(device, surface, &presentModeCount, nullptr);
+
+        if (presentModeCount != 0) {
+            details.presentModes.resize(presentModeCount);
+            vkGetPhysicalDeviceSurfacePresentModesKHR(device, surface, &presentModeCount, details.presentModes.data());
+        }
+
+        return details;
+    }
+
+
+    VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats)
+    {
+        for (const auto &format : availableFormats)
+        {
+            if (format.format == VK_FORMAT_B8G8R8A8_SRGB && format.colorSpace == VK_COLORSPACE_SRGB_NONLINEAR_KHR)
+                return format;
+        }
+        return availableFormats[0];
+    }
+
+
+    VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes)
+    {
+        for (const auto& availablePresentMode : availablePresentModes)
+        {
+            if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR)
+                return availablePresentMode;
+        }
+
+        return VK_PRESENT_MODE_FIFO_KHR;
+    }
+
+
     bool isDeviceSuitable(VkPhysicalDevice device, VkSurfaceKHR surface)
     {
         VkPhysicalDeviceProperties deviceProperties;
@@ -57,12 +116,20 @@ namespace {
 
         bool extensionSupported = checkDeviceExtensionSupport(device);
 
+        bool swapChainAdequate = false;
+        if (extensionSupported)
+        {
+            auto details = querySwapChainDetails(device, surface);
+            swapChainAdequate = !details.formats.empty() && !details.presentModes.empty();
+        }
+
         auto indices = VulkanHelpers::findQueueFamilies(device, surface);
 
         return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
                deviceFeatures.geometryShader &&
                indices.isComplete() &&
-               extensionSupported;
+               extensionSupported &&
+               swapChainAdequate;
     }
 
 
