@@ -45,6 +45,8 @@ private:
 
     void setUpImageViews();
 
+    void createRenderPass();
+
     void createGraphicsPipeline();
 
 private:
@@ -76,6 +78,8 @@ private:
     VkExtent2D swapChainExtent;
 
     std::vector<VkImageView> swapChainImageViews;
+
+    VkRenderPass renderPass;
 
     VkPipelineLayout pipelineLayout;
 
