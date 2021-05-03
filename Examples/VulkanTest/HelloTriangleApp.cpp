@@ -199,6 +199,7 @@ void HelloTriangleApp::initVulkan()
     this->initLogicalDevice();
     this->createSwapChain();
     this->setUpImageViews();
+    this->createGraphicsPipeline();
 }
 
 
@@ -508,4 +509,10 @@ void HelloTriangleApp::setUpImageViews()
         if (vkCreateImageView(this->device, &createInfo, nullptr, &this->swapChainImageViews[i]) != VK_SUCCESS)
             throw std::runtime_error("Unable to initialize image view");
     }
+}
+
+
+void HelloTriangleApp::createGraphicsPipeline()
+{
+
 }

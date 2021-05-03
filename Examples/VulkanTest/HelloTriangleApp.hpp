@@ -45,6 +45,8 @@ private:
 
     void setUpImageViews();
 
+    void createGraphicsPipeline();
+
 private:
 
     static bool checkValidationLayerSupport();
