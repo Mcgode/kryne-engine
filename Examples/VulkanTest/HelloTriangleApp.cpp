@@ -21,10 +21,10 @@ const std::vector<const char*> deviceExtensions = {
         VK_KHR_SWAPCHAIN_EXTENSION_NAME
 };
 
-#ifdef NDEBUG
-const bool enableValidationLayers = false;
-#else
-const bool enableValidationLayers = true;
+#ifndef NDEBUG
+
+#define USE_DEBUG_LAYER
+
 #endif
 
 
@@ -74,8 +74,11 @@ namespace {
 
         std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
 
-        if (enableValidationLayers)
-            extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+#ifdef USE_DEBUG_LAYER
+
+        extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+
+#endif
 
         return extensions;
     }
@@ -122,9 +125,11 @@ void HelloTriangleApp::cleanup()
 
     vkDestroySurfaceKHR(this->instance, this->surface, nullptr);
 
-    if (enableValidationLayers) {
-        Utils::DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
-    }
+#ifdef USE_DEBUG_LAYER
+
+    Utils::DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
+
+#endif
 
     vkDestroyInstance(this->instance, nullptr);
 
@@ -136,8 +141,12 @@ void HelloTriangleApp::cleanup()
 
 void HelloTriangleApp::createInstance()
 {
-    if (enableValidationLayers && !HelloTriangleApp::checkValidationLayerSupport())
+#ifdef USE_DEBUG_LAYER
+
+    if (!HelloTriangleApp::checkValidationLayerSupport())
         throw std::runtime_error("Validation layer requested, but unavailable");
+
+#endif
 
     VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -165,19 +174,21 @@ void HelloTriangleApp::createInstance()
     createInfo.enabledExtensionCount = requiredExtensions.size();
     createInfo.ppEnabledExtensionNames = requiredExtensions.data();
 
-    VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
-    if (enableValidationLayers)
-    {
-        createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
-        createInfo.ppEnabledLayerNames = validationLayers.data();
+#ifdef USE_DEBUG_LAYER
 
-        Utils::populateDebugMessengerCreateInfo(debugCreateInfo);
-        createInfo.pNext = &debugCreateInfo;
-    }
-    else
-    {
+    VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
+
+    createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+    createInfo.ppEnabledLayerNames = validationLayers.data();
+
+    Utils::populateDebugMessengerCreateInfo(debugCreateInfo);
+    createInfo.pNext = &debugCreateInfo;
+
+#else
+
         createInfo.enabledLayerCount = 0;
-    }
+
+#endif
 
     if (vkCreateInstance(&createInfo, nullptr, &this->instance) != VK_SUCCESS)
         throw std::runtime_error("Failed to create VK instance");
@@ -282,12 +293,16 @@ void HelloTriangleApp::initLogicalDevice()
     createInfo.enabledExtensionCount = deviceExtensions.size();
     createInfo.ppEnabledExtensionNames = deviceExtensions.data();
 
-    if (enableValidationLayers) {
-        createInfo.enabledLayerCount = validationLayers.size();
-        createInfo.ppEnabledLayerNames = validationLayers.data();
-    } else {
-        createInfo.enabledLayerCount = 0;
-    }
+#ifdef USE_DEBUG_LAYER
+
+    createInfo.enabledLayerCount = validationLayers.size();
+    createInfo.ppEnabledLayerNames = validationLayers.data();
+
+#else
+
+    createInfo.enabledLayerCount = 0;
+
+#endif
 
     if (vkCreateDevice(this->physicalDevice, &createInfo, nullptr, &this->device) != VK_SUCCESS)
         throw std::runtime_error("Unable to create device object");
