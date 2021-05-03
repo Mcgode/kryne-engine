@@ -49,6 +49,8 @@ private:
 
     void createGraphicsPipeline();
 
+    void createFramebuffers();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -84,6 +86,8 @@ private:
     VkPipelineLayout pipelineLayout;
 
     VkPipeline graphicsPipeline;
+
+    std::vector<VkFramebuffer> swapChainFramebuffers;
 
 };
 
