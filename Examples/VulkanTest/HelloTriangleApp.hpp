@@ -77,6 +77,8 @@ private:
 
     std::vector<VkImageView> swapChainImageViews;
 
+    VkPipelineLayout pipelineLayout;
+
 };
 
 
