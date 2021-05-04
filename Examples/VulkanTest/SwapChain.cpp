@@ -359,7 +359,10 @@ bool SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRend
     PresentInfoKHR presentInfo(1, finishedRenderingSemaphore,
                                1, &this->swapchain, &index, nullptr);
 
-    assertSuccess(presentQueue.presentKHR(&presentInfo));
+    const auto presentResult = presentQueue.presentKHR(&presentInfo);
+    if (presentResult == Result::eErrorOutOfDateKHR || presentResult == Result::eSuboptimalKHR)
+        return false;
+    assertSuccess(presentResult);
 
     return true;
 }

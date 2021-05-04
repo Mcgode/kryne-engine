@@ -459,11 +459,18 @@ void HelloTriangleApp::createSyncObjects()
 
 void HelloTriangleApp::drawFrame()
 {
-    this->swapChain->draw(&this->imageAvailableSemaphores[this->currentFrame],
-                          &this->renderFinishedSemaphores[this->currentFrame],
-                          &this->inFlightFences[this->currentFrame],
-                          this->graphicsQueue,
-                          this->presentQueue);
+    if   (!this->swapChain->draw(&this->imageAvailableSemaphores[this->currentFrame],
+                                 &this->renderFinishedSemaphores[this->currentFrame],
+                                 &this->inFlightFences[this->currentFrame],
+                                 this->graphicsQueue,
+                                 this->presentQueue))
+    {
+        std::cout << "Swap chain is out of date, will recreate" << std::endl;
+
+        auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface), this->window,
+                                &this->commandPool_hpp, &this->device_hpp);
+        this->swapChain.reset(sc);
+    }
 
     this->currentFrame = (this->currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 }
