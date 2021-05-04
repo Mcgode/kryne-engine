@@ -885,7 +885,7 @@ void HelloTriangleApp::drawFrame()
         vkWaitForFences(this->device, 1, &this->imagesInFlight[imageIndex], VK_TRUE, std::numeric_limits<uint64_t>::max());
 
     // Mark image as now being used by this frame
-    this->imagesInFlight[imageIndex] = this->inFlightFences[this->currentFrame]
+    this->imagesInFlight[imageIndex] = this->inFlightFences[this->currentFrame];
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
