@@ -11,7 +11,6 @@
 #include "SwapChain.hpp"
 
 
-using VulkanHelpers::assertResult;
 using VulkanHelpers::assertSuccess;
 
 
@@ -162,8 +161,8 @@ void SwapChain::initSwapChain(const PhysicalDevice &physicalDevice, const Surfac
                                       true,
                                       {});
 
-    assertResult(this->device->createSwapchainKHR(&createInfo, nullptr, &this->swapchain),
-                 "Unable to create swapchain");
+    assertSuccess(this->device->createSwapchainKHR(&createInfo, nullptr, &this->swapchain),
+                  "Unable to create swapchain");
 
     this->scImages = this->device->getSwapchainImagesKHR(this->swapchain);
 
@@ -184,8 +183,8 @@ void SwapChain::setUpImageViews()
                                        {},
                                        { ImageAspectFlagBits::eColor, 0, 1, 0, 1 });
 
-        assertResult(this->device->createImageView(&createInfo, nullptr, &this->scImageViews[i]),
-                     "Unable to initialize image view");
+        assertSuccess(this->device->createImageView(&createInfo, nullptr, &this->scImageViews[i]),
+                      "Unable to initialize image view");
     }
 }
 
@@ -212,8 +211,8 @@ void SwapChain::createRenderPass()
                                  1, &spDesc,
                                  1, &spDep);
 
-    assertResult(this->device->createRenderPass(&rpcInfo, nullptr, &this->renderPass),
-                 "Unable to create render pass");
+    assertSuccess(this->device->createRenderPass(&rpcInfo, nullptr, &this->renderPass),
+                  "Unable to create render pass");
 }
 
 
@@ -222,8 +221,8 @@ ShaderModule SwapChain::createShaderModule(const std::vector<char> &code)
     ShaderModuleCreateInfo createInfo({}, code.size(), reinterpret_cast<const uint32_t*>(code.data()));
 
     ShaderModule shaderModule;
-    assertResult(this->device->createShaderModule(&createInfo, nullptr, &shaderModule),
-                 "Unable to create shader module");
+    assertSuccess(this->device->createShaderModule(&createInfo, nullptr, &shaderModule),
+                  "Unable to create shader module");
 
     return shaderModule;
 }
@@ -270,9 +269,8 @@ void SwapChain::createGraphicsPipeline()
                                             this->pipelineLayout, this->renderPass, 0,
                                             {}, -1);
 
-    const auto resultValue = this->device->createGraphicsPipeline({}, creationInfo);
-    assertResult(resultValue.result, "Unable to create graphics pipeline");
-    this->graphicsPipeline = resultValue.value;
+    this->graphicsPipeline = assertSuccess(this->device->createGraphicsPipeline({}, creationInfo),
+                                           "Unable to create pipeline");
 }
 
 
@@ -325,12 +323,12 @@ void SwapChain::createCommandBuffers()
 void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
                      const Queue &graphicsQueue, const Queue &presentQueue)
 {
-    assertResult(this->device->waitForFences(1, fence, VK_TRUE, UINT64_MAX));
+    assertSuccess(this->device->waitForFences(1, fence, VK_TRUE, UINT64_MAX));
 
-    auto index = this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore).value;
+    auto index = assertSuccess(this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore));
 
     if (this->imagesInFlight[index])
-        assertResult(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
+        assertSuccess(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
     this->imagesInFlight[index] = *fence;
 
     PipelineStageFlags flags[] = { PipelineStageFlagBits::eColorAttachmentOutput };
@@ -338,12 +336,12 @@ void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRend
                     1, &this->commandBuffers[index],
                     1, finishedRenderingSemaphore);
 
-    assertResult(this->device->resetFences(1, fence));
+    assertSuccess(this->device->resetFences(1, fence));
 
-    assertResult(graphicsQueue.submit(1, &info, *fence));
+    assertSuccess(graphicsQueue.submit(1, &info, *fence));
 
     PresentInfoKHR presentInfo(1, finishedRenderingSemaphore,
                                1, &this->swapchain, &index, nullptr);
 
-    assertResult(presentQueue.presentKHR(&presentInfo));
+    assertSuccess(presentQueue.presentKHR(&presentInfo));
 }
