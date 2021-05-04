@@ -238,7 +238,7 @@ void HelloTriangleApp::initVulkan()
     this->createFramebuffers();
     this->createCommandPool();
     this->createCommandBuffers();
-    this->createSemaphores();
+    this->createSyncObjects();
 }
 
 
@@ -256,8 +256,11 @@ void HelloTriangleApp::mainLoop()
 
 void HelloTriangleApp::cleanup()
 {
-    vkDestroySemaphore(this->device, this->imageAvailableSemaphore, nullptr);
-    vkDestroySemaphore(this->device, this->renderFinishedSemaphore, nullptr);
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
+        vkDestroySemaphore(this->device, this->renderFinishedSemaphores[i], nullptr);
+        vkDestroySemaphore(this->device, this->imageAvailableSemaphores[i], nullptr);
+        vkDestroyFence(this->device, this->inFlightFences[i], nullptr);
+    }
 
     vkFreeCommandBuffers(this->device, this->commandPool, this->commandBuffers.size(), this->commandBuffers.data());
 
@@ -843,27 +846,44 @@ void HelloTriangleApp::createCommandBuffers()
 }
 
 
-void HelloTriangleApp::createSemaphores()
+void HelloTriangleApp::createSyncObjects()
 {
+    this->imageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+    this->renderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+    this->inFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
+
     VkSemaphoreCreateInfo semaphoreInfo{};
     semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
 
-    if (vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->imageAvailableSemaphore) != VK_SUCCESS ||
-        vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->renderFinishedSemaphore) != VK_SUCCESS)
-        throw std::runtime_error("Unable to create semaphore");
+    VkFenceCreateInfo fenceInfo{};
+    fenceInfo.sType = VK_STRUCTURE_TYPE_FENCE_CREATE_INFO;
+    fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
+
+    for (auto i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
+    {
+        if (vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->imageAvailableSemaphores[i]) != VK_SUCCESS ||
+            vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->renderFinishedSemaphores[i]) != VK_SUCCESS ||
+            vkCreateFence(this->device, &fenceInfo, nullptr, &this->inFlightFences[i]) != VK_SUCCESS)
+            throw std::runtime_error("Unable to create semaphore");
+    }
 }
 
 
 void HelloTriangleApp::drawFrame()
 {
+    vkWaitForFences(this->device, 1, &this->inFlightFences[this->currentFrame], VK_TRUE,
+                    std::numeric_limits<uint64_t>::max());
+    vkResetFences(this->device, 1, &this->inFlightFences[this->currentFrame]);
+
     uint32_t imageIndex;
     vkAcquireNextImageKHR(this->device, this->swapChain, std::numeric_limits<uint64_t>::max(),
-                          this->imageAvailableSemaphore, VK_NULL_HANDLE, &imageIndex);
+                          this->imageAvailableSemaphores[this->currentFrame], VK_NULL_HANDLE,
+                          &imageIndex);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
 
-    VkSemaphore waitSemaphores[] = {imageAvailableSemaphore};
+    VkSemaphore waitSemaphores[] = { this->imageAvailableSemaphores[this->currentFrame] };
     VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
     submitInfo.waitSemaphoreCount = 1;
     submitInfo.pWaitSemaphores = waitSemaphores;
@@ -872,11 +892,11 @@ void HelloTriangleApp::drawFrame()
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = &commandBuffers[imageIndex];
 
-    VkSemaphore signalSemaphores[] = {renderFinishedSemaphore};
+    VkSemaphore signalSemaphores[] = { this->renderFinishedSemaphores[this->currentFrame] };
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
 
-    if (vkQueueSubmit(this->graphicsQueue, 1, &submitInfo, VK_NULL_HANDLE) != VK_SUCCESS)
+    if (vkQueueSubmit(this->graphicsQueue, 1, &submitInfo, this->inFlightFences[currentFrame]) != VK_SUCCESS)
         throw std::runtime_error("Unable to submit draw command buffer");
 
     VkPresentInfoKHR presentInfo{};
@@ -894,5 +914,5 @@ void HelloTriangleApp::drawFrame()
 
     vkQueuePresentKHR(this->presentQueue, &presentInfo);
 
-    vkQueueWaitIdle(this->presentQueue);
+    this->currentFrame = (this->currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 }

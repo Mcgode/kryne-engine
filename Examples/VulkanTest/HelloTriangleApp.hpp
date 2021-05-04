@@ -55,7 +55,7 @@ private:
 
     void createCommandBuffers();
 
-    void createSemaphores();
+    void createSyncObjects();
 
 private:
 
@@ -105,9 +105,17 @@ private:
 
     std::vector<VkCommandBuffer> commandBuffers;
 
-    VkSemaphore imageAvailableSemaphore;
+    std::vector<VkSemaphore> imageAvailableSemaphores;
 
-    VkSemaphore renderFinishedSemaphore;
+    std::vector<VkSemaphore> renderFinishedSemaphores;
+
+    std::vector<VkFence> inFlightFences;
+
+    uint64_t currentFrame = 0;
+
+private:
+
+    const uint64_t MAX_FRAMES_IN_FLIGHT = 2;
 
 };
 
