@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "SwapChain.hpp"
 
 
 class HelloTriangleApp {
@@ -41,19 +42,7 @@ private:
 
     void createSurface();
 
-    void createSwapChain();
-
-    void setUpImageViews();
-
-    void createRenderPass();
-
-    void createGraphicsPipeline();
-
-    void createFramebuffers();
-
     void createCommandPool();
-
-    void createCommandBuffers();
 
     void createSyncObjects();
 
@@ -76,6 +65,7 @@ private:
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
     VkDevice device;
+    Device device_hpp;
 
     VkSurfaceKHR surface;
 
@@ -83,35 +73,16 @@ private:
 
     VkQueue presentQueue;
 
-    VkSwapchainKHR swapChain;
-
-    std::vector<VkImage> swapChainImages;
-
-    VkFormat swapChainImageFormat;
-
-    VkExtent2D swapChainExtent;
-
-    std::vector<VkImageView> swapChainImageViews;
-
-    VkRenderPass renderPass;
-
-    VkPipelineLayout pipelineLayout;
-
-    VkPipeline graphicsPipeline;
-
-    std::vector<VkFramebuffer> swapChainFramebuffers;
-
     VkCommandPool commandPool;
+    CommandPool commandPool_hpp;
 
-    std::vector<VkCommandBuffer> commandBuffers;
+    std::unique_ptr<SwapChain> swapChain;
 
-    std::vector<VkSemaphore> imageAvailableSemaphores;
+    std::vector<Semaphore> imageAvailableSemaphores;
 
-    std::vector<VkSemaphore> renderFinishedSemaphores;
+    std::vector<Semaphore> renderFinishedSemaphores;
 
-    std::vector<VkFence> inFlightFences;
-
-    std::vector<VkFence> imagesInFlight;
+    std::vector<Fence> inFlightFences;
 
     uint64_t currentFrame = 0;
 
