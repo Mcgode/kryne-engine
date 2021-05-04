@@ -256,9 +256,12 @@ void SwapChain::createGraphicsPipeline()
                                                   false, 0, 0, 0,
                                                   1);
 
-    PipelineMultisampleStateCreateInfo msInfo;
+    PipelineMultisampleStateCreateInfo msInfo({}, SampleCountFlagBits::e1, VK_FALSE);
 
     PipelineColorBlendAttachmentState cbState(false);
+    // Important, because it's initialized at 0 !!!
+    cbState.colorWriteMask = ColorComponentFlagBits::eR | ColorComponentFlagBits::eG | ColorComponentFlagBits::eB | ColorComponentFlagBits::eA;
+
     PipelineColorBlendStateCreateInfo cbInfo({}, false, LogicOp::eClear, 1, &cbState);
 
     PipelineLayoutCreateInfo layoutInfo;
