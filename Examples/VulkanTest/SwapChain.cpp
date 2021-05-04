@@ -8,13 +8,13 @@
 #include "Utils.hpp"
 #include "Queue.hpp"
 
-#include "SwapQueue.hpp"
+#include "SwapChain.hpp"
 
 
 using VulkanHelpers::assertResult;
 
 
-SwapQueue::SwapQueue(const PhysicalDevice &physicalDevice,
+SwapChain::SwapChain(const PhysicalDevice &physicalDevice,
                      const SurfaceKHR &surface,
                      GLFWwindow *window,
                      CommandPool *commandPool,
@@ -34,7 +34,7 @@ SwapQueue::SwapQueue(const PhysicalDevice &physicalDevice,
 }
 
 
-SwapQueue::~SwapQueue()
+SwapChain::~SwapChain()
 {
     this->device->freeCommandBuffers(*this->commandPool, this->commandBuffers);
 
@@ -53,7 +53,7 @@ SwapQueue::~SwapQueue()
 }
 
 
-SwapQueue::SwapChainSupportDetails SwapQueue::querySwapChainDetails(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface)
+SwapChain::SwapChainSupportDetails SwapChain::querySwapChainDetails(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface)
 {
     SwapChainSupportDetails details;
 
@@ -65,7 +65,7 @@ SwapQueue::SwapChainSupportDetails SwapQueue::querySwapChainDetails(const Physic
 }
 
 
-SurfaceFormatKHR SwapQueue::chooseSwapSurfaceFormat(const std::vector<SurfaceFormatKHR> &availableFormats)
+SurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat(const std::vector<SurfaceFormatKHR> &availableFormats)
 {
     for (const auto &format : availableFormats)
     {
@@ -76,7 +76,7 @@ SurfaceFormatKHR SwapQueue::chooseSwapSurfaceFormat(const std::vector<SurfaceFor
 }
 
 
-PresentModeKHR SwapQueue::chooseSwapPresentMode(const std::vector<PresentModeKHR> &availablePresentModes)
+PresentModeKHR SwapChain::chooseSwapPresentMode(const std::vector<PresentModeKHR> &availablePresentModes)
 {
     for (const auto& availablePresentMode : availablePresentModes)
     {
@@ -88,7 +88,7 @@ PresentModeKHR SwapQueue::chooseSwapPresentMode(const std::vector<PresentModeKHR
 }
 
 
-Extent2D SwapQueue::chooseSwapExtent(const SurfaceCapabilitiesKHR &capabilities, GLFWwindow *window)
+Extent2D SwapChain::chooseSwapExtent(const SurfaceCapabilitiesKHR &capabilities, GLFWwindow *window)
 {
     if (capabilities.currentExtent.width != std::numeric_limits<uint32_t>::max())
         return capabilities.currentExtent;
@@ -111,7 +111,7 @@ Extent2D SwapQueue::chooseSwapExtent(const SurfaceCapabilitiesKHR &capabilities,
 }
 
 
-std::vector<char> SwapQueue::readFile(const char *filename)
+std::vector<char> SwapChain::readFile(const char *filename)
 {
     std::ifstream file(filename, std::ios::ate | std::ios::binary);
 
@@ -129,7 +129,7 @@ std::vector<char> SwapQueue::readFile(const char *filename)
 }
 
 
-void SwapQueue::initSwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, GLFWwindow *window)
+void SwapChain::initSwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, GLFWwindow *window)
 {
     auto details = querySwapChainDetails(physicalDevice, surface);
 
@@ -171,7 +171,7 @@ void SwapQueue::initSwapChain(const PhysicalDevice &physicalDevice, const Surfac
 }
 
 
-void SwapQueue::setUpImageViews()
+void SwapChain::setUpImageViews()
 {
     this->scImageViews.resize(this->scImageViews.size());
 
@@ -189,7 +189,7 @@ void SwapQueue::setUpImageViews()
 }
 
 
-void SwapQueue::createRenderPass()
+void SwapChain::createRenderPass()
 {
     AttachmentDescription colorAttachment({}, this->scImageFormat, SampleCountFlagBits::e1,
                                           AttachmentLoadOp::eClear, AttachmentStoreOp::eStore,
@@ -216,7 +216,7 @@ void SwapQueue::createRenderPass()
 }
 
 
-ShaderModule SwapQueue::createShaderModule(const std::vector<char> &code)
+ShaderModule SwapChain::createShaderModule(const std::vector<char> &code)
 {
     ShaderModuleCreateInfo createInfo({}, code.size(), reinterpret_cast<const uint32_t*>(code.data()));
 
@@ -228,7 +228,7 @@ ShaderModule SwapQueue::createShaderModule(const std::vector<char> &code)
 }
 
 
-void SwapQueue::createGraphicsPipeline()
+void SwapChain::createGraphicsPipeline()
 {
     auto vertShader = readFile("Resources/Shaders/Vulkan/TriangleV.spv");
     auto fragShader = readFile("Resources/Shaders/Vulkan/TriangleF.spv");
@@ -274,7 +274,7 @@ void SwapQueue::createGraphicsPipeline()
 }
 
 
-void SwapQueue::createFramebuffers()
+void SwapChain::createFramebuffers()
 {
     this->scFramebuffers.resize(this->scImageViews.size());
 
@@ -290,7 +290,7 @@ void SwapQueue::createFramebuffers()
 }
 
 
-void SwapQueue::createCommandBuffers()
+void SwapChain::createCommandBuffers()
 {
     CommandBufferAllocateInfo allocInfo(*this->commandPool, CommandBufferLevel::ePrimary,
                                         this->scFramebuffers.size());
@@ -320,7 +320,7 @@ void SwapQueue::createCommandBuffers()
 }
 
 
-void SwapQueue::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
+void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
                      const Queue &graphicsQueue, const Queue &presentQueue)
 {
     assertResult(this->device->waitForFences(1, fence, true, UINT64_MAX));

@@ -14,17 +14,17 @@
 using namespace vk;
 
 
-class SwapQueue {
+class SwapChain {
 
 public:
 
-    SwapQueue(const PhysicalDevice &physicalDevice,
+    SwapChain(const PhysicalDevice &physicalDevice,
               const SurfaceKHR &surface,
               GLFWwindow *window,
               CommandPool *commandPool,
               Device *device);
 
-    virtual ~SwapQueue();
+    virtual ~SwapChain();
 
     void draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
               const Queue &graphicsQueue, const Queue &presentQueue);
