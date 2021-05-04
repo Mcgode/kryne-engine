@@ -29,6 +29,8 @@ SwapQueue::SwapQueue(const PhysicalDevice &physicalDevice,
     this->createGraphicsPipeline();
     this->createFramebuffers();
     this->createCommandBuffers();
+
+    this->imagesInFlight.resize(this->scImageViews.size(), {});
 }
 
 
@@ -315,4 +317,30 @@ void SwapQueue::createCommandBuffers()
 
         this->commandBuffers[i].end();
     }
+}
+
+
+void SwapQueue::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
+                     const Queue &graphicsQueue, const Queue &presentQueue)
+{
+    assertResult(this->device->waitForFences(1, fence, true, UINT64_MAX));
+
+    auto index = this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore, *fence).value;
+
+    if (this->imagesInFlight[index] != Fence())
+        assertResult(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
+
+    PipelineStageFlags flags[] = { PipelineStageFlagBits::eColorAttachmentOutput };
+    SubmitInfo info(1, imageAvailableSemaphore, flags,
+                    1, &this->commandBuffers[index],
+                    1, finishedRenderingSemaphore);
+
+    assertResult(this->device->resetFences(1, fence));
+
+    assertResult(graphicsQueue.submit(1, &info, *fence));
+
+    PresentInfoKHR presentInfo(1, finishedRenderingSemaphore,
+                               1, &this->swapchain, &index, nullptr);
+
+    assertResult(presentQueue.presentKHR(&presentInfo));
 }

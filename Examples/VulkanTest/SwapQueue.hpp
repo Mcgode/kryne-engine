@@ -26,6 +26,9 @@ public:
 
     virtual ~SwapQueue();
 
+    void draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
+              const Queue &graphicsQueue, const Queue &presentQueue);
+
 protected:
 
     void initSwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, GLFWwindow *window);
@@ -89,6 +92,8 @@ protected:
     std::vector<Framebuffer> scFramebuffers;
 
     std::vector<CommandBuffer> commandBuffers;
+
+    std::vector<Fence> imagesInFlight;
 
 
 };
