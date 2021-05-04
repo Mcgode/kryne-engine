@@ -55,6 +55,12 @@ private:
 
     void createCommandBuffers();
 
+    void createSemaphores();
+
+private:
+
+    void drawFrame();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -72,6 +78,8 @@ private:
     VkDevice device;
 
     VkSurfaceKHR surface;
+
+    VkQueue graphicsQueue;
 
     VkQueue presentQueue;
 
@@ -96,6 +104,10 @@ private:
     VkCommandPool commandPool;
 
     std::vector<VkCommandBuffer> commandBuffers;
+
+    VkSemaphore imageAvailableSemaphore;
+
+    VkSemaphore renderFinishedSemaphore;
 
 };
 

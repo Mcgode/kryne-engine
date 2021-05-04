@@ -238,6 +238,7 @@ void HelloTriangleApp::initVulkan()
     this->createFramebuffers();
     this->createCommandPool();
     this->createCommandBuffers();
+    this->createSemaphores();
 }
 
 
@@ -246,12 +247,18 @@ void HelloTriangleApp::mainLoop()
     while (!glfwWindowShouldClose(this->window))
     {
         glfwPollEvents();
+        this->drawFrame();
     }
+
+    vkDeviceWaitIdle(this->device);
 }
 
 
 void HelloTriangleApp::cleanup()
 {
+    vkDestroySemaphore(this->device, this->imageAvailableSemaphore, nullptr);
+    vkDestroySemaphore(this->device, this->renderFinishedSemaphore, nullptr);
+
     vkFreeCommandBuffers(this->device, this->commandPool, this->commandBuffers.size(), this->commandBuffers.data());
 
     vkDestroyCommandPool(this->device, this->commandPool, nullptr);
@@ -456,6 +463,7 @@ void HelloTriangleApp::initLogicalDevice()
     if (vkCreateDevice(this->physicalDevice, &createInfo, nullptr, &this->device) != VK_SUCCESS)
         throw std::runtime_error("Unable to create device object");
 
+    vkGetDeviceQueue(this->device, indices.graphicsFamily.value(), 0, &this->graphicsQueue);
     vkGetDeviceQueue(this->device, indices.presentFamily.value(), 0, &this->presentQueue);
 }
 
@@ -593,6 +601,19 @@ void HelloTriangleApp::createRenderPass()
     renderPassInfo.pAttachments = &colorAttachment;
     renderPassInfo.subpassCount = 1;
     renderPassInfo.pSubpasses = &subpass;
+
+    VkSubpassDependency dependency{};
+    dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
+    dependency.dstSubpass = 0;
+
+    dependency.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependency.srcAccessMask = 0;
+
+    dependency.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+
+    renderPassInfo.dependencyCount = 1;
+    renderPassInfo.pDependencies = &dependency;
 
     if (vkCreateRenderPass(this->device, &renderPassInfo, nullptr, &this->renderPass) != VK_SUCCESS)
         throw std::runtime_error("Unable to create render pass");
@@ -819,4 +840,59 @@ void HelloTriangleApp::createCommandBuffers()
         if (vkEndCommandBuffer(this->commandBuffers[i]) != VK_SUCCESS)
             throw std::runtime_error("Unable to record command buffer");
     }
+}
+
+
+void HelloTriangleApp::createSemaphores()
+{
+    VkSemaphoreCreateInfo semaphoreInfo{};
+    semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
+
+    if (vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->imageAvailableSemaphore) != VK_SUCCESS ||
+        vkCreateSemaphore(this->device, &semaphoreInfo, nullptr, &this->renderFinishedSemaphore) != VK_SUCCESS)
+        throw std::runtime_error("Unable to create semaphore");
+}
+
+
+void HelloTriangleApp::drawFrame()
+{
+    uint32_t imageIndex;
+    vkAcquireNextImageKHR(this->device, this->swapChain, std::numeric_limits<uint64_t>::max(),
+                          this->imageAvailableSemaphore, VK_NULL_HANDLE, &imageIndex);
+
+    VkSubmitInfo submitInfo{};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+
+    VkSemaphore waitSemaphores[] = {imageAvailableSemaphore};
+    VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
+    submitInfo.waitSemaphoreCount = 1;
+    submitInfo.pWaitSemaphores = waitSemaphores;
+    submitInfo.pWaitDstStageMask = waitStages;
+
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = &commandBuffers[imageIndex];
+
+    VkSemaphore signalSemaphores[] = {renderFinishedSemaphore};
+    submitInfo.signalSemaphoreCount = 1;
+    submitInfo.pSignalSemaphores = signalSemaphores;
+
+    if (vkQueueSubmit(this->graphicsQueue, 1, &submitInfo, VK_NULL_HANDLE) != VK_SUCCESS)
+        throw std::runtime_error("Unable to submit draw command buffer");
+
+    VkPresentInfoKHR presentInfo{};
+    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores = signalSemaphores;
+
+    VkSwapchainKHR swapChains[] = {swapChain};
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains = swapChains;
+    presentInfo.pImageIndices = &imageIndex;
+
+    presentInfo.pResults = nullptr;
+
+    vkQueuePresentKHR(this->presentQueue, &presentInfo);
+
+    vkQueueWaitIdle(this->presentQueue);
 }
