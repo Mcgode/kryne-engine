@@ -173,7 +173,7 @@ void SwapChain::initSwapChain(const PhysicalDevice &physicalDevice, const Surfac
 
 void SwapChain::setUpImageViews()
 {
-    this->scImageViews.resize(this->scImageViews.size());
+    this->scImageViews.resize(this->scImages.size());
 
     for (auto i = 0; i < this->scImageViews.size(); i++)
     {
@@ -258,7 +258,8 @@ void SwapChain::createGraphicsPipeline()
 
     PipelineMultisampleStateCreateInfo msInfo;
 
-    PipelineColorBlendStateCreateInfo cbInfo({}, false);
+    PipelineColorBlendAttachmentState cbState(false);
+    PipelineColorBlendStateCreateInfo cbInfo({}, false, LogicOp::eClear, 1, &cbState);
 
     PipelineLayoutCreateInfo layoutInfo;
     this->pipelineLayout = this->device->createPipelineLayout(layoutInfo);
