@@ -851,6 +851,7 @@ void HelloTriangleApp::createSyncObjects()
     this->imageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
     this->renderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
     this->inFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
+    this->imagesInFlight.resize(this->swapChainImageViews.size(), VK_NULL_HANDLE);
 
     VkSemaphoreCreateInfo semaphoreInfo{};
     semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
@@ -873,12 +874,18 @@ void HelloTriangleApp::drawFrame()
 {
     vkWaitForFences(this->device, 1, &this->inFlightFences[this->currentFrame], VK_TRUE,
                     std::numeric_limits<uint64_t>::max());
-    vkResetFences(this->device, 1, &this->inFlightFences[this->currentFrame]);
 
     uint32_t imageIndex;
     vkAcquireNextImageKHR(this->device, this->swapChain, std::numeric_limits<uint64_t>::max(),
                           this->imageAvailableSemaphores[this->currentFrame], VK_NULL_HANDLE,
                           &imageIndex);
+
+    // Check if previous frame is using this image
+    if (this->imagesInFlight[imageIndex] != VK_NULL_HANDLE)
+        vkWaitForFences(this->device, 1, &this->imagesInFlight[imageIndex], VK_TRUE, std::numeric_limits<uint64_t>::max());
+
+    // Mark image as now being used by this frame
+    this->imagesInFlight[imageIndex] = this->inFlightFences[this->currentFrame]
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
@@ -895,6 +902,8 @@ void HelloTriangleApp::drawFrame()
     VkSemaphore signalSemaphores[] = { this->renderFinishedSemaphores[this->currentFrame] };
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
+
+    vkResetFences(this->device, 1, &this->inFlightFences[this->currentFrame]);
 
     if (vkQueueSubmit(this->graphicsQueue, 1, &submitInfo, this->inFlightFences[currentFrame]) != VK_SUCCESS)
         throw std::runtime_error("Unable to submit draw command buffer");

@@ -111,6 +111,8 @@ private:
 
     std::vector<VkFence> inFlightFences;
 
+    std::vector<VkFence> imagesInFlight;
+
     uint64_t currentFrame = 0;
 
 private:
