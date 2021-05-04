@@ -50,9 +50,13 @@ private:
 
     void drawFrame();
 
+    void resetSwapChain();
+
 private:
 
     static bool checkValidationLayerSupport();
+
+    static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
 
 private:
 
@@ -85,6 +89,8 @@ private:
     std::vector<Fence> inFlightFences;
 
     uint64_t currentFrame = 0;
+
+    bool framebufferResized = false;
 
 private:
 

@@ -177,8 +177,11 @@ void HelloTriangleApp::initVulkan()
     glfwInit();
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+//    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
     this->window = glfwCreateWindow(800, 600, "Vulkan window", nullptr, nullptr);
+
+    glfwSetWindowUserPointer(this->window, this);
+    glfwSetFramebufferSizeCallback(this->window, HelloTriangleApp::framebufferResizeCallback);
 
     this->createInstance();
     this->setupDebugMessenger();
@@ -459,6 +462,13 @@ void HelloTriangleApp::createSyncObjects()
 
 void HelloTriangleApp::drawFrame()
 {
+    if (this->framebufferResized)
+    {
+        std::cout << "Frame resized, will recreate swap chain" << std::endl;
+        this->resetSwapChain();
+        this->framebufferResized = false;
+    }
+
     if   (!this->swapChain->draw(&this->imageAvailableSemaphores[this->currentFrame],
                                  &this->renderFinishedSemaphores[this->currentFrame],
                                  &this->inFlightFences[this->currentFrame],
@@ -466,11 +476,36 @@ void HelloTriangleApp::drawFrame()
                                  this->presentQueue))
     {
         std::cout << "Swap chain is out of date, will recreate" << std::endl;
-
-        auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface), this->window,
-                                &this->commandPool_hpp, &this->device_hpp);
-        this->swapChain.reset(sc);
+        this->resetSwapChain();
     }
 
     this->currentFrame = (this->currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
+}
+
+
+void HelloTriangleApp::framebufferResizeCallback(GLFWwindow *window, int width, int height)
+{
+    auto app = (HelloTriangleApp *) glfwGetWindowUserPointer(window);
+    app->framebufferResized = true;
+}
+
+void HelloTriangleApp::resetSwapChain()
+{
+    int width = 0, height = 0;
+    glfwGetFramebufferSize(window, &width, &height);
+
+    while (width == 0 || height == 0)
+    {
+        glfwWaitEvents();
+        glfwGetFramebufferSize(window, &width, &height);
+    }
+
+    this->device_hpp.waitIdle();
+
+    // Make sure previous swap chain is already deleted.
+    this->swapChain.reset();
+
+    auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface),
+                            this->window, &this->commandPool_hpp, &this->device_hpp);
+    this->swapChain.reset(sc);
 }
