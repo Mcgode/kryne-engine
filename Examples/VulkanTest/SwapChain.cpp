@@ -12,6 +12,7 @@
 
 
 using VulkanHelpers::assertResult;
+using VulkanHelpers::assertSuccess;
 
 
 SwapChain::SwapChain(const PhysicalDevice &physicalDevice,
@@ -324,12 +325,13 @@ void SwapChain::createCommandBuffers()
 void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
                      const Queue &graphicsQueue, const Queue &presentQueue)
 {
-    assertResult(this->device->waitForFences(1, fence, true, UINT64_MAX));
+    assertResult(this->device->waitForFences(1, fence, VK_TRUE, UINT64_MAX));
 
-    auto index = this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore, *fence).value;
+    auto index = this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore).value;
 
-    if (this->imagesInFlight[index] != Fence())
+    if (this->imagesInFlight[index])
         assertResult(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
+    this->imagesInFlight[index] = *fence;
 
     PipelineStageFlags flags[] = { PipelineStageFlagBits::eColorAttachmentOutput };
     SubmitInfo info(1, imageAvailableSemaphore, flags,
