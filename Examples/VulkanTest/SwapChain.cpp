@@ -323,12 +323,25 @@ void SwapChain::createCommandBuffers()
 }
 
 
-void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
+bool SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
                      const Queue &graphicsQueue, const Queue &presentQueue)
 {
     assertSuccess(this->device->waitForFences(1, fence, VK_TRUE, UINT64_MAX));
 
-    auto index = assertSuccess(this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore));
+    auto acquireResult = this->device->acquireNextImageKHR(this->swapchain, UINT64_MAX, *imageAvailableSemaphore);
+
+    switch (acquireResult.result)
+    {
+        case Result::eErrorOutOfDateKHR:
+            return false;
+        case Result::eSuccess:
+        case Result::eSuboptimalKHR:
+            break;
+        default:
+            throw std::runtime_error("Unable to swap images: " + to_string(acquireResult.result));
+    }
+
+    auto index = acquireResult.value;
 
     if (this->imagesInFlight[index])
         assertSuccess(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
@@ -347,4 +360,6 @@ void SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRend
                                1, &this->swapchain, &index, nullptr);
 
     assertSuccess(presentQueue.presentKHR(&presentInfo));
+
+    return true;
 }

@@ -26,7 +26,7 @@ public:
 
     virtual ~SwapChain();
 
-    void draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
+    bool draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRenderingSemaphore, Fence *fence,
               const Queue &graphicsQueue, const Queue &presentQueue);
 
 protected:
