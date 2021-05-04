@@ -191,11 +191,13 @@ void HelloTriangleApp::initVulkan()
     this->createCommandPool();
     this->commandPool_hpp = CommandPool(this->commandPool);
 
-    this->swapChain = std::make_unique<SwapChain>(PhysicalDevice(this->physicalDevice),
-                                                  SurfaceKHR(this->surface),
-                                                  this->window,
-                                                  &this->commandPool_hpp,
-                                                  &this->device_hpp);
+    auto sc = new SwapChain(PhysicalDevice(this->physicalDevice),
+                            SurfaceKHR(this->surface),
+                            this->window,
+                            &this->commandPool_hpp,
+                            &this->device_hpp);
+    this->swapChain.reset(sc);
+
     this->createSyncObjects();
 }
 
