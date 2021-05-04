@@ -34,6 +34,19 @@ SwapQueue::SwapQueue(const PhysicalDevice &physicalDevice,
 
 SwapQueue::~SwapQueue()
 {
+    this->device->freeCommandBuffers(*this->commandPool, this->commandBuffers);
+
+    for (const auto &fb : this->scFramebuffers)
+        this->device->destroyFramebuffer(fb);
+
+    this->device->destroyPipeline(this->graphicsPipeline);
+    this->device->destroyPipelineLayout(this->pipelineLayout);
+
+    this->device->destroyRenderPass(this->renderPass);
+
+    for (const auto &iv : this->scImageViews)
+        this->device->destroyImageView(iv);
+
     this->device->destroy(this->swapchain);
 }
 
