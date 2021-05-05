@@ -241,7 +241,7 @@ void SwapChain::createGraphicsPipeline()
 
     PipelineShaderStageCreateInfo shaderStages[] = { vsInfo, fsInfo };
 
-    auto vcInfo = this->vertexBuffer->vertexInputInfo;
+    auto vcInfo = this->vertexBuffer->getPipelineVertexCreationInfo();
     PipelineInputAssemblyStateCreateInfo asmInfo({}, PrimitiveTopology::eTriangleList, false);
 
     Viewport vp(0, 0, this->scExtend.width, this->scExtend.height, 0, 1);

@@ -36,5 +36,11 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex> &vertices)
     const auto bindingDescriptions = Vertex::getBindingDescriptions();
     const auto attributeDescriptions = Vertex::getAttributeDescriptions();
 
-    vertexInputInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
+    pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
+}
+
+
+PipelineVertexInputStateCreateInfo VertexBuffer::getPipelineVertexCreationInfo()
+{
+    return this->pipelineVertexInfo;
 }

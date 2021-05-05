@@ -33,9 +33,11 @@ public:
 
     explicit VertexBuffer(const std::vector<Vertex> &vertices);
 
-public:
+    PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
-    PipelineVertexInputStateCreateInfo vertexInputInfo;
+protected:
+
+    PipelineVertexInputStateCreateInfo pipelineVertexInfo;
 
 };
 
