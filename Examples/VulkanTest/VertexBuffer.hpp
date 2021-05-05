@@ -23,9 +23,9 @@ public:
 
         glm::vec3 color;
 
-        static std::array<VertexInputBindingDescription, 1> getBindingDescriptions();
+        static std::vector<VertexInputBindingDescription> getBindingDescriptions();
 
-        static std::array<VertexInputAttributeDescription, 2> getAttributeDescriptions();
+        static std::vector<VertexInputAttributeDescription> getAttributeDescriptions();
 
     };
 
@@ -35,6 +35,13 @@ public:
                           const std::vector<Vertex> &vertices);
 
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
+
+    static uint32_t cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, VertexBuffer **buffers);
+
+    inline static uint32_t cmdBind(const CommandBuffer &cmdBuffer, const ArrayProxy<VertexBuffer *> &buffers)
+    {
+        return cmdBind(&cmdBuffer, buffers.size(), buffers.data());
+    }
 
     virtual ~VertexBuffer();
 
@@ -47,7 +54,13 @@ protected:
 
     Device *device;
 
+    std::vector<VertexInputBindingDescription> bindingDescriptions;
+
+    std::vector<VertexInputAttributeDescription> attributeDescriptions;
+
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
+
+    BufferCreateInfo bufferInfo;
 
     Buffer buffer;
 

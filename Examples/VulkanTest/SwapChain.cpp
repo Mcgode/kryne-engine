@@ -314,8 +314,14 @@ void SwapChain::createCommandBuffers()
                                    1, &clearColor);
 
         this->commandBuffers[i].beginRenderPass(rpInfo, SubpassContents::eInline);
+
         this->commandBuffers[i].bindPipeline(PipelineBindPoint::eGraphics, this->graphicsPipeline);
-        this->commandBuffers[i].draw(3, 1, 0, 0);
+
+        auto vb = this->vertexBuffer.get();
+        const auto size = VertexBuffer::cmdBind(&this->commandBuffers[i], 1, &vb);
+
+        this->commandBuffers[i].draw(size, 1, 0, 0);
+
         this->commandBuffers[i].endRenderPass();
 
         this->commandBuffers[i].end();

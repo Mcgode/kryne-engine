@@ -7,25 +7,22 @@
 #include "VertexBuffer.hpp"
 
 
-std::array<VertexInputBindingDescription, 1> VertexBuffer::Vertex::getBindingDescriptions()
+std::vector<VertexInputBindingDescription> VertexBuffer::Vertex::getBindingDescriptions()
 {
-    std::array<VertexInputBindingDescription, 1> bindingDescription;
-
-    bindingDescription[0] = VertexInputBindingDescription(0, sizeof(Vertex),
-                                                          VertexInputRate::eVertex);
+    std::vector<VertexInputBindingDescription> bindingDescription = {
+            { 0, sizeof(Vertex), VertexInputRate::eVertex }
+    };
 
     return bindingDescription;
 }
 
 
-std::array<VertexInputAttributeDescription, 2> VertexBuffer::Vertex::getAttributeDescriptions()
+std::vector<VertexInputAttributeDescription> VertexBuffer::Vertex::getAttributeDescriptions()
 {
-    std::array<VertexInputAttributeDescription, 2> attributeDescriptions;
-
-    attributeDescriptions[0] = VertexInputAttributeDescription(0, 0, Format::eR32G32Sfloat,
-                                                               offsetof(Vertex, position));
-    attributeDescriptions[1] = VertexInputAttributeDescription(1, 0, Format::eR32G32B32Sfloat,
-                                                               offsetof(Vertex, color));
+    std::vector<VertexInputAttributeDescription> attributeDescriptions = {
+            { 0, 0, Format::eR32G32Sfloat, (uint32_t) offsetof(Vertex, position) },
+            { 1, 0, Format::eR32G32B32Sfloat, (uint32_t) offsetof(Vertex, color) },
+    };
 
     return attributeDescriptions;
 }
@@ -36,13 +33,13 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
 {
     this->device = device;
 
-    const auto bindingDescriptions = Vertex::getBindingDescriptions();
-    const auto attributeDescriptions = Vertex::getAttributeDescriptions();
+    this->bindingDescriptions = Vertex::getBindingDescriptions();
+    this->attributeDescriptions = Vertex::getAttributeDescriptions();
 
-    pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
+    this->pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
 
-    BufferCreateInfo bufferInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
-                                SharingMode::eExclusive);
+    bufferInfo = BufferCreateInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
+                                  SharingMode::eExclusive);
 
     this->buffer = this->device->createBuffer(bufferInfo);
 
@@ -88,4 +85,24 @@ uint32_t VertexBuffer::findMemoryType(uint32_t typeFilter, MemoryPropertyFlags p
     }
 
     throw std::runtime_error("No suitable memory type");
+}
+
+
+uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, VertexBuffer **buffers)
+{
+    uint32_t size = 0;
+
+    std::vector<Buffer> vkBuffers(count);
+    std::vector<DeviceSize> offsets(count);
+
+    for (auto i = 0; i < count; i++)
+    {
+        vkBuffers[i] = buffers[i]->buffer;
+        offsets[i] = 0;
+        size += buffers[i]->bufferInfo.size / sizeof(Vertex);
+    }
+
+    cmdBuffer->bindVertexBuffers(0, vkBuffers, offsets);
+
+    return size;
 }
