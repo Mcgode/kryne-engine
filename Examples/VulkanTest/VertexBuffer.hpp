@@ -35,7 +35,11 @@ public:
 
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
+    virtual ~VertexBuffer();
+
 protected:
+
+    Device *device;
 
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
 

@@ -33,6 +33,8 @@ std::array<VertexInputAttributeDescription, 2> VertexBuffer::Vertex::getAttribut
 
 VertexBuffer::VertexBuffer(Device *device, const std::vector<Vertex> &vertices)
 {
+    this->device = device;
+
     const auto bindingDescriptions = Vertex::getBindingDescriptions();
     const auto attributeDescriptions = Vertex::getAttributeDescriptions();
 
@@ -41,11 +43,17 @@ VertexBuffer::VertexBuffer(Device *device, const std::vector<Vertex> &vertices)
     BufferCreateInfo createInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
                                 SharingMode::eExclusive);
 
-    this->buffer = device->createBuffer(createInfo);
+    this->buffer = this->device->createBuffer(createInfo);
 }
 
 
 PipelineVertexInputStateCreateInfo VertexBuffer::getPipelineVertexCreationInfo()
 {
     return this->pipelineVertexInfo;
+}
+
+
+VertexBuffer::~VertexBuffer()
+{
+    this->device->destroy(this->buffer);
 }
