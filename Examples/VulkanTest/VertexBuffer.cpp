@@ -31,7 +31,8 @@ std::array<VertexInputAttributeDescription, 2> VertexBuffer::Vertex::getAttribut
 }
 
 
-VertexBuffer::VertexBuffer(Device *device, const std::vector<Vertex> &vertices)
+VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
+                           const std::vector<Vertex> &vertices)
 {
     this->device = device;
 
@@ -44,6 +45,16 @@ VertexBuffer::VertexBuffer(Device *device, const std::vector<Vertex> &vertices)
                                 SharingMode::eExclusive);
 
     this->buffer = this->device->createBuffer(createInfo);
+
+    auto memRequirements = this->device->getBufferMemoryRequirements(this->buffer);
+
+    MemoryAllocateInfo allocateInfo(memRequirements.size);
+    allocateInfo.memoryTypeIndex = VertexBuffer::findMemoryType(memRequirements.memoryTypeBits,
+                                                                MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                                                                physicalDevice);
+
+    this->bufferMemory = this->device->allocateMemory(allocateInfo);
+    this->device->bindBufferMemory(this->buffer, this->bufferMemory, 0);
 }
 
 
@@ -56,4 +67,21 @@ PipelineVertexInputStateCreateInfo VertexBuffer::getPipelineVertexCreationInfo()
 VertexBuffer::~VertexBuffer()
 {
     this->device->destroy(this->buffer);
+    this->device->freeMemory(this->bufferMemory);
+}
+
+
+uint32_t VertexBuffer::findMemoryType(uint32_t typeFilter, MemoryPropertyFlags properties,
+                                      const PhysicalDevice &physicalDevice)
+{
+
+    const auto memProperties = physicalDevice.getMemoryProperties();
+
+    for (auto i = 0; i < memProperties.memoryTypeCount; i++)
+    {
+        if ((typeFilter & 1 << i) && (memProperties.memoryTypes[i].propertyFlags & properties) == properties)
+            return i;
+    }
+
+    throw std::runtime_error("No suitable memory type");
 }

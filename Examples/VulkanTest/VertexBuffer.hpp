@@ -31,11 +31,17 @@ public:
 
 public:
 
-    explicit VertexBuffer(Device *device, const std::vector<Vertex> &vertices);
+    explicit VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
+                          const std::vector<Vertex> &vertices);
 
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
     virtual ~VertexBuffer();
+
+protected:
+
+    static uint32_t findMemoryType(uint32_t typeFilter, MemoryPropertyFlags properties,
+                                   const PhysicalDevice &physicalDevice);
 
 protected:
 
@@ -44,6 +50,8 @@ protected:
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
 
     Buffer buffer;
+
+    DeviceMemory bufferMemory;
 
 };
 

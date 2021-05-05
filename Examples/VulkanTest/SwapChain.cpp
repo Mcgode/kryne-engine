@@ -24,7 +24,7 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &sur
     this->setUpImageViews();
     this->createRenderPass();
 
-    this->vertexBuffer = std::make_unique<VertexBuffer>(this->device, vertices);
+    this->vertexBuffer = std::make_unique<VertexBuffer>(physicalDevice, this->device, vertices);
     this->createGraphicsPipeline();
 
     this->createFramebuffers();
