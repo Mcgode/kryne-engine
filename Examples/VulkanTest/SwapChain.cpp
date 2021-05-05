@@ -230,7 +230,7 @@ ShaderModule SwapChain::createShaderModule(const std::vector<char> &code)
 
 void SwapChain::createGraphicsPipeline()
 {
-    auto vertShader = readFile("Resources/Shaders/Vulkan/TriangleV.spv");
+    auto vertShader = readFile("Resources/Shaders/Vulkan/TriangleBufferV.spv");
     auto fragShader = readFile("Resources/Shaders/Vulkan/TriangleF.spv");
 
     auto vModule = this->createShaderModule(vertShader);
