@@ -41,10 +41,10 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
 
     pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
 
-    BufferCreateInfo createInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
+    BufferCreateInfo bufferInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
                                 SharingMode::eExclusive);
 
-    this->buffer = this->device->createBuffer(createInfo);
+    this->buffer = this->device->createBuffer(bufferInfo);
 
     auto memRequirements = this->device->getBufferMemoryRequirements(this->buffer);
 
@@ -55,6 +55,10 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
 
     this->bufferMemory = this->device->allocateMemory(allocateInfo);
     this->device->bindBufferMemory(this->buffer, this->bufferMemory, 0);
+
+    void *data = this->device->mapMemory(this->bufferMemory, 0, bufferInfo.size);
+    memcpy(data, vertices.data(), bufferInfo.size);
+    this->device->unmapMemory(this->bufferMemory);
 }
 
 
