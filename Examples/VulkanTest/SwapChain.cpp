@@ -14,11 +14,8 @@
 using VulkanHelpers::assertSuccess;
 
 
-SwapChain::SwapChain(const PhysicalDevice &physicalDevice,
-                     const SurfaceKHR &surface,
-                     GLFWwindow *window,
-                     CommandPool *commandPool,
-                     Device *device)
+SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, GLFWwindow *window,
+                     CommandPool *commandPool, Device *device, const std::vector<VertexBuffer::Vertex> &vertices)
 {
     this->commandPool = commandPool;
     this->device = device;
@@ -26,7 +23,10 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice,
     this->initSwapChain(physicalDevice, surface, window);
     this->setUpImageViews();
     this->createRenderPass();
+
+    this->vertexBuffer = std::make_unique<VertexBuffer>(vertices);
     this->createGraphicsPipeline();
+
     this->createFramebuffers();
     this->createCommandBuffers();
 
@@ -241,7 +241,7 @@ void SwapChain::createGraphicsPipeline()
 
     PipelineShaderStageCreateInfo shaderStages[] = { vsInfo, fsInfo };
 
-    PipelineVertexInputStateCreateInfo vcInfo({}, 0, nullptr, 0, nullptr);
+    auto vcInfo = this->vertexBuffer->vertexInputInfo;
     PipelineInputAssemblyStateCreateInfo asmInfo({}, PrimitiveTopology::eTriangleList, false);
 
     Viewport vp(0, 0, this->scExtend.width, this->scExtend.height, 0, 1);

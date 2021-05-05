@@ -7,7 +7,6 @@
 #pragma once
 
 
-#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -19,6 +18,8 @@
 class HelloTriangleApp {
 
 public:
+
+    explicit HelloTriangleApp(bool useVertexBuffers) : useVertexBuffers(useVertexBuffers) {}
 
     void run();
 
@@ -60,24 +61,26 @@ private:
 
 private:
 
+    bool useVertexBuffers;
+
     GLFWwindow *window = nullptr;
 
-    VkInstance instance;
+    VkInstance instance{};
 
-    VkDebugUtilsMessengerEXT debugMessenger;
+    VkDebugUtilsMessengerEXT debugMessenger{};
 
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
-    VkDevice device;
+    VkDevice device{};
     Device device_hpp;
 
-    VkSurfaceKHR surface;
+    VkSurfaceKHR surface{};
 
-    VkQueue graphicsQueue;
+    VkQueue graphicsQueue{};
 
-    VkQueue presentQueue;
+    VkQueue presentQueue{};
 
-    VkCommandPool commandPool;
+    VkCommandPool commandPool{};
     CommandPool commandPool_hpp;
 
     std::unique_ptr<SwapChain> swapChain;

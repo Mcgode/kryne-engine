@@ -10,7 +10,7 @@
 
 int main()
 {
-    HelloTriangleApp app;
+    HelloTriangleApp app(true);
 
     try
     {

@@ -10,8 +10,7 @@
 #include <vulkan/vulkan.hpp>
 #include <GLFW/glfw3.h>
 
-
-using namespace vk;
+#include "VertexBuffer.hpp"
 
 
 class SwapChain {
@@ -22,7 +21,8 @@ public:
               const SurfaceKHR &surface,
               GLFWwindow *window,
               CommandPool *commandPool,
-              Device *device);
+              Device *device,
+              const std::vector<VertexBuffer::Vertex> &vertices);
 
     virtual ~SwapChain();
 
@@ -94,6 +94,8 @@ protected:
     std::vector<CommandBuffer> commandBuffers;
 
     std::vector<Fence> imagesInFlight;
+
+    std::unique_ptr<VertexBuffer> vertexBuffer;
 
 
 };
