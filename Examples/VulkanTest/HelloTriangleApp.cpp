@@ -194,11 +194,17 @@ void HelloTriangleApp::initVulkan()
     this->createCommandPool();
     this->commandPool_hpp = CommandPool(this->commandPool);
 
+    const std::vector<VertexBuffer::Vertex> vertices = {
+            {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+            {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
+            {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
+    };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice),
                             SurfaceKHR(this->surface),
                             this->window,
                             &this->commandPool_hpp,
-                            &this->device_hpp, <#initializer#>);
+                            &this->device_hpp,
+                            vertices);
     this->swapChain.reset(sc);
 
     this->createSyncObjects();
@@ -505,7 +511,12 @@ void HelloTriangleApp::resetSwapChain()
     // Make sure previous swap chain is already deleted.
     this->swapChain.reset();
 
+    const std::vector<VertexBuffer::Vertex> vertices = {
+            {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+            {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
+            {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
+    };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface),
-                            this->window, &this->commandPool_hpp, &this->device_hpp, <#initializer#>);
+                            this->window, &this->commandPool_hpp, &this->device_hpp, vertices);
     this->swapChain.reset(sc);
 }

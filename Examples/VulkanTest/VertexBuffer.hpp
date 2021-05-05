@@ -31,13 +31,15 @@ public:
 
 public:
 
-    explicit VertexBuffer(const std::vector<Vertex> &vertices);
+    explicit VertexBuffer(Device *device, const std::vector<Vertex> &vertices);
 
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
 protected:
 
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
+
+    Buffer buffer;
 
 };
 
