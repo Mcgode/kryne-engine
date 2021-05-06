@@ -12,25 +12,9 @@
 
 namespace VulkanHelpers {
 
-    void assertSuccess(vk::Result result)
-    {
-#ifndef NDEBUG
+    void assertSuccess(vk::Result result);
 
-        if (result != vk::Result::eSuccess)
-            throw std::runtime_error(vk::to_string(result));
-
-#endif
-    }
-
-    void assertSuccess(vk::Result result, const std::string &errorMessage)
-    {
-#ifndef NDEBUG
-
-        if (result != vk::Result::eSuccess)
-            throw std::runtime_error(errorMessage + ": " + vk::to_string(result));
-
-#endif
-    }
+    void assertSuccess(vk::Result result, const std::string &errorMessage);
 
     template <typename T>
     T assertSuccess(vk::ResultValue<T> result)

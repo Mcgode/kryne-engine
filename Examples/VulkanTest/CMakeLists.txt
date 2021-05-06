@@ -4,7 +4,9 @@ add_executable(VulkanTest
         DebuggingUtils.hpp
         Queue.cpp Queue.hpp
         SwapChain.cpp SwapChain.hpp
-        Utils.hpp VertexBuffer.cpp VertexBuffer.hpp)
+        Utils.cpp Utils.hpp
+        VertexBuffer.cpp VertexBuffer.hpp
+        )
 
 target_link_libraries(VulkanTest ${LIBS})
 
