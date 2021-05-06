@@ -38,23 +38,13 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
 
     this->pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
 
-    bufferInfo = BufferCreateInfo({}, sizeof(Vertex) * vertices.size(), BufferUsageFlagBits::eVertexBuffer,
-                                  SharingMode::eExclusive);
+    const DeviceSize bufferSize = sizeof(Vertex) * vertices.size();
+    VertexBuffer::makeBuffer(bufferSize, BufferUsageFlagBits::eVertexBuffer,
+                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                             this->buffer, this->bufferMemory, this->device, physicalDevice);
 
-    this->buffer = this->device->createBuffer(bufferInfo);
-
-    auto memRequirements = this->device->getBufferMemoryRequirements(this->buffer);
-
-    MemoryAllocateInfo allocateInfo(memRequirements.size);
-    allocateInfo.memoryTypeIndex = VertexBuffer::findMemoryType(memRequirements.memoryTypeBits,
-                                                                MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
-                                                                physicalDevice);
-
-    this->bufferMemory = this->device->allocateMemory(allocateInfo);
-    this->device->bindBufferMemory(this->buffer, this->bufferMemory, 0);
-
-    void *data = this->device->mapMemory(this->bufferMemory, 0, bufferInfo.size);
-    memcpy(data, vertices.data(), bufferInfo.size);
+    void *data = this->device->mapMemory(this->bufferMemory, 0, bufferSize);
+    memcpy(data, vertices.data(), bufferSize);
     this->device->unmapMemory(this->bufferMemory);
 }
 
@@ -90,7 +80,7 @@ uint32_t VertexBuffer::findMemoryType(uint32_t typeFilter, MemoryPropertyFlags p
 
 uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, VertexBuffer **buffers)
 {
-    uint32_t size = 0;
+    uint32_t size = std::numeric_limits<uint32_t >::max();
 
     std::vector<Buffer> vkBuffers(count);
     std::vector<DeviceSize> offsets(count);
@@ -99,10 +89,30 @@ uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, V
     {
         vkBuffers[i] = buffers[i]->buffer;
         offsets[i] = 0;
-        size += buffers[i]->bufferInfo.size / sizeof(Vertex);
+        size = std::min(size, buffers[i]->bufferCount);
     }
 
     cmdBuffer->bindVertexBuffers(0, vkBuffers, offsets);
 
     return size;
+}
+
+
+void
+VertexBuffer::makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties, Buffer &buffer,
+                         DeviceMemory &memory, const Device *device, const PhysicalDevice &physicalDevice)
+{
+    const auto bufferInfo = BufferCreateInfo({}, bufferSize, BufferUsageFlagBits::eVertexBuffer,
+                                             SharingMode::eExclusive);
+
+    buffer = device->createBuffer(bufferInfo);
+
+    const auto memRequirements = device->getBufferMemoryRequirements(buffer);
+
+    MemoryAllocateInfo allocInfo(memRequirements.size);
+    allocInfo.memoryTypeIndex = VertexBuffer::findMemoryType(memRequirements.memoryTypeBits, properties, physicalDevice);
+
+    memory = device->allocateMemory(allocInfo);
+
+    device->bindBufferMemory(buffer, memory, 0);
 }

@@ -47,6 +47,10 @@ public:
 
 protected:
 
+    static void
+    makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties, Buffer &buffer,
+               DeviceMemory &memory, const Device *device, const PhysicalDevice &physicalDevice);
+
     static uint32_t findMemoryType(uint32_t typeFilter, MemoryPropertyFlags properties,
                                    const PhysicalDevice &physicalDevice);
 
@@ -60,9 +64,9 @@ protected:
 
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
 
-    BufferCreateInfo bufferInfo;
-
     Buffer buffer;
+
+    uint32_t bufferCount;
 
     DeviceMemory bufferMemory;
 
