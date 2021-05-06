@@ -4,6 +4,8 @@
  * @date 05/05/2021.
  */
 
+#include "Utils.hpp"
+
 #include "VertexBuffer.hpp"
 
 
@@ -155,7 +157,7 @@ void VertexBuffer::copyBuffer(const Buffer &src, const Buffer &dst, DeviceSize s
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = &commandBuffer;
 
-    graphicsQueue.submit(1, &submitInfo, {});
+    VulkanHelpers::assertSuccess(graphicsQueue.submit(1, &submitInfo, {}));
     graphicsQueue.waitIdle();
 
     this->device->freeCommandBuffers(commandPool, 1, &commandBuffer);
