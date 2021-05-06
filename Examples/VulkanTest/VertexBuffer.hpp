@@ -34,6 +34,9 @@ public:
     explicit VertexBuffer(const PhysicalDevice &physicalDevice, Device *device, const std::vector<Vertex> &vertices,
                           const CommandPool &commandPool, const Queue &graphicsQueue);
 
+    void setIndex(const PhysicalDevice &physicalDevice, const CommandPool &commandPool, const Queue &graphicsQueue,
+                  const std::vector<uint32_t> &indices);
+
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
     static uint32_t cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, VertexBuffer **buffers);
@@ -72,6 +75,10 @@ protected:
     Buffer buffer;
 
     DeviceMemory bufferMemory;
+
+    Buffer indexBuffer;
+
+    DeviceMemory indexBufferMemory;
 
 };
 

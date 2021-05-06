@@ -114,6 +114,7 @@ uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, V
     }
 
     cmdBuffer->bindVertexBuffers(0, vkBuffers, offsets);
+    cmdBuffer->bindIndexBuffer(buffers[0]->indexBuffer, 0, IndexType::eUint32);
 
     return size;
 }
@@ -161,4 +162,37 @@ void VertexBuffer::copyBuffer(const Buffer &src, const Buffer &dst, DeviceSize s
     graphicsQueue.waitIdle();
 
     this->device->freeCommandBuffers(commandPool, 1, &commandBuffer);
+}
+
+
+void VertexBuffer::setIndex(const PhysicalDevice &physicalDevice, const CommandPool &commandPool,
+                            const Queue &graphicsQueue, const std::vector<uint32_t> &indices)
+{
+    const DeviceSize bufferSize = sizeof(indices[0]) * indices.size();
+
+    this->bufferCount = indices.size();
+
+    Buffer stagingBuffer;
+    DeviceMemory stagingMemory;
+
+    VertexBuffer::makeBuffer(bufferSize,
+                             BufferUsageFlagBits::eTransferSrc,
+                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                             stagingBuffer, stagingMemory,
+                             this->device, physicalDevice);
+
+    void *data = this->device->mapMemory(stagingMemory, 0, bufferSize);
+    memcpy(data, indices.data(), bufferSize);
+    this->device->unmapMemory(stagingMemory);
+
+    VertexBuffer::makeBuffer(bufferSize,
+                             BufferUsageFlagBits::eIndexBuffer | BufferUsageFlagBits::eTransferDst,
+                             MemoryPropertyFlagBits::eDeviceLocal,
+                             this->indexBuffer, this->indexBufferMemory,
+                             this->device, physicalDevice);
+
+    this->copyBuffer(stagingBuffer, this->indexBuffer, bufferSize, commandPool, graphicsQueue);
+
+    this->device->freeMemory(stagingMemory);
+    this->device->destroyBuffer(stagingBuffer);
 }

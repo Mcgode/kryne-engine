@@ -167,7 +167,8 @@ void HelloTriangleApp::initVulkan()
                             this->window,
                             &this->commandPool_hpp,
                             &this->device_hpp,
-                            this->vertices);
+                            this->vertices,
+                            this->indices);
     this->swapChain.reset(sc);
 
     this->createSyncObjects();
@@ -476,6 +477,6 @@ void HelloTriangleApp::resetSwapChain()
 
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface),
                             this->graphicsQueue, this->window, &this->commandPool_hpp, &this->device_hpp,
-                            this->vertices);
+                            this->vertices, this->indices);
     this->swapChain.reset(sc);
 }

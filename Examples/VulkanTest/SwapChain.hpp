@@ -19,7 +19,7 @@ public:
 
     SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, const Queue &graphicsQueue,
               GLFWwindow *window, CommandPool *commandPool, Device *device,
-              const std::vector<VertexBuffer::Vertex> &vertices);
+              const std::vector<VertexBuffer::Vertex> &vertices, const std::vector<uint32_t> &indices);
 
     virtual ~SwapChain();
 

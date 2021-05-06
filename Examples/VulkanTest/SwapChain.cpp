@@ -16,7 +16,7 @@ using VulkanHelpers::assertSuccess;
 
 SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, const Queue &graphicsQueue,
                      GLFWwindow *window, CommandPool *commandPool, Device *device,
-                     const std::vector<VertexBuffer::Vertex> &vertices)
+                     const std::vector<VertexBuffer::Vertex> &vertices, const std::vector<uint32_t> &indices)
 {
     this->commandPool = commandPool;
     this->device = device;
@@ -27,6 +27,7 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &sur
 
     this->vertexBuffer = std::make_unique<VertexBuffer>(physicalDevice, this->device, vertices,
                                                         *this->commandPool, graphicsQueue);
+    this->vertexBuffer->setIndex(physicalDevice, *this->commandPool, graphicsQueue, indices);
     this->createGraphicsPipeline();
 
     this->createFramebuffers();
@@ -322,7 +323,7 @@ void SwapChain::createCommandBuffers()
         auto vb = this->vertexBuffer.get();
         const auto size = VertexBuffer::cmdBind(&this->commandBuffers[i], 1, &vb);
 
-        this->commandBuffers[i].draw(size, 1, 0, 0);
+        this->commandBuffers[i].drawIndexed(size, 1, 0, 0, 0);
 
         this->commandBuffers[i].endRenderPass();
 
