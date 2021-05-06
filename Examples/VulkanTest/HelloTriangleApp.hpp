@@ -95,6 +95,14 @@ private:
 
     bool framebufferResized = false;
 
+    const std::vector<VertexBuffer::Vertex> vertices = {
+            {{-0.5f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+            {{0.5f, -0.5f}, {0.0f, 1.0f, 0.0f}},
+            {{0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}},
+            {{-0.5f, 0.5f}, {1.0f, 1.0f, 1.0f}}
+    };
+
+
 private:
 
     const uint64_t MAX_FRAMES_IN_FLIGHT = 2;

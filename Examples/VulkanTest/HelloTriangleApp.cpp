@@ -50,7 +50,7 @@ namespace {
 
     struct SwapChainSupportDetails {
 
-        VkSurfaceCapabilitiesKHR capabilities;
+        VkSurfaceCapabilitiesKHR capabilities {};
 
         std::vector<VkSurfaceFormatKHR> formats;
 
@@ -128,39 +128,6 @@ namespace {
         return extensions;
     }
 
-
-    std::vector<char> readFile(const char *filename)
-    {
-        std::ifstream file(filename, std::ios::ate | std::ios::binary);
-
-        if (!file.is_open())
-            throw std::runtime_error("Unable to open file");
-
-        size_t fileSize = (size_t) file.tellg();
-        std::vector<char> buffer(fileSize);
-
-        file.seekg(0);
-        file.read(buffer.data(), fileSize);
-
-        file.close();
-        return buffer;
-    }
-
-
-    VkShaderModule createShaderModule(const std::vector<char> &code, const VkDevice &device)
-    {
-        VkShaderModuleCreateInfo createInfo{};
-        createInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
-        createInfo.codeSize = code.size();
-        createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
-
-        VkShaderModule shaderModule;
-        if (vkCreateShaderModule(device, &createInfo, nullptr, &shaderModule) != VK_SUCCESS)
-            throw std::runtime_error("failed to create shader module!");
-
-        return shaderModule;
-    }
-
 }
 
 
@@ -194,18 +161,13 @@ void HelloTriangleApp::initVulkan()
     this->createCommandPool();
     this->commandPool_hpp = CommandPool(this->commandPool);
 
-    const std::vector<VertexBuffer::Vertex> vertices = {
-            {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
-            {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
-            {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
-    };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice),
                             SurfaceKHR(this->surface),
                             this->graphicsQueue,
                             this->window,
                             &this->commandPool_hpp,
                             &this->device_hpp,
-                            vertices);
+                            this->vertices);
     this->swapChain.reset(sc);
 
     this->createSyncObjects();
@@ -512,13 +474,8 @@ void HelloTriangleApp::resetSwapChain()
     // Make sure previous swap chain is already deleted.
     this->swapChain.reset();
 
-    const std::vector<VertexBuffer::Vertex> vertices = {
-            {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
-            {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
-            {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
-    };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface),
                             this->graphicsQueue, this->window, &this->commandPool_hpp, &this->device_hpp,
-                            vertices);
+                            this->vertices);
     this->swapChain.reset(sc);
 }
