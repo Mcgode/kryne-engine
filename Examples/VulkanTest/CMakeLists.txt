@@ -6,7 +6,7 @@ add_executable(VulkanTest
         SwapChain.cpp SwapChain.hpp
         Utils.cpp Utils.hpp
         VertexBuffer.cpp VertexBuffer.hpp
-        )
+        UniformDescriptor.cpp UniformDescriptor.hpp)
 
 target_link_libraries(VulkanTest ${LIBS})
 

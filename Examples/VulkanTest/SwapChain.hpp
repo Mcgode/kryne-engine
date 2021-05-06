@@ -11,6 +11,7 @@
 #include <GLFW/glfw3.h>
 
 #include "VertexBuffer.hpp"
+#include "UniformDescriptor.hpp"
 
 
 class SwapChain {
@@ -93,6 +94,8 @@ protected:
     std::vector<Fence> imagesInFlight;
 
     std::unique_ptr<VertexBuffer> vertexBuffer;
+
+    std::unique_ptr<UniformDescriptor> uniformDescriptor;
 
 
 };

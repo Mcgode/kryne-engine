@@ -28,6 +28,9 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &sur
     this->vertexBuffer = std::make_unique<VertexBuffer>(physicalDevice, this->device, vertices,
                                                         *this->commandPool, graphicsQueue);
     this->vertexBuffer->setIndex(physicalDevice, *this->commandPool, graphicsQueue, indices);
+
+    this->uniformDescriptor = std::make_unique<UniformDescriptor>(this->device);
+
     this->createGraphicsPipeline();
 
     this->createFramebuffers();
@@ -233,7 +236,7 @@ ShaderModule SwapChain::createShaderModule(const std::vector<char> &code)
 
 void SwapChain::createGraphicsPipeline()
 {
-    auto vertShader = readFile("Resources/Shaders/Vulkan/TriangleBufferV.spv");
+    auto vertShader = readFile("Resources/Shaders/Vulkan/TriangleUBOV.spv");
     auto fragShader = readFile("Resources/Shaders/Vulkan/TriangleF.spv");
 
     auto vModule = this->createShaderModule(vertShader);
@@ -267,7 +270,7 @@ void SwapChain::createGraphicsPipeline()
 
     PipelineColorBlendStateCreateInfo cbInfo({}, false, LogicOp::eClear, 1, &cbState);
 
-    PipelineLayoutCreateInfo layoutInfo;
+    PipelineLayoutCreateInfo layoutInfo({}, 1, &this->uniformDescriptor->getSetLayout());
     this->pipelineLayout = this->device->createPipelineLayout(layoutInfo);
 
     GraphicsPipelineCreateInfo creationInfo({}, 2, shaderStages, &vcInfo, &asmInfo,  nullptr,
