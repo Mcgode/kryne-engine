@@ -38,6 +38,8 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
 
     this->pipelineVertexInfo = PipelineVertexInputStateCreateInfo({}, bindingDescriptions, attributeDescriptions);
 
+    this->bufferCount = vertices.size();
+
     const DeviceSize bufferSize = sizeof(Vertex) * vertices.size();
     VertexBuffer::makeBuffer(bufferSize, BufferUsageFlagBits::eVertexBuffer,
                              MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,

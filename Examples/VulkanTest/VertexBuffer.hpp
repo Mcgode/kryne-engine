@@ -64,9 +64,9 @@ protected:
 
     PipelineVertexInputStateCreateInfo pipelineVertexInfo;
 
-    Buffer buffer;
-
     uint32_t bufferCount;
+
+    Buffer buffer;
 
     DeviceMemory bufferMemory;
 
