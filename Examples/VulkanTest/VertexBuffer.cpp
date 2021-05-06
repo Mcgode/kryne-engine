@@ -28,8 +28,8 @@ std::vector<VertexInputAttributeDescription> VertexBuffer::Vertex::getAttributeD
 }
 
 
-VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
-                           const std::vector<Vertex> &vertices)
+VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device, const std::vector<Vertex> &vertices,
+                           const CommandPool &commandPool, const Queue &graphicsQueue)
 {
     this->device = device;
 
@@ -41,13 +41,30 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
     this->bufferCount = vertices.size();
 
     const DeviceSize bufferSize = sizeof(Vertex) * vertices.size();
-    VertexBuffer::makeBuffer(bufferSize, BufferUsageFlagBits::eVertexBuffer,
-                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
-                             this->buffer, this->bufferMemory, this->device, physicalDevice);
 
-    void *data = this->device->mapMemory(this->bufferMemory, 0, bufferSize);
+    Buffer stagingBuffer;
+    DeviceMemory stagingMemory;
+
+    VertexBuffer::makeBuffer(bufferSize,
+                             BufferUsageFlagBits::eTransferSrc,
+                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                             stagingBuffer, stagingMemory,
+                             this->device, physicalDevice);
+
+    void *data = this->device->mapMemory(stagingMemory, 0, bufferSize);
     memcpy(data, vertices.data(), bufferSize);
-    this->device->unmapMemory(this->bufferMemory);
+    this->device->unmapMemory(stagingMemory);
+
+    VertexBuffer::makeBuffer(bufferSize,
+                             BufferUsageFlagBits::eVertexBuffer | BufferUsageFlagBits::eTransferDst,
+                             MemoryPropertyFlagBits::eDeviceLocal,
+                             this->buffer, this->bufferMemory,
+                             this->device, physicalDevice);
+
+    this->copyBuffer(stagingBuffer, this->buffer, bufferSize, commandPool, graphicsQueue);
+
+    this->device->freeMemory(stagingMemory);
+    this->device->destroyBuffer(stagingBuffer);
 }
 
 
@@ -104,7 +121,7 @@ void
 VertexBuffer::makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties, Buffer &buffer,
                          DeviceMemory &memory, const Device *device, const PhysicalDevice &physicalDevice)
 {
-    const auto bufferInfo = BufferCreateInfo({}, bufferSize, BufferUsageFlagBits::eVertexBuffer,
+    const auto bufferInfo = BufferCreateInfo({}, bufferSize, usage,
                                              SharingMode::eExclusive);
 
     buffer = device->createBuffer(bufferInfo);
@@ -117,4 +134,29 @@ VertexBuffer::makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPr
     memory = device->allocateMemory(allocInfo);
 
     device->bindBufferMemory(buffer, memory, 0);
+}
+
+
+void VertexBuffer::copyBuffer(const Buffer &src, const Buffer &dst, DeviceSize size, const CommandPool &commandPool,
+                              const Queue &graphicsQueue)
+{
+    CommandBufferAllocateInfo allocInfo(commandPool, CommandBufferLevel::ePrimary, 1);
+    const auto commandBuffer = this->device->allocateCommandBuffers(allocInfo)[0];
+
+    CommandBufferBeginInfo beginInfo(CommandBufferUsageFlagBits::eOneTimeSubmit);
+    commandBuffer.begin(beginInfo);
+
+    BufferCopy copyRegion(0, 0, size);
+    commandBuffer.copyBuffer(src, dst, 1, &copyRegion);
+
+    commandBuffer.end();
+
+    SubmitInfo submitInfo;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = &commandBuffer;
+
+    graphicsQueue.submit(1, &submitInfo, {});
+    graphicsQueue.waitIdle();
+
+    this->device->freeCommandBuffers(commandPool, 1, &commandBuffer);
 }

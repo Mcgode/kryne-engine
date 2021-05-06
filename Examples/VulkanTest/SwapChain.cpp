@@ -14,8 +14,9 @@
 using VulkanHelpers::assertSuccess;
 
 
-SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, GLFWwindow *window,
-                     CommandPool *commandPool, Device *device, const std::vector<VertexBuffer::Vertex> &vertices)
+SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, const Queue &graphicsQueue,
+                     GLFWwindow *window, CommandPool *commandPool, Device *device,
+                     const std::vector<VertexBuffer::Vertex> &vertices)
 {
     this->commandPool = commandPool;
     this->device = device;
@@ -24,7 +25,8 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &sur
     this->setUpImageViews();
     this->createRenderPass();
 
-    this->vertexBuffer = std::make_unique<VertexBuffer>(physicalDevice, this->device, vertices);
+    this->vertexBuffer = std::make_unique<VertexBuffer>(physicalDevice, this->device, vertices,
+                                                        *this->commandPool, graphicsQueue);
     this->createGraphicsPipeline();
 
     this->createFramebuffers();

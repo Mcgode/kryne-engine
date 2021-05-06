@@ -201,6 +201,7 @@ void HelloTriangleApp::initVulkan()
     };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice),
                             SurfaceKHR(this->surface),
+                            this->graphicsQueue,
                             this->window,
                             &this->commandPool_hpp,
                             &this->device_hpp,
@@ -517,6 +518,7 @@ void HelloTriangleApp::resetSwapChain()
             {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
     };
     auto sc = new SwapChain(PhysicalDevice(this->physicalDevice), SurfaceKHR(this->surface),
-                            this->window, &this->commandPool_hpp, &this->device_hpp, vertices);
+                            this->graphicsQueue, this->window, &this->commandPool_hpp, &this->device_hpp,
+                            vertices);
     this->swapChain.reset(sc);
 }

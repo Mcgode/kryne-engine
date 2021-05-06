@@ -17,11 +17,8 @@ class SwapChain {
 
 public:
 
-    SwapChain(const PhysicalDevice &physicalDevice,
-              const SurfaceKHR &surface,
-              GLFWwindow *window,
-              CommandPool *commandPool,
-              Device *device,
+    SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &surface, const Queue &graphicsQueue,
+              GLFWwindow *window, CommandPool *commandPool, Device *device,
               const std::vector<VertexBuffer::Vertex> &vertices);
 
     virtual ~SwapChain();

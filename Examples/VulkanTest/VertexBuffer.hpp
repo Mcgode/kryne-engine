@@ -31,8 +31,8 @@ public:
 
 public:
 
-    explicit VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
-                          const std::vector<Vertex> &vertices);
+    explicit VertexBuffer(const PhysicalDevice &physicalDevice, Device *device, const std::vector<Vertex> &vertices,
+                          const CommandPool &commandPool, const Queue &graphicsQueue);
 
     PipelineVertexInputStateCreateInfo getPipelineVertexCreationInfo();
 
@@ -47,9 +47,12 @@ public:
 
 protected:
 
-    static void
-    makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties, Buffer &buffer,
-               DeviceMemory &memory, const Device *device, const PhysicalDevice &physicalDevice);
+    void copyBuffer(const Buffer &src, const Buffer &dst, DeviceSize size, const CommandPool &commandPool,
+                    const Queue &graphicsQueue);
+
+    static void makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties,
+                           Buffer &buffer, DeviceMemory &memory, const Device *device,
+                           const PhysicalDevice &physicalDevice);
 
     static uint32_t findMemoryType(uint32_t typeFilter, MemoryPropertyFlags properties,
                                    const PhysicalDevice &physicalDevice);
