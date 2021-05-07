@@ -14,6 +14,8 @@ add_library(DearIMGUI STATIC
         imgui_widgets.cpp
         imstb_rectpack.h
         imstb_textedit.h
-        imstb_truetype.h)
+        imstb_truetype.h
+        imgui_impl_vulkan.cpp
+        imgui_impl_vulkan.h)
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
