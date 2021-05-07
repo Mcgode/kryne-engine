@@ -95,6 +95,8 @@ void HelloTriangleApp::cleanup()
         Utils::DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
     }
 
+    vkDestroyDevice(this->device, nullptr);
+
     vkDestroyInstance(this->instance, nullptr);
 
     glfwDestroyWindow(this->window);
@@ -215,5 +217,35 @@ void HelloTriangleApp::pickPhysicalDevice()
     if (this->physicalDevice == VK_NULL_HANDLE)
         throw std::runtime_error("No suitable VK device");
 
-    VulkanHelpers::findQueueFamilies(this->physicalDevice);
+    auto indices = VulkanHelpers::findQueueFamilies(this->physicalDevice);
+
+    VkDeviceQueueCreateInfo queueCreateInfo {};
+    queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+    queueCreateInfo.queueFamilyIndex = indices.graphicsFamily.value();
+    queueCreateInfo.queueCount = 1;
+
+    float queuePriority = 1.f;
+    queueCreateInfo.pQueuePriorities = &queuePriority;
+
+    VkPhysicalDeviceFeatures deviceFeatures{};
+    vkGetPhysicalDeviceFeatures(this->physicalDevice, &deviceFeatures);
+
+    VkDeviceCreateInfo createInfo{};
+    createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+    createInfo.pQueueCreateInfos = &queueCreateInfo;
+    createInfo.queueCreateInfoCount = 1;
+
+    createInfo.pEnabledFeatures = &deviceFeatures;
+
+    createInfo.enabledExtensionCount = 0;
+
+    if (enableValidationLayers) {
+        createInfo.enabledLayerCount = validationLayers.size();
+        createInfo.ppEnabledLayerNames = validationLayers.data();
+    } else {
+        createInfo.enabledLayerCount = 0;
+    }
+
+    if (vkCreateDevice(this->physicalDevice, &createInfo, nullptr, &this->device) != VK_SUCCESS)
+        throw std::runtime_error("Unable to create device object");
 }
