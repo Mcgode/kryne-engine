@@ -6,6 +6,7 @@
 
 
 #include "DebuggingUtils.hpp"
+#include "Queue.hpp"
 
 #include "HelloTriangleApp.hpp"
 
@@ -23,6 +24,22 @@ const bool enableValidationLayers = true;
 
 
 namespace {
+
+    bool isDeviceSuitable(VkPhysicalDevice device)
+    {
+        VkPhysicalDeviceProperties deviceProperties;
+        vkGetPhysicalDeviceProperties(device, &deviceProperties);
+
+        VkPhysicalDeviceFeatures deviceFeatures;
+        vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+        auto indices = VulkanHelpers::findQueueFamilies(device);
+
+        return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
+               deviceFeatures.geometryShader &&
+               indices.isComplete();
+    }
+
 
     std::vector<const char*> getRequiredExtensions()
     {
@@ -59,6 +76,7 @@ void HelloTriangleApp::initVulkan()
 
     this->createInstance();
     this->setupDebugMessenger();
+    this->pickPhysicalDevice();
 }
 
 
@@ -171,4 +189,31 @@ void HelloTriangleApp::setupDebugMessenger()
 
     if (Utils::CreateDebugUtilsMessengerEXT(this->instance, &createInfo, nullptr, &debugMessenger) != VK_SUCCESS)
         throw std::runtime_error("Unable to set up debug messenger");
+}
+
+
+void HelloTriangleApp::pickPhysicalDevice()
+{
+    uint32_t deviceCount = 0;
+    vkEnumeratePhysicalDevices(this->instance, &deviceCount, nullptr);
+
+    if (deviceCount == 0)
+        throw std::runtime_error("No available Vulkan-compatible devices");
+
+    std::vector<VkPhysicalDevice> devices(deviceCount);
+    vkEnumeratePhysicalDevices(this->instance, &deviceCount, devices.data());
+
+    for (const auto device : devices)
+    {
+        if (isDeviceSuitable(device))
+        {
+            this->physicalDevice = device;
+            break;
+        }
+    }
+
+    if (this->physicalDevice == VK_NULL_HANDLE)
+        throw std::runtime_error("No suitable VK device");
+
+    VulkanHelpers::findQueueFamilies(this->physicalDevice);
 }

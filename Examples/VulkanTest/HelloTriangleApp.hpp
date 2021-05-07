@@ -34,6 +34,10 @@ private:
 
     void setupDebugMessenger();
 
+    void pickPhysicalDevice();
+
+private:
+
     static bool checkValidationLayerSupport();
 
 private:
@@ -43,6 +47,8 @@ private:
     VkInstance instance;
 
     VkDebugUtilsMessengerEXT debugMessenger;
+
+    VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
 };
 
