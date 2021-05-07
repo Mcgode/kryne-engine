@@ -32,6 +32,13 @@ include_directories(${ASSIMP_INCLUDE_DIR})
 include_directories(external-libs/glad/include)
 add_library(glad STATIC external-libs/glad/src/glad.c)
 
+
+# Vulkan lib
+find_package(Vulkan REQUIRED)
+message(STATUS "Found Vulkan in ${Vulkan_INCLUDE_DIR}")
+include_directories(${Vulkan_INCLUDE_DIR})
+
+
 # Set up stb_image library
 include_directories(external-libs/stb_image)
 add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
@@ -42,7 +49,7 @@ include_directories(external-libs/imgui)
 
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI)
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI ${Vulkan_LIBRARIES})
 
 
 # Set up boost library
@@ -131,3 +138,5 @@ add_subdirectory(Examples/Sphere)
 add_subdirectory(Examples/Basic)
 
 add_subdirectory(Examples/BenchmarkThreading)
+
+add_subdirectory(Examples/VulkanTest)
