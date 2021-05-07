@@ -32,6 +32,8 @@ private:
 
     void createInstance();
 
+    static bool checkValidationLayerSupport();
+
 private:
 
     GLFWwindow *window = nullptr;
