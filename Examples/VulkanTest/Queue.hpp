@@ -10,6 +10,7 @@
 #include <vulkan/vulkan.h>
 #include <optional>
 #include <vector>
+#include <set>
 
 
 namespace VulkanHelpers {
@@ -18,16 +19,24 @@ namespace VulkanHelpers {
 
         std::optional<uint32_t> graphicsFamily;
 
+        std::optional<uint32_t> presentFamily;
+
 
         [[nodiscard]] bool isComplete() const
         {
-            return this->graphicsFamily.has_value();
+            return this->graphicsFamily.has_value() && this->presentFamily.has_value();
+        }
+
+        [[nodiscard]] std::set<uint32_t> uniqueFamilies() const
+        {
+            std::set<uint32_t> r = { this->graphicsFamily.value(), this->presentFamily.value() };
+            return r;
         }
 
     };
 
 
-    QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device)
+    QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device, VkSurfaceKHR surface)
     {
         QueueFamilyIndices indices {};
 
@@ -42,6 +51,12 @@ namespace VulkanHelpers {
         {
             if (queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT)
                 indices.graphicsFamily = i;
+
+            VkBool32 presentSupport = false;
+            vkGetPhysicalDeviceSurfaceSupportKHR(device, i, surface, &presentSupport);
+
+            if (presentSupport)
+                indices.presentFamily = i;
 
             if (indices.isComplete())
                 break;

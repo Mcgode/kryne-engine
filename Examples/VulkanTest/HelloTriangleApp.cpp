@@ -25,7 +25,7 @@ const bool enableValidationLayers = true;
 
 namespace {
 
-    bool isDeviceSuitable(VkPhysicalDevice device)
+    bool isDeviceSuitable(VkPhysicalDevice device, VkSurfaceKHR surface)
     {
         VkPhysicalDeviceProperties deviceProperties;
         vkGetPhysicalDeviceProperties(device, &deviceProperties);
@@ -33,7 +33,7 @@ namespace {
         VkPhysicalDeviceFeatures deviceFeatures;
         vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
 
-        auto indices = VulkanHelpers::findQueueFamilies(device);
+        auto indices = VulkanHelpers::findQueueFamilies(device, surface);
 
         return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
                deviceFeatures.geometryShader &&
@@ -76,7 +76,7 @@ void HelloTriangleApp::initVulkan()
 
     this->createInstance();
     this->setupDebugMessenger();
-    this->createInstance();
+    this->createSurface();
     this->pickPhysicalDevice();
 }
 
@@ -92,13 +92,13 @@ void HelloTriangleApp::mainLoop()
 
 void HelloTriangleApp::cleanup()
 {
-    if (enableValidationLayers) {
-        Utils::DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
-    }
-
     vkDestroyDevice(this->device, nullptr);
 
     vkDestroySurfaceKHR(this->instance, this->surface, nullptr);
+
+    if (enableValidationLayers) {
+        Utils::DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
+    }
 
     vkDestroyInstance(this->instance, nullptr);
 
@@ -208,11 +208,11 @@ void HelloTriangleApp::pickPhysicalDevice()
     std::vector<VkPhysicalDevice> devices(deviceCount);
     vkEnumeratePhysicalDevices(this->instance, &deviceCount, devices.data());
 
-    for (const auto device : devices)
+    for (const auto d : devices)
     {
-        if (isDeviceSuitable(device))
+        if (isDeviceSuitable(d, this->surface))
         {
-            this->physicalDevice = device;
+            this->physicalDevice = d;
             break;
         }
     }
@@ -220,23 +220,30 @@ void HelloTriangleApp::pickPhysicalDevice()
     if (this->physicalDevice == VK_NULL_HANDLE)
         throw std::runtime_error("No suitable VK device");
 
-    auto indices = VulkanHelpers::findQueueFamilies(this->physicalDevice);
+    auto indices = VulkanHelpers::findQueueFamilies(this->physicalDevice, this->surface);
 
-    VkDeviceQueueCreateInfo queueCreateInfo {};
-    queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
-    queueCreateInfo.queueFamilyIndex = indices.graphicsFamily.value();
-    queueCreateInfo.queueCount = 1;
+    std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
 
-    float queuePriority = 1.f;
-    queueCreateInfo.pQueuePriorities = &queuePriority;
+    for (const auto familyIndex : indices.uniqueFamilies())
+    {
+        VkDeviceQueueCreateInfo queueCreateInfo {};
+        queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+        queueCreateInfo.queueFamilyIndex = familyIndex;
+        queueCreateInfo.queueCount = 1;
+
+        float queuePriority = 1.f;
+        queueCreateInfo.pQueuePriorities = &queuePriority;
+
+        queueCreateInfos.push_back(queueCreateInfo);
+    }
 
     VkPhysicalDeviceFeatures deviceFeatures{};
     vkGetPhysicalDeviceFeatures(this->physicalDevice, &deviceFeatures);
 
     VkDeviceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
-    createInfo.pQueueCreateInfos = &queueCreateInfo;
-    createInfo.queueCreateInfoCount = 1;
+    createInfo.pQueueCreateInfos = queueCreateInfos.data();
+    createInfo.queueCreateInfoCount = queueCreateInfos.size();
 
     createInfo.pEnabledFeatures = &deviceFeatures;
 
@@ -251,6 +258,8 @@ void HelloTriangleApp::pickPhysicalDevice()
 
     if (vkCreateDevice(this->physicalDevice, &createInfo, nullptr, &this->device) != VK_SUCCESS)
         throw std::runtime_error("Unable to create device object");
+
+    vkGetDeviceQueue(this->device, indices.presentFamily.value(), 0, &this->presentQueue);
 }
 
 

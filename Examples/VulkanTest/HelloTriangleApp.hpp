@@ -56,6 +56,8 @@ private:
 
     VkSurfaceKHR surface;
 
+    VkQueue presentQueue;
+
 };
 
 
