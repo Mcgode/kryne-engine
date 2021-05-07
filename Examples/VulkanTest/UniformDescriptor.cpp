@@ -33,6 +33,26 @@ UniformDescriptor::UniformDescriptor(Device *device, const PhysicalDevice &physi
                                   this->uniformBuffers[i], this->uniformBufferMemories[i],
                                   this->device, physicalDevice);
     }
+
+    DescriptorPoolSize poolSize(DescriptorType::eUniformBuffer, frameCount);
+
+    DescriptorPoolCreateInfo poolInfo({}, frameCount, 1, &poolSize);
+    this->descriptorPool = this->device->createDescriptorPool(poolInfo);
+
+    std::vector<DescriptorSetLayout> layouts(frameCount, this->setLayout);
+    DescriptorSetAllocateInfo allocInfo(this->descriptorPool, layouts);
+
+    this->descriptorSets = this->device->allocateDescriptorSets(allocInfo);
+
+    for (auto i = 0; i < frameCount; i++)
+    {
+        DescriptorBufferInfo bufferInfo(this->uniformBuffers[i], 0, sizeof(UBO));
+        WriteDescriptorSet descriptorWrite(this->descriptorSets[i], 0, 0,
+                                           1, DescriptorType::eUniformBuffer,
+                                           nullptr, &bufferInfo, nullptr);
+
+        this->device->updateDescriptorSets({ descriptorWrite }, {});
+    }
 }
 
 
@@ -45,6 +65,8 @@ UniformDescriptor::~UniformDescriptor()
 
     for (const auto &b : this->uniformBuffers)
         this->device->destroy(b);
+
+    this->device->destroy(this->descriptorPool);
 }
 
 

@@ -259,7 +259,7 @@ void SwapChain::createGraphicsPipeline()
 
     PipelineRasterizationStateCreateInfo rastInfo({}, false, false,
                                                   PolygonMode::eFill,
-                                                  CullModeFlagBits::eBack, FrontFace::eClockwise,
+                                                  CullModeFlagBits::eBack, FrontFace::eCounterClockwise,
                                                   false, 0, 0, 0,
                                                   1);
 
@@ -326,6 +326,10 @@ void SwapChain::createCommandBuffers()
 
         auto vb = this->vertexBuffer.get();
         const auto size = VertexBuffer::cmdBind(&this->commandBuffers[i], 1, &vb);
+
+        this->commandBuffers[i].bindDescriptorSets(PipelineBindPoint::eGraphics, pipelineLayout,
+                                                   0,{this->uniformDescriptor->getDescriptorSet(i)},
+                                                   {});
 
         this->commandBuffers[i].drawIndexed(size, 1, 0, 0, 0);
 

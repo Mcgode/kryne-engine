@@ -35,6 +35,8 @@ public:
 
     void updateUBO(uint32_t index);
 
+    [[nodiscard]] const DescriptorSet &getDescriptorSet(uint32_t index) const { return this->descriptorSets[index]; }
+
     virtual ~UniformDescriptor();
 
 protected:
@@ -46,6 +48,10 @@ protected:
     std::vector<Buffer> uniformBuffers;
 
     std::vector<DeviceMemory> uniformBufferMemories;
+
+    DescriptorPool descriptorPool;
+
+    std::vector<DescriptorSet> descriptorSets;
 
 };
 
