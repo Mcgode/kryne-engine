@@ -32,6 +32,8 @@ private:
 
     void createInstance();
 
+    void setupDebugMessenger();
+
     static bool checkValidationLayerSupport();
 
 private:
@@ -39,6 +41,8 @@ private:
     GLFWwindow *window = nullptr;
 
     VkInstance instance;
+
+    VkDebugUtilsMessengerEXT debugMessenger;
 
 };
 
