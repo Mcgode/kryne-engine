@@ -29,9 +29,11 @@ public:
 
 public:
 
-    explicit UniformDescriptor(Device *device);
+    explicit UniformDescriptor(Device *device, const PhysicalDevice &physicalDevice, uint32_t frameCount);
 
     [[nodiscard]] const DescriptorSetLayout &getSetLayout() const { return setLayout; }
+
+    void updateUBO(uint32_t index);
 
     virtual ~UniformDescriptor();
 
@@ -40,6 +42,10 @@ protected:
     Device *device;
 
     DescriptorSetLayout setLayout;
+
+    std::vector<Buffer> uniformBuffers;
+
+    std::vector<DeviceMemory> uniformBufferMemories;
 
 };
 

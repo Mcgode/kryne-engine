@@ -29,7 +29,8 @@ SwapChain::SwapChain(const PhysicalDevice &physicalDevice, const SurfaceKHR &sur
                                                         *this->commandPool, graphicsQueue);
     this->vertexBuffer->setIndex(physicalDevice, *this->commandPool, graphicsQueue, indices);
 
-    this->uniformDescriptor = std::make_unique<UniformDescriptor>(this->device);
+    this->uniformDescriptor = std::make_unique<UniformDescriptor>(this->device, physicalDevice,
+                                                                  this->scImageViews.size());
 
     this->createGraphicsPipeline();
 
@@ -359,6 +360,7 @@ bool SwapChain::draw(Semaphore *imageAvailableSemaphore, Semaphore *finishedRend
         assertSuccess(this->device->waitForFences(1, &this->imagesInFlight[index], VK_TRUE, UINT64_MAX));
     this->imagesInFlight[index] = *fence;
 
+    this->uniformDescriptor->updateUBO(index);
     PipelineStageFlags flags[] = { PipelineStageFlagBits::eColorAttachmentOutput };
     SubmitInfo info(1, imageAvailableSemaphore, flags,
                     1, &this->commandBuffers[index],
