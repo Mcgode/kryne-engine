@@ -5,6 +5,7 @@
  */
 
 #include "Utils.hpp"
+#include "BufferHelpers.hpp"
 
 #include "VertexBuffer.hpp"
 
@@ -47,21 +48,21 @@ VertexBuffer::VertexBuffer(const PhysicalDevice &physicalDevice, Device *device,
     Buffer stagingBuffer;
     DeviceMemory stagingMemory;
 
-    VertexBuffer::makeBuffer(bufferSize,
-                             BufferUsageFlagBits::eTransferSrc,
-                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
-                             stagingBuffer, stagingMemory,
-                             this->device, physicalDevice);
+    VulkanHelpers::makeBuffer(bufferSize,
+                              BufferUsageFlagBits::eTransferSrc,
+                              MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                              stagingBuffer, stagingMemory,
+                              this->device, physicalDevice);
 
     void *data = this->device->mapMemory(stagingMemory, 0, bufferSize);
     memcpy(data, vertices.data(), bufferSize);
     this->device->unmapMemory(stagingMemory);
 
-    VertexBuffer::makeBuffer(bufferSize,
-                             BufferUsageFlagBits::eVertexBuffer | BufferUsageFlagBits::eTransferDst,
-                             MemoryPropertyFlagBits::eDeviceLocal,
-                             this->buffer, this->bufferMemory,
-                             this->device, physicalDevice);
+    VulkanHelpers::makeBuffer(bufferSize,
+                              BufferUsageFlagBits::eVertexBuffer | BufferUsageFlagBits::eTransferDst,
+                              MemoryPropertyFlagBits::eDeviceLocal,
+                              this->buffer, this->bufferMemory,
+                              this->device, physicalDevice);
 
     this->copyBuffer(stagingBuffer, this->buffer, bufferSize, commandPool, graphicsQueue);
 
@@ -83,22 +84,6 @@ VertexBuffer::~VertexBuffer()
 }
 
 
-uint32_t VertexBuffer::findMemoryType(uint32_t typeFilter, MemoryPropertyFlags properties,
-                                      const PhysicalDevice &physicalDevice)
-{
-
-    const auto memProperties = physicalDevice.getMemoryProperties();
-
-    for (auto i = 0; i < memProperties.memoryTypeCount; i++)
-    {
-        if ((typeFilter & 1 << i) && (memProperties.memoryTypes[i].propertyFlags & properties) == properties)
-            return i;
-    }
-
-    throw std::runtime_error("No suitable memory type");
-}
-
-
 uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, VertexBuffer **buffers)
 {
     uint32_t size = std::numeric_limits<uint32_t >::max();
@@ -117,26 +102,6 @@ uint32_t VertexBuffer::cmdBind(const CommandBuffer *cmdBuffer, uint32_t count, V
     cmdBuffer->bindIndexBuffer(buffers[0]->indexBuffer, 0, IndexType::eUint32);
 
     return size;
-}
-
-
-void
-VertexBuffer::makeBuffer(DeviceSize bufferSize, BufferUsageFlags usage, MemoryPropertyFlags properties, Buffer &buffer,
-                         DeviceMemory &memory, const Device *device, const PhysicalDevice &physicalDevice)
-{
-    const auto bufferInfo = BufferCreateInfo({}, bufferSize, usage,
-                                             SharingMode::eExclusive);
-
-    buffer = device->createBuffer(bufferInfo);
-
-    const auto memRequirements = device->getBufferMemoryRequirements(buffer);
-
-    MemoryAllocateInfo allocInfo(memRequirements.size);
-    allocInfo.memoryTypeIndex = VertexBuffer::findMemoryType(memRequirements.memoryTypeBits, properties, physicalDevice);
-
-    memory = device->allocateMemory(allocInfo);
-
-    device->bindBufferMemory(buffer, memory, 0);
 }
 
 
@@ -175,21 +140,21 @@ void VertexBuffer::setIndex(const PhysicalDevice &physicalDevice, const CommandP
     Buffer stagingBuffer;
     DeviceMemory stagingMemory;
 
-    VertexBuffer::makeBuffer(bufferSize,
-                             BufferUsageFlagBits::eTransferSrc,
-                             MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
-                             stagingBuffer, stagingMemory,
-                             this->device, physicalDevice);
+    VulkanHelpers::makeBuffer(bufferSize,
+                              BufferUsageFlagBits::eTransferSrc,
+                              MemoryPropertyFlagBits::eHostVisible | MemoryPropertyFlagBits::eHostCoherent,
+                              stagingBuffer, stagingMemory,
+                              this->device, physicalDevice);
 
     void *data = this->device->mapMemory(stagingMemory, 0, bufferSize);
     memcpy(data, indices.data(), bufferSize);
     this->device->unmapMemory(stagingMemory);
 
-    VertexBuffer::makeBuffer(bufferSize,
-                             BufferUsageFlagBits::eIndexBuffer | BufferUsageFlagBits::eTransferDst,
-                             MemoryPropertyFlagBits::eDeviceLocal,
-                             this->indexBuffer, this->indexBufferMemory,
-                             this->device, physicalDevice);
+    VulkanHelpers::makeBuffer(bufferSize,
+                              BufferUsageFlagBits::eIndexBuffer | BufferUsageFlagBits::eTransferDst,
+                              MemoryPropertyFlagBits::eDeviceLocal,
+                              this->indexBuffer, this->indexBufferMemory,
+                              this->device, physicalDevice);
 
     this->copyBuffer(stagingBuffer, this->indexBuffer, bufferSize, commandPool, graphicsQueue);
 
