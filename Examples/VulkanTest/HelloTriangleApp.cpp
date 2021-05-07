@@ -76,6 +76,7 @@ void HelloTriangleApp::initVulkan()
 
     this->createInstance();
     this->setupDebugMessenger();
+    this->createInstance();
     this->pickPhysicalDevice();
 }
 
@@ -96,6 +97,8 @@ void HelloTriangleApp::cleanup()
     }
 
     vkDestroyDevice(this->device, nullptr);
+
+    vkDestroySurfaceKHR(this->instance, this->surface, nullptr);
 
     vkDestroyInstance(this->instance, nullptr);
 
@@ -248,4 +251,11 @@ void HelloTriangleApp::pickPhysicalDevice()
 
     if (vkCreateDevice(this->physicalDevice, &createInfo, nullptr, &this->device) != VK_SUCCESS)
         throw std::runtime_error("Unable to create device object");
+}
+
+
+void HelloTriangleApp::createSurface()
+{
+    if (glfwCreateWindowSurface(this->instance, this->window, nullptr, &this->surface) != VK_SUCCESS)
+        throw std::runtime_error("Unable to create window surface");
 }

@@ -36,6 +36,8 @@ private:
 
     void pickPhysicalDevice();
 
+    void createSurface();
+
 private:
 
     static bool checkValidationLayerSupport();
@@ -51,6 +53,8 @@ private:
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
     VkDevice device;
+
+    VkSurfaceKHR surface;
 
 };
 
