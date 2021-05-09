@@ -8,9 +8,11 @@
 
 
 #include <kryne-engine/Rendering/RenderingProcess.hpp>
-#include <kryne-engine/Systems/LightingRegistrySystem.hpp>
 #include <kryne-engine/Camera/OrthographicProjectionData.hpp>
 #include <kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp>
+
+
+class LightingRegistrySystem;
 
 
 /**
@@ -47,7 +49,7 @@ protected:
 // Lighting system interactions
 // =================
 
-friend LightingRegistrySystem;
+friend class LightingRegistrySystem;
 
 protected:
 
@@ -59,5 +61,9 @@ protected:
 
 
 };
+
+
+
+#include <kryne-engine/Systems/LightingRegistrySystem.hpp>
 
 
