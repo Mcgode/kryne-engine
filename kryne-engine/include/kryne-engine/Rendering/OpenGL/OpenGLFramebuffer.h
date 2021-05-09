@@ -7,6 +7,9 @@
 #pragma once
 
 
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <kryne-engine/Rendering/Framebuffer.hpp>
 #include <kryne-engine/Core/GraphicContext/OpenGLContext.h>
 #include <kryne-engine/Textures/Texture2D.h>
@@ -61,4 +64,6 @@ protected:
 
 };
 
+
+#endif
 

@@ -344,9 +344,7 @@ void Process::processEntity(Entity *entity, LoopRenderer *renderer) const
 
 #else
 
-    auto meshes = ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
-    for (const auto mesh : meshes)
-        renderer->handleMesh(mesh);
+    ProcessCommon::PreRenderingFunction(entity, renderer, this->systemsByType);
 
     for (const auto child: entity->getTransform()->getChildren())
         this->processEntity(child->getEntity(), renderer);

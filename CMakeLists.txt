@@ -107,18 +107,18 @@ function(duplicateLibrary LIBRARY NEW_LIB_NAME)
     list(REMOVE_ITEM linkLibs
             originalLibrary
             )
-    target_link_libraries(${NEW_LIB_NAME} PRIVATE
+    target_link_libraries(${NEW_LIB_NAME} PUBLIC
             ${linkLibs}
             )
 
     if (compileOptions)
-        target_compile_options(${NEW_LIB_NAME} PRIVATE
+        target_compile_options(${NEW_LIB_NAME} PUBLIC
                 ${compileOptions}
                 )
     endif()
 
     if (compileDefinitions)
-        target_compile_definitions(${NEW_LIB_NAME} PRIVATE
+        target_compile_definitions(${NEW_LIB_NAME} PUBLIC
                 ${compileDefinitions}
                 )
     endif()

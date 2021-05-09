@@ -7,6 +7,10 @@
 #ifndef INC_KRYNE_ENGINE_RENDERINGSTATE_HPP
 #define INC_KRYNE_ENGINE_RENDERINGSTATE_HPP
 
+
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
@@ -247,6 +251,9 @@ protected:
     Framebuffer *currentFramebuffer;
 
 };
+
+
+#endif
 
 
 #endif //INC_KRYNE_ENGINE_RENDERINGSTATE_HPP

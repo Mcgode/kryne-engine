@@ -6,6 +6,10 @@
 
 #pragma once
 
+
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <memory>
 #include <unordered_set>
 
@@ -120,3 +124,6 @@ protected:
 
 
 #include <kryne-engine/Rendering/OpenGL/OpenGLRenderer.h>
+
+
+#endif

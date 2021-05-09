@@ -129,10 +129,19 @@ add_library(kryne-engine STATIC
         src/Rendering/Processes/ShadowMappingProcess.cpp include/kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp
         include/kryne-engine/Camera/OrthographicProjectionData.hpp src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp)
 
+# ------- Base Kryne Engine lib ---------
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_link_libraries(kryne-engine ${LIBS})
 
-
 duplicateLibrary(kryne-engine kryne-engine-st)
 target_compile_definitions(kryne-engine-st PUBLIC KRYNE_ENGINE_SINGLE_THREADED=1)
+
+
+# ------- OpenGL Kryne Engine --------
+
+duplicateLibrary(kryne-engine kryne-engine-gl)
+target_compile_definitions(kryne-engine-gl PUBLIC KRYNE_ENGINE_OPEN_GL)
+
+duplicateLibrary(kryne-engine-st kryne-engine-gl-st)
+target_compile_definitions(kryne-engine-gl-st PUBLIC KRYNE_ENGINE_OPEN_GL)

@@ -1,6 +1,6 @@
-add_executable(Basic
+add_executable(BasicGL
         Basic.cpp PerspectiveHelper.cpp PerspectiveHelper.hpp)
 
-target_link_libraries(Basic PRIVATE kryne-engine)
+target_link_libraries(BasicGL PRIVATE kryne-engine-gl)
 
-copyAssets(Basic)
+copyAssets(BasicGL)

@@ -6,6 +6,10 @@
 
 #pragma once
 
+
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <kryne-engine/Rendering/Framebuffer.hpp>
 
 
@@ -47,3 +51,6 @@ protected:
     RenderingState *state;
 
 };
+
+
+#endif

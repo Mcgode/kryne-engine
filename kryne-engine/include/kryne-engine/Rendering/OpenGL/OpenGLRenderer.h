@@ -7,6 +7,9 @@
 #pragma once
 
 
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <kryne-engine/Rendering/LoopRenderer.h>
 #include <kryne-engine/Geometry/PlaneBufferGeometry.h>
 
@@ -63,4 +66,6 @@ protected:
 
 };
 
+
+#endif
 
