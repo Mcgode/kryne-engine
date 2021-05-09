@@ -7,6 +7,7 @@
 #pragma once
 
 
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/mat4x4.hpp>
 #include <glm/gtx/norm.hpp>
 #include <glm/gtx/component_wise.hpp>
