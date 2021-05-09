@@ -5,7 +5,6 @@
  */
 
 #include <kryne-engine/Material/ShaderMaterial.hpp>
-#include <kryne-engine/Geometry/BoxBufferGeometry.h>
 #include <kryne-engine/Constants/CubeRenderMatrices.hpp>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
 
@@ -134,7 +133,10 @@ void OpenGLRenderer::renderScene(Scene *scene)
         process->render(this, this->meshesForFrame, this->frustumCulled);
     }
 
-    this->setTargetFramebuffer(this->writeFramebuffer.get());
+    this->setTargetFramebuffer(this->framePostProcessPasses.empty() ?
+                               this->screenFramebuffer.get() :
+                               this->writeFramebuffer.get());
+
     for (const auto &mesh : this->meshesForFrame)
     {
         this->renderMesh(mesh, this->mainCamera, nullptr);
