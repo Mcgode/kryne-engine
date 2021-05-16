@@ -237,13 +237,16 @@ protected:
 
 };
 
-#ifdef KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
 
-    #define assertIsMainThread() ""
+void inline assertIsMainThread()
+{
+#ifndef KRYNE_ENGINE_MAIN_THREAD_ASSERT_DISABLE
 
-#else
-
-    #define assertIsMainThread() assert(("This is not the main thread", Dispatcher::instance().main()->isCurrentThread()))
+    if (!Dispatcher::instance().main()->isCurrentThread())
+    {
+        throw std::runtime_error("This is not the main thread");
+    }
 
 #endif
+}
 
