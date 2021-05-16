@@ -4,6 +4,9 @@
  * @date 31/01/2021.
  */
 
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h>
 #include "kryne-engine/Core/GraphicContext/OpenGLContext.h"
 
@@ -180,3 +183,6 @@ unique_ptr<Framebuffer> OpenGLContext::makeFramebuffer(const ivec2 &size)
 {
     return make_unique<OpenGLFramebuffer>(this->renderingState.get(), size.x, size.y);
 }
+
+
+#endif

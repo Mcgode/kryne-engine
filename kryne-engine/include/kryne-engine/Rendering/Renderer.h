@@ -85,9 +85,6 @@ protected:
     /// The player input for this rendering window.
     shared_ptr<PlayerInput> playerInput;
 
-    /// The current rendering state
-    RenderingState renderingState;
-
 };
 
 

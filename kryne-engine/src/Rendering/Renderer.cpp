@@ -6,8 +6,7 @@
 
 Renderer::Renderer(uint16_t width, uint16_t height) :
         associatedWindow(make_unique<Window>(width, height)),
-        playerInput(PlayerInput::tryMakeInput(associatedWindow->getGlfwWindow())),
-        renderingState(ivec2(0), FrontSide, true)
+        playerInput(PlayerInput::tryMakeInput(associatedWindow->getGlfwWindow()))
 {}
 
 
@@ -44,14 +43,14 @@ void Renderer::renderObject(Transform *object, Camera *camera)
         // Since each object can have a different required state in this regard, it needs to be checked every single time.
         // No need to reset to a base state, since it will be updated dynamically, to fit the required state.
 
-        if (this->renderingState.getSide() != material->getSide())
-            renderingState.setSide(material->getSide());
-
-        if (renderingState.isDepthTestEnabled() != material->isDepthTest())
-            renderingState.setDepthTest(material->isDepthTest());
-
-        if (renderingState.isDepthWriteEnabled() != material->isWriteDepth())
-            renderingState.setDepthWrite(material->isWriteDepth());
+//        if (this->renderingState.getSide() != material->getSide())
+//            renderingState.setSide(material->getSide());
+//
+//        if (renderingState.isDepthTestEnabled() != material->isDepthTest())
+//            renderingState.setDepthTest(material->isDepthTest());
+//
+//        if (renderingState.isDepthWriteEnabled() != material->isWriteDepth())
+//            renderingState.setDepthWrite(material->isWriteDepth());
 
 
         // Renderer-level uniforms

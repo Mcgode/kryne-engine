@@ -4,6 +4,9 @@
  * @date 14/03/2021.
  */
 
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include "kryne-engine/Rendering/OpenGL/OpenGLFramebuffer.h"
 
 
@@ -111,3 +114,6 @@ shared_ptr<Texture> OpenGLFramebuffer::retrieveDepth()
         return this->depthStencilAttachment->texture;
     return nullptr;
 }
+
+
+#endif

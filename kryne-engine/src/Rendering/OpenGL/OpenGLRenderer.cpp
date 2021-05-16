@@ -4,6 +4,9 @@
  * @date 06/02/2021.
  */
 
+#ifdef KRYNE_ENGINE_OPEN_GL
+
+
 #include <kryne-engine/Material/ShaderMaterial.hpp>
 #include <kryne-engine/Constants/CubeRenderMatrices.hpp>
 #include "kryne-engine/Rendering/OpenGL/OpenGLRenderer.h"
@@ -290,3 +293,6 @@ void OpenGLRenderer::clearBuffer(bool color, bool depth, bool stencil)
 
     glClear(bits);
 }
+
+
+#endif
