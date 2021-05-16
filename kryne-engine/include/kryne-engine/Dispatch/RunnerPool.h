@@ -16,6 +16,8 @@ public:
 
     explicit RunnerPool(uint16_t threadCount);
 
+    virtual ~RunnerPool();
+
 private:
 
     mutex _poolMutex {};

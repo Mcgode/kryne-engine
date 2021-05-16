@@ -73,7 +73,7 @@ set(LIBS ${LIBS} ${Boost_LIBRARIES})
 function(copyAssetDir TARGET ASSET)
 
     if(${UNIX})
-        set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR}/${ASSET})
+        set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR} & exit 0)
     elseif(${WIN32})
         set(SYMLINK_COMMAND mklink /d ${CMAKE_CURRENT_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
     endif()
