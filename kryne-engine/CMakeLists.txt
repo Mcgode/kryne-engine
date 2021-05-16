@@ -127,7 +127,11 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Utils/DearImGui/CubeMapWidget.cpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.hpp
         include/kryne-engine/Rendering/RenderingProcess.hpp
         src/Rendering/Processes/ShadowMappingProcess.cpp include/kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp
-        include/kryne-engine/Camera/OrthographicProjectionData.hpp src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp include/kryne-engine/Vulkan/VulkanContext.cpp include/kryne-engine/Vulkan/VulkanContext.h)
+        include/kryne-engine/Camera/OrthographicProjectionData.hpp
+        src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp
+        include/kryne-engine/Vulkan/VulkanContext.cpp include/kryne-engine/Vulkan/VulkanContext.h
+        include/kryne-engine/Vulkan/VulkanRenderer.cpp include/kryne-engine/Vulkan/VulkanRenderer.h
+        )
 
 # ------- Base Kryne Engine lib ---------
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

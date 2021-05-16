@@ -11,7 +11,9 @@
 
 #include "../Core/GraphicContext/GraphicContext.h"
 
+
 class GLFWwindow;
+class VulkanRenderer;
 
 
 class VulkanContext : public GraphicContext
@@ -48,6 +50,8 @@ public:
 protected:
 
     GLFWwindow* m_window;
+
+    unique_ptr<VulkanRenderer> m_renderer;
 
 };
 

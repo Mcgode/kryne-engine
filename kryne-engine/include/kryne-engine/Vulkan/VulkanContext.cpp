@@ -7,6 +7,8 @@
 #ifdef KRYNE_ENGINE_VULKAN
 
 
+#include "VulkanRenderer.h"
+
 #include "VulkanContext.h"
 
 
@@ -18,6 +20,8 @@ VulkanContext::VulkanContext(const ivec2 &size)
     m_window = glfwCreateWindow(size.x, size.y, "Kryne Engine - Vulkan", nullptr, nullptr);
 
     glfwSetWindowUserPointer(m_window, this);
+
+//    m_renderer = make_unique<VulkanRenderer>();
 }
 
 
@@ -54,7 +58,7 @@ PlayerInput *VulkanContext::getPlayerInput()
 
 LoopRenderer *VulkanContext::getRenderer()
 {
-    return nullptr;
+    return m_renderer.get();
 }
 
 
