@@ -34,3 +34,10 @@ RunnerPool::RunnerPool(uint16_t threadCount): ThreadPool(threadCount, &this->_po
         );
     }
 }
+
+
+RunnerPool::~RunnerPool()
+{
+    // Call ahead of ThreadPool destructor, to prevent local conditional variable lock
+    this->destroyPool();
+}

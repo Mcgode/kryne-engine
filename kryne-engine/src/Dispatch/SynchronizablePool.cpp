@@ -8,7 +8,10 @@
 #include "kryne-engine/Dispatch/SynchronizablePool.h"
 
 
-SynchronizablePool::SynchronizablePool(uint16_t threadCount) : ThreadPool(threadCount, &this->_poolMutex, &this->_waitCondition, ThreadPool::internal())
+SynchronizablePool::SynchronizablePool(uint16_t threadCount) : ThreadPool(threadCount,
+                                                                          &this->_poolMutex,
+                                                                          &this->_waitCondition,
+                                                                          ThreadPool::internal())
 {
     // By default, all threads are running.
     this->runningThreads = this->threadCount;
@@ -85,4 +88,10 @@ void SynchronizablePool::overrideSynchronizeWait(condition_variable_any *newCond
 
     if (notifyAll)
         this->synchronizeWait->notify_all();
+}
+
+SynchronizablePool::~SynchronizablePool()
+{
+    // Call ahead of ThreadPool destructor, to prevent local conditional variable lock
+    this->destroyPool();
 }

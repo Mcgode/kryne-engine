@@ -14,6 +14,8 @@ class SynchronizablePool final: public ThreadPool {
 
 public:
 
+    ~SynchronizablePool() override;
+
     explicit SynchronizablePool(uint16_t threadCount);
 
     void synchronize();

@@ -15,8 +15,11 @@ ThreadPool::ThreadPool(uint16_t threadCount, mutex *mutex, condition_variable *c
 }
 
 
-ThreadPool::~ThreadPool()
+void ThreadPool::destroyPool()
 {
+    if (this->stop)
+        return;
+
     {
         scoped_lock<mutex> lock(*this->poolMutex);
         this->stop = true;
@@ -31,6 +34,12 @@ ThreadPool::~ThreadPool()
     }
 
     delete[] this->threads;
+}
+
+
+ThreadPool::~ThreadPool()
+{
+    this->destroyPool();
 }
 
 

@@ -20,6 +20,8 @@ public:
 
     virtual void swapQueues(queue<function<void()>> &swapQueue, bool allowNonEmpty) = 0;
 
+    virtual ~BasePool() = default;
+
 protected:
 
     queue<function<void()>> tasks {};
