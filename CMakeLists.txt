@@ -126,6 +126,9 @@ endfunction()
 
 
 # Set up Kryne Engine library
+
+set(VK_DEFINES KRYNE_ENGINE_VULKAN GLFW_INCLUDE_VULKAN)
+
 add_subdirectory(kryne-engine)
 
 

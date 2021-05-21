@@ -154,7 +154,7 @@ target_compile_definitions(kryne-engine-gl-st PUBLIC KRYNE_ENGINE_OPEN_GL)
 # ------- Vulkan Kryne Engine --------
 
 duplicateLibrary(kryne-engine kryne-engine-vk)
-target_compile_definitions(kryne-engine-vk PUBLIC KRYNE_ENGINE_VULKAN)
+target_compile_definitions(kryne-engine-vk PUBLIC ${VK_DEFINES})
 
 duplicateLibrary(kryne-engine-st kryne-engine-vk-st)
-target_compile_definitions(kryne-engine-vk-st PUBLIC KRYNE_ENGINE_VULKAN)
+target_compile_definitions(kryne-engine-vk-st PUBLIC ${VK_DEFINES})
