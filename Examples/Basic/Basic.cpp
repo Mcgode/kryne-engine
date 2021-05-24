@@ -22,13 +22,19 @@
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 #include <kryne-engine/UI/DearImGuiPerformanceMetrics.hpp>
 #include <kryne-engine/Geometry/TorusKnotBufferGeometry.hpp>
+#include <kryne-engine/Vulkan/VulkanContext.hpp>
 
 
 int main()
 {
     cout << "Is main thread: " << Dispatcher::instance().main()->isCurrentThread() << endl;
 
+#if defined(KRYNE_ENGINE_OPEN_GL)
     const auto context = new OpenGLContext();
+#elif defined(KRYNE_ENGINE_VULKAN)
+    const auto context = new VulkanContext();
+#endif
+
     const auto process = make_unique<Process>(context);
     const auto scene = process->makeScene();
     process->setCurrentScene(scene);
