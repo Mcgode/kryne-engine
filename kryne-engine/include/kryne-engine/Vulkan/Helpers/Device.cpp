@@ -16,6 +16,8 @@ Device::Device(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &
     m_physicalDevice(_physicalDevice), m_surface(_surface)
 {
     m_scSupportDetails = Device::querySwapChainDetails(m_physicalDevice, m_surface);
+
+    m_queueFamilyIndices = QueueFamilyIndices::findQueueFamilies(m_physicalDevice, m_surface);
 }
 
 

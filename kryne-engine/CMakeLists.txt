@@ -132,6 +132,7 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Vulkan/VulkanContext.cpp include/kryne-engine/Vulkan/VulkanContext.hpp
         include/kryne-engine/Vulkan/VulkanRenderer.cpp include/kryne-engine/Vulkan/VulkanRenderer.h
         include/kryne-engine/Vulkan/Helpers/Device.cpp include/kryne-engine/Vulkan/Helpers/Device.hpp
+        include/kryne-engine/Vulkan/Helpers/QueueIndices.hpp
         )
 
 # ------- Base Kryne Engine lib ---------

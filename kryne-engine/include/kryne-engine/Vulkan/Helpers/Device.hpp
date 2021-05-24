@@ -15,6 +15,17 @@
 namespace VulkanHelpers
 {
 
+    /// @brief KHR swap chain support details
+    struct SwapChainSupportDetails
+    {
+        vk::SurfaceCapabilitiesKHR m_capabilities {};
+
+        std::vector<vk::SurfaceFormatKHR> m_formats;
+
+        std::vector<vk::PresentModeKHR> m_presentModes;
+    };
+
+
     /**
      * @brief An interface for a Vulkan device object
      */
@@ -22,24 +33,17 @@ namespace VulkanHelpers
     {
     public:
 
-        /// @brief KHR swap chain support details
-        struct SwapChainSupportDetails
-        {
-            vk::SurfaceCapabilitiesKHR m_capabilities {};
+        /// @brief Retrieves the swap chain support details for this device.
+        [[nodiscard]] const SwapChainSupportDetails &getSwapChainSupportDetails() const { return m_scSupportDetails; }
 
-            std::vector<vk::SurfaceFormatKHR> m_formats;
-
-            std::vector<vk::PresentModeKHR> m_presentModes;
-        };
-
-    public:
-
-        [[nodiscard]] const SwapChainSupportDetails &getScSupportDetails() const { return m_scSupportDetails; }
+        /// @brief Retrieves the family queue indices selected for this device.
+        [[nodiscard]] const QueueFamilyIndices &getQueueFamilyIndices() const { return m_queueFamilyIndices; }
 
         /**
          * @brief Selects and initializes the best suited device
          *
          * @param _instance                  The Vulkan instance of this device.
+         * @param _surface                   The Vulkan screen surface to present to.
          * @param _requiredDeviceExtensions  The extensions required for the device to be suitable.
          *
          * @return The newly initialized device
@@ -49,9 +53,13 @@ namespace VulkanHelpers
 
     private:
 
+        /**
+         * @brief Initializes the device and finishes retrieval of device data
+         *
+         * @param _physicalDevice   The selected physical device.
+         * @param _surface          The screen surface to present to.
+         */
         Device(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &_surface);
-
-    private:
 
         /**
          * @brief Checks if a given device supports all the required extensions.
@@ -72,8 +80,6 @@ namespace VulkanHelpers
          */
         static SwapChainSupportDetails querySwapChainDetails(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &_surface);
 
-    private:
-
         /// The underlying physical device.
         vk::PhysicalDevice m_physicalDevice;
 
@@ -85,6 +91,9 @@ namespace VulkanHelpers
 
         /// Device swap chain support details.
         SwapChainSupportDetails m_scSupportDetails;
+
+        /// The indices of the queues.
+        QueueFamilyIndices m_queueFamilyIndices;
 
     };
 
