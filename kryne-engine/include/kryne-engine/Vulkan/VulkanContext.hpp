@@ -10,9 +10,9 @@
 
 
 #include "../Core/GraphicContext/GraphicContext.h"
+#include "Helpers/Device.hpp"
 
 
-class GLFWwindow;
 class VulkanRenderer;
 
 
@@ -49,9 +49,28 @@ public:
 
 protected:
 
+    void initInstance();
+
+protected:
+
     GLFWwindow* m_window;
 
     unique_ptr<VulkanRenderer> m_renderer;
+
+    vk::Instance m_instance;
+
+    vk::SurfaceKHR m_surface;
+
+    std::unique_ptr<VulkanHelpers::Device> m_device;
+
+protected:
+
+    /// The list of the extensions required to use a certain device
+    static inline std::vector<const char *> requiredDeviceExtensions() {
+        return {
+                VK_KHR_SWAPCHAIN_EXTENSION_NAME,
+        };
+    }
 
 };
 
