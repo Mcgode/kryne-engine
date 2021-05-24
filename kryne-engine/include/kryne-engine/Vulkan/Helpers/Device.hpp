@@ -48,8 +48,10 @@ namespace VulkanHelpers
          *
          * @return The newly initialized device
          */
-        static Device *selectDevice(const vk::Instance &_instance, const vk::SurfaceKHR &_surface,
-                                    const std::vector<const char *> &_requiredDeviceExtensions);
+        static Device *selectDevice(const vk::Instance &_instance,
+                                    const vk::SurfaceKHR &_surface,
+                                    const std::vector<const char *> &_requiredDeviceExtensions,
+                                    const std::vector<const char *> &_validationLayers);
 
     private:
 
@@ -61,7 +63,8 @@ namespace VulkanHelpers
          */
         Device(const vk::PhysicalDevice &_physicalDevice,
                const vk::SurfaceKHR &_surface,
-               const std::vector<const char *> &_requiredDeviceExtensions);
+               const std::vector<const char *> &_requiredDeviceExtensions,
+               const std::vector<const char *> &_validationLayers);
 
         /**
          * @brief Checks if a given device supports all the required extensions.

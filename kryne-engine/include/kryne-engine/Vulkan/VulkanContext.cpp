@@ -12,7 +12,7 @@
 #include "VulkanContext.hpp"
 
 
-VulkanContext::VulkanContext(const ivec2 &size)
+VulkanContext::VulkanContext(const ivec2 &size, bool useValidationLayers)
 {
     glfwInit();
 
@@ -31,8 +31,11 @@ VulkanContext::VulkanContext(const ivec2 &size)
         m_surface = surface;
     }
 
-    m_device = unique_ptr<VulkanHelpers::Device>(VulkanHelpers::Device::selectDevice(m_instance, m_surface,
-                                                                                     VulkanContext::requiredDeviceExtensions()));
+    auto* device = VulkanHelpers::Device::selectDevice(m_instance,
+                                                       m_surface,
+                                                       requiredDeviceExtensions(),
+                                                       validationLayers());
+    m_device = unique_ptr<VulkanHelpers::Device>(device);
 
 //    m_renderer = make_unique<VulkanRenderer>();
 }

@@ -14,7 +14,8 @@ using namespace VulkanHelpers;
 
 Device::Device(const vk::PhysicalDevice &_physicalDevice,
                const vk::SurfaceKHR &_surface,
-               const std::vector<const char *> &_requiredDeviceExtensions) :
+               const std::vector<const char *> &_requiredDeviceExtensions,
+               const std::vector<const char *> &_validationLayers) :
         m_physicalDevice(_physicalDevice), m_surface(_surface)
 {
     m_scSupportDetails = Device::querySwapChainDetails(m_physicalDevice, m_surface);
@@ -31,7 +32,7 @@ Device::Device(const vk::PhysicalDevice &_physicalDevice,
     }
 
     vk::DeviceCreateInfo createInfo({}, queueCreateInfos.size(), queueCreateInfos.data(),
-                                    0, nullptr,
+                                    _validationLayers.size(), _validationLayers.data(),
                                     _requiredDeviceExtensions.size(), _requiredDeviceExtensions.data(),
                                     nullptr);
 
@@ -41,7 +42,8 @@ Device::Device(const vk::PhysicalDevice &_physicalDevice,
 
 Device *Device::selectDevice(const vk::Instance &_instance,
                              const vk::SurfaceKHR &_surface,
-                             const std::vector<const char *> &_requiredDeviceExtensions)
+                             const std::vector<const char *> &_requiredDeviceExtensions,
+                             const std::vector<const char *> &_validationLayers)
 {
     std::vector<vk::PhysicalDevice> physicalDevices = _instance.enumeratePhysicalDevices();
 
@@ -89,7 +91,7 @@ Device *Device::selectDevice(const vk::Instance &_instance,
         throw std::runtime_error("No suitable device to pick from");
     }
 
-    auto device = new Device(*pickedDevice, _surface, <#initializer#>);
+    auto device = new Device(*pickedDevice, _surface, _requiredDeviceExtensions, _validationLayers);
 
     return device;
 }
