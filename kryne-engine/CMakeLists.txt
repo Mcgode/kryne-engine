@@ -131,6 +131,7 @@ add_library(kryne-engine STATIC
         src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp
         include/kryne-engine/Vulkan/VulkanContext.cpp include/kryne-engine/Vulkan/VulkanContext.h
         include/kryne-engine/Vulkan/VulkanRenderer.cpp include/kryne-engine/Vulkan/VulkanRenderer.h
+        include/kryne-engine/Vulkan/Helpers/Device.cpp include/kryne-engine/Vulkan/Helpers/Device.hpp
         )
 
 # ------- Base Kryne Engine lib ---------
