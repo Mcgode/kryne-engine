@@ -18,7 +18,7 @@ namespace VulkanHelpers
     /// @brief KHR swap chain support details
     struct SwapChainSupportDetails
     {
-        vk::SurfaceCapabilitiesKHR m_capabilities {};
+        vk::SurfaceCapabilitiesKHR m_capabilities{};
 
         std::vector<vk::SurfaceFormatKHR> m_formats;
 
@@ -59,7 +59,9 @@ namespace VulkanHelpers
          * @param _physicalDevice   The selected physical device.
          * @param _surface          The screen surface to present to.
          */
-        Device(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &_surface);
+        Device(const vk::PhysicalDevice &_physicalDevice,
+               const vk::SurfaceKHR &_surface,
+               const std::vector<const char *> &_requiredDeviceExtensions);
 
         /**
          * @brief Checks if a given device supports all the required extensions.
@@ -78,7 +80,8 @@ namespace VulkanHelpers
          * @param _physicalDevice   The physical device to retrieve the data for.
          * @param _surface          The surface which we'll render to.
          */
-        static SwapChainSupportDetails querySwapChainDetails(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &_surface);
+        static SwapChainSupportDetails querySwapChainDetails(const vk::PhysicalDevice &_physicalDevice,
+                                                             const vk::SurfaceKHR &_surface);
 
         /// The underlying physical device.
         vk::PhysicalDevice m_physicalDevice;

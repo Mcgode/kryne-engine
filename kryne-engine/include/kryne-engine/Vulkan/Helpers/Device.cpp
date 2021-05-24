@@ -12,16 +12,35 @@
 using namespace VulkanHelpers;
 
 
-Device::Device(const vk::PhysicalDevice &_physicalDevice, const vk::SurfaceKHR &_surface) :
-    m_physicalDevice(_physicalDevice), m_surface(_surface)
+Device::Device(const vk::PhysicalDevice &_physicalDevice,
+               const vk::SurfaceKHR &_surface,
+               const std::vector<const char *> &_requiredDeviceExtensions) :
+        m_physicalDevice(_physicalDevice), m_surface(_surface)
 {
     m_scSupportDetails = Device::querySwapChainDetails(m_physicalDevice, m_surface);
 
     m_queueFamilyIndices = QueueFamilyIndices::findQueueFamilies(m_physicalDevice, m_surface);
+
+    std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
+
+    for (const auto& queue : m_queueFamilyIndices.uniqueFamilies())
+    {
+        float priority = 1.f;
+        vk::DeviceQueueCreateInfo createInfo({}, queue, 1, &priority);
+        queueCreateInfos.push_back(createInfo);
+    }
+
+    vk::DeviceCreateInfo createInfo({}, queueCreateInfos.size(), queueCreateInfos.data(),
+                                    0, nullptr,
+                                    _requiredDeviceExtensions.size(), _requiredDeviceExtensions.data(),
+                                    nullptr);
+
+    m_device = m_physicalDevice.createDevice(createInfo);
 }
 
 
-Device *Device::selectDevice(const vk::Instance &_instance, const vk::SurfaceKHR &_surface,
+Device *Device::selectDevice(const vk::Instance &_instance,
+                             const vk::SurfaceKHR &_surface,
                              const std::vector<const char *> &_requiredDeviceExtensions)
 {
     std::vector<vk::PhysicalDevice> physicalDevices = _instance.enumeratePhysicalDevices();
@@ -52,7 +71,7 @@ Device *Device::selectDevice(const vk::Instance &_instance, const vk::SurfaceKHR
                 currentScore /= 2;
                 break;
             case vk::PhysicalDeviceType::eVirtualGpu:
-                currentScore = (currentScore * 3)  / 2;
+                currentScore = (currentScore * 3) / 2;
                 break;
             default:
                 break;
@@ -70,7 +89,7 @@ Device *Device::selectDevice(const vk::Instance &_instance, const vk::SurfaceKHR
         throw std::runtime_error("No suitable device to pick from");
     }
 
-    auto device = new Device(*pickedDevice, _surface);
+    auto device = new Device(*pickedDevice, _surface, <#initializer#>);
 
     return device;
 }
@@ -84,15 +103,17 @@ bool Device::checkRequiredExtensionsSupport(const vk::PhysicalDevice &_physicalD
     std::set<std::string> requiredExtensions(_requiredDeviceExtensions.begin(),
                                              _requiredDeviceExtensions.end());
 
-    for (const auto& extension : availableExtensions)
+    for (const auto &extension : availableExtensions)
+    {
         requiredExtensions.erase(extension.extensionName);
+    }
 
     return requiredExtensions.empty();
 }
 
 
-Device::SwapChainSupportDetails Device::querySwapChainDetails(const vk::PhysicalDevice &_physicalDevice,
-                                                              const vk::SurfaceKHR &_surface)
+SwapChainSupportDetails Device::querySwapChainDetails(const vk::PhysicalDevice &_physicalDevice,
+                                                      const vk::SurfaceKHR &_surface)
 {
     SwapChainSupportDetails details;
 
