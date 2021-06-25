@@ -7,6 +7,7 @@
 #ifdef KRYNE_ENGINE_VULKAN
 
 
+#include <iostream>
 #include "VulkanRenderer.h"
 
 #include "VulkanContext.hpp"
@@ -50,11 +51,16 @@ void VulkanContext::initInstance()
                                 VK_API_VERSION_1_1);
 
     auto extensions = vk::enumerateInstanceExtensionProperties();
+    for (const auto &extension : extensions)
+    {
+        std::cout << extension.extensionName << std::endl;
+    }
 
+    const vector<const char*> requiredExtensions = VulkanContext::requiredInstanceExtensions();
     vk::InstanceCreateInfo createInfo({}, &appInfo,
                                       0, nullptr,
-                                      VulkanContext::requiredDeviceExtensions().size(),
-                                      VulkanContext::requiredDeviceExtensions().data());
+                                      requiredExtensions.size(),
+                                      requiredExtensions.data());
 
     m_instance = vk::createInstance(createInfo);
 }
@@ -104,6 +110,24 @@ LoopRenderer *VulkanContext::getRenderer()
 unique_ptr<Framebuffer> VulkanContext::makeFramebuffer(const ivec2 &size)
 {
     return unique_ptr<Framebuffer>();
+}
+
+
+std::vector<const char *> VulkanContext::requiredInstanceExtensions()
+{
+    uint32_t glfwExtensionCount = 0;
+    const char** glfwExtensions;
+    glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+
+    std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
+
+#ifdef NDEBUG
+
+    extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+
+#endif
+
+    return extensions;
 }
 
 

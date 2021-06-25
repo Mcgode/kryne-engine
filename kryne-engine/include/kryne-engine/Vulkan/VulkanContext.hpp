@@ -78,6 +78,9 @@ protected:
 
 protected:
 
+    /// The list of the extensions required to create an instance
+    static std::vector<const char *> requiredInstanceExtensions();
+
     /// The list of the extensions required to use a certain device
     static inline std::vector<const char *> requiredDeviceExtensions()
     {
