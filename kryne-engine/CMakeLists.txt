@@ -160,3 +160,26 @@ target_compile_definitions(kryne-engine-vk PUBLIC ${VK_DEFINES})
 
 duplicateLibrary(kryne-engine-st kryne-engine-vk-st)
 target_compile_definitions(kryne-engine-vk-st PUBLIC ${VK_DEFINES})
+
+
+# ------ Helper functions ------
+
+function(linkKryneEngine PROJECT API)
+    if (API MATCHES GL)
+        set(LIB_DEFINES KRYNE_ENGINE_OPEN_GL)
+        set(LIB_NAME kryne-engine-gl)
+    elseif(API MATCHES VK)
+        set(LIB_DEFINES ${VK_DEFINES})
+        set(LIB_NAME kryne-engine-vk)
+    else()
+        message(FATAL_ERROR "Unknown API ${API}. Valid APIs are 'GL' and 'VK'")
+    endif()
+
+    target_link_libraries("${PROJECT}" PUBLIC ${LIB_NAME})
+    target_compile_definitions("${PROJECT}" PUBLIC ${LIB_DEFINES})
+
+    get_target_property(linkLibs ${PROJECT} LINK_LIBRARIES)
+    get_target_property(compileDefinitions ${PROJECT} COMPILE_DEFINITIONS)
+    message(STATUS "Project '${PROJECT}' linked libraries are ${linkLibs}")
+    message(STATUS "Project '${PROJECT}' defines are ${compileDefinitions}")
+endfunction()
