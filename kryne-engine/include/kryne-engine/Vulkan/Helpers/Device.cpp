@@ -48,7 +48,7 @@ Device *Device::selectDevice(const vk::Instance &_instance,
     std::vector<vk::PhysicalDevice> physicalDevices = _instance.enumeratePhysicalDevices();
 
     vk::PhysicalDevice *pickedDevice = nullptr;
-    uint32_t score = -1;
+    uint32_t score = 0;
 
     for (vk::PhysicalDevice &device: physicalDevices)
     {
