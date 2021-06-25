@@ -147,15 +147,15 @@ int main()
     auto pass = make_unique<ShaderPass>("FXAAPass", fxaaMaterial, PostProcessPass::Priority::Antialiasing);
     process->getGraphicContext()->getRenderer()->addPass(move(pass));
 
-    auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
-
-    dearImGui->getComponents().emplace_back(new DearImGuiSceneBrowser());
-    dearImGui->getComponents().emplace_back(new DearImGuiPerformanceMetrics());
-
-    dearImGui->getComponents().emplace_back(new DearImGuiPrototype([](Process *process)
-    {
-        ImGui::ShowDemoWindow();
-    }));
+//    auto dearImGui = dynamic_cast<DearImGui *>(process->getUIRenderers().emplace_back(new DearImGui(context->getWindow())));
+//
+//    dearImGui->getComponents().emplace_back(new DearImGuiSceneBrowser());
+//    dearImGui->getComponents().emplace_back(new DearImGuiPerformanceMetrics());
+//
+//    dearImGui->getComponents().emplace_back(new DearImGuiPrototype([](Process *process)
+//    {
+//        ImGui::ShowDemoWindow();
+//    }));
 
     while (!process->getGraphicContext()->shouldStop())
     {

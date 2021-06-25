@@ -5,8 +5,8 @@ set(BASIC_SOURCE_FILES
 add_executable(BasicGL ${BASIC_SOURCE_FILES})
 add_executable(BasicVK ${BASIC_SOURCE_FILES})
 
-target_link_libraries(BasicGL PRIVATE kryne-engine-gl)
-target_link_libraries(BasicVK PRIVATE kryne-engine-vk)
+linkKryneEngine(BasicGL GL)
+linkKryneEngine(BasicVK VK)
 
 copyAssets(BasicGL)
 copyAssets(BasicVK)
