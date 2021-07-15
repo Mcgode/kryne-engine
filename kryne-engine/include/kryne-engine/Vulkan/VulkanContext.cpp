@@ -4,9 +4,6 @@
  * @date 16/05/2021.
  */
 
-#ifdef KRYNE_ENGINE_VULKAN
-
-
 #include <iostream>
 #include "VulkanRenderer.h"
 
@@ -129,6 +126,3 @@ std::vector<const char *> VulkanContext::requiredInstanceExtensions()
 
     return extensions;
 }
-
-
-#endif

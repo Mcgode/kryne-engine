@@ -6,8 +6,6 @@
 
 #pragma once
 
-#ifdef KRYNE_ENGINE_VULKAN
-
 
 #include "../Core/GraphicContext/GraphicContext.h"
 #include "Helpers/Device.hpp"
@@ -98,5 +96,3 @@ protected:
     };
 
 };
-
-#endif
