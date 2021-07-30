@@ -10,6 +10,11 @@ if (UNIX)
 endif()
 
 
+add_subdirectory(external-libs)
+message(STATUS "EASTL set up: ${EASTL_INCLUDE_DIRS}")
+include_directories(${EASTL_INCLUDE_DIRS})
+
+
 # Set up GLFW3
 find_package(GLFW3 REQUIRED)
 message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
@@ -42,7 +47,7 @@ include_directories(external-libs/imgui)
 
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI)
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI "${EASTL_LIBRARY}")
 
 
 # Set up boost library
