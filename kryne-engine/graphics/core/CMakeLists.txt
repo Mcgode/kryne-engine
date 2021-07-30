@@ -1,4 +1,4 @@
 add_library(ke-graphics-core STATIC
-        GraphicsApi.hpp)
+        GraphicsApiContext.hpp Window.hpp)
 
 target_link_libraries(ke-graphics-core ${LIBS})
