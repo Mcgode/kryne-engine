@@ -1,3 +1,4 @@
+add_subdirectory(graphics/core)
 
 add_library(kryne-engine STATIC
         src/Material/Shader.cpp include/kryne-engine/Material/Shader.h
