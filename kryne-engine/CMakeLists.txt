@@ -1,3 +1,4 @@
+include_directories(common)
 include_directories(graphics)
 
 add_subdirectory(graphics/core)
