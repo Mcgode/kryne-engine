@@ -81,33 +81,66 @@ namespace KryneEngine
         struct Usage
         {
             /// When set to 1, the texture is expected to be used as an output color attachment
-            u16 m_renderTargetColorAttachment : 1;
+            u8 m_renderTargetColorAttachment : 1;
 
             /// When set to 1, the texture is expected to be used as an input+output color attachment (though no explicit read, aka sampling, is permitted)
-            u16 m_renderTargetBlendableColorAttachment : 1;
+            u8 m_renderTargetBlendableColorAttachment : 1;
 
             /// When set to 1, the texture is expected to be used as an input+output depth+stencil attachment (though no explicit read is permitted)
-            u16 m_renderTargetDepthStencilAttachment : 1;
+            u8 m_renderTargetDepthStencilAttachment : 1;
 
             /// When set to 1, the texture is expected to be sampled from.
-            u16 m_sampleImage: 1;
+            u8 m_sampleImage: 1;
 
             /// When set to 1, the texture is expected to be explicitly read and written to (used in compute shader).
-            u16 m_readWriteImage: 1;
+            u8 m_readWriteImage: 1;
 
             /// When set to 1, the texture is expected to be sampled with linear filtering.
-            u16 m_linearlyFiltered: 1;
+            u8 m_linearlyFiltered: 1;
         };
 
-        struct Info
+        /**
+         * @brief The specifications description of a texture.
+         */
+        struct Description
         {
             Types m_type { Types::None };
             Formats m_format { Formats::None };
             Usage m_usage {};
             glm::uvec3 m_size { 0 };
+            u8 mipCount { 0 };
         };
 
 
+        /// @brief Retrieves this texture's information, such as format or size.
+        [[nodiscard]] const Description& GetDescription() const { return m_description; }
+
+        /**
+         * @brief Updates the underlying texture access header (and potentially memory) to fit this new description.
+         *
+         * @param _newDescription   The new description for this texture.
+         */
+        virtual void UpdateDescription(const Description& _newDescription) = 0;
+
+    protected:
+
+        /**
+         * @brief A constructor for inheriting classes
+         *
+         * @param _createInfo               The image info used to create the texture
+         * @param _memoryAlreadyAllocated   Initializes the #m_hasAllocatedMemory
+         */
+        explicit Texture(const Description& _createInfo, bool _memoryAlreadyAllocated = false)
+            : m_textureInfo(_createInfo)
+            , m_hasAllocatedMemory(_memoryAlreadyAllocated)
+        {
+        }
+
+        /// Tracks whether this texture has some memory allocated.
+        bool m_hasAllocatedMemory;
+
+        /// The information used to create this texture.
+        Description m_description;
     };
 }
 
