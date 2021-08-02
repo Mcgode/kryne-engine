@@ -6,6 +6,10 @@
 
 #pragma once
 
+#include <EASTL/unique_ptr.h>
+#include <EASTL/vector.h>
+
+#include <Assert.hpp>
 #include <CommonTypes.hpp>
 
 namespace KryneEngine
@@ -111,6 +115,60 @@ namespace KryneEngine
             u8 mipCount { 0 };
         };
 
+        /**
+         * A memory helper for the APIs able to pass memory around
+         */
+        struct Memory
+        {
+            /// Stores whether this memory is an owner or lessee.
+            const bool m_isLessee;
+
+            /// Keeps track of the lessees, for memory tracking purposes
+            eastl::vector<Memory*> m_lessees {};
+
+            /// The original owner of this memory, if leased.
+            const Memory* m_owner = nullptr;
+
+            /// The texture using this memory.
+            Texture* m_textureUser = nullptr;
+
+            /// Allows the API to store an API-level memory handler, if the need arises
+            void* m_apiMemoryHandle = nullptr;
+
+        public:
+
+            /**
+             * @brief Creates an "owner" memory helper
+             *
+             * @param _apiHandle The underlying memory handle.
+             */
+            explicit Memory(void* _apiHandle): m_isLessee(false), m_apiMemoryHandle(_apiHandle) {}
+
+            /**
+             * @brief Instantiates a handle representing a lease of this memory.
+             */
+            [[nodiscard]] eastl::unique_ptr<Memory>&& Lease() const
+            {
+                Assert(!this->m_isLessee, "Only the owner can lease");
+                return eastl::move(eastl::unique_ptr<Memory>(new Memory(this)));
+            }
+
+        protected:
+
+            /**
+             * @brief Initializes a leased memory handle
+             *
+             * @param _owner    The original memory owner
+             */
+            explicit Memory(Memory* _owner)
+                : m_isLessee(true)
+                , m_owner(_owner)
+                , m_apiMemoryHandle(_owner->m_apiMemoryHandle)
+            {
+                _owner->m_lessees.push_back(this);
+            }
+        };
+
 
         /// @brief Retrieves this texture's information, such as format or size.
         [[nodiscard]] const Description& GetDescription() const { return m_description; }
@@ -122,22 +180,27 @@ namespace KryneEngine
          */
         virtual void UpdateDescription(const Description& _newDescription) = 0;
 
+        /**
+         * @brief Forces this texture to release its memory (thus discarding its memory helper)
+         */
+        virtual void FreeMemory() = 0;
+
     protected:
 
         /**
          * @brief A constructor for inheriting classes
          *
-         * @param _createInfo               The image info used to create the texture
-         * @param _memoryAlreadyAllocated   Initializes the #m_hasAllocatedMemory
+         * @param _createInfo     The image info used to create the texture
+         * @param _memoryHelper   The initial memory space helper of this texture. Can be null.
          */
-        explicit Texture(const Description& _createInfo, bool _memoryAlreadyAllocated = false)
+        explicit Texture(const Description& _createInfo, eastl::unique_ptr<Memory>&& _memoryHelper = nullptr)
             : m_textureInfo(_createInfo)
-            , m_hasAllocatedMemory(_memoryAlreadyAllocated)
+            , m_memory(_memoryHelper)
         {
         }
 
         /// Tracks whether this texture has some memory allocated.
-        bool m_hasAllocatedMemory;
+        eastl::unique_ptr<Memory> m_memory;
 
         /// The information used to create this texture.
         Description m_description;
