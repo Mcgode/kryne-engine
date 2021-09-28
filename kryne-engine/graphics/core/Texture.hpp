@@ -8,6 +8,8 @@
 
 #include <EASTL/unique_ptr.h>
 #include <EASTL/vector.h>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 
 #include <Assert.hpp>
 #include <CommonTypes.hpp>
@@ -16,6 +18,7 @@ namespace KryneEngine
 {
     class Texture
     {
+    public:
         /**
          * @brief The available texture formats
          */
@@ -71,6 +74,14 @@ namespace KryneEngine
             COUNT
         };
 
+        enum class Wrap
+        {
+            ClampToEdge = 0,    //!< Last pixel in that direction will be repeated infinitely
+            Repeat,             //!< Repeat by tiling. Can have hard edges
+            MirrorRepeat,       //!< Repeat, applying mirroring. Always matching edges
+            ClampToBorder       //!< Every outside pixel is the color of the border color
+        };
+
         /**
          * @brief A bitfield for the usages of this particular texture.
          *
@@ -111,8 +122,15 @@ namespace KryneEngine
             Types m_type { Types::None };
             Formats m_format { Formats::None };
             Usage m_usage {};
+            struct {
+                bool m_linearMinify = false;
+                bool m_linearMagnify = false;
+                bool m_linearMips = false;
+            } m_filtering;
+            glm::vec4 m_borderColor { 0 };
+            glm::vec<3, Wrap> m_wrapping;
             glm::uvec3 m_size { 0 };
-            u8 mipCount { 0 };
+            u8 m_mipCount { 0 };
         };
 
         /**
@@ -147,7 +165,7 @@ namespace KryneEngine
             /**
              * @brief Instantiates a handle representing a lease of this memory.
              */
-            [[nodiscard]] eastl::unique_ptr<Memory>&& Lease() const
+            [[nodiscard]] eastl::unique_ptr<Memory>&& Lease()
             {
                 Assert(!this->m_isLessee, "Only the owner can lease");
                 return eastl::move(eastl::unique_ptr<Memory>(new Memory(this)));
@@ -181,6 +199,11 @@ namespace KryneEngine
         virtual void UpdateDescription(const Description& _newDescription) = 0;
 
         /**
+         * @brief Forces this texture to acquire memory that it will own
+         */
+         virtual void AcquireMemory() = 0;
+
+        /**
          * @brief Forces this texture to release its memory (thus discarding its memory helper)
          */
         virtual void FreeMemory() = 0;
@@ -194,8 +217,8 @@ namespace KryneEngine
          * @param _memoryHelper   The initial memory space helper of this texture. Can be null.
          */
         explicit Texture(const Description& _createInfo, eastl::unique_ptr<Memory>&& _memoryHelper = nullptr)
-            : m_textureInfo(_createInfo)
-            , m_memory(_memoryHelper)
+            : m_description(_createInfo)
+            , m_memory(eastl::move(_memoryHelper))
         {
         }
 
