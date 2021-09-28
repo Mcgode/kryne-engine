@@ -1,4 +1,6 @@
 add_library(ke-graphics-gl STATIC
-        GlApiContext.cpp GlApiContext.hpp)
+        GlApiContext.cpp GlApiContext.hpp
+        GlTexture.cpp GlTexture.hpp
+        EnumConversions.hpp)
 
 target_link_libraries(ke-graphics-gl ke-graphics-core)
