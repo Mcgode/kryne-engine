@@ -9,6 +9,8 @@ if (UNIX)
     set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -ldl -lpthread")
 endif()
 
+include(./CMake/BuildSystem.cmake)
+
 
 add_subdirectory(external-libs)
 message(STATUS "EASTL set up: ${EASTL_INCLUDE_DIRS}")
@@ -36,10 +38,14 @@ include_directories(${ASSIMP_INCLUDE_DIR})
 # Set up GLAD library
 include_directories(external-libs/glad/include)
 add_library(glad STATIC external-libs/glad/src/glad.c)
+set_target_properties(glad PROPERTIES Type "External")
+SetTargetFlags(glad)
 
 # Set up stb_image library
 include_directories(external-libs/stb_image)
 add_library(stb_image STATIC external-libs/stb_image/stb_image.cpp)
+set_target_properties(stb_image PROPERTIES Type "External")
+SetTargetFlags(stb_image)
 
 # Set up Dear IMGUI lib
 add_subdirectory(external-libs/imgui)
