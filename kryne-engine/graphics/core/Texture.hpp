@@ -95,23 +95,23 @@ namespace KryneEngine
          */
         struct Usage
         {
-            /// When set to 1, the texture is expected to be used as an output color attachment
-            u8 m_renderTargetColorAttachment : 1;
+            /// When set to true, the texture is expected to be used as an output color attachment
+            bool m_renderTargetColorAttachment : 1;
 
-            /// When set to 1, the texture is expected to be used as an input+output color attachment (though no explicit read, aka sampling, is permitted)
-            u8 m_renderTargetBlendableColorAttachment : 1;
+            /// When set to true, the texture is expected to be used as an input+output color attachment (though no explicit read, aka sampling, is permitted)
+            bool m_renderTargetBlendableColorAttachment : 1;
 
-            /// When set to 1, the texture is expected to be used as an input+output depth+stencil attachment (though no explicit read is permitted)
-            u8 m_renderTargetDepthStencilAttachment : 1;
+            /// When set to true, the texture is expected to be used as an input+output depth+stencil attachment (though no explicit read is permitted)
+            bool m_renderTargetDepthStencilAttachment : 1;
 
-            /// When set to 1, the texture is expected to be sampled from.
-            u8 m_sampleImage: 1;
+            /// When set to true, the texture is expected to be sampled from.
+            bool m_sampleImage: 1;
 
-            /// When set to 1, the texture is expected to be explicitly read and written to (used in compute shader).
-            u8 m_readWriteImage: 1;
+            /// When set to true, the texture is expected to be explicitly read and written to (used in compute shader).
+            bool m_readWriteImage: 1;
 
-            /// When set to 1, the texture is expected to be sampled with linear filtering.
-            u8 m_linearlyFiltered: 1;
+            /// When set to true, the texture is expected to be sampled with linear filtering.
+            bool m_linearlyFiltered: 1;
         };
 
         /**
