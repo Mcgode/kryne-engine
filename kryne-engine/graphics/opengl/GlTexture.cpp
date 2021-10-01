@@ -46,7 +46,7 @@ namespace KryneEngine
         else
         {
             glTextureParameteri(m_glId, GL_TEXTURE_MIN_FILTER, m_description.m_filtering.m_linearMinify ? GL_LINEAR : GL_NEAREST);
-            glTextureParameteri(m_glId, GL_TEXTURE_MIN_FILTER, m_description.m_filtering.m_linearMagnify ? GL_LINEAR : GL_NEAREST);
+            glTextureParameteri(m_glId, GL_TEXTURE_MAG_FILTER, m_description.m_filtering.m_linearMagnify ? GL_LINEAR : GL_NEAREST);
         }
 
 #else
