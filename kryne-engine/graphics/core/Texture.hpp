@@ -11,8 +11,8 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
-#include <Assert.hpp>
-#include <CommonTypes.hpp>
+#include <common/Assert.hpp>
+#include <common/CommonTypes.hpp>
 
 namespace KryneEngine
 {

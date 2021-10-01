@@ -1,5 +1,4 @@
-include_directories(common)
-include_directories(graphics)
+include_directories(.)
 
 add_subdirectory(graphics/core)
 add_subdirectory(graphics/opengl)

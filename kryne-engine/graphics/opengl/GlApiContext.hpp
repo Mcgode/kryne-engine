@@ -5,7 +5,7 @@
  */
 
 #pragma once
-#include <core/GraphicsApiContext.hpp>
+#include <graphics/core/GraphicsApiContext.hpp>
 
 namespace KryneEngine
 {

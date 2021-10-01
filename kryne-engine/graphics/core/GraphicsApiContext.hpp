@@ -7,7 +7,7 @@
 #pragma once
 
 #include <EASTL/shared_ptr.h>
-#include <Assert.hpp>
+#include <common/Assert.hpp>
 #include "Window.hpp"
 #include "Texture.hpp"
 

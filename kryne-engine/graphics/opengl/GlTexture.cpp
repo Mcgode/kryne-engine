@@ -4,7 +4,7 @@
  * @date 02/08/2021.
  */
 
-#include <opengl/EnumConversions.hpp>
+#include <graphics/opengl/EnumConversions.hpp>
 
 #include "GlTexture.hpp"
 

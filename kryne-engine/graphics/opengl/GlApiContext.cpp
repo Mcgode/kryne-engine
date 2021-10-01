@@ -5,7 +5,7 @@
  */
 
 #include "GlApiContext.hpp"
-#include <opengl/GlTexture.hpp>
+#include <graphics/opengl/GlTexture.hpp>
 
 namespace KryneEngine
 {
