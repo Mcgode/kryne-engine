@@ -13,7 +13,6 @@ include(./CMake/BuildSystem.cmake)
 
 
 add_subdirectory(external-libs)
-message(STATUS "EASTL set up: ${EASTL_INCLUDE_DIRS}")
 include_directories(${EASTL_INCLUDE_DIRS})
 
 
@@ -53,7 +52,7 @@ include_directories(external-libs/imgui)
 
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI "${EASTL_LIBRARY}")
+set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI EASTL)
 
 
 # Set up boost library

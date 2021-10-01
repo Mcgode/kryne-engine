@@ -52,14 +52,16 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     message(ERROR "GNU flags not set up")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++
-    set(DebugCompileFlags "/Od /0b1 /MDd /D_DEBUG /Zi")
-    set(DebugLinkFlags "/debug /INCREMENTAL")
+    set(CommonCompileFlags /MDd /D_ITERATOR_DEBUG_LEVEL=0)
 
-    set(ReleaseCompileFlags "/O2 /0b2 /MDd /D_RELEASE /Zi")
-    set(ReleaseLinkFlags "/debug /INCREMENTAL")
+    set(DebugCompileFlags /Od /Ob1 /D_DEBUG /Zi ${CommonCompileFlags})
+    set(DebugLinkFlags /debug /INCREMENTAL)
 
-    set(FinalCompileFlags "/MD /O2 /0b3 /D NDEBUG")
-    set(FinalLinkFlags "/INCREMENTAL:NO")
+    set(ReleaseCompileFlags /O2 /Ob2 /D_DEBUG /Zi ${CommonCompileFlags})
+    set(ReleaseLinkFlags /debug /INCREMENTAL)
+
+    set(FinalCompileFlags /O2 /Ob3 /D NDEBUG ${CommonCompileFlags})
+    set(FinalLinkFlags /INCREMENTAL:NO)
 else()
     message(ERROR "Unknown compiler ${CMAKE_CXX_COMPILER_ID}")
 endif()

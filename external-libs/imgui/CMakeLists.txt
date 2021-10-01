@@ -16,4 +16,7 @@ add_library(DearIMGUI STATIC
         imstb_textedit.h
         imstb_truetype.h)
 
+set_property(TARGET DearIMGUI PROPERTY Type "External")
+SetTargetFlags(DearIMGUI)
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
