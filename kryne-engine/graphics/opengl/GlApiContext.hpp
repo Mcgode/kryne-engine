@@ -11,7 +11,8 @@ namespace KryneEngine
 {
     class GlApiContext: public GraphicsApiContext
     {
-
+    public:
+        eastl::shared_ptr<Texture> &&CreateTexture(const Texture::Description &_desc) override;
     };
 }
 

@@ -9,6 +9,7 @@
 #include <EASTL/shared_ptr.h>
 #include <Assert.hpp>
 #include "Window.hpp"
+#include "Texture.hpp"
 
 namespace KryneEngine
 {
@@ -52,6 +53,13 @@ namespace KryneEngine
 
         /// @brief Retrieves the current main window for this graphic context
         [[nodiscard]] virtual const Window& GetWindow() const = 0;
+
+
+        // =========================================
+        //  Textures
+        // =========================================
+
+        virtual eastl::shared_ptr<Texture>&& CreateTexture(const Texture::Description& _desc) = 0;
 
     private:
         /// The graphics API used on this thread. Initialized by #ThreadInit()
