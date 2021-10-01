@@ -8,11 +8,12 @@
 
 #include <EASTL/shared_ptr.h>
 #include <common/Assert.hpp>
-#include "Window.hpp"
-#include "Texture.hpp"
+#include <graphics/core/Texture.hpp>
 
 namespace KryneEngine
 {
+    class Window;
+
     class GraphicsApiContext
     {
     public:
@@ -51,14 +52,28 @@ namespace KryneEngine
             return *s_currentApi;
         }
 
+
+        // =========================================
+        //  Associated window
+        // =========================================
+
         /// @brief Retrieves the current main window for this graphic context
-        [[nodiscard]] virtual const Window& GetWindow() const = 0;
+        [[nodiscard]] Window* GetAssociatedWindow() const
+        {
+            return m_associatedWindow;
+        }
+
+    protected:
+        explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
+
+        Window* m_associatedWindow;
 
 
         // =========================================
         //  Textures
         // =========================================
 
+    public:
         virtual eastl::shared_ptr<Texture>&& CreateTexture(const Texture::Description& _desc) = 0;
 
     private:
