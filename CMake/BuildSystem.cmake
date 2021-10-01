@@ -46,10 +46,19 @@ add_definitions("-DGRAPHICS_API_${GraphicsApi}")
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     # using Clang
-    message(ERROR "Clang flags not set up")
+    message(FATAL_ERROR "Clang flags not set up")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # using GCC
-    message(ERROR "GNU flags not set up")
+    set(CommonCompileFlags "")
+
+    set(DebugCompileFlags -Og)
+    set(DebugLinkFlags "")
+
+    set(ReleaseCompileFlags -O1 -finline-small-functions)
+    set(ReleaseLinkFlags "")
+
+    set(FinalCompileFlags -O3)
+    set(FinalLinkFlags "")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++
     set(CommonCompileFlags /MDd /D_ITERATOR_DEBUG_LEVEL=0)
