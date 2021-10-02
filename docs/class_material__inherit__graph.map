@@ -1,9 +1,8 @@
 <map id="Material" name="Material">
-<area shape="rect" id="node1" title=" " alt="" coords="250,5,318,32"/>
-<area shape="rect" id="node2" href="$class_f_x_a_a_material.html" title="A FXAA shader material, for use in post process." alt="" coords="5,80,107,107"/>
-<area shape="rect" id="node3" href="$class_mesh_material_common.html" title=" " alt="" coords="131,80,283,107"/>
-<area shape="rect" id="node6" href="$class_shader_material.html" title="A wrapper material for directly using shaders." alt="" coords="307,80,416,107"/>
-<area shape="rect" id="node7" href="$class_texture_copy_material.html" title=" " alt="" coords="440,80,581,107"/>
-<area shape="rect" id="node4" href="$class_mesh_lambert_material.html" title=" " alt="" coords="47,155,193,181"/>
-<area shape="rect" id="node5" href="$class_mesh_standard_material.html" title=" " alt="" coords="217,155,369,181"/>
+<area shape="rect" id="node2" href="$class_f_x_a_a_material.html" title="A FXAA shader material, for use in post process. " alt="" coords="5,80,108,107"/>
+<area shape="rect" id="node3" href="$class_mesh_material_common.html" title="MeshMaterialCommon" alt="" coords="132,80,285,107"/>
+<area shape="rect" id="node6" href="$class_shader_material.html" title="A wrapper material for directly using shaders. " alt="" coords="310,80,419,107"/>
+<area shape="rect" id="node7" href="$class_texture_copy_material.html" title="TextureCopyMaterial" alt="" coords="444,80,587,107"/>
+<area shape="rect" id="node4" href="$class_mesh_lambert_material.html" title="MeshLambertMaterial" alt="" coords="49,155,195,181"/>
+<area shape="rect" id="node5" href="$class_mesh_standard_material.html" title="MeshStandardMaterial" alt="" coords="219,155,371,181"/>
 </map>

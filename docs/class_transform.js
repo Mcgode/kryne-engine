@@ -25,6 +25,7 @@ var class_transform =
     [ "setScene", "class_transform.html#a0c54fa70e0f0467753cd675ea2a5b2c6", null ],
     [ "setWorldMatrixNeedsUpdate", "class_transform.html#a43038c32d4e2ca5aa589e5b40d884d47", null ],
     [ "traverse", "class_transform.html#ac347ad73951c53a3df8a065cb418673f", null ],
+    [ "unsafeSetParent", "class_transform.html#ab391de4391ba4ff95ae1c683b61a3a39", null ],
     [ "updateParents", "class_transform.html#a1a6acc87d9a71ce0017898ba55b0951b", null ],
     [ "updateTransform", "class_transform.html#ae74e29748e59e117ecff0f7ef02556b8", null ],
     [ "Scene", "class_transform.html#a032858ae1fe02d2d1170981c2af2d67c", null ],

@@ -1,12 +1,3 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Dispatch/ThreadPool.h" name="kryne&#45;engine/include/kryne&#45;engine/Dispatch/ThreadPool.h">
-<area shape="rect" id="node1" title=" " alt="" coords="269,5,424,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,64,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="88,109,147,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="171,109,295,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="319,109,374,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="399,109,468,136"/>
-<area shape="rect" id="node7" title=" " alt="" coords="492,109,564,136"/>
-<area shape="rect" id="node8" href="$_base_pool_8h.html" title=" " alt="" coords="589,109,678,136"/>
-<area shape="rect" id="node9" title=" " alt="" coords="558,184,615,211"/>
-<area shape="rect" id="node10" title=" " alt="" coords="640,184,717,211"/>
+<area shape="rect" id="node8" href="$_base_pool_8h.html" title="BasePool.h" alt="" coords="591,109,681,136"/>
 </map>

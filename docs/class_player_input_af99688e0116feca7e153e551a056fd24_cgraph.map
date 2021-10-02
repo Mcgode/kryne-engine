@@ -1,4 +1,3 @@
 <map id="PlayerInput::handleTextInput" name="PlayerInput::handleTextInput">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,192,32"/>
-<area shape="rect" id="node2" href="$class_player_input.html#a41e31d5aa4a11ed2a3058e31210d5109" title="The map of GLFW windows to their associated PlayerInput instances." alt="" coords="240,5,388,32"/>
+<area shape="rect" id="node2" href="$class_player_input.html#a41e31d5aa4a11ed2a3058e31210d5109" title="The map of GLFW windows to their associated PlayerInput instances. " alt="" coords="243,5,392,32"/>
 </map>

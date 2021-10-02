@@ -1,7 +1,6 @@
 <map id="Light" name="Light">
-<area shape="rect" id="node1" title="An entity that will provide light to the scene." alt="" coords="159,80,209,107"/>
-<area shape="rect" id="node3" href="$class_ambient_light.html" title="A light that provides an ambient, indirect diffuse lighting." alt="" coords="5,155,104,181"/>
-<area shape="rect" id="node4" href="$class_directional_light.html" title="A direct light shining in a specific direction, with no distance attenuation." alt="" coords="129,155,239,181"/>
-<area shape="rect" id="node5" href="$class_hemisphere_light.html" title="An ambient light which color depends on the direction." alt="" coords="263,155,382,181"/>
-<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="156,5,212,32"/>
+<area shape="rect" id="node3" href="$class_ambient_light.html" title="A light that provides an ambient, indirect diffuse lighting. " alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$class_directional_light.html" title="A direct light shining in a specific direction, with no distance attenuation. " alt="" coords="128,155,240,181"/>
+<area shape="rect" id="node5" href="$class_hemisphere_light.html" title="An ambient light which color depends on the direction. " alt="" coords="264,155,384,181"/>
+<area shape="rect" id="node2" href="$class_entity.html" title="Entity" alt="" coords="156,5,212,32"/>
 </map>

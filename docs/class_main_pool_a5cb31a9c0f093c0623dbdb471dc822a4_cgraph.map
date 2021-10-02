@@ -1,6 +1,5 @@
 <map id="MainPool::synchronize" name="MainPool::synchronize">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,160,105"/>
-<area shape="rect" id="node2" href="$class_synchronizable_pool.html#a3cc0fd0538668c30c3e0ca4d3d56cbaa" title=" " alt="" coords="226,5,363,47"/>
-<area shape="rect" id="node3" href="$class_synchronizable_pool.html#a24cdb81a5d9f9b8756ce0db8748bd298" title=" " alt="" coords="208,71,381,112"/>
-<area shape="rect" id="node4" href="$class_synchronizable_pool.html#a3ed3e827c9ee87ea65ccae6e526be819" title=" " alt="" coords="226,136,363,177"/>
+<area shape="rect" id="node2" href="$class_synchronizable_pool.html#a24cdb81a5d9f9b8756ce0db8748bd298" title="SynchronizablePool\l::overrideSynchronizeWait" alt="" coords="208,5,383,47"/>
+<area shape="rect" id="node3" href="$class_synchronizable_pool.html#a3cc0fd0538668c30c3e0ca4d3d56cbaa" title="SynchronizablePool\l::getMutex" alt="" coords="227,71,364,112"/>
+<area shape="rect" id="node4" href="$class_synchronizable_pool.html#a3ed3e827c9ee87ea65ccae6e526be819" title="SynchronizablePool\l::trySynchronize" alt="" coords="227,136,364,177"/>
 </map>

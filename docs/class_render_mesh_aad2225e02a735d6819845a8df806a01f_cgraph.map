@@ -1,5 +1,4 @@
 <map id="RenderMesh::transformDidUpdate" name="RenderMesh::transformDidUpdate">
-<area shape="rect" id="node1" title="A function triggered every time the entity&#39;s transform is updated." alt="" coords="5,23,181,65"/>
-<area shape="rect" id="node2" href="$class_component.html#aa777424c254b15caa24221ce98e2f99b" title=" " alt="" coords="229,5,377,32"/>
-<area shape="rect" id="node3" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="234,56,373,83"/>
+<area shape="rect" id="node2" href="$class_component.html#aa777424c254b15caa24221ce98e2f99b" title="Component::getEntity" alt="" coords="232,5,381,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title="Entity::getTransform" alt="" coords="236,56,377,83"/>
 </map>

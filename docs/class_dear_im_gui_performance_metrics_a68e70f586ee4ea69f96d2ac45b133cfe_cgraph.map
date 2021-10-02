@@ -1,6 +1,6 @@
 <map id="DearImGuiPerformanceMetrics::renderComponent" name="DearImGuiPerformanceMetrics::renderComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,27,204,69"/>
-<area shape="rect" id="node2" href="$class_process.html#a583550c52f0929e8924fb7324ecc79b6" title="Retrieves the time data for the last frame." alt="" coords="252,5,465,32"/>
-<area shape="rect" id="node3" href="$class_dear_im_gui_performance_metrics.html#a456d891e3bae6bcf206fa6811ded31fc" title=" " alt="" coords="259,57,458,98"/>
-<area shape="rect" id="node4" href="$class_dear_im_gui_performance_metrics.html#adacad3b95ceb5bb750ba8c00acbb49e3" title=" " alt="" coords="513,57,712,98"/>
+<area shape="rect" id="node2" href="$class_process.html#a583550c52f0929e8924fb7324ecc79b6" title="Retrieves the time data for the last frame. " alt="" coords="256,5,471,32"/>
+<area shape="rect" id="node3" href="$class_dear_im_gui_performance_metrics.html#a456d891e3bae6bcf206fa6811ded31fc" title="DearImGuiPerformanceMetrics\l::pushTime" alt="" coords="262,57,465,98"/>
+<area shape="rect" id="node5" href="$class_dear_im_gui_performance_metrics.html#a289a12bff3059054e47078888b8da886" title="DearImGuiPerformanceMetrics\l::getPartString" alt="" coords="262,122,465,163"/>
+<area shape="rect" id="node4" href="$class_dear_im_gui_performance_metrics.html#adacad3b95ceb5bb750ba8c00acbb49e3" title="DearImGuiPerformanceMetrics\l::averageFrameTime" alt="" coords="519,57,721,98"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="DirectionalLight" name="DirectionalLight">
-<area shape="rect" id="node1" title="A direct light shining in a specific direction, with no distance attenuation." alt="" coords="5,155,116,181"/>
-<area shape="rect" id="node2" href="$class_light.html" title="An entity that will provide light to the scene." alt="" coords="35,80,86,107"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="33,5,89,32"/>
+<area shape="rect" id="node2" href="$class_light.html" title="An entity that will provide light to the scene. " alt="" coords="36,80,87,107"/>
+<area shape="rect" id="node3" href="$class_entity.html" title="Entity" alt="" coords="33,5,89,32"/>
 </map>

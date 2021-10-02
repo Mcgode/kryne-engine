@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quaternion_597',['quaternion',['../class_transform.html#a08d4916d513228933ca722369c315beb',1,'Transform']]]
+  ['quadrender',['quadRender',['../class_loop_renderer.html#ab68a8da65343c5a5a0ede95121a104c8',1,'LoopRenderer::quadRender()'],['../class_open_g_l_renderer.html#a610f9a8e304f97e30af3ddb8c466afda',1,'OpenGLRenderer::quadRender()']]],
+  ['quaternion',['quaternion',['../class_transform.html#a08d4916d513228933ca722369c315beb',1,'Transform']]]
 ];

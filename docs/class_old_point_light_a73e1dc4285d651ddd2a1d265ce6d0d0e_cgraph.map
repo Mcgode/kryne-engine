@@ -1,5 +1,4 @@
 <map id="OldPointLight::shaderSetArray" name="OldPointLight::shaderSetArray">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,172,47"/>
-<area shape="rect" id="node2" href="$class_old_point_light.html#a19826f40bea8f64cfaa5b4469862e356" title=" " alt="" coords="220,13,387,39"/>
-<area shape="rect" id="node3" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="435,13,568,39"/>
+<area shape="rect" id="node2" href="$class_old_point_light.html#a19826f40bea8f64cfaa5b4469862e356" title="OldPointLight::shaderSet" alt="" coords="220,13,387,39"/>
+<area shape="rect" id="node3" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title="Shader::setUniform" alt="" coords="435,13,569,39"/>
 </map>

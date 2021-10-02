@@ -7,6 +7,7 @@ var class_open_g_l_context =
     [ "getPlayerInput", "class_open_g_l_context.html#a3ff61f7cf253bb9710ba10c731a40e4a", null ],
     [ "getRenderer", "class_open_g_l_context.html#aba518ba041892e025fffb68a34952709", null ],
     [ "getWindow", "class_open_g_l_context.html#a9c4f2e0b8f51e1bfcafd7313ee308aad", null ],
+    [ "makeFramebuffer", "class_open_g_l_context.html#a4a79c0f1407e1c843128c13e5e26d6d1", null ],
     [ "runningContexts", "class_open_g_l_context.html#a0e507940d976e0bacfaf734ef177b3b7", null ],
     [ "shouldStop", "class_open_g_l_context.html#a863cfb07897a3ae3ae191f95a8b6658e", null ],
     [ "stop", "class_open_g_l_context.html#ab07d849711272bf6cccb4c780e0c4418", null ],

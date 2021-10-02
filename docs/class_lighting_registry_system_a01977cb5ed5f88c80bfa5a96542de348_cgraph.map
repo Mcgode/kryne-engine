@@ -1,7 +1,8 @@
 <map id="LightingRegistrySystem::loopReset" name="LightingRegistrySystem::loopReset">
-<area shape="rect" id="node1" title="A function that is called once, at the start of every loop." alt="" coords="5,74,165,115"/>
-<area shape="rect" id="node2" href="$class_system.html#a3947bdae71b0109e91890777ba08f197" title="Returns the process this system is attached to." alt="" coords="226,5,419,32"/>
-<area shape="rect" id="node3" href="$class_process.html#a628287fb8fb45eaf3b88174cd0593a6d" title=" " alt="" coords="229,56,416,83"/>
-<area shape="rect" id="node4" href="$class_graphic_context.html#ad894031ecb6889fe7e3c9b0019303a99" title=" " alt="" coords="227,107,418,133"/>
-<area shape="rect" id="node5" href="$class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276" title="Retrieves the current rendering mode." alt="" coords="213,157,432,184"/>
+<area shape="rect" id="node2" href="$class_system.html#a3947bdae71b0109e91890777ba08f197" title="Returns the process this system is attached to. " alt="" coords="228,31,421,57"/>
+<area shape="rect" id="node5" href="$class_process.html#a628287fb8fb45eaf3b88174cd0593a6d" title="Process::getGraphicContext" alt="" coords="231,81,418,108"/>
+<area shape="rect" id="node6" href="$class_graphic_context.html#ad894031ecb6889fe7e3c9b0019303a99" title="GraphicContext::getRenderer" alt="" coords="229,132,421,159"/>
+<area shape="rect" id="node7" href="$class_loop_renderer.html#a6d51d9de9051be022798d291b4a01276" title="Retrieves the current rendering mode. " alt="" coords="215,183,435,209"/>
+<area shape="rect" id="node3" href="$class_system.html#aa0ad481a9dc04d469dac5301ec25da51" title="Runs the system. " alt="" coords="483,5,621,32"/>
+<area shape="rect" id="node4" href="$class_system.html#a84db3700f11d9d7ecd6b90fd23c010c1" title="A function that is called once, at the start of every loop. " alt="" coords="485,56,619,83"/>
 </map>

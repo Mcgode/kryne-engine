@@ -4,7 +4,11 @@ var dir_bc207b629cecfa3c79a9cf5cbcc913a7 =
       [ "AmbientLight", "class_ambient_light.html", "class_ambient_light" ]
     ] ],
     [ "DirectionalLight.hpp", "_directional_light_8hpp.html", [
-      [ "DirectionalLight", "class_directional_light.html", "class_directional_light" ]
+      [ "DirectionalLight", "class_directional_light.html", "class_directional_light" ],
+      [ "ShadowMapData", "struct_directional_light_1_1_shadow_map_data.html", "struct_directional_light_1_1_shadow_map_data" ]
+    ] ],
+    [ "DirectionalLightShadowCameraComponent.hpp", "_directional_light_shadow_camera_component_8hpp.html", [
+      [ "DirectionalLightShadowCameraComponent", "class_directional_light_shadow_camera_component.html", "class_directional_light_shadow_camera_component" ]
     ] ],
     [ "HemisphereLight.hpp", "_hemisphere_light_8hpp.html", [
       [ "HemisphereLight", "class_hemisphere_light.html", "class_hemisphere_light" ]

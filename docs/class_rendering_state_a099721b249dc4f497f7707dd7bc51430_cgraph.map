@@ -1,9 +1,9 @@
 <map id="RenderingState::RenderingState" name="RenderingState::RenderingState">
-<area shape="rect" id="node1" title=" " alt="" coords="5,115,183,157"/>
-<area shape="rect" id="node2" href="$class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c" title=" " alt="" coords="239,5,435,32"/>
-<area shape="rect" id="node3" href="$class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319" title=" " alt="" coords="252,57,423,98"/>
-<area shape="rect" id="node4" href="$class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce" title=" " alt="" coords="256,123,419,149"/>
-<area shape="rect" id="node6" href="$class_rendering_state.html#aaf7f2db75f5670be4a4548819017e1b0" title=" " alt="" coords="231,173,444,200"/>
-<area shape="rect" id="node7" href="$class_rendering_state.html#aa8f6e2859a74c170b692f20686673e08" title=" " alt="" coords="244,225,431,266"/>
-<area shape="rect" id="node5" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title=" " alt="" coords="492,123,691,149"/>
+<area shape="rect" id="node2" href="$class_rendering_state.html#a5b8443bf44f6f109e6e83c35a31c804a" title="Updates the current rendered state. " alt="" coords="257,5,421,32"/>
+<area shape="rect" id="node4" href="$class_rendering_state.html#a145f5b8e39ad334de1cf64c5ffcc5e6f" title="Updates whether depth test is enabled. " alt="" coords="240,56,439,83"/>
+<area shape="rect" id="node5" href="$class_rendering_state.html#afc56354bb50e09b774a3f60e19c95d7f" title="Updates whether depth will be written. " alt="" coords="253,107,426,149"/>
+<area shape="rect" id="node6" href="$class_rendering_state.html#a2ae7628c82ce07ae62f0797fc8bd04a7" title="Updates the viewport rect size. " alt="" coords="232,173,447,200"/>
+<area shape="rect" id="node7" href="$class_rendering_state.html#aab18bee9ce065c0f39eb9d4a357fdffb" title="Updates the viewport upper corner. " alt="" coords="245,225,434,266"/>
+<area shape="rect" id="node8" href="$class_rendering_state.html#a56d5e2208c4e170835ea5b9702954c45" title="Toggles the scissoring test, and will update GL accordingly. " alt="" coords="248,291,431,317"/>
+<area shape="rect" id="node3" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title="Updates OpenGL face culling state. " alt="" coords="495,5,695,32"/>
 </map>

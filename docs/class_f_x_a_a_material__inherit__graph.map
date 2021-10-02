@@ -1,4 +1,3 @@
 <map id="FXAAMaterial" name="FXAAMaterial">
-<area shape="rect" id="node1" title="A FXAA shader material, for use in post process." alt="" coords="5,80,107,107"/>
-<area shape="rect" id="node2" href="$class_material.html" title=" " alt="" coords="22,5,90,32"/>
+<area shape="rect" id="node2" href="$class_material.html" title="Material" alt="" coords="23,5,91,32"/>
 </map>

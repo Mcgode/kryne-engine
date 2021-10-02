@@ -1,4 +1,3 @@
 <map id="OldDirectionalLight::shaderSet" name="OldDirectionalLight::shaderSet">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,136,47"/>
-<area shape="rect" id="node2" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="184,13,317,39"/>
+<area shape="rect" id="node2" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title="Shader::setUniform" alt="" coords="185,13,320,39"/>
 </map>

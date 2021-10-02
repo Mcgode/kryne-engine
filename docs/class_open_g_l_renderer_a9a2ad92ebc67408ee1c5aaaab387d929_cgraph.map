@@ -1,12 +1,12 @@
 <map id="OpenGLRenderer::textureRender" name="OpenGLRenderer::textureRender">
-<area shape="rect" id="node1" title="Renders a fullscreen texture." alt="" coords="5,183,216,209"/>
-<area shape="rect" id="node2" href="$class_material.html#af4d74b55f8be6fead4bbd3ee29a529df" title=" " alt="" coords="277,5,447,32"/>
-<area shape="rect" id="node3" href="$class_material.html#abc049ba673705c33f97a1effb16e8407" title=" " alt="" coords="295,56,429,83"/>
-<area shape="rect" id="node4" href="$class_material.html#a67459e974f4150ebd7c617c11a418e82" title=" " alt="" coords="282,107,442,133"/>
-<area shape="rect" id="node5" href="$class_material.html#a36a235f5948f6f0e5719a4bb636cf0de" title=" " alt="" coords="298,157,426,184"/>
-<area shape="rect" id="node6" href="$class_rendering_state.html#a018f7b1d53aec7938e1387c2002c526c" title=" " alt="" coords="264,208,460,235"/>
-<area shape="rect" id="node7" href="$class_rendering_state.html#a2febc5778dc60f6bd1f0cb2019b68319" title=" " alt="" coords="277,259,447,301"/>
-<area shape="rect" id="node8" href="$class_rendering_state.html#a0aad7ee74dfb460afea02d266a120fce" title=" " alt="" coords="281,325,443,352"/>
-<area shape="rect" id="node10" href="$class_shader.html#a4b326f5b184c138cd724da54b75d9123" title=" " alt="" coords="281,376,443,403"/>
-<area shape="rect" id="node9" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title=" " alt="" coords="508,325,707,352"/>
+<area shape="rect" id="node2" href="$class_open_g_l_renderer.html#aedeaf1eb85b8a75797aa0839e99a50a7" title="Resets special states that are usually disabled. " alt="" coords="267,5,468,47"/>
+<area shape="rect" id="node4" href="$class_rendering_state.html#a5b8443bf44f6f109e6e83c35a31c804a" title="Updates the current rendered state. " alt="" coords="285,71,449,98"/>
+<area shape="rect" id="node6" href="$class_rendering_state.html#a145f5b8e39ad334de1cf64c5ffcc5e6f" title="Updates whether depth test is enabled. " alt="" coords="268,122,467,149"/>
+<area shape="rect" id="node7" href="$class_rendering_state.html#afc56354bb50e09b774a3f60e19c95d7f" title="Updates whether depth will be written. " alt="" coords="281,173,454,215"/>
+<area shape="rect" id="node8" href="$class_material.html#a67459e974f4150ebd7c617c11a418e82" title="Prepares the shader before rendering. " alt="" coords="287,239,447,266"/>
+<area shape="rect" id="node10" href="$class_material.html#af4d74b55f8be6fead4bbd3ee29a529df" title="Material::getPrimitiveType" alt="" coords="280,290,455,317"/>
+<area shape="rect" id="node11" href="$class_material.html#a36a235f5948f6f0e5719a4bb636cf0de" title="Material::resetUse" alt="" coords="303,341,432,367"/>
+<area shape="rect" id="node3" href="$class_rendering_state.html#a56d5e2208c4e170835ea5b9702954c45" title="Toggles the scissoring test, and will update GL accordingly. " alt="" coords="525,13,707,39"/>
+<area shape="rect" id="node5" href="$class_rendering_state.html#aa4ff3c107d673ad86b3f38cd250e08b6" title="Updates OpenGL face culling state. " alt="" coords="516,71,716,98"/>
+<area shape="rect" id="node9" href="$class_material.html#a2d59067521bafbe68b220c7b505dd3a7" title="Method called just before uploading the uniforms. " alt="" coords="539,239,693,266"/>
 </map>

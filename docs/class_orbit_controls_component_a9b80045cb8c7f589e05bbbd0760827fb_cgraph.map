@@ -1,13 +1,12 @@
 <map id="OrbitControlsComponent::renderComponentDetails" name="OrbitControlsComponent::renderComponentDetails">
-<area shape="rect" id="node1" title="Renders custom GUI for component details." alt="" coords="5,107,177,149"/>
-<area shape="rect" id="node2" href="$class_transform.html#a6736c2cdad9752600479c0a926222efd" title=" " alt="" coords="231,5,383,32"/>
-<area shape="rect" id="node3" href="$class_component.html#a8cd5ee4645a0cbe620c1acef8118549b" title=" " alt="" coords="649,60,820,87"/>
-<area shape="rect" id="node5" href="$class_orbit_controls_component.html#aa87d7904483e91ed6b11eaca2486d7ad" title=" " alt="" coords="225,107,389,149"/>
-<area shape="rect" id="node6" href="$class_orbit_controls_component.html#aedf4dc7f005ffee67f71660dc0652354" title=" " alt="" coords="437,150,601,191"/>
-<area shape="rect" id="node11" href="$class_orbit_controls_component.html#ac8611a683dbd195df68c64940d622d57" title=" " alt="" coords="225,225,389,266"/>
-<area shape="rect" id="node4" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="883,60,1021,87"/>
-<area shape="rect" id="node7" href="$class_transform.html#a139e1092c8752834c80e4e67c207bb80" title=" " alt="" coords="673,124,797,151"/>
-<area shape="rect" id="node10" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title=" " alt="" coords="659,175,811,201"/>
-<area shape="rect" id="node8" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title=" " alt="" coords="875,119,1029,145"/>
-<area shape="rect" id="node9" href="$class_transform.html#af5791c2b5044fe3db559579c21feaec8" title=" " alt="" coords="868,169,1036,196"/>
+<area shape="rect" id="node2" href="$class_orbit_controls_component.html#aedf4dc7f005ffee67f71660dc0652354" title="OrbitControlsComponent\l::updatePosition" alt="" coords="443,95,609,137"/>
+<area shape="rect" id="node3" href="$class_component.html#a8cd5ee4645a0cbe620c1acef8118549b" title="Component::getTransform" alt="" coords="657,5,832,32"/>
+<area shape="rect" id="node9" href="$class_transform.html#a6736c2cdad9752600479c0a926222efd" title="Transform::getPosition" alt="" coords="234,85,389,112"/>
+<area shape="rect" id="node10" href="$class_orbit_controls_component.html#ac8611a683dbd195df68c64940d622d57" title="OrbitControlsComponent\l::setPosition" alt="" coords="228,137,395,178"/>
+<area shape="rect" id="node11" href="$class_orbit_controls_component.html#aa87d7904483e91ed6b11eaca2486d7ad" title="OrbitControlsComponent\l::setCenterPosition" alt="" coords="228,202,395,243"/>
+<area shape="rect" id="node5" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title="Transform::setPosition" alt="" coords="667,77,822,104"/>
+<area shape="rect" id="node6" href="$class_transform.html#a139e1092c8752834c80e4e67c207bb80" title="Transform::lookAt" alt="" coords="681,128,808,155"/>
+<area shape="rect" id="node4" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title="Entity::getTransform" alt="" coords="895,5,1036,32"/>
+<area shape="rect" id="node7" href="$class_transform.html#af5791c2b5044fe3db559579c21feaec8" title="Transform::setQuaternion" alt="" coords="880,103,1051,129"/>
+<area shape="rect" id="node8" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title="Math::getLookAtMatrix" alt="" coords="888,153,1043,180"/>
 </map>

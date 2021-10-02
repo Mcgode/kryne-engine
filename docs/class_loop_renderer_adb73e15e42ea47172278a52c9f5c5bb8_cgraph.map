@@ -1,6 +1,5 @@
 <map id="LoopRenderer::removePass" name="LoopRenderer::removePass">
-<area shape="rect" id="node1" title="Tries to remove a post process pass." alt="" coords="5,71,187,98"/>
-<area shape="rect" id="node2" href="$struct_utils_1_1_unique_ptr_vector.html#a4b8925e083f4af0c16c84b648f51e578" title=" " alt="" coords="249,5,400,47"/>
-<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html#a1be93fdaa02057cf59b1d79ffc60c629" title=" " alt="" coords="235,71,415,98"/>
-<area shape="rect" id="node4" href="$struct_utils_1_1_unique_ptr_vector.html#a2194fec96e7032b3b980c1dd529b700a" title="Erases a unique pointer from the vector." alt="" coords="249,123,400,164"/>
+<area shape="rect" id="node2" href="$struct_utils_1_1_unique_ptr_vector.html#a4b8925e083f4af0c16c84b648f51e578" title="Utils::UniquePtrVector\l::begin" alt="" coords="252,5,405,47"/>
+<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html#a1be93fdaa02057cf59b1d79ffc60c629" title="Utils::UniquePtrVector::end" alt="" coords="237,71,420,98"/>
+<area shape="rect" id="node4" href="$struct_utils_1_1_unique_ptr_vector.html#a2194fec96e7032b3b980c1dd529b700a" title="Erases a unique pointer from the vector. " alt="" coords="252,123,405,164"/>
 </map>

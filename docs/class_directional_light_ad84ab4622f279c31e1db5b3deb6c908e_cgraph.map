@@ -1,8 +1,11 @@
 <map id="DirectionalLight::renderEntityDetails" name="DirectionalLight::renderEntityDetails">
-<area shape="rect" id="node1" title="Renders custom GUI for entity details." alt="" coords="5,49,160,90"/>
-<area shape="rect" id="node2" href="$class_entity.html#a005c667fb89e01614ef68afd1de6483b" title="Renders custom GUI for entity details." alt="" coords="215,5,389,32"/>
-<area shape="rect" id="node3" href="$class_directional_light.html#aa543164e264a1f8e71a13924b83c136e" title="Changes the current light color." alt="" coords="219,56,385,83"/>
-<area shape="rect" id="node4" href="$class_directional_light.html#a708c6f30af1987e8196028a2dbc8b0c6" title="Changes the current light local direction, and updates the world direction accordingly." alt="" coords="208,107,396,133"/>
-<area shape="rect" id="node5" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title=" " alt="" coords="444,81,627,108"/>
-<area shape="rect" id="node6" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="466,132,605,159"/>
+<area shape="rect" id="node2" href="$class_entity.html#a005c667fb89e01614ef68afd1de6483b" title="Renders custom GUI for entity details. " alt="" coords="221,5,395,32"/>
+<area shape="rect" id="node3" href="$class_directional_light.html#aa543164e264a1f8e71a13924b83c136e" title="Changes the current light color. " alt="" coords="223,56,393,83"/>
+<area shape="rect" id="node4" href="$class_directional_light.html#a708c6f30af1987e8196028a2dbc8b0c6" title="Changes the current light local direction, and updates the world direction accordingly. " alt="" coords="213,107,403,133"/>
+<area shape="rect" id="node7" href="$class_directional_light.html#a6270452804767143816779f6c318f47f" title="Updates whether this light should cast shadows or not. " alt="" coords="225,158,391,199"/>
+<area shape="rect" id="node8" href="$class_directional_light.html#ac149b95f85be11a63a97474f2e4d4901" title="Updates the camera frustum far distance after which the shadows shouldn&#39;t be computed. " alt="" coords="227,223,389,265"/>
+<area shape="rect" id="node9" href="$class_directional_light.html#ae2b543524fd12ab53a1ddfaf301ff666" title="Updates the minimum depth of the shadow frustum. " alt="" coords="229,289,387,330"/>
+<area shape="rect" id="node10" href="$class_directional_light.html#a1b3b4c01e40865920071e46e73536b7d" title="Updates the amount of cascaded shadow maps for this light. " alt="" coords="209,354,407,395"/>
+<area shape="rect" id="node5" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title="Entity::getTransform" alt="" coords="477,81,618,108"/>
+<area shape="rect" id="node6" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title="Transform::getNormalMatrix" alt="" coords="455,132,640,159"/>
 </map>

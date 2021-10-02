@@ -1,4 +1,3 @@
 <map id="Component::getComponent" name="Component::getComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,185,32"/>
-<area shape="rect" id="node2" href="$class_entity.html#ab8e92ffeb5872f9db6c0b1ca58c3ba6e" title=" " alt="" coords="233,5,381,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#ab8e92ffeb5872f9db6c0b1ca58c3ba6e" title="Entity::getComponent" alt="" coords="236,5,385,32"/>
 </map>

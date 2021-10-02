@@ -1,6 +1,7 @@
 var class_f_x_a_a_material =
 [
     [ "FXAAMaterial", "class_f_x_a_a_material.html#aabd3b1285b9bb9f6b45d2e9ce94396af", null ],
+    [ "getDepthMaterial", "class_f_x_a_a_material.html#ab3d9c15ad5067fb6f7fdcb3c98bdaf79", null ],
     [ "getEdgeThreshold", "class_f_x_a_a_material.html#a45591e7d3e8d4a6fa04faaed381e61b0", null ],
     [ "getEdgeThresholdMin", "class_f_x_a_a_material.html#aa5d1ab28be0a79d8441f3344d7674732", null ],
     [ "getSubpixelQuality", "class_f_x_a_a_material.html#a71ca2943a3f42a5a56bbc8dd13dff3be", null ],

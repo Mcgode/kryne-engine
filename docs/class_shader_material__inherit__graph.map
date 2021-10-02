@@ -1,4 +1,3 @@
 <map id="ShaderMaterial" name="ShaderMaterial">
-<area shape="rect" id="node1" title="A wrapper material for directly using shaders." alt="" coords="5,80,115,107"/>
-<area shape="rect" id="node2" href="$class_material.html" title=" " alt="" coords="26,5,94,32"/>
+<area shape="rect" id="node2" href="$class_material.html" title="Material" alt="" coords="26,5,94,32"/>
 </map>

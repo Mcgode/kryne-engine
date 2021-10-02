@@ -1,4 +1,4 @@
 <map id="RenderScene::RenderScene" name="RenderScene::RenderScene">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,192,32"/>
-<area shape="rect" id="node2" href="$class_window.html#aee31a875d654a8c8f7d796d072657791" title=" " alt="" coords="240,5,368,32"/>
+<area shape="rect" id="node2" href="$class_window.html#aee31a875d654a8c8f7d796d072657791" title="Window::getWidth" alt="" coords="243,5,373,32"/>
+<area shape="rect" id="node3" href="$class_window.html#a60757b2b0dbcec9889e3a09f5655adbe" title="Window::getHeight" alt="" coords="241,56,375,83"/>
 </map>

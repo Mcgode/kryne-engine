@@ -1,52 +1,22 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/3DObjects/HierarchicalNode.h" name="kryne&#45;engine/include/kryne&#45;engine/3DObjects/HierarchicalNode.h">
-<area shape="rect" id="node1" title=" " alt="" coords="597,5,762,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="26,459,91,486"/>
-<area shape="rect" id="node3" href="$_old_render_pass_8h.html" title=" " alt="" coords="600,109,759,151"/>
-<area shape="rect" id="node11" href="$_additional_parameters_8h.html" title=" " alt="" coords="2214,459,2372,486"/>
-<area shape="rect" id="node21" href="$3_d_objects_2_base_object_8h.html" title=" " alt="" coords="716,199,878,240"/>
-<area shape="rect" id="node4" href="$_window_8h.html" title=" " alt="" coords="410,377,598,404"/>
-<area shape="rect" id="node5" title=" " alt="" coords="466,631,522,657"/>
-<area shape="rect" id="node6" title=" " alt="" coords="116,459,220,486"/>
-<area shape="rect" id="node7" title=" " alt="" coords="244,459,304,486"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1968,869,2040,896"/>
-<area shape="rect" id="node9" title=" " alt="" coords="817,549,902,575"/>
-<area shape="rect" id="node10" title=" " alt="" coords="926,549,1030,575"/>
-<area shape="rect" id="node15" href="$_old_camera_8h.html" title=" " alt="" coords="431,452,576,493"/>
-<area shape="rect" id="node12" title=" " alt="" coords="2190,549,2236,575"/>
-<area shape="rect" id="node13" title=" " alt="" coords="2098,549,2152,575"/>
-<area shape="rect" id="node14" title=" " alt="" coords="2272,549,2314,575"/>
-<area shape="rect" id="node16" title=" " alt="" coords="462,549,532,575"/>
-<area shape="rect" id="node17" title=" " alt="" coords="556,549,620,575"/>
-<area shape="rect" id="node18" title=" " alt="" coords="644,549,742,575"/>
-<area shape="rect" id="node19" title=" " alt="" coords="57,549,172,575"/>
-<area shape="rect" id="node20" title=" " alt="" coords="247,549,438,575"/>
-<area shape="rect" id="node22" title=" " alt="" coords="594,295,709,322"/>
-<area shape="rect" id="node23" href="$_shader_8h.html" title=" " alt="" coords="1426,288,1573,329"/>
-<area shape="rect" id="node49" href="$_vertex_array_8h.html" title=" " alt="" coords="600,452,770,493"/>
-<area shape="rect" id="node50" href="$enums_2_base_object_8h.html" title=" " alt="" coords="834,288,973,329"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1246,377,1316,404"/>
-<area shape="rect" id="node25" href="$_dispatcher_8h.html" title=" " alt="" coords="1764,541,1915,583"/>
-<area shape="rect" id="node35" href="$_uniforms_handler_8h.html" title=" " alt="" coords="1340,377,1468,404"/>
-<area shape="rect" id="node44" href="$_shader_chunk_8h.html" title=" " alt="" coords="1915,377,2026,404"/>
-<area shape="rect" id="node26" href="$_synchronizable_pool_8h.html" title=" " alt="" coords="1700,705,1848,732"/>
-<area shape="rect" id="node32" href="$_runner_pool_8h.html" title=" " alt="" coords="1576,705,1676,732"/>
-<area shape="rect" id="node33" href="$_main_pool_8h.html" title=" " alt="" coords="1812,631,1899,657"/>
-<area shape="rect" id="node27" href="$_thread_pool_8h.html" title=" " alt="" coords="1660,787,1758,814"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1588,869,1646,896"/>
-<area shape="rect" id="node29" title=" " alt="" coords="1820,869,1878,896"/>
-<area shape="rect" id="node30" title=" " alt="" coords="1671,869,1795,896"/>
-<area shape="rect" id="node31" title=" " alt="" coords="1508,869,1563,896"/>
-<area shape="rect" id="node34" href="$_multithreading_8hpp.html" title=" " alt="" coords="1783,780,1915,821"/>
-<area shape="rect" id="node36" title=" " alt="" coords="1686,459,1796,486"/>
-<area shape="rect" id="node37" title=" " alt="" coords="1098,459,1240,486"/>
-<area shape="rect" id="node38" title=" " alt="" coords="1264,459,1384,486"/>
-<area shape="rect" id="node39" href="$_texture_8h.html" title=" " alt="" coords="1408,452,1559,493"/>
-<area shape="rect" id="node40" title=" " alt="" coords="1488,549,1581,575"/>
-<area shape="rect" id="node41" title=" " alt="" coords="1178,549,1320,575"/>
-<area shape="rect" id="node42" title=" " alt="" coords="1344,549,1463,575"/>
-<area shape="rect" id="node43" title=" " alt="" coords="1054,549,1153,575"/>
-<area shape="rect" id="node45" title=" " alt="" coords="2023,459,2088,486"/>
-<area shape="rect" id="node46" href="$kryne-engine_2_utils_2_utils_8h.html" title=" " alt="" coords="1820,452,1947,493"/>
-<area shape="rect" id="node47" href="$_string_utils_8hpp.html" title=" " alt="" coords="2041,787,2148,814"/>
-<area shape="rect" id="node48" href="$_vector_mapping_8hpp.html" title=" " alt="" coords="1606,549,1740,575"/>
+<area shape="rect" id="node3" href="$_old_render_pass_8h.html" title="kryne&#45;engine/Rendering\l/OldRenderPass.h" alt="" coords="602,109,760,151"/>
+<area shape="rect" id="node11" href="$_additional_parameters_8h.html" title="AdditionalParameters.h" alt="" coords="2218,459,2376,486"/>
+<area shape="rect" id="node21" href="$3_d_objects_2_base_object_8h.html" title="kryne&#45;engine/3DObjects\l/BaseObject.h" alt="" coords="717,199,880,240"/>
+<area shape="rect" id="node4" href="$_window_8h.html" title="kryne&#45;engine/Core/Window.h" alt="" coords="408,377,599,404"/>
+<area shape="rect" id="node15" href="$_old_camera_8h.html" title="kryne&#45;engine/Camera\l/OldCamera.h" alt="" coords="430,452,577,493"/>
+<area shape="rect" id="node23" href="$_shader_8h.html" title="kryne&#45;engine/Material\l/Shader.h" alt="" coords="1432,288,1578,329"/>
+<area shape="rect" id="node49" href="$_vertex_array_8h.html" title="kryne&#45;engine/Core/Vertex\lArray.h" alt="" coords="601,452,772,493"/>
+<area shape="rect" id="node50" href="$enums_2_base_object_8h.html" title="kryne&#45;engine/enums\l/BaseObject.h" alt="" coords="836,288,974,329"/>
+<area shape="rect" id="node25" href="$_dispatcher_8h.html" title="kryne&#45;engine/Dispatch\l/Dispatcher.h" alt="" coords="1772,541,1924,583"/>
+<area shape="rect" id="node35" href="$_uniforms_handler_8h.html" title="UniformsHandler.h" alt="" coords="1342,377,1473,404"/>
+<area shape="rect" id="node44" href="$_shader_chunk_8h.html" title="ShaderChunk.h" alt="" coords="1918,377,2030,404"/>
+<area shape="rect" id="node26" href="$_synchronizable_pool_8h.html" title="SynchronizablePool.h" alt="" coords="1619,713,1767,739"/>
+<area shape="rect" id="node32" href="$_runner_pool_8h.html" title="RunnerPool.h" alt="" coords="1493,713,1594,739"/>
+<area shape="rect" id="node33" href="$_main_pool_8h.html" title="MainPool.h" alt="" coords="1804,631,1891,657"/>
+<area shape="rect" id="node27" href="$_thread_pool_8h.html" title="ThreadPool.h" alt="" coords="1644,795,1742,821"/>
+<area shape="rect" id="node34" href="$_multithreading_8hpp.html" title="kryne&#45;engine/Utils\l/Multithreading.hpp" alt="" coords="1791,705,1923,747"/>
+<area shape="rect" id="node39" href="$_texture_8h.html" title="kryne&#45;engine/Textures\l/Texture.h" alt="" coords="1412,452,1563,493"/>
+<area shape="rect" id="node46" href="$kryne-engine_2_utils_2_utils_8h.html" title="kryne&#45;engine/Utils\l/Utils.h" alt="" coords="1824,452,1951,493"/>
+<area shape="rect" id="node47" href="$_string_utils_8hpp.html" title="StringUtils.hpp" alt="" coords="2050,795,2158,821"/>
+<area shape="rect" id="node48" href="$_vector_mapping_8hpp.html" title="VectorMapping.hpp" alt="" coords="1612,549,1747,575"/>
 </map>

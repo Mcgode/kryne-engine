@@ -1,4 +1,3 @@
 <map id="FirstPersonCamera" name="FirstPersonCamera">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node2" href="$class_old_camera.html" title=" " alt="" coords="29,5,116,32"/>
+<area shape="rect" id="node2" href="$class_old_camera.html" title="OldCamera" alt="" coords="29,5,117,32"/>
 </map>

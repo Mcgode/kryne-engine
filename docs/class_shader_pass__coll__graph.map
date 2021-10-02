@@ -1,12 +1,5 @@
 <map id="ShaderPass" name="ShaderPass">
-<area shape="rect" id="node1" title=" " alt="" coords="991,53,1084,79"/>
-<area shape="rect" id="node2" href="$class_post_process_pass.html" title=" " alt="" coords="739,27,866,54"/>
-<area shape="rect" id="node3" title="STL class." alt="" coords="548,21,628,47"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="278,5,405,47"/>
-<area shape="rect" id="node5" title=" " alt="" coords="713,78,892,105"/>
-<area shape="rect" id="node6" href="$class_material.html" title=" " alt="" coords="554,78,622,105"/>
-<area shape="rect" id="node7" title=" " alt="" coords="236,71,447,112"/>
-<area shape="rect" id="node8" href="$class_shader_program_compiler.html" title=" " alt="" coords="5,78,168,105"/>
-<area shape="rect" id="node9" title=" " alt="" coords="255,137,428,163"/>
-<area shape="rect" id="node10" href="$class_shader.html" title=" " alt="" coords="55,137,118,163"/>
+<area shape="rect" id="node2" href="$class_post_process_pass.html" title="PostProcessPass" alt="" coords="5,185,132,212"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="29,96,109,123"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,5,132,47"/>
 </map>

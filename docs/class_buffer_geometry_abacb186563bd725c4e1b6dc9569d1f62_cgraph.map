@@ -1,8 +1,9 @@
 <map id="BufferGeometry::setAttribute" name="BufferGeometry::setAttribute">
-<area shape="rect" id="node1" title="Sets the value of a buffer attribute." alt="" coords="5,130,192,157"/>
-<area shape="rect" id="node2" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="240,5,464,47"/>
-<area shape="rect" id="node3" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title=" " alt="" coords="261,71,443,98"/>
-<area shape="rect" id="node4" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title=" " alt="" coords="261,123,443,164"/>
-<area shape="rect" id="node5" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="512,159,740,186"/>
-<area shape="rect" id="node6" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title=" " alt="" coords="253,239,451,266"/>
+<area shape="rect" id="node2" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title="BufferAttribute::getItemSize" alt="" coords="264,5,448,32"/>
+<area shape="rect" id="node3" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title="BufferGeometry::recompute\lLocations" alt="" coords="265,57,447,98"/>
+<area shape="rect" id="node4" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title="BufferGeometry::updateLayoutCode" alt="" coords="517,79,748,105"/>
+<area shape="rect" id="node5" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute..." alt="" coords="243,174,469,215"/>
+<area shape="rect" id="node8" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title="BufferGeometry::updateLength" alt="" coords="256,240,456,267"/>
+<area shape="rect" id="node6" href="$struct_math_1_1_axis_aligned_box.html#a960dadca7e0db8ed4a968e9efee2f213" title="Expands the box to encompass the provided point. " alt="" coords="557,159,708,201"/>
+<area shape="rect" id="node7" href="$struct_math_1_1_sphere.html#a1a69aec042ed437b845c280c454e6999" title="Updates the sphere parameters to bound the provided box. " alt="" coords="554,225,711,252"/>
 </map>

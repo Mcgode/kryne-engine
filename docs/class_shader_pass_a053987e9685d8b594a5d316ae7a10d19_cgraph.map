@@ -1,6 +1,6 @@
 <map id="ShaderPass::processPass" name="ShaderPass::processPass">
-<area shape="rect" id="node1" title=" " alt="" coords="5,64,183,91"/>
-<area shape="rect" id="node2" href="$class_framebuffer.html#a96ab84779d940e1cdb1665b18cce3597" title=" " alt="" coords="241,5,411,32"/>
-<area shape="rect" id="node3" href="$class_framebuffer.html#a74b29244d3db24a8193d6c56932565ad" title=" " alt="" coords="239,57,413,98"/>
-<area shape="rect" id="node4" href="$class_loop_renderer.html#a58a60d6f45c1ff2e41f8d62141dfea09" title="Renders a fullscreen texture." alt="" coords="231,123,421,149"/>
+<area shape="rect" id="node2" href="$class_framebuffer.html#a96ab84779d940e1cdb1665b18cce3597" title="Framebuffer::retrieveColor" alt="" coords="261,5,436,32"/>
+<area shape="rect" id="node3" href="$class_loop_renderer.html#a250e7072f1c5711ff29a0f6ad33faff6" title="Sets the provided framebuffer as the new render target. " alt="" coords="231,56,467,83"/>
+<area shape="rect" id="node4" href="$class_loop_renderer.html#a5e36d3db3bbb99e32299d8588128887e" title="Clears the current framebuffer. " alt="" coords="261,107,436,133"/>
+<area shape="rect" id="node5" href="$class_loop_renderer.html#a58a60d6f45c1ff2e41f8d62141dfea09" title="Renders a fullscreen texture. " alt="" coords="252,157,445,184"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="Texture" name="Texture">
-<area shape="rect" id="node1" title=" " alt="" coords="76,5,141,32"/>
-<area shape="rect" id="node2" href="$class_cube_texture.html" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" id="node3" href="$class_texture2_d.html" title=" " alt="" coords="124,80,205,107"/>
+<area shape="rect" id="node2" href="$class_cube_texture.html" title="CubeTexture" alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="$class_texture2_d.html" title="Texture2D" alt="" coords="127,80,210,107"/>
 </map>

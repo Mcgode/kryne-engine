@@ -1,5 +1,4 @@
 <map id="Transform::lookAt" name="Transform::lookAt">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,129,57"/>
-<area shape="rect" id="node2" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title=" " alt="" coords="184,5,339,32"/>
-<area shape="rect" id="node3" href="$class_transform.html#af5791c2b5044fe3db559579c21feaec8" title=" " alt="" coords="177,56,345,83"/>
+<area shape="rect" id="node2" href="$class_transform.html#af5791c2b5044fe3db559579c21feaec8" title="Transform::setQuaternion" alt="" coords="180,5,351,32"/>
+<area shape="rect" id="node3" href="$namespace_math.html#a87c8d0d2ba07b4b77a50b452d52a933e" title="Math::getLookAtMatrix" alt="" coords="188,56,343,83"/>
 </map>

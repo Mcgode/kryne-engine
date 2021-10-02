@@ -1,8 +1,3 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Core/GeometricShapes.h" name="kryne&#45;engine/include/kryne&#45;engine/Core/GeometricShapes.h">
-<area shape="rect" id="node1" title=" " alt="" coords="120,5,315,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,117,61,143"/>
-<area shape="rect" id="node3" title=" " alt="" coords="85,117,144,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="168,117,267,143"/>
-<area shape="rect" id="node5" title=" " alt="" coords="291,117,389,143"/>
-<area shape="rect" id="node6" href="$_cube_vertex_data_8h.html" title=" " alt="" coords="414,109,573,151"/>
+<area shape="rect" id="node6" href="$_cube_vertex_data_8h.html" title="kryne&#45;engine/Constants\l/CubeVertexData.h" alt="" coords="419,109,579,151"/>
 </map>

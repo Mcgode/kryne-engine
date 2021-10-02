@@ -1,6 +1,5 @@
 <map id="DearImGuiComponent" name="DearImGuiComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="223,5,373,32"/>
-<area shape="rect" id="node2" href="$class_dear_im_gui_performance_metrics.html" title=" " alt="" coords="5,80,204,107"/>
-<area shape="rect" id="node3" href="$class_dear_im_gui_prototype.html" title="A UI renderer for the DearIMGUI API, with a customizable defineGUI() function using the functor." alt="" coords="229,80,367,107"/>
-<area shape="rect" id="node4" href="$class_dear_im_gui_scene_browser.html" title=" " alt="" coords="392,80,559,107"/>
+<area shape="rect" id="node2" href="$class_dear_im_gui_performance_metrics.html" title="DearImGuiPerformanceMetrics" alt="" coords="5,80,208,107"/>
+<area shape="rect" id="node3" href="$class_dear_im_gui_prototype.html" title="A UI renderer for the DearIMGUI API, with a customizable defineGUI() function using the functor..." alt="" coords="232,80,373,107"/>
+<area shape="rect" id="node4" href="$class_dear_im_gui_scene_browser.html" title="DearImGuiSceneBrowser" alt="" coords="397,80,568,107"/>
 </map>

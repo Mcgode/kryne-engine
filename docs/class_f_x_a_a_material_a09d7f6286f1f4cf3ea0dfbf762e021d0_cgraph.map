@@ -1,4 +1,3 @@
 <map id="FXAAMaterial::setSubpixelQuality" name="FXAAMaterial::setSubpixelQuality">
-<area shape="rect" id="node1" title="Sets the FXAA subpixel quality value." alt="" coords="5,5,183,47"/>
-<area shape="rect" id="node2" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="231,13,361,39"/>
+<area shape="rect" id="node2" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title="Material::setDefine" alt="" coords="232,13,364,39"/>
 </map>

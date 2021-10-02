@@ -13,6 +13,9 @@ var dir_738e93b4b72767cbed3fd0527471f516 =
     [ "OrbitControlsComponent.h", "_orbit_controls_component_8h.html", [
       [ "OrbitControlsComponent", "class_orbit_controls_component.html", "class_orbit_controls_component" ]
     ] ],
+    [ "OrthographicProjectionData.hpp", "_orthographic_projection_data_8hpp.html", [
+      [ "OrthographicProjectionData", "class_orthographic_projection_data.html", "class_orthographic_projection_data" ]
+    ] ],
     [ "PerspectiveProjectionData.hpp", "_perspective_projection_data_8hpp.html", [
       [ "PerspectiveProjectionData", "class_perspective_projection_data.html", "class_perspective_projection_data" ]
     ] ],

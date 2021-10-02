@@ -1,5 +1,4 @@
 <map id="LoopRenderer::computeFrustumCulling" name="LoopRenderer::computeFrustumCulling">
-<area shape="rect" id="node1" title="Computes the frustum culling of a given mesh for all the cameras." alt="" coords="5,23,213,65"/>
-<area shape="rect" id="node2" href="$class_render_mesh.html#a949951ca582028c336327b81c1830981" title="Retrieves the current bounding sphere." alt="" coords="261,5,477,32"/>
-<area shape="rect" id="node3" href="$class_render_mesh.html#ac0549be61198984044a2b35b516b2720" title="Retrieves whether this mesh should be frustum culled or not." alt="" coords="278,56,461,83"/>
+<area shape="rect" id="node2" href="$class_render_mesh.html#ac0549be61198984044a2b35b516b2720" title="Retrieves whether this mesh should be frustum culled or not. " alt="" coords="279,5,464,32"/>
+<area shape="rect" id="node3" href="$class_render_mesh.html#a949951ca582028c336327b81c1830981" title="Retrieves the current bounding sphere. " alt="" coords="263,56,480,83"/>
 </map>

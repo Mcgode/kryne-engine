@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['skybox_5fdraw_5ffirst_1913',['SKYBOX_DRAW_FIRST',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31ba4719ac1f39138650d758b7a453e452e5',1,'SkyboxDrawOrder.h']]],
-  ['skybox_5fdraw_5flast_1914',['SKYBOX_DRAW_LAST',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31bab97c62f0802160fe3b3bcc183c13d8f6',1,'SkyboxDrawOrder.h']]],
-  ['skybox_5fno_5fdraw_1915',['SKYBOX_NO_DRAW',['../_skybox_draw_order_8h.html#ae4fa990749dbe278577e5d348aa6a31babd85028bc4085db7d45f221580a09b1d',1,'SkyboxDrawOrder.h']]]
+  ['objectsscripting',['ObjectsScripting',['../class_utils_1_1_frame_time.html#a0136a33e6a120010f3c6fb481c88d392a442bc96a01f5c16732dad02878385a05',1,'Utils::FrameTime']]]
 ];

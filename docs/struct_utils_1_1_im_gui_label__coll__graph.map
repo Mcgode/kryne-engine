@@ -1,5 +1,4 @@
 <map id="Utils::ImGuiLabel" name="Utils::ImGuiLabel">
-<area shape="rect" id="node1" title="An helper struct for generating unique labels linked to a specific object." alt="" coords="8,185,129,212"/>
-<area shape="rect" id="node2" title="STL class." alt="" coords="29,96,109,123"/>
-<area shape="rect" id="node3" title="STL class." alt="" coords="5,5,132,47"/>
+<area shape="rect" id="node2" title="STL class. " alt="" coords="29,96,109,123"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,5,132,47"/>
 </map>

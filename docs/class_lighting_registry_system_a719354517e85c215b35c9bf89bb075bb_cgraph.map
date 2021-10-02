@@ -1,6 +1,5 @@
 <map id="LightingRegistrySystem::updateAmbientLights" name="LightingRegistrySystem::updateAmbientLights">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,165,90"/>
-<area shape="rect" id="node2" href="$class_material.html#a053e033e624bc01399fb6491f663a7d3" title=" " alt="" coords="213,5,367,32"/>
-<area shape="rect" id="node3" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="225,56,355,83"/>
-<area shape="rect" id="node4" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title=" " alt="" coords="221,107,359,133"/>
+<area shape="rect" id="node2" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title="Material::setDefine" alt="" coords="227,5,359,32"/>
+<area shape="rect" id="node3" href="$class_material.html#a1349dd91417148263bc6d9ec0462c86a" title="Material::removeDefine" alt="" coords="215,56,372,83"/>
+<area shape="rect" id="node4" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title="Material::setUniform" alt="" coords="223,107,363,133"/>
 </map>

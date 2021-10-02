@@ -33,9 +33,7 @@ namespace KryneEngine
             s_currentApi = _api;
         }
 
-        /**
-         * @brief Returns true if the thread owns an API context
-         */
+        /// @brief Returns true if the thread owns an API context
         static bool HasAssociatedContext()
         {
             return s_currentApi != nullptr;
@@ -64,8 +62,12 @@ namespace KryneEngine
         }
 
     protected:
+        /**
+         * @brief Initializes the context and associate a window to it.
+         */
         explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
 
+        /// @biref The window this context is spawned from
         Window* m_associatedWindow;
 
 
@@ -74,7 +76,15 @@ namespace KryneEngine
         // =========================================
 
     public:
-        virtual eastl::shared_ptr<Texture>&& CreateTexture(const Texture::Description& _desc) = 0;
+        /**
+         * @brief Creates a blank, unmapped, texture in the graphics context.
+         *
+         * @warning
+         * You still need to acquire memory for this texture before using it, using Texture::AcquireMemory()
+         *
+         * @param _desc The description of the texture.
+         */
+        virtual eastl::shared_ptr<Texture>&& CreateTexture(const Texture::Description& _description) = 0;
 
     private:
         /// The graphics API used on this thread. Initialized by #ThreadInit()

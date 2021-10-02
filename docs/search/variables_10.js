@@ -1,21 +1,13 @@
 var searchData=
 [
-  ['scale_1829',['scale',['../class_transform.html#acf6ab53778448fd2f2d8a367c14e7f95',1,'Transform']]],
-  ['sceneentities_1830',['sceneEntities',['../class_scene.html#aaba8c79f7d2d3041a5b475a28747a1ee',1,'Scene']]],
-  ['scenes_1831',['scenes',['../class_process.html#ac079c31d4acbae0b08bdda7537b1aa17',1,'Process']]],
-  ['screenframebuffer_1832',['screenFramebuffer',['../class_loop_renderer.html#a1c0a87bfc8e59b9295521036ca4a658e',1,'LoopRenderer']]],
-  ['scrollinput_1833',['scrollInput',['../class_player_input.html#af48677375e69c04a26fb2bac6a486cf1',1,'PlayerInput']]],
-  ['scrollzoomspeed_1834',['scrollZoomSpeed',['../class_orbit_controls_component.html#a61c565a9cc83fae3337bc1346a9e2428',1,'OrbitControlsComponent']]],
-  ['selectedentity_1835',['selectedEntity',['../class_dear_im_gui_scene_browser.html#af42dd87032bea80ae421760c50b42924',1,'DearImGuiSceneBrowser']]],
-  ['shader_1836',['shader',['../class_base_object.html#a4f1b75719faccd4cf508644454e79940',1,'BaseObject::shader()'],['../class_material.html#ac45b3bca8ac971b87cb4d1eaa9067d11',1,'Material::shader()']]],
-  ['shadowcasting_1837',['shadowCasting',['../class_base_object.html#a1e7736e207104263ae19ca1188f2c090',1,'BaseObject']]],
-  ['shouldrun_1838',['shouldRun',['../class_lighting_registry_system.html#a3f04d503a1a6993d4bf885a375666ad6',1,'LightingRegistrySystem']]],
-  ['skyboxmeshdata_1839',['skyboxMeshData',['../class_loop_renderer.html#aa49d79ac92b90b3e3c5f35874ba8df0e',1,'LoopRenderer']]],
-  ['skyboxtexture_1840',['skyboxTexture',['../class_scene.html#a73cf58d48ca2ceb387f43943ed664ff5',1,'Scene']]],
-  ['skycolor_1841',['skyColor',['../class_hemisphere_light.html#a3fb829ca3aef3cc95881f157d8d96e45',1,'HemisphereLight']]],
-  ['start_1842',['start',['../class_utils_1_1_frame_time.html#ac653f9e44aaafc457db9ff41fce539d6',1,'Utils::FrameTime']]],
-  ['stop_1843',['stop',['../class_thread_pool.html#a04e2cc4b3c979b4e054071436988d23d',1,'ThreadPool']]],
-  ['subpixelquality_1844',['subpixelQuality',['../class_f_x_a_a_material.html#ab771db7cb0905e4c15cb0dd1f9d13965',1,'FXAAMaterial']]],
-  ['supportslighting_1845',['supportsLighting',['../class_base_object.html#a931c2b0730708a240ece11f5b86f2dbd',1,'BaseObject']]],
-  ['systemsbytype_1846',['systemsByType',['../class_process.html#a9e3c5f6b79e839e96e3e2455fddf6b92',1,'Process']]]
+  ['radianspermousepixel',['radiansPerMousePixel',['../class_orbit_controls_component.html#a0c4427aa326549c31ac5839046916191',1,'OrbitControlsComponent']]],
+  ['radius',['radius',['../struct_math_1_1_sphere.html#a39bd62ada2b842ebeaacc6dc32d79dfe',1,'Math::Sphere']]],
+  ['readframebuffer',['readFramebuffer',['../class_loop_renderer.html#a7dd599e39697e60f9f0ce1c9ea61b259',1,'LoopRenderer']]],
+  ['recordedtimes',['recordedTimes',['../struct_utils_1_1_frame_time_1_1_part_durations.html#a6628516254ebbc089404437910c2caa6',1,'Utils::FrameTime::PartDurations::recordedTimes()'],['../struct_utils_1_1_frame_time_1_1_data.html#a607d094cbd8d3543a53207b242151cab',1,'Utils::FrameTime::Data::recordedTimes()'],['../class_utils_1_1_frame_time.html#a462798fc29bd4cb6c629bdb25f8ae7f0',1,'Utils::FrameTime::recordedTimes()']]],
+  ['renderer',['renderer',['../class_open_g_l_context.html#a0d399816e55aa1218ffa5d85c560d07d',1,'OpenGLContext']]],
+  ['renderersize',['rendererSize',['../class_loop_renderer.html#ac4de898a918a23c1b0bb80af0d14870c',1,'LoopRenderer']]],
+  ['renderingstate',['renderingState',['../class_open_g_l_context.html#a079915f95594a3985d6fadff8e3b885b',1,'OpenGLContext::renderingState()'],['../class_open_g_l_renderer.html#a52de03f78b154da4a13edd3c850da5ca',1,'OpenGLRenderer::renderingState()'],['../class_renderer.html#aa3101d638246464f13a4b95bca294d68',1,'Renderer::renderingState()']]],
+  ['rendermode',['renderMode',['../class_loop_renderer.html#a846d1a9ee557cb91d48375b5f7c4930e',1,'LoopRenderer']]],
+  ['roughness',['roughness',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a6e6dba36e321e93413aa893d0782c74b',1,'MeshStandardMaterial::StandardInitParameters::roughness()'],['../class_mesh_standard_material.html#a31906236ba04a84130a6d471d3e9a245',1,'MeshStandardMaterial::roughness()']]],
+  ['roughnessmap',['roughnessMap',['../struct_mesh_standard_material_1_1_standard_init_parameters.html#a6e9e98e130e169e2c1c7d58901d3b0a4',1,'MeshStandardMaterial::StandardInitParameters::roughnessMap()'],['../class_mesh_standard_material.html#ac6a7cc5bcfc81e0e01751eda4682defb',1,'MeshStandardMaterial::roughnessMap()']]]
 ];

@@ -1,11 +1,13 @@
 var dir_6461cf5290df6a95e69a46be8b2326db =
 [
+    [ "DearImGui", "dir_26d0d46593f1a3f1e20c9abea3df5219.html", "dir_26d0d46593f1a3f1e20c9abea3df5219" ],
     [ "Debugging.hpp", "_debugging_8hpp.html", "_debugging_8hpp" ],
     [ "DreamImGui.hpp", "_dream_im_gui_8hpp.html", [
       [ "ImGuiLabel", "struct_utils_1_1_im_gui_label.html", "struct_utils_1_1_im_gui_label" ]
     ] ],
     [ "FrameTime.hpp", "_frame_time_8hpp.html", [
       [ "FrameTime", "class_utils_1_1_frame_time.html", "class_utils_1_1_frame_time" ],
+      [ "PartDurations", "struct_utils_1_1_frame_time_1_1_part_durations.html", "struct_utils_1_1_frame_time_1_1_part_durations" ],
       [ "Data", "struct_utils_1_1_frame_time_1_1_data.html", "struct_utils_1_1_frame_time_1_1_data" ]
     ] ],
     [ "Multithreading.hpp", "_multithreading_8hpp.html", [

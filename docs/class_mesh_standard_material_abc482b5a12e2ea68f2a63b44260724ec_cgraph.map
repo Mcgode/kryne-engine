@@ -1,7 +1,6 @@
 <map id="MeshStandardMaterial::setNormalMap" name="MeshStandardMaterial::setNormalMap">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,157,90"/>
-<area shape="rect" id="node2" href="$class_mesh_material_common.html#a348748abd26d7e64527b8d34a4bb69ef" title=" " alt="" coords="205,49,396,90"/>
-<area shape="rect" id="node3" href="$class_material.html#a053e033e624bc01399fb6491f663a7d3" title=" " alt="" coords="444,5,597,32"/>
-<area shape="rect" id="node4" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="455,56,586,83"/>
-<area shape="rect" id="node5" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title=" " alt="" coords="451,107,590,133"/>
+<area shape="rect" id="node2" href="$class_mesh_material_common.html#a348748abd26d7e64527b8d34a4bb69ef" title="MeshMaterialCommon\l::setMaterialOptionalProperty" alt="" coords="205,49,396,90"/>
+<area shape="rect" id="node3" href="$class_material.html#a1349dd91417148263bc6d9ec0462c86a" title="Material::removeDefine" alt="" coords="444,5,601,32"/>
+<area shape="rect" id="node4" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title="Material::setDefine" alt="" coords="457,56,589,83"/>
+<area shape="rect" id="node5" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title="Material::setUniform" alt="" coords="453,107,593,133"/>
 </map>

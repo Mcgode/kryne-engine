@@ -1,7 +1,6 @@
 <map id="PostProcess::draw" name="PostProcess::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,137,83"/>
-<area shape="rect" id="node2" href="$class_final_post_process.html#ae8760e789f2e068fd828e95e5ebf3d74" title=" " alt="" coords="185,56,345,83"/>
-<area shape="rect" id="node3" href="$class_vertex_array.html#acbd3f02e554fa827be46baf96d8bdabc" title=" " alt="" coords="393,5,539,32"/>
-<area shape="rect" id="node4" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="405,56,527,83"/>
-<area shape="rect" id="node5" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="420,107,512,133"/>
+<area shape="rect" id="node2" href="$class_final_post_process.html#ae8760e789f2e068fd828e95e5ebf3d74" title="FinalPostProcess::draw" alt="" coords="187,56,348,83"/>
+<area shape="rect" id="node3" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title="Shader::use" alt="" coords="423,5,515,32"/>
+<area shape="rect" id="node4" href="$class_vertex_array.html#acbd3f02e554fa827be46baf96d8bdabc" title="VertexArray::execute" alt="" coords="396,56,541,83"/>
+<area shape="rect" id="node5" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title="Shader::resetUse" alt="" coords="407,107,531,133"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scene_1920',['Scene',['../class_transform.html#a032858ae1fe02d2d1170981c2af2d67c',1,'Transform::Scene()'],['../class_entity.html#a032858ae1fe02d2d1170981c2af2d67c',1,'Entity::Scene()']]]
+  ['lightingregistrysystem',['LightingRegistrySystem',['../class_directional_light.html#a5d40ef3d2ab9dc250c71722aaab1e9bf',1,'DirectionalLight']]]
 ];

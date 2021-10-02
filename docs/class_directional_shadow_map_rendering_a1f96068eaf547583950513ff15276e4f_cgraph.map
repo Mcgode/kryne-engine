@@ -1,5 +1,4 @@
 <map id="DirectionalShadowMapRendering::DirectionalShadowMapRendering" name="DirectionalShadowMapRendering::DirectionalShadowMapRendering">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,225,80"/>
-<area shape="rect" id="node2" href="$class_old_directional_light.html#aca8d13033f43c0797142845e6a6bd1ba" title=" " alt="" coords="275,5,426,47"/>
-<area shape="rect" id="node3" href="$class_old_directional_light.html#afcd16b47045e9fad8862095c4ba3c6d2" title=" " alt="" coords="273,71,428,112"/>
+<area shape="rect" id="node2" href="$class_old_directional_light.html#aca8d13033f43c0797142845e6a6bd1ba" title="OldDirectionalLight\l::getShadowCastRadii" alt="" coords="278,5,431,47"/>
+<area shape="rect" id="node3" href="$class_old_directional_light.html#afcd16b47045e9fad8862095c4ba3c6d2" title="OldDirectionalLight\l::getShadowResolution" alt="" coords="276,71,433,112"/>
 </map>

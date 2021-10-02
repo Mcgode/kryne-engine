@@ -1,21 +1,5 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Camera/BasicCamera.h" name="kryne&#45;engine/include/kryne&#45;engine/Camera/BasicCamera.h">
-<area shape="rect" id="node1" title=" " alt="" coords="195,5,344,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="159,259,215,285"/>
-<area shape="rect" id="node3" title=" " alt="" coords="39,184,108,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="132,184,196,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="239,259,324,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="929,259,1033,285"/>
-<area shape="rect" id="node7" title=" " alt="" coords="220,184,319,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="708,184,823,211"/>
-<area shape="rect" id="node9" title=" " alt="" coords="847,184,1038,211"/>
-<area shape="rect" id="node10" href="$_old_camera_8h.html" title=" " alt="" coords="357,109,456,136"/>
-<area shape="rect" id="node11" href="$_window_8h.html" title=" " alt="" coords="445,184,633,211"/>
-<area shape="rect" id="node12" title=" " alt="" coords="711,259,815,285"/>
-<area shape="rect" id="node13" title=" " alt="" coords="839,259,905,285"/>
-<area shape="rect" id="node14" title=" " alt="" coords="349,259,409,285"/>
-<area shape="rect" id="node15" title=" " alt="" coords="433,259,505,285"/>
-<area shape="rect" id="node16" href="$_additional_parameters_8h.html" title=" " alt="" coords="529,259,687,285"/>
-<area shape="rect" id="node17" title=" " alt="" coords="510,333,557,360"/>
-<area shape="rect" id="node18" title=" " alt="" coords="581,333,635,360"/>
-<area shape="rect" id="node19" title=" " alt="" coords="660,333,703,360"/>
+<area shape="rect" id="node10" href="$_old_camera_8h.html" title="OldCamera.h" alt="" coords="360,109,459,136"/>
+<area shape="rect" id="node11" href="$_window_8h.html" title="kryne&#45;engine/Core/Window.h" alt="" coords="447,184,638,211"/>
+<area shape="rect" id="node16" href="$_additional_parameters_8h.html" title="AdditionalParameters.h" alt="" coords="533,259,691,285"/>
 </map>

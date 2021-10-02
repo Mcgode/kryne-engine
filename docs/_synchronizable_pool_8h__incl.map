@@ -1,13 +1,4 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Dispatch/SynchronizablePool.h" name="kryne&#45;engine/include/kryne&#45;engine/Dispatch/SynchronizablePool.h">
-<area shape="rect" id="node1" title=" " alt="" coords="269,5,424,61"/>
-<area shape="rect" id="node2" href="$_thread_pool_8h.html" title=" " alt="" coords="297,109,396,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,184,64,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="88,184,147,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="171,184,295,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="319,184,374,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="399,184,468,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="492,184,564,211"/>
-<area shape="rect" id="node9" href="$_base_pool_8h.html" title=" " alt="" coords="589,184,678,211"/>
-<area shape="rect" id="node10" title=" " alt="" coords="558,259,615,285"/>
-<area shape="rect" id="node11" title=" " alt="" coords="640,259,717,285"/>
+<area shape="rect" id="node2" href="$_thread_pool_8h.html" title="ThreadPool.h" alt="" coords="300,109,399,136"/>
+<area shape="rect" id="node9" href="$_base_pool_8h.html" title="BasePool.h" alt="" coords="591,184,681,211"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="HemisphereLight::setDirection" name="HemisphereLight::setDirection">
-<area shape="rect" id="node1" title="Changes the current direction, and updates the world direction." alt="" coords="5,31,201,57"/>
-<area shape="rect" id="node2" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title=" " alt="" coords="249,5,432,32"/>
-<area shape="rect" id="node3" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title=" " alt="" coords="271,56,410,83"/>
+<area shape="rect" id="node2" href="$class_entity.html#aec5b6fb1566ab2f4b1b30c8d788315dc" title="Entity::getTransform" alt="" coords="274,5,415,32"/>
+<area shape="rect" id="node3" href="$class_transform.html#ac41113d4bf3face7ed33bb5f9f32678d" title="Transform::getNormalMatrix" alt="" coords="252,56,437,83"/>
 </map>

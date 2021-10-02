@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_buffer_geometry.html" title=" " alt="" coords="5,31,117,57"/>
-<area shape="rect" id="node2" href="$class_box_buffer_geometry.html" title=" " alt="" coords="171,5,305,32"/>
-<area shape="rect" id="node3" href="$class_plane_buffer_geometry.html" title=" " alt="" coords="165,56,311,83"/>
+<area shape="rect" id="node1" href="$class_buffer_geometry.html" title="BufferGeometry" alt="" coords="5,56,120,83"/>
+<area shape="rect" id="node2" href="$class_box_buffer_geometry.html" title="BoxBufferGeometry" alt="" coords="187,5,324,32"/>
+<area shape="rect" id="node3" href="$class_plane_buffer_geometry.html" title="PlaneBufferGeometry" alt="" coords="182,56,329,83"/>
+<area shape="rect" id="node4" href="$class_torus_knot_buffer_geometry.html" title="TorusKnotBufferGeometry" alt="" coords="168,107,343,133"/>
 </map>

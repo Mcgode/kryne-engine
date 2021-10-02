@@ -1,4 +1,3 @@
 <map id="PostProcessPass" name="PostProcessPass">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,132,32"/>
-<area shape="rect" id="node2" href="$class_shader_pass.html" title=" " alt="" coords="22,80,115,107"/>
+<area shape="rect" id="node2" href="$class_shader_pass.html" title="ShaderPass" alt="" coords="22,80,115,107"/>
 </map>

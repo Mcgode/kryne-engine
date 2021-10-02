@@ -1,7 +1,8 @@
 <map id="BufferGeometry::removeAttribute" name="BufferGeometry::removeAttribute">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,216,105"/>
-<area shape="rect" id="node2" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="264,5,488,47"/>
-<area shape="rect" id="node3" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title=" " alt="" coords="285,71,467,112"/>
-<area shape="rect" id="node5" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title=" " alt="" coords="277,137,475,163"/>
-<area shape="rect" id="node4" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="536,78,764,105"/>
+<area shape="rect" id="node2" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute..." alt="" coords="268,35,495,76"/>
+<area shape="rect" id="node5" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title="BufferGeometry::updateLength" alt="" coords="281,101,481,127"/>
+<area shape="rect" id="node6" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title="BufferGeometry::recompute\lLocations" alt="" coords="290,152,473,193"/>
+<area shape="rect" id="node3" href="$struct_math_1_1_axis_aligned_box.html#a960dadca7e0db8ed4a968e9efee2f213" title="Expands the box to encompass the provided point. " alt="" coords="583,5,733,47"/>
+<area shape="rect" id="node4" href="$struct_math_1_1_sphere.html#a1a69aec042ed437b845c280c454e6999" title="Updates the sphere parameters to bound the provided box. " alt="" coords="579,71,737,98"/>
+<area shape="rect" id="node7" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title="BufferGeometry::updateLayoutCode" alt="" coords="543,159,773,186"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_loop_renderer_1_1_skybox_mesh_data.html" title=" " alt="" coords="5,5,219,32"/>
+<area shape="rect" id="node1" href="$class_kryne_engine_1_1_texture.html" title="KryneEngine::Texture" alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node2" href="$class_kryne_engine_1_1_g_l_texture.html" title="KryneEngine::GLTexture" alt="" coords="201,5,367,32"/>
 </map>

@@ -1,8 +1,7 @@
 <map id="MainRenderer::setSkybox" name="MainRenderer::setSkybox">
-<area shape="rect" id="node1" title=" " alt="" coords="5,42,177,69"/>
-<area shape="rect" id="node2" href="$class_old_directional_light.html#a5163eb18818b2f54a757ee2def3e7ac4" title=" " alt="" coords="245,5,376,47"/>
-<area shape="rect" id="node3" href="$class_skybox.html#a328818f63faa949bb8b4249046391cea" title=" " alt="" coords="225,71,396,98"/>
-<area shape="rect" id="node4" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title=" " alt="" coords="449,21,572,47"/>
-<area shape="rect" id="node5" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title=" " alt="" coords="444,71,577,98"/>
-<area shape="rect" id="node6" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title=" " alt="" coords="465,122,557,149"/>
+<area shape="rect" id="node2" href="$class_skybox.html#a328818f63faa949bb8b4249046391cea" title="Skybox::setLightDirection" alt="" coords="227,56,399,83"/>
+<area shape="rect" id="node6" href="$class_old_directional_light.html#a5163eb18818b2f54a757ee2def3e7ac4" title="OldDirectionalLight\l::getDirection" alt="" coords="247,107,379,149"/>
+<area shape="rect" id="node3" href="$class_shader.html#a870fa9f13d69e558815d6fd351a469dc" title="Shader::use" alt="" coords="468,5,560,32"/>
+<area shape="rect" id="node4" href="$class_shader.html#a810238d7b925c90a6495b6c25ffdb568" title="Shader::setUniform" alt="" coords="447,56,581,83"/>
+<area shape="rect" id="node5" href="$class_shader.html#a0e4233f8c77b4d0a4f2e52f4e1d100bf" title="Shader::resetUse" alt="" coords="452,107,576,133"/>
 </map>

@@ -1,10 +1,7 @@
 <map id="LogicComponent" name="LogicComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="31,364,149,391"/>
-<area shape="rect" id="node2" href="$class_component.html" title=" " alt="" coords="46,288,134,315"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="195,199,251,225"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="29,109,109,136"/>
-<area shape="rect" id="node5" title="STL class." alt="" coords="5,5,132,47"/>
-<area shape="rect" id="node6" title=" " alt="" coords="133,109,322,136"/>
-<area shape="rect" id="node7" href="$class_transform.html" title=" " alt="" coords="305,13,384,39"/>
-<area shape="rect" id="node8" title=" " alt="" coords="347,109,519,136"/>
+<area shape="rect" id="node2" href="$class_component.html" title="Component" alt="" coords="45,288,135,315"/>
+<area shape="rect" id="node3" href="$class_entity.html" title="Entity" alt="" coords="197,199,253,225"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="29,109,109,136"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,5,132,47"/>
+<area shape="rect" id="node7" href="$class_transform.html" title="Transform" alt="" coords="305,13,387,39"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iteratortype_1876',['IteratorType',['../struct_utils_1_1_unique_ptr_vector.html#ace8cdfca58c719d146e731e0f4fcfbda',1,'Utils::UniquePtrVector']]]
+  ['durationpair',['DurationPair',['../struct_utils_1_1_frame_time_1_1_part_durations.html#aaf1c4dbd99daec02db89e26fdb8253e0',1,'Utils::FrameTime::PartDurations']]]
 ];

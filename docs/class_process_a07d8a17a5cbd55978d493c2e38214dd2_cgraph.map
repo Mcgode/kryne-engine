@@ -1,4 +1,4 @@
 <map id="Process::detachSystem" name="Process::detachSystem">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,168,32"/>
-<area shape="rect" id="node2" href="$class_system.html#ad8be9c4fc94714cb7014c94776327082" title="Retrieves the current system type." alt="" coords="216,5,337,32"/>
+<area shape="rect" id="node2" href="$class_system.html#ad8be9c4fc94714cb7014c94776327082" title="Retrieves the current system type. " alt="" coords="216,5,339,32"/>
+<area shape="rect" id="node3" href="$class_system.html#a3234e71b4daf47e9e62bea9cfd5510a7" title="A function for parsing. " alt="" coords="387,5,531,32"/>
 </map>

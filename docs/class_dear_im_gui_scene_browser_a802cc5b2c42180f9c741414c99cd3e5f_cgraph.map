@@ -1,9 +1,8 @@
 <map id="DearImGuiSceneBrowser::displayTransform" name="DearImGuiSceneBrowser::displayTransform">
-<area shape="rect" id="node1" title=" " alt="" coords="5,125,172,166"/>
-<area shape="rect" id="node2" href="$class_transform.html#a74518b8c0011e0d0dda7c1a44e8e718f" title=" " alt="" coords="229,5,363,32"/>
-<area shape="rect" id="node3" href="$class_transform.html#a6736c2cdad9752600479c0a926222efd" title=" " alt="" coords="220,56,372,83"/>
-<area shape="rect" id="node4" href="$class_transform.html#a0449982f81ee2fdaba5b261cf00bd914" title=" " alt="" coords="227,107,365,133"/>
-<area shape="rect" id="node5" href="$class_transform.html#acf35904518695abdb70bcff76c242cf2" title=" " alt="" coords="229,157,363,184"/>
-<area shape="rect" id="node6" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title=" " alt="" coords="220,208,372,235"/>
-<area shape="rect" id="node7" href="$class_transform.html#a740087fd447ef53f10c1bebe6cd5a010" title=" " alt="" coords="227,259,365,285"/>
+<area shape="rect" id="node2" href="$class_transform.html#a6736c2cdad9752600479c0a926222efd" title="Transform::getPosition" alt="" coords="224,5,379,32"/>
+<area shape="rect" id="node3" href="$class_transform.html#acbab7588aa158d9f8de7bbf498213aeb" title="Transform::setPosition" alt="" coords="224,56,379,83"/>
+<area shape="rect" id="node4" href="$class_transform.html#a0449982f81ee2fdaba5b261cf00bd914" title="Transform::getScale" alt="" coords="231,107,371,133"/>
+<area shape="rect" id="node5" href="$class_transform.html#a740087fd447ef53f10c1bebe6cd5a010" title="Transform::setScale" alt="" coords="231,157,371,184"/>
+<area shape="rect" id="node6" href="$class_transform.html#a74518b8c0011e0d0dda7c1a44e8e718f" title="Transform::getEuler" alt="" coords="233,208,370,235"/>
+<area shape="rect" id="node7" href="$class_transform.html#acf35904518695abdb70bcff76c242cf2" title="Transform::setEuler" alt="" coords="233,259,370,285"/>
 </map>

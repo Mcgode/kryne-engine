@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scene_1453',['Scene',['../class_transform.html#a032858ae1fe02d2d1170981c2af2d67c',1,'Transform::Scene()'],['../class_entity.html#a032858ae1fe02d2d1170981c2af2d67c',1,'Entity::Scene()']]]
+  ['openglrenderer',['OpenGLRenderer',['../class_framebuffer.html#a9bf4c79d180421daa3d4caf46e848e06',1,'Framebuffer']]]
 ];

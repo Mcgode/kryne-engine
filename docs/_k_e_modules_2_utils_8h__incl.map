@@ -1,9 +1,5 @@
 <map id="kryne&#45;engine/include/KEModules/Utils.h" name="kryne&#45;engine/include/KEModules/Utils.h">
-<area shape="rect" id="node1" title=" " alt="" coords="60,5,201,47"/>
-<area shape="rect" id="node2" href="$kryne-engine_2_utils_2_utils_8h.html" title=" " alt="" coords="67,95,194,136"/>
-<area shape="rect" id="node3" href="$_string_utils_8hpp.html" title=" " alt="" coords="5,184,112,211"/>
-<area shape="rect" id="node5" href="$_vector_mapping_8hpp.html" title=" " alt="" coords="137,184,271,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="23,259,95,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="147,259,203,285"/>
-<area shape="rect" id="node7" title=" " alt="" coords="227,259,378,285"/>
+<area shape="rect" id="node2" href="$kryne-engine_2_utils_2_utils_8h.html" title="kryne&#45;engine/Utils\l/Utils.h" alt="" coords="68,95,195,136"/>
+<area shape="rect" id="node3" href="$_string_utils_8hpp.html" title="StringUtils.hpp" alt="" coords="5,184,113,211"/>
+<area shape="rect" id="node5" href="$_vector_mapping_8hpp.html" title="VectorMapping.hpp" alt="" coords="137,184,272,211"/>
 </map>

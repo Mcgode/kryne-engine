@@ -1,11 +1,12 @@
 <map id="PlaneBufferGeometry::PlaneBufferGeometry" name="PlaneBufferGeometry::PlaneBufferGeometry">
-<area shape="rect" id="node1" title=" " alt="" coords="5,123,159,164"/>
-<area shape="rect" id="node2" href="$namespace_utils.html#a407c7f36cca64e0f18d989bac065614f" title=" " alt="" coords="214,79,386,106"/>
-<area shape="rect" id="node3" href="$class_buffer_geometry.html#abacb186563bd725c4e1b6dc9569d1f62" title="Sets the value of a buffer attribute." alt="" coords="207,130,393,157"/>
-<area shape="rect" id="node9" href="$class_buffer_geometry.html#ae0a5eb4a3a41bf8a777de7781b108c46" title=" " alt="" coords="211,181,389,207"/>
-<area shape="rect" id="node4" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute." alt="" coords="441,5,665,47"/>
-<area shape="rect" id="node5" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title=" " alt="" coords="463,71,644,98"/>
-<area shape="rect" id="node6" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title=" " alt="" coords="463,123,644,164"/>
-<area shape="rect" id="node7" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title=" " alt="" coords="713,159,941,186"/>
-<area shape="rect" id="node8" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title=" " alt="" coords="454,239,653,266"/>
+<area shape="rect" id="node2" href="$class_buffer_geometry.html#abacb186563bd725c4e1b6dc9569d1f62" title="Sets the value of a buffer attribute. " alt="" coords="208,123,397,149"/>
+<area shape="rect" id="node10" href="$namespace_utils.html#a407c7f36cca64e0f18d989bac065614f" title="Utils::flatMapFloatVectors" alt="" coords="215,173,390,200"/>
+<area shape="rect" id="node11" href="$class_buffer_geometry.html#ae0a5eb4a3a41bf8a777de7781b108c46" title="BufferGeometry::setIndices" alt="" coords="211,224,394,251"/>
+<area shape="rect" id="node3" href="$class_buffer_attribute.html#aeb86ba7a3f57ad8e575258fcfbfe753c" title="BufferAttribute::getItemSize" alt="" coords="467,5,651,32"/>
+<area shape="rect" id="node4" href="$class_buffer_geometry.html#a40ac49a3561170a81180fd788903b6de" title="BufferGeometry::recompute\lLocations" alt="" coords="467,57,650,98"/>
+<area shape="rect" id="node5" href="$class_buffer_geometry.html#af1025b03991ee389abc822e8209f3701" title="BufferGeometry::updateLayoutCode" alt="" coords="720,79,951,105"/>
+<area shape="rect" id="node6" href="$class_buffer_geometry.html#a8923cd4c11351f8f097b45356b07be62" title="Computes the bounding sphere for this specific geometry, based on the the &#39;position&#39; attribute..." alt="" coords="445,174,672,215"/>
+<area shape="rect" id="node9" href="$class_buffer_geometry.html#aa42b4bd617cf7939c8e5bd8893bc429a" title="BufferGeometry::updateLength" alt="" coords="459,240,659,267"/>
+<area shape="rect" id="node7" href="$struct_math_1_1_axis_aligned_box.html#a960dadca7e0db8ed4a968e9efee2f213" title="Expands the box to encompass the provided point. " alt="" coords="760,159,911,201"/>
+<area shape="rect" id="node8" href="$struct_math_1_1_sphere.html#a1a69aec042ed437b845c280c454e6999" title="Updates the sphere parameters to bound the provided box. " alt="" coords="757,225,914,252"/>
 </map>

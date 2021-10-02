@@ -1,6 +1,51 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Geometry/BoxBufferGeometry.h" name="kryne&#45;engine/include/kryne&#45;engine/Geometry/BoxBufferGeometry.h">
-<area shape="rect" id="node1" title=" " alt="" coords="203,5,365,61"/>
-<area shape="rect" id="node2" href="$_geometry_8h.html" title=" " alt="" coords="5,109,171,151"/>
-<area shape="rect" id="node3" href="$_box_buffer_geometry_8cpp.html" title=" " alt="" coords="195,109,373,151"/>
-<area shape="rect" id="node4" href="$_open_g_l_renderer_8cpp.html" title=" " alt="" coords="397,109,600,151"/>
+<area shape="rect" id="node2" href="$_geometry_8h.html" title="kryne&#45;engine/include\l/KEModules/Geometry.h" alt="" coords="805,117,971,158"/>
+<area shape="rect" id="node3" href="$_loop_renderer_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/LoopRenderer.h" alt="" coords="995,109,1157,165"/>
+<area shape="rect" id="node28" href="$_open_g_l_renderer_8cpp.html" title="kryne&#45;engine/src/Rendering\l/OpenGL/OpenGLRenderer.cpp" alt="" coords="3570,651,3774,693"/>
+<area shape="rect" id="node50" href="$_box_buffer_geometry_8cpp.html" title="kryne&#45;engine/src/Geometry\l/BoxBufferGeometry.cpp" alt="" coords="3843,117,4021,158"/>
+<area shape="rect" id="node4" href="$_graphic_context_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/GraphicContext\l/GraphicContext.h" alt="" coords="1451,213,1677,269"/>
+<area shape="rect" id="node30" href="$_rendering_process_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/RenderingProcess.hpp" alt="" coords="5,421,168,477"/>
+<area shape="rect" id="node38" href="$_open_g_l_renderer_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/OpenGL/OpenGLRenderer.h" alt="" coords="3577,533,3767,589"/>
+<area shape="rect" id="node40" href="$_p_m_r_e_m_generator_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/Additional/PMREMGenerator.hpp" alt="" coords="391,213,609,269"/>
+<area shape="rect" id="node42" href="$_post_process_pass_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/PostProcessPass.h" alt="" coords="633,213,796,269"/>
+<area shape="rect" id="node46" href="$_cube_map_widget_8cpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Utils/DearImGui\l/CubeMapWidget.cpp" alt="" coords="870,317,1069,373"/>
+<area shape="rect" id="node47" href="$_cube_map_widget_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Utils/DearImGui\l/CubeMapWidget.hpp" alt="" coords="870,213,1069,269"/>
+<area shape="rect" id="node49" href="$_loop_renderer_8cpp.html" title="kryne&#45;engine/src/Rendering\l/LoopRenderer.cpp" alt="" coords="1093,221,1275,262"/>
+<area shape="rect" id="node5" href="$_process_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/Process.h" alt="" coords="1460,325,1655,366"/>
+<area shape="rect" id="node36" href="$_open_g_l_context_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/GraphicContext\l/OpenGLContext.h" alt="" coords="3296,317,3523,373"/>
+<area shape="rect" id="node6" href="$_entity_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/Entity.h" alt="" coords="945,429,1127,470"/>
+<area shape="rect" id="node9" href="$_system_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/System.h" alt="" coords="500,651,692,693"/>
+<area shape="rect" id="node22" href="$kryne-engine_2_material_2_material_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Material\l/Material.h" alt="" coords="1941,421,2091,477"/>
+<area shape="rect" id="node31" href="$_u_i_renderer_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/UI/UIRenderer.hpp" alt="" coords="2290,429,2505,470"/>
+<area shape="rect" id="node33" href="$_dear_im_gui_component_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/UI/DearImGuiComponent.hpp" alt="" coords="2768,429,3045,470"/>
+<area shape="rect" id="node35" href="$_process_8cpp.html" title="kryne&#45;engine/src/Core\l/Process.cpp" alt="" coords="2115,429,2266,470"/>
+<area shape="rect" id="node7" href="$_scene_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/3DObjects\l/Scene.h" alt="" coords="365,533,531,589"/>
+<area shape="rect" id="node8" href="$_transform_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/3DObjects\l/Transform.h" alt="" coords="231,644,398,700"/>
+<area shape="rect" id="node16" href="$kryne-engine_2_camera_2_camera_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Camera\l/Camera.h" alt="" coords="1287,533,1438,589"/>
+<area shape="rect" id="node19" href="$_component_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/Component.h" alt="" coords="997,540,1211,581"/>
+<area shape="rect" id="node20" href="$_light_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Light/Light.hpp" alt="" coords="783,540,972,581"/>
+<area shape="rect" id="node21" href="$_entity_8cpp.html" title="kryne&#45;engine/src/Core\l/Entity.cpp" alt="" coords="607,540,758,581"/>
+<area shape="rect" id="node10" href="$_game_logic_components_runner_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Systems\l/GameLogicComponentsRunner.h" alt="" coords="721,748,940,804"/>
+<area shape="rect" id="node11" href="$_lighting_registry_system_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Systems\l/LightingRegistrySystem.hpp" alt="" coords="125,748,315,804"/>
+<area shape="rect" id="node14" href="$_transform_update_system_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Systems\l/TransformUpdateSystem.h" alt="" coords="339,748,522,804"/>
+<area shape="rect" id="node15" href="$_system_8cpp.html" title="kryne&#45;engine/src/Core\l/System.cpp" alt="" coords="546,755,697,797"/>
+<area shape="rect" id="node12" href="$_shadow_mapping_process_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/Processes/ShadowMappingProcess.hpp" alt="" coords="89,852,351,908"/>
+<area shape="rect" id="node13" href="$_shadow_mapping_process_8cpp.html" title="kryne&#45;engine/src/Rendering\l/Processes/ShadowMappingProcess.cpp" alt="" coords="89,956,351,997"/>
+<area shape="rect" id="node17" href="$_mesh_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/3DObjects\l/Mesh.h" alt="" coords="1773,644,1939,700"/>
+<area shape="rect" id="node18" href="$_render_mesh_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/RenderMesh.h" alt="" coords="1281,644,1444,700"/>
+<area shape="rect" id="node23" href="$_k_e_modules_2_material_8h.html" title="kryne&#45;engine/include\l/KEModules/Material.h" alt="" coords="2457,651,2612,693"/>
+<area shape="rect" id="node24" href="$_f_x_a_a_material_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Material\l/AdditionalMaterials/FXAAMaterial.hpp" alt="" coords="1638,533,1885,589"/>
+<area shape="rect" id="node25" href="$_texture_copy_material_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Material\l/AdditionalMaterials/TextureCopy\lMaterial.h" alt="" coords="1909,525,2123,596"/>
+<area shape="rect" id="node26" href="$_mesh_material_common_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Material\l/MeshMaterialCommon.h" alt="" coords="2391,533,2559,589"/>
+<area shape="rect" id="node27" href="$_shader_material_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Material\l/ShaderMaterial.hpp" alt="" coords="2634,533,2785,589"/>
+<area shape="rect" id="node29" href="$_material_8cpp.html" title="kryne&#45;engine/src/Material\l/Material.cpp" alt="" coords="2199,540,2367,581"/>
+<area shape="rect" id="node32" href="$_dear_im_gui_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/UI/DearImGui.h" alt="" coords="2809,540,3005,581"/>
+<area shape="rect" id="node34" href="$_dear_im_gui_performance_metrics_8hpp.html" title="kryne&#45;engine/include\l/kryne&#45;engine/UI/DearImGuiPerformance\lMetrics.hpp" alt="" coords="3029,533,3288,589"/>
+<area shape="rect" id="node37" href="$_open_g_l_framebuffer_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/OpenGL/OpenGLFramebuffer.h" alt="" coords="3377,421,3583,477"/>
+<area shape="rect" id="node39" href="$_open_g_l_context_8cpp.html" title="kryne&#45;engine/src/Core\l/GraphicContext/OpenGLContext.cpp" alt="" coords="3312,540,3552,581"/>
+<area shape="rect" id="node41" href="$_p_m_r_e_m_generator_8cpp.html" title="kryne&#45;engine/src/Rendering\l/Additional/PMREMGenerator.cpp" alt="" coords="228,325,447,366"/>
+<area shape="rect" id="node43" href="$_shader_pass_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/Additional/ShaderPass.h" alt="" coords="677,317,846,373"/>
+<area shape="rect" id="node45" href="$_post_process_pass_8cpp.html" title="kryne&#45;engine/src/Rendering\l/PostProcessPass.cpp" alt="" coords="471,325,652,366"/>
+<area shape="rect" id="node44" href="$_shader_pass_8cpp.html" title="kryne&#45;engine/src/Rendering\l/Additional/ShaderPass.cpp" alt="" coords="670,429,853,470"/>
+<area shape="rect" id="node48" href="$_mesh_standard_material_8cpp.html" title="kryne&#45;engine/src/Material\l/MeshStandardMaterial.cpp" alt="" coords="1093,325,1275,366"/>
 </map>

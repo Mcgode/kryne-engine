@@ -7,7 +7,9 @@ var dir_92cbc7589014e9a79f24556415023b95 =
     [ "GeometricShapes.cpp", "_geometric_shapes_8cpp.html", "_geometric_shapes_8cpp" ],
     [ "LogicComponent.cpp", "_logic_component_8cpp.html", null ],
     [ "OldProcess.cpp", "_old_process_8cpp.html", null ],
-    [ "Process.cpp", "_process_8cpp.html", null ],
+    [ "Process.cpp", "_process_8cpp.html", [
+      [ "ProcessCommon", "struct_process_common.html", "struct_process_common" ]
+    ] ],
     [ "System.cpp", "_system_8cpp.html", null ],
     [ "VertexArray.cpp", "_vertex_array_8cpp.html", null ],
     [ "Window.cpp", "_window_8cpp.html", "_window_8cpp" ]

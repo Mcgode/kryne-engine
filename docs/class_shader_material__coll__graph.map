@@ -1,10 +1,7 @@
 <map id="ShaderMaterial" name="ShaderMaterial">
-<area shape="rect" id="node1" title="A wrapper material for directly using shaders." alt="" coords="713,101,823,127"/>
-<area shape="rect" id="node2" href="$class_material.html" title=" " alt="" coords="554,71,622,98"/>
-<area shape="rect" id="node3" title=" " alt="" coords="236,5,447,47"/>
-<area shape="rect" id="node4" href="$class_shader_program_compiler.html" title=" " alt="" coords="5,13,168,39"/>
-<area shape="rect" id="node5" title=" " alt="" coords="255,71,428,98"/>
-<area shape="rect" id="node6" href="$class_shader.html" title=" " alt="" coords="55,71,118,98"/>
-<area shape="rect" id="node7" title="STL class." alt="" coords="548,126,628,153"/>
-<area shape="rect" id="node8" title="STL class." alt="" coords="278,123,405,164"/>
+<area shape="rect" id="node2" href="$class_material.html" title="Material" alt="" coords="579,41,647,67"/>
+<area shape="rect" id="node4" href="$class_shader_program_compiler.html" title="ShaderProgramCompiler" alt="" coords="5,13,169,39"/>
+<area shape="rect" id="node6" href="$class_shader.html" title="Shader" alt="" coords="56,71,119,98"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="793,121,873,147"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="549,113,676,155"/>
 </map>

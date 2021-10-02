@@ -1,15 +1,14 @@
 <map id="kryne&#45;engine/include/kryne&#45;engine/Light/LightingRegistry.h" name="kryne&#45;engine/include/kryne&#45;engine/Light/LightingRegistry.h">
-<area shape="rect" id="node1" title=" " alt="" coords="347,5,528,61"/>
-<area shape="rect" id="node2" href="$_light_8h.html" title=" " alt="" coords="72,117,213,158"/>
-<area shape="rect" id="node3" href="$_main_renderer_8h.html" title=" " alt="" coords="237,109,400,165"/>
-<area shape="rect" id="node5" href="$_render_scene_8h.html" title=" " alt="" coords="356,213,519,269"/>
-<area shape="rect" id="node11" href="$_shadow_map_handler_8h.html" title=" " alt="" coords="475,109,725,165"/>
-<area shape="rect" id="node13" href="$_lighting_registry_8cpp.html" title=" " alt="" coords="750,117,901,158"/>
-<area shape="rect" id="node4" href="$_rendering_8h.html" title=" " alt="" coords="495,317,662,359"/>
-<area shape="rect" id="node10" href="$_main_renderer_8cpp.html" title=" " alt="" coords="101,221,281,262"/>
-<area shape="rect" id="node6" href="$_old_process_8h.html" title=" " alt="" coords="53,317,267,359"/>
-<area shape="rect" id="node9" href="$_render_scene_8cpp.html" title=" " alt="" coords="291,317,471,359"/>
-<area shape="rect" id="node7" href="$_core_8h.html" title=" " alt="" coords="5,407,147,448"/>
-<area shape="rect" id="node8" href="$_old_process_8cpp.html" title=" " alt="" coords="171,407,320,448"/>
-<area shape="rect" id="node12" href="$_shadow_map_handler_8cpp.html" title=" " alt="" coords="617,221,882,262"/>
+<area shape="rect" id="node2" href="$_light_8h.html" title="kryne&#45;engine/include\l/KEModules/Light.h" alt="" coords="75,117,216,158"/>
+<area shape="rect" id="node3" href="$_main_renderer_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/MainRenderer.h" alt="" coords="240,109,403,165"/>
+<area shape="rect" id="node5" href="$_render_scene_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/RenderScene.h" alt="" coords="359,213,521,269"/>
+<area shape="rect" id="node11" href="$_shadow_map_handler_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Rendering\l/ShadowMapping/ShadowMapHandler.h" alt="" coords="478,109,733,165"/>
+<area shape="rect" id="node13" href="$_lighting_registry_8cpp.html" title="kryne&#45;engine/src/Light\l/LightingRegistry.cpp" alt="" coords="757,117,907,158"/>
+<area shape="rect" id="node4" href="$_rendering_8h.html" title="kryne&#45;engine/include\l/KEModules/Rendering.h" alt="" coords="499,317,666,359"/>
+<area shape="rect" id="node10" href="$_main_renderer_8cpp.html" title="kryne&#45;engine/src/Rendering\l/MainRenderer.cpp" alt="" coords="103,221,284,262"/>
+<area shape="rect" id="node6" href="$_old_process_8h.html" title="kryne&#45;engine/include\l/kryne&#45;engine/Core/OldProcess.h" alt="" coords="54,317,269,359"/>
+<area shape="rect" id="node9" href="$_render_scene_8cpp.html" title="kryne&#45;engine/src/Rendering\l/RenderScene.cpp" alt="" coords="293,317,475,359"/>
+<area shape="rect" id="node7" href="$_core_8h.html" title="kryne&#45;engine/include\l/KEModules/Core.h" alt="" coords="5,407,147,448"/>
+<area shape="rect" id="node8" href="$_old_process_8cpp.html" title="kryne&#45;engine/src/Core\l/OldProcess.cpp" alt="" coords="171,407,322,448"/>
+<area shape="rect" id="node12" href="$_shadow_map_handler_8cpp.html" title="kryne&#45;engine/src/Rendering\l/ShadowMapping/ShadowMapHandler.cpp" alt="" coords="621,221,889,262"/>
 </map>

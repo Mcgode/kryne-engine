@@ -1,5 +1,4 @@
 <map id="DearImGui" name="DearImGui">
-<area shape="rect" id="node1" title=" " alt="" coords="85,109,167,136"/>
-<area shape="rect" id="node2" href="$class_u_i_renderer.html" title=" " alt="" coords="5,13,92,39"/>
-<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html" title=" " alt="" coords="117,5,290,47"/>
+<area shape="rect" id="node2" href="$class_u_i_renderer.html" title="UIRenderer" alt="" coords="5,13,95,39"/>
+<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html" title="Utils::UniquePtrVector\l\&lt; DearImGuiComponent \&gt;" alt="" coords="119,5,295,47"/>
 </map>

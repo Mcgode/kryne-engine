@@ -1,6 +1,6 @@
 var class_uniforms_handler =
 [
-    [ "UniformTypes", "class_uniforms_handler.html#a0cfb4dcaeaea8e2e9b7bb951f681bacf", null ],
+    [ "UniformTypes", "class_uniforms_handler.html#a4d396c596b4aa7e8fd1d5ca63f727b84", null ],
     [ "UniformsHandler", "class_uniforms_handler.html#a415f6234ec1ec9724fac6d92c39fdd49", null ],
     [ "notifyUniformLocationsNeedUpdate", "class_uniforms_handler.html#a6a5d31101756e3a8f05e414031bf955a", null ],
     [ "removeUniform", "class_uniforms_handler.html#a85e9b48ba3273c0e6179f3c9aa42b54d", null ],

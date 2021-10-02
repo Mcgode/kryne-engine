@@ -1,5 +1,4 @@
 <map id="Transform::~Transform" name="Transform::~Transform">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,157,57"/>
-<area shape="rect" id="node2" href="$class_scene.html#a5e62816b2e2c566c8f1bc151688c2c36" title=" " alt="" coords="249,5,357,32"/>
-<area shape="rect" id="node3" href="$class_transform.html#a9fdc9cf291d37f17003fab4834d0ddb2" title=" " alt="" coords="205,56,401,83"/>
+<area shape="rect" id="node2" href="$class_transform.html#a9fdc9cf291d37f17003fab4834d0ddb2" title="Transform::removeFromParent" alt="" coords="209,5,409,32"/>
+<area shape="rect" id="node3" href="$class_scene.html#a5e62816b2e2c566c8f1bc151688c2c36" title="Scene::remove" alt="" coords="254,56,365,83"/>
 </map>

@@ -1,7 +1,6 @@
 <map id="LoopRenderer::addPass" name="LoopRenderer::addPass">
-<area shape="rect" id="node1" title="Inserts a post process pass at the last valid position in the list." alt="" coords="5,97,167,123"/>
-<area shape="rect" id="node2" href="$struct_utils_1_1_unique_ptr_vector.html#a4b8925e083f4af0c16c84b648f51e578" title=" " alt="" coords="237,5,387,47"/>
-<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html#a1be93fdaa02057cf59b1d79ffc60c629" title=" " alt="" coords="222,71,402,98"/>
-<area shape="rect" id="node4" href="$class_post_process_pass.html#ac90e1ec39657f949c7ad6bebf7c9e156" title=" " alt="" coords="215,122,409,149"/>
-<area shape="rect" id="node5" href="$struct_utils_1_1_unique_ptr_vector.html#a1d82f4296943f81577f175308c9fa217" title="Inserts a unique pointer to the vector." alt="" coords="237,173,387,215"/>
+<area shape="rect" id="node2" href="$struct_utils_1_1_unique_ptr_vector.html#a4b8925e083f4af0c16c84b648f51e578" title="Utils::UniquePtrVector\l::begin" alt="" coords="237,5,390,47"/>
+<area shape="rect" id="node3" href="$struct_utils_1_1_unique_ptr_vector.html#a1be93fdaa02057cf59b1d79ffc60c629" title="Utils::UniquePtrVector::end" alt="" coords="222,71,405,98"/>
+<area shape="rect" id="node4" href="$class_post_process_pass.html#ac90e1ec39657f949c7ad6bebf7c9e156" title="PostProcessPass::getPriority" alt="" coords="216,122,411,149"/>
+<area shape="rect" id="node5" href="$struct_utils_1_1_unique_ptr_vector.html#a1d82f4296943f81577f175308c9fa217" title="Inserts a unique pointer to the vector. " alt="" coords="237,173,390,215"/>
 </map>

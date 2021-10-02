@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_base_pool.html" title=" " alt="" coords="5,31,84,57"/>
-<area shape="rect" id="node2" href="$class_main_pool.html" title=" " alt="" coords="137,5,213,32"/>
-<area shape="rect" id="node3" href="$class_thread_pool.html" title=" " alt="" coords="132,56,219,83"/>
-<area shape="rect" id="node4" href="$class_runner_pool.html" title=" " alt="" coords="291,31,380,57"/>
-<area shape="rect" id="node5" href="$class_synchronizable_pool.html" title=" " alt="" coords="267,81,404,108"/>
+<area shape="rect" id="node1" href="$class_base_pool.html" title="BasePool" alt="" coords="5,31,84,57"/>
+<area shape="rect" id="node2" href="$class_main_pool.html" title="MainPool" alt="" coords="138,5,214,32"/>
+<area shape="rect" id="node3" href="$class_thread_pool.html" title="ThreadPool" alt="" coords="132,56,220,83"/>
+<area shape="rect" id="node4" href="$class_runner_pool.html" title="RunnerPool" alt="" coords="291,31,382,57"/>
+<area shape="rect" id="node5" href="$class_synchronizable_pool.html" title="SynchronizablePool" alt="" coords="268,81,405,108"/>
 </map>

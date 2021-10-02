@@ -1,4 +1,3 @@
 <map id="RenderScene::updateCamera" name="RenderScene::updateCamera">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,197,32"/>
-<area shape="rect" id="node2" href="$class_main_renderer.html#a1191369910e4001cbfcbb253b9b1a347" title=" " alt="" coords="245,5,440,32"/>
+<area shape="rect" id="node2" href="$class_main_renderer.html#a1191369910e4001cbfcbb253b9b1a347" title="MainRenderer::updateCamera" alt="" coords="248,5,444,32"/>
 </map>

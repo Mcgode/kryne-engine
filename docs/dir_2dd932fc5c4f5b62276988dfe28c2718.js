@@ -12,5 +12,8 @@ var dir_2dd932fc5c4f5b62276988dfe28c2718 =
     ] ],
     [ "PlaneBufferGeometry.h", "_plane_buffer_geometry_8h.html", [
       [ "PlaneBufferGeometry", "class_plane_buffer_geometry.html", "class_plane_buffer_geometry" ]
+    ] ],
+    [ "TorusKnotBufferGeometry.hpp", "_torus_knot_buffer_geometry_8hpp.html", [
+      [ "TorusKnotBufferGeometry", "class_torus_knot_buffer_geometry.html", "class_torus_knot_buffer_geometry" ]
     ] ]
 ];

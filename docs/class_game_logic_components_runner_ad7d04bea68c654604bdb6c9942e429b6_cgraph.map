@@ -1,5 +1,4 @@
 <map id="GameLogicComponentsRunner::runSystem" name="GameLogicComponentsRunner::runSystem">
-<area shape="rect" id="node1" title="Runs the system." alt="" coords="5,23,208,65"/>
-<area shape="rect" id="node2" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class." alt="" coords="256,5,411,32"/>
-<area shape="rect" id="node3" href="$class_entity.html#a2a0f7811f8c3f8726be1549e1c4acba4" title=" " alt="" coords="273,56,394,83"/>
+<area shape="rect" id="node2" href="$class_entity.html#a2a0f7811f8c3f8726be1549e1c4acba4" title="Entity::isEnabled" alt="" coords="275,5,396,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class. " alt="" coords="257,56,413,83"/>
 </map>

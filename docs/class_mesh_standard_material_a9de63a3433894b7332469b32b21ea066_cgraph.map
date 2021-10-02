@@ -1,16 +1,17 @@
 <map id="MeshStandardMaterial::MeshStandardMaterial" name="MeshStandardMaterial::MeshStandardMaterial">
-<area shape="rect" id="node1" title=" " alt="" coords="5,217,165,259"/>
-<area shape="rect" id="node2" href="$class_mesh_material_common.html#ad8619ab807fc28f674d14fc05cc05d9b" title=" " alt="" coords="213,53,365,95"/>
-<area shape="rect" id="node5" href="$class_mesh_standard_material.html#aebc2b1cf8e2210eb2d167e3f944aedbb" title=" " alt="" coords="213,119,365,160"/>
-<area shape="rect" id="node7" href="$class_mesh_standard_material.html#ae0d76a93163489ee5bffd9361f72d731" title=" " alt="" coords="213,249,365,291"/>
-<area shape="rect" id="node12" href="$class_mesh_standard_material.html#abc482b5a12e2ea68f2a63b44260724ec" title=" " alt="" coords="213,315,365,356"/>
-<area shape="rect" id="node13" href="$class_mesh_standard_material.html#ad6035213cd700319a8f5f74721aedb45" title=" " alt="" coords="213,184,365,225"/>
-<area shape="rect" id="node14" href="$class_mesh_standard_material.html#a1eb52d7ceafb206b5bc8207242db17bf" title=" " alt="" coords="213,380,365,421"/>
-<area shape="rect" id="node3" href="$class_mesh_material_common.html#a4a675a7879a5fc23b5ae00f0847c019b" title=" " alt="" coords="433,5,585,47"/>
-<area shape="rect" id="node4" href="$class_mesh_material_common.html#a1c23f42272cdd31b29a643b4d2b74409" title=" " alt="" coords="433,71,585,112"/>
-<area shape="rect" id="node6" href="$class_mesh_material_common.html#a4d371583db3203ad7e69ee8622f6579d" title=" " alt="" coords="421,152,597,193"/>
-<area shape="rect" id="node8" href="$class_mesh_material_common.html#a348748abd26d7e64527b8d34a4bb69ef" title=" " alt="" coords="413,315,604,356"/>
-<area shape="rect" id="node9" href="$class_material.html#a053e033e624bc01399fb6491f663a7d3" title=" " alt="" coords="652,271,805,298"/>
-<area shape="rect" id="node10" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="663,322,794,349"/>
-<area shape="rect" id="node11" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title=" " alt="" coords="659,373,798,399"/>
+<area shape="rect" id="node2" href="$class_mesh_material_common.html#ad8619ab807fc28f674d14fc05cc05d9b" title="MeshMaterialCommon\l::initializeCommon" alt="" coords="213,41,367,83"/>
+<area shape="rect" id="node5" href="$class_mesh_standard_material.html#ad6035213cd700319a8f5f74721aedb45" title="MeshStandardMaterial\l::setRoughness" alt="" coords="214,172,366,213"/>
+<area shape="rect" id="node7" href="$class_mesh_standard_material.html#aebc2b1cf8e2210eb2d167e3f944aedbb" title="MeshStandardMaterial\l::setMetalness" alt="" coords="214,107,366,148"/>
+<area shape="rect" id="node8" href="$class_mesh_standard_material.html#abc482b5a12e2ea68f2a63b44260724ec" title="MeshStandardMaterial\l::setNormalMap" alt="" coords="427,413,579,455"/>
+<area shape="rect" id="node13" href="$class_mesh_standard_material.html#a1eb52d7ceafb206b5bc8207242db17bf" title="MeshStandardMaterial\l::setRoughnessMap" alt="" coords="427,296,579,337"/>
+<area shape="rect" id="node14" href="$class_mesh_standard_material.html#ae0d76a93163489ee5bffd9361f72d731" title="MeshStandardMaterial\l::setMetalnessMap" alt="" coords="214,355,366,396"/>
+<area shape="rect" id="node15" href="$class_mesh_standard_material.html#a7deffe9899363f88947ad79e9632a916" title="Changes the current environment map intensity. " alt="" coords="214,237,366,279"/>
+<area shape="rect" id="node3" href="$class_mesh_material_common.html#a4a675a7879a5fc23b5ae00f0847c019b" title="MeshMaterialCommon\l::setColor" alt="" coords="426,71,579,112"/>
+<area shape="rect" id="node4" href="$class_mesh_material_common.html#a1c23f42272cdd31b29a643b4d2b74409" title="MeshMaterialCommon\l::setMap" alt="" coords="426,5,579,47"/>
+<area shape="rect" id="node6" href="$class_mesh_material_common.html#a4d371583db3203ad7e69ee8622f6579d" title="MeshMaterialCommon\l::setMaterialBasicProperty" alt="" coords="415,165,591,207"/>
+<area shape="rect" id="node9" href="$class_mesh_material_common.html#a348748abd26d7e64527b8d34a4bb69ef" title="MeshMaterialCommon\l::setMaterialOptionalProperty" alt="" coords="639,325,829,367"/>
+<area shape="rect" id="node10" href="$class_material.html#a1349dd91417148263bc6d9ec0462c86a" title="Material::removeDefine" alt="" coords="877,282,1035,309"/>
+<area shape="rect" id="node11" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title="Material::setDefine" alt="" coords="890,333,1022,359"/>
+<area shape="rect" id="node12" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title="Material::setUniform" alt="" coords="886,383,1026,410"/>
+<area shape="rect" id="node16" href="$class_mesh_standard_material.html#a9d80744ffefffe6e08d29deab3b742e4" title="Method called just before uploading the uniforms. " alt="" coords="427,231,579,272"/>
 </map>

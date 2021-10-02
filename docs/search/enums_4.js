@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['priority_1884',['Priority',['../class_post_process_pass.html#a02ad1dbf405f232c33abb823355de129',1,'PostProcessPass']]]
+  ['lighttype',['LightType',['../class_light.html#a661d9480e01af8b1612860b9630ef5f8',1,'Light']]]
 ];

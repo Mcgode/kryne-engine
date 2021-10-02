@@ -1,10 +1,7 @@
 <map id="DearImGuiSceneBrowser" name="DearImGuiSceneBrowser">
-<area shape="rect" id="node1" title=" " alt="" coords="18,288,185,315"/>
-<area shape="rect" id="node2" href="$class_dear_im_gui_component.html" title=" " alt="" coords="5,199,155,225"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="179,199,235,225"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="76,109,156,136"/>
-<area shape="rect" id="node5" title="STL class." alt="" coords="53,5,179,47"/>
-<area shape="rect" id="node6" title=" " alt="" coords="180,109,369,136"/>
-<area shape="rect" id="node7" href="$class_transform.html" title=" " alt="" coords="353,13,431,39"/>
-<area shape="rect" id="node8" title=" " alt="" coords="394,109,566,136"/>
+<area shape="rect" id="node2" href="$class_dear_im_gui_component.html" title="DearImGuiComponent" alt="" coords="5,199,157,225"/>
+<area shape="rect" id="node3" href="$class_entity.html" title="Entity" alt="" coords="181,199,237,225"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="79,109,159,136"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="55,5,182,47"/>
+<area shape="rect" id="node7" href="$class_transform.html" title="Transform" alt="" coords="355,13,437,39"/>
 </map>

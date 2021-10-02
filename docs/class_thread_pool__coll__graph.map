@@ -1,7 +1,4 @@
 <map id="ThreadPool" name="ThreadPool">
-<area shape="rect" id="node1" title=" " alt="" coords="137,199,224,225"/>
-<area shape="rect" id="node2" href="$class_base_pool.html" title=" " alt="" coords="36,109,115,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,145,47"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="139,109,223,136"/>
-<area shape="rect" id="node5" title="STL class." alt="" coords="247,109,331,136"/>
+<area shape="rect" id="node2" href="$class_base_pool.html" title="BasePool" alt="" coords="37,109,115,136"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="139,109,223,136"/>
 </map>

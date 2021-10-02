@@ -1,10 +1,9 @@
 <map id="LightingRegistrySystem::runSystem" name="LightingRegistrySystem::runSystem">
-<area shape="rect" id="node1" title="Runs the system." alt="" coords="5,90,165,131"/>
-<area shape="rect" id="node2" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class." alt="" coords="223,5,377,32"/>
-<area shape="rect" id="node3" href="$class_lighting_registry_system.html#a719354517e85c215b35c9bf89bb075bb" title=" " alt="" coords="220,57,380,98"/>
-<area shape="rect" id="node7" href="$class_lighting_registry_system.html#ade84f7924c14b17a294625d984034781" title=" " alt="" coords="217,122,383,163"/>
-<area shape="rect" id="node8" href="$class_lighting_registry_system.html#a16a3630b6d4e010e1de0b139807b8bd1" title=" " alt="" coords="213,187,387,229"/>
-<area shape="rect" id="node4" href="$class_material.html#a053e033e624bc01399fb6491f663a7d3" title=" " alt="" coords="435,79,588,105"/>
-<area shape="rect" id="node5" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title=" " alt="" coords="446,129,577,156"/>
-<area shape="rect" id="node6" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title=" " alt="" coords="442,180,581,207"/>
+<area shape="rect" id="node2" href="$class_entity.html#ae609e4d7949ceffca41124df4afbdbcd" title="Retrieves components belonging to the provided class. " alt="" coords="224,5,380,32"/>
+<area shape="rect" id="node3" href="$class_lighting_registry_system.html#a719354517e85c215b35c9bf89bb075bb" title="LightingRegistrySystem\l::updateAmbientLights" alt="" coords="221,57,383,98"/>
+<area shape="rect" id="node7" href="$class_lighting_registry_system.html#a16a3630b6d4e010e1de0b139807b8bd1" title="LightingRegistrySystem\l::updateHemisphereLights" alt="" coords="215,122,389,163"/>
+<area shape="rect" id="node8" href="$class_lighting_registry_system.html#ade84f7924c14b17a294625d984034781" title="LightingRegistrySystem\l::updateDirectionalLights" alt="" coords="219,187,385,229"/>
+<area shape="rect" id="node4" href="$class_material.html#a7476a27aaaa3337d6f4dfa3c5e44d22d" title="Material::setDefine" alt="" coords="450,79,582,105"/>
+<area shape="rect" id="node5" href="$class_material.html#a1349dd91417148263bc6d9ec0462c86a" title="Material::removeDefine" alt="" coords="437,129,595,156"/>
+<area shape="rect" id="node6" href="$class_material.html#ade3d70e1ef2ebc40918f7de6134ccc00" title="Material::setUniform" alt="" coords="446,180,586,207"/>
 </map>
