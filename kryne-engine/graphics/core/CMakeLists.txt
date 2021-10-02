@@ -1,5 +1,5 @@
 add_library(ke-graphics-core STATIC
-        GraphicsApiContext.hpp ../../core/Window.hpp Texture.hpp)
+        GraphicsApiContext.hpp Texture.hpp)
 
 target_link_libraries(ke-graphics-core ${LIBS})
 set_property(TARGET ke-graphics-core PROPERTY Type "Core")
