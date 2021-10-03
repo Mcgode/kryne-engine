@@ -24,7 +24,7 @@ namespace KryneEngine
         /**
          * @brief Initializes the context and associate a window to it.
          */
-        explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
+        explicit GraphicsApiContext(Window& _contextWindow): m_associatedWindow(_contextWindow) {}
 
     public:
         /// Default destructor, for inheritance.
@@ -69,20 +69,29 @@ namespace KryneEngine
             return *s_currentApi;
         }
 
+        /**
+         * @brief Marks this thread as the main thread for this context.
+         *
+         * @details
+         * Some APIs, like OpenGL, need the current thread to "own" the context to run API commands.
+         */
+        virtual void SetMainThread() = 0;
+
 
         // =========================================
         //  Associated window
         // =========================================
 
+    public:
         /// @brief Retrieves the current main window for this graphic context
-        [[nodiscard]] Window* GetAssociatedWindow() const
+        [[nodiscard]] Window& GetAssociatedWindow() const
         {
             return m_associatedWindow;
         }
 
     protected:
         /// The window this context is spawned from
-        Window* m_associatedWindow;
+        Window& m_associatedWindow;
 
 
         // =========================================

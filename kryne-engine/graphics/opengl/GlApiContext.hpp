@@ -17,9 +17,12 @@ namespace KryneEngine
          *
          * @param _window The window that spawned the context
          */
-        GlApiContext(Window& _window);
+        explicit GlApiContext(Window& _window);
 
-        /// @copydoc GraphicsApiContext::CreateTexture
+        // Override
+        void SetMainThread() override;
+
+        // Override
         eastl::shared_ptr<Texture> &&CreateTexture(const Texture::Description &_desc) override;
     };
 }

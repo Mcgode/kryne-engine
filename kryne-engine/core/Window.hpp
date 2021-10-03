@@ -8,6 +8,7 @@
 
 #include <glm/vec2.hpp>
 #include <EASTL/shared_ptr.h>
+#include <GLFW/glfw3.h>
 
 
 namespace KryneEngine
@@ -39,7 +40,17 @@ namespace KryneEngine
         /// The parameters of this window
         WindowDescription m_description;
 
+    public:
+        /// @brief Retrieve the underlying `GLFWwindow` object
+        [[nodiscard]] GLFWwindow* GetUnderlyingGlfwWindow() const
+        {
+            return m_glfwWindow.get();
+        }
+
     private:
+        /// The underlying GLFW window
+        eastl::unique_ptr<GLFWwindow> m_glfwWindow;
+
         /// The graphics context spawned by this window.
         eastl::shared_ptr<GraphicsApiContext> m_graphicsContext {};
 

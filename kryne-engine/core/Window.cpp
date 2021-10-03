@@ -26,6 +26,14 @@ namespace KryneEngine
     {
 #if defined(GRAPHICS_API_GL)
         m_graphicsContext.reset(new GlApiContext(*this));
+#elif defined(GRAPHICS_API_VK)
+        // TODO
 #endif
+
+        if (!GraphicsApiContext::HasAssociatedContext())
+        {
+            GraphicsApiContext::ThreadSetContext(m_graphicsContext);
+            m_graphicsContext->SetMainThread();
+        }
     }
 }
