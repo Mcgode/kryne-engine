@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openglrenderer',['OpenGLRenderer',['../class_framebuffer.html#a9bf4c79d180421daa3d4caf46e848e06',1,'Framebuffer']]]
+  ['lightingregistrysystem',['LightingRegistrySystem',['../class_directional_light.html#a5d40ef3d2ab9dc250c71722aaab1e9bf',1,'DirectionalLight']]]
 ];

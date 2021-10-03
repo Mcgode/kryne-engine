@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_render_scene.html" title="RenderScene" alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node1" href="$class_rendering_process.html" title="RenderingProcess" alt="" coords="5,5,135,32"/>
+<area shape="rect" id="node2" href="$class_shadow_mapping_process.html" title="A rendering process that computes the shadow maps for lights. " alt="" coords="183,5,349,32"/>
 </map>

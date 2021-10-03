@@ -47,7 +47,7 @@ var searchData=
   ['previouscursorposition',['previousCursorPosition',['../class_player_input.html#adbb65fc27ad6b878d4bdeccd9f1a73b0',1,'PlayerInput']]],
   ['previouslayoutcode',['previousLayoutCode',['../class_shader_program_compiler.html#a04e709b412e1b47953f13693cc1d0394',1,'ShaderProgramCompiler']]],
   ['previousplotwidth',['previousPlotWidth',['../class_dear_im_gui_performance_metrics.html#a5868be5aa394ba53b0679a3cc251272c',1,'DearImGuiPerformanceMetrics']]],
-  ['priority',['priority',['../class_post_process_pass.html#afe3b5a9c367292ea09b70f9b837cf6f0',1,'PostProcessPass::priority()'],['../class_post_process_pass.html#a02ad1dbf405f232c33abb823355de129',1,'PostProcessPass::Priority()']]],
+  ['priority',['Priority',['../class_post_process_pass.html#a02ad1dbf405f232c33abb823355de129',1,'PostProcessPass::Priority()'],['../class_post_process_pass.html#afe3b5a9c367292ea09b70f9b837cf6f0',1,'PostProcessPass::priority()']]],
   ['prioritypreprocess',['PriorityPreProcess',['../struct_process_common.html#a50a6eeaa4bbcf1ea8d931da874c26594',1,'ProcessCommon']]],
   ['process',['Process',['../class_process.html',1,'Process'],['../class_entity.html#a7a4d413df5afafea63a3532759beeaa7',1,'Entity::Process()'],['../class_process.html#a173dd9b2c5d6460fe7968c420e756fc2',1,'Process::Process()']]],
   ['process_2ecpp',['Process.cpp',['../_process_8cpp.html',1,'']]],

@@ -100,7 +100,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
+<g id="a_node4"><a xlink:href="src_2_core_2_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
 <polygon fill="#ffffff" stroke="#000000" points="588,-300 588,-319 712,-319 712,-300 588,-300"/>
 <text text-anchor="middle" x="650" y="-307" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">framebufferSizeCallback</text>
 </a>

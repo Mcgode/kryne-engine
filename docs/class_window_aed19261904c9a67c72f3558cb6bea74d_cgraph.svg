@@ -18,7 +18,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
+<g id="a_node2"><a xlink:href="src_2_core_2_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
 <polygon fill="#ffffff" stroke="#000000" points="152.5,-164 152.5,-183 276.5,-183 276.5,-164 152.5,-164"/>
 <text text-anchor="middle" x="214.5" y="-171" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">framebufferSizeCallback</text>
 </a>
@@ -33,7 +33,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="_window_8cpp.html#ae9f4b850e6ccff72bf6da71038d9687f" target="_top" xlink:title="errorCallback">
+<g id="a_node3"><a xlink:href="src_2_core_2_window_8cpp.html#ae9f4b850e6ccff72bf6da71038d9687f" target="_top" xlink:title="errorCallback">
 <polygon fill="#ffffff" stroke="#000000" points="177.5,-126 177.5,-145 251.5,-145 251.5,-126 177.5,-126"/>
 <text text-anchor="middle" x="214.5" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">errorCallback</text>
 </a>

@@ -8,6 +8,7 @@ var searchData=
   ['_7edouble_5flock',['~double_lock',['../struct_utils_1_1double__lock.html#a7e23463b0f7e0247d8ea2f2577590963',1,'Utils::double_lock']]],
   ['_7efinalpostprocess',['~FinalPostProcess',['../class_final_post_process.html#ad2dbb427034a69ff55edebbf79d884d1',1,'FinalPostProcess']]],
   ['_7eframebuffer',['~Framebuffer',['../class_framebuffer.html#a4d7ce2b2a9b2ce0768d8a2394c422d40',1,'Framebuffer']]],
+  ['_7egraphicsapicontext',['~GraphicsApiContext',['../class_kryne_engine_1_1_graphics_api_context.html#ab0bdc487f11a52497a6c4c09aac35898',1,'KryneEngine::GraphicsApiContext']]],
   ['_7ehierarchicalnode',['~HierarchicalNode',['../class_hierarchical_node.html#ad037a44b0c5f0f4888f979a1337a8661',1,'HierarchicalNode']]],
   ['_7elightingregistrysystem',['~LightingRegistrySystem',['../class_lighting_registry_system.html#a345261250549812c219f0761dc3c70e1',1,'LightingRegistrySystem']]],
   ['_7emainrenderer',['~MainRenderer',['../class_main_renderer.html#ae75e50a50aeefe0a08068a57f67e36e5',1,'MainRenderer']]],

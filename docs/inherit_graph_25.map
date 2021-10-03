@@ -1,9 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_material.html" title="Material" alt="" coords="5,81,73,108"/>
-<area shape="rect" id="node2" href="$class_f_x_a_a_material.html" title="A FXAA shader material, for use in post process. " alt="" coords="147,5,249,32"/>
-<area shape="rect" id="node3" href="$class_mesh_material_common.html" title="MeshMaterialCommon" alt="" coords="121,56,275,83"/>
-<area shape="rect" id="node6" href="$class_shader_material.html" title="A wrapper material for directly using shaders. " alt="" coords="143,107,253,133"/>
-<area shape="rect" id="node7" href="$class_texture_copy_material.html" title="TextureCopyMaterial" alt="" coords="127,157,269,184"/>
-<area shape="rect" id="node4" href="$class_mesh_lambert_material.html" title="MeshLambertMaterial" alt="" coords="325,31,472,57"/>
-<area shape="rect" id="node5" href="$class_mesh_standard_material.html" title="MeshStandardMaterial" alt="" coords="323,81,475,108"/>
+<area shape="rect" id="node1" href="$class_loop_renderer.html" title="A renderer that will be run in the game loop. " alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$class_open_g_l_renderer.html" title="OpenGLRenderer" alt="" coords="156,5,279,32"/>
 </map>

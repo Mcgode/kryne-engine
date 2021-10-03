@@ -14,6 +14,13 @@ namespace KryneEngine
     struct WindowDescription;
     class Window;
 
+    /**
+     * @brief The central object for spawning windows and graphical contexts.
+     *
+     * @details
+     * Application is accessed as a static singleton. You can spawn multiple graphics contexts, allowing you to do
+     * multiple renders in parallel.
+     */
     class Application
     {
     public:
@@ -26,9 +33,8 @@ namespace KryneEngine
             return s_app;
         }
 
-        ~Application() = default;
-
     private:
+        /// @brief Private constructor, for singleton purposes
         Application() = default;
 
     public:

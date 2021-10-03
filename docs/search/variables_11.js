@@ -15,6 +15,7 @@ var searchData=
   ['shadowmappingprocess',['ShadowMappingProcess',['../class_lighting_registry_system.html#aae0ad5c9f4b93c02d355360b510e9109',1,'LightingRegistrySystem']]],
   ['shadowprocess',['shadowProcess',['../class_lighting_registry_system.html#ae3246360eaf1f79579b349c4021816f5',1,'LightingRegistrySystem']]],
   ['shouldrun',['shouldRun',['../class_lighting_registry_system.html#a3f04d503a1a6993d4bf885a375666ad6',1,'LightingRegistrySystem']]],
+  ['size',['size',['../struct_kryne_engine_1_1_window_description.html#ad4d7625e3d9d5297935b174810a1ef68',1,'KryneEngine::WindowDescription']]],
   ['skyboxenvmap',['skyboxEnvMap',['../class_scene.html#a76be839defbf9fb991502808019e4d48',1,'Scene']]],
   ['skyboxmaterial',['skyboxMaterial',['../class_loop_renderer.html#ac4ab7349fd0ba9b4ccac372052ca494f',1,'LoopRenderer']]],
   ['skycolor',['skyColor',['../class_hemisphere_light.html#a3fb829ca3aef3cc95881f157d8d96e45',1,'HemisphereLight']]],

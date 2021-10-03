@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "AdditionalParameters", "class_additional_parameters.html", null ],
+    [ "KryneEngine::Application", "class_kryne_engine_1_1_application.html", null ],
     [ "OpenGLFramebuffer::AttachmentData", "struct_open_g_l_framebuffer_1_1_attachment_data.html", null ],
     [ "BufferGeometry::AttributeData", "struct_buffer_geometry_1_1_attribute_data.html", null ],
     [ "Math::AxisAlignedBox", "struct_math_1_1_axis_aligned_box.html", null ],
@@ -150,6 +151,7 @@ var hierarchy =
     [ "Utils::UniquePtrVector< UIRenderer >", "struct_utils_1_1_unique_ptr_vector.html", null ],
     [ "KryneEngine::Texture::Usage", "struct_kryne_engine_1_1_texture_1_1_usage.html", null ],
     [ "VertexArray", "class_vertex_array.html", null ],
+    [ "KryneEngine::Window", "class_kryne_engine_1_1_window.html", null ],
     [ "Window", "class_window.html", null ],
-    [ "KryneEngine::Window", "class_kryne_engine_1_1_window.html", null ]
+    [ "KryneEngine::WindowDescription", "struct_kryne_engine_1_1_window_description.html", null ]
 ];

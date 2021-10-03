@@ -33,7 +33,7 @@
 <!-- Node16 -->
 <g id="node3" class="node">
 <title>Node16</title>
-<g id="a_node3"><a xlink:href="_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
+<g id="a_node3"><a xlink:href="src_2_core_2_window_8cpp.html#a09882d71c70e402a1d6179c914a001c2" target="_top" xlink:title="framebufferSizeCallback">
 <polygon fill="#ffffff" stroke="#000000" points="406,-.5 406,-19.5 530,-19.5 530,-.5 406,-.5"/>
 <text text-anchor="middle" x="468" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">framebufferSizeCallback</text>
 </a>

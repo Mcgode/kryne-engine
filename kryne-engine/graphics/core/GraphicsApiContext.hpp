@@ -16,6 +16,25 @@ namespace KryneEngine
 
     class GraphicsApiContext
     {
+        // =========================================
+        //  Init / delete
+        // =========================================
+
+    protected:
+        /**
+         * @brief Initializes the context and associate a window to it.
+         */
+        explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
+
+    public:
+        /// Default destructor, for inheritance.
+        virtual ~GraphicsApiContext() = default;
+
+
+        // =========================================
+        //  Get / set context
+        // =========================================
+
     public:
         /**
          * @brief A function to call at the start of a thread
@@ -28,7 +47,7 @@ namespace KryneEngine
          *
          * @param _api A shared pointer of the graphics API context this thread will run on.
          */
-        static void ThreadInit(eastl::shared_ptr<GraphicsApiContext>& _api)
+        static void ThreadSetContext(eastl::shared_ptr<GraphicsApiContext>& _api)
         {
             s_currentApi = _api;
         }
@@ -60,16 +79,6 @@ namespace KryneEngine
         {
             return m_associatedWindow;
         }
-
-    protected:
-        /**
-         * @brief Initializes the context and associate a window to it.
-         */
-        explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
-
-    public:
-        /// Default destructor, for inheritance.
-        virtual ~GraphicsApiContext() = default;
 
     protected:
         /// The window this context is spawned from

@@ -17,6 +17,7 @@ var searchData=
   ['computetangents',['computeTangents',['../class_buffer_geometry.html#a1d92262d7fd788c5cc64bac05b56bb04',1,'BufferGeometry']]],
   ['contains',['contains',['../class_additional_parameters.html#a1d3310c8f694b12193d305f3785ff4c1',1,'AdditionalParameters']]],
   ['createtexture',['CreateTexture',['../class_kryne_engine_1_1_graphics_api_context.html#af8d1aa220d2af4f034af56d1d1cd84d7',1,'KryneEngine::GraphicsApiContext::CreateTexture()'],['../class_kryne_engine_1_1_gl_api_context.html#a165dcea03c718ee5db16a1e94235d289',1,'KryneEngine::GlApiContext::CreateTexture()']]],
+  ['createwindow',['CreateWindow',['../class_kryne_engine_1_1_application.html#a517a1b61a55e13fbf5b28aed41a58a15',1,'KryneEngine::Application']]],
   ['cubemapimageunwrapped',['CubeMapImageUnwrapped',['../namespace_k_e_im_gui.html#a4bcd9a5316036cc71b02bd451fcddb47',1,'KEImGui']]],
   ['cubetexture',['CubeTexture',['../class_cube_texture.html#aa78239fdb0077ffd33de6e6dd826dbec',1,'CubeTexture::CubeTexture(GLuint id)'],['../class_cube_texture.html#a9ef0103e40cc37f6eb4ec8dabe47a879',1,'CubeTexture::CubeTexture(const ivec2 &amp;size, Formats format, InternalSizes internalSize, DataTypes dataType)']]]
 ];

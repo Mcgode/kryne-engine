@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "cdistuv",
   7: "bdfilmprstw",
   8: "abcdefghlmnoprstuv",
-  9: "dlops",
+  9: "adlops",
   10: "abcdgikps"
 };
 

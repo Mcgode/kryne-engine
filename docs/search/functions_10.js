@@ -24,7 +24,7 @@ var searchData=
   ['rendermain',['renderMain',['../class_main_renderer.html#ac7dd81d32ea8c6488296cf0999d520f6',1,'MainRenderer']]],
   ['rendermesh',['RenderMesh',['../class_render_mesh.html#a442fb832d1bce0e8c236a61eed3bf2ce',1,'RenderMesh::RenderMesh()'],['../class_loop_renderer.html#a499f1452cf102d52774d1ec306b00018',1,'LoopRenderer::renderMesh()'],['../class_open_g_l_renderer.html#a8decfb21fd3cfcaa4c78eda665a695f2',1,'OpenGLRenderer::renderMesh()']]],
   ['renderobject',['renderObject',['../class_renderer.html#aa814eabb912509d0cd34b61018e98fb4',1,'Renderer']]],
-  ['renderscene',['renderScene',['../class_loop_renderer.html#aa0f07c3376bc887825d3a17c0ecd7607',1,'LoopRenderer::renderScene()'],['../class_open_g_l_renderer.html#ab962b1c30a5daf6ba38584941a3acbf5',1,'OpenGLRenderer::renderScene()'],['../class_render_scene.html#ab9c1784eb6cbe4dd21fdf8715282af0b',1,'RenderScene::RenderScene()']]],
+  ['renderscene',['RenderScene',['../class_render_scene.html#ab9c1784eb6cbe4dd21fdf8715282af0b',1,'RenderScene::RenderScene()'],['../class_loop_renderer.html#aa0f07c3376bc887825d3a17c0ecd7607',1,'LoopRenderer::renderScene()'],['../class_open_g_l_renderer.html#ab962b1c30a5daf6ba38584941a3acbf5',1,'OpenGLRenderer::renderScene()']]],
   ['rendershadowmaps',['renderShadowMaps',['../class_shadow_map_handler.html#a1ee9592fe4215b6e17bbb24bbeef5b4c',1,'ShadowMapHandler']]],
   ['replaceincludes',['replaceIncludes',['../class_shader_program_compiler.html#a00138214b02ebdfed1eb2d1757272bf1',1,'ShaderProgramCompiler']]],
   ['reset',['reset',['../struct_utils_1_1_frame_time_1_1_part_durations.html#a1ffd1a60b81e97070e2300ff4c9b5144',1,'Utils::FrameTime::PartDurations']]],

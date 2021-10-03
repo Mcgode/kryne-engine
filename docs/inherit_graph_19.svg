@@ -12,10 +12,10 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="struct_kryne_engine_1_1_texture_1_1_memory.html" target="_top" xlink:title="KryneEngine::Texture\l::Memory">
+<g id="a_node1"><a xlink:href="struct_kryne_engine_1_1_texture_1_1_description.html" target="_top" xlink:title="The specifications description of a texture. ">
 <polygon fill="#ffffff" stroke="#000000" points="0,-.5 0,-30.5 111,-30.5 111,-.5 0,-.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">KryneEngine::Texture</text>
-<text text-anchor="middle" x="55.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">::Memory</text>
+<text text-anchor="middle" x="55.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">::Description</text>
 </a>
 </g>
 </g>

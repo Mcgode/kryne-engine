@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lightingregistrysystem',['LightingRegistrySystem',['../class_directional_light.html#a5d40ef3d2ab9dc250c71722aaab1e9bf',1,'DirectionalLight']]]
+  ['directionallightshadowcameracomponent',['DirectionalLightShadowCameraComponent',['../class_directional_light.html#a0ad6c37f9f9f5c3c095914137d457b32',1,'DirectionalLight']]]
 ];
