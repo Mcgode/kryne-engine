@@ -6,6 +6,12 @@
 
 #include "Window.hpp"
 
+#if defined(GRAPHICS_API_GL)
+    #include <graphics/opengl/GlApiContext.hpp>
+#elif defined(GRAPHICS_API_VK)
+    #include <graphics/vulkan/VkApiContext.hpp>
+#endif
+
 namespace KryneEngine
 {
 
@@ -18,5 +24,8 @@ namespace KryneEngine
         : m_application(_application)
         , m_description(_description)
     {
+#if defined(GRAPHICS_API_GL)
+        m_graphicsContext.reset(new GlApiContext(*this));
+#endif
     }
 }

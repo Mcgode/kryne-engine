@@ -26,6 +26,8 @@ namespace KryneEngine
             return s_app;
         }
 
+        ~Application() = default;
+
     private:
         Application() = default;
 

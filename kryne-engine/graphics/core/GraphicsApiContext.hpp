@@ -67,7 +67,12 @@ namespace KryneEngine
          */
         explicit GraphicsApiContext(Window* _contextWindow): m_associatedWindow(_contextWindow) {}
 
-        /// @biref The window this context is spawned from
+    public:
+        /// Default destructor, for inheritance.
+        virtual ~GraphicsApiContext() = default;
+
+    protected:
+        /// The window this context is spawned from
         Window* m_associatedWindow;
 
 
