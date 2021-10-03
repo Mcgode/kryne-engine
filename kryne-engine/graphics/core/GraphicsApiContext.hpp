@@ -16,6 +16,8 @@ namespace KryneEngine
 
     class GraphicsApiContext
     {
+        friend class Window;
+
         // =========================================
         //  Init / delete
         // =========================================
@@ -90,6 +92,8 @@ namespace KryneEngine
         }
 
     protected:
+        virtual void SetUpWindowHints() = 0;
+
         /// The window this context is spawned from
         Window& m_associatedWindow;
 

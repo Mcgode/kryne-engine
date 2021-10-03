@@ -6,6 +6,7 @@
 
 #pragma once
 #include <graphics/core/GraphicsApiContext.hpp>
+#include <graphics/opengl/GlContextParameters.hpp>
 
 namespace KryneEngine
 {
@@ -16,12 +17,23 @@ namespace KryneEngine
          * @brief Initialize the OpenGL graphic context
          *
          * @param _window The window that spawned the context
+         * @param _params The additional parameters for the OpenGL context
          */
-        explicit GlApiContext(Window& _window);
+        explicit GlApiContext(Window &_window, const GLContextParameters *_params);
 
+    private:
+        /// The additional parameters for the OpenGL context
+        const GLContextParameters m_contextParameters;
+
+    public:
         // Override
         void SetMainThread() override;
 
+    protected:
+        // Override
+        void SetUpWindowHints() override;
+
+    public:
         // Override
         eastl::shared_ptr<Texture> &&CreateTexture(const Texture::Description &_desc) override;
     };

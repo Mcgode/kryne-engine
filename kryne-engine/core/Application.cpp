@@ -12,10 +12,10 @@
 
 namespace KryneEngine
 {
-    Window& Application::CreateWindow(const KryneEngine::WindowDescription &_description)
+    Window & Application::CreateWindow(const WindowDescription &_description, void *_additionalParams)
     {
         auto& windowRef = m_windows.push_back();
-        windowRef.reset(new Window(*this, _description));
+        windowRef.reset(new Window(*this, _description, nullptr));
         return *windowRef;
     }
 

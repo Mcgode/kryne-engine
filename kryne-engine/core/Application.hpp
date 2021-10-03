@@ -45,11 +45,12 @@ namespace KryneEngine
         /**
          * @brief Instantiates a GLFW window and its associated graphical context
          *
-         * @param _description The window
+         * @param _description The window's description
+         * @param _additionalParams Api-related additional parameters
          *
          * @return A reference to the created window, which is owned exclusively by the application.
          */
-        Window& CreateWindow(const WindowDescription& _description);
+        Window &CreateWindow(const WindowDescription &_description, void* _additionalParams);
 
     private:
         /// @brief The windows of the application

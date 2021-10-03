@@ -21,7 +21,16 @@ namespace KryneEngine
         glfwMakeContextCurrent(m_associatedWindow.GetUnderlyingGlfwWindow());
     }
 
-    GlApiContext::GlApiContext(Window &_window) : GraphicsApiContext(_window)
+    GlApiContext::GlApiContext(Window &_window, const GLContextParameters *_params)
+        : GraphicsApiContext(_window)
+        , m_contextParameters(_params != nullptr ? *_params : GLContextParameters())
     {
+    }
+
+    void GlApiContext::SetUpWindowHints()
+    {
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, m_contextParameters.m_version.m_major);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, m_contextParameters.m_version.m_minor);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, m_contextParameters.m_profile);
     }
 }

@@ -8,6 +8,7 @@
 
 #include <glm/vec2.hpp>
 #include <EASTL/shared_ptr.h>
+#include <EASTL/string.h>
 
 #if defined(GRAPHICS_API_GL)
     #include <glad/glad.h>
@@ -22,8 +23,9 @@ namespace KryneEngine
 
     struct WindowDescription
     {
-        bool hidden = false;
-        glm::uvec2 size { 1920, 1080 };
+        bool m_hidden = false;
+        glm::uvec2 m_size {1920, 1080 };
+        eastl::string m_name;
     };
 
     class Window
@@ -36,7 +38,7 @@ namespace KryneEngine
          * @param _application @copybrief m_application
          * @param _description @copybrief m_description
          */
-        explicit Window(Application& _application, const WindowDescription& _description);
+        explicit Window(Application &_application, const WindowDescription &_description, void *_additionalParameters);
 
         /// The application owning this window
         Application& m_application;
