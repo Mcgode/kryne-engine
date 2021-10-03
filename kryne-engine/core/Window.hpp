@@ -8,6 +8,10 @@
 
 #include <glm/vec2.hpp>
 #include <EASTL/shared_ptr.h>
+
+#if defined(GRAPHICS_API_GL)
+    #include <glad/glad.h>
+#endif
 #include <GLFW/glfw3.h>
 
 
@@ -44,12 +48,12 @@ namespace KryneEngine
         /// @brief Retrieve the underlying `GLFWwindow` object
         [[nodiscard]] GLFWwindow* GetUnderlyingGlfwWindow() const
         {
-            return m_glfwWindow.get();
+            return m_glfwWindow;
         }
 
     private:
         /// The underlying GLFW window
-        eastl::unique_ptr<GLFWwindow> m_glfwWindow;
+        GLFWwindow* m_glfwWindow;
 
         /// The graphics context spawned by this window.
         eastl::shared_ptr<GraphicsApiContext> m_graphicsContext {};
