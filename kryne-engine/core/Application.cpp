@@ -7,6 +7,7 @@
 #include "Application.hpp"
 
 #include <core/Window.hpp>
+#include <GLFW/glfw3.h>
 
 
 namespace KryneEngine
@@ -16,5 +17,17 @@ namespace KryneEngine
         auto& windowRef = m_windows.push_back();
         windowRef.reset(new Window(*this, _description));
         return *windowRef;
+    }
+
+
+    Application::Application()
+    {
+        glfwInit();
+    }
+
+
+    Application::~Application()
+    {
+        glfwTerminate();
     }
 }

@@ -20,6 +20,7 @@ namespace KryneEngine
      * @details
      * Application is accessed as a static singleton. You can spawn multiple graphics contexts, allowing you to do
      * multiple renders in parallel.
+     * This class will initialize GLFW, and will terminate it upon deletion.
      */
     class Application
     {
@@ -35,7 +36,10 @@ namespace KryneEngine
 
     private:
         /// @brief Private constructor, for singleton purposes
-        Application() = default;
+        Application();
+
+        /// @brief Private destructor.
+        ~Application();
 
     public:
         /**
