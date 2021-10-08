@@ -1,6 +1,6 @@
 add_library(ke-core STATIC
         Application.cpp Application.hpp
-        Window.hpp Window.cpp)
+        Window.hpp Window.cpp Logger.cpp Logger.hpp)
 
 if(GraphicsApi STREQUAL "GL")
     target_link_libraries(ke-core ke-graphics-gl)

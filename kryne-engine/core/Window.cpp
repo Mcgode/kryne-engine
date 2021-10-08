@@ -24,6 +24,8 @@ namespace KryneEngine
         : m_application(_application)
         , m_description(_description)
     {
+        Assert(!GraphicsApiContext::HasAssociatedContext(), "New graphical contexts and windows must be created in a blank thread");
+
 #if defined(GRAPHICS_API_GL)
         m_graphicsContext.reset(new GlApiContext(*this, static_cast<GLContextParameters*>(_additionalParameters)));
 #elif defined(GRAPHICS_API_VK)
@@ -36,11 +38,11 @@ namespace KryneEngine
                                         m_description.m_name.c_str(),
                                         nullptr,
                                         nullptr);
+        Assert(m_glfwWindow != nullptr, "Could not initialize window");
 
-        if (!GraphicsApiContext::HasAssociatedContext())
-        {
-            GraphicsApiContext::ThreadSetContext(m_graphicsContext);
-            m_graphicsContext->SetMainThread();
-        }
+        GraphicsApiContext::ThreadSetContext(m_graphicsContext);
+        m_graphicsContext->SetMainThread();
+
+        m_graphicsContext->FinishContextSetup(m_glfwWindow);
     }
 }

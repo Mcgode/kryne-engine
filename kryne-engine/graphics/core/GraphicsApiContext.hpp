@@ -10,6 +10,8 @@
 #include <common/Assert.hpp>
 #include <graphics/core/Texture.hpp>
 
+class GLFWwindow;
+
 namespace KryneEngine
 {
     class Window;
@@ -92,7 +94,17 @@ namespace KryneEngine
         }
 
     protected:
+        /**
+         * @brief Set up API-related GLFW window hints
+         */
         virtual void SetUpWindowHints() = 0;
+
+        /**
+         * @brief Finishes the context setup
+         *
+         * @param _window The newly created GLFW widow
+         */
+        virtual void FinishContextSetup(GLFWwindow* _window) = 0;
 
         /// The window this context is spawned from
         Window& m_associatedWindow;

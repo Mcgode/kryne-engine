@@ -27,5 +27,7 @@ namespace KryneEngine
         OpenGlVersion m_version = OpenGlBaseVersion;
 
         s32 m_profile = GLFW_OPENGL_CORE_PROFILE;
+
+        bool m_useDebugLayer = true;
     };
 }

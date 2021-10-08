@@ -33,6 +33,9 @@ namespace KryneEngine
         // Override
         void SetUpWindowHints() override;
 
+        // Override
+        void FinishContextSetup(GLFWwindow *_window) override;
+
     public:
         // Override
         eastl::shared_ptr<Texture> &&CreateTexture(const Texture::Description &_desc) override;

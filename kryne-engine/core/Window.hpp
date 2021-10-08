@@ -24,7 +24,9 @@ namespace KryneEngine
     struct WindowDescription
     {
         bool m_hidden = false;
+
         glm::uvec2 m_size {1920, 1080 };
+
         eastl::string m_name;
     };
 
