@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <graphics/core/Texture.hpp>
+#include <ke/graphics/Texture.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

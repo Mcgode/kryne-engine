@@ -6,8 +6,7 @@
 
 #include "Application.hpp"
 
-#include <core/Window.hpp>
-#include <GLFW/glfw3.h>
+#include <ke/Window.hpp>
 
 
 namespace KryneEngine

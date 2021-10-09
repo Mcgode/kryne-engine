@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#include <graphics/core/GraphicsApiContext.hpp>
-#include <graphics/opengl/GlContextParameters.hpp>
+#include <ke/graphics/GraphicsApiContext.hpp>
+#include <ke/graphics/opengl/GlContextParameters.hpp>
 
 namespace KryneEngine
 {

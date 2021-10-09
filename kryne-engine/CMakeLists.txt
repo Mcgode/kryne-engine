@@ -1,8 +1,4 @@
-include_directories(.)
 
-add_subdirectory(graphics/core)
-add_subdirectory(graphics/opengl)
-add_subdirectory(core)
 
 add_library(kryne-engine STATIC
         src/Material/Shader.cpp include/kryne-engine/Material/Shader.h
@@ -132,7 +128,9 @@ add_library(kryne-engine STATIC
         include/kryne-engine/Utils/DearImGui/CubeMapWidget.cpp include/kryne-engine/Utils/DearImGui/CubeMapWidget.hpp
         include/kryne-engine/Rendering/RenderingProcess.hpp
         src/Rendering/Processes/ShadowMappingProcess.cpp include/kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp
-        include/kryne-engine/Camera/OrthographicProjectionData.hpp src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp)
+        include/kryne-engine/Camera/OrthographicProjectionData.hpp
+        src/Light/DirectionalLightShadowCameraComponent.cpp include/kryne-engine/Light/DirectionalLightShadowCameraComponent.hpp
+        )
 
 target_include_directories(kryne-engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

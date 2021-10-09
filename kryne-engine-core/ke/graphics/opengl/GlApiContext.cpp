@@ -6,9 +6,9 @@
 
 #include "GlApiContext.hpp"
 
-#include <core/Window.hpp>
-#include <core/Logger.hpp>
-#include <graphics/opengl/GlTexture.hpp>
+#include <ke/Window.hpp>
+#include <ke/Logger.hpp>
+#include <ke/graphics/opengl/GlTexture.hpp>
 
 constexpr const char* kLogCategory = "OpenGL context";
 

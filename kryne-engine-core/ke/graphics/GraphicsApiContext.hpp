@@ -7,8 +7,8 @@
 #pragma once
 
 #include <EASTL/shared_ptr.h>
-#include <common/Assert.hpp>
-#include <graphics/core/Texture.hpp>
+#include <ke/common/Assert.hpp>
+#include <ke/graphics/Texture.hpp>
 
 class GLFWwindow;
 

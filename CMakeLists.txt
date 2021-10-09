@@ -108,6 +108,7 @@ endfunction()
 
 
 # Set up Kryne Engine library
+add_subdirectory(kryne-engine-core)
 add_subdirectory(kryne-engine)
 
 

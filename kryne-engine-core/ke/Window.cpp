@@ -7,9 +7,9 @@
 #include "Window.hpp"
 
 #if defined(GRAPHICS_API_GL)
-    #include <graphics/opengl/GlApiContext.hpp>
+    #include <ke/graphics/opengl/GlApiContext.hpp>
 #elif defined(GRAPHICS_API_VK)
-    #include <graphics/vulkan/VkApiContext.hpp>
+    #include <ke/graphics/vulkan/VkApiContext.hpp>
 #endif
 
 namespace KryneEngine

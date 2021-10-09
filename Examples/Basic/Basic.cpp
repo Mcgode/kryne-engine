@@ -22,6 +22,7 @@
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 #include <kryne-engine/UI/DearImGuiPerformanceMetrics.hpp>
 #include <kryne-engine/Geometry/TorusKnotBufferGeometry.hpp>
+#include <core/Window.hpp>
 
 
 int main()
