@@ -22,6 +22,25 @@ namespace KryneEngine
         explicit GlApiContext(Window &_window, const GLContextParameters *_params);
 
     private:
+        /**
+         * @brief Logging function called for OpenGL debug output
+         *
+         * @param _source
+         * @param _type
+         * @param _id
+         * @param _severity
+         * @param _length
+         * @param _message
+         * @param _userParam
+         */
+        static void APIENTRY LogOpenGLDebug(GLenum _source,
+                                            GLenum _type,
+                                            unsigned int _id,
+                                            GLenum _severity,
+                                            GLsizei _length,
+                                            const char *_message,
+                                            const void *_userParam);
+
         /// The additional parameters for the OpenGL context
         const GLContextParameters m_contextParameters;
 

@@ -56,13 +56,13 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # using GCC
     set(CommonCompileFlags "")
 
-    set(DebugCompileFlags -Og)
+    set(DebugCompileFlags -Og -D _DEBUG)
     set(DebugLinkFlags "")
 
-    set(ReleaseCompileFlags -O1 -finline-small-functions)
+    set(ReleaseCompileFlags -O1 -finline-small-functions -D _DEBUG)
     set(ReleaseLinkFlags "")
 
-    set(FinalCompileFlags -O3)
+    set(FinalCompileFlags -O3 -D NDEBUG)
     set(FinalLinkFlags "")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++

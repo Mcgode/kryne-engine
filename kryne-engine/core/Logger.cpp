@@ -20,13 +20,20 @@ namespace KryneEngine
         ENUM_META(Logger::Level::Fatal, "FATAL")
     ENUM_META_END()
 
-    ENUM_META_BEGIN_TO_STRING(Logger::Category)
-        ENUM_META(Logger::Category::Core, "Core")
-        ENUM_META(Logger::Category::Rendering, "Rendering")
+    ENUM_META_BEGIN_TO_STRING(Logger::CommonCategories)
+        ENUM_META(Logger::CommonCategories::Core, "Core")
+        ENUM_META(Logger::CommonCategories::Rendering, "Rendering")
     ENUM_META_END()
 
-    void Logger::Log(const Logger::Level &_level, const Logger::Category &_cat, eastl::string_view _message)
+    void Logger::Log(Logger::Level _level, const eastl::string_view &_cat, const eastl::string_view &_message)
     {
-        std::cout << to_string(_level) << " - [" << to_string(_cat) << "] " << _message.begin() << std::endl;
+        std::cout << to_string(_level) << " - [" << _cat.begin() << "] " << _message.begin() << std::endl;
+    }
+
+    void Logger::Log(Level _level, CommonCategories _cat, const eastl::string_view &_message)
+    {
+#if defined(ENABLE_LOGGING)
+        Log(_level, to_string(_cat), _message);
+#endif
     }
 }
