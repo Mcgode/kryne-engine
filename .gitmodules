@@ -1,3 +1,9 @@
 [submodule "external-libs/eastl"]
 	path = external-libs/eastl
 	url = https://github.com/electronicarts/EASTL.git
+[submodule "external-libs/boost"]
+	path = external-libs/boost
+	url = https://github.com/boostorg/boost.git
+[submodule "external-libs/glfw"]
+	path = external-libs/glfw
+	url = https://github.com/glfw/glfw.git
