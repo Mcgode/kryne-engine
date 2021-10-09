@@ -16,12 +16,6 @@ add_subdirectory(external-libs)
 include_directories(${EASTL_INCLUDE_DIRS})
 
 
-# Set up GLFW3
-find_package(GLFW3 REQUIRED)
-message(STATUS "Found GLFW3 in ${GLFW3_INCLUDE_DIR}")
-include_directories(${GLFW3_INCLUDE_DIR})
-
-
 # Set up GLM
 find_package(GLM REQUIRED)
 message(STATUS "Found GLM in ${GLM_INCLUDE_DIR}")
@@ -52,22 +46,7 @@ include_directories(external-libs/imgui)
 
 
 #Set up the used libs
-set(LIBS stb_image glad ${GLFW3_LIBRARY} ${ASSIMP_LIBRARIES} DearIMGUI EASTL)
-
-
-# Set up boost library
-
-if(WIN32)
-    # Required, or else CMake won't find boost components
-    set (Boost_USE_STATIC_LIBS 1)
-endif()
-
-find_package(Boost REQUIRED COMPONENTS filesystem system)
-include_directories(${Boost_INCLUDE_DIR})
-link_directories(${Boost_LIBRARY_DIR})
-message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
-
-set(LIBS ${LIBS} ${Boost_LIBRARIES})
+set(LIBS stb_image glad glfw ${ASSIMP_LIBRARIES} DearIMGUI EASTL ${BoostLibs})
 
 
 ## Helper functions

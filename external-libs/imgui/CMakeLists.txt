@@ -15,6 +15,7 @@ add_library(DearIMGUI STATIC
         imstb_rectpack.h
         imstb_textedit.h
         imstb_truetype.h)
+target_link_libraries(DearIMGUI glfw)
 
 set_property(TARGET DearIMGUI PROPERTY Type "External")
 SetTargetFlags(DearIMGUI)

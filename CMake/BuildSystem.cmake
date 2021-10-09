@@ -44,6 +44,11 @@ add_definitions("-DGRAPHICS_API_${GraphicsApi}")
 
 # Setting up debug flags
 
+set(CMAKE_CXX_FLAGS "")
+set(CMAKE_CXX_FLAGS_DEBUG "")
+set(CMAKE_CXX_FLAGS_RELEASE "")
+set(CMAKE_C_FLAGS "")
+
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     # using Clang
     message(FATAL_ERROR "Clang flags not set up")
@@ -61,15 +66,15 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set(FinalLinkFlags "")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++
-    set(CommonCompileFlags /MDd /D_ITERATOR_DEBUG_LEVEL=0)
+    set(CommonCompileFlags "/EHsc")
 
-    set(DebugCompileFlags /Od /Ob1 /D_DEBUG /Zi ${CommonCompileFlags})
+    set(DebugCompileFlags /Od /Ob1 /D _DEBUG /Zi /MTd ${CommonCompileFlags})
     set(DebugLinkFlags /debug /INCREMENTAL)
 
-    set(ReleaseCompileFlags /O2 /Ob2 /D_DEBUG /Zi ${CommonCompileFlags})
+    set(ReleaseCompileFlags /O2 /Ob2 /D _DEBUG /Zi /MTd ${CommonCompileFlags})
     set(ReleaseLinkFlags /debug /INCREMENTAL)
 
-    set(FinalCompileFlags /O2 /Ob3 /D NDEBUG ${CommonCompileFlags})
+    set(FinalCompileFlags /O2 /Ob2 /D NDEBUG /MT ${CommonCompileFlags})
     set(FinalLinkFlags /INCREMENTAL:NO)
 else()
     message(ERROR "Unknown compiler ${CMAKE_CXX_COMPILER_ID}")
