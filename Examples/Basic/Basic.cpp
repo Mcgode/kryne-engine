@@ -22,7 +22,9 @@
 #include <kryne-engine/UI/DearImGuiSceneBrowser.hpp>
 #include <kryne-engine/UI/DearImGuiPerformanceMetrics.hpp>
 #include <kryne-engine/Geometry/TorusKnotBufferGeometry.hpp>
-#include <core/Window.hpp>
+
+#include <ke/Application.hpp>
+#include <ke/Window.hpp>
 
 
 int main()
@@ -51,6 +53,15 @@ int main()
 //    {
 //        cout << "IO operations should have concluded" << endl;
 //    });
+
+    {
+        using namespace KryneEngine;
+
+        Application &app = Application::GetApplication();
+
+        WindowDescription windowDescription {};
+        auto& window = app.CreateWindow(windowDescription, nullptr);
+    }
 
     vector<string> skyTextureFiles = {
         "Resources/Textures/skybox/right.tga",
