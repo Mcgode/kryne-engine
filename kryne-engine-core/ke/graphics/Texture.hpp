@@ -27,15 +27,14 @@ namespace KryneEngine
             None = 0,
 
             RedFormats = None,
-                R8 = RedFormats,
+                R8,
                 R16,
-                R32,
                 R16F,
                 R32F,
             RedFormatsEnd = R32F,
 
             RgFormats = RedFormatsEnd,
-                RG8 = RgFormats,
+                RG8,
                 RG16,
                 RG32,
                 RG16F,
@@ -43,7 +42,7 @@ namespace KryneEngine
             RgFormatsEnd = RG32F,
 
             RgbFormats = RgFormatsEnd,
-                RGB8 = RgbFormats,
+                RGB8,
                 RGB16,
                 RGB32,
                 RGB16F,
@@ -51,7 +50,7 @@ namespace KryneEngine
             RgbFormatsEnd = RGB32F,
 
             RgbaFormats = RgbFormatsEnd,
-                RGBA8 = RgbaFormats,
+                RGBA8,
                 RGBA16,
                 RGBA32,
                 RGBA16F,
@@ -59,17 +58,17 @@ namespace KryneEngine
             RgbaFormatsEnd = RGBA32F,
 
             DepthFormats = RgbaFormatsEnd,
-                D16 = DepthFormats,
+                D16,
                 D24,
                 D32F,
             DepthFormatsEnd = D32F,
 
             StencilFormats = DepthFormatsEnd,
-                S8 = StencilFormats,
+                S8,
             StencilFormatsEnd = S8,
 
             DepthStencilFormats = StencilFormatsEnd,
-                D24_S8 = DepthStencilFormats,
+                D24_S8,
                 D32F_S8,
             DepthStencilFormatsEnd = D32F_S8,
 
