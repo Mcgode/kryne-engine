@@ -13,7 +13,6 @@ include(./CMake/BuildSystem.cmake)
 
 
 add_subdirectory(external-libs)
-include_directories(${EASTL_INCLUDE_DIRS})
 
 
 # Set up GLM
