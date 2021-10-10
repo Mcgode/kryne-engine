@@ -53,13 +53,13 @@ namespace KryneEngine
          */
         static void ThreadSetContext(eastl::shared_ptr<GraphicsApiContext>& _api)
         {
-            s_currentApi = _api;
+            _GetCurrentApi() = _api;
         }
 
         /// @brief Returns true if the thread owns an API context
         static bool HasAssociatedContext()
         {
-            return s_currentApi != nullptr;
+            return _GetCurrentApi() != nullptr;
         }
 
         /**
@@ -69,8 +69,8 @@ namespace KryneEngine
          */
         static GraphicsApiContext& Get()
         {
-            Assert(s_currentApi != nullptr, "No context available. Have you set it up properly?");
-            return *s_currentApi;
+            Assert(_GetCurrentApi() != nullptr, "No context available. Have you set it up properly?");
+            return *_GetCurrentApi();
         }
 
         /**
@@ -127,7 +127,12 @@ namespace KryneEngine
 
     private:
         /// The graphics API used on this thread. Initialized by #ThreadInit()
-        static thread_local eastl::shared_ptr<GraphicsApiContext> s_currentApi;
+        static eastl::shared_ptr<GraphicsApiContext>& _GetCurrentApi()
+        {
+            thread_local eastl::shared_ptr<GraphicsApiContext> currentApi;
+            return currentApi;
+        }
+
     };
 }
 
