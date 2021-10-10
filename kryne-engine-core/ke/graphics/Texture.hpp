@@ -20,6 +20,12 @@ namespace KryneEngine
     {
     public:
         /**
+         * A format for storing raw image data, with the first vector scope for array layer, and the second scope for
+         * individual mip data.
+         */
+        using ImageData = eastl::vector<eastl::vector<void*>>;
+
+        /**
          * @brief The available texture formats
          */
         enum class Formats
@@ -214,8 +220,14 @@ namespace KryneEngine
 
         /**
          * @brief Forces this texture to acquire memory that it will own
+         *
+         * @param _imageData The image data to fill the memory with. Optional, memory can be kept to nullptr.
+         *
+         * @warning
+         * It is expected from the implementations to handle incomplete data, as it is legal for the user not
+         * to fill in all of it.
          */
-         virtual void AcquireMemory() = 0;
+         virtual void AcquireMemory(ImageData* _imageData = nullptr) = 0;
 
         /**
          * @brief Forces this texture to release its memory (thus discarding its memory helper)
