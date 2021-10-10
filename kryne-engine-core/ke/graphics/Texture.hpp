@@ -25,38 +25,53 @@ namespace KryneEngine
         enum class Formats
         {
             None = 0,
-            
-            // Unsigned normalized integer formats
-            R8,
-            RG8,
-            RGB8,
-            RGBA8,
-            R16,
-            RG16,
-            RGB16,
-            RGBA16,
-            R32,
-            RG32,
-            RGB32,
-            RGBA32,
-            
-            // Float formats
-            R16F,
-            RG16F,
-            RGB16F,
-            RGBA16F,
-            R32F,
-            RG32F,
-            RGB32F,
-            RGBA32F,
 
-            // Depth + stencil
-            D16,
-            D24,
-            D32F,
-            S8,
-            D24_S8,
-            D32F_S8,
+            RedFormats = None,
+                R8 = RedFormats,
+                R16,
+                R32,
+                R16F,
+                R32F,
+            RedFormatsEnd = R32F,
+
+            RgFormats = RedFormatsEnd,
+                RG8 = RgFormats,
+                RG16,
+                RG32,
+                RG16F,
+                RG32F,
+            RgFormatsEnd = RG32F,
+
+            RgbFormats = RgFormatsEnd,
+                RGB8 = RgbFormats,
+                RGB16,
+                RGB32,
+                RGB16F,
+                RGB32F,
+            RgbFormatsEnd = RGB32F,
+
+            RgbaFormats = RgbFormatsEnd,
+                RGBA8 = RgbaFormats,
+                RGBA16,
+                RGBA32,
+                RGBA16F,
+                RGBA32F,
+            RgbaFormatsEnd = RGBA32F,
+
+            DepthFormats = RgbaFormatsEnd,
+                D16 = DepthFormats,
+                D24,
+                D32F,
+            DepthFormatsEnd = D32F,
+
+            StencilFormats = DepthFormatsEnd,
+                S8 = StencilFormats,
+            StencilFormatsEnd = S8,
+
+            DepthStencilFormats = StencilFormatsEnd,
+                D24_S8 = DepthStencilFormats,
+                D32F_S8,
+            DepthStencilFormatsEnd = D32F_S8,
 
             COUNT
         };
