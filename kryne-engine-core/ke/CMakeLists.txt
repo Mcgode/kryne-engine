@@ -4,7 +4,7 @@ add_library(kryne-engine-core STATIC
         Application.cpp Application.hpp
         Window.hpp Window.cpp
         Logger.cpp Logger.hpp
-        )
+        additional_impl.cpp)
 
 target_include_directories(kryne-engine-core PUBLIC "${KryneEngineCoreSourceDir}")
 
