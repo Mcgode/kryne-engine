@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(kryne_engine)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
@@ -54,7 +55,7 @@ set(LIBS stb_image glad glfw ${ASSIMP_LIBRARIES} DearIMGUI EASTL ${BoostLibs})
 function(copyAssetDir TARGET ASSET)
 
     if(${UNIX})
-        set(SYMLINK_COMMAND ln -s  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR}/${ASSET})
+        set(SYMLINK_COMMAND ln -sf  ${CMAKE_SOURCE_DIR}/${ASSET}/ ${CMAKE_CURRENT_BINARY_DIR}/${ASSET})
     elseif(${WIN32})
         set(SYMLINK_COMMAND mklink /d ${CMAKE_CURRENT_BINARY_DIR}/${ASSET} ${CMAKE_SOURCE_DIR}/${ASSET}/ & exit 0)
     endif()
@@ -120,3 +121,5 @@ add_subdirectory(Examples/Sphere)
 add_subdirectory(Examples/Basic)
 
 add_subdirectory(Examples/BenchmarkThreading)
+
+add_subdirectory(Examples/HelloWorld)

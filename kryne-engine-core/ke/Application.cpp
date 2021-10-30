@@ -4,9 +4,10 @@
  * @date 10/2/21.
  */
 
-#include "Application.hpp"
-
+#include <ke/Logger.hpp>
 #include <ke/Window.hpp>
+
+#include "Application.hpp"
 
 
 namespace KryneEngine
@@ -21,12 +22,24 @@ namespace KryneEngine
 
     Application::Application()
     {
+        LOG_VERBOSE("Application", " === Initializing application === ");
+
+        LOG_VERBOSE("Application", "Booting GLFW");
         glfwInit();
     }
 
 
     Application::~Application()
     {
+        LOG_VERBOSE("Application", " === Shutting down application === ");
+
+        LOG_VERBOSE("Application", "Closing all windows");
+        for (auto& windowPtr : m_windows)
+        {
+            windowPtr.reset();
+        }
+
+        LOG_VERBOSE("Application", "Shutting down GLFW");
         glfwTerminate();
     }
 }

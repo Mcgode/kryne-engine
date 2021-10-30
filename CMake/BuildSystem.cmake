@@ -53,17 +53,19 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     # using Clang
     message(FATAL_ERROR "Clang flags not set up")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    # using GCC
+    # using GCCs
     set(CommonCompileFlags "")
 
-    set(DebugCompileFlags -Og -D _DEBUG)
+    set(DebugCompileFlags -g -Og -D_DEBUG)
     set(DebugLinkFlags "")
 
-    set(ReleaseCompileFlags -O1 -finline-small-functions -D _DEBUG)
+    set(ReleaseCompileFlags -g -O1 -finline-small-functions -D_DEBUG)
     set(ReleaseLinkFlags "")
 
-    set(FinalCompileFlags -O3 -D NDEBUG)
+    set(FinalCompileFlags -O3 -DNDEBUG)
     set(FinalLinkFlags "")
+
+    set(FinalDefine -DKE_FINAL)
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++
     set(CommonCompileFlags "/EHsc")
@@ -76,6 +78,8 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
     set(FinalCompileFlags /O2 /Ob2 /D NDEBUG /MT ${CommonCompileFlags})
     set(FinalLinkFlags /INCREMENTAL:NO)
+
+    set (FinalDefine /DKE_FINAL)
 else()
     message(ERROR "Unknown compiler ${CMAKE_CXX_COMPILER_ID}")
 endif()
@@ -84,8 +88,13 @@ endif()
 # Set target flags function
 
 function(SetTargetFlags Target)
-    if (BuildLevel GREATER_EQUAL 4) # Benchmark or Final build
+    if (BuildLevel EQUAL 5) # Final build
         message(STATUS "[BuildSystem] '${Target}' will use 'Final' flags")
+        target_compile_options(${Target} PRIVATE ${FinalCompileFlags} ${FinalDefine})
+        target_link_options(${Target} PRIVATE ${FinalLinkFlags})
+
+    elseif (BuildLevel EQUAL 4) # Benchmark build
+        message(STATUS "[BuildSystem] '${Target}' will use 'Benchmark' flags")
         target_compile_options(${Target} PRIVATE ${FinalCompileFlags})
         target_link_options(${Target} PRIVATE ${FinalLinkFlags})
 

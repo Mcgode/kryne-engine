@@ -9,10 +9,13 @@ add_library(kryne-engine-core STATIC
 target_include_directories(kryne-engine-core PUBLIC "${KryneEngineCoreSourceDir}")
 
 if(GraphicsApi STREQUAL "GL")
-    target_link_libraries(kryne-engine-core ke-graphics-gl)
+    set(ApiLib ke-graphics-gl)
 elseif(GraphicsApi STREQUAL "VK")
-    target_link_libraries(kryne-engine-core ke-graphics-vk)
+    set(ApiLib ke-graphics-vk)
 endif()
+target_link_libraries(kryne-engine-core ${ApiLib})
 
 set_property(TARGET kryne-engine-core PROPERTY Type "Core")
 SetTargetFlags(kryne-engine-core)
+
+set(KryneEngineCoreLibs "-Wl,--start-group" kryne-engine-core ${ApiLib} "-Wl,--end-group" CACHE STRING "kryne-engine-core")
