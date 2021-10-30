@@ -4,6 +4,8 @@
  * @date 05/04/2021.
  */
 
+
+#include <kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp>
 #include "kryne-engine/Systems/LightingRegistrySystem.hpp"
 
 

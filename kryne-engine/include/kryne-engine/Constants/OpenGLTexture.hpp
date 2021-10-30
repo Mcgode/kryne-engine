@@ -16,7 +16,7 @@ namespace Constants {
 
     namespace {
 
-        const GLenum formatTable[] = {
+        constexpr GLenum formatTable[] = {
             GL_RED,
             GL_RG,
             GL_RGB,
@@ -25,7 +25,7 @@ namespace Constants {
             GL_DEPTH_STENCIL
         };
 
-        const GLenum typesTables[] = {
+        constexpr GLenum typesTables[] = {
             GL_UNSIGNED_BYTE,
             GL_BYTE,
             GL_HALF_FLOAT,

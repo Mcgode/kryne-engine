@@ -13,8 +13,8 @@
 #include <kryne-engine/Light/HemisphereLight.hpp>
 #include <kryne-engine/Light/DirectionalLight.hpp>
 
-#include <kryne-engine/Rendering/Processes/ShadowMappingProcess.hpp>
 
+class ShadowMappingProcess;
 
 /**
  * @brief A system charged with registering all the lights of the scene, and applying them in forward rendering.
@@ -57,7 +57,7 @@ protected:
     ShadowMappingProcess *shadowProcess;
 
 
-friend ShadowMappingProcess;
+friend class ShadowMappingProcess;
 
 };
 
